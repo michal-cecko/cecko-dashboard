@@ -7,7 +7,7 @@ services:
     environment:
       - APP_ENV=production
       - APP_DEBUG=false
-      - APP_URL=https://dashboard.synapps.sk
+      - APP_URL=https://adminka.synapps.sk
       - DB_CONNECTION=pgsql
       - DB_HOST=synapps-postgres
       - DB_PORT=5432
@@ -17,7 +17,7 @@ services:
       - QUEUE_CONNECTION=database
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.synapps-dashboard.rule=Host(`dashboard.synapps.sk`)"
+      - "traefik.http.routers.synapps-dashboard.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.synapps-dashboard.entrypoints=websecure"
       - "traefik.http.routers.synapps-dashboard.tls.certresolver=myresolver"
       - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=9000"
