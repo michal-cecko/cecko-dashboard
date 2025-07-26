@@ -27,12 +27,16 @@ COPY --chown=www-data:www-data . /var/www
 RUN git config --global --add safe.directory /var/www \
     && composer install --optimize-autoloader --no-dev \
     && npm run build \
-    && php artisan storage:link \
+    && php artisan storage:link || true \
     && chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage /var/www/bootstrap/cache /var/www/public
 
 # Expose port 8000
 EXPOSE 8000
 
-# Clear caches and start server (caching happens AFTER env vars are loaded)
-CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan config:cache && php artisan serve --host=0.0.0.0 --port=8000"]
+# Health check to verify the server is running
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8000/test || exit 1
+
+# Clear caches and start server
+CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan route:clear && php artisan config:cache && php artisan serve --host=0.0.0.0 --port=8000"]
