@@ -3,5 +3,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('filament.songs.home');
+    return redirect(route("filament.songs.home"));
 });
