@@ -1,0 +1,34 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: synapps-dashboard
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=https://admin.synapps.sk
+      - DB_CONNECTION=pgsql
+      - DB_HOST=synapps-postgres
+      - DB_PORT=5432
+      - DB_DATABASE=synapps_dashboard
+      - DB_USERNAME=dashboard_user
+      - DB_PASSWORD="***REMOVED***"
+      - QUEUE_CONNECTION=database
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.synapps-dashboard.rule=Host(`admin.synapps.sk`)"
+      - "traefik.http.routers.synapps-dashboard.entrypoints=websecure"
+      - "traefik.http.routers.synapps-dashboard.tls.certresolver=myresolver"
+      - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=80"
+    networks:
+      - web
+      - database
+    expose:
+      - "80"
+
+networks:
+  web:
+    external: true
+  database:
+    external: true
