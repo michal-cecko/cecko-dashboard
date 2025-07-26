@@ -17,10 +17,18 @@ services:
       - QUEUE_CONNECTION=database
     labels:
       - "traefik.enable=true"
+      # HTTPS router
       - "traefik.http.routers.synapps-dashboard.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.synapps-dashboard.entrypoints=websecure"
       - "traefik.http.routers.synapps-dashboard.tls.certresolver=myresolver"
       - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=9000"
+      # HTTP redirect router (ADD THESE LINES)
+      - "traefik.http.routers.synapps-dashboard-http.rule=Host(`adminka.synapps.sk`)"
+      - "traefik.http.routers.synapps-dashboard-http.entrypoints=web"
+      - "traefik.http.routers.synapps-dashboard-http.middlewares=redirect-to-https"
+      # Define the redirect middleware (ADD THESE LINES)
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
     networks:
       - web
       - database
