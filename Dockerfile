@@ -35,7 +35,7 @@ RUN git config --global --add safe.directory /var/www \
     && npm run build \
     && php artisan storage:link || true \
     && php artisan optimize:clear \
-    && php artisan optimize \
+    #&& php artisan optimize \
     && chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage /var/www/bootstrap/cache /var/www/public
 
