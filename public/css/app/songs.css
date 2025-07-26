@@ -1,0 +1,25 @@
+#songs-lyrics-infolist-section {
+    .fi-section-content {
+        p {
+            font-size: 16px !important;
+        }
+        sup {
+            color: #0369a1;
+            font-weight: bold;
+        }
+    }
+}
+
+.fi-fo-rich-editor-main {
+    p {
+        font-size: 16px !important;
+    }
+    sup {
+        color: #0369a1;
+        font-weight: bold;
+    }
+}
+
+.fi-logo {
+    height: 2rem !important;
+}
