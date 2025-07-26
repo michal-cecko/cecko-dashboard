@@ -17,7 +17,7 @@ RUN apk add --no-cache \
 # Copy application files and set permissions
 COPY --chown=www-data:www-data . /var/www
 
-# Install dependencies and cache Laravel/Filament
+# Install dependencies and setup Laravel/Filament
 RUN git config --global --add safe.directory /var/www \
     && composer install --optimize-autoloader \
     && php artisan storage:link \
@@ -27,5 +27,5 @@ RUN git config --global --add safe.directory /var/www \
 # Expose port 8000
 EXPOSE 8000
 
-# Start PHP built-in server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# Clear caches and start server (caching happens AFTER env vars are loaded)
+CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan config:cache && php artisan serve --host=0.0.0.0 --port=8000"]
