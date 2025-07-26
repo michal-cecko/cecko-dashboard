@@ -1,24 +1,23 @@
-
-# Use PHP 8.4 with FPM
-FROM php:8.4-fpm
+# Use PHP 8.4 CLI with Alpine
+FROM php:8.4-cli-alpine
 
 # Set working directory
 WORKDIR /var/www
 
-# Install system dependencies, PHP extensions, and Composer in one layer
-RUN apt-get update && apt-get install -y \
-    git curl libpng-dev libonig-dev libxml2-dev libpq-dev zip unzip nodejs npm \
-    libicu-dev libzip-dev \
+# Install system dependencies and PHP extensions
+RUN apk add --no-cache \
+    git curl nodejs npm \
+    libpng-dev oniguruma-dev libxml2-dev postgresql-dev \
+    icu-dev libzip-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy application files and set permissions
 COPY --chown=www-data:www-data . /var/www
 
-# Fix git ownership issue and install dependencies
+# Install dependencies and cache Laravel/Filament
 RUN git config --global --add safe.directory /var/www \
     && composer install --no-dev --optimize-autoloader \
     && npm install && npm run build && rm -rf node_modules \
@@ -31,8 +30,8 @@ RUN git config --global --add safe.directory /var/www \
     && chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage /var/www/bootstrap/cache
 
-# Expose port 9000 (PHP-FPM default port)
-EXPOSE 9000
+# Expose port 8000
+EXPOSE 8000
 
-# Start PHP-FPM
-CMD ["php-fpm"]
+# Start PHP built-in server
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
