@@ -21,11 +21,6 @@ COPY --chown=www-data:www-data . /var/www
 RUN git config --global --add safe.directory /var/www \
     && composer install --optimize-autoloader \
     && php artisan storage:link \
-    && php artisan filament:cache-components \
-    && php artisan icons:cache \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache \
     && chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage /var/www/bootstrap/cache
 
