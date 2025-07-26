@@ -17,20 +17,15 @@ services:
       - DB_PASSWORD=***REMOVED***
       - QUEUE_CONNECTION=database
     labels:
-      - "traefik.enable=true"
-      # HTTP router (for ACME challenges and redirect)
-      - "traefik.http.routers.dashboard-http.rule=Host(`adminka.synapps.sk`)"
-      - "traefik.http.routers.dashboard-http.entrypoints=web"
-      - "traefik.http.routers.dashboard-http.middlewares=https-redirect"
-      # HTTPS router
-      - "traefik.http.routers.dashboard.rule=Host(`adminka.synapps.sk`)"
-      - "traefik.http.routers.dashboard.entrypoints=websecure"
-      - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
-      # Service
-      - "traefik.http.services.dashboard.loadbalancer.server.port=8000"
-      # Middleware for redirect
-      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
+      - traefik.enable=true
+      - traefik.http.routers.adminka.rule=Host(`adminka.synapps.sk`)
+      - traefik.http.routers.adminka.entrypoints=websecure
+      - traefik.http.routers.adminka.tls.certresolver=myresolver
+      - traefik.http.services.adminka.loadbalancer.server.port=8000
+      - traefik.http.routers.adminka-http.rule=Host(`adminka.synapps.sk`)
+      - traefik.http.routers.adminka-http.entrypoints=web
+      - traefik.http.routers.adminka-http.middlewares=https-redirect
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
     networks:
       - web
       - database
