@@ -35,8 +35,8 @@ RUN git config --global --add safe.directory /var/www \
 EXPOSE 8000
 
 # Health check to verify the server is running
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:8000/test || exit 1
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost:8000/test || exit 1
 
 # Clear caches and start server
 CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && php artisan route:clear && php artisan config:cache && php artisan serve --host=0.0.0.0 --port=8000"]
