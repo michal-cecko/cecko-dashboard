@@ -21,19 +21,19 @@ services:
       - "traefik.http.routers.synapps-dashboard.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.synapps-dashboard.entrypoints=websecure"
       - "traefik.http.routers.synapps-dashboard.tls.certresolver=myresolver"
-      - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=9000"
-      # HTTP redirect router (ADD THESE LINES)
+      - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=8000"
+      # HTTP redirect router
       - "traefik.http.routers.synapps-dashboard-http.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.synapps-dashboard-http.entrypoints=web"
       - "traefik.http.routers.synapps-dashboard-http.middlewares=redirect-to-https"
-      # Define the redirect middleware (ADD THESE LINES)
+      # Define the redirect middleware
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
     networks:
       - web
       - database
     expose:
-      - "9000"
+      - "8000"
 
 networks:
   web:
