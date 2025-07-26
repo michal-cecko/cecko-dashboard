@@ -14,15 +14,22 @@ RUN apk add --no-cache \
     && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install npm dependencies
+RUN npm install
+
 # Copy application files and set permissions
 COPY --chown=www-data:www-data . /var/www
 
-# Install dependencies and setup Laravel/Filament
+# Install dependencies and build assets
 RUN git config --global --add safe.directory /var/www \
-    && composer install --optimize-autoloader \
+    && composer install --optimize-autoloader --no-dev \
+    && npm run build \
     && php artisan storage:link \
     && chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage /var/www/bootstrap/cache
+    && chmod -R 755 /var/www/storage /var/www/bootstrap/cache /var/www/public
 
 # Expose port 8000
 EXPOSE 8000
