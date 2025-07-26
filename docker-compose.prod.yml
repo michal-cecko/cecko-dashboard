@@ -8,8 +8,8 @@ services:
     environment:
       - APP_KEY=base64:***REMOVED***=
       - APP_LOCALE=sk
-      - APP_ENV=local
-      - APP_DEBUG=true
+      - APP_ENV=production
+      - APP_DEBUG=false
       - APP_URL=https://adminka.synapps.sk
       - DB_CONNECTION=pgsql
       - DB_HOST=synapps-pgsql
