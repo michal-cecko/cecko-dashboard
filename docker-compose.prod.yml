@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.adminka.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.adminka.entrypoints=web"
       - "traefik.http.services.adminka.loadbalancer.server.port=8000"
-      - "traefik.docker.network=web"  # This tells Traefik to use the web network!
+      - "traefik.docker.network=web"
     networks:
       - web
       - database
