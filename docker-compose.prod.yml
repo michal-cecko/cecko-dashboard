@@ -8,7 +8,7 @@ services:
       - APP_KEY=base64:***REMOVED***=
       - APP_ENV=local
       - APP_DEBUG=true
-      - APP_URL=https://adminka.synapps.sk
+      - APP_URL=http://adminka.synapps.sk  # Changed to HTTP
       - DB_CONNECTION=pgsql
       - DB_HOST=synapps-pgsql
       - DB_PORT=5432
@@ -19,14 +19,15 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.adminka.rule=Host(`adminka.synapps.sk`)"
-      - "traefik.http.routers.adminka.entrypoints=websecure"
-      - "traefik.http.routers.adminka.tls.certresolver=myresolver"
+      - "traefik.http.routers.adminka.entrypoints=web"  # Use HTTP only
       - "traefik.http.services.adminka.loadbalancer.server.port=8000"
-      - "traefik.http.routers.adminka-http.rule=Host(`adminka.synapps.sk`)"
-      - "traefik.http.routers.adminka-http.entrypoints=web"
-      - "traefik.http.routers.adminka-http.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+      # Commented out HTTPS and redirect temporarily
+      # - "traefik.http.routers.adminka.tls.certresolver=myresolver"
+      # - "traefik.http.routers.adminka-http.rule=Host(`adminka.synapps.sk`)"
+      # - "traefik.http.routers.adminka-http.entrypoints=web"
+      # - "traefik.http.routers.adminka-http.middlewares=redirect-to-https"
+      # - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      # - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
     networks:
       - web
       - database
