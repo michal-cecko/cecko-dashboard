@@ -28,9 +28,6 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        ini_set('upload_max_filesize', '128M');
-        ini_set('post_max_size', '128M');
-
         Model::automaticallyEagerLoadRelationships();
         JsonResource::withoutWrapping();
     }
