@@ -22,7 +22,15 @@ services:
       - "traefik.http.routers.synapps-dashboard.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.synapps-dashboard.entrypoints=websecure"
       - "traefik.http.routers.synapps-dashboard.tls.certresolver=myresolver"
+      # Service configuration with timeouts
       - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=8000"
+      - "traefik.http.services.synapps-dashboard.loadbalancer.server.scheme=http"
+      - "traefik.http.services.synapps-dashboard.loadbalancer.responseforwarding.flushinterval=1s"
+      - "traefik.http.services.synapps-dashboard.loadbalancer.passhostheader=true"
+      # Add middleware for timeouts
+      - "traefik.http.routers.synapps-dashboard.middlewares=timeout-middleware"
+      - "traefik.http.middlewares.timeout-middleware.timeout.responseheadertimeout=30s"
+      - "traefik.http.middlewares.timeout-middleware.timeout.idletimeout=60s"
       # HTTP redirect router
       - "traefik.http.routers.synapps-dashboard-http.rule=Host(`adminka.synapps.sk`)"
       - "traefik.http.routers.synapps-dashboard-http.entrypoints=web"
