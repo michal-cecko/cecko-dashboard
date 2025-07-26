@@ -19,8 +19,7 @@ COPY --chown=www-data:www-data . /var/www
 
 # Install dependencies and cache Laravel/Filament
 RUN git config --global --add safe.directory /var/www \
-    && composer install --no-dev --optimize-autoloader \
-    && npm install && npm run build && rm -rf node_modules \
+    && composer install --optimize-autoloader \
     && php artisan storage:link \
     && php artisan filament:cache-components \
     && php artisan icons:cache \
