@@ -34,9 +34,6 @@ RUN git config --global --add safe.directory /var/www \
     && composer install --optimize-autoloader --no-dev \
     && npm run build \
     && php artisan storage:link || true \
-    && php artisan config:clear \
-    && php artisan optimize:clear \
-    #&& php artisan optimize \
     && chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage /var/www/bootstrap/cache /var/www/public
 
@@ -48,4 +45,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
     CMD curl -f http://localhost:8000/test || exit 1
 
 # Clear caches and start server
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=8000"]
+CMD ["sh", "-c", "php artisan optimize && php artisan serve --host=0.0.0.0 --port=8000"]
