@@ -18,22 +18,19 @@ services:
       - QUEUE_CONNECTION=database
     labels:
       - "traefik.enable=true"
+      # HTTP router (for ACME challenges and redirect)
+      - "traefik.http.routers.dashboard-http.rule=Host(`adminka.synapps.sk`)"
+      - "traefik.http.routers.dashboard-http.entrypoints=web"
+      - "traefik.http.routers.dashboard-http.middlewares=https-redirect"
       # HTTPS router
-      - "traefik.http.routers.synapps-dashboard.rule=Host(`adminka.synapps.sk`)"
-      - "traefik.http.routers.synapps-dashboard.entrypoints=websecure"
-      - "traefik.http.routers.synapps-dashboard.tls.certresolver=myresolver"
-      # Service configuration
-      - "traefik.http.services.synapps-dashboard.loadbalancer.server.port=8000"
-      - "traefik.http.services.synapps-dashboard.loadbalancer.server.scheme=http"
-      - "traefik.http.services.synapps-dashboard.loadbalancer.responseforwarding.flushinterval=1s"
-      - "traefik.http.services.synapps-dashboard.loadbalancer.passhostheader=true"
-      # HTTP redirect router
-      - "traefik.http.routers.synapps-dashboard-http.rule=Host(`adminka.synapps.sk`)"
-      - "traefik.http.routers.synapps-dashboard-http.entrypoints=web"
-      - "traefik.http.routers.synapps-dashboard-http.middlewares=redirect-to-https"
-      # Define the redirect middleware
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+      - "traefik.http.routers.dashboard.rule=Host(`adminka.synapps.sk`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
+      # Service
+      - "traefik.http.services.dashboard.loadbalancer.server.port=8000"
+      # Middleware for redirect
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
     networks:
       - web
       - database
