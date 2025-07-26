@@ -7,6 +7,7 @@ services:
     container_name: synapps-dashboard
     environment:
       - APP_KEY=base64:***REMOVED***=
+      - APP_LOCALE=sk
       - APP_ENV=local
       - APP_DEBUG=true
       - APP_URL=https://adminka.synapps.sk
