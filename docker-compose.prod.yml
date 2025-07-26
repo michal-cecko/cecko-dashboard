@@ -19,6 +19,8 @@ services:
       - DB_USERNAME=dashboard_user
       - DB_PASSWORD=***REMOVED***
       - QUEUE_CONNECTION=database
+      - API_BASIC_AUTH_LOGIN=api_user
+      - API_BASIC_AUTH_PASSWORD="***REMOVED***"
     labels:
       - "traefik.enable=true"
       # HTTP router - redirects to HTTPS
