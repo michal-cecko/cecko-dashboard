@@ -9,11 +9,11 @@ services:
       - APP_DEBUG=false
       - APP_URL=https://adminka.synapps.sk
       - DB_CONNECTION=pgsql
-      - DB_HOST=synapps-postgres
+      - DB_HOST=synapps-pgsql
       - DB_PORT=5432
       - DB_DATABASE=synapps_dashboard
       - DB_USERNAME=dashboard_user
-      - DB_PASSWORD="v9qcX5vp&r"
+      - DB_PASSWORD=v9qcX5vp&r
       - QUEUE_CONNECTION=database
     labels:
       - "traefik.enable=true"
