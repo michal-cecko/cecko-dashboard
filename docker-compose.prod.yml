@@ -17,15 +17,15 @@ services:
       - DB_PASSWORD=v9qcX5vp&r
       - QUEUE_CONNECTION=database
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.adminka.rule=Host(`adminka.synapps.sk`)
-      - traefik.http.routers.adminka.entrypoints=websecure
-      - traefik.http.routers.adminka.tls.certresolver=myresolver
-      - traefik.http.services.adminka.loadbalancer.server.port=8000
-      - traefik.http.routers.adminka-http.rule=Host(`adminka.synapps.sk`)
-      - traefik.http.routers.adminka-http.entrypoints=web
-      - traefik.http.routers.adminka-http.middlewares=https-redirect
-      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      traefik.enable: "true"
+      traefik.http.routers.adminka.rule: "Host(`adminka.synapps.sk`)"
+      traefik.http.routers.adminka.entrypoints: "websecure"
+      traefik.http.routers.adminka.tls.certresolver: "myresolver"
+      traefik.http.services.adminka.loadbalancer.server.port: "8000"
+      traefik.http.routers.adminka-http.rule: "Host(`adminka.synapps.sk`)"
+      traefik.http.routers.adminka-http.entrypoints: "web"
+      traefik.http.routers.adminka-http.middlewares: "redirect-to-https"
+      traefik.http.middlewares.redirect-to-https.redirectscheme.scheme: "https"
     networks:
       - web
       - database
