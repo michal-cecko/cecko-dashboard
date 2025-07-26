@@ -9,7 +9,7 @@ services:
       - APP_KEY=base64:***REMOVED***=
       - APP_ENV=local
       - APP_DEBUG=true
-      - APP_URL=https://adminka.synapps.sk  # Changed to HTTPS
+      - APP_URL=https://adminka.synapps.sk
       - DB_CONNECTION=pgsql
       - DB_HOST=synapps-pgsql
       - DB_PORT=5432
