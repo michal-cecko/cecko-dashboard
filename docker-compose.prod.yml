@@ -6,8 +6,8 @@ services:
     container_name: synapps-dashboard
     environment:
       - APP_KEY=base64:***REMOVED***=
-      - APP_ENV=production
-      - APP_DEBUG=false
+      - APP_ENV=local
+      - APP_DEBUG=true
       - APP_URL=https://adminka.synapps.sk
       - DB_CONNECTION=pgsql
       - DB_HOST=synapps-pgsql
