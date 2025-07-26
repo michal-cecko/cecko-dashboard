@@ -11,6 +11,7 @@ services:
       - APP_ENV=production
       - APP_DEBUG=false
       - APP_URL=https://adminka.synapps.sk
+      - ASSET_URL=https://adminka.synapps.sk
       - DB_CONNECTION=pgsql
       - DB_HOST=synapps-pgsql
       - DB_PORT=5432
