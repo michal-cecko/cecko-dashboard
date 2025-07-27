@@ -10,9 +10,17 @@ class EditSongTag extends EditRecord
 {
     protected static string $resource = SongTagResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Úprava značky - ' . $this->getRecord()->name;
+    }
     protected function getHeaderActions(): array
     {
         return [
+            $this->getCancelFormAction(),
+            $this->getSaveFormAction()
+                ->submit(null)
+                ->action('save'),
             DeleteAction::make(),
         ];
     }

@@ -9,6 +9,7 @@ class SongGenre extends Model
 {
     protected $fillable = [
         'name',
+        'color',
     ];
 
     public function songs(): HasMany

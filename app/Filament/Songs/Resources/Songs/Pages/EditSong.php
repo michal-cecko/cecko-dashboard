@@ -19,7 +19,10 @@ class EditSong extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            ViewAction::make(),
+            $this->getCancelFormAction(),
+            $this->getSaveFormAction()
+                ->submit(null)
+                ->action('save')
         ];
     }
 }
