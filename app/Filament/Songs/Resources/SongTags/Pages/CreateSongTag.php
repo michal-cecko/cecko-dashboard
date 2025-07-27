@@ -8,4 +8,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSongTag extends CreateRecord
 {
     protected static string $resource = SongTagResource::class;
+    protected static ?string $title = 'Nová značka';
 }

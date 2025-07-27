@@ -8,4 +8,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSongArtist extends CreateRecord
 {
     protected static string $resource = SongArtistResource::class;
+    protected static ?string $title = 'Nový autor';
 }

@@ -28,8 +28,7 @@ class SongTagForm
                         'success' => "Zelená",
                         'warning' => "Oranžová",
                     ])
-                    ->nullable()
-                    ->helperText('Vyberte farbu pre túto značku'),
+                    ->nullable(),
             ]);
     }
 }

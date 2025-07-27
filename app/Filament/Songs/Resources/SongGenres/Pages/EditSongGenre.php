@@ -10,9 +10,18 @@ class EditSongGenre extends EditRecord
 {
     protected static string $resource = SongGenreResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Úprava žánru - ' . $this->getRecord()->name;
+    }
+
     protected function getHeaderActions(): array
     {
         return [
+            $this->getCancelFormAction(),
+            $this->getSaveFormAction()
+                ->submit(null)
+                ->action('save'),
             DeleteAction::make(),
         ];
     }

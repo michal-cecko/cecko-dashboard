@@ -11,10 +11,18 @@ class EditSongArtist extends EditRecord
 {
     protected static string $resource = SongArtistResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Úprava autora - ' . $this->getRecord()->name;
+    }
+
     protected function getHeaderActions(): array
     {
         return [
-            ViewAction::make(),
+            $this->getCancelFormAction(),
+            $this->getSaveFormAction()
+                ->submit(null)
+                ->action('save'),
             DeleteAction::make(),
         ];
     }
