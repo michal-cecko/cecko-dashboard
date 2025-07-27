@@ -5,6 +5,23 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: synapps-dashboard
+    volumes:
+      - type: bind
+        source: /volumes/synapps-dashboard/storage/app
+        target: /var/www/storage/app
+      - type: bind
+        source: /volumes/synapps-dashboard/storage/logs
+        target: /var/www/storage/logs
+      - type: tmpfs
+        target: /var/www/bootstrap/cache
+      - type: tmpfs
+        target: /var/www/storage/debugbar/
+      - type: tmpfs
+        target: /var/www/storage/framework/cache
+      - type: tmpfs
+        target: /var/www/storage/framework/sessions
+      - type: tmpfs
+        target: /var/www/storage/framework/views
     environment:
       - APP_KEY=base64:***REMOVED***=
       - APP_LOCALE=sk
