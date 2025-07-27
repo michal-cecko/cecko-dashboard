@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("lyrics");
+            $table->text("lyrics");
             $table->foreignId("genre_id")->nullable();
             $table->foreign("genre_id")->references("id")->on("song_genres")->nullOnDelete();
             $table->timestamps();
