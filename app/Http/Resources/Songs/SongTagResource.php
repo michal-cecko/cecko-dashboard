@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Songs;
 
+use App\Services\ColorService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -12,7 +13,7 @@ class SongTagResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'color' => $this->color,
+            'color' => ColorService::translateStringColorToHex($this->color),
         ];
     }
 }
