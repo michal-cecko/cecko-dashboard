@@ -4,7 +4,7 @@ namespace App\Services;
 
 class ColorService
 {
-    public static function translateStringColorToHex(string $color): string
+    public static function translateStringColorToHex(?string $color): string
     {
         return match ($color) {
             'danger' => '#ef4444', // red-500
