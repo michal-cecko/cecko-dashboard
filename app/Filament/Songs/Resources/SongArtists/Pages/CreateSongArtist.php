@@ -9,4 +9,12 @@ class CreateSongArtist extends CreateRecord
 {
     protected static string $resource = SongArtistResource::class;
     protected static ?string $title = 'Nový autor';
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            $this->getCancelFormAction(),
+            $this->getSubmitFormAction()
+        ];
+    }
 }

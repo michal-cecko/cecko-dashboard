@@ -9,4 +9,12 @@ class CreateMobileApp extends CreateRecord
 {
     protected static string $resource = MobileAppResource::class;
     protected static ?string $title = 'Nová aplikácia';
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            $this->getCancelFormAction(),
+            $this->getSubmitFormAction()
+        ];
+    }
 }
