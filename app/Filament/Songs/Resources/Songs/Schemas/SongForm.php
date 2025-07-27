@@ -73,7 +73,7 @@ class SongForm
                 RichEditor::make('lyrics')
                     ->label("Text")
                     ->toolbarButtons([
-                        ['superscript'],
+                        ['superscript', 'bold', 'italic', 'underline'],
                         ['undo', 'redo'],
                     ])
                     ->columnSpanFull()
