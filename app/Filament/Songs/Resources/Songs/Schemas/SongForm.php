@@ -5,6 +5,7 @@ namespace App\Filament\Songs\Resources\Songs\Schemas;
 use App\Filament\Songs\Resources\SongArtists\Schemas\SongArtistForm;
 use App\Filament\Songs\Resources\SongGenres\Schemas\SongGenreForm;
 use App\Filament\Songs\Resources\SongTags\Schemas\SongTagForm;
+use App\Models\Song;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -18,10 +19,16 @@ class SongForm
             ->columns([
                 'sm' => 1,
                 'md' => 2,
-                'lg' => 5,
+                'lg' => 4,
             ])
             ->components([
                 TextInput::make('title')
+                    ->label("Názov")
+                    ->required()
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+
+                TextInput::make('number')
                     ->label("Číslo")
                     ->numeric()
                     ->minValue(1)
@@ -29,17 +36,8 @@ class SongForm
                         'sm' => 1,
                         'md' => 1,
                         'lg' => 1,
-                    ]),
-
-                TextInput::make('title')
-                    ->label("Názov")
-                    ->required()
-                    ->maxLength(255)
-                    ->columnSpan([
-                        'sm' => 1,
-                        'md' => 1,
-                        'lg' => 1,
-                    ]),
+                    ])
+                ->default(fn() => (Song::orderBy("number", "DESC")->first()?->number ?? 0) + 1),
 
                 Select::make('artists')
                     ->label("Autori")
