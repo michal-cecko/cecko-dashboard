@@ -18,9 +18,19 @@ class SongForm
             ->columns([
                 'sm' => 1,
                 'md' => 2,
-                'lg' => 4,
+                'lg' => 5,
             ])
             ->components([
+                TextInput::make('title')
+                    ->label("Číslo")
+                    ->numeric()
+                    ->minValue(1)
+                    ->columnSpan([
+                        'sm' => 1,
+                        'md' => 1,
+                        'lg' => 1,
+                    ]),
+
                 TextInput::make('title')
                     ->label("Názov")
                     ->required()

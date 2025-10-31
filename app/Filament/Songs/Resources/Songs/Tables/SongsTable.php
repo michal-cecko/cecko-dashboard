@@ -16,6 +16,12 @@ class SongsTable
     {
         return $table
             ->columns([
+                TextColumn::make('number')
+                    ->label("#")
+                    ->numeric()
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('title')
                     ->label("Názov")
                     ->searchable()
