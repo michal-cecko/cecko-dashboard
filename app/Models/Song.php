@@ -10,6 +10,7 @@ class Song extends Model
 {
     protected $fillable = [
         'title',
+        'number',
         'lyrics',
         'genre_id',
     ];
