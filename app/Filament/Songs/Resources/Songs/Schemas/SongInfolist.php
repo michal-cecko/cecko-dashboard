@@ -14,6 +14,9 @@ class SongInfolist
             ->components([
                 Section::make('Základné informácie')
                     ->schema([
+                        TextEntry::make('number')
+                            ->label('Číslo'),
+
                         TextEntry::make('title')
                             ->label('Názov'),
 
