@@ -41,12 +41,6 @@ class SongsTable
                     ->expandableLimitedList()
                     ->color(fn ($record, $state) => $record->tags->firstWhere('name', $state)?->color),
 
-                TextColumn::make('genre.name')
-                    ->label('Žáner')
-                    ->badge()
-                    ->sortable()
-                    ->searchable(),
-
                 TextColumn::make('created_at')
                     ->label("Vytvorené")
                     ->dateTime()
@@ -60,13 +54,6 @@ class SongsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('genre')
-                    ->label("Žánre")
-                    ->relationship('genre', 'name')
-                    ->searchable()
-                    ->multiple()
-                    ->preload(),
-
                 SelectFilter::make('artists')
                     ->label("Autori")
                     ->relationship('artists', 'name')
