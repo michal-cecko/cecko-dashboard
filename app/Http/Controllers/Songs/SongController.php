@@ -11,7 +11,7 @@ class SongController extends Controller
 {
     public function index()
     {
-        $songs = Song::with(['genre', 'artists', 'tags'])->get();
+        $songs = Song::with(['artists', 'tags'])->get();
 
         return SongResource::collection($songs);
     }

@@ -3,7 +3,6 @@
 namespace App\Filament\Songs\Resources\Songs\Schemas;
 
 use App\Filament\Songs\Resources\SongArtists\Schemas\SongArtistForm;
-use App\Filament\Songs\Resources\SongGenres\Schemas\SongGenreForm;
 use App\Filament\Songs\Resources\SongTags\Schemas\SongTagForm;
 use App\Models\Song;
 use Filament\Forms\Components\RichEditor;
@@ -26,7 +25,11 @@ class SongForm
                     ->label("Názov")
                     ->required()
                     ->maxLength(255)
-                    ->columnSpanFull(),
+                    ->columnSpan([
+                        'sm' => 1,
+                        'md' => 1,
+                        'lg' => 1,
+                    ]),
 
                 TextInput::make('number')
                     ->label("Číslo")
@@ -59,19 +62,6 @@ class SongForm
                     ->searchable()
                     ->preload()
                     ->createOptionForm(fn(Schema $schema) => SongTagForm::configure($schema)->getComponents())
-                    ->columnSpan([
-                        'sm' => 1,
-                        'md' => 1,
-                        'lg' => 1,
-                    ]),
-
-                Select::make('genre_id')
-                    ->label('Žáner')
-                    ->relationship('genre', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->createOptionForm(fn(Schema $schema) => SongGenreForm::configure($schema)->getComponents())
-                    ->nullable()
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,

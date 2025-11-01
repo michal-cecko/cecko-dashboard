@@ -49,17 +49,6 @@ class SongInfolist
                                 return null;
                             })
                             ->openUrlInNewTab(false),
-
-                        TextEntry::make('genre.name')
-                            ->label('Žáner')
-                            ->badge()
-                            ->url(function ($record, $state) {
-                                if ($record->genre) {
-                                    return route('filament.songs.resources.song-genres.edit', ['record' => $record->genre->id]);
-                                }
-                                return null;
-                            })
-                            ->openUrlInNewTab(false),
                     ])
                     ->columns([
                         'xs' => 1,
