@@ -77,6 +77,6 @@ class SongsTable
                     DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort('created_at', 'desc');
+            ->defaultSort('number', 'desc');
     }
 }
