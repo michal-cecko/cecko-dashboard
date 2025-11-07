@@ -45,8 +45,9 @@ class UserForm
 
                 FileUpload::make('avatar_path')
                     ->label('Profilová fotka')
-                    ->image()
+                    ->acceptedFileTypes(['image/*'])
                     ->directory('avatars')
+                    ->preserveFilenames()
                     ->disk('public')
                     ->visibility('public')
                     ->columnSpanFull()

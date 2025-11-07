@@ -23,6 +23,7 @@ class MobileAppForm
                 FileUpload::make('apk_path')
                     ->label('APK súbor')
                     ->directory('mobile-apps')
+                    ->preserveFilenames()
                     ->disk('local')
                     ->visibility('private')
                     ->columnSpanFull(),
