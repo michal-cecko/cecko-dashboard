@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        \Illuminate\Support\Facades\Schema::table('users', fn (\Illuminate\Database\Schema\Blueprint $table) => $table->renameColumn('avatar_url', 'avatar_path'));
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
