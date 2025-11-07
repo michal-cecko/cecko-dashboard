@@ -40,7 +40,14 @@ class SongForm
                         'md' => 1,
                         'lg' => 1,
                     ])
-                ->default(fn() => (Song::orderBy("number", "DESC")->first()?->number ?? 0) + 1),
+                    ->default(function ($operation, $record) {
+                        // If editing, return the existing value
+                        if ($record) {
+                            return $record->number;
+                        }
+                        // If creating, calculate the next number
+                        return (Song::orderBy("number", "DESC")->first()?->number ?? 0) + 1;
+                    }),
 
                 Select::make('artists')
                     ->label("Autori")
