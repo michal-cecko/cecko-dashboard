@@ -17,10 +17,6 @@ class EditSongTag extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            $this->getCancelFormAction(),
-            $this->getSaveFormAction()
-                ->submit(null)
-                ->action('save'),
             DeleteAction::make(),
         ];
     }

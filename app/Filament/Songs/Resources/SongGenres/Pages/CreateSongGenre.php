@@ -9,12 +9,4 @@ class CreateSongGenre extends CreateRecord
 {
     protected static string $resource = SongGenreResource::class;
     protected static ?string $title = 'Nový žáner';
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            $this->getCancelFormAction(),
-            $this->getSubmitFormAction()
-        ];
-    }
 }

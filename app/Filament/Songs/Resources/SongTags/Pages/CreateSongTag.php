@@ -9,12 +9,4 @@ class CreateSongTag extends CreateRecord
 {
     protected static string $resource = SongTagResource::class;
     protected static ?string $title = 'Nová značka';
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            $this->getCancelFormAction(),
-            $this->getSubmitFormAction()
-        ];
-    }
 }
