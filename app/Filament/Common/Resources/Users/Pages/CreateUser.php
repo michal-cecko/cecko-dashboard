@@ -9,12 +9,4 @@ class CreateUser extends CreateRecord
 {
     protected static string $resource = UserResource::class;
     protected static ?string $title = 'Nový používateľ';
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            $this->getCancelFormAction(),
-            $this->getSubmitFormAction()
-        ];
-    }
 }
