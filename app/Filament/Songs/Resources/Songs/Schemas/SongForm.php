@@ -42,7 +42,7 @@ class SongForm
                     ])
                     ->default(function ($operation, $record) {
                         // If editing, return the existing value
-                        if ($record) {
+                        if ($record && !empty($record->number)) {
                             return $record->number;
                         }
                         // If creating, calculate the next number
