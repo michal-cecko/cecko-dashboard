@@ -16,7 +16,7 @@ class UsersTable
                 ImageColumn::make('avatar_path')
                     ->label('Fotka')
                     ->circular()
-                    ->defaultImageUrl(fn ($record) => 'https://ui-avatars.com/api/?name=' . urlencode($record->name) . '&color=7c3aed&background=f3f4f6'),
+                    ->getStateUsing(fn ($record) => $record->getFilamentAvatarUrl()),
 
                 TextColumn::make('name')
                     ->label('Meno')
