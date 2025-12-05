@@ -13,6 +13,7 @@ class Song extends Model
         'number',
         'lyrics',
         'genre_id',
+        'bpm',
     ];
 
     public function genre(): BelongsTo

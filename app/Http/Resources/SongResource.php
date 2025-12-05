@@ -17,6 +17,7 @@ class SongResource extends JsonResource
             'title' => $this->title,
             'number' => $this->number,
             'lyrics' => $this->lyrics,
+            'bpm' => $this->bpm,
             'genre' => SongGenreResource::make($this->genre),
             'artists' => SongArtistResource::collection($this->artists),
             'tags' => SongTagResource::collection($this->tags)

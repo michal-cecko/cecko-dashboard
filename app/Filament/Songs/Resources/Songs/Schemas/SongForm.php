@@ -12,13 +12,14 @@ use Filament\Schemas\Schema;
 
 class SongForm
 {
+
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->columns([
                 'sm' => 1,
                 'md' => 2,
-                'lg' => 4,
+                'lg' => 12,
             ])
             ->components([
                 TextInput::make('title')
@@ -27,14 +28,31 @@ class SongForm
                     ->maxLength(255)
                     ->columnSpan([
                         'sm' => 1,
-                        'md' => 1,
-                        'lg' => 1,
+                        'md' => 2,
+                        'lg' => 4,
                     ]),
 
                 TextInput::make('number')
                     ->label("Číslo")
                     ->numeric()
                     ->minValue(1)
+                    ->columnSpan([
+                        'sm' => 1,
+                        'md' => 1,
+                        'lg' => 1,
+                    ])
+                    ->default(function ($operation, $record) {
+                        // If editing, return the existing value
+                        if ($record && !empty($record->number)) {
+                            return $record->number;
+                        }
+                        // If creating, calculate the next number
+                        return (Song::orderBy("number", "DESC")->first()?->number ?? 0) + 1;
+                    }),
+
+                TextInput::make('bpm')
+                    ->label("Údery")
+                    ->numeric()
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,
@@ -59,7 +77,7 @@ class SongForm
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,
-                        'lg' => 1,
+                        'lg' => 3,
                     ]),
 
                 Select::make('tags')
@@ -72,7 +90,7 @@ class SongForm
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,
-                        'lg' => 1,
+                        'lg' => 3,
                     ]),
 
                 RichEditor::make('lyrics')
