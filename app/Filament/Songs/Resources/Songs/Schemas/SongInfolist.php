@@ -20,6 +20,9 @@ class SongInfolist
                         TextEntry::make('title')
                             ->label('Názov'),
 
+                        TextEntry::make('bpm')
+                            ->label('Údery'),
+
                         TextEntry::make('artists.name')
                             ->label('Autori')
                             ->badge()
