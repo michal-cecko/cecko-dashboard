@@ -38,6 +38,7 @@ services:
       - QUEUE_CONNECTION=database
       - API_BASIC_AUTH_LOGIN=api_user
       - API_BASIC_AUTH_PASSWORD="***REMOVED***"
+      - QUEUE_CONNECTION=sync
       - MAIL_MAILER=smtp
       - MAIL_HOST=smtp.m1.websupport.sk
       - MAIL_PORT=465
