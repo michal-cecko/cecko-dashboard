@@ -41,7 +41,7 @@ services:
       - QUEUE_CONNECTION=sync
       - MAIL_MAILER=smtp
       - MAIL_HOST=smtp.m1.websupport.sk
-      - MAIL_PORT=465
+      - MAIL_PORT=587
       - MAIL_USERNAME=app@synapps.sk
       - MAIL_PASSWORD="***REMOVED***"
       - MAIL_ENCRYPTION=ssl
