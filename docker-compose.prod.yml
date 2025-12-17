@@ -42,7 +42,7 @@ services:
       - MAIL_HOST=smtp.m1.websupport.sk
       - MAIL_PORT=465
       - MAIL_USERNAME=app@synapps.sk
-      - MAIL_PASSWORD="VuQWj2:P*M(ru);X=.r:"
+      - MAIL_PASSWORD="r8UW13n|vd`7PA(d%DyW"
       - MAIL_ENCRYPTION=ssl
       - MAIL_FROM_ADDRESS=app@synapps.sk
       - MAIL_FROM_NAME="Synapps App"
