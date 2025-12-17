@@ -38,6 +38,14 @@ services:
       - QUEUE_CONNECTION=database
       - API_BASIC_AUTH_LOGIN=api_user
       - API_BASIC_AUTH_PASSWORD="***REMOVED***"
+      - MAIL_MAILER=smtp
+      - MAIL_HOST=smtp.m1.websupport.sk
+      - MAIL_PORT=465
+      - MAIL_USERNAME=app@synapps.sk
+      - MAIL_PASSWORD="VuQWj2:P*M(ru);X=.r:"
+      - MAIL_ENCRYPTION=ssl
+      - MAIL_FROM_ADDRESS=app@synapps.sk
+      - MAIL_FROM_NAME="Synapps App"
     labels:
       - "traefik.enable=true"
       # HTTP router - redirects to HTTPS
