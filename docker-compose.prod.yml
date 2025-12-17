@@ -44,7 +44,7 @@ services:
       - MAIL_PORT=587
       - MAIL_USERNAME=app@synapps.sk
       - MAIL_PASSWORD="***REMOVED***"
-      - MAIL_ENCRYPTION=ssl
+      - MAIL_ENCRYPTION=tls
       - MAIL_FROM_ADDRESS=app@synapps.sk
       - MAIL_FROM_NAME="Synapps App"
     labels:
