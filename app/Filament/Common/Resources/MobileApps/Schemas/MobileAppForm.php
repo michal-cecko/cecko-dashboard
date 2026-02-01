@@ -3,7 +3,6 @@
 namespace App\Filament\Common\Resources\MobileApps\Schemas;
 
 use App\Enums\UserCapabilityEnum;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
@@ -20,18 +19,10 @@ class MobileAppForm
                     ->maxLength(255)
                     ->columnSpanFull(),
 
-                FileUpload::make('apk_path')
-                    ->label('APK súbor')
-                    ->directory('mobile-apps')
-                    ->preserveFilenames()
-                    ->disk('local')
-                    ->visibility('private')
-                    ->columnSpanFull(),
-
                 Select::make('capability')
-                    ->label("Potrebné oprávnenie")
+                    ->label('Potrebné oprávnenie')
                     ->columnSpanFull()
-                    ->options(UserCapabilityEnum::translations())
+                    ->options(UserCapabilityEnum::translations()),
             ]);
     }
 }
