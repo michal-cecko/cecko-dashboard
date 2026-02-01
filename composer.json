@@ -6,14 +6,16 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "filament/filament": "^4.0",
-        "laravel/framework": "^12.0",
+        "php": "^8.3",
+        "filament/filament": "^5.1",
+        "laravel/framework": "^v12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.6"
+        "livewire/livewire": "^4.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "filament/blueprint": "^2.1",
+        "laravel/boost": "^2.0",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.41",
@@ -74,5 +76,11 @@
         }
     },
     "minimum-stability": "beta",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "filament": {
+            "type": "composer",
+            "url": "https://packages.filamentphp.com/composer"
+        }
+    }
 }
