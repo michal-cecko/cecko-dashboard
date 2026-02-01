@@ -17,6 +17,7 @@ class MobileAppsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn ($query) => $query->with('latestVersion'))
             ->columns([
                 TextColumn::make('name')
                     ->label('Názov aplikácie')
