@@ -1,0 +1,23 @@
+{
+    "agents": [
+        "junie",
+        "claude_code",
+        "codex",
+        "opencode",
+        "cursor",
+        "gemini",
+        "copilot"
+    ],
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "packages": [
+        "filament/filament",
+        "filament/blueprint"
+    ],
+    "sail": true,
+    "skills": [
+        "livewire-development",
+        "tailwindcss-development"
+    ]
+}
