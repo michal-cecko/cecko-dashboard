@@ -12,7 +12,6 @@ use Filament\Schemas\Schema;
 
 class SongForm
 {
-
     public static function configure(Schema $schema): Schema
     {
         return $schema
@@ -23,7 +22,7 @@ class SongForm
             ])
             ->components([
                 TextInput::make('title')
-                    ->label("Názov")
+                    ->label('Názov')
                     ->required()
                     ->maxLength(255)
                     ->columnSpan([
@@ -33,7 +32,7 @@ class SongForm
                     ]),
 
                 TextInput::make('number')
-                    ->label("Číslo")
+                    ->label('Číslo')
                     ->numeric()
                     ->minValue(1)
                     ->columnSpan([
@@ -43,37 +42,29 @@ class SongForm
                     ])
                     ->default(function ($operation, $record) {
                         // If editing, return the existing value
-                        if ($record && !empty($record->number)) {
+                        if ($record && ! empty($record->number)) {
                             return $record->number;
                         }
+
                         // If creating, calculate the next number
-                        return (Song::orderBy("number", "DESC")->first()?->number ?? 0) + 1;
+                        return (Song::orderBy('number', 'DESC')->first()?->number ?? 0) + 1;
                     }),
 
                 TextInput::make('bpm')
-                    ->label("Údery")
-                    ->numeric()
+                    ->label('Údery')
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,
                         'lg' => 1,
-                    ])
-                    ->default(function ($operation, $record) {
-                        // If editing, return the existing value
-                        if ($record && !empty($record->number)) {
-                            return $record->number;
-                        }
-                        // If creating, calculate the next number
-                        return (Song::orderBy("number", "DESC")->first()?->number ?? 0) + 1;
-                    }),
+                    ]),
 
                 Select::make('artists')
-                    ->label("Autori")
+                    ->label('Autori')
                     ->relationship('artists', 'name')
                     ->multiple()
                     ->searchable()
                     ->preload()
-                    ->createOptionForm(fn(Schema $schema) => SongArtistForm::configure($schema)->getComponents())
+                    ->createOptionForm(fn (Schema $schema) => SongArtistForm::configure($schema)->getComponents())
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,
@@ -81,12 +72,12 @@ class SongForm
                     ]),
 
                 Select::make('tags')
-                    ->label("Značky")
+                    ->label('Značky')
                     ->relationship('tags', 'name')
                     ->multiple()
                     ->searchable()
                     ->preload()
-                    ->createOptionForm(fn(Schema $schema) => SongTagForm::configure($schema)->getComponents())
+                    ->createOptionForm(fn (Schema $schema) => SongTagForm::configure($schema)->getComponents())
                     ->columnSpan([
                         'sm' => 1,
                         'md' => 1,
@@ -94,13 +85,13 @@ class SongForm
                     ]),
 
                 RichEditor::make('lyrics')
-                    ->label("Text")
+                    ->label('Text')
                     ->toolbarButtons([
                         ['superscript', 'bold', 'italic', 'underline'],
                         ['undo', 'redo'],
                     ])
                     ->columnSpanFull()
-                    ->extraAttributes(['style' => 'min-height: 300px;'])
+                    ->extraAttributes(['style' => 'min-height: 300px;']),
             ]);
     }
 }
