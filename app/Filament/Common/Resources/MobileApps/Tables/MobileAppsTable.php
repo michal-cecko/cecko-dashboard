@@ -5,6 +5,7 @@ namespace App\Filament\Common\Resources\MobileApps\Tables;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,11 @@ class MobileAppsTable
                 TextColumn::make('name')
                     ->label('Názov aplikácie')
                     ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('latestVersion.version')
+                    ->label('Verzia')
+                    ->default('—')
                     ->sortable(),
 
                 TextColumn::make('created_at')
@@ -42,14 +48,15 @@ class MobileAppsTable
                     ->label('Stiahnuť')
                     ->icon('heroicon-o-arrow-down-tray')
                     ->color('success')
-                    ->visible(fn ($record) => !empty($record->apk_path) && Storage::disk('local')->exists($record->apk_path))
+                    ->visible(fn ($record) => $record->latestVersion?->apk_path && Storage::disk('local')->exists($record->latestVersion->apk_path))
                     ->action(function ($record): StreamedResponse {
-                        $filePath = $record->apk_path;
-                        $fileName = Str::slug($record->name) . '.apk';
+                        $filePath = $record->latestVersion->apk_path;
+                        $fileName = Str::slug($record->name).'-v'.$record->latestVersion->version.'.apk';
 
                         return Storage::disk('local')->download($filePath, $fileName);
                     }),
 
+                ViewAction::make(),
                 EditAction::make(),
                 DeleteAction::make(),
             ]);
