@@ -8,5 +8,6 @@ enum FilamentPanelEnum: string
 {
     use EnumHelper;
 
-    case SONGS = "songs";
+    case SONGS = 'songs';
+    case INVOICES = 'invoices';
 }

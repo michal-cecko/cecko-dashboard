@@ -11,6 +11,8 @@ use Filament\Models\Contracts\HasAvatar;
 use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
@@ -25,7 +27,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         'email',
         'password',
         'avatar_path',
-        'capabilities'
+        'capabilities',
+        'active_company_id',
     ];
 
     protected $hidden = [
@@ -44,11 +47,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
 
     public function getFilamentAvatarUrl(): ?string
     {
-        if(!$this->avatar_path || !Storage::disk("public")->exists($this->avatar_path)) {
-            return 'https://ui-avatars.com/api/?name=' . urlencode($this->getFilamentName()) . '&color=7c3aed&background=f3f4f6';
+        if (! $this->avatar_path || ! Storage::disk('public')->exists($this->avatar_path)) {
+            return 'https://ui-avatars.com/api/?name='.urlencode($this->getFilamentName()).'&color=7c3aed&background=f3f4f6';
         }
 
-        return Storage::disk("public")->url($this->avatar_path);
+        return Storage::disk('public')->url($this->avatar_path);
     }
 
     public function getFilamentName(): string
@@ -56,7 +59,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         return $this->name;
     }
 
-    public function hasCapability(UserCapabilityEnum $capability): bool {
+    public function hasCapability(UserCapabilityEnum $capability): bool
+    {
         return in_array($capability, $this->capabilities);
     }
 
@@ -64,7 +68,18 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     {
         return match (FilamentPanelEnum::tryFrom($panel->getId())) {
             FilamentPanelEnum::SONGS => $this->hasCapability(UserCapabilityEnum::VIEW_SONGS),
+            FilamentPanelEnum::INVOICES => $this->hasCapability(UserCapabilityEnum::VIEW_INVOICES),
             default => false,
         };
+    }
+
+    public function activeCompany(): BelongsTo
+    {
+        return $this->belongsTo(Company::class, 'active_company_id');
+    }
+
+    public function companies(): HasMany
+    {
+        return $this->hasMany(Company::class);
     }
 }
