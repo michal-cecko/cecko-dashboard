@@ -42,7 +42,7 @@ EXPOSE 8000
 
 # Health check to verify the server is running
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -f http://localhost:8000/test || exit 1
+    CMD curl -f http://localhost:8000/up || exit 1
 
 # Clear caches and start server
 CMD ["sh", "-c", "php artisan optimize && php artisan serve --host=0.0.0.0 --port=8000"]
