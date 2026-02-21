@@ -2,6 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\RelationManagers;
 
+use App\Enums\CurrencyEnum;
 use App\Enums\InvoiceStatusEnum;
 use App\Enums\PaymentMethodEnum;
 use Filament\Actions\CreateAction;
@@ -59,7 +60,7 @@ class PaymentsRelationManager extends RelationManager
                     ->formatStateUsing(fn ($state) => $state?->translation() ?? '-'),
                 TextColumn::make('amount')
                     ->label('Suma')
-                    ->money(fn ($record) => $record->invoice->currency)
+                    ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->invoice->currency)?->formatted($state) ?? $state)
                     ->sortable(),
                 TextColumn::make('notes')
                     ->label('Poznámka')
