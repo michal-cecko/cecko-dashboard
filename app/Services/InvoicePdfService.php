@@ -42,6 +42,13 @@ class InvoicePdfService
                 $logoBase64 = 'data:'.$mime.';base64,'.base64_encode($logoContents);
             }
 
+            $signatureBase64 = null;
+            if ($invoice->company->signature_path && Storage::disk('public')->exists($invoice->company->signature_path)) {
+                $sigContents = Storage::disk('public')->get($invoice->company->signature_path);
+                $sigMime = Storage::disk('public')->mimeType($invoice->company->signature_path);
+                $signatureBase64 = 'data:'.$sigMime.';base64,'.base64_encode($sigContents);
+            }
+
             $qrBase64 = $this->payBySquareService->generateQrBase64($invoice);
 
             $theme = InvoiceThemeEnum::tryFrom($invoice->company->invoice_theme ?? '') ?? InvoiceThemeEnum::Emerald;
@@ -59,6 +66,7 @@ class InvoicePdfService
                 'items' => $items,
                 'locale' => $locale,
                 'logoBase64' => $logoBase64,
+                'signatureBase64' => $signatureBase64,
                 'qrBase64' => $qrBase64,
                 'theme' => $theme,
                 'showVat' => $showVat,

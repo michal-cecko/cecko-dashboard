@@ -7,6 +7,8 @@
         $lightBg = $theme->lightBg();
         $lightBorder = $theme->lightBorder();
         $buyerCountry = $buyer['country_code'] ?? null;
+        $currencySymbol = \App\Enums\CurrencyEnum::tryFrom($invoice->currency)?->symbol() ?? $invoice->currency;
+        $baseCurrencySymbol = \App\Enums\CurrencyEnum::tryFrom($invoice->company->default_currency)?->symbol() ?? $invoice->company->default_currency;
     @endphp
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,6 +46,10 @@
         .totals td { padding: 5px 8px; font-size: 11px; }
         .totals .total-row { font-size: 14px; font-weight: bold; border-top: 2px solid {{ $primaryColor }}; }
         .notes { margin-top: 15px; padding: 10px; background: #f9fafb; border-radius: 4px; font-size: 9px; }
+        .signature { width: 200px; margin-left: auto; margin-top: 30px; text-align: center; }
+        .signature img { max-height: 80px; max-width: 180px; margin-bottom: 4px; }
+        .signature .sig-name { font-size: 10px; font-weight: bold; color: #333; }
+        .signature .sig-company { font-size: 9px; color: #6b7280; }
     </style>
 </head>
 <body>
@@ -56,9 +62,6 @@
             <div class="header-right">
                 @if(!empty($logoBase64))
                     <img src="{{ $logoBase64 }}" class="logo" alt="Logo">
-                @endif
-                @if($invoice->status->value === 'paid')
-                    <span style="color: {{ $primaryColor }}; font-size: 16px; font-weight: bold;">{{ __('invoice.paid') }}</span>
                 @endif
             </div>
         </div>
@@ -176,42 +179,52 @@
                 @if($showVat)
                 <tr>
                     <td>{{ __('invoice.subtotal') }}:</td>
-                    <td class="text-right">{{ number_format((float)$invoice->subtotal, 2, ',', ' ') }} {{ $invoice->currency }}</td>
+                    <td class="text-right">{{ number_format((float)$invoice->subtotal, 2, ',', ' ') }} {{ $currencySymbol }}</td>
                 </tr>
                 <tr>
                     <td>{{ __('invoice.vat_label') }}:</td>
-                    <td class="text-right">{{ number_format((float)$invoice->vat_total, 2, ',', ' ') }} {{ $invoice->currency }}</td>
+                    <td class="text-right">{{ number_format((float)$invoice->vat_total, 2, ',', ' ') }} {{ $currencySymbol }}</td>
                 </tr>
                 @endif
                 <tr class="total-row">
                     <td>{{ __('invoice.total') }}:</td>
-                    <td class="text-right">{{ number_format((float)$invoice->total, 2, ',', ' ') }} {{ $invoice->currency }}</td>
+                    <td class="text-right">{{ number_format((float)$invoice->total, 2, ',', ' ') }} {{ $currencySymbol }}</td>
                 </tr>
             </table>
             @if($invoice->exchange_rate && $invoice->currency !== $invoice->company->default_currency)
             <table style="margin-top: 10px; border-top: 1px solid #e5e7eb; padding-top: 6px;">
                 <tr>
                     <td colspan="2" style="font-size: 9px; color: #6b7280; padding-bottom: 4px;">
-                        {{ __('invoice.exchange_rate') }}: 1 {{ $invoice->currency }} = {{ number_format((float)$invoice->exchange_rate, 4, ',', ' ') }} {{ $invoice->company->default_currency }}
+                        {{ __('invoice.exchange_rate') }}: 1 {{ $currencySymbol }} = {{ number_format((float)$invoice->exchange_rate, 4, ',', ' ') }} {{ $baseCurrencySymbol }}
                     </td>
                 </tr>
                 @if($showVat)
                 <tr>
                     <td>{{ __('invoice.subtotal_base', ['currency' => $invoice->company->default_currency]) }}:</td>
-                    <td class="text-right">{{ number_format((float)$invoice->subtotal_base, 2, ',', ' ') }} {{ $invoice->company->default_currency }}</td>
+                    <td class="text-right">{{ number_format((float)$invoice->subtotal_base, 2, ',', ' ') }} {{ $baseCurrencySymbol }}</td>
                 </tr>
                 <tr>
                     <td>{{ __('invoice.vat_base', ['currency' => $invoice->company->default_currency]) }}:</td>
-                    <td class="text-right">{{ number_format((float)$invoice->vat_total_base, 2, ',', ' ') }} {{ $invoice->company->default_currency }}</td>
+                    <td class="text-right">{{ number_format((float)$invoice->vat_total_base, 2, ',', ' ') }} {{ $baseCurrencySymbol }}</td>
                 </tr>
                 @endif
                 <tr style="font-weight: bold;">
                     <td>{{ __('invoice.base_currency_totals', ['currency' => $invoice->company->default_currency]) }}:</td>
-                    <td class="text-right">{{ number_format((float)$invoice->total_base, 2, ',', ' ') }} {{ $invoice->company->default_currency }}</td>
+                    <td class="text-right">{{ number_format((float)$invoice->total_base, 2, ',', ' ') }} {{ $baseCurrencySymbol }}</td>
                 </tr>
             </table>
             @endif
         </div>
+
+        @if(!empty($signatureBase64))
+        <div class="signature">
+            <img src="{{ $signatureBase64 }}" alt="Signature">
+            @if(!empty($seller['responsible_person']))
+                <div class="sig-name">{{ $seller['responsible_person'] }}</div>
+            @endif
+            <div class="sig-company">{{ $seller['name'] ?? '' }}</div>
+        </div>
+        @endif
 
         @if($hasReverseCharge)
         <div style="margin-top: 15px; padding: 10px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 4px; font-size: 10px; font-weight: bold; color: #374151;">
