@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
 
-Schedule::command('invoices:check-overdue')->daily();
-Schedule::command('invoices:fetch-exchange-rates')->daily();
+Schedule::command('invoices:check-overdue')->dailyAt("00:45");
+Schedule::command('invoices:fetch-exchange-rates')->dailyAt("00:30");
