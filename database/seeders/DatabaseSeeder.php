@@ -17,21 +17,25 @@ class DatabaseSeeder extends Seeder
             'name' => 'Tatino',
             'email' => 'hippo.vd@gmail.com',
             'password' => bcrypt('***REMOVED***'),
-            'capabilities' => [UserCapabilityEnum::VIEW_SONGS, UserCapabilityEnum::MANAGE_SONGS, UserCapabilityEnum::VIEW_MOBILE_APPS]
+            'capabilities' => [UserCapabilityEnum::VIEW_SONGS, UserCapabilityEnum::MANAGE_SONGS, UserCapabilityEnum::VIEW_MOBILE_APPS],
         ]);
 
         User::factory()->create([
             'name' => 'Emik',
             'email' => 'emca.sk2918@gmail.com',
             'password' => bcrypt('***REMOVED***'),
-            'capabilities' => [UserCapabilityEnum::VIEW_SONGS, UserCapabilityEnum::MANAGE_SONGS, UserCapabilityEnum::VIEW_MOBILE_APPS]
+            'capabilities' => [UserCapabilityEnum::VIEW_SONGS, UserCapabilityEnum::MANAGE_SONGS, UserCapabilityEnum::VIEW_MOBILE_APPS],
         ]);
 
         User::factory()->create([
             'name' => 'Mišus',
             'email' => 'michal.cecko@gmail.com',
             'password' => bcrypt('***REMOVED***'),
-            'capabilities' => UserCapabilityEnum::cases()
+            'capabilities' => UserCapabilityEnum::cases(),
+        ]);
+
+        $this->call([
+            VatRateSeeder::class,
         ]);
     }
 }

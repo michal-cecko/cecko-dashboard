@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'gotenberg' => [
+        'url' => env('GOTENBERG_URL', 'http://gotenberg:3000'),
+    ],
+
+    'cnb' => [
+        'url' => env('CNB_API_URL', 'https://api.cnb.cz/cnbapi/exrates/daily'),
+    ],
+
 ];
