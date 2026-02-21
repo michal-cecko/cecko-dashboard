@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: synapps-dashboard
+    env_file: .env.prod
     volumes:
       - type: bind
         source: /volumes/synapps-dashboard/storage/app
@@ -22,31 +23,6 @@ services:
         target: /var/www/storage/framework/sessions
       - type: tmpfs
         target: /var/www/storage/framework/views
-    environment:
-      - APP_KEY=base64:***REMOVED***=
-      - APP_LOCALE=sk
-      - APP_ENV=production
-      - APP_DEBUG=false
-      - APP_URL=https://adminka.synapps.sk
-      - ASSET_URL=https://adminka.synapps.sk
-      - DB_CONNECTION=pgsql
-      - DB_HOST=synapps-pgsql
-      - DB_PORT=5432
-      - DB_DATABASE=synapps_dashboard
-      - DB_USERNAME=dashboard_user
-      - DB_PASSWORD=v9qcX5vp&r
-      - QUEUE_CONNECTION=database
-      - API_BASIC_AUTH_LOGIN=api_user
-      - API_BASIC_AUTH_PASSWORD="0q7r&vCNJi#bx9Z"
-      - QUEUE_CONNECTION=sync
-      - MAIL_MAILER=smtp
-      - MAIL_HOST=smtp.m1.websupport.sk
-      - MAIL_PORT=587
-      - MAIL_USERNAME=app@synapps.sk
-      - MAIL_PASSWORD="R(n~6Fm60d"
-      - MAIL_ENCRYPTION=tls
-      - MAIL_FROM_ADDRESS=app@synapps.sk
-      - MAIL_FROM_NAME="Synapps App"
     labels:
       - "traefik.enable=true"
       # HTTP router - redirects to HTTPS
@@ -65,6 +41,32 @@ services:
     networks:
       - web
       - database
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: synapps-dashboard-worker
+    env_file: .env.prod
+    command: sh -c "php artisan schedule:work & php artisan queue:work --sleep=3 --tries=3 --max-time=3600"
+    volumes:
+      - type: bind
+        source: /volumes/synapps-dashboard/storage/app
+        target: /var/www/storage/app
+      - type: bind
+        source: /volumes/synapps-dashboard/storage/logs
+        target: /var/www/storage/logs
+      - type: tmpfs
+        target: /var/www/bootstrap/cache
+      - type: tmpfs
+        target: /var/www/storage/framework/cache
+      - type: tmpfs
+        target: /var/www/storage/framework/sessions
+      - type: tmpfs
+        target: /var/www/storage/framework/views
+    networks:
+      - database
+    restart: unless-stopped
 
 networks:
   web:
