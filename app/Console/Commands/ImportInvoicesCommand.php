@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 class ImportInvoicesCommand extends Command
 {
     protected $signature = 'invoices:import
-        {file : Path to CSV file relative to storage/app}
+        {file : Path to CSV file relative to database_path()}
         {--company= : Company ID to import into}
         {--dry-run : Preview without importing}';
 
@@ -26,7 +26,7 @@ class ImportInvoicesCommand extends Command
 
     public function handle(): int
     {
-        $filePath = storage_path('app/'.$this->argument('file'));
+        $filePath = database_path($this->argument('file'));
 
         if (! file_exists($filePath)) {
             $this->error("File not found: {$filePath}");
