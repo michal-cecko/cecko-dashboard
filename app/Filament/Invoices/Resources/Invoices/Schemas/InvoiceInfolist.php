@@ -2,6 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Schemas;
 
+use App\Enums\CurrencyEnum;
 use App\Enums\InvoiceStatusEnum;
 use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Infolists\Components\TextEntry;
@@ -97,13 +98,13 @@ class InvoiceInfolist
                                     ->label('Jedn.'),
                                 TextEntry::make('unit_price')
                                     ->label('Cena/jedn.')
-                                    ->money(fn ($record) => $record->invoice->currency),
+                                    ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->invoice->currency)?->formatted($state) ?? $state),
                                 TextEntry::make('vat_rate_value')
                                     ->label('DPH %')
                                     ->suffix('%'),
                                 TextEntry::make('total')
                                     ->label('Celkom')
-                                    ->money(fn ($record) => $record->invoice->currency),
+                                    ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->invoice->currency)?->formatted($state) ?? $state),
                             ])
                             ->columns(6)
                             ->contained(false)
@@ -114,13 +115,13 @@ class InvoiceInfolist
                     ->schema([
                         TextEntry::make('subtotal')
                             ->label('Základ')
-                            ->money(fn ($record) => $record->currency),
+                            ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->currency)?->formatted($state) ?? $state),
                         TextEntry::make('vat_total')
                             ->label('DPH')
-                            ->money(fn ($record) => $record->currency),
+                            ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->currency)?->formatted($state) ?? $state),
                         TextEntry::make('total')
                             ->label('Celkom')
-                            ->money(fn ($record) => $record->currency)
+                            ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->currency)?->formatted($state) ?? $state)
                             ->weight('bold')
                             ->size('lg'),
                         TextEntry::make('exchange_rate')
@@ -129,15 +130,15 @@ class InvoiceInfolist
                             ->visible(fn ($record): bool => (bool) $record->exchange_rate && $record->currency !== $record->company->default_currency),
                         TextEntry::make('subtotal_base')
                             ->label(fn ($record) => 'Základ ('.$record->company->default_currency.')')
-                            ->money(fn ($record) => $record->company->default_currency)
+                            ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->company->default_currency)?->formatted($state) ?? $state)
                             ->visible(fn ($record): bool => (bool) $record->exchange_rate && $record->currency !== $record->company->default_currency),
                         TextEntry::make('vat_total_base')
                             ->label(fn ($record) => 'DPH ('.$record->company->default_currency.')')
-                            ->money(fn ($record) => $record->company->default_currency)
+                            ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->company->default_currency)?->formatted($state) ?? $state)
                             ->visible(fn ($record): bool => (bool) $record->exchange_rate && $record->currency !== $record->company->default_currency),
                         TextEntry::make('total_base')
                             ->label(fn ($record) => 'Celkom ('.$record->company->default_currency.')')
-                            ->money(fn ($record) => $record->company->default_currency)
+                            ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->company->default_currency)?->formatted($state) ?? $state)
                             ->weight('bold')
                             ->size('lg')
                             ->visible(fn ($record): bool => (bool) $record->exchange_rate && $record->currency !== $record->company->default_currency),
@@ -147,10 +148,10 @@ class InvoiceInfolist
                     ->schema([
                         TextEntry::make('paid_amount')
                             ->label('Uhradené')
-                            ->state(fn ($record): string => number_format($record->paidAmount(), 2, ',', ' ').' '.$record->currency),
+                            ->state(fn ($record): string => CurrencyEnum::tryFrom($record->currency)?->formatted($record->paidAmount()) ?? number_format($record->paidAmount(), 2, ',', ' ').' '.$record->currency),
                         TextEntry::make('remaining_amount')
                             ->label('Zostáva')
-                            ->state(fn ($record): string => number_format($record->remainingAmount(), 2, ',', ' ').' '.$record->currency),
+                            ->state(fn ($record): string => CurrencyEnum::tryFrom($record->currency)?->formatted($record->remainingAmount()) ?? number_format($record->remainingAmount(), 2, ',', ' ').' '.$record->currency),
                         ViewEntry::make('payment_progress')
                             ->label('')
                             ->view('filament.invoices.payment-progress')
