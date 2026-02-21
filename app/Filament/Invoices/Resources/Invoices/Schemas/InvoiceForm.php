@@ -134,6 +134,15 @@ class InvoiceForm
                         Select::make('payment_method')
                             ->label('Spôsob platby')
                             ->options(PaymentMethodEnum::translations()),
+
+                        Textarea::make('description')
+                            ->label('Popis')
+                            ->rows(2)
+                            ->columnSpanFull(),
+
+                        TextInput::make('order_number')
+                            ->label('Číslo objednávky')
+                            ->maxLength(100),
                     ])->columns(2),
 
                 Section::make('Dátumy')

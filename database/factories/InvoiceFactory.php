@@ -38,7 +38,6 @@ class InvoiceFactory extends Factory
     {
         return $this->state(fn () => [
             'status' => InvoiceStatusEnum::PAID,
-            'paid_at' => now(),
         ]);
     }
 

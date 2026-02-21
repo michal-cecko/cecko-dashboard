@@ -2,8 +2,7 @@
 
 namespace App\Filament\Invoices\Widgets;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Models\Invoice;
+use App\Models\InvoicePayment;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\DB;
 
@@ -14,13 +13,14 @@ class MonthlyIncomeChartWidget extends ChartWidget
     protected function getData(): array
     {
         $currentYear = now()->year;
+        $company = auth()->user()->activeCompany;
 
-        $monthlyData = Invoice::query()
-            ->where('status', InvoiceStatusEnum::PAID)
-            ->whereYear('paid_at', $currentYear)
+        $monthlyData = InvoicePayment::query()
+            ->whereHas('invoice', fn ($q) => $q->where('company_id', $company?->id))
+            ->whereYear('payment_date', $currentYear)
             ->select(
-                DB::raw('EXTRACT(MONTH FROM paid_at) as month'),
-                DB::raw('SUM(COALESCE(total_base, total)) as total')
+                DB::raw('EXTRACT(MONTH FROM payment_date) as month'),
+                DB::raw('SUM(amount) as total')
             )
             ->groupBy('month')
             ->orderBy('month')

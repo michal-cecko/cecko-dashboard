@@ -2,8 +2,7 @@
 
 namespace App\Filament\Invoices\Widgets;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Models\Invoice;
+use App\Models\InvoicePayment;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -16,21 +15,15 @@ class CurrentYearIncomeWidget extends StatsOverviewWidget
         $company = auth()->user()->activeCompany;
         $currency = $company?->default_currency ?? 'EUR';
 
-        $thisYearTotal = Invoice::query()
-            ->where('status', InvoiceStatusEnum::PAID)
-            ->whereYear('paid_at', $currentYear)
-            ->sum('total_base') ?: Invoice::query()
-            ->where('status', InvoiceStatusEnum::PAID)
-            ->whereYear('paid_at', $currentYear)
-            ->sum('total');
+        $thisYearTotal = InvoicePayment::query()
+            ->whereHas('invoice', fn ($q) => $q->where('company_id', $company?->id))
+            ->whereYear('payment_date', $currentYear)
+            ->sum('amount');
 
-        $lastYearTotal = Invoice::query()
-            ->where('status', InvoiceStatusEnum::PAID)
-            ->whereYear('paid_at', $lastYear)
-            ->sum('total_base') ?: Invoice::query()
-            ->where('status', InvoiceStatusEnum::PAID)
-            ->whereYear('paid_at', $lastYear)
-            ->sum('total');
+        $lastYearTotal = InvoicePayment::query()
+            ->whereHas('invoice', fn ($q) => $q->where('company_id', $company?->id))
+            ->whereYear('payment_date', $lastYear)
+            ->sum('amount');
 
         return [
             Stat::make('Príjem '.$currentYear, number_format((float) $thisYearTotal, 2, ',', ' ').' '.$currency)

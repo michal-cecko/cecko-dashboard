@@ -5,6 +5,7 @@ namespace App\Filament\Invoices\Resources\Invoices\Schemas;
 use App\Enums\InvoiceStatusEnum;
 use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ViewEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -35,6 +36,13 @@ class InvoiceInfolist
                         TextEntry::make('payment_method')
                             ->label('Spôsob platby')
                             ->formatStateUsing(fn ($state) => $state?->translation() ?? '-'),
+                        TextEntry::make('order_number')
+                            ->label('Číslo objednávky')
+                            ->visible(fn ($record) => filled($record->order_number)),
+                        TextEntry::make('description')
+                            ->label('Popis')
+                            ->columnSpanFull()
+                            ->visible(fn ($record) => filled($record->description)),
                     ])->columns(4),
 
                 Section::make('Dodávateľ')
@@ -134,6 +142,20 @@ class InvoiceInfolist
                             ->size('lg')
                             ->visible(fn ($record): bool => (bool) $record->exchange_rate && $record->currency !== $record->company->default_currency),
                     ])->columns(3)->columnSpanFull(),
+
+                Section::make('Úhrada')
+                    ->schema([
+                        TextEntry::make('paid_amount')
+                            ->label('Uhradené')
+                            ->state(fn ($record): string => number_format($record->paidAmount(), 2, ',', ' ').' '.$record->currency),
+                        TextEntry::make('remaining_amount')
+                            ->label('Zostáva')
+                            ->state(fn ($record): string => number_format($record->remainingAmount(), 2, ',', ' ').' '.$record->currency),
+                        ViewEntry::make('payment_progress')
+                            ->label('')
+                            ->view('filament.invoices.payment-progress')
+                            ->columnSpanFull(),
+                    ])->columns(2)->columnSpanFull(),
 
                 Section::make('Poznámky')
                     ->schema([

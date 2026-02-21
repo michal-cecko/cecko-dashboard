@@ -23,6 +23,8 @@ class Invoice extends Model
         'invoice_number_sequence_id',
 
         'invoice_number',
+        'description',
+        'order_number',
         'status',
         'currency',
         'exchange_rate',
@@ -41,7 +43,6 @@ class Invoice extends Model
         'buyer_snapshot',
         'seller_snapshot',
         'sent_at',
-        'paid_at',
         'cancelled_at',
     ];
 
@@ -64,7 +65,6 @@ class Invoice extends Model
             'buyer_snapshot' => 'array',
             'seller_snapshot' => 'array',
             'sent_at' => 'datetime',
-            'paid_at' => 'datetime',
             'cancelled_at' => 'datetime',
         ];
     }
@@ -94,5 +94,34 @@ class Invoice extends Model
     public function items(): HasMany
     {
         return $this->hasMany(InvoiceItem::class)->orderBy('sort_order');
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(InvoicePayment::class)->orderBy('payment_date');
+    }
+
+    public function paidAmount(): float
+    {
+        return (float) $this->payments()->sum('amount');
+    }
+
+    public function remainingAmount(): float
+    {
+        return max(0, (float) $this->total - $this->paidAmount());
+    }
+
+    public function isPaid(): bool
+    {
+        return $this->paidAmount() >= (float) $this->total;
+    }
+
+    public function paymentPercentage(): int
+    {
+        if ((float) $this->total <= 0) {
+            return 0;
+        }
+
+        return min(100, (int) round(($this->paidAmount() / (float) $this->total) * 100));
     }
 }
