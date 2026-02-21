@@ -38,12 +38,16 @@ class CompanyForm
                         FileUpload::make('logo_path')
                             ->label('Logo')
                             ->acceptedFileTypes(['image/*'])
+                            ->disk('public')
+                            ->visibility('public')
                             ->directory('company-logos')
                             ->image()
                             ->imagePreviewHeight('100'),
                         FileUpload::make('signature_path')
                             ->label('Pečiatka a podpis')
                             ->acceptedFileTypes(['image/png', 'image/webp'])
+                            ->disk('public')
+                            ->visibility('public')
                             ->directory('company-signatures')
                             ->image()
                             ->imagePreviewHeight('100'),

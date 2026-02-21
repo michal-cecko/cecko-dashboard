@@ -127,52 +127,52 @@ class InvoicesTable
                 ViewAction::make(),
                 EditAction::make(),
 
-                Action::make('addPayment')
-                    ->label('Pridať platbu')
-                    ->icon('heroicon-o-banknotes')
-                    ->color('success')
-                    ->form([
-                        DatePicker::make('payment_date')
-                            ->label('Dátum platby')
-                            ->required()
-                            ->default(now()),
-                        Select::make('payment_method')
-                            ->label('Spôsob platby')
-                            ->options(PaymentMethodEnum::translations()),
-                        TextInput::make('amount')
-                            ->label('Suma')
-                            ->required()
-                            ->numeric()
-                            ->minValue(0.01)
-                            ->default(fn ($record) => $record->remainingAmount())
-                            ->suffix(fn ($record) => $record->currency),
-                        Textarea::make('notes')
-                            ->label('Poznámka')
-                            ->rows(2),
-                    ])
-                    ->action(function ($record, array $data) {
-                        InvoicePayment::create([
-                            'invoice_id' => $record->id,
-                            'payment_date' => $data['payment_date'],
-                            'payment_method' => $data['payment_method'],
-                            'amount' => $data['amount'],
-                            'notes' => $data['notes'] ?? null,
-                        ]);
-
-                        $record->refresh();
-
-                        if ($record->isPaid() && $record->status !== InvoiceStatusEnum::CANCELLED) {
-                            $record->update(['status' => InvoiceStatusEnum::PAID]);
-                        }
-
-                        Notification::make()
-                            ->title('Platba pridaná')
-                            ->success()
-                            ->send();
-                    })
-                    ->visible(fn ($record) => ! $record->isPaid() && $record->status !== InvoiceStatusEnum::CANCELLED),
-
                 ActionGroup::make([
+                    Action::make('addPayment')
+                        ->label('Pridať platbu')
+                        ->icon('heroicon-o-banknotes')
+                        ->color('success')
+                        ->form([
+                            DatePicker::make('payment_date')
+                                ->label('Dátum platby')
+                                ->required()
+                                ->default(now()),
+                            Select::make('payment_method')
+                                ->label('Spôsob platby')
+                                ->options(PaymentMethodEnum::translations()),
+                            TextInput::make('amount')
+                                ->label('Suma')
+                                ->required()
+                                ->numeric()
+                                ->minValue(0.01)
+                                ->default(fn ($record) => $record->remainingAmount())
+                                ->suffix(fn ($record) => $record->currency),
+                            Textarea::make('notes')
+                                ->label('Poznámka')
+                                ->rows(2),
+                        ])
+                        ->action(function ($record, array $data) {
+                            InvoicePayment::create([
+                                'invoice_id' => $record->id,
+                                'payment_date' => $data['payment_date'],
+                                'payment_method' => $data['payment_method'],
+                                'amount' => $data['amount'],
+                                'notes' => $data['notes'] ?? null,
+                            ]);
+
+                            $record->refresh();
+
+                            if ($record->isPaid() && $record->status !== InvoiceStatusEnum::CANCELLED) {
+                                $record->update(['status' => InvoiceStatusEnum::PAID]);
+                            }
+
+                            Notification::make()
+                                ->title('Platba pridaná')
+                                ->success()
+                                ->send();
+                        })
+                        ->visible(fn ($record) => ! $record->isPaid() && $record->status !== InvoiceStatusEnum::CANCELLED),
+
                     Action::make('previewHtml')
                         ->label('Náhľad')
                         ->icon('heroicon-o-eye')
