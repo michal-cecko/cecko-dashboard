@@ -13,12 +13,19 @@ use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Response;
@@ -68,11 +75,25 @@ class InvoicesTable
                     ->money(fn ($record) => $record->currency)
                     ->sortable(),
 
+                TextColumn::make('description')
+                    ->label('Popis')
+                    ->limit(40)
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('order_number')
+                    ->label('Č. objednávky')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                ViewColumn::make('payment_progress')
+                    ->label('Úhrada')
+                    ->view('filament.invoices.payment-progress')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('total_base')
                     ->label(fn () => 'Celkom ('.(auth()->user()->activeCompany?->default_currency ?? 'EUR').')')
                     ->money(fn () => auth()->user()->activeCompany?->default_currency ?? 'EUR')
                     ->sortable()
-                    ->toggleable()
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->visible(fn ($livewire): bool => \App\Models\Invoice::query()
                         ->whereNotNull('exchange_rate')
                         ->where('currency', '!=', auth()->user()->activeCompany?->default_currency ?? 'EUR')
@@ -95,6 +116,9 @@ class InvoicesTable
                 SelectFilter::make('currency')
                     ->label('Mena')
                     ->options(CurrencyEnum::translations()),
+
+                TrashedFilter::make()
+                    ->label('Vymazané'),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -161,6 +185,8 @@ class InvoicesTable
                         }),
 
                     DeleteAction::make(),
+                    RestoreAction::make(),
+                    ForceDeleteAction::make(),
                 ]),
             ])
             ->bulkActions([
@@ -180,12 +206,57 @@ class InvoicesTable
                         return Response::download($zipPath, 'faktury.zip')->deleteFileAfterSend();
                     }),
 
+                BulkAction::make('sumSelected')
+                    ->label('Súčet')
+                    ->icon('heroicon-o-calculator')
+                    ->color('info')
+                    ->deselectRecordsAfterCompletion(false)
+                    ->action(function (Collection $records) {
+                        $baseCurrency = auth()->user()->activeCompany?->default_currency ?? 'EUR';
+
+                        $byCurrency = [];
+                        $baseTotal = 0;
+
+                        foreach ($records as $invoice) {
+                            $currency = $invoice->currency;
+                            $byCurrency[$currency] = ($byCurrency[$currency] ?? 0) + (float) $invoice->total;
+
+                            if ($invoice->total_base !== null) {
+                                $baseTotal += (float) $invoice->total_base;
+                            } else {
+                                $baseTotal += (float) $invoice->total;
+                            }
+                        }
+
+                        $lines = [];
+                        foreach ($byCurrency as $currency => $sum) {
+                            $lines[] = number_format($sum, 2, ',', ' ').' '.$currency;
+                        }
+
+                        if (count($byCurrency) > 1 || ! isset($byCurrency[$baseCurrency])) {
+                            $lines[] = '**'.number_format($baseTotal, 2, ',', ' ').' '.$baseCurrency.'** (základ)';
+                        }
+
+                        Notification::make()
+                            ->title('Súčet: '.$records->count().' faktúr')
+                            ->body(implode("\n", $lines))
+                            ->info()
+                            ->persistent()
+                            ->send();
+                    }),
+
                 BulkAction::make('bulkDelete')
                     ->label('Zmazať')
                     ->icon('heroicon-o-trash')
                     ->color('danger')
                     ->requiresConfirmation()
                     ->action(fn (Collection $records) => $records->each->delete()),
+
+                RestoreBulkAction::make()
+                    ->label('Obnoviť'),
+
+                ForceDeleteBulkAction::make()
+                    ->label('Trvalo zmazať'),
             ]);
     }
 }

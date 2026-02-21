@@ -17,6 +17,7 @@ class Company extends Model
         'user_id',
         'name',
         'logo_path',
+        'signature_path',
         'street',
         'city',
         'zip',

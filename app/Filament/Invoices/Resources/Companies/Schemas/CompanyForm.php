@@ -40,8 +40,13 @@ class CompanyForm
                             ->acceptedFileTypes(['image/*'])
                             ->directory('company-logos')
                             ->image()
-                            ->imagePreviewHeight('100')
-                            ->columnSpanFull(),
+                            ->imagePreviewHeight('100'),
+                        FileUpload::make('signature_path')
+                            ->label('Pečiatka a podpis')
+                            ->acceptedFileTypes(['image/png', 'image/webp'])
+                            ->directory('company-signatures')
+                            ->image()
+                            ->imagePreviewHeight('100'),
                     ])->columns(3),
 
                 Section::make('Adresa')

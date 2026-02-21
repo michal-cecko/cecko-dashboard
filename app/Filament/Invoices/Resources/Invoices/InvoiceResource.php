@@ -6,6 +6,7 @@ use App\Filament\Invoices\Resources\Invoices\Pages\CreateInvoice;
 use App\Filament\Invoices\Resources\Invoices\Pages\EditInvoice;
 use App\Filament\Invoices\Resources\Invoices\Pages\ListInvoices;
 use App\Filament\Invoices\Resources\Invoices\Pages\ViewInvoice;
+use App\Filament\Invoices\Resources\Invoices\RelationManagers\PaymentsRelationManager;
 use App\Filament\Invoices\Resources\Invoices\Schemas\InvoiceForm;
 use App\Filament\Invoices\Resources\Invoices\Tables\InvoicesTable;
 use App\Models\Invoice;
@@ -38,6 +39,13 @@ class InvoiceResource extends Resource
     public static function table(Table $table): Table
     {
         return InvoicesTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            PaymentsRelationManager::class,
+        ];
     }
 
     public static function getPages(): array
