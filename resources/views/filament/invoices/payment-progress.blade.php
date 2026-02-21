@@ -4,7 +4,7 @@
     $total = (float) $record->total;
     $remaining = $record->remainingAmount();
     $percentage = $record->paymentPercentage();
-    $currency = $record->currency;
+    $currency = \App\Enums\CurrencyEnum::tryFrom($record->currency)?->symbol() ?? $record->currency;
 @endphp
 
 <div class="w-full">

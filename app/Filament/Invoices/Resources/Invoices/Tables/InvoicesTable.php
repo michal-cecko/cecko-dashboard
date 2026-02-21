@@ -75,7 +75,7 @@ class InvoicesTable
 
                 TextColumn::make('total')
                     ->label('Celkom')
-                    ->money(fn ($record) => $record->currency)
+                    ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->currency)?->formatted($state) ?? $state)
                     ->sortable(),
 
                 TextColumn::make('description')
@@ -94,7 +94,7 @@ class InvoicesTable
 
                 TextColumn::make('total_base')
                     ->label(fn () => 'Celkom ('.(auth()->user()->activeCompany?->default_currency ?? 'EUR').')')
-                    ->money(fn () => auth()->user()->activeCompany?->default_currency ?? 'EUR')
+                    ->formatStateUsing(fn ($state) => CurrencyEnum::tryFrom(auth()->user()->activeCompany?->default_currency ?? 'EUR')?->formatted($state) ?? $state)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->visible(fn ($livewire): bool => \App\Models\Invoice::query()

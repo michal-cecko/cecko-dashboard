@@ -2,6 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\InvoicePayments\Tables;
 
+use App\Enums\CurrencyEnum;
 use App\Enums\PaymentMethodEnum;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use Filament\Actions\Action;
@@ -39,7 +40,7 @@ class InvoicePaymentsTable
 
                 TextColumn::make('amount')
                     ->label('Suma')
-                    ->money(fn ($record) => $record->invoice->currency)
+                    ->formatStateUsing(fn ($state, $record) => CurrencyEnum::tryFrom($record->invoice->currency)?->formatted($state) ?? $state)
                     ->sortable(),
 
                 TextColumn::make('notes')
