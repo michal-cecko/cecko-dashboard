@@ -163,12 +163,12 @@
                     <td>{{ $item['description'] }}</td>
                     <td class="text-right">{{ number_format((float)$item['quantity'], 2, ',', ' ') }}</td>
                     <td>{{ $item['unit'] ?? '' }}</td>
-                    <td class="text-right">{{ number_format((float)$item['unit_price'], 2, ',', ' ') }}</td>
+                    <td class="text-right">{{ number_format((float)$item['unit_price'], 2, ',', ' ') }} {{ $currencySymbol }}</td>
                     @if($showVat)
                     <td class="text-right">{{ number_format((float)$item['vat_rate_value'], 0) }}%</td>
-                    <td class="text-right">{{ number_format((float)$item['vat_amount'], 2, ',', ' ') }}</td>
+                    <td class="text-right">{{ number_format((float)$item['vat_amount'], 2, ',', ' ') }} {{ $currencySymbol }}</td>
                     @endif
-                    <td class="text-right">{{ number_format((float)$item['total'], 2, ',', ' ') }}</td>
+                    <td class="text-right">{{ number_format((float)$item['total'], 2, ',', ' ') }} {{ $currencySymbol }}</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -200,16 +200,16 @@
                 </tr>
                 @if($showVat)
                 <tr>
-                    <td>{{ __('invoice.subtotal_base', ['currency' => $invoice->company->default_currency]) }}:</td>
+                    <td>{{ __('invoice.subtotal_base', ['currency' => $baseCurrencySymbol]) }}:</td>
                     <td class="text-right">{{ number_format((float)$invoice->subtotal_base, 2, ',', ' ') }} {{ $baseCurrencySymbol }}</td>
                 </tr>
                 <tr>
-                    <td>{{ __('invoice.vat_base', ['currency' => $invoice->company->default_currency]) }}:</td>
+                    <td>{{ __('invoice.vat_base', ['currency' => $baseCurrencySymbol]) }}:</td>
                     <td class="text-right">{{ number_format((float)$invoice->vat_total_base, 2, ',', ' ') }} {{ $baseCurrencySymbol }}</td>
                 </tr>
                 @endif
                 <tr style="font-weight: bold;">
-                    <td>{{ __('invoice.base_currency_totals', ['currency' => $invoice->company->default_currency]) }}:</td>
+                    <td>{{ __('invoice.base_currency_totals', ['currency' => $baseCurrencySymbol]) }}:</td>
                     <td class="text-right">{{ number_format((float)$invoice->total_base, 2, ',', ' ') }} {{ $baseCurrencySymbol }}</td>
                 </tr>
             </table>
