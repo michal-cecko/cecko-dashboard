@@ -15,7 +15,7 @@ class CompanySwitcher extends Component
         $this->activeCompanyId = auth()->user()->active_company_id;
     }
 
-    public function switchCompany(int $companyId): void
+    public function switchCompany(int|string $companyId): void
     {
         $user = auth()->user();
 

@@ -9,7 +9,7 @@ trait HasTranslations
 {
     public function translations(): HasMany
     {
-        $modelClass = 'App\\Models\\'.class_basename(static::class).'Translation';
+        $modelClass = static::class.'Translation';
 
         return $this->hasMany($modelClass, 'parent_id');
     }

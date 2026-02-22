@@ -2,7 +2,7 @@
 
 namespace App\Filament\Invoices\Pages;
 
-use App\Filament\Invoices\Widgets\AmountsDueWidget;
+use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Widgets\CurrentYearIncomeWidget;
 use App\Filament\Invoices\Widgets\InvoicesByStatusWidget;
 use App\Filament\Invoices\Widgets\MonthlyIncomeChartWidget;
@@ -12,6 +12,8 @@ use Filament\Support\Icons\Heroicon;
 
 class InvoiceDashboard extends Dashboard
 {
+    use HasCompanyBreadcrumb;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartBar;
 
     protected static ?string $title = 'Prehľad';
@@ -22,7 +24,6 @@ class InvoiceDashboard extends Dashboard
     {
         return [
             CurrentYearIncomeWidget::class,
-            AmountsDueWidget::class,
             InvoicesByStatusWidget::class,
             MonthlyIncomeChartWidget::class,
         ];

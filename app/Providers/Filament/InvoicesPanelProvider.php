@@ -9,9 +9,11 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -35,7 +37,12 @@ class InvoicesPanelProvider extends PanelProvider
             ->profile()
             ->passwordReset()
             ->sidebarCollapsibleOnDesktop()
-            ->renderHook('panels::sidebar.nav.start', fn (): \Illuminate\Contracts\Support\Htmlable => new \Illuminate\Support\HtmlString(\Blade::render('<livewire:'.CompanySwitcher::class.' />')))
+            ->navigationGroups([
+                NavigationGroup::make('Faktúry'),
+                NavigationGroup::make('Nastavenia'),
+                NavigationGroup::make('Ostatné'),
+            ])
+            ->renderHook(PanelsRenderHook::USER_MENU_BEFORE, fn (): string => \Blade::render('@livewire(\''.CompanySwitcher::class.'\')'))
             ->discoverResources(in: app_path('Filament/Invoices/Resources'), for: 'App\Filament\Invoices\Resources')
             ->resources([
                 UserResource::class,
