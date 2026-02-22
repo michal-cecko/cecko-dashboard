@@ -18,6 +18,11 @@ class InvoiceMail extends Mailable
         public string $emailBody,
         public string $pdfContent,
         public string $filename,
+        public ?string $invoiceNumber = null,
+        public ?string $issueDate = null,
+        public ?string $dueDate = null,
+        public ?string $totalFormatted = null,
+        public ?string $sellerName = null,
     ) {}
 
     public function envelope(): Envelope
@@ -33,6 +38,11 @@ class InvoiceMail extends Mailable
             markdown: 'emails.invoice',
             with: [
                 'body' => $this->emailBody,
+                'invoiceNumber' => $this->invoiceNumber,
+                'issueDate' => $this->issueDate,
+                'dueDate' => $this->dueDate,
+                'totalFormatted' => $this->totalFormatted,
+                'sellerName' => $this->sellerName,
             ],
         );
     }

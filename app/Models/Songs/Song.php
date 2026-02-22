@@ -2,12 +2,22 @@
 
 namespace App\Models\Songs;
 
+use Database\Factories\SongFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Song extends Model
 {
+    /** @use HasFactory<SongFactory> */
+    use HasFactory;
+
+    protected static function newFactory(): SongFactory
+    {
+        return SongFactory::new();
+    }
+
     protected $fillable = [
         'title',
         'number',

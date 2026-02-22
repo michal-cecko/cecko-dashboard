@@ -40,23 +40,28 @@ class InvoiceForm
                             ->required()
                             ->default(fn () => InvoiceNumberSequence::query()->where('is_default', true)->value('id'))
                             ->live()
-                            ->afterStateUpdated(function ($state, Set $set): void {
+                            ->afterStateHydrated(function ($state, Set $set): void {
                                 if ($state) {
                                     $sequence = InvoiceNumberSequence::find($state);
                                     if ($sequence) {
                                         $set('invoice_number', app(InvoiceNumberService::class)->previewNumber($sequence));
                                     }
                                 }
+                            })
+                            ->afterStateUpdated(function ($state, Set $set): void {
+                                if ($state) {
+                                    $sequence = InvoiceNumberSequence::find($state);
+                                    if ($sequence) {
+                                        $set('invoice_number', app(InvoiceNumberService::class)->previewNumber($sequence));
+                                    }
+                                } else {
+                                    $set('invoice_number', '');
+                                }
                             }),
 
                         TextInput::make('invoice_number')
                             ->label('Číslo faktúry')
                             ->required()
-                            ->default(function () {
-                                $sequence = InvoiceNumberSequence::query()->where('is_default', true)->first();
-
-                                return $sequence ? app(InvoiceNumberService::class)->previewNumber($sequence) : '';
-                            })
                             ->helperText('Náhľad ďalšieho čísla — vygenerované pri uložení')
                             ->maxLength(100),
 

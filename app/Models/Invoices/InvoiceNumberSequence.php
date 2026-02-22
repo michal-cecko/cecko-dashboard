@@ -13,6 +13,11 @@ class InvoiceNumberSequence extends Model
     /** @use HasFactory<InvoiceNumberSequenceFactory> */
     use BelongsToActiveCompany, HasFactory;
 
+    protected static function newFactory(): InvoiceNumberSequenceFactory
+    {
+        return InvoiceNumberSequenceFactory::new();
+    }
+
     protected $fillable = [
         'company_id',
         'name',

@@ -1,10 +1,27 @@
 <x-mail::message>
 {{ $body }}
 
-<x-mail::button :url="config('app.url')">
-Otvoriť faktúry
-</x-mail::button>
+@if($invoiceNumber)
+<x-mail::table>
+| | |
+|:--|--:|
+| **Faktúra** | {{ $invoiceNumber }} |
+@if($issueDate)
+| **Vystavená** | {{ $issueDate }} |
+@endif
+@if($dueDate)
+| **Splatnosť** | {{ $dueDate }} |
+@endif
+@if($totalFormatted)
+| **Celkom** | **{{ $totalFormatted }}** |
+@endif
+</x-mail::table>
+@endif
+
+<x-mail::panel>
+PDF faktúra je priložená k tomuto emailu.
+</x-mail::panel>
 
 S pozdravom,<br>
-{{ config('app.name') }}
+{{ $sellerName ?? config('app.name') }}
 </x-mail::message>

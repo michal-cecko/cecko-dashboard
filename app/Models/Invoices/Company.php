@@ -14,6 +14,11 @@ class Company extends Model
     /** @use HasFactory<CompanyFactory> */
     use HasFactory;
 
+    protected static function newFactory(): CompanyFactory
+    {
+        return CompanyFactory::new();
+    }
+
     protected $fillable = [
         'user_id',
         'name',

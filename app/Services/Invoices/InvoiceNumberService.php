@@ -47,6 +47,12 @@ class InvoiceNumberService
 
     public function previewNumber(InvoiceNumberSequence $sequence): string
     {
-        return $this->formatNumber($sequence->format, $sequence->next_number, $sequence->padding);
+        $nextNumber = $sequence->next_number;
+
+        if ($sequence->reset_yearly && $sequence->last_reset_year !== (int) now()->format('Y')) {
+            $nextNumber = 1;
+        }
+
+        return $this->formatNumber($sequence->format, $nextNumber, $sequence->padding);
     }
 }

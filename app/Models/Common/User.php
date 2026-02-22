@@ -23,6 +23,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
+
     protected $fillable = [
         'name',
         'email',
