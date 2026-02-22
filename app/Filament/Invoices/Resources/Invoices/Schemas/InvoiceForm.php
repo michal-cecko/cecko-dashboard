@@ -62,6 +62,13 @@ class InvoiceForm
                         TextInput::make('invoice_number')
                             ->label('Číslo faktúry')
                             ->required()
+                            ->default(function () {
+                                $sequence = InvoiceNumberSequence::query()->where('is_default', true)->first();
+
+                                return $sequence
+                                    ? app(InvoiceNumberService::class)->previewNumber($sequence)
+                                    : '';
+                            })
                             ->helperText('Náhľad ďalšieho čísla — vygenerované pri uložení')
                             ->maxLength(100),
 
