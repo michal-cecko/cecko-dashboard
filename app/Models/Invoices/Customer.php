@@ -14,6 +14,11 @@ class Customer extends Model
     /** @use HasFactory<CustomerFactory> */
     use BelongsToActiveCompany, HasFactory;
 
+    protected static function newFactory(): CustomerFactory
+    {
+        return CustomerFactory::new();
+    }
+
     protected $fillable = [
         'company_id',
         'name',

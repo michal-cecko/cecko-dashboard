@@ -17,6 +17,11 @@ class Invoice extends Model
     /** @use HasFactory<InvoiceFactory> */
     use BelongsToActiveCompany, HasFactory, SoftDeletes;
 
+    protected static function newFactory(): InvoiceFactory
+    {
+        return InvoiceFactory::new();
+    }
+
     protected $fillable = [
         'company_id',
         'customer_id',

@@ -22,7 +22,6 @@ class InvoiceItemFactory extends Factory
 
         return [
             'invoice_id' => Invoice::factory(),
-            'description' => fake()->sentence(),
             'quantity' => $quantity,
             'unit' => fake()->randomElement(['ks', 'hod', 'mes']),
             'unit_price' => $unitPrice,

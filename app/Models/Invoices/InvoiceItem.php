@@ -14,6 +14,11 @@ class InvoiceItem extends Model
     /** @use HasFactory<InvoiceItemFactory> */
     use HasFactory, HasTranslations;
 
+    protected static function newFactory(): InvoiceItemFactory
+    {
+        return InvoiceItemFactory::new();
+    }
+
     protected $fillable = [
         'invoice_id',
         'service_catalog_item_id',
