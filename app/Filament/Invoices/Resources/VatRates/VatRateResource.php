@@ -4,7 +4,7 @@ namespace App\Filament\Invoices\Resources\VatRates;
 
 use App\Filament\Invoices\Resources\VatRates\Pages\ListVatRates;
 use App\Filament\Invoices\Resources\VatRates\Tables\VatRatesTable;
-use App\Models\VatRate;
+use App\Models\Invoices\VatRate;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;

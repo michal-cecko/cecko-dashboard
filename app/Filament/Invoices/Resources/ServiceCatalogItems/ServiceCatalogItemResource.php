@@ -7,7 +7,7 @@ use App\Filament\Invoices\Resources\ServiceCatalogItems\Pages\EditServiceCatalog
 use App\Filament\Invoices\Resources\ServiceCatalogItems\Pages\ListServiceCatalogItems;
 use App\Filament\Invoices\Resources\ServiceCatalogItems\Schemas\ServiceCatalogItemForm;
 use App\Filament\Invoices\Resources\ServiceCatalogItems\Tables\ServiceCatalogItemsTable;
-use App\Models\ServiceCatalogItem;
+use App\Models\Invoices\ServiceCatalogItem;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

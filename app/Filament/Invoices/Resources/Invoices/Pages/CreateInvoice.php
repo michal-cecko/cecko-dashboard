@@ -3,10 +3,10 @@
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
-use App\Models\InvoiceNumberSequence;
-use App\Services\InvoiceCalculationService;
-use App\Services\InvoiceNumberService;
-use App\Services\InvoicePdfService;
+use App\Models\Invoices\InvoiceNumberSequence;
+use App\Services\Invoices\InvoiceCalculationService;
+use App\Services\Invoices\InvoiceNumberService;
+use App\Services\Invoices\InvoicePdfService;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateInvoice extends CreateRecord
@@ -30,7 +30,7 @@ class CreateInvoice extends CreateRecord
             $data['seller_snapshot'] = $pdfService->buildSellerSnapshot($company);
 
             if (! empty($data['customer_id'])) {
-                $customer = \App\Models\Customer::find($data['customer_id']);
+                $customer = \App\Models\Invoices\Customer::find($data['customer_id']);
                 if ($customer) {
                     $data['buyer_snapshot'] = $pdfService->buildBuyerSnapshot($customer);
                 }

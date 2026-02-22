@@ -2,7 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Customers\Schemas;
 
-use App\Enums\CountryEnum;
+use App\Enums\Common\CountryEnum;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;

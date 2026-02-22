@@ -2,7 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Companies\RelationManagers;
 
-use App\Services\InvoiceNumberService;
+use App\Services\Invoices\InvoiceNumberService;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;

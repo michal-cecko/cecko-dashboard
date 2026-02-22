@@ -9,7 +9,7 @@ use App\Filament\Songs\Resources\Songs\Pages\ViewSong;
 use App\Filament\Songs\Resources\Songs\Schemas\SongForm;
 use App\Filament\Songs\Resources\Songs\Schemas\SongInfolist;
 use App\Filament\Songs\Resources\Songs\Tables\SongsTable;
-use App\Models\Song;
+use App\Models\Songs\Song;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

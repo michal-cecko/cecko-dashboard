@@ -2,7 +2,7 @@
 
 namespace App\Filament\Common\Resources\MobileApps\Schemas;
 
-use App\Enums\UserCapabilityEnum;
+use App\Enums\Common\UserCapabilityEnum;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;

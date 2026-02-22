@@ -2,17 +2,17 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Schemas;
 
-use App\Enums\CurrencyEnum;
-use App\Enums\InvoiceStatusEnum;
-use App\Enums\LocaleEnum;
-use App\Enums\PaymentMethodEnum;
-use App\Enums\VatTypeEnum;
-use App\Models\Customer;
-use App\Models\InvoiceNumberSequence;
-use App\Models\ServiceCatalogItem;
-use App\Models\VatRate;
-use App\Services\ExchangeRateService;
-use App\Services\InvoiceNumberService;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Common\LocaleEnum;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
+use App\Enums\Invoices\VatTypeEnum;
+use App\Models\Invoices\Customer;
+use App\Models\Invoices\InvoiceNumberSequence;
+use App\Models\Invoices\ServiceCatalogItem;
+use App\Models\Invoices\VatRate;
+use App\Services\Invoices\ExchangeRateService;
+use App\Services\Invoices\InvoiceNumberService;
 use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Placeholder;
@@ -385,7 +385,7 @@ class InvoiceForm
 
         foreach ($items as $item) {
             $vatType = $item['vat_type'] ?? 'standard';
-            if ($vatType === 'standard' || $vatType === \App\Enums\VatTypeEnum::STANDARD->value) {
+            if ($vatType === 'standard' || $vatType === \App\Enums\Invoices\VatTypeEnum::STANDARD->value) {
                 $lineSubtotal = (float) ($item['quantity'] ?? 0) * (float) ($item['unit_price'] ?? 0);
                 $vatRate = (float) ($item['vat_rate_value'] ?? 0);
                 $vatTotal += $lineSubtotal * ($vatRate / 100);

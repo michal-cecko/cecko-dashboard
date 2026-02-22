@@ -2,14 +2,14 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Tables;
 
-use App\Enums\CurrencyEnum;
-use App\Enums\InvoiceStatusEnum;
-use App\Enums\LocaleEnum;
-use App\Enums\PaymentMethodEnum;
-use App\Models\Customer;
-use App\Models\InvoicePayment;
-use App\Services\InvoiceEmailService;
-use App\Services\InvoicePdfService;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Common\LocaleEnum;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
+use App\Models\Invoices\Customer;
+use App\Models\Invoices\InvoicePayment;
+use App\Services\Invoices\InvoiceEmailService;
+use App\Services\Invoices\InvoicePdfService;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkAction;
@@ -97,7 +97,7 @@ class InvoicesTable
                     ->formatStateUsing(fn ($state) => CurrencyEnum::tryFrom(auth()->user()->activeCompany?->default_currency ?? 'EUR')?->formatted($state) ?? $state)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
-                    ->visible(fn ($livewire): bool => \App\Models\Invoice::query()
+                    ->visible(fn ($livewire): bool => \App\Models\Invoices\Invoice::query()
                         ->whereNotNull('exchange_rate')
                         ->where('currency', '!=', auth()->user()->activeCompany?->default_currency ?? 'EUR')
                         ->exists()),

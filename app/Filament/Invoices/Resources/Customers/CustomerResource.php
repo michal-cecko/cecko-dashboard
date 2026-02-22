@@ -7,7 +7,7 @@ use App\Filament\Invoices\Resources\Customers\Pages\EditCustomer;
 use App\Filament\Invoices\Resources\Customers\Pages\ListCustomers;
 use App\Filament\Invoices\Resources\Customers\Schemas\CustomerForm;
 use App\Filament\Invoices\Resources\Customers\Tables\CustomersTable;
-use App\Models\Customer;
+use App\Models\Invoices\Customer;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

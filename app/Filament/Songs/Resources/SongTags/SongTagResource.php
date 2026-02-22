@@ -7,7 +7,7 @@ use App\Filament\Songs\Resources\SongTags\Pages\EditSongTag;
 use App\Filament\Songs\Resources\SongTags\Pages\ListSongTags;
 use App\Filament\Songs\Resources\SongTags\Schemas\SongTagForm;
 use App\Filament\Songs\Resources\SongTags\Tables\SongTagsTable;
-use App\Models\SongTag;
+use App\Models\Songs\SongTag;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

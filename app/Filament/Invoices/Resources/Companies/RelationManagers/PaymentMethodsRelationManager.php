@@ -2,8 +2,8 @@
 
 namespace App\Filament\Invoices\Resources\Companies\RelationManagers;
 
-use App\Enums\LocaleEnum;
-use App\Enums\PaymentMethodEnum;
+use App\Enums\Common\LocaleEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;

@@ -2,15 +2,15 @@
 
 namespace App\Console\Commands;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Models\Company;
-use App\Models\Customer;
-use App\Models\Invoice;
-use App\Models\InvoiceItem;
-use App\Models\InvoiceItemTranslation;
-use App\Models\InvoiceNumberSequence;
-use App\Models\InvoicePayment;
-use App\Services\InvoicePdfService;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Models\Invoices\Company;
+use App\Models\Invoices\Customer;
+use App\Models\Invoices\Invoice;
+use App\Models\Invoices\InvoiceItem;
+use App\Models\Invoices\InvoiceItemTranslation;
+use App\Models\Invoices\InvoiceNumberSequence;
+use App\Models\Invoices\InvoicePayment;
+use App\Services\Invoices\InvoicePdfService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -206,7 +206,7 @@ class ImportInvoicesCommand extends Command
     {
         $descriptions = match ($customer->business_number) {
             '06816967' => [ // Fickerová
-                'cs' => [
+                'cz' => [
                     'Správa obsahu na webu www.friendlyfyzio.cz',
                     'Implementace nové funkcie na webu www.friendlyfyzio.cz',
                 ],
@@ -234,7 +234,7 @@ class ImportInvoicesCommand extends Command
             'quantity' => 1,
             'unit' => 'ks',
             'unit_price' => $invoice->total,
-            'vat_type' => \App\Enums\VatTypeEnum::ZERO_RATE,
+            'vat_type' => \App\Enums\Invoices\VatTypeEnum::ZERO_RATE,
             'vat_rate_value' => 0,
             'sort_order' => 1,
         ]);

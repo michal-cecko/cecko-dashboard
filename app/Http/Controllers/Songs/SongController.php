@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Songs;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SongResource;
-use App\Models\Song;
-use Illuminate\Http\Request;
+use App\Models\Songs\Song;
 
 class SongController extends Controller
 {

@@ -4,7 +4,7 @@
     $total = (float) $record->total;
     $remaining = $record->remainingAmount();
     $percentage = $record->paymentPercentage();
-    $currency = \App\Enums\CurrencyEnum::tryFrom($record->currency)?->symbol() ?? $record->currency;
+    $currency = \App\Enums\Common\CurrencyEnum::tryFrom($record->currency)?->symbol() ?? $record->currency;
 @endphp
 
 <div class="w-full">
@@ -18,8 +18,8 @@
     </div>
     <div class="w-full h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
         <div
-            class="h-full rounded-full transition-all duration-300 {{ $percentage >= 100 ? 'bg-success-500' : ($percentage > 0 ? 'bg-warning-500' : 'bg-gray-300 dark:bg-gray-600') }}"
-            style="width: {{ $percentage }}%"
+                class="h-full rounded-full transition-all duration-300 {{ $percentage >= 100 ? 'bg-success-500' : ($percentage > 0 ? 'bg-warning-500' : 'bg-gray-300 dark:bg-gray-600') }}"
+                style="width: {{ $percentage }}%"
         ></div>
     </div>
 </div>

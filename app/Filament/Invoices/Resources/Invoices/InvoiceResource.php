@@ -9,7 +9,7 @@ use App\Filament\Invoices\Resources\Invoices\Pages\ViewInvoice;
 use App\Filament\Invoices\Resources\Invoices\RelationManagers\PaymentsRelationManager;
 use App\Filament\Invoices\Resources\Invoices\Schemas\InvoiceForm;
 use App\Filament\Invoices\Resources\Invoices\Tables\InvoicesTable;
-use App\Models\Invoice;
+use App\Models\Invoices\Invoice;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

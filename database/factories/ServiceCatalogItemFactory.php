@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Company;
-use App\Models\ServiceCatalogItem;
+use App\Models\Invoices\Company;
+use App\Models\Invoices\ServiceCatalogItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /** @extends Factory<ServiceCatalogItem> */

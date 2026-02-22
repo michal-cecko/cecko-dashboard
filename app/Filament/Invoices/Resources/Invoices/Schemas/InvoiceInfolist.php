@@ -2,8 +2,8 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Schemas;
 
-use App\Enums\CurrencyEnum;
-use App\Enums\InvoiceStatusEnum;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Invoices\InvoiceStatusEnum;
 use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ViewEntry;

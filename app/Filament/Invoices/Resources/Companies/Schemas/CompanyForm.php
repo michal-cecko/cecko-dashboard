@@ -2,10 +2,10 @@
 
 namespace App\Filament\Invoices\Resources\Companies\Schemas;
 
-use App\Enums\CountryEnum;
-use App\Enums\CurrencyEnum;
-use App\Enums\InvoiceThemeEnum;
-use App\Enums\LocaleEnum;
+use App\Enums\Common\CountryEnum;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Common\LocaleEnum;
+use App\Enums\Invoices\InvoiceThemeEnum;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
