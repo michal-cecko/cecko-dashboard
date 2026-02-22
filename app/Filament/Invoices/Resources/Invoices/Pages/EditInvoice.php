@@ -3,7 +3,7 @@
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
-use App\Services\InvoiceCalculationService;
+use App\Services\Invoices\InvoiceCalculationService;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Contracts\Support\Htmlable;

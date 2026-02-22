@@ -2,11 +2,11 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
-use App\Enums\LocaleEnum;
+use App\Enums\Common\LocaleEnum;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use App\Filament\Invoices\Resources\Invoices\Schemas\InvoiceInfolist;
-use App\Services\InvoiceEmailService;
-use App\Services\InvoicePdfService;
+use App\Services\Invoices\InvoiceEmailService;
+use App\Services\Invoices\InvoicePdfService;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;

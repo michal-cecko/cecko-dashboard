@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Models\Company;
-use App\Models\Customer;
-use App\Models\Invoice;
-use App\Models\InvoiceNumberSequence;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Models\Invoices\Company;
+use App\Models\Invoices\Customer;
+use App\Models\Invoices\Invoice;
+use App\Models\Invoices\InvoiceNumberSequence;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /** @extends Factory<Invoice> */

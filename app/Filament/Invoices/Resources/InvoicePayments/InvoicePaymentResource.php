@@ -4,7 +4,7 @@ namespace App\Filament\Invoices\Resources\InvoicePayments;
 
 use App\Filament\Invoices\Resources\InvoicePayments\Pages\ListInvoicePayments;
 use App\Filament\Invoices\Resources\InvoicePayments\Tables\InvoicePaymentsTable;
-use App\Models\InvoicePayment;
+use App\Models\Invoices\InvoicePayment;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;

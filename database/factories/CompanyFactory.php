@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Company;
-use App\Models\User;
+use App\Models\Common\User;
+use App\Models\Invoices\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /** @extends Factory<Company> */

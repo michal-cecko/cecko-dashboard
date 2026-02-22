@@ -2,7 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\ServiceCatalogItems\Tables;
 
-use App\Enums\CurrencyEnum;
+use App\Enums\Common\CurrencyEnum;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Common\Resources\Users\Schemas;
 
-use App\Enums\UserCapabilityEnum;
+use App\Enums\Common\UserCapabilityEnum;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;

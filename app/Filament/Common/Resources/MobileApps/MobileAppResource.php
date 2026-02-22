@@ -10,7 +10,7 @@ use App\Filament\Common\Resources\MobileApps\RelationManagers\VersionsRelationMa
 use App\Filament\Common\Resources\MobileApps\Schemas\MobileAppForm;
 use App\Filament\Common\Resources\MobileApps\Schemas\MobileAppInfolist;
 use App\Filament\Common\Resources\MobileApps\Tables\MobileAppsTable;
-use App\Models\MobileApp;
+use App\Models\Common\MobileApp;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

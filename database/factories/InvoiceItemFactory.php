@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Enums\VatTypeEnum;
-use App\Models\Invoice;
-use App\Models\InvoiceItem;
+use App\Enums\Invoices\VatTypeEnum;
+use App\Models\Invoices\Invoice;
+use App\Models\Invoices\InvoiceItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /** @extends Factory<InvoiceItem> */

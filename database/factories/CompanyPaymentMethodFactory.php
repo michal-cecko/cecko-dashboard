@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Enums\PaymentMethodEnum;
-use App\Models\Company;
-use App\Models\CompanyPaymentMethod;
+use App\Enums\Invoices\PaymentMethodEnum;
+use App\Models\Invoices\Company;
+use App\Models\Invoices\CompanyPaymentMethod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /** @extends Factory<CompanyPaymentMethod> */

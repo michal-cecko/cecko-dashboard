@@ -1,15 +1,15 @@
 <?php
 
-use App\Enums\CountryEnum;
-use App\Enums\CurrencyEnum;
-use App\Enums\InvoiceItemVariableEnum;
-use App\Enums\InvoiceNumberVariableEnum;
-use App\Enums\InvoiceStatusEnum;
-use App\Enums\InvoiceThemeEnum;
-use App\Enums\LocaleEnum;
-use App\Enums\PaymentMethodEnum;
-use App\Enums\UserCapabilityEnum;
-use App\Enums\VatTypeEnum;
+use App\Enums\Common\CountryEnum;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Common\LocaleEnum;
+use App\Enums\Common\UserCapabilityEnum;
+use App\Enums\Invoices\InvoiceItemVariableEnum;
+use App\Enums\Invoices\InvoiceNumberVariableEnum;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Enums\Invoices\InvoiceThemeEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
+use App\Enums\Invoices\VatTypeEnum;
 
 return [
     CountryEnum::class => [
@@ -75,7 +75,7 @@ return [
 
     LocaleEnum::class => [
         LocaleEnum::SK->value => 'Slovenčina',
-        LocaleEnum::CS->value => 'Čeština',
+        LocaleEnum::CZ->value => 'Čeština',
         LocaleEnum::EN->value => 'Angličtina',
     ],
 

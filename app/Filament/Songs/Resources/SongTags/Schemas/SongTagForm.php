@@ -2,7 +2,7 @@
 
 namespace App\Filament\Songs\Resources\SongTags\Schemas;
 
-use App\Models\SongTag;
+use App\Models\Songs\SongTag;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;

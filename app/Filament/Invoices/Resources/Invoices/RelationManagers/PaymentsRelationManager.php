@@ -2,9 +2,9 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\RelationManagers;
 
-use App\Enums\CurrencyEnum;
-use App\Enums\InvoiceStatusEnum;
-use App\Enums\PaymentMethodEnum;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;

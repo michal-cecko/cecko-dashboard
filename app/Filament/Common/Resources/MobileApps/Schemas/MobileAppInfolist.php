@@ -2,7 +2,7 @@
 
 namespace App\Filament\Common\Resources\MobileApps\Schemas;
 
-use App\Enums\UserCapabilityEnum;
+use App\Enums\Common\UserCapabilityEnum;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;

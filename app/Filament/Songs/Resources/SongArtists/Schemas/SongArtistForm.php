@@ -2,7 +2,7 @@
 
 namespace App\Filament\Songs\Resources\SongArtists\Schemas;
 
-use App\Models\SongArtist;
+use App\Models\Songs\SongArtist;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 

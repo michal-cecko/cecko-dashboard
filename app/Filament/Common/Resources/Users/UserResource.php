@@ -7,7 +7,7 @@ use App\Filament\Common\Resources\Users\Pages\EditUser;
 use App\Filament\Common\Resources\Users\Pages\ListUsers;
 use App\Filament\Common\Resources\Users\Schemas\UserForm;
 use App\Filament\Common\Resources\Users\Tables\UsersTable;
-use App\Models\User;
+use App\Models\Common\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

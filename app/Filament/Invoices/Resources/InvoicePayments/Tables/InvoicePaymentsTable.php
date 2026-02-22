@@ -2,8 +2,8 @@
 
 namespace App\Filament\Invoices\Resources\InvoicePayments\Tables;
 
-use App\Enums\CurrencyEnum;
-use App\Enums\PaymentMethodEnum;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;

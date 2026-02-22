@@ -2,9 +2,9 @@
 
 namespace App\Filament\Invoices\Resources\ServiceCatalogItems\Schemas;
 
-use App\Enums\CurrencyEnum;
-use App\Enums\LocaleEnum;
-use App\Models\VatRate;
+use App\Enums\Common\CurrencyEnum;
+use App\Enums\Common\LocaleEnum;
+use App\Models\Invoices\VatRate;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;

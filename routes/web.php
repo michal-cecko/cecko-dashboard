@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Invoice;
-use App\Services\InvoicePdfService;
+use App\Models\Invoices\Invoice;
+use App\Services\Invoices\InvoicePdfService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Invoices\Widgets;
 
-use App\Models\InvoicePayment;
+use App\Models\Invoices\InvoicePayment;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 

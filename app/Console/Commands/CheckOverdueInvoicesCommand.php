@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Models\Invoice;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Models\Invoices\Invoice;
 use Illuminate\Console\Command;
 
 class CheckOverdueInvoicesCommand extends Command

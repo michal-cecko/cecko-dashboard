@@ -4,7 +4,7 @@ namespace App\Filament\Songs\Resources\Songs\Schemas;
 
 use App\Filament\Songs\Resources\SongArtists\Schemas\SongArtistForm;
 use App\Filament\Songs\Resources\SongTags\Schemas\SongTagForm;
-use App\Models\Song;
+use App\Models\Songs\Song;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;

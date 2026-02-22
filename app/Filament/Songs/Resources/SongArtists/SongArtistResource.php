@@ -8,7 +8,7 @@ use App\Filament\Songs\Resources\SongArtists\Pages\ListSongArtists;
 use App\Filament\Songs\Resources\SongArtists\Pages\ViewSongArtist;
 use App\Filament\Songs\Resources\SongArtists\Schemas\SongArtistForm;
 use App\Filament\Songs\Resources\SongArtists\Tables\SongArtistsTable;
-use App\Models\SongArtist;
+use App\Models\Songs\SongArtist;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;

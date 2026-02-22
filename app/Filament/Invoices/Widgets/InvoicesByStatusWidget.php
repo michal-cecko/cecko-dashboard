@@ -2,8 +2,8 @@
 
 namespace App\Filament\Invoices\Widgets;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Models\Invoice;
+use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Models\Invoices\Invoice;
 use Filament\Widgets\ChartWidget;
 
 class InvoicesByStatusWidget extends ChartWidget

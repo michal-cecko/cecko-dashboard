@@ -2,7 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Companies;
 
-use App\Enums\UserCapabilityEnum;
+use App\Enums\Common\UserCapabilityEnum;
 use App\Filament\Invoices\Resources\Companies\Pages\CreateCompany;
 use App\Filament\Invoices\Resources\Companies\Pages\EditCompany;
 use App\Filament\Invoices\Resources\Companies\Pages\ListCompanies;
@@ -10,7 +10,7 @@ use App\Filament\Invoices\Resources\Companies\RelationManagers\InvoiceNumberSequ
 use App\Filament\Invoices\Resources\Companies\RelationManagers\PaymentMethodsRelationManager;
 use App\Filament\Invoices\Resources\Companies\Schemas\CompanyForm;
 use App\Filament\Invoices\Resources\Companies\Tables\CompaniesTable;
-use App\Models\Company;
+use App\Models\Invoices\Company;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
