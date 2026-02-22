@@ -16,11 +16,12 @@ class MonthlyIncomeChartWidget extends ChartWidget
         $company = auth()->user()->activeCompany;
 
         $monthlyData = InvoicePayment::query()
-            ->whereHas('invoice', fn ($q) => $q->where('company_id', $company?->id))
-            ->whereYear('payment_date', $currentYear)
+            ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
+            ->where('invoices.company_id', $company?->id)
+            ->whereYear('invoice_payments.payment_date', $currentYear)
             ->select(
-                DB::raw('EXTRACT(MONTH FROM payment_date) as month'),
-                DB::raw('SUM(amount) as total')
+                DB::raw('EXTRACT(MONTH FROM invoice_payments.payment_date) as month'),
+                DB::raw('SUM(CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END) as total')
             )
             ->groupBy('month')
             ->orderBy('month')

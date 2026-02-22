@@ -2,6 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
+use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use App\Models\Invoices\InvoiceNumberSequence;
 use App\Services\Invoices\InvoiceCalculationService;
@@ -11,6 +12,8 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateInvoice extends CreateRecord
 {
+    use HasCompanyBreadcrumb;
+
     protected static string $resource = InvoiceResource::class;
 
     protected static ?string $title = 'Nová faktúra';

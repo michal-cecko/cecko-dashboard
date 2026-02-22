@@ -3,6 +3,7 @@
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
 use App\Enums\Common\LocaleEnum;
+use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use App\Filament\Invoices\Resources\Invoices\Schemas\InvoiceInfolist;
 use App\Services\Invoices\InvoiceEmailService;
@@ -20,6 +21,8 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class ViewInvoice extends ViewRecord
 {
+    use HasCompanyBreadcrumb;
+
     protected static string $resource = InvoiceResource::class;
 
     public function getTitle(): string|Htmlable

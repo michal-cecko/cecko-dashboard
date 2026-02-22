@@ -39,6 +39,7 @@ class InvoicesTable
     {
         return $table
             ->defaultSort('issue_date', 'desc')
+            ->defaultPaginationPageOption(25)
             ->columns([
                 TextColumn::make('invoice_number')
                     ->label('Číslo')

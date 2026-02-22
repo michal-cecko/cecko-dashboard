@@ -3,6 +3,7 @@
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
 use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
@@ -11,12 +12,15 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ListInvoices extends ListRecords
 {
+    use HasCompanyBreadcrumb;
+
     protected static string $resource = InvoiceResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->label('Nová faktúra'),
         ];
     }
 

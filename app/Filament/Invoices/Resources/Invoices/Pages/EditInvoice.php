@@ -2,6 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
+use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use App\Services\Invoices\InvoiceCalculationService;
 use Filament\Actions\DeleteAction;
@@ -10,6 +11,8 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class EditInvoice extends EditRecord
 {
+    use HasCompanyBreadcrumb;
+
     protected static string $resource = InvoiceResource::class;
 
     public function getTitle(): string|Htmlable
