@@ -21,8 +21,10 @@ class CreateInvoice extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $sequence = InvoiceNumberSequence::find($data['invoice_number_sequence_id']);
+        $autoNumber = $data['_invoice_number_auto'] ?? null;
+        unset($data['_invoice_number_auto']);
 
-        if ($sequence) {
+        if ($sequence && $autoNumber && $data['invoice_number'] === $autoNumber) {
             $data['invoice_number'] = app(InvoiceNumberService::class)->generateNextNumber($sequence);
         }
 

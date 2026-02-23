@@ -14,7 +14,9 @@ use App\Models\Invoices\VatRate;
 use App\Services\Invoices\ExchangeRateService;
 use App\Services\Invoices\InvoiceNumberService;
 use Carbon\Carbon;
+use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -34,6 +36,8 @@ class InvoiceForm
             ->components([
                 Section::make('Základné údaje')
                     ->schema([
+                        Hidden::make('_invoice_number_auto'),
+
                         Select::make('invoice_number_sequence_id')
                             ->label('Číselná rada')
                             ->options(fn () => InvoiceNumberSequence::query()->pluck('name', 'id'))
@@ -44,7 +48,9 @@ class InvoiceForm
                                 if ($state) {
                                     $sequence = InvoiceNumberSequence::find($state);
                                     if ($sequence) {
-                                        $set('invoice_number', app(InvoiceNumberService::class)->previewNumber($sequence));
+                                        $preview = app(InvoiceNumberService::class)->previewNumber($sequence);
+                                        $set('invoice_number', $preview);
+                                        $set('_invoice_number_auto', $preview);
                                     }
                                 }
                             })
@@ -52,23 +58,35 @@ class InvoiceForm
                                 if ($state) {
                                     $sequence = InvoiceNumberSequence::find($state);
                                     if ($sequence) {
-                                        $set('invoice_number', app(InvoiceNumberService::class)->previewNumber($sequence));
+                                        $preview = app(InvoiceNumberService::class)->previewNumber($sequence);
+                                        $set('invoice_number', $preview);
+                                        $set('_invoice_number_auto', $preview);
                                     }
                                 } else {
                                     $set('invoice_number', '');
+                                    $set('_invoice_number_auto', '');
                                 }
                             }),
 
                         TextInput::make('invoice_number')
                             ->label('Číslo faktúry')
                             ->required()
-                            ->default(function () {
-                                $sequence = InvoiceNumberSequence::query()->where('is_default', true)->first();
-
-                                return $sequence
-                                    ? app(InvoiceNumberService::class)->previewNumber($sequence)
-                                    : '';
-                            })
+                            ->hintAction(
+                                Action::make('refetchSequenceNumber')
+                                    ->label('Obnoviť číslo')
+                                    ->link()
+                                    ->action(function (Get $get, Set $set): void {
+                                        $sequenceId = $get('invoice_number_sequence_id');
+                                        if ($sequenceId) {
+                                            $sequence = InvoiceNumberSequence::find($sequenceId);
+                                            if ($sequence) {
+                                                $preview = app(InvoiceNumberService::class)->previewNumber($sequence);
+                                                $set('invoice_number', $preview);
+                                                $set('_invoice_number_auto', $preview);
+                                            }
+                                        }
+                                    })
+                            )
                             ->helperText('Náhľad ďalšieho čísla — vygenerované pri uložení')
                             ->maxLength(100),
 
