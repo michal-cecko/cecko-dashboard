@@ -9,6 +9,6 @@ enum LocaleEnum: string
     use EnumHelper;
 
     case SK = 'sk';
-    case CZ = 'cz';
+    case CZ = 'cs';
     case EN = 'en';
 }
