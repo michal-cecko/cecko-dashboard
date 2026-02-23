@@ -6,6 +6,7 @@ use App\Enums\Common\CurrencyEnum;
 use App\Mail\Invoices\InvoiceMail;
 use App\Models\Invoices\Invoice;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class InvoiceEmailService
 {
@@ -23,6 +24,11 @@ class InvoiceEmailService
 
         $sellerName = $invoice->seller_snapshot['name'] ?? $invoice->company?->name;
 
+        $logoPath = $invoice->company?->logo_path;
+        $logoUrl = $logoPath && Storage::disk('public')->exists($logoPath)
+            ? Storage::disk('public')->url($logoPath)
+            : null;
+
         Mail::to($email)->send(new InvoiceMail(
             emailSubject: $subject,
             emailBody: $body,
@@ -33,6 +39,7 @@ class InvoiceEmailService
             dueDate: $invoice->due_date?->format('d.m.Y'),
             totalFormatted: $totalFormatted,
             sellerName: $sellerName,
+            logoUrl: $logoUrl,
         ));
 
         if (! $invoice->sent_at) {
