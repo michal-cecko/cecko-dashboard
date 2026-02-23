@@ -36,7 +36,14 @@ class InvoiceForm
             ->components([
                 Section::make('Základné údaje')
                     ->schema([
-                        Hidden::make('_invoice_number_auto'),
+                        Hidden::make('_invoice_number_auto')
+                            ->default(function () {
+                                $sequence = InvoiceNumberSequence::query()->where('is_default', true)->first();
+
+                                return $sequence
+                                    ? app(InvoiceNumberService::class)->previewNumber($sequence)
+                                    : '';
+                            }),
 
                         Select::make('invoice_number_sequence_id')
                             ->label('Číselná rada')
@@ -71,6 +78,13 @@ class InvoiceForm
                         TextInput::make('invoice_number')
                             ->label('Číslo faktúry')
                             ->required()
+                            ->default(function () {
+                                $sequence = InvoiceNumberSequence::query()->where('is_default', true)->first();
+
+                                return $sequence
+                                    ? app(InvoiceNumberService::class)->previewNumber($sequence)
+                                    : '';
+                            })
                             ->hintAction(
                                 Action::make('refetchSequenceNumber')
                                     ->label('Obnoviť číslo')
