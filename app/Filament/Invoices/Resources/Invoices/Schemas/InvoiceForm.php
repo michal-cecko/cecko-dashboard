@@ -51,17 +51,11 @@ class InvoiceForm
                             ->required()
                             ->default(fn () => InvoiceNumberSequence::query()->where('is_default', true)->value('id'))
                             ->live()
-                            ->afterStateHydrated(function ($state, Set $set): void {
-                                if ($state) {
-                                    $sequence = InvoiceNumberSequence::find($state);
-                                    if ($sequence) {
-                                        $preview = app(InvoiceNumberService::class)->previewNumber($sequence);
-                                        $set('invoice_number', $preview);
-                                        $set('_invoice_number_auto', $preview);
-                                    }
+                            ->afterStateUpdated(function ($state, Set $set, $record): void {
+                                if ($record) {
+                                    return;
                                 }
-                            })
-                            ->afterStateUpdated(function ($state, Set $set): void {
+
                                 if ($state) {
                                     $sequence = InvoiceNumberSequence::find($state);
                                     if ($sequence) {
