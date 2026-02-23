@@ -4,6 +4,7 @@ namespace App\Mail\Invoices;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -23,11 +24,13 @@ class InvoiceMail extends Mailable
         public ?string $dueDate = null,
         public ?string $totalFormatted = null,
         public ?string $sellerName = null,
+        public ?string $logoUrl = null,
     ) {}
 
     public function envelope(): Envelope
     {
         return new Envelope(
+            from: new Address(config('mail.from.address'), $this->sellerName ?? config('mail.from.name')),
             subject: $this->emailSubject,
         );
     }
@@ -43,6 +46,7 @@ class InvoiceMail extends Mailable
                 'dueDate' => $this->dueDate,
                 'totalFormatted' => $this->totalFormatted,
                 'sellerName' => $this->sellerName,
+                'logoUrl' => $this->logoUrl,
             ],
         );
     }
