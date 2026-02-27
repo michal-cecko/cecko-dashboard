@@ -30,6 +30,7 @@ class InvoicesPanelProvider extends PanelProvider
             ->path('faktury')
             ->brandName('Faktúry')
             ->login()
+            ->spa()
             ->colors([
                 'primary' => Color::Emerald,
             ])
