@@ -31,6 +31,8 @@ class InvoicesPanelProvider extends PanelProvider
             ->brandName('Faktúry')
             ->login()
             ->spa()
+            ->unsavedChangesAlerts()
+            ->databaseTransactions()
             ->colors([
                 'primary' => Color::Emerald,
             ])
