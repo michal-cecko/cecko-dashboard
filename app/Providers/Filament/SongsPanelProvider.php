@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\AvatarProviders\BoringAvatarProvider;
 use App\Filament\Common\Resources\MobileApps\MobileAppResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use App\Filament\Songs\Resources\Songs\SongResource;
