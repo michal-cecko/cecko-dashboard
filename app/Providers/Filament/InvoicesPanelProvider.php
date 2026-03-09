@@ -33,13 +33,12 @@ class InvoicesPanelProvider extends PanelProvider
             ->spa()
             ->unsavedChangesAlerts()
             ->databaseTransactions()
-            ->colors([
-                'primary' => Color::Emerald,
-            ])
-            ->databaseTransactions()
             ->profile()
             ->passwordReset()
             ->sidebarCollapsibleOnDesktop()
+            ->colors([
+                'primary' => Color::Emerald,
+            ])
             ->navigationGroups([
                 NavigationGroup::make('Faktúry'),
                 NavigationGroup::make('Nastavenia'),
