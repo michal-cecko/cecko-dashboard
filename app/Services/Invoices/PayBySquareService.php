@@ -6,7 +6,6 @@ use App\Models\Invoices\Invoice;
 use Endroid\QrCode\Builder\Builder;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel;
-use Trinetus\PayBySquareGenerator\PayBySquareGenerator;
 
 class PayBySquareService
 {
@@ -42,20 +41,53 @@ class PayBySquareService
             return null;
         }
 
-        $generator = new PayBySquareGenerator;
-        $generator->setAmount((float) $invoice->total)
-            ->setCurrency($invoice->currency)
-            ->setDate($invoice->due_date->toDateTime())
-            ->setVariableSymbol(preg_replace('/\D/', '', $invoice->invoice_number))
-            ->setIban(str_replace(' ', '', $iban))
-            ->setBeneficaryName($seller['name'] ?? $invoice->company->name ?? '');
+        $iban = str_replace(' ', '', $iban);
+        $amount = (float) $invoice->total;
+        $currency = $invoice->currency;
+        $variableSymbol = preg_replace('/\D/', '', $invoice->invoice_number);
+        $recipientName = $seller['name'] ?? $invoice->company->name ?? '';
+        $dueDate = $invoice->due_date?->format('Ymd') ?? '';
+        $swift = $seller['bank_swift'] ?? $invoice->company->bank_swift ?? '';
 
-        $swift = $seller['bank_swift'] ?? $invoice->company->bank_swift ?? null;
-        if ($swift) {
-            $generator->setBic($swift);
+        // Pay by Square tab-separated data format
+        $data = implode("\t", [
+            '',              // Invoice ID
+            '1',             // Payments count
+            '1',             // Payment type (regular)
+            $amount,         // Amount
+            $currency,       // Currency
+            $dueDate,        // Due date
+            $variableSymbol, // Variable symbol
+            '',              // Constant symbol
+            '',              // Specific symbol
+            '',              // Note
+            '1',             // Bank accounts count
+            $iban,           // IBAN
+            $swift,          // BIC/SWIFT
+            '0',             // Standing order
+            '0',             // Direct debit
+            $recipientName,  // Beneficiary name
+            '',              // Beneficiary address 1
+            '',              // Beneficiary address 2
+        ]);
+
+        // CRC32 checksum prepended to data
+        $crc = strrev(hash('crc32b', $data, true));
+        $dataWithCrc = $crc.$data;
+
+        // LZMA1 compression via system xz
+        $compressed = $this->lzmaCompress($dataWithCrc);
+        if ($compressed === null) {
+            return null;
         }
 
-        return $this->buildQrPng($generator->getOutput());
+        // Header: 2 zero bytes + 2 bytes data length (little-endian) + compressed data
+        $payload = "\x00\x00".pack('v', strlen($dataWithCrc)).$compressed;
+
+        // Convert to base32-like encoding per Pay by Square spec
+        $qrData = $this->binaryToBase32($payload);
+
+        return $this->buildQrPng($qrData);
     }
 
     /**
@@ -134,5 +166,64 @@ class PayBySquareService
         ))->build();
 
         return base64_encode($result->getString());
+    }
+
+    /**
+     * LZMA1 compression using system xz binary (required for Pay by Square).
+     */
+    private function lzmaCompress(string $data): ?string
+    {
+        $process = proc_open(
+            "/usr/bin/xz '--format=raw' '--lzma1=lc=3,lp=0,pb=2,dict=128KiB' '-c' '-'",
+            [
+                0 => ['pipe', 'r'],
+                1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
+            ],
+            $pipes,
+        );
+
+        if (! is_resource($process)) {
+            return null;
+        }
+
+        fwrite($pipes[0], $data);
+        fclose($pipes[0]);
+
+        $compressed = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+
+        $exitCode = proc_close($process);
+
+        return $exitCode === 0 ? $compressed : null;
+    }
+
+    /**
+     * Convert binary data to base32-like encoding per Pay by Square specification.
+     */
+    private function binaryToBase32(string $data): string
+    {
+        $hex = bin2hex($data);
+        $binary = '';
+
+        for ($i = 0, $len = strlen($hex); $i < $len; $i++) {
+            $binary .= str_pad(base_convert($hex[$i], 16, 2), 4, '0', STR_PAD_LEFT);
+        }
+
+        // Pad to multiple of 5 bits
+        $remainder = strlen($binary) % 5;
+        if ($remainder > 0) {
+            $binary .= str_repeat('0', 5 - $remainder);
+        }
+
+        $chars = '0123456789ABCDEFGHIJKLMNOPQRSTUV';
+        $result = '';
+
+        for ($i = 0, $len = strlen($binary) / 5; $i < $len; $i++) {
+            $result .= $chars[bindec(substr($binary, $i * 5, 5))];
+        }
+
+        return $result;
     }
 }
