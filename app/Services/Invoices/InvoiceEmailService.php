@@ -42,8 +42,6 @@ class InvoiceEmailService
             logoUrl: $logoUrl,
         ));
 
-        if (! $invoice->sent_at) {
-            $invoice->update(['sent_at' => now()]);
-        }
+        $invoice->update(['sent_at' => now()]);
     }
 }

@@ -81,7 +81,11 @@ class InvoiceInfolist
                         TextEntry::make('delivery_date')
                             ->label('Dátum dodania')
                             ->date('d.m.Y'),
-                    ])->columns(3),
+                        TextEntry::make('sent_at')
+                            ->label('Odoslaná')
+                            ->dateTime('d.m.Y H:i')
+                            ->placeholder('Neodoslaná'),
+                    ])->columns(4),
 
                 Section::make('Položky')
                     ->schema([

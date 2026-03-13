@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f166656c98efef24f6a61c55ab36bf5",
+    "content-hash": "1799100834547fb6725679d1e2eb812a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -8140,52 +8140,6 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.4.0"
             },
             "time": "2025-12-02T11:56:42+00:00"
-        },
-        {
-            "name": "trinetus/pay-by-square-generator",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@gitlab.com:trinetus/pay-by-square-generator.git",
-                "reference": "802b41c9f37fe0d014459b01cb19fafd8021fc4f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/trinetus%2Fpay-by-square-generator/repository/archive.zip?sha=802b41c9f37fe0d014459b01cb19fafd8021fc4f",
-                "reference": "802b41c9f37fe0d014459b01cb19fafd8021fc4f",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4|^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Trinetus\\PayBySquareGenerator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ján Fečík",
-                    "email": "jan@fecik.sk"
-                },
-                {
-                    "name": "Ján Šmatlík",
-                    "email": "jan@trinetus.com"
-                }
-            ],
-            "description": "PHP implementation of Pay By Square generator based on code of Jan Fecik.",
-            "keywords": [
-                "generator",
-                "pay by square",
-                "qrcode",
-                "slovak"
-            ],
-            "time": "2022-10-24T17:55:04+00:00"
         },
         {
             "name": "ueberdosis/tiptap-php",
