@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\ApiMiddleware;
+use App\Http\Middleware\NoIndexHeaders;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -17,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
             ApiMiddleware::class,
         ]);
         $middleware->trustProxies(at: '*');
+        $middleware->web(append: [
+            NoIndexHeaders::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
