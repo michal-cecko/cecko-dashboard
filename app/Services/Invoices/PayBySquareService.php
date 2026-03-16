@@ -46,17 +46,18 @@ class PayBySquareService
         $currency = $invoice->currency;
         $variableSymbol = preg_replace('/\D/', '', $invoice->invoice_number);
         $recipientName = $seller['name'] ?? $invoice->company->name ?? '';
-        $dueDate = $invoice->due_date?->format('Ymd') ?? '';
         $swift = $seller['bank_swift'] ?? $invoice->company->bank_swift ?? '';
 
         // Pay by Square tab-separated data format
+        // Note: due_date is intentionally omitted — including it causes banks
+        // to schedule the payment for that date instead of paying immediately.
         $data = implode("\t", [
             '',              // Invoice ID
             '1',             // Payments count
             '1',             // Payment type (regular)
             $amount,         // Amount
             $currency,       // Currency
-            $dueDate,        // Due date
+            '',              // Due date (empty — pay immediately)
             $variableSymbol, // Variable symbol
             '',              // Constant symbol
             '',              // Specific symbol
@@ -118,9 +119,8 @@ class PayBySquareService
             $parts[] = 'X-VS:'.$variableSymbol;
         }
 
-        if ($invoice->due_date) {
-            $parts[] = 'DT:'.$invoice->due_date->format('Ymd');
-        }
+        // Note: DT (due date) is intentionally omitted — including it causes banks
+        // to schedule the payment for that date instead of paying immediately.
 
         $recipientName = $seller['name'] ?? $invoice->company->name ?? '';
         if ($recipientName) {
