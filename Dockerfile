@@ -1,48 +1,83 @@
-# Use PHP 8.4 CLI with Alpine
-FROM php:8.4-cli-alpine
+# ---- Build stage: install dependencies and compile assets ----
+FROM php:8.4-cli-alpine AS build
 
-# Set working directory
 WORKDIR /var/www
 
-# Install system dependencies and PHP extensions
+# Install system dependencies
 RUN apk add --no-cache \
     git curl nodejs npm \
     libpng-dev oniguruma-dev libxml2-dev postgresql-dev \
-    icu-dev libzip-dev \
+    icu-dev libzip-dev linux-headers \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-configure intl \
-    && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip \
+    && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip opcache \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Configure PHP settings for file uploads
-RUN echo "upload_max_filesize = 128M" >> /usr/local/etc/php/conf.d/uploads.ini \
-    && echo "post_max_size = 128M" >> /usr/local/etc/php/conf.d/uploads.ini \
-    && echo "max_execution_time = 300" >> /usr/local/etc/php/conf.d/uploads.ini \
-    && echo "memory_limit = 256M" >> /usr/local/etc/php/conf.d/uploads.ini
-
-# Copy package files first for better caching
+# Copy package files first for better layer caching
 COPY package*.json ./
+RUN npm ci --no-audit
 
-# Install npm dependencies
-RUN npm install
+COPY composer.json composer.lock ./
+RUN composer install --optimize-autoloader --no-dev --no-scripts --no-interaction
 
-# Copy application files and set permissions
-COPY --chown=www-data:www-data . /var/www
+# Copy application files
+COPY . /var/www
 
-# Install dependencies and build assets
+# Run post-install scripts, build assets, download RoadRunner binary
 RUN git config --global --add safe.directory /var/www \
-    && composer install --optimize-autoloader --no-dev \
+    && composer run post-autoload-dump \
     && npm run build \
     && php artisan storage:link || true \
-    && chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage /var/www/bootstrap/cache /var/www/public
+    && vendor/bin/rr get-binary --location /usr/local/bin
+
+# ---- Production stage: lean runtime image ----
+FROM php:8.4-cli-alpine
+
+WORKDIR /var/www
+
+# Install only runtime dependencies (no build tools)
+RUN apk add --no-cache \
+    curl libpng oniguruma libxml2 libpq \
+    icu-libs libzip \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip opcache \
+    && rm -rf /tmp/* /var/cache/apk/*
+
+# Configure OPcache for production
+RUN echo "[opcache]" > /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.enable=1" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.memory_consumption=256" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.interned_strings_buffer=64" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.max_accelerated_files=32531" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.validate_timestamps=0" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.save_comments=1" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.jit=1255" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.jit_buffer_size=128M" >> /usr/local/etc/php/conf.d/opcache.ini
+
+# Configure PHP settings
+RUN echo "upload_max_filesize = 128M" > /usr/local/etc/php/conf.d/php.ini \
+    && echo "post_max_size = 128M" >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "max_execution_time = 300" >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "memory_limit = 256M" >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "realpath_cache_size = 4096K" >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "realpath_cache_ttl = 600" >> /usr/local/etc/php/conf.d/php.ini
+
+# Copy RoadRunner binary from build stage
+COPY --from=build /usr/local/bin/rr /usr/local/bin/rr
+
+# Copy application from build stage
+COPY --from=build --chown=www-data:www-data /var/www /var/www
+
+# Set permissions
+RUN chmod -R 755 /var/www/storage /var/www/bootstrap/cache /var/www/public
 
 # Expose port 8000
 EXPOSE 8000
 
-# Health check to verify the server is running
+# Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
     CMD curl -f http://localhost:8000/up || exit 1
 
-# Clear caches and start server
-CMD ["sh", "-c", "php artisan optimize && php artisan serve --host=0.0.0.0 --port=8000"]
+# Optimize and start Octane with RoadRunner
+CMD ["sh", "-c", "php artisan optimize && php artisan octane:start --server=roadrunner --host=0.0.0.0 --port=8000 --workers=auto --max-requests=500"]

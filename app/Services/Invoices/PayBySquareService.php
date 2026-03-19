@@ -61,6 +61,7 @@ class PayBySquareService
             $variableSymbol, // Variable symbol
             '',              // Constant symbol
             '',              // Specific symbol
+            '',              // Originator's reference (SEPA)
             '',              // Note
             '1',             // Bank accounts count
             $iban,           // IBAN
