@@ -23,12 +23,16 @@ RUN composer install --optimize-autoloader --no-dev --no-scripts --no-interactio
 # Copy application files
 COPY . /var/www
 
-# Run post-install scripts, build assets, download RoadRunner binary
+# Run post-install scripts and build assets
 RUN git config --global --add safe.directory /var/www \
     && composer run post-autoload-dump \
     && npm run build \
     && php artisan storage:link || true \
     && vendor/bin/rr get-binary --location /usr/local/bin
+
+# Download RoadRunner binary
+RUN curl -sSL https://github.com/roadrunner-server/roadrunner/releases/latest/download/roadrunner-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/').tar.gz \
+    | tar -xz --strip-components=1 -C /usr/local/bin
 
 # ---- Production stage: lean runtime image ----
 FROM php:8.4-cli-alpine
