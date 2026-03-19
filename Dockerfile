@@ -28,7 +28,7 @@ RUN git config --global --add safe.directory /var/www \
     && composer run post-autoload-dump \
     && npm run build \
     && php artisan storage:link || true \
-    && vendor/bin/rr get-binary --location /usr/local/bin
+    && vendor/bin/rr get-binary
 
 # ---- Production stage: lean runtime image ----
 FROM php:8.4-cli-alpine
@@ -63,8 +63,8 @@ RUN echo "upload_max_filesize = 128M" > /usr/local/etc/php/conf.d/php.ini \
     && echo "realpath_cache_size = 4096K" >> /usr/local/etc/php/conf.d/php.ini \
     && echo "realpath_cache_ttl = 600" >> /usr/local/etc/php/conf.d/php.ini
 
-# Copy RoadRunner binary from build stage
-COPY --from=build /usr/local/bin/rr /usr/local/bin/rr
+# Copy RoadRunner binary from build stage (Octane checks base_path('rr') first)
+COPY --from=build /var/www/rr /var/www/rr
 
 # Copy application from build stage
 COPY --from=build --chown=www-data:www-data /var/www /var/www
