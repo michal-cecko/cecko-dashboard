@@ -38,11 +38,11 @@ WORKDIR /var/www
 # Install only runtime dependencies (no build tools)
 RUN apk add --no-cache \
     curl libpng oniguruma libxml2 libpq \
-    icu-libs libzip \
-    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip opcache \
-    && rm -rf /tmp/* /var/cache/apk/*
+    icu-libs libzip xz
+
+# Copy compiled PHP extensions and config from build stage
+COPY --from=build /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+COPY --from=build /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 
 # Configure OPcache for production
 RUN echo "[opcache]" > /usr/local/etc/php/conf.d/opcache.ini \
