@@ -169,6 +169,44 @@ class InvoiceInfolist
                             ->columnSpanFull(),
                     ])
                     ->visible(fn ($record) => filled($record->notes)),
+
+                Section::make('História emailov')
+                    ->schema([
+                        RepeatableEntry::make('emailLogs')
+                            ->hiddenLabel()
+                            ->schema([
+                                TextEntry::make('sent_at')
+                                    ->label('Odoslané')
+                                    ->dateTime('d.m.Y H:i'),
+                                TextEntry::make('recipient_email')
+                                    ->label('Príjemca'),
+                                TextEntry::make('subject')
+                                    ->label('Predmet'),
+                                TextEntry::make('locale')
+                                    ->label('Jazyk'),
+                                TextEntry::make('attachments')
+                                    ->label('Prílohy')
+                                    ->formatStateUsing(function ($state): string {
+                                        if (! is_array($state) || empty($state)) {
+                                            return '-';
+                                        }
+
+                                        return collect($state)
+                                            ->pluck('name')
+                                            ->implode(', ');
+                                    }),
+                                TextEntry::make('user.name')
+                                    ->label('Odoslal'),
+                                TextEntry::make('body')
+                                    ->label('Správa')
+                                    ->columnSpanFull(),
+                            ])
+                            ->columns(6)
+                            ->contained(false)
+                            ->columnSpanFull(),
+                    ])
+                    ->columnSpanFull()
+                    ->visible(fn ($record) => $record->emailLogs()->exists()),
             ]);
     }
 }

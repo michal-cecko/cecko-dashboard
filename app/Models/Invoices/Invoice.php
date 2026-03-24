@@ -106,6 +106,11 @@ class Invoice extends Model
         return $this->hasMany(InvoicePayment::class)->orderBy('payment_date');
     }
 
+    public function emailLogs(): HasMany
+    {
+        return $this->hasMany(InvoiceEmailLog::class)->orderByDesc('sent_at');
+    }
+
     public function paidAmount(): float
     {
         return (float) $this->payments()->sum('amount');

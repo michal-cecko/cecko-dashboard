@@ -15,6 +15,7 @@ use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -91,6 +92,21 @@ class ViewInvoice extends ViewRecord
                             ->options(LocaleEnum::translations())
                             ->default(fn () => $this->getRecord()->company->default_locale ?? 'sk')
                             ->required(),
+                        FileUpload::make('attachments')
+                            ->label('Prílohy')
+                            ->multiple()
+                            ->storeFiles(false)
+                            ->acceptedFileTypes([
+                                'application/pdf',
+                                'application/msword',
+                                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                                'application/vnd.ms-excel',
+                                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                'image/jpeg',
+                                'image/png',
+                                'application/zip',
+                            ])
+                            ->maxSize(10240),
                     ])
                     ->action(function (array $data) {
                         app(InvoiceEmailService::class)->sendInvoice(
@@ -99,6 +115,7 @@ class ViewInvoice extends ViewRecord
                             $data['subject'],
                             $data['body'],
                             $data['locale'],
+                            $data['attachments'] ?? [],
                         );
                     }),
             ])->label('Viac')->icon('heroicon-o-ellipsis-vertical'),

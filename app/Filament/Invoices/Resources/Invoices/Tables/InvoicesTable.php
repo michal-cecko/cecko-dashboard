@@ -8,6 +8,7 @@ use App\Enums\Invoices\InvoiceStatusEnum;
 use App\Enums\Invoices\PaymentMethodEnum;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use App\Models\Invoices\Customer;
+use App\Models\Invoices\Invoice;
 use App\Models\Invoices\InvoicePayment;
 use App\Services\Invoices\InvoiceCalculationService;
 use App\Services\Invoices\InvoiceEmailService;
@@ -24,6 +25,7 @@ use Filament\Actions\RestoreAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -101,7 +103,7 @@ class InvoicesTable
                     ->formatStateUsing(fn ($state) => CurrencyEnum::tryFrom(auth()->user()->activeCompany?->default_currency ?? 'EUR')?->formatted($state) ?? $state)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
-                    ->visible(fn ($livewire): bool => \App\Models\Invoices\Invoice::query()
+                    ->visible(fn ($livewire): bool => Invoice::query()
                         ->whereNotNull('exchange_rate')
                         ->where('currency', '!=', auth()->user()->activeCompany?->default_currency ?? 'EUR')
                         ->exists()),
@@ -225,6 +227,21 @@ class InvoicesTable
                                 ->options(LocaleEnum::translations())
                                 ->default(fn ($record) => $record->company->default_locale ?? 'sk')
                                 ->required(),
+                            FileUpload::make('attachments')
+                                ->label('Prílohy')
+                                ->multiple()
+                                ->storeFiles(false)
+                                ->acceptedFileTypes([
+                                    'application/pdf',
+                                    'application/msword',
+                                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                                    'application/vnd.ms-excel',
+                                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                    'image/jpeg',
+                                    'image/png',
+                                    'application/zip',
+                                ])
+                                ->maxSize(10240),
                         ])
                         ->action(function ($record, array $data) {
                             app(InvoiceEmailService::class)->sendInvoice(
@@ -233,6 +250,7 @@ class InvoicesTable
                                 $data['subject'],
                                 $data['body'],
                                 $data['locale'],
+                                $data['attachments'] ?? [],
                             );
                         }),
 

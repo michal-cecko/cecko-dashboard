@@ -14,6 +14,9 @@ class InvoiceMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * @param  array<int, array{path: string, name: string, mime: string}>  $additionalAttachments
+     */
     public function __construct(
         public string $emailSubject,
         public string $emailBody,
@@ -25,6 +28,7 @@ class InvoiceMail extends Mailable
         public ?string $totalFormatted = null,
         public ?string $sellerName = null,
         public ?string $logoUrl = null,
+        public array $additionalAttachments = [],
     ) {}
 
     public function envelope(): Envelope
@@ -56,9 +60,17 @@ class InvoiceMail extends Mailable
      */
     public function attachments(): array
     {
-        return [
+        $attachments = [
             Attachment::fromData(fn () => $this->pdfContent, $this->filename)
                 ->withMime('application/pdf'),
         ];
+
+        foreach ($this->additionalAttachments as $file) {
+            $attachments[] = Attachment::fromStorageDisk('private', $file['path'])
+                ->as($file['name'])
+                ->withMime($file['mime']);
+        }
+
+        return $attachments;
     }
 }
