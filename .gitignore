@@ -35,6 +35,7 @@ TEST*.xml
 .env
 .env.backup
 .env.production
+.env.prod
 .phpactor.json
 .phpunit.result.cache
 /.fleet
