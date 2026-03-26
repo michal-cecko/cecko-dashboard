@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile
     container_name: synapps-dashboard
     env_file: .env.prod
+    depends_on:
+      - redis
     volumes:
       - type: bind
         source: /volumes/synapps-dashboard/storage/app
@@ -48,6 +50,8 @@ services:
       dockerfile: Dockerfile
     container_name: synapps-dashboard-worker
     env_file: .env.prod
+    depends_on:
+      - redis
     command: sh -c "php artisan schedule:work & php artisan queue:work --sleep=3 --tries=3 --max-time=3600"
     volumes:
       - type: bind
@@ -68,8 +72,25 @@ services:
       - database
     restart: unless-stopped
 
+  redis:
+    image: redis:alpine
+    container_name: synapps-dashboard-redis
+    volumes:
+      - dashboard-redis:/data
+    networks:
+      - database
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      retries: 3
+      timeout: 5s
+    restart: unless-stopped
+
 networks:
   web:
     external: true
   database:
     external: true
+
+volumes:
+  dashboard-redis:
+    driver: local
