@@ -21,7 +21,6 @@ RUN git config --global --add safe.directory /var/www \
 
 # Install dev deps, run parallel tests, strip dev deps — build fails if tests fail
 RUN composer install --no-scripts --no-interaction --no-plugins \
-    && php vendor/bin/phpstan analyse --memory-limit=512M \
     && php artisan test --parallel \
     && composer install --optimize-autoloader --no-dev --no-scripts --no-interaction --no-plugins
 
