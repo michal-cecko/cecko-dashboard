@@ -8,6 +8,8 @@ RUN apk add --no-cache \
     git curl nodejs npm \
     libpng-dev oniguruma-dev libxml2-dev postgresql-dev \
     icu-dev libzip-dev linux-headers \
+    autoconf gcc g++ make \
+    && pecl install redis && docker-php-ext-enable redis \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd intl zip opcache sockets \
