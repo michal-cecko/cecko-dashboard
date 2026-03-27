@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm ci --no-audit
 
 COPY composer.json composer.lock ./
-RUN composer install --optimize-autoloader --no-scripts --no-interaction
+RUN composer install --optimize-autoloader --no-dev --no-scripts --no-interaction
 
 COPY . /var/www
 
@@ -19,11 +19,10 @@ RUN git config --global --add safe.directory /var/www \
     && ls -la /var/www/rr || echo "rr not in /var/www" \
     && which rr || echo "rr not in PATH"
 
-# Run parallel tests — build fails if tests fail
-RUN php artisan test --parallel
-
-# Remove dev dependencies for production
-RUN composer install --optimize-autoloader --no-dev --no-scripts --no-interaction
+# Install dev deps, run parallel tests, strip dev deps — build fails if tests fail
+RUN composer install --no-scripts --no-interaction --no-plugins \
+    && php artisan test --parallel \
+    && composer install --optimize-autoloader --no-dev --no-scripts --no-interaction --no-plugins
 
 # ---- Production stage (lean runtime) ----
 FROM php:8.4-cli-alpine
