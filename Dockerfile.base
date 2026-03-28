@@ -1,7 +1,7 @@
 # PHP base image for synapps-dashboard
 # Rebuild via Dokploy: Deploy the "base" service in this project
-# Contains: PHP 8.5 + compiled extensions + Composer + Node + bash
-FROM php:8.5-cli-alpine
+# Contains: PHP 8.4 + compiled extensions + Composer + Node + bash
+FROM php:8.4-cli-alpine
 
 WORKDIR /var/www
 
