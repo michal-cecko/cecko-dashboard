@@ -184,17 +184,9 @@ class InvoiceInfolist
                                     ->label('Predmet'),
                                 TextEntry::make('locale')
                                     ->label('Jazyk'),
-                                TextEntry::make('attachments')
+                                ViewEntry::make('attachments')
                                     ->label('Prílohy')
-                                    ->formatStateUsing(function ($state): string {
-                                        if (! is_array($state) || empty($state)) {
-                                            return '-';
-                                        }
-
-                                        return collect($state)
-                                            ->pluck('name')
-                                            ->implode(', ');
-                                    }),
+                                    ->view('filament.invoices.email-attachments'),
                                 TextEntry::make('user.name')
                                     ->label('Odoslal'),
                                 TextEntry::make('body')
