@@ -250,7 +250,6 @@ class InvoiceForm
                         Repeater::make('items')
                             ->label('Položky')
                             ->relationship()
-                            ->contained(false)
                             ->schema([
                                 Select::make('service_catalog_item_id')
                                     ->label('Z katalógu')
