@@ -346,11 +346,20 @@ class InvoiceForm
                                     ->required()
                                     ->columnSpanFull(),
                             ])
-                            ->columns(5)
+                            ->table([
+                                Repeater\TableColumn::make('Z katalógu')->width('200px'),
+                                Repeater\TableColumn::make('Množstvo'),
+                                Repeater\TableColumn::make('Jednotka'),
+                                Repeater\TableColumn::make('Cena za jednotku'),
+                                Repeater\TableColumn::make('Sadzba DPH'),
+                                Repeater\TableColumn::make('% DPH'),
+                                Repeater\TableColumn::make('Typ DPH'),
+                                Repeater\TableColumn::make('Popis podľa jazyka'),
+                            ])
+                            ->compact()
                             ->defaultItems(1)
                             ->reorderable()
                             ->reorderableWithButtons()
-                            ->collapsible()
                             ->columnSpanFull(),
                     ])->columnSpanFull(),
 
@@ -423,7 +432,7 @@ class InvoiceForm
 
         foreach ($items as $item) {
             $vatType = $item['vat_type'] ?? 'standard';
-            if ($vatType === 'standard' || $vatType === \App\Enums\Invoices\VatTypeEnum::STANDARD->value) {
+            if ($vatType === 'standard' || $vatType === VatTypeEnum::STANDARD->value) {
                 $lineSubtotal = (float) ($item['quantity'] ?? 0) * (float) ($item['unit_price'] ?? 0);
                 $vatRate = (float) ($item['vat_rate_value'] ?? 0);
                 $vatTotal += $lineSubtotal * ($vatRate / 100);
