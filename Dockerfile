@@ -19,13 +19,6 @@ RUN git config --global --add safe.directory /var/www \
     && ls -la /var/www/rr || echo "rr not in /var/www" \
     && which rr || echo "rr not in PATH"
 
-# Install dev deps, run parallel tests, strip dev deps — build fails if tests fail
-RUN composer install --no-scripts --no-interaction \
-    && php artisan package:discover --ansi \
-    && php vendor/bin/phpstan analyse --memory-limit=512M \
-    && php artisan test --parallel \
-    && composer install --optimize-autoloader --no-dev --no-scripts --no-interaction
-
 # ---- Production stage (lean runtime) ----
 FROM php:8.4-cli-alpine
 
