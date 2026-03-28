@@ -2,7 +2,7 @@
 
 namespace App\Models\Invoices;
 
-use App\Models\User;
+use App\Models\Common\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
