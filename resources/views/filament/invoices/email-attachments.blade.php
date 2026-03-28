@@ -24,20 +24,20 @@
                     class="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
                 >
                     @if($isPdf)
-                        <x-heroicon-m-document class="h-4 w-4 text-red-500" />
+                        <x-heroicon-m-document style="width:16px;height:16px" class="shrink-0 text-red-500" />
                     @elseif($isImage)
-                        <x-heroicon-m-photo class="h-4 w-4 text-blue-500" />
+                        <x-heroicon-m-photo style="width:16px;height:16px" class="shrink-0 text-blue-500" />
                     @else
-                        <x-heroicon-m-paper-clip class="h-4 w-4 text-gray-400" />
+                        <x-heroicon-m-paper-clip style="width:16px;height:16px" class="shrink-0 text-gray-400" />
                     @endif
                     {{ $name }}
                 </a>
             @else
                 <span class="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
                     @if($isPdf)
-                        <x-heroicon-m-document class="h-4 w-4 text-red-500" />
+                        <x-heroicon-m-document style="width:16px;height:16px" class="shrink-0 text-red-500" />
                     @else
-                        <x-heroicon-m-paper-clip class="h-4 w-4 text-gray-400" />
+                        <x-heroicon-m-paper-clip style="width:16px;height:16px" class="shrink-0 text-gray-400" />
                     @endif
                     {{ $name }}
                 </span>
