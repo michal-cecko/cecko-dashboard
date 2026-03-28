@@ -27,7 +27,7 @@ RUN composer install --no-scripts --no-interaction \
     && composer install --optimize-autoloader --no-dev --no-scripts --no-interaction
 
 # ---- Production stage (lean runtime) ----
-FROM php:8.5-cli-alpine
+FROM php:8.4-cli-alpine
 
 WORKDIR /var/www
 
