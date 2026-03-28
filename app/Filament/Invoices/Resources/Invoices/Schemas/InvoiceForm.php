@@ -245,10 +245,12 @@ class InvoiceForm
                     ]),
 
                 Section::make('Položky')
+                    ->compact()
                     ->schema([
                         Repeater::make('items')
                             ->label('Položky')
                             ->relationship()
+                            ->contained(false)
                             ->schema([
                                 Select::make('service_catalog_item_id')
                                     ->label('Z katalógu')
@@ -346,20 +348,11 @@ class InvoiceForm
                                     ->required()
                                     ->columnSpanFull(),
                             ])
-                            ->table([
-                                Repeater\TableColumn::make('Z katalógu')->width('200px'),
-                                Repeater\TableColumn::make('Množstvo'),
-                                Repeater\TableColumn::make('Jednotka'),
-                                Repeater\TableColumn::make('Cena za jednotku'),
-                                Repeater\TableColumn::make('Sadzba DPH'),
-                                Repeater\TableColumn::make('% DPH'),
-                                Repeater\TableColumn::make('Typ DPH'),
-                                Repeater\TableColumn::make('Popis podľa jazyka'),
-                            ])
-                            ->compact()
+                            ->columns(7)
                             ->defaultItems(1)
                             ->reorderable()
                             ->reorderableWithButtons()
+                            ->collapsible()
                             ->columnSpanFull(),
                     ])->columnSpanFull(),
 
