@@ -50,6 +50,14 @@ return [
                 'report' => false,
             ],
 
+        'private' => [
+            'driver' => 'local',
+            'root' => storage_path('app/private'),
+            'serve' => true,
+            'throw' => false,
+            'report' => false,
+        ],
+
         'public' => env('PUBLIC_DISK_DRIVER', 'local') === 's3'
             ? [
                 'driver' => 's3',
