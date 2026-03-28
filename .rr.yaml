@@ -1,5 +1,11 @@
 version: '3'
 
+logs:
+  mode: production
+  level: warn
+  output: stderr
+  encoding: console
+
 http:
   middleware:
     - gzip
