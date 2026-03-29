@@ -1,3 +1,4 @@
+# CI pipeline: tests, lint, and worker redeploy
 name: CI
 
 on:
@@ -10,6 +11,21 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: testing
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     steps:
       - uses: actions/checkout@v4
 
@@ -17,7 +33,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
-          extensions: pdo_sqlite, mbstring, xml, gd, zip, intl, bcmath, pcntl, exif
+          extensions: pdo_pgsql, pgsql, mbstring, xml, gd, zip, intl, bcmath, pcntl, exif
           coverage: none
 
       - name: Install Composer dependencies
@@ -28,31 +44,45 @@ jobs:
           cp .env.example .env
           php artisan key:generate
           php artisan package:discover --ansi
-          touch database/database.sqlite
 
       - name: Run Pint
         run: vendor/bin/pint --test
 
       - name: Run tests
         env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: database/database.sqlite
+          DB_CONNECTION: pgsql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 5432
+          DB_DATABASE: testing
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres
         run: php artisan test --parallel
 
+  deploy-worker:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Wait for Dokploy app deploy
+        run: sleep 90
+
       - name: Redeploy worker
-        if: success() && github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          # Wait for Dokploy app deploy to finish (triggered by GitHub webhook)
-          sleep 90
-          # Trigger worker redeploy (uses same image as app)
-          curl -s -X POST \
+          curl -sf -X POST \
             -H "x-api-key: ${{ secrets.DOKPLOY_API_KEY }}" \
             -H "Content-Type: application/json" \
             -d '{"json":{"applicationId":"ereAGLSWp9qinU1rOWXRw"}}' \
             "${{ secrets.DOKPLOY_URL }}/api/trpc/application.deploy"
 
+  notify:
+    needs: [test, deploy-worker]
+    if: failure()
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Notify Telegram on failure
-        if: failure()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
