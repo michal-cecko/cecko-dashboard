@@ -185,47 +185,6 @@ class InvoiceForm
                             ->label('Číslo objednávky')
                             ->maxLength(100),
 
-                        Tabs::make('text_before_items_tabs')
-                            ->label('Text pred položkami')
-                            ->schema([
-                                Tab::make('SK')
-                                    ->schema([
-                                        RichEditor::make('text_before_items.sk')
-                                            ->hiddenLabel(),
-                                    ]),
-                                Tab::make('CZ')
-                                    ->schema([
-                                        RichEditor::make('text_before_items.cs')
-                                            ->hiddenLabel(),
-                                    ]),
-                                Tab::make('EN')
-                                    ->schema([
-                                        RichEditor::make('text_before_items.en')
-                                            ->hiddenLabel(),
-                                    ]),
-                            ])
-                            ->columnSpanFull(),
-
-                        Tabs::make('text_after_items_tabs')
-                            ->label('Text za položkami')
-                            ->schema([
-                                Tab::make('SK')
-                                    ->schema([
-                                        RichEditor::make('text_after_items.sk')
-                                            ->hiddenLabel(),
-                                    ]),
-                                Tab::make('CZ')
-                                    ->schema([
-                                        RichEditor::make('text_after_items.cs')
-                                            ->hiddenLabel(),
-                                    ]),
-                                Tab::make('EN')
-                                    ->schema([
-                                        RichEditor::make('text_after_items.en')
-                                            ->hiddenLabel(),
-                                    ]),
-                            ])
-                            ->columnSpanFull(),
                     ])->columns(2),
 
                 Section::make('Dátumy')
@@ -292,6 +251,49 @@ class InvoiceForm
                 Section::make('Položky')
                     ->compact()
                     ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                Tabs::make('text_before_items_tabs')
+                                    ->label('Text pred položkami')
+                                    ->schema([
+                                        Tab::make('SK')
+                                            ->schema([
+                                                RichEditor::make('text_before_items.sk')
+                                                    ->hiddenLabel(),
+                                            ]),
+                                        Tab::make('CZ')
+                                            ->schema([
+                                                RichEditor::make('text_before_items.cs')
+                                                    ->hiddenLabel(),
+                                            ]),
+                                        Tab::make('EN')
+                                            ->schema([
+                                                RichEditor::make('text_before_items.en')
+                                                    ->hiddenLabel(),
+                                            ]),
+                                    ]),
+
+                                Tabs::make('text_after_items_tabs')
+                                    ->label('Text za položkami')
+                                    ->schema([
+                                        Tab::make('SK')
+                                            ->schema([
+                                                RichEditor::make('text_after_items.sk')
+                                                    ->hiddenLabel(),
+                                            ]),
+                                        Tab::make('CZ')
+                                            ->schema([
+                                                RichEditor::make('text_after_items.cs')
+                                                    ->hiddenLabel(),
+                                            ]),
+                                        Tab::make('EN')
+                                            ->schema([
+                                                RichEditor::make('text_after_items.en')
+                                                    ->hiddenLabel(),
+                                            ]),
+                                    ]),
+                            ]),
+
                         Repeater::make('items')
                             ->label('Položky')
                             ->relationship()
