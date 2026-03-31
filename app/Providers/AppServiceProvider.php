@@ -8,6 +8,7 @@ use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Symfony\Component\Mime\Address;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             $address = config('mail.reply_to.address');
 
             if ($address) {
-                $event->message->replyTo($address, config('mail.reply_to.name'));
+                $event->message->replyTo(new Address($address, config('mail.reply_to.name')));
             }
         });
     }
