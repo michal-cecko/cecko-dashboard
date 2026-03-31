@@ -24,7 +24,8 @@ FROM php:8.4-cli-alpine
 
 WORKDIR /var/www
 
-RUN echo "cd /var/www" >> /etc/profile
+RUN echo "cd /var/www" >> /etc/profile \
+    && echo "cd /var/www" >> /root/.bashrc
 
 RUN apk add --no-cache \
     bash curl libpng oniguruma libxml2 libpq \
