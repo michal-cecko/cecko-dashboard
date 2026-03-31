@@ -11,6 +11,7 @@ class SongGenreController extends Controller
     public function index()
     {
         $songGenres = SongGenre::all();
+
         return SongGenreResource::collection($songGenres);
     }
 }

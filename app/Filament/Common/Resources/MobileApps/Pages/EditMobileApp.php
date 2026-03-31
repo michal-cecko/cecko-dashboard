@@ -10,7 +10,8 @@ class EditMobileApp extends EditRecord
 {
     protected static string $resource = MobileAppResource::class;
 
-    public function getTitle(): string {
+    public function getTitle(): string
+    {
         return $this->getRecord()->name;
     }
 

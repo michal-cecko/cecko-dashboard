@@ -15,7 +15,7 @@ class SongTagsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label("Značka")
+                    ->label('Značka')
                     ->searchable()
                     ->badge()
                     ->color(fn ($record) => $record->color)
@@ -27,13 +27,13 @@ class SongTagsTable
                     ->sortable(),
 
                 TextColumn::make('created_at')
-                    ->label("Vytvorené")
+                    ->label('Vytvorené')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('updated_at')
-                    ->label("Posledná úprava")
+                    ->label('Posledná úprava')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

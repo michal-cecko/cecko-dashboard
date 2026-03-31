@@ -16,12 +16,12 @@ class UserCapabilitiesCast implements CastsAttributes
 
         $decoded = json_decode($value, true);
 
-        if (!is_array($decoded)) {
+        if (! is_array($decoded)) {
             return [];
         }
 
         return array_map(
-            fn($item) => UserCapabilityEnum::tryFrom($item),
+            fn ($item) => UserCapabilityEnum::tryFrom($item),
             $decoded
         );
     }
@@ -32,12 +32,12 @@ class UserCapabilitiesCast implements CastsAttributes
             return json_encode([]);
         }
 
-        if (!is_array($value)) {
+        if (! is_array($value)) {
             return json_encode([]);
         }
 
         $enumValues = array_map(
-            fn($item) => $item instanceof UserCapabilityEnum ? $item->value : $item,
+            fn ($item) => $item instanceof UserCapabilityEnum ? $item->value : $item,
             $value
         );
 

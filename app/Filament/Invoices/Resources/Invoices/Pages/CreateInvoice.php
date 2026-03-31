@@ -4,6 +4,7 @@ namespace App\Filament\Invoices\Resources\Invoices\Pages;
 
 use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
+use App\Models\Invoices\Customer;
 use App\Models\Invoices\InvoiceNumberSequence;
 use App\Services\Invoices\InvoiceCalculationService;
 use App\Services\Invoices\InvoiceNumberService;
@@ -35,7 +36,7 @@ class CreateInvoice extends CreateRecord
             $data['seller_snapshot'] = $pdfService->buildSellerSnapshot($company);
 
             if (! empty($data['customer_id'])) {
-                $customer = \App\Models\Invoices\Customer::find($data['customer_id']);
+                $customer = Customer::find($data['customer_id']);
                 if ($customer) {
                     $data['buyer_snapshot'] = $pdfService->buildBuyerSnapshot($customer);
                 }

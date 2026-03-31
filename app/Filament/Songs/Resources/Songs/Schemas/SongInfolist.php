@@ -32,6 +32,7 @@ class SongInfolist
                                 if ($artist) {
                                     return route('filament.songs.resources.song-artists.edit', ['record' => $artist->id]);
                                 }
+
                                 return null;
                             })
                             ->openUrlInNewTab(false),
@@ -42,6 +43,7 @@ class SongInfolist
                             ->separator(', ')
                             ->color(function ($record, $state) {
                                 $tag = $record->tags->firstWhere('name', $state);
+
                                 return $tag?->color ?? 'gray';
                             })
                             ->url(function ($record, $state) {
@@ -49,6 +51,7 @@ class SongInfolist
                                 if ($tag) {
                                     return route('filament.songs.resources.song-tags.edit', ['record' => $tag->id]);
                                 }
+
                                 return null;
                             })
                             ->openUrlInNewTab(false),
@@ -74,7 +77,7 @@ class SongInfolist
                             ]),
                     ])
                     ->collapsible(false)
-                    ->columnSpanFull()
+                    ->columnSpanFull(),
             ]);
     }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('song_artist_song_pivot', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("song_id")->nullable();
-            $table->foreign("song_id")->references("id")->on("songs")->nullOnDelete();
-            $table->foreignId("artist_id")->nullable();
-            $table->foreign("artist_id")->references("id")->on("song_artists")->nullOnDelete();
+            $table->foreignId('song_id')->nullable();
+            $table->foreign('song_id')->references('id')->on('songs')->nullOnDelete();
+            $table->foreignId('artist_id')->nullable();
+            $table->foreign('artist_id')->references('id')->on('song_artists')->nullOnDelete();
             $table->timestamps();
         });
     }

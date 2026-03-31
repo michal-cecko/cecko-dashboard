@@ -20,9 +20,9 @@ class ApiMiddleware
         // Get the Authorization header
         $authHeader = $request->header('Authorization');
 
-        if (!$authHeader || !str_starts_with($authHeader, 'Basic ')) {
+        if (! $authHeader || ! str_starts_with($authHeader, 'Basic ')) {
             return response()->json([
-                'error' => 'Unauthorized. #1'
+                'error' => 'Unauthorized. #1',
             ], 403);
         }
 
@@ -30,9 +30,9 @@ class ApiMiddleware
         $encodedCredentials = substr($authHeader, 6); // Remove "Basic " prefix
         $decodedCredentials = base64_decode($encodedCredentials);
 
-        if (!$decodedCredentials || !str_contains($decodedCredentials, ':')) {
+        if (! $decodedCredentials || ! str_contains($decodedCredentials, ':')) {
             return response()->json([
-                'error' => 'Unauthorized. #2'
+                'error' => 'Unauthorized. #2',
             ], 403);
         }
 
@@ -41,7 +41,7 @@ class ApiMiddleware
         // Verify credentials against config
         if ($username !== $apiAuthCredentials['login'] || $password !== $apiAuthCredentials['password']) {
             return response()->json([
-                'error' => 'Unauthorized. #3'
+                'error' => 'Unauthorized. #3',
             ], 403);
         }
 

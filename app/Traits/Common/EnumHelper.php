@@ -6,7 +6,7 @@ trait EnumHelper
 {
     public function translation(): string
     {
-        return __("enums." . static::class . ".{$this->value}");
+        return __('enums.'.static::class.".{$this->value}");
     }
 
     public static function translations(): array

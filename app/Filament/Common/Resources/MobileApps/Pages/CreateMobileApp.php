@@ -8,5 +8,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateMobileApp extends CreateRecord
 {
     protected static string $resource = MobileAppResource::class;
+
     protected static ?string $title = 'Nová aplikácia';
 }

@@ -11,9 +11,6 @@ class EditUser extends EditRecord
 {
     protected static string $resource = UserResource::class;
 
-    /**
-     * @return string|Htmlable
-     */
     public function getTitle(): string|Htmlable
     {
         return $this->getRecord()->name;

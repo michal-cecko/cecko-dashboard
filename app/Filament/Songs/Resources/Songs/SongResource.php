@@ -28,6 +28,7 @@ class SongResource extends Resource
     protected static ?int $navigationSort = 1;
 
     protected static ?string $label = 'Pieseň';
+
     protected static ?string $pluralLabel = 'Piesne';
 
     public static function form(Schema $schema): Schema
