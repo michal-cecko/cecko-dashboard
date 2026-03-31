@@ -24,6 +24,8 @@ FROM php:8.4-cli-alpine
 
 WORKDIR /var/www
 
+RUN echo "cd /var/www" >> /etc/profile
+
 RUN apk add --no-cache \
     bash curl libpng oniguruma libxml2 libpq \
     icu-libs libzip xz
@@ -64,5 +66,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
     CMD curl -f http://localhost:8000/up || exit 1
 
 ENV LOG_CHANNEL=single
+ENV ENV=/etc/profile
 
 CMD ["bash", "-c", "php artisan optimize && touch storage/logs/laravel.log && tail -f storage/logs/laravel.log & php artisan octane:start --server=roadrunner --host=0.0.0.0 --port=8000 --workers=auto --max-requests=500"]
