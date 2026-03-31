@@ -24,6 +24,7 @@ class SongTagResource extends Resource
     protected static string|null|UnitEnum $navigationGroup = 'Piesne';
 
     protected static ?string $label = 'Značka';
+
     protected static ?string $pluralLabel = 'Značky';
 
     protected static ?int $navigationSort = 4;

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Invoices\Company;
+use App\Models\Invoices\Customer;
 use App\Models\Invoices\Invoice;
 use App\Services\Invoices\PayBySquareService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -261,7 +262,7 @@ class PayBySquareServiceTest extends TestCase
 
     public function test_uses_customer_country_code_as_fallback(): void
     {
-        $customer = \App\Models\Invoices\Customer::factory()->create([
+        $customer = Customer::factory()->create([
             'company_id' => $this->company->id,
             'country_code' => 'SK',
         ]);

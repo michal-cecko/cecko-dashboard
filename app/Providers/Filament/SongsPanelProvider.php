@@ -4,7 +4,6 @@ namespace App\Providers\Filament;
 
 use App\Filament\Common\Resources\MobileApps\MobileAppResource;
 use App\Filament\Common\Resources\Users\UserResource;
-use App\Filament\Songs\Resources\Songs\SongResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -14,10 +13,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Assets\Css;
 use Filament\Support\Colors\Color;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentColor;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -36,11 +31,11 @@ class SongsPanelProvider extends PanelProvider
             ->spa()
             ->unsavedChangesAlerts()
             ->databaseTransactions()
-            ->brandName("Kniha Piesní • Veľký Dom")
-            ->brandLogo("/logo/songs/logo-vd-dark.png")
-            ->darkModeBrandLogo("/logo/songs/logo-vd-white.png")
+            ->brandName('Kniha Piesní • Veľký Dom')
+            ->brandLogo('/logo/songs/logo-vd-dark.png')
+            ->darkModeBrandLogo('/logo/songs/logo-vd-white.png')
             ->login()
-            ->favicon("/favicon/songs/favicon.ico")
+            ->favicon('/favicon/songs/favicon.ico')
             ->colors([
                 'primary' => Color::Sky,
             ])
@@ -50,11 +45,11 @@ class SongsPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Songs/Resources'), for: 'App\Filament\Songs\Resources')
             ->resources([
                 UserResource::class,
-                MobileAppResource::class
+                MobileAppResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Songs/Pages'), for: 'App\Filament\Songs\Pages')
             ->pages([
-                //Dashboard::class,
+                // Dashboard::class,
             ])
             ->assets([
                 Css::make('songs', public_path('css/songs.css')),

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('mobile_apps', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("apk_path")->nullable();
-            $table->string("capability")->nullable();
+            $table->string('name');
+            $table->string('apk_path')->nullable();
+            $table->string('capability')->nullable();
             $table->timestamps();
         });
     }

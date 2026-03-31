@@ -12,8 +12,9 @@ class EditSongTag extends EditRecord
 
     public function getTitle(): string
     {
-        return 'Úprava značky - ' . $this->getRecord()->name;
+        return 'Úprava značky - '.$this->getRecord()->name;
     }
+
     protected function getHeaderActions(): array
     {
         return [

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('song_genres', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -18,10 +18,15 @@ use UnitEnum;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;
+
     protected static string|null|UnitEnum $navigationGroup = 'Ostatné';
+
     protected static ?string $label = 'Používateľ';
+
     protected static ?string $pluralLabel = 'Používatelia';
+
     protected static ?int $navigationSort = 10;
 
     public static function form(Schema $schema): Schema

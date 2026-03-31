@@ -14,19 +14,19 @@ class SongTagForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->label("Značka")
+                    ->label('Značka')
                     ->required()
                     ->maxLength(255)
                     ->unique(SongTag::class, 'name', ignoreRecord: true),
 
                 Select::make('color')
-                    ->label("Farba")
+                    ->label('Farba')
                     ->options([
-                        'danger' => "Červená",
-                        'gray' => "Čierna",
-                        'info' => "Modrá",
-                        'success' => "Zelená",
-                        'warning' => "Oranžová",
+                        'danger' => 'Červená',
+                        'gray' => 'Čierna',
+                        'info' => 'Modrá',
+                        'success' => 'Zelená',
+                        'warning' => 'Oranžová',
                     ])
                     ->nullable(),
             ]);

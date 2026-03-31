@@ -6,6 +6,7 @@ use App\Models\Songs\Song;
 use App\Models\Songs\SongArtist;
 use App\Models\Songs\SongGenre;
 use App\Models\Songs\SongTag;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -138,7 +139,7 @@ class SongModelTest extends TestCase
     {
         SongArtist::factory()->create(['name' => 'Unique Artist']);
 
-        $this->expectException(\Illuminate\Database\QueryException::class);
+        $this->expectException(QueryException::class);
 
         SongArtist::factory()->create(['name' => 'Unique Artist']);
     }
@@ -147,7 +148,7 @@ class SongModelTest extends TestCase
     {
         SongTag::factory()->create(['name' => 'Unique Tag']);
 
-        $this->expectException(\Illuminate\Database\QueryException::class);
+        $this->expectException(QueryException::class);
 
         SongTag::factory()->create(['name' => 'Unique Tag']);
     }

@@ -17,13 +17,13 @@ class SongsTable
         return $table
             ->columns([
                 TextColumn::make('number')
-                    ->label("#")
+                    ->label('#')
                     ->numeric()
                     ->searchable()
                     ->sortable(),
 
                 TextColumn::make('title')
-                    ->label("Názov")
+                    ->label('Názov')
                     ->searchable()
                     ->sortable(),
 
@@ -42,27 +42,27 @@ class SongsTable
                     ->color(fn ($record, $state) => $record->tags->firstWhere('name', $state)?->color),
 
                 TextColumn::make('created_at')
-                    ->label("Vytvorené")
+                    ->label('Vytvorené')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('updated_at')
-                    ->label("Posledná úprava")
+                    ->label('Posledná úprava')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 SelectFilter::make('artists')
-                    ->label("Autori")
+                    ->label('Autori')
                     ->relationship('artists', 'name')
                     ->searchable()
                     ->preload()
                     ->multiple(),
 
                 SelectFilter::make('tags')
-                    ->label("Značky")
+                    ->label('Značky')
                     ->relationship('tags', 'name')
                     ->searchable()
                     ->preload()

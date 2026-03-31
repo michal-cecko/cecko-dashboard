@@ -4,7 +4,6 @@ namespace App\Filament\Songs\Resources\Songs\Pages;
 
 use App\Filament\Songs\Resources\Songs\SongResource;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditSong extends EditRecord
@@ -13,7 +12,7 @@ class EditSong extends EditRecord
 
     public function getTitle(): string
     {
-        return 'Úprava piesne - ' . $this->getRecord()->title;
+        return 'Úprava piesne - '.$this->getRecord()->title;
     }
 
     protected function getHeaderActions(): array

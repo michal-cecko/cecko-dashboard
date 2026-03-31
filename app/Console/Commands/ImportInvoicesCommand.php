@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Enums\Invoices\InvoiceStatusEnum;
+use App\Enums\Invoices\VatTypeEnum;
 use App\Models\Invoices\Company;
 use App\Models\Invoices\Customer;
 use App\Models\Invoices\Invoice;
@@ -13,6 +14,7 @@ use App\Models\Invoices\InvoicePayment;
 use App\Services\Invoices\InvoicePdfService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class ImportInvoicesCommand extends Command
@@ -155,9 +157,9 @@ class ImportInvoicesCommand extends Command
     }
 
     /**
-     * @return \Illuminate\Support\Collection<int, array<string, string>>
+     * @return Collection<int, array<string, string>>
      */
-    private function parseCsv(string $filePath): \Illuminate\Support\Collection
+    private function parseCsv(string $filePath): Collection
     {
         $rows = collect();
         $handle = fopen($filePath, 'r');
@@ -234,7 +236,7 @@ class ImportInvoicesCommand extends Command
             'quantity' => 1,
             'unit' => 'ks',
             'unit_price' => $invoice->total,
-            'vat_type' => \App\Enums\Invoices\VatTypeEnum::ZERO_RATE,
+            'vat_type' => VatTypeEnum::ZERO_RATE,
             'vat_rate_value' => 0,
             'sort_order' => 1,
         ]);

@@ -38,9 +38,9 @@ class UserForm
                     TextInput::make('password')
                         ->label('Heslo')
                         ->password()
-                        ->required(fn(string $context): bool => $context === 'create')
-                        ->dehydrated(fn($state) => filled($state))
-                        ->dehydrateStateUsing(fn($state) => Hash::make($state)),
+                        ->required(fn (string $context): bool => $context === 'create')
+                        ->dehydrated(fn ($state) => filled($state))
+                        ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
                 ])->columnSpanFull(),
 
                 FileUpload::make('avatar_path')

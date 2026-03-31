@@ -8,5 +8,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSong extends CreateRecord
 {
     protected static string $resource = SongResource::class;
+
     protected static ?string $title = 'Nová pieseň';
 }

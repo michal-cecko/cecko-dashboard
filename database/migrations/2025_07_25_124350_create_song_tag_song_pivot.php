@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('song_tag_song_pivot', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("song_id")->nullable();
-            $table->foreign("song_id")->references("id")->on("songs")->nullOnDelete();
-            $table->foreignId("tag_id")->nullable();
-            $table->foreign("tag_id")->references("id")->on("song_tags")->nullOnDelete();
+            $table->foreignId('song_id')->nullable();
+            $table->foreign('song_id')->references('id')->on('songs')->nullOnDelete();
+            $table->foreignId('tag_id')->nullable();
+            $table->foreign('tag_id')->references('id')->on('song_tags')->nullOnDelete();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.

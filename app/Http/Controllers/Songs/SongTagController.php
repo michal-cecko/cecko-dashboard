@@ -11,6 +11,7 @@ class SongTagController extends Controller
     public function index()
     {
         $songTags = SongTag::all();
+
         return SongTagResource::collection($songTags);
     }
 }

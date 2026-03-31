@@ -25,7 +25,9 @@ class SongArtistResource extends Resource
     protected static string|null|UnitEnum $navigationGroup = 'Piesne';
 
     protected static ?int $navigationSort = 2;
+
     protected static ?string $label = 'Autor';
+
     protected static ?string $pluralLabel = 'Autori';
 
     public static function form(Schema $schema): Schema

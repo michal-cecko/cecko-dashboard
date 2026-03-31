@@ -2,6 +2,7 @@
 
 namespace App\Filament\Invoices\Resources\VatRates\Tables;
 
+use App\Models\Invoices\VatRate;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -35,7 +36,7 @@ class VatRatesTable
             ->filters([
                 SelectFilter::make('country_code')
                     ->label('Krajina')
-                    ->options(fn () => \App\Models\Invoices\VatRate::query()
+                    ->options(fn () => VatRate::query()
                         ->select('country_code', 'country_name')
                         ->distinct()
                         ->orderBy('country_name')
