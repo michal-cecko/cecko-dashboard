@@ -59,6 +59,9 @@ class InvoicePdfService
 
             $seller = $invoice->seller_snapshot ?? $this->buildSellerSnapshot($invoice->company);
 
+            $textBeforeItems = $this->getTranslatedText($invoice->text_before_items, $locale);
+            $textAfterItems = $this->getTranslatedText($invoice->text_after_items, $locale);
+
             return View::make('invoices.pdf', [
                 'invoice' => $invoice,
                 'seller' => $seller,
@@ -71,6 +74,8 @@ class InvoicePdfService
                 'theme' => $theme,
                 'showVat' => $showVat,
                 'hasReverseCharge' => $hasReverseCharge,
+                'textBeforeItems' => $textBeforeItems,
+                'textAfterItems' => $textAfterItems,
             ])->render();
         } finally {
             app()->setLocale($previousLocale);
@@ -137,6 +142,24 @@ class InvoicePdfService
         $zip->close();
 
         return $tmpPath;
+    }
+
+    /**
+     * @param  array<int, array{locale: string, text: string}>|null  $translations
+     */
+    private function getTranslatedText(?array $translations, string $locale): ?string
+    {
+        if (empty($translations)) {
+            return null;
+        }
+
+        $match = collect($translations)->firstWhere('locale', $locale);
+
+        if ($match) {
+            return $match['text'];
+        }
+
+        return collect($translations)->first()['text'] ?? null;
     }
 
     /**

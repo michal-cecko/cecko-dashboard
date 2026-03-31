@@ -366,6 +366,10 @@
         @endif
     </div>
 
+    @if($textBeforeItems)
+        <div style="margin-bottom: 12px; font-size: 10px; line-height: 1.5; white-space: pre-line;">{{ $textBeforeItems }}</div>
+    @endif
+
     <table class="items">
         <thead>
         <tr>
@@ -398,6 +402,10 @@
         @endforeach
         </tbody>
     </table>
+
+    @if($textAfterItems)
+        <div style="margin-bottom: 12px; font-size: 10px; line-height: 1.5; white-space: pre-line;">{{ $textAfterItems }}</div>
+    @endif
 
     <div class="totals">
         <table>
