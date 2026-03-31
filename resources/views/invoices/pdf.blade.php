@@ -367,7 +367,7 @@
     </div>
 
     @if($textBeforeItems)
-        <div style="margin-bottom: 12px; font-size: 10px; line-height: 1.5; white-space: pre-line;">{{ $textBeforeItems }}</div>
+        <div style="margin-bottom: 12px; font-size: 10px; line-height: 1.5;">{!! $textBeforeItems !!}</div>
     @endif
 
     <table class="items">
@@ -404,7 +404,7 @@
     </table>
 
     @if($textAfterItems)
-        <div style="margin-bottom: 12px; font-size: 10px; line-height: 1.5; white-space: pre-line;">{{ $textAfterItems }}</div>
+        <div style="margin-bottom: 12px; font-size: 10px; line-height: 1.5;">{!! $textAfterItems !!}</div>
     @endif
 
     <div class="totals">

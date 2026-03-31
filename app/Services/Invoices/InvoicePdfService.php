@@ -145,7 +145,7 @@ class InvoicePdfService
     }
 
     /**
-     * @param  array<int, array{locale: string, text: string}>|null  $translations
+     * @param  array<string, string>|null  $translations
      */
     private function getTranslatedText(?array $translations, string $locale): ?string
     {
@@ -153,13 +153,7 @@ class InvoicePdfService
             return null;
         }
 
-        $match = collect($translations)->firstWhere('locale', $locale);
-
-        if ($match) {
-            return $match['text'];
-        }
-
-        return collect($translations)->first()['text'] ?? null;
+        return $translations[$locale] ?? collect($translations)->first();
     }
 
     /**

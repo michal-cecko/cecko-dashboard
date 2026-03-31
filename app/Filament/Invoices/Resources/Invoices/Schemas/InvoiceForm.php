@@ -19,11 +19,14 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
@@ -181,6 +184,48 @@ class InvoiceForm
                         TextInput::make('order_number')
                             ->label('Číslo objednávky')
                             ->maxLength(100),
+
+                        Tabs::make('text_before_items_tabs')
+                            ->label('Text pred položkami')
+                            ->schema([
+                                Tab::make('SK')
+                                    ->schema([
+                                        RichEditor::make('text_before_items.sk')
+                                            ->hiddenLabel(),
+                                    ]),
+                                Tab::make('CZ')
+                                    ->schema([
+                                        RichEditor::make('text_before_items.cs')
+                                            ->hiddenLabel(),
+                                    ]),
+                                Tab::make('EN')
+                                    ->schema([
+                                        RichEditor::make('text_before_items.en')
+                                            ->hiddenLabel(),
+                                    ]),
+                            ])
+                            ->columnSpanFull(),
+
+                        Tabs::make('text_after_items_tabs')
+                            ->label('Text za položkami')
+                            ->schema([
+                                Tab::make('SK')
+                                    ->schema([
+                                        RichEditor::make('text_after_items.sk')
+                                            ->hiddenLabel(),
+                                    ]),
+                                Tab::make('CZ')
+                                    ->schema([
+                                        RichEditor::make('text_after_items.cs')
+                                            ->hiddenLabel(),
+                                    ]),
+                                Tab::make('EN')
+                                    ->schema([
+                                        RichEditor::make('text_after_items.en')
+                                            ->hiddenLabel(),
+                                    ]),
+                            ])
+                            ->columnSpanFull(),
                     ])->columns(2),
 
                 Section::make('Dátumy')
@@ -243,29 +288,6 @@ class InvoiceForm
                             ->default(now())
                             ->columnSpanFull(),
                     ]),
-
-                Section::make('Text pred položkami')
-                    ->schema([
-                        Repeater::make('text_before_items')
-                            ->label('Text pred položkami')
-                            ->schema([
-                                Select::make('locale')
-                                    ->label('Jazyk')
-                                    ->options(LocaleEnum::translations())
-                                    ->required(),
-                                Textarea::make('text')
-                                    ->label('Text')
-                                    ->required()
-                                    ->rows(2),
-                            ])
-                            ->columns(2)
-                            ->defaultItems(0)
-                            ->collapsible()
-                            ->collapsed()
-                            ->columnSpanFull(),
-                    ])
-                    ->collapsible()
-                    ->collapsed(),
 
                 Section::make('Položky')
                     ->compact()
@@ -377,29 +399,6 @@ class InvoiceForm
                             ->collapsible()
                             ->columnSpanFull(),
                     ])->columnSpanFull(),
-
-                Section::make('Text za položkami')
-                    ->schema([
-                        Repeater::make('text_after_items')
-                            ->label('Text za položkami')
-                            ->schema([
-                                Select::make('locale')
-                                    ->label('Jazyk')
-                                    ->options(LocaleEnum::translations())
-                                    ->required(),
-                                Textarea::make('text')
-                                    ->label('Text')
-                                    ->required()
-                                    ->rows(2),
-                            ])
-                            ->columns(2)
-                            ->defaultItems(0)
-                            ->collapsible()
-                            ->collapsed()
-                            ->columnSpanFull(),
-                    ])
-                    ->collapsible()
-                    ->collapsed(),
 
                 Section::make('Súhrn')
                     ->schema([
