@@ -244,6 +244,29 @@ class InvoiceForm
                             ->columnSpanFull(),
                     ]),
 
+                Section::make('Text pred položkami')
+                    ->schema([
+                        Repeater::make('text_before_items')
+                            ->label('Text pred položkami')
+                            ->schema([
+                                Select::make('locale')
+                                    ->label('Jazyk')
+                                    ->options(LocaleEnum::translations())
+                                    ->required(),
+                                Textarea::make('text')
+                                    ->label('Text')
+                                    ->required()
+                                    ->rows(2),
+                            ])
+                            ->columns(2)
+                            ->defaultItems(0)
+                            ->collapsible()
+                            ->collapsed()
+                            ->columnSpanFull(),
+                    ])
+                    ->collapsible()
+                    ->collapsed(),
+
                 Section::make('Položky')
                     ->compact()
                     ->schema([
@@ -354,6 +377,29 @@ class InvoiceForm
                             ->collapsible()
                             ->columnSpanFull(),
                     ])->columnSpanFull(),
+
+                Section::make('Text za položkami')
+                    ->schema([
+                        Repeater::make('text_after_items')
+                            ->label('Text za položkami')
+                            ->schema([
+                                Select::make('locale')
+                                    ->label('Jazyk')
+                                    ->options(LocaleEnum::translations())
+                                    ->required(),
+                                Textarea::make('text')
+                                    ->label('Text')
+                                    ->required()
+                                    ->rows(2),
+                            ])
+                            ->columns(2)
+                            ->defaultItems(0)
+                            ->collapsible()
+                            ->collapsed()
+                            ->columnSpanFull(),
+                    ])
+                    ->collapsible()
+                    ->collapsed(),
 
                 Section::make('Súhrn')
                     ->schema([
