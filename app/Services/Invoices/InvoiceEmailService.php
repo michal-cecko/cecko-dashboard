@@ -18,8 +18,10 @@ class InvoiceEmailService
 
     /**
      * @param  array<int, UploadedFile>  $additionalAttachments
+     * @param  array<int, string>  $cc
+     * @param  array<int, string>  $bcc
      */
-    public function sendInvoice(Invoice $invoice, string $email, string $subject, string $body, ?string $locale = null, array $additionalAttachments = []): void
+    public function sendInvoice(Invoice $invoice, string $email, string $subject, string $body, ?string $locale = null, array $additionalAttachments = [], array $cc = [], array $bcc = []): void
     {
         $pdf = $this->pdfService->generatePdf($invoice, $locale);
         $filename = $invoice->invoice_number.'.pdf';
@@ -36,7 +38,17 @@ class InvoiceEmailService
 
         $storedAttachments = $this->storeAttachments($invoice, $additionalAttachments);
 
-        Mail::to($email)->send(new InvoiceMail(
+        $mailer = Mail::to($email);
+
+        if (! empty($cc)) {
+            $mailer->cc($cc);
+        }
+
+        if (! empty($bcc)) {
+            $mailer->bcc($bcc);
+        }
+
+        $mailer->send(new InvoiceMail(
             emailSubject: $subject,
             emailBody: $body,
             pdfContent: $pdf,
@@ -52,7 +64,7 @@ class InvoiceEmailService
 
         $invoice->update(['sent_at' => now()]);
 
-        $this->createLog($invoice, $email, $subject, $body, $locale, $filename, $storedAttachments);
+        $this->createLog($invoice, $email, $subject, $body, $locale, $filename, $storedAttachments, $cc, $bcc);
     }
 
     /**
@@ -79,8 +91,10 @@ class InvoiceEmailService
 
     /**
      * @param  array<int, array{name: string, path: string, size: int, mime: string}>  $additionalAttachments
+     * @param  array<int, string>  $cc
+     * @param  array<int, string>  $bcc
      */
-    private function createLog(Invoice $invoice, string $email, string $subject, string $body, ?string $locale, string $pdfFilename, array $additionalAttachments): void
+    private function createLog(Invoice $invoice, string $email, string $subject, string $body, ?string $locale, string $pdfFilename, array $additionalAttachments, array $cc = [], array $bcc = []): void
     {
         $allAttachments = [
             [
@@ -104,6 +118,8 @@ class InvoiceEmailService
             'invoice_id' => $invoice->id,
             'user_id' => auth()->id(),
             'recipient_email' => $email,
+            'cc' => ! empty($cc) ? $cc : null,
+            'bcc' => ! empty($bcc) ? $bcc : null,
             'subject' => $subject,
             'body' => $body,
             'locale' => $locale,
