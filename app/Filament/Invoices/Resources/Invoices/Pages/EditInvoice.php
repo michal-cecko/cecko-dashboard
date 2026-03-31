@@ -75,11 +75,13 @@ class EditInvoice extends EditRecord
                             ->default(fn () => $this->getRecord()->customer->email),
                         TagsInput::make('cc')
                             ->label('CC')
-                            ->nestedRecursiveRules(['email'])
+                            ->nestedRecursiveRules(['email:rfc'])
+                            ->splitKeys(['Tab', ',', ' '])
                             ->placeholder('Pridať email'),
                         TagsInput::make('bcc')
                             ->label('BCC')
-                            ->nestedRecursiveRules(['email'])
+                            ->nestedRecursiveRules(['email:rfc'])
+                            ->splitKeys(['Tab', ',', ' '])
                             ->placeholder('Pridať email'),
                         TextInput::make('subject')
                             ->label('Predmet')

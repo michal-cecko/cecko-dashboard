@@ -89,6 +89,14 @@ class InvoiceInfolist
 
                 Section::make('Položky')
                     ->schema([
+                        TextEntry::make('text_before_items')
+                            ->label('Text pred položkami')
+                            ->html()
+                            ->state(fn ($record): ?string => $record->text_before_items[app()->getLocale()]
+                                ?? collect($record->text_before_items)->first())
+                            ->visible(fn ($record) => ! empty($record->text_before_items))
+                            ->columnSpanFull(),
+
                         RepeatableEntry::make('items')
                             ->hiddenLabel()
                             ->schema([
@@ -112,6 +120,14 @@ class InvoiceInfolist
                             ])
                             ->columns(6)
                             ->contained(false)
+                            ->columnSpanFull(),
+
+                        TextEntry::make('text_after_items')
+                            ->label('Text za položkami')
+                            ->html()
+                            ->state(fn ($record): ?string => $record->text_after_items[app()->getLocale()]
+                                ?? collect($record->text_after_items)->first())
+                            ->visible(fn ($record) => ! empty($record->text_after_items))
                             ->columnSpanFull(),
                     ])->columnSpanFull(),
 
