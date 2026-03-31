@@ -16,9 +16,11 @@ use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Schemas\Schema;
 use Illuminate\Contracts\Support\Htmlable;
@@ -79,14 +81,22 @@ class ViewInvoice extends ViewRecord
                             ->email()
                             ->required()
                             ->default(fn () => $this->getRecord()->customer->email),
+                        TagsInput::make('cc')
+                            ->label('CC')
+                            ->nestedRecursiveRules(['email'])
+                            ->placeholder('Pridať email'),
+                        TagsInput::make('bcc')
+                            ->label('BCC')
+                            ->nestedRecursiveRules(['email'])
+                            ->placeholder('Pridať email'),
                         TextInput::make('subject')
                             ->label('Predmet')
                             ->required()
                             ->default(fn () => 'Faktúra '.$this->getRecord()->invoice_number),
-                        Textarea::make('body')
+                        RichEditor::make('body')
                             ->label('Správa')
                             ->required()
-                            ->default('V prílohe posielame faktúru. Ďakujeme za spoluprácu.'),
+                            ->default('<p>V prílohe posielame faktúru. Ďakujeme za spoluprácu.</p>'),
                         Select::make('locale')
                             ->label('Jazyk PDF')
                             ->options(LocaleEnum::translations())
@@ -116,7 +126,14 @@ class ViewInvoice extends ViewRecord
                             $data['body'],
                             $data['locale'],
                             $data['attachments'] ?? [],
+                            $data['cc'] ?? [],
+                            $data['bcc'] ?? [],
                         );
+
+                        Notification::make()
+                            ->title('Faktúra bola odoslaná')
+                            ->success()
+                            ->send();
                     }),
             ])->label('Viac')->icon('heroicon-o-ellipsis-vertical'),
 

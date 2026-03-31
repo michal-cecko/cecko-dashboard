@@ -12,6 +12,8 @@ class InvoiceEmailLog extends Model
         'invoice_id',
         'user_id',
         'recipient_email',
+        'cc',
+        'bcc',
         'subject',
         'body',
         'locale',
@@ -22,6 +24,8 @@ class InvoiceEmailLog extends Model
     protected function casts(): array
     {
         return [
+            'cc' => 'array',
+            'bcc' => 'array',
             'attachments' => 'array',
             'sent_at' => 'datetime',
         ];
