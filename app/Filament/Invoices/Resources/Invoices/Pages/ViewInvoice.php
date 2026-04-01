@@ -7,6 +7,7 @@ use App\Enums\Invoices\InvoiceStatusEnum;
 use App\Filament\Invoices\Concerns\HasCompanyBreadcrumb;
 use App\Filament\Invoices\Resources\Invoices\InvoiceResource;
 use App\Filament\Invoices\Resources\Invoices\Schemas\InvoiceInfolist;
+use App\Models\Invoices\InvoiceNumberSequence;
 use App\Services\Invoices\InvoiceCalculationService;
 use App\Services\Invoices\InvoiceEmailService;
 use App\Services\Invoices\InvoiceNumberService;
@@ -149,10 +150,12 @@ class ViewInvoice extends ViewRecord
                 ->action(function () {
                     $record = $this->getRecord();
                     $company = auth()->user()->activeCompany;
-                    $sequence = $record->invoiceNumberSequence;
+                    $sequence = InvoiceNumberSequence::query()->where('is_default', true)->first()
+                        ?? $record->invoiceNumberSequence;
 
                     $newInvoice = $record->replicate([
                         'invoice_number',
+                        'invoice_number_sequence_id',
                         'status',
                         'sent_at',
                         'cancelled_at',
@@ -171,6 +174,7 @@ class ViewInvoice extends ViewRecord
                     $newInvoice->delivery_date = now();
 
                     if ($sequence) {
+                        $newInvoice->invoice_number_sequence_id = $sequence->id;
                         $newInvoice->invoice_number = app(InvoiceNumberService::class)->generateNextNumber($sequence);
                     }
 
