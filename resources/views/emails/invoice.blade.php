@@ -1,5 +1,5 @@
 <x-mail::message :logo-url="$logoUrl ?? null" :company-name="$sellerName ?? null">
-{{ $body }}
+{!! $body !!}
 
 @if($invoiceNumber)
 <x-mail::table>
