@@ -13,7 +13,7 @@ class UsersTable
     {
         return $table
             ->columns([
-                ImageColumn::make('avatar_path')
+                ImageColumn::make('avatar')
                     ->label('Fotka')
                     ->circular()
                     ->getStateUsing(fn ($record) => $record->getFilamentAvatarUrl()),

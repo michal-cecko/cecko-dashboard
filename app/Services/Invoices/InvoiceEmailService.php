@@ -8,7 +8,6 @@ use App\Models\Invoices\Invoice;
 use App\Models\Invoices\InvoiceEmailLog;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
 class InvoiceEmailService
 {
@@ -31,10 +30,7 @@ class InvoiceEmailService
 
         $sellerName = $invoice->seller_snapshot['name'] ?? $invoice->company?->name;
 
-        $logoPath = $invoice->company?->logo_path;
-        $logoUrl = $logoPath && Storage::disk('public')->exists($logoPath)
-            ? Storage::disk('public')->url($logoPath)
-            : null;
+        $logoUrl = $invoice->company?->getLogoUrl();
 
         $storedAttachments = $this->storeAttachments($invoice, $additionalAttachments);
 

@@ -15,4 +15,7 @@ enum UserCapabilityEnum: string
     case VIEW_INVOICES = 'VIEW_INVOICES';
     case MANAGE_INVOICES = 'MANAGE_INVOICES';
     case VIEW_ALL_INVOICES = 'VIEW_ALL_INVOICES';
+    case VIEW_MEDIA = 'VIEW_MEDIA';
+    case MANAGE_MEDIA = 'MANAGE_MEDIA';
+    case VIEW_ALL_MEDIA = 'VIEW_ALL_MEDIA';
 }

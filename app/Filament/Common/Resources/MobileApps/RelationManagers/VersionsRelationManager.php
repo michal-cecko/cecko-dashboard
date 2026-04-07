@@ -6,14 +6,13 @@ use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -36,12 +35,10 @@ class VersionsRelationManager extends RelationManager
                     ->placeholder('1.0.0')
                     ->columnSpanFull(),
 
-                FileUpload::make('apk_path')
-                    ->label('APK súbor')
-                    ->directory('mobile-apps')
-                    ->preserveFilenames()
+                SpatieMediaLibraryFileUpload::make('apk')
+                    ->collection('apk')
                     ->disk('local')
-                    ->visibility('private')
+                    ->label('APK súbor')
                     ->columnSpanFull(),
 
                 Textarea::make('changelog')
@@ -74,12 +71,17 @@ class VersionsRelationManager extends RelationManager
                     ->label('Stiahnuť')
                     ->icon('heroicon-o-arrow-down-tray')
                     ->color('success')
-                    ->visible(fn ($record) => ! empty($record->apk_path) && Storage::disk('local')->exists($record->apk_path))
+                    ->visible(fn ($record) => $record->getFirstMedia('apk') !== null)
                     ->action(function ($record): StreamedResponse {
-                        $filePath = $record->apk_path;
+                        $media = $record->getFirstMedia('apk');
                         $fileName = Str::slug($record->mobileApp->name).'-v'.$record->version.'.apk';
 
-                        return Storage::disk('local')->download($filePath, $fileName);
+                        return response()->streamDownload(
+                            function () use ($media) {
+                                echo file_get_contents($media->getPath());
+                            },
+                            $fileName,
+                        );
                     }),
 
                 EditAction::make(),

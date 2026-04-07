@@ -31,6 +31,9 @@ return [
         UserCapabilityEnum::VIEW_INVOICES->value => 'Prístup k faktúram',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Spravovať faktúry',
         UserCapabilityEnum::VIEW_ALL_INVOICES->value => 'Zobraziť faktúry všetkých používateľov',
+        UserCapabilityEnum::VIEW_MEDIA->value => 'Prístup k médiám',
+        UserCapabilityEnum::MANAGE_MEDIA->value => 'Spravovať médiá',
+        UserCapabilityEnum::VIEW_ALL_MEDIA->value => 'Zobraziť médiá všetkých používateľov',
     ],
 
     InvoiceThemeEnum::class => [
