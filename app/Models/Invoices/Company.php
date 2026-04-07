@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -74,7 +75,9 @@ class Company extends Model implements HasMedia
             return null;
         }
 
-        return 'data:'.$media->mime_type.';base64,'.base64_encode(file_get_contents($media->getPath()));
+        return 'data:'.$media->mime_type.';base64,'.base64_encode(
+            Storage::disk($media->disk)->get($media->getPathRelativeToRoot())
+        );
     }
 
     public function getSignatureBase64(): ?string
@@ -85,7 +88,9 @@ class Company extends Model implements HasMedia
             return null;
         }
 
-        return 'data:'.$media->mime_type.';base64,'.base64_encode(file_get_contents($media->getPath()));
+        return 'data:'.$media->mime_type.';base64,'.base64_encode(
+            Storage::disk($media->disk)->get($media->getPathRelativeToRoot())
+        );
     }
 
     public function user(): BelongsTo
