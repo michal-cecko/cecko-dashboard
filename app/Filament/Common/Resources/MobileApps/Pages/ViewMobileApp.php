@@ -6,6 +6,7 @@ use App\Filament\Common\Resources\MobileApps\MobileAppResource;
 use Filament\Actions\Action;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -27,7 +28,7 @@ class ViewMobileApp extends ViewRecord
 
                     return response()->streamDownload(
                         function () use ($media) {
-                            echo file_get_contents($media->getPath());
+                            echo Storage::disk($media->disk)->get($media->getPathRelativeToRoot());
                         },
                         $fileName,
                     );

@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -55,7 +56,7 @@ class MobileAppsTable
 
                         return response()->streamDownload(
                             function () use ($media) {
-                                echo file_get_contents($media->getPath());
+                                echo Storage::disk($media->disk)->get($media->getPathRelativeToRoot());
                             },
                             $fileName,
                         );
