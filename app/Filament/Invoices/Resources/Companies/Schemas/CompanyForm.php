@@ -37,12 +37,14 @@ class CompanyForm
                             ->maxLength(255),
                         SpatieMediaLibraryFileUpload::make('logo')
                             ->collection('logo')
+                            ->disk('public')
                             ->label('Logo')
                             ->acceptedFileTypes(['image/*'])
                             ->image()
                             ->imagePreviewHeight('100'),
                         SpatieMediaLibraryFileUpload::make('signature')
                             ->collection('signature')
+                            ->disk('public')
                             ->label('Pečiatka a podpis')
                             ->acceptedFileTypes(['image/png', 'image/webp'])
                             ->image()

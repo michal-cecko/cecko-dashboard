@@ -79,6 +79,7 @@ class GalleryForm
                     ->schema([
                         SpatieMediaLibraryFileUpload::make('media')
                             ->collection('media')
+                            ->disk('public')
                             ->multiple()
                             ->reorderable()
                             ->acceptedFileTypes([

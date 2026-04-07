@@ -45,6 +45,7 @@ class UserForm
 
                 SpatieMediaLibraryFileUpload::make('avatar')
                     ->collection('avatar')
+                    ->disk('public')
                     ->label('Profilová fotka')
                     ->acceptedFileTypes(['image/*'])
                     ->columnSpanFull()
