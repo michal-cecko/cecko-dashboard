@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Toolkit\GalleryShareController;
 use App\Models\Invoices\Invoice;
 use App\Services\Invoices\InvoicePdfService;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,7 @@ Route::get('/faktury/preview/{invoice}', function (Invoice $invoice) {
 
     return app(InvoicePdfService::class)->generateHtml($invoice, $locale);
 })->middleware(['web', 'auth'])->name('invoices.preview');
+
+Route::get('/gallery/{token}', [GalleryShareController::class, 'show'])
+    ->name('gallery.public')
+    ->where('token', '[0-9a-f-]{36}');

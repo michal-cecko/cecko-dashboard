@@ -6,7 +6,6 @@ use App\Enums\Invoices\InvoiceThemeEnum;
 use App\Enums\Invoices\VatTypeEnum;
 use App\Models\Invoices\Invoice;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use ZipArchive;
 
@@ -35,19 +34,8 @@ class InvoicePdfService
                 'total' => $item->total,
             ])->toArray();
 
-            $logoBase64 = null;
-            if ($invoice->company->logo_path && Storage::disk('public')->exists($invoice->company->logo_path)) {
-                $logoContents = Storage::disk('public')->get($invoice->company->logo_path);
-                $mime = Storage::disk('public')->mimeType($invoice->company->logo_path);
-                $logoBase64 = 'data:'.$mime.';base64,'.base64_encode($logoContents);
-            }
-
-            $signatureBase64 = null;
-            if ($invoice->company->signature_path && Storage::disk('public')->exists($invoice->company->signature_path)) {
-                $sigContents = Storage::disk('public')->get($invoice->company->signature_path);
-                $sigMime = Storage::disk('public')->mimeType($invoice->company->signature_path);
-                $signatureBase64 = 'data:'.$sigMime.';base64,'.base64_encode($sigContents);
-            }
+            $logoBase64 = $invoice->company->getLogoBase64();
+            $signatureBase64 = $invoice->company->getSignatureBase64();
 
             $qrBase64 = $this->payBySquareService->generateQrBase64($invoice);
 

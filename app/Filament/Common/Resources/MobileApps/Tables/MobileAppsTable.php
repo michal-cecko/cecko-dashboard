@@ -8,7 +8,6 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -49,12 +48,17 @@ class MobileAppsTable
                     ->label('Stiahnuť')
                     ->icon('heroicon-o-arrow-down-tray')
                     ->color('success')
-                    ->visible(fn ($record) => $record->latestVersion?->apk_path && Storage::disk('local')->exists($record->latestVersion->apk_path))
+                    ->visible(fn ($record) => $record->latestVersion?->getFirstMedia('apk') !== null)
                     ->action(function ($record): StreamedResponse {
-                        $filePath = $record->latestVersion->apk_path;
+                        $media = $record->latestVersion->getFirstMedia('apk');
                         $fileName = Str::slug($record->name).'-v'.$record->latestVersion->version.'.apk';
 
-                        return Storage::disk('local')->download($filePath, $fileName);
+                        return response()->streamDownload(
+                            function () use ($media) {
+                                echo file_get_contents($media->getPath());
+                            },
+                            $fileName,
+                        );
                     }),
 
                 ViewAction::make(),

@@ -4,7 +4,7 @@ namespace App\Filament\Common\Resources\Users\Schemas;
 
 use App\Enums\Common\UserCapabilityEnum;
 use Filament\Forms\Components\CheckboxList;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
@@ -43,13 +43,10 @@ class UserForm
                         ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
                 ])->columnSpanFull(),
 
-                FileUpload::make('avatar_path')
+                SpatieMediaLibraryFileUpload::make('avatar')
+                    ->collection('avatar')
                     ->label('Profilová fotka')
                     ->acceptedFileTypes(['image/*'])
-                    ->directory('avatars')
-                    ->preserveFilenames()
-                    ->disk('public')
-                    ->visibility('public')
                     ->columnSpanFull()
                     ->imageEditor(),
 

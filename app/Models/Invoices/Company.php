@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Company extends Model
+class Company extends Model implements HasMedia
 {
     /** @use HasFactory<CompanyFactory> */
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected static function newFactory(): CompanyFactory
     {
@@ -49,6 +51,41 @@ class Company extends Model
         return [
             'is_vat_payer' => 'boolean',
         ];
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('logo')->singleFile();
+        $this->addMediaCollection('signature')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/png', 'image/webp']);
+    }
+
+    public function getLogoUrl(): ?string
+    {
+        return $this->getFirstMediaUrl('logo') ?: null;
+    }
+
+    public function getLogoBase64(): ?string
+    {
+        $media = $this->getFirstMedia('logo');
+
+        if (! $media) {
+            return null;
+        }
+
+        return 'data:'.$media->mime_type.';base64,'.base64_encode(file_get_contents($media->getPath()));
+    }
+
+    public function getSignatureBase64(): ?string
+    {
+        $media = $this->getFirstMedia('signature');
+
+        if (! $media) {
+            return null;
+        }
+
+        return 'data:'.$media->mime_type.';base64,'.base64_encode(file_get_contents($media->getPath()));
     }
 
     public function user(): BelongsTo

@@ -6,8 +6,8 @@ use App\Enums\Common\CountryEnum;
 use App\Enums\Common\CurrencyEnum;
 use App\Enums\Common\LocaleEnum;
 use App\Enums\Invoices\InvoiceThemeEnum;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
@@ -35,20 +35,16 @@ class CompanyForm
                         TextInput::make('responsible_person')
                             ->label('Zodpovedná osoba')
                             ->maxLength(255),
-                        FileUpload::make('logo_path')
+                        SpatieMediaLibraryFileUpload::make('logo')
+                            ->collection('logo')
                             ->label('Logo')
                             ->acceptedFileTypes(['image/*'])
-                            ->disk('public')
-                            ->visibility('public')
-                            ->directory('company-logos')
                             ->image()
                             ->imagePreviewHeight('100'),
-                        FileUpload::make('signature_path')
+                        SpatieMediaLibraryFileUpload::make('signature')
+                            ->collection('signature')
                             ->label('Pečiatka a podpis')
                             ->acceptedFileTypes(['image/png', 'image/webp'])
-                            ->disk('public')
-                            ->visibility('public')
-                            ->directory('company-signatures')
                             ->image()
                             ->imagePreviewHeight('100'),
                     ])->columns(3),
