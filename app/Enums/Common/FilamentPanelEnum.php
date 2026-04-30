@@ -11,4 +11,5 @@ enum FilamentPanelEnum: string
     case SONGS = 'songs';
     case INVOICES = 'invoices';
     case TOOLKIT = 'toolkit';
+    case GARAZ = 'garaz';
 }

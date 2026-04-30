@@ -18,4 +18,6 @@ enum UserCapabilityEnum: string
     case VIEW_MEDIA = 'VIEW_MEDIA';
     case MANAGE_MEDIA = 'MANAGE_MEDIA';
     case VIEW_ALL_MEDIA = 'VIEW_ALL_MEDIA';
+    case VIEW_GARAZ = 'VIEW_GARAZ';
+    case MANAGE_GARAZ = 'MANAGE_GARAZ';
 }
