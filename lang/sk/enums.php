@@ -15,6 +15,7 @@ use App\Enums\Garaz\DrivetrainEnum;
 use App\Enums\Garaz\EmissionStandardEnum;
 use App\Enums\Garaz\FrameMaterialEnum;
 use App\Enums\Garaz\FuelTypeEnum;
+use App\Enums\Garaz\KnowledgeSourceEnum;
 use App\Enums\Garaz\MotorcycleCoolingEnum;
 use App\Enums\Garaz\MotorcycleEngineLayoutEnum;
 use App\Enums\Garaz\MotorcycleFinalDriveEnum;
@@ -202,6 +203,14 @@ return [
         CheckOutcomeEnum::FAIL->value => 'Problém',
         CheckOutcomeEnum::UNCERTAIN->value => 'Nejednoznačné',
         CheckOutcomeEnum::SKIPPED->value => 'Preskočené',
+    ],
+
+    KnowledgeSourceEnum::class => [
+        KnowledgeSourceEnum::MANUAL->value => 'Manuálne',
+        KnowledgeSourceEnum::BOOKMARKLET->value => 'Bookmarklet',
+        KnowledgeSourceEnum::EMAIL->value => 'Email',
+        KnowledgeSourceEnum::FORUM->value => 'Forum',
+        KnowledgeSourceEnum::AI->value => 'AI',
     ],
 
     VehicleDocumentTypeEnum::class => [
