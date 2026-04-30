@@ -43,4 +43,10 @@ return [
         'url' => env('CNB_API_URL', 'https://api.cnb.cz/cnbapi/exrates/daily'),
     ],
 
+    'anthropic' => [
+        'api_key' => env('ANTHROPIC_API_KEY'),
+        'default_model' => env('ANTHROPIC_DEFAULT_MODEL', 'claude-sonnet-4-6'),
+        'research_model' => env('ANTHROPIC_RESEARCH_MODEL', 'claude-opus-4-7'),
+    ],
+
 ];
