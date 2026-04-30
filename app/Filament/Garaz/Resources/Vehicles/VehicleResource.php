@@ -5,6 +5,7 @@ namespace App\Filament\Garaz\Resources\Vehicles;
 use App\Filament\Garaz\Resources\Vehicles\Pages\CreateVehicle;
 use App\Filament\Garaz\Resources\Vehicles\Pages\EditVehicle;
 use App\Filament\Garaz\Resources\Vehicles\Pages\ListVehicles;
+use App\Filament\Garaz\Resources\Vehicles\Pages\SymptomChat;
 use App\Filament\Garaz\Resources\Vehicles\Pages\ViewVehicle;
 use App\Filament\Garaz\Resources\Vehicles\RelationManagers\DocumentsRelationManager;
 use App\Filament\Garaz\Resources\Vehicles\RelationManagers\OdometerReadingsRelationManager;
@@ -51,6 +52,7 @@ class VehicleResource extends Resource
             'create' => CreateVehicle::route('/create'),
             'view' => ViewVehicle::route('/{record}'),
             'edit' => EditVehicle::route('/{record}/edit'),
+            'symptom-chat' => SymptomChat::route('/{record}/symptom-chat'),
         ];
     }
 
