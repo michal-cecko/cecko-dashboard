@@ -93,6 +93,11 @@ class Vehicle extends Model implements HasMedia
         return $this->hasMany(VehicleDocument::class);
     }
 
+    public function concernAssessments(): HasMany
+    {
+        return $this->hasMany(ConcernAssessment::class)->orderByDesc('opened_at');
+    }
+
     public function spec(): ?Model
     {
         return match ($this->type) {
