@@ -88,6 +88,11 @@ class Vehicle extends Model implements HasMedia
         return $this->hasMany(OdometerReading::class)->orderByDesc('recorded_at');
     }
 
+    public function documents(): HasMany
+    {
+        return $this->hasMany(VehicleDocument::class);
+    }
+
     public function spec(): ?Model
     {
         return match ($this->type) {

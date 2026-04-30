@@ -6,6 +6,7 @@ use App\Filament\Garaz\Resources\Vehicles\Pages\CreateVehicle;
 use App\Filament\Garaz\Resources\Vehicles\Pages\EditVehicle;
 use App\Filament\Garaz\Resources\Vehicles\Pages\ListVehicles;
 use App\Filament\Garaz\Resources\Vehicles\Pages\ViewVehicle;
+use App\Filament\Garaz\Resources\Vehicles\RelationManagers\DocumentsRelationManager;
 use App\Filament\Garaz\Resources\Vehicles\RelationManagers\OdometerReadingsRelationManager;
 use App\Filament\Garaz\Resources\Vehicles\Schemas\VehicleForm;
 use App\Filament\Garaz\Resources\Vehicles\Tables\VehiclesTable;
@@ -56,6 +57,7 @@ class VehicleResource extends Resource
     {
         return [
             OdometerReadingsRelationManager::class,
+            DocumentsRelationManager::class,
         ];
     }
 
