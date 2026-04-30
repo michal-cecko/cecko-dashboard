@@ -6,6 +6,7 @@ use App\Filament\Garaz\Resources\Vehicles\Pages\CreateVehicle;
 use App\Filament\Garaz\Resources\Vehicles\Pages\EditVehicle;
 use App\Filament\Garaz\Resources\Vehicles\Pages\ListVehicles;
 use App\Filament\Garaz\Resources\Vehicles\Pages\ViewVehicle;
+use App\Filament\Garaz\Resources\Vehicles\RelationManagers\OdometerReadingsRelationManager;
 use App\Filament\Garaz\Resources\Vehicles\Schemas\VehicleForm;
 use App\Filament\Garaz\Resources\Vehicles\Tables\VehiclesTable;
 use App\Models\Garaz\Vehicle;
@@ -48,6 +49,13 @@ class VehicleResource extends Resource
             'create' => CreateVehicle::route('/create'),
             'view' => ViewVehicle::route('/{record}'),
             'edit' => EditVehicle::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            OdometerReadingsRelationManager::class,
         ];
     }
 
