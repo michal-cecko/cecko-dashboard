@@ -23,6 +23,11 @@ class ViewVehicle extends ViewRecord
         return [
             EditAction::make(),
             $this->startAssessmentAction(),
+            Action::make('symptomChat')
+                ->label('Spýtať sa AI na symptóm')
+                ->icon(Heroicon::OutlinedChatBubbleLeftRight)
+                ->color('info')
+                ->url(fn (): string => VehicleResource::getUrl('symptom-chat', ['record' => $this->getRecord()])),
             $this->archiveToggleAction(),
             DeleteAction::make(),
         ];
