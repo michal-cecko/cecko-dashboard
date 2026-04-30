@@ -4,9 +4,13 @@ use App\Enums\Common\CountryEnum;
 use App\Enums\Common\CurrencyEnum;
 use App\Enums\Common\LocaleEnum;
 use App\Enums\Common\UserCapabilityEnum;
+use App\Enums\Garaz\AssessmentVerdictEnum;
 use App\Enums\Garaz\BikeCategoryEnum;
 use App\Enums\Garaz\BikeTireTypeEnum;
 use App\Enums\Garaz\BrakeTypeEnum;
+use App\Enums\Garaz\CheckOutcomeEnum;
+use App\Enums\Garaz\ConcernCheckInputEnum;
+use App\Enums\Garaz\ConcernTriggerEnum;
 use App\Enums\Garaz\DrivetrainEnum;
 use App\Enums\Garaz\EmissionStandardEnum;
 use App\Enums\Garaz\FrameMaterialEnum;
@@ -164,6 +168,40 @@ return [
         OdometerSourceEnum::MANUAL->value => 'Manuálny záznam',
         OdometerSourceEnum::SERVICE->value => 'Servis',
         OdometerSourceEnum::DIY->value => 'DIY úkon',
+    ],
+
+    ConcernTriggerEnum::class => [
+        ConcernTriggerEnum::MILEAGE->value => 'Stav km',
+        ConcernTriggerEnum::TIME->value => 'Časovo (interval)',
+        ConcernTriggerEnum::SYMPTOM->value => 'Symptóm',
+        ConcernTriggerEnum::RECALL->value => 'Stiahnutie / TSB',
+        ConcernTriggerEnum::SEASONAL->value => 'Sezónne',
+    ],
+
+    ConcernCheckInputEnum::class => [
+        ConcernCheckInputEnum::PHOTO->value => 'Fotka',
+        ConcernCheckInputEnum::VIDEO->value => 'Video',
+        ConcernCheckInputEnum::TEXT->value => 'Text',
+        ConcernCheckInputEnum::NUMBER->value => 'Číslo',
+        ConcernCheckInputEnum::OBD_CODES->value => 'OBD kódy',
+        ConcernCheckInputEnum::AUTO_LOOKUP->value => 'Automatické (z dát)',
+        ConcernCheckInputEnum::CHOICE->value => 'Voľba',
+        ConcernCheckInputEnum::RATING->value => 'Hodnotenie 0–5',
+    ],
+
+    AssessmentVerdictEnum::class => [
+        AssessmentVerdictEnum::OPEN->value => 'Prebieha',
+        AssessmentVerdictEnum::CLEAR->value => 'V poriadku',
+        AssessmentVerdictEnum::SHOP->value => 'Do servisu',
+        AssessmentVerdictEnum::MONITOR->value => 'Sledovať',
+    ],
+
+    CheckOutcomeEnum::class => [
+        CheckOutcomeEnum::PENDING->value => 'Čaká',
+        CheckOutcomeEnum::PASS->value => 'OK',
+        CheckOutcomeEnum::FAIL->value => 'Problém',
+        CheckOutcomeEnum::UNCERTAIN->value => 'Nejednoznačné',
+        CheckOutcomeEnum::SKIPPED->value => 'Preskočené',
     ],
 
     VehicleDocumentTypeEnum::class => [
