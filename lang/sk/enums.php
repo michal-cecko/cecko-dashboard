@@ -17,6 +17,7 @@ use App\Enums\Garaz\MotorcycleFinalDriveEnum;
 use App\Enums\Garaz\OdometerSourceEnum;
 use App\Enums\Garaz\SuspensionTypeEnum;
 use App\Enums\Garaz\TransmissionEnum;
+use App\Enums\Garaz\VehicleDocumentTypeEnum;
 use App\Enums\Garaz\VehicleTypeEnum;
 use App\Enums\Garaz\WheelSizeEnum;
 use App\Enums\Invoices\InvoiceItemVariableEnum;
@@ -163,6 +164,17 @@ return [
         OdometerSourceEnum::MANUAL->value => 'Manuálny záznam',
         OdometerSourceEnum::SERVICE->value => 'Servis',
         OdometerSourceEnum::DIY->value => 'DIY úkon',
+    ],
+
+    VehicleDocumentTypeEnum::class => [
+        VehicleDocumentTypeEnum::STK->value => 'STK',
+        VehicleDocumentTypeEnum::EK->value => 'Emisná kontrola (EK)',
+        VehicleDocumentTypeEnum::INSURANCE_PZP->value => 'PZP (povinné zmluvné poistenie)',
+        VehicleDocumentTypeEnum::INSURANCE_HAVARIJKA->value => 'Havarijné poistenie',
+        VehicleDocumentTypeEnum::REGISTRATION->value => 'Technický preukaz / OEV',
+        VehicleDocumentTypeEnum::SERVICE_BOOK->value => 'Servisná knižka',
+        VehicleDocumentTypeEnum::INVOICE_RECEIPT->value => 'Faktúra / blok',
+        VehicleDocumentTypeEnum::OTHER->value => 'Iný dokument',
     ],
 
     InvoiceThemeEnum::class => [
