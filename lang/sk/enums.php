@@ -20,6 +20,8 @@ use App\Enums\Garaz\MotorcycleCoolingEnum;
 use App\Enums\Garaz\MotorcycleEngineLayoutEnum;
 use App\Enums\Garaz\MotorcycleFinalDriveEnum;
 use App\Enums\Garaz\OdometerSourceEnum;
+use App\Enums\Garaz\ServiceCategoryEnum;
+use App\Enums\Garaz\ServiceSourceEnum;
 use App\Enums\Garaz\SuspensionTypeEnum;
 use App\Enums\Garaz\TransmissionEnum;
 use App\Enums\Garaz\VehicleDocumentTypeEnum;
@@ -203,6 +205,32 @@ return [
         CheckOutcomeEnum::FAIL->value => 'Problém',
         CheckOutcomeEnum::UNCERTAIN->value => 'Nejednoznačné',
         CheckOutcomeEnum::SKIPPED->value => 'Preskočené',
+    ],
+
+    ServiceCategoryEnum::class => [
+        ServiceCategoryEnum::OIL_CHANGE->value => 'Výmena oleja',
+        ServiceCategoryEnum::OIL_FILTER->value => 'Olejový filter',
+        ServiceCategoryEnum::AIR_FILTER->value => 'Vzduchový filter',
+        ServiceCategoryEnum::CABIN_FILTER->value => 'Kabínový filter',
+        ServiceCategoryEnum::FUEL_FILTER->value => 'Palivový filter',
+        ServiceCategoryEnum::BRAKES->value => 'Brzdy',
+        ServiceCategoryEnum::TIRES->value => 'Pneumatiky',
+        ServiceCategoryEnum::TIMING->value => 'Rozvody',
+        ServiceCategoryEnum::CLUTCH->value => 'Spojka',
+        ServiceCategoryEnum::BATTERY->value => 'Batéria',
+        ServiceCategoryEnum::COOLANT->value => 'Chladiaca kvapalina',
+        ServiceCategoryEnum::REPAIR->value => 'Oprava',
+        ServiceCategoryEnum::INSPECTION->value => 'Prehliadka',
+        ServiceCategoryEnum::STK->value => 'STK',
+        ServiceCategoryEnum::EK->value => 'Emisná kontrola',
+        ServiceCategoryEnum::OTHER->value => 'Iné',
+    ],
+
+    ServiceSourceEnum::class => [
+        ServiceSourceEnum::SHOP->value => 'Servis',
+        ServiceSourceEnum::DIY->value => 'DIY',
+        ServiceSourceEnum::IMPORTED->value => 'Importované',
+        ServiceSourceEnum::ASSESSMENT->value => 'Z DIY kontroly',
     ],
 
     KnowledgeSourceEnum::class => [
