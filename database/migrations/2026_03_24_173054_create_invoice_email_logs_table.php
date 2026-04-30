@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\Migrations\JsonColumn;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +17,7 @@ return new class extends Migration
             $table->string('subject');
             $table->text('body');
             $table->string('locale')->nullable();
-            $table->jsonb('attachments')->nullable();
+            JsonColumn::add($table, 'attachments')->nullable();
             $table->timestamp('sent_at');
             $table->timestamps();
         });

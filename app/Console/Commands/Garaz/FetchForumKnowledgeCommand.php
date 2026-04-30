@@ -155,7 +155,7 @@ class FetchForumKnowledgeCommand extends Command
         $vehicle = Vehicle::query()
             ->where('user_id', $userId)
             ->when(isset($match['make']), fn ($q) => $q->where('make', $match['make']))
-            ->when(isset($match['model']), fn ($q) => $q->where('model', 'ilike', '%'.$match['model'].'%'))
+            ->when(isset($match['model']), fn ($q) => $q->whereLike('model', '%'.$match['model'].'%', caseSensitive: false))
             ->first();
 
         return $vehicle?->id;
