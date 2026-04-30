@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\Migrations\JsonColumn;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->jsonb('text_before_items')->nullable()->after('order_number');
-            $table->jsonb('text_after_items')->nullable()->after('text_before_items');
+            JsonColumn::add($table, 'text_before_items')->nullable()->after('order_number');
+            JsonColumn::add($table, 'text_after_items')->nullable()->after('text_before_items');
         });
     }
 

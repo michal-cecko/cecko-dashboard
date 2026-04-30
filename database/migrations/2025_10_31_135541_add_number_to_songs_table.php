@@ -12,13 +12,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('songs', function (Blueprint $table) {
-            if (DB::getDriverName() === 'pgsql') {
-                DB::statement('DROP SEQUENCE IF EXISTS song_number_seq;');
-                DB::statement('CREATE SEQUENCE song_number_seq START 1;');
-            }
+        $isPgsql = DB::getDriverName() === 'pgsql';
 
-            $table->integer('number')->nullable()->default(DB::raw('nextval(\'song_number_seq\')'));
+        if ($isPgsql) {
+            DB::statement('DROP SEQUENCE IF EXISTS song_number_seq;');
+            DB::statement('CREATE SEQUENCE song_number_seq START 1;');
+        }
+
+        Schema::table('songs', function (Blueprint $table) use ($isPgsql) {
+            $column = $table->integer('number')->nullable();
+
+            if ($isPgsql) {
+                $column->default(DB::raw('nextval(\'song_number_seq\')'));
+            }
         });
     }
 

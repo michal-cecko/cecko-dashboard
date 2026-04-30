@@ -21,7 +21,7 @@ class ServiceCatalogItemsTable
                     ->state(fn ($record): string => $record->translated('name', app()->getLocale()) ?? '-')
                     ->searchable(query: function ($query, string $search) {
                         $query->whereHas('translations', function ($q) use ($search) {
-                            $q->where('name', 'ilike', "%{$search}%");
+                            $q->whereLike('name', "%{$search}%", caseSensitive: false);
                         });
                     })
                     ->sortable(query: function ($query, string $direction) {

@@ -31,8 +31,8 @@ class SearchKnowledgeTool extends Tool
 
         if ($query !== '') {
             $builder->where(function ($q) use ($query): void {
-                $q->where('title', 'ilike', "%{$query}%")
-                    ->orWhere('body', 'ilike', "%{$query}%");
+                $q->whereLike('title', "%{$query}%", caseSensitive: false)
+                    ->orWhereLike('body', "%{$query}%", caseSensitive: false);
             });
         }
 
