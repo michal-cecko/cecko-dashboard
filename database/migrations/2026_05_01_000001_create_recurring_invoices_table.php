@@ -53,7 +53,6 @@ return new class extends Migration
         Schema::table('invoices', function (Blueprint $table) {
             $table->foreignId('recurring_invoice_id')
                 ->nullable()
-                ->after('invoice_number_sequence_id')
                 ->constrained('recurring_invoices')
                 ->nullOnDelete();
         });
