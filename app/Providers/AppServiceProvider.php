@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Mail\Events\MessageSending;
@@ -40,5 +42,10 @@ class AppServiceProvider extends ServiceProvider
                 $event->message->replyTo(new Address($address, config('mail.reply_to.name')));
             }
         });
+
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::TOPBAR_END,
+            fn (): string => view('filament.shared.panel-topbar-switcher')->render(),
+        );
     }
 }
