@@ -26,6 +26,7 @@ class Invoice extends Model
         'company_id',
         'customer_id',
         'invoice_number_sequence_id',
+        'recurring_invoice_id',
 
         'invoice_number',
         'description',
@@ -98,6 +99,11 @@ class Invoice extends Model
     public function invoiceNumberSequence(): BelongsTo
     {
         return $this->belongsTo(InvoiceNumberSequence::class);
+    }
+
+    public function recurringInvoice(): BelongsTo
+    {
+        return $this->belongsTo(RecurringInvoice::class);
     }
 
     public function items(): HasMany

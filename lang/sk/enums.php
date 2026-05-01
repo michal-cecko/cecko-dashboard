@@ -32,6 +32,7 @@ use App\Enums\Invoices\InvoiceNumberVariableEnum;
 use App\Enums\Invoices\InvoiceStatusEnum;
 use App\Enums\Invoices\InvoiceThemeEnum;
 use App\Enums\Invoices\PaymentMethodEnum;
+use App\Enums\Invoices\RecurringIntervalEnum;
 use App\Enums\Invoices\VatTypeEnum;
 
 return [
@@ -283,6 +284,11 @@ return [
         PaymentMethodEnum::PAYPAL->value => 'PayPal',
         PaymentMethodEnum::CRYPTO->value => 'Kryptomeny',
         PaymentMethodEnum::OTHER->value => 'Iné',
+    ],
+
+    RecurringIntervalEnum::class => [
+        RecurringIntervalEnum::MONTHLY->value => 'Mesačne',
+        RecurringIntervalEnum::YEARLY->value => 'Ročne',
     ],
 
     InvoiceNumberVariableEnum::class => [
