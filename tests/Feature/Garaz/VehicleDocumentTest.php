@@ -3,10 +3,10 @@
 namespace Tests\Feature\Garaz;
 
 use App\Enums\Garaz\VehicleDocumentTypeEnum;
-use App\Models\Common\User;
 use App\Models\Garaz\Vehicle;
 use App\Models\Garaz\VehicleDocument;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
 class VehicleDocumentTest extends TestCase
@@ -102,7 +102,7 @@ class VehicleDocumentTest extends TestCase
         $this->assertFalse(VehicleDocumentTypeEnum::OTHER->tracksExpiry());
     }
 
-    private function makeDoc(\DateTimeInterface|\Illuminate\Support\Carbon $expires): VehicleDocument
+    private function makeDoc(\DateTimeInterface|Carbon $expires): VehicleDocument
     {
         $vehicle = Vehicle::factory()->create();
 
