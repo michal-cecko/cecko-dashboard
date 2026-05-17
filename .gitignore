@@ -69,3 +69,6 @@ Thumbs.db
 *.wmv
 
 /.*/mcp
+
+# Composer auth credentials (provide via Dokploy COMPOSER_AUTH build arg)
+auth.json
