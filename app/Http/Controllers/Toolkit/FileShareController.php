@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Toolkit;
 use App\Http\Controllers\Controller;
 use App\Models\Toolkit\FileShare;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class FileShareController extends Controller
 {
@@ -27,7 +28,7 @@ class FileShareController extends Controller
         ]);
     }
 
-    public function download(string $token, int $media): BinaryFileResponse|Response
+    public function download(string $token, int $media): SymfonyResponse
     {
         $fileShare = FileShare::where('share_token', $token)->firstOrFail();
 
@@ -41,6 +42,9 @@ class FileShareController extends Controller
 
         abort_unless($mediaItem, 404);
 
-        return response()->download($mediaItem->getPath(), $mediaItem->file_name);
+        return Storage::disk($mediaItem->disk)->download(
+            $mediaItem->getPathRelativeToRoot(),
+            $mediaItem->file_name
+        );
     }
 }
