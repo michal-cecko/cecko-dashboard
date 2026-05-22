@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         FilamentView::registerRenderHook(
-            PanelsRenderHook::TOPBAR_START,
+            PanelsRenderHook::USER_MENU_BEFORE,
             fn (): string => view('filament.shared.panel-topbar-switcher')->render(),
         );
     }
