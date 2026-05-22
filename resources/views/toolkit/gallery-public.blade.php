@@ -10,14 +10,26 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 min-h-screen">
     <div class="mx-auto max-w-7xl px-4 py-8 sm:py-12">
-        <div class="mb-8">
-            <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
-                {{ $gallery->title }}
-            </h1>
-            @if($gallery->description)
-                <p class="mt-2 text-gray-600 dark:text-gray-400">
-                    {{ $gallery->description }}
-                </p>
+        <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
+                    {{ $gallery->title }}
+                </h1>
+                @if($gallery->description)
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">
+                        {{ $gallery->description }}
+                    </p>
+                @endif
+            </div>
+
+            @if($gallery->getMedia('media')->isNotEmpty())
+                <a href="{{ route('gallery.download-all', $gallery->share_token) }}"
+                   class="inline-flex shrink-0 items-center gap-2 self-start rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    Stiahnuť všetko
+                </a>
             @endif
         </div>
 

@@ -4,7 +4,7 @@ namespace App\Models\Toolkit;
 
 use App\Models\Common\User;
 use App\Models\Concerns\Shareable;
-use Database\Factories\GalleryFactory;
+use Database\Factories\FileShareFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Gallery extends Model implements HasMedia
+class FileShare extends Model implements HasMedia
 {
-    /** @use HasFactory<GalleryFactory> */
+    /** @use HasFactory<FileShareFactory> */
     use HasFactory, InteractsWithMedia, Shareable;
 
     protected $fillable = [
@@ -36,14 +36,14 @@ class Gallery extends Model implements HasMedia
         ];
     }
 
-    protected static function newFactory(): GalleryFactory
+    protected static function newFactory(): FileShareFactory
     {
-        return GalleryFactory::new();
+        return FileShareFactory::new();
     }
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('media');
+        $this->addMediaCollection('files');
     }
 
     public function user(): BelongsTo
@@ -53,13 +53,13 @@ class Gallery extends Model implements HasMedia
 
     public function sharedUsers(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'gallery_user')
+        return $this->belongsToMany(User::class, 'file_share_user')
             ->withPivot('permission')
             ->withTimestamps();
     }
 
     public function getShareUrl(): string
     {
-        return route('gallery.public', $this->share_token);
+        return route('file-share.public', $this->share_token);
     }
 }

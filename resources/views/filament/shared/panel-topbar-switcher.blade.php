@@ -18,7 +18,7 @@
 
 @if ($available->isNotEmpty())
     <style>
-        .panel-switch { display: none; align-items: center; gap: .25rem; margin-right: .5rem; }
+        .panel-switch { display: none; align-items: center; gap: .25rem; margin-left: .5rem; }
         @media (min-width: 768px) { .panel-switch { display: inline-flex; } }
 
         .panel-switch__chip {

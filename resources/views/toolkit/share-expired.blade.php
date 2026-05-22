@@ -17,7 +17,7 @@
                 Platnosť tohto odkazu vypršala
             </h1>
             <p class="mt-2 text-gray-500 dark:text-gray-400">
-                Galéria už nie je dostupná. Kontaktujte vlastníka pre nový odkaz.
+                Obsah už nie je dostupný. Kontaktujte vlastníka pre nový odkaz.
             </p>
         </div>
     </div>
