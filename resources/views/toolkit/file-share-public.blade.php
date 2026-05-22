@@ -18,11 +18,28 @@
                     {{ $fileShare->description }}
                 </p>
             @endif
+            @if($fileShare->expires_at)
+                <p class="mt-3 text-sm text-amber-600 dark:text-amber-400">
+                    Odkaz vyprší {{ $fileShare->expires_at->diffForHumans() }}
+                </p>
+            @endif
         </div>
 
         @php($files = $fileShare->getMedia('files'))
 
         @if($files->isNotEmpty())
+            @if($files->count() > 1)
+                <div class="mb-4 flex justify-end">
+                    <a href="{{ route('file-share.download-all', $fileShare->share_token) }}"
+                       class="inline-flex items-center gap-1.5 rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        Stiahnuť všetko (ZIP)
+                    </a>
+                </div>
+            @endif
+
             <ul class="divide-y divide-gray-200 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800">
                 @foreach($files as $media)
                     <li class="flex items-center gap-4 px-4 py-3 sm:px-6">

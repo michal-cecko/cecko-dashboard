@@ -30,6 +30,10 @@ Route::get('/file-share/{token}', [FileShareController::class, 'show'])
     ->name('file-share.public')
     ->where('token', '[0-9a-f-]{36}');
 
+Route::get('/file-share/{token}/download', [FileShareController::class, 'downloadAll'])
+    ->name('file-share.download-all')
+    ->where('token', '[0-9a-f-]{36}');
+
 Route::get('/file-share/{token}/download/{media}', [FileShareController::class, 'download'])
     ->name('file-share.download')
     ->where(['token' => '[0-9a-f-]{36}', 'media' => '[0-9]+']);
