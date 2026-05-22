@@ -50,8 +50,9 @@
                         </div>
 
                         <div class="min-w-0 flex-1">
+                            @php($ext = pathinfo($media->file_name, PATHINFO_EXTENSION))
                             <p class="truncate text-sm font-medium text-gray-900 dark:text-white">
-                                {{ $media->name ?: $media->file_name }}
+                                {{ $media->name ? ($ext ? $media->name.'.'.$ext : $media->name) : $media->file_name }}
                             </p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">
                                 {{ \Illuminate\Support\Number::fileSize($media->size) }}

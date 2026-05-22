@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Toolkit;
 use App\Http\Controllers\Controller;
 use App\Models\Toolkit\Gallery;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -55,7 +56,10 @@ class GalleryShareController extends Controller
             }
             $usedNames[$name] = true;
 
-            $zip->addFile($media->getPath(), $name);
+            $zip->addFromString(
+                $name,
+                Storage::disk($media->disk)->get($media->getPathRelativeToRoot()),
+            );
         }
 
         $zip->close();
