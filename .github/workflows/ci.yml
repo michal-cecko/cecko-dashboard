@@ -95,8 +95,32 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  deploy:
+    needs: build-image
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Pin web + worker to the new image and deploy (pull, no host build)
+        env:
+          API: ${{ secrets.DOKPLOY_URL }}
+          KEY: ${{ secrets.DOKPLOY_API_KEY }}
+          IMG: ghcr.io/michal-cecko/synapps-dashboard:sha-${{ github.sha }}
+        run: |
+          set -e
+          for APP in jtrq5yX3cK2IDhQgnBjtT ereAGLSWp9qinU1rOWXRw; do
+            curl -sf -X POST -H "x-api-key: $KEY" -H "Content-Type: application/json" \
+              -d "{\"applicationId\":\"$APP\",\"dockerImage\":\"$IMG\"}" \
+              "$API/api/application.update" > /dev/null
+            curl -sf -X POST -H "x-api-key: $KEY" -H "Content-Type: application/json" \
+              -d "{\"applicationId\":\"$APP\"}" \
+              "$API/api/application.deploy" > /dev/null
+            echo "deployed $APP -> $IMG"
+          done
+
   notify:
-    needs: [test, build-image]
+    needs: [test, build-image, deploy]
     if: always() && contains(needs.*.result, 'failure')
     runs-on: ubuntu-latest
 
