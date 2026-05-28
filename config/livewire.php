@@ -157,4 +157,24 @@ return [
     */
 
     'pagination_theme' => 'tailwind',
+
+    /*
+    |---------------------------------------------------------------------------
+    | Payload Limits
+    |---------------------------------------------------------------------------
+    |
+    | These settings protect against malicious or oversized payloads that could
+    | cause denial of service. The nesting depth is raised above the package
+    | default of 10 because Filament's RichEditor holds its live state as a
+    | nested TipTap/ProseMirror document, and ordinary content such as nested
+    | lists easily exceeds 10 levels. Each limit can be set to null to disable.
+    |
+    */
+
+    'payload' => [
+        'max_size' => 1024 * 1024,   // 1MB - maximum request payload size in bytes
+        'max_nesting_depth' => 25,   // Maximum depth of dot-notation property paths
+        'max_calls' => 50,           // Maximum method calls per request
+        'max_components' => 20,      // Maximum components per batch request
+    ],
 ];
