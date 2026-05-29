@@ -86,4 +86,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
 ENV LOG_CHANNEL=single
 ENV ENV=/etc/profile
 
-CMD ["bash", "-c", "php artisan optimize && touch storage/logs/laravel.log && tail -f storage/logs/laravel.log & php artisan octane:start --server=roadrunner --host=0.0.0.0 --port=8000 --workers=auto --max-requests=500"]
+CMD ["bash", "-c", "php artisan optimize && touch storage/logs/laravel.log && tail -f storage/logs/laravel.log & php artisan octane:start --server=roadrunner --host=0.0.0.0 --port=8000 --workers=2 --max-requests=500"]
