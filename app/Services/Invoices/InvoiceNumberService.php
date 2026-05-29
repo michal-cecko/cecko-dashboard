@@ -17,8 +17,14 @@ class InvoiceNumberService
             $currentYear = (int) now()->format('Y');
 
             if ($sequence->reset_yearly && $sequence->last_reset_year !== $currentYear) {
-                $sequence->next_number = 1;
-                $sequence->last_reset_year = $currentYear;
+                $number = $this->formatNumber($sequence->format, 1, $sequence->padding);
+
+                $sequence->update([
+                    'next_number' => 2,
+                    'last_reset_year' => $currentYear,
+                ]);
+
+                return $number;
             }
 
             $number = $this->formatNumber($sequence->format, $sequence->next_number, $sequence->padding);

@@ -6,6 +6,7 @@ use App\Enums\Common\CountryEnum;
 use App\Enums\Common\CurrencyEnum;
 use App\Enums\Common\LocaleEnum;
 use App\Enums\Invoices\InvoiceThemeEnum;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
@@ -119,7 +120,10 @@ class CompanyForm
                             ->options(InvoiceThemeEnum::translations())
                             ->default(InvoiceThemeEnum::Emerald->value)
                             ->required(),
-                    ])->columns(3),
+                        ColorPicker::make('invoice_color')
+                            ->label('Farba na faktúrach')
+                            ->helperText('Prepíše farbu z témy. Nechajte prázdne pre použitie farby témy.'),
+                    ])->columns(4),
             ]);
     }
 }

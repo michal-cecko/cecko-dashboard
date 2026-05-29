@@ -38,6 +38,7 @@ class Company extends Model implements HasMedia
         'default_currency',
         'default_locale',
         'invoice_theme',
+        'invoice_color',
         'bank_name',
         'bank_account_number',
         'bank_iban',

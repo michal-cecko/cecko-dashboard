@@ -60,6 +60,7 @@ class InvoicePdfService
                 'signatureBase64' => $signatureBase64,
                 'qrBase64' => $qrBase64,
                 'theme' => $theme,
+                'invoiceColor' => $invoice->company->invoice_color ?: null,
                 'showVat' => $showVat,
                 'hasReverseCharge' => $hasReverseCharge,
                 'textBeforeItems' => $textBeforeItems,

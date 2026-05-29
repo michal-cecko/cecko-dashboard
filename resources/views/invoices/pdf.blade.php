@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     @php
-        $primaryColor = $theme->primaryColor();
+        $primaryColor = $invoiceColor ?? $theme->primaryColor();
         $lightBg = $theme->lightBg();
         $lightBorder = $theme->lightBorder();
         $buyerCountry = $buyer['country_code'] ?? null;
