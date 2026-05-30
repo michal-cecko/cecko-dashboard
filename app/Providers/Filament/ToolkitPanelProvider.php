@@ -17,6 +17,7 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use MarcelWeidum\Passkeys\PasskeysPlugin;
 
 class ToolkitPanelProvider extends PanelProvider
 {
@@ -32,6 +33,9 @@ class ToolkitPanelProvider extends PanelProvider
             ->databaseTransactions()
             ->profile()
             ->passwordReset()
+            ->plugins([
+                PasskeysPlugin::make(),
+            ])
             ->sidebarCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::Violet,

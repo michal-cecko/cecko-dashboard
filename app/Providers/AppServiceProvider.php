@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Common\User;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +11,7 @@ use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Passkeys\Passkeys;
 use Symfony\Component\Mime\Address;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // The User model lives under App\Models\Common, so point laravel/passkeys
+        // at it (it defaults to App\Models\User, which does not exist here).
+        Passkeys::useUserModel(User::class);
     }
 
     /**

@@ -15,9 +15,11 @@
         "filament/spatie-laravel-media-library-plugin": "^5.0",
         "laravel/framework": "^13.0",
         "laravel/octane": "^2.15",
+        "laravel/passkeys": "0.2.1 as 0.1.0",
         "laravel/tinker": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^4.1",
+        "marcelweidum/filament-passkeys": "^4.0",
         "sentry/sentry-laravel": "^4.0",
         "spiral/roadrunner-cli": "^2.7",
         "spiral/roadrunner-http": "^3.3"

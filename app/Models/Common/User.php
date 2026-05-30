@@ -18,13 +18,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passkeys\Contracts\PasskeyUser;
+use Laravel\Passkeys\PasskeyAuthenticatable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia, HasName
+class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia, HasName, PasskeyUser
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, InteractsWithMedia, Notifiable;
+    use HasFactory, InteractsWithMedia, Notifiable, PasskeyAuthenticatable;
 
     protected static function newFactory(): UserFactory
     {

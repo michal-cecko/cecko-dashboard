@@ -19,6 +19,7 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use MarcelWeidum\Passkeys\PasskeysPlugin;
 
 class SongsPanelProvider extends PanelProvider
 {
@@ -42,6 +43,9 @@ class SongsPanelProvider extends PanelProvider
             ->databaseTransactions()
             ->profile()
             ->passwordReset()
+            ->plugins([
+                PasskeysPlugin::make(),
+            ])
             ->discoverResources(in: app_path('Filament/Songs/Resources'), for: 'App\Filament\Songs\Resources')
             ->resources([
                 UserResource::class,
