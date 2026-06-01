@@ -2,7 +2,9 @@
 
 namespace App\Filament\Invoices\Widgets;
 
+use App\Enums\Invoices\InvoiceStatusEnum;
 use App\Filament\Invoices\Resources\Invoices\Pages\ListInvoices;
+use App\Models\Invoices\Invoice;
 use App\Models\Invoices\InvoicePayment;
 use Filament\Widgets\Concerns\InteractsWithPageTable;
 use Filament\Widgets\StatsOverviewWidget;
@@ -36,21 +38,49 @@ class PaidMonthStatsWidget extends StatsOverviewWidget
 
         $company = auth()->user()->activeCompany;
         $currency = $company?->default_currency ?? 'EUR';
+        $companyId = $company?->id;
 
-        $total = (float) InvoicePayment::query()
+        $monthTotal = (float) InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $company?->id)
+            ->where('invoices.company_id', $companyId)
             ->whereYear('invoice_payments.payment_date', $year)
             ->whereMonth('invoice_payments.payment_date', $month)
             ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
 
         $invoiceCount = InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $company?->id)
+            ->where('invoices.company_id', $companyId)
             ->whereYear('invoice_payments.payment_date', $year)
             ->whereMonth('invoice_payments.payment_date', $month)
             ->distinct('invoice_payments.invoice_id')
             ->count('invoice_payments.invoice_id');
+
+        $currentYear = now()->year;
+        $lastYear = $currentYear - 1;
+
+        $thisYearTotal = (float) InvoicePayment::query()
+            ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
+            ->where('invoices.company_id', $companyId)
+            ->whereYear('invoice_payments.payment_date', $currentYear)
+            ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
+
+        $lastYearTotal = (float) InvoicePayment::query()
+            ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
+            ->where('invoices.company_id', $companyId)
+            ->whereYear('invoice_payments.payment_date', $lastYear)
+            ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
+
+        $outstanding = (float) Invoice::query()
+            ->whereIn('status', [InvoiceStatusEnum::SENT, InvoiceStatusEnum::DELIVERED])
+            ->sum(DB::raw('COALESCE(total_base, total)'));
+
+        $overdue = (float) Invoice::query()
+            ->where('status', InvoiceStatusEnum::AFTER_DUE)
+            ->sum(DB::raw('COALESCE(total_base, total)'));
+
+        $overdueCount = Invoice::query()
+            ->where('status', InvoiceStatusEnum::AFTER_DUE)
+            ->count();
 
         $monthNames = [
             1 => 'Január', 2 => 'Február', 3 => 'Marec', 4 => 'Apríl',
@@ -58,12 +88,26 @@ class PaidMonthStatsWidget extends StatsOverviewWidget
             9 => 'September', 10 => 'Október', 11 => 'November', 12 => 'December',
         ];
 
-        $label = ($monthNames[$month] ?? $month).' '.$year;
+        $monthLabel = ($monthNames[$month] ?? $month).' '.$year;
+
+        $pluralFaktury = fn (int $n): string => $n === 1 ? 'faktúra' : ($n >= 2 && $n <= 4 ? 'faktúry' : 'faktúr');
 
         return [
-            Stat::make('Zaplatené — '.$label, number_format($total, 2, ',', ' ').' '.$currency)
-                ->description($invoiceCount.' '.($invoiceCount === 1 ? 'faktúra' : ($invoiceCount >= 2 && $invoiceCount <= 4 ? 'faktúry' : 'faktúr')))
+            Stat::make('Zaplatené — '.$monthLabel, number_format($monthTotal, 2, ',', ' ').' '.$currency)
+                ->description($invoiceCount.' '.$pluralFaktury($invoiceCount))
                 ->color('success'),
+
+            Stat::make('Príjem '.$currentYear, number_format($thisYearTotal, 2, ',', ' ').' '.$currency)
+                ->description($lastYear.': '.number_format($lastYearTotal, 2, ',', ' ').' '.$currency)
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->color('success'),
+
+            Stat::make('Neuhradené', number_format($outstanding, 2, ',', ' ').' '.$currency)
+                ->color('warning'),
+
+            Stat::make('Po splatnosti', number_format($overdue, 2, ',', ' ').' '.$currency)
+                ->description($overdueCount.' '.$pluralFaktury($overdueCount))
+                ->color('danger'),
         ];
     }
 }
