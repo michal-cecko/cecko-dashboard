@@ -147,7 +147,7 @@ class InvoicesTable
                         return $options;
                     })
                     ->query(function (Builder $query, array $data): Builder {
-                        if (!filled($data['value'])) {
+                        if (! filled($data['value'])) {
                             return $query;
                         }
 
@@ -210,7 +210,7 @@ class InvoicesTable
                                 ->success()
                                 ->send();
                         })
-                        ->visible(fn ($record) => !$record->isPaid() && $record->status !== InvoiceStatusEnum::CANCELLED),
+                        ->visible(fn ($record) => ! $record->isPaid() && $record->status !== InvoiceStatusEnum::CANCELLED),
 
                     Action::make('previewHtml')
                         ->label('Náhľad')
@@ -402,7 +402,7 @@ class InvoicesTable
                             $lines[] = number_format($sum, 2, ',', ' ').' '.$currency;
                         }
 
-                        if (count($byCurrency) > 1 || !isset($byCurrency[$baseCurrency])) {
+                        if (count($byCurrency) > 1 || ! isset($byCurrency[$baseCurrency])) {
                             $lines[] = '**'.number_format($baseTotal, 2, ',', ' ').' '.$baseCurrency.'** (základ)';
                         }
 
