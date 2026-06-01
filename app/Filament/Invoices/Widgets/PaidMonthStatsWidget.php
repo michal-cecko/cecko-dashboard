@@ -13,7 +13,7 @@ class PaidMonthStatsWidget extends StatsOverviewWidget
 {
     use InteractsWithPageTable;
 
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     protected function getTablePage(): string
     {

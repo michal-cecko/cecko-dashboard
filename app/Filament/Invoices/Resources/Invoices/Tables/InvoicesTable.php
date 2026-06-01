@@ -148,7 +148,7 @@ class InvoicesTable
                         return $options;
                     })
                     ->query(function (Builder $query, array $data): Builder {
-                        if (! filled($data['value'])) {
+                        if (!filled($data['value'])) {
                             return $query;
                         }
 
