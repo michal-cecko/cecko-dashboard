@@ -71,7 +71,7 @@ class PaidMonthStatsWidget extends StatsOverviewWidget
             ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
 
         $outstanding = (float) Invoice::query()
-            ->whereIn('status', [InvoiceStatusEnum::SENT, InvoiceStatusEnum::DELIVERED])
+            ->whereNotIn('status', [InvoiceStatusEnum::PAID, InvoiceStatusEnum::CANCELLED])
             ->sum(DB::raw('COALESCE(total_base, total)'));
 
         $overdue = (float) Invoice::query()
