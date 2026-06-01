@@ -32,9 +32,11 @@ use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Response;
 
@@ -125,6 +127,38 @@ class InvoicesTable
                 SelectFilter::make('currency')
                     ->label('Mena')
                     ->options(CurrencyEnum::translations()),
+
+                SelectFilter::make('paid_month')
+                    ->label('Zaplatené v mesiaci')
+                    ->searchable()
+                    ->options(function (): array {
+                        $monthNames = [
+                            1 => 'Január', 2 => 'Február', 3 => 'Marec', 4 => 'Apríl',
+                            5 => 'Máj', 6 => 'Jún', 7 => 'Júl', 8 => 'August',
+                            9 => 'September', 10 => 'Október', 11 => 'November', 12 => 'December',
+                        ];
+
+                        $options = [];
+                        for ($i = 0; $i <= 23; $i++) {
+                            $date = now()->subMonths($i);
+                            $key = $date->format('Y-m');
+                            $options[$key] = $monthNames[$date->month].' '.$date->year;
+                        }
+
+                        return $options;
+                    })
+                    ->query(function (Builder $query, array $data): Builder {
+                        if (! filled($data['value'])) {
+                            return $query;
+                        }
+
+                        [$year, $month] = explode('-', $data['value']);
+
+                        return $query->whereHas('payments', fn (Builder $q) => $q
+                            ->whereYear('payment_date', $year)
+                            ->whereMonth('payment_date', $month)
+                        );
+                    }),
 
                 TrashedFilter::make()
                     ->label('Vymazané'),
