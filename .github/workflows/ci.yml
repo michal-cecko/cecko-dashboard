@@ -88,8 +88,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/michal-cecko/synapps-dashboard:latest
-            ghcr.io/michal-cecko/synapps-dashboard:sha-${{ github.sha }}
+            ghcr.io/michal-cecko/cecko-dashboard:latest
+            ghcr.io/michal-cecko/cecko-dashboard:sha-${{ github.sha }}
           build-args: |
             COMPOSER_AUTH=${{ secrets.COMPOSER_AUTH }}
           cache-from: type=gha
@@ -106,7 +106,7 @@ jobs:
         env:
           API: ${{ secrets.DOKPLOY_URL }}
           KEY: ${{ secrets.DOKPLOY_API_KEY }}
-          IMG: ghcr.io/michal-cecko/synapps-dashboard:sha-${{ github.sha }}
+          IMG: ghcr.io/michal-cecko/cecko-dashboard:sha-${{ github.sha }}
         run: |
           set -e
           for APP in jtrq5yX3cK2IDhQgnBjtT ereAGLSWp9qinU1rOWXRw; do
