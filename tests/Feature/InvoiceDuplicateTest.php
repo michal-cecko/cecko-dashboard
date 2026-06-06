@@ -153,7 +153,13 @@ class InvoiceDuplicateTest extends TestCase
         $this->sequence->update([
             'reset_yearly' => true,
             'last_reset_year' => now()->year,
-            'next_number' => 15,
+        ]);
+
+        Invoice::factory()->create([
+            'company_id' => $this->company->id,
+            'customer_id' => $this->customer->id,
+            'invoice_number_sequence_id' => $this->sequence->id,
+            'invoice_number' => now()->format('Y').'-0014',
         ]);
 
         $preview = app(InvoiceNumberService::class)->previewNumber($this->sequence);

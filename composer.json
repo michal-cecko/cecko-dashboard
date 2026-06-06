@@ -22,7 +22,9 @@
         "marcelweidum/filament-passkeys": "^4.0",
         "sentry/sentry-laravel": "^4.0",
         "spiral/roadrunner-cli": "^2.7",
-        "spiral/roadrunner-http": "^3.3"
+        "spiral/roadrunner-http": "^3.3",
+        "symfony/http-client": "^8.0",
+        "symfony/mailgun-mailer": "^8.0"
     },
     "require-dev": {
         "brianium/paratest": "^7.0",
