@@ -7,12 +7,9 @@ use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Mail\Events\MessageSending;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passkeys\Passkeys;
-use Symfony\Component\Mime\Address;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,14 +35,6 @@ class AppServiceProvider extends ServiceProvider
 
         Model::automaticallyEagerLoadRelationships();
         JsonResource::withoutWrapping();
-
-        Event::listen(MessageSending::class, function (MessageSending $event): void {
-            $address = config('mail.reply_to.address');
-
-            if ($address) {
-                $event->message->replyTo(new Address($address, config('mail.reply_to.name')));
-            }
-        });
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,

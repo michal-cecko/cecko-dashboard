@@ -35,7 +35,8 @@ class InvoiceNumberSequencesRelationManager extends RelationManager
                     ->default('{YEAR}-{SEQ}')
                     ->maxLength(255),
                 TextInput::make('next_number')
-                    ->label('Ďalšie číslo')
+                    ->label('Začiatočné číslo')
+                    ->helperText('Použije sa, len kým rad neobsahuje žiadne faktúry — ďalšie číslo sa vždy určuje ako najvyššie existujúce + 1')
                     ->numeric()
                     ->default(1)
                     ->minValue(1),
@@ -62,10 +63,8 @@ class InvoiceNumberSequencesRelationManager extends RelationManager
                     ->searchable(),
                 TextColumn::make('format')
                     ->label('Formát'),
-                TextColumn::make('next_number')
-                    ->label('Ďalšie číslo'),
                 TextColumn::make('id')
-                    ->label('Ukážka')
+                    ->label('Ďalšie číslo')
                     ->state(fn ($record) => app(InvoiceNumberService::class)->previewNumber($record)),
                 IconColumn::make('is_default')
                     ->label('Predvolená')
