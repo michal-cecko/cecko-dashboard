@@ -39,11 +39,11 @@ class InvoiceNumberService
         );
     }
 
-    public function previewNumber(InvoiceNumberSequence $sequence): string
+    public function previewNumber(InvoiceNumberSequence $sequence, ?int $excludeInvoiceId = null): string
     {
         return $this->formatNumber(
             $sequence->format,
-            $this->resolveNextSequenceNumber($sequence),
+            $this->resolveNextSequenceNumber($sequence, $excludeInvoiceId),
             $sequence->padding
         );
     }
@@ -54,9 +54,9 @@ class InvoiceNumberService
      * invoices become available again. Falls back to the sequence's
      * configured starting number when no invoice uses the sequence yet.
      */
-    public function resolveNextSequenceNumber(InvoiceNumberSequence $sequence): int
+    public function resolveNextSequenceNumber(InvoiceNumberSequence $sequence, ?int $excludeInvoiceId = null): int
     {
-        $highestUsed = $this->highestUsedSequenceNumber($sequence);
+        $highestUsed = $this->highestUsedSequenceNumber($sequence, $excludeInvoiceId);
 
         if ($highestUsed !== null) {
             return $highestUsed + 1;
@@ -74,11 +74,15 @@ class InvoiceNumberService
      * of the given sequence whose invoice number matches the sequence format.
      * For yearly-resetting sequences only the current period is considered.
      */
-    private function highestUsedSequenceNumber(InvoiceNumberSequence $sequence): ?int
+    private function highestUsedSequenceNumber(InvoiceNumberSequence $sequence, ?int $excludeInvoiceId = null): ?int
     {
         $query = Invoice::query()
             ->withoutGlobalScope('active_company')
             ->where('invoice_number_sequence_id', $sequence->id);
+
+        if ($excludeInvoiceId !== null) {
+            $query->whereKeyNot($excludeInvoiceId);
+        }
 
         if ($sequence->reset_yearly && ! $this->formatContainsYear($sequence->format)) {
             $query->whereYear('issue_date', now()->year);

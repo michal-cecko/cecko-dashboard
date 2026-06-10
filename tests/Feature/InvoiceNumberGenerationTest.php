@@ -136,6 +136,26 @@ class InvoiceNumberGenerationTest extends TestCase
         $this->assertEquals("{$year}-0004", $this->service->generateNextNumber($this->sequence));
     }
 
+    public function test_preview_excluding_invoice_ignores_its_own_number(): void
+    {
+        $year = now()->format('Y');
+        $this->createInvoice("{$year}-0001");
+        $latest = $this->createInvoice("{$year}-0002");
+
+        $preview = $this->service->previewNumber($this->sequence, $latest->getKey());
+
+        $this->assertEquals("{$year}-0002", $preview);
+    }
+
+    public function test_preview_excluding_only_invoice_falls_back_to_first_number(): void
+    {
+        $only = $this->createInvoice(now()->format('Y').'-0001');
+
+        $preview = $this->service->previewNumber($this->sequence, $only->getKey());
+
+        $this->assertEquals(now()->format('Y').'-0001', $preview);
+    }
+
     public function test_manually_entered_number_matching_format_advances_sequence(): void
     {
         $year = now()->format('Y');

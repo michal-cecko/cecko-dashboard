@@ -8,6 +8,7 @@ use App\Enums\Invoices\InvoiceStatusEnum;
 use App\Enums\Invoices\PaymentMethodEnum;
 use App\Enums\Invoices\VatTypeEnum;
 use App\Models\Invoices\Customer;
+use App\Models\Invoices\Invoice;
 use App\Models\Invoices\InvoiceNumberSequence;
 use App\Models\Invoices\ServiceCatalogItem;
 use App\Models\Invoices\VatRate;
@@ -86,12 +87,12 @@ class InvoiceForm
                                 Action::make('refetchSequenceNumber')
                                     ->label('Obnoviť číslo')
                                     ->link()
-                                    ->action(function (Get $get, Set $set): void {
+                                    ->action(function (Get $get, Set $set, ?Invoice $record): void {
                                         $sequenceId = $get('invoice_number_sequence_id');
                                         if ($sequenceId) {
                                             $sequence = InvoiceNumberSequence::find($sequenceId);
                                             if ($sequence) {
-                                                $preview = app(InvoiceNumberService::class)->previewNumber($sequence);
+                                                $preview = app(InvoiceNumberService::class)->previewNumber($sequence, $record?->getKey());
                                                 $set('invoice_number', $preview);
                                                 $set('_invoice_number_auto', $preview);
                                             }
