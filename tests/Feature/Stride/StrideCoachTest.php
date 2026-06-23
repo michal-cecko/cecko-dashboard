@@ -6,6 +6,7 @@ use App\Models\Common\User;
 use App\Models\Stride\CoachConversation;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
+use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Database\Seeders\Stride\StrideDemoSeeder;
@@ -58,6 +59,39 @@ class StrideCoachTest extends TestCase
         $this->assertStringContainsString('R. Shoulder', $memory);   // flagged injury
         $this->assertStringContainsString('Bench press 100 kg', $memory); // goal
         $this->assertStringContainsString('Push — Strength A', $memory);  // today's session
+    }
+
+    public function test_system_guide_adds_slovak_directive_and_guards_tool_args(): void
+    {
+        $builder = app(TrainingMemoryBuilder::class);
+
+        $en = $builder->systemGuide('calm');
+        $this->assertStringNotContainsString('Slovak', $en);
+
+        $sk = $builder->systemGuide('calm', 'sk');
+        $this->assertStringContainsString('Slovak', $sk);
+        $this->assertStringContainsString('tykanie', $sk);
+        // Tool arguments must stay English so catalog/tool matching keeps working.
+        $this->assertStringContainsString('ARGUMENTS', $sk);
+    }
+
+    public function test_coach_turn_uses_the_users_language(): void
+    {
+        StrideProfile::query()->updateOrCreate(
+            ['user_id' => $this->user->id],
+            ['preferences' => ['language' => 'sk']],
+        );
+
+        $conversation = $this->newConversation();
+        $this->provider->push(FakeCoachProvider::text('Hotovo.'));
+
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Priprav mi dnešný tréning',
+        ], $this->auth)->assertOk();
+
+        $turn = $this->provider->calls[array_key_last($this->provider->calls)];
+        $this->assertSame('sk', $turn->language);
+        $this->assertStringContainsString('Slovak', $turn->systemBlocks[0]['text']);
     }
 
     public function test_send_message_persists_exchange_and_logs_usage(): void

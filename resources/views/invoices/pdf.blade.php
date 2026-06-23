@@ -337,7 +337,7 @@
             @endif
         </div>
 
-        @if(!empty($seller['bank_iban']) || !empty($seller['bank_account_number']))
+        @if($invoice->payment_method === \App\Enums\Invoices\PaymentMethodEnum::BANK_TRANSFER && (!empty($seller['bank_iban']) || !empty($seller['bank_account_number'])))
             <div class="bank-info">
                 <div class="bank-info-details">
                     <div class="bank-info-title">{{ __('invoice.bank_info') }}</div>

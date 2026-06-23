@@ -20,6 +20,12 @@ return [
         'summary_model' => env('STRIDE_COACH_SUMMARY_MODEL', 'claude-haiku-4-5'),
         'generate_model' => env('STRIDE_COACH_GENERATE_MODEL', 'claude-sonnet-4-6'),
 
+        // Safety-net timeout for a single plan-generation call. Generation now runs
+        // one small call per session, which finishes in ~15s on CPU Ollama, so this
+        // generous cap effectively lets a local model run to completion without ever
+        // hanging the whole request (a stuck connection still eventually errors out).
+        'generate_timeout' => (int) env('STRIDE_COACH_GENERATE_TIMEOUT', 180),
+
         'max_tokens' => (int) env('STRIDE_COACH_MAX_TOKENS', 1024),
 
         // How many recent raw messages to send verbatim; older turns are folded

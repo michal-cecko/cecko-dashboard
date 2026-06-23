@@ -24,15 +24,23 @@ class LocalCoachProvider implements CoachProvider
 
     public function chat(CoachTurn $turn): CoachReply
     {
+        $sk = $turn->language === 'sk';
+
         if ($turn->purpose === 'summary') {
-            return new CoachReply('Earlier: the athlete checked in and adjusted today\'s session.', [], 'end_turn', new CoachUsage(40, 18));
+            $summary = $sk
+                ? 'Predtým: športovec sa ohlásil a upravil dnešný tréning.'
+                : 'Earlier: the athlete checked in and adjusted today\'s session.';
+
+            return new CoachReply($summary, [], 'end_turn', new CoachUsage(40, 18));
         }
 
         $last = $turn->messages === [] ? [] : $turn->messages[array_key_last($turn->messages)];
 
         // A tool_result turn (content is an array of blocks) → close with text.
         if (is_array($last['content'] ?? null)) {
-            return $this->text("Done — I've updated today's session. Anything else?");
+            return $this->text($sk
+                ? 'Hotovo — upravil som dnešný tréning. Ešte niečo?'
+                : "Done — I've updated today's session. Anything else?");
         }
 
         $text = is_string($last['content'] ?? null) ? $last['content'] : '';
@@ -42,7 +50,7 @@ class LocalCoachProvider implements CoachProvider
             return new CoachReply(null, [['id' => 'local_'.substr(md5($text), 0, 8), 'name' => $tool['name'], 'input' => $tool['input']]], 'tool_use', new CoachUsage(160, 12, 0, 140));
         }
 
-        return $this->text($this->groundedReply($turn, $text));
+        return $this->text($this->groundedReply($turn, $text, $sk));
     }
 
     /** Very small rule-based intent → tool mapping, enough to demo the flow. */
@@ -82,17 +90,25 @@ class LocalCoachProvider implements CoachProvider
         return null;
     }
 
-    private function groundedReply(CoachTurn $turn, string $text): string
+    private function groundedReply(CoachTurn $turn, string $text, bool $sk = false): string
     {
         $memory = $turn->systemBlocks[1]['text'] ?? '';
-        $today = 'your session';
+        $today = $sk ? 'tvoj tréning' : 'your session';
 
         if (preg_match('/TODAY: ([^(\n]+)/', $memory, $m)) {
             $today = trim($m[1]);
         }
 
         if ($text === '') {
-            return "I'm here. {$today} is queued — want to start, adjust the load, or swap a movement?";
+            return $sk
+                ? "Som tu. {$today} je pripravený — chceš začať, upraviť záťaž alebo vymeniť cvik?"
+                : "I'm here. {$today} is queued — want to start, adjust the load, or swap a movement?";
+        }
+
+        if ($sk) {
+            return "Jasné. Podľa {$today} a tvojho aktuálneho plánu by som to nechal na pláne. "
+                .'Povedz mi, nech idem ľahšie (napr. „zhoď bench na 75 kg"), vymeň cvik („vymeň dipy za kliky"), '
+                .'alebo nahlás bolesť a upravím dnešný tréning.';
         }
 
         return "Got it. Based on {$today} and your current plan, I'd keep things on track. "

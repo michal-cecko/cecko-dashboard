@@ -4,8 +4,10 @@ namespace Database\Seeders\Stride;
 
 use App\Models\Common\User;
 use App\Models\Stride\Block;
+use App\Models\Stride\CoachMemory;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
+use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\Spot;
 use App\Models\Stride\StrideProfile;
@@ -62,6 +64,8 @@ class StrideDemoSeeder extends Seeder
         Goal::where('user_id', $user->id)->delete();
         Injury::where('user_id', $user->id)->delete();  // cascades journal
         WeightEntry::where('user_id', $user->id)->delete();
+        PersonalRecord::where('user_id', $user->id)->delete();
+        CoachMemory::where('user_id', $user->id)->delete();
         Spot::where('user_id', $user->id)->delete();
     }
 

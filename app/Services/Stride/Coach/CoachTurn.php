@@ -18,5 +18,7 @@ readonly class CoachTurn
         public array $tools = [],
         public int $maxTokens = 1024,
         public string $purpose = 'chat',
+        public string $language = 'en',
+        public ?int $timeoutSeconds = null,
     ) {}
 }

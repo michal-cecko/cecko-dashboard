@@ -62,6 +62,7 @@ class LibraryController extends Controller
             'category' => $exercise->category,
             'group' => $exercise->group,
             'tag' => $exercise->tag,
+            'metric_type' => $exercise->metric_type,
             'difficulty' => $exercise->difficulty,
             'equipment' => $exercise->equipment_label,
             'primary' => $exercise->primary_muscles,
