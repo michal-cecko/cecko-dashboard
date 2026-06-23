@@ -3,6 +3,7 @@
 namespace App\Services\Invoices;
 
 use App\Enums\Invoices\InvoiceThemeEnum;
+use App\Enums\Invoices\PaymentMethodEnum;
 use App\Enums\Invoices\VatTypeEnum;
 use App\Models\Invoices\Invoice;
 use Illuminate\Support\Facades\Http;
@@ -37,7 +38,9 @@ class InvoicePdfService
             $logoBase64 = $invoice->company->getLogoBase64();
             $signatureBase64 = $invoice->company->getSignatureBase64();
 
-            $qrBase64 = $this->payBySquareService->generateQrBase64($invoice);
+            $qrBase64 = $invoice->payment_method === PaymentMethodEnum::BANK_TRANSFER
+                ? $this->payBySquareService->generateQrBase64($invoice)
+                : null;
 
             $theme = InvoiceThemeEnum::tryFrom($invoice->company->invoice_theme ?? '') ?? InvoiceThemeEnum::Emerald;
 
