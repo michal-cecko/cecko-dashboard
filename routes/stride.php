@@ -6,7 +6,9 @@ use App\Http\Controllers\Stride\GoalController;
 use App\Http\Controllers\Stride\HomeController;
 use App\Http\Controllers\Stride\InjuryController;
 use App\Http\Controllers\Stride\LibraryController;
+use App\Http\Controllers\Stride\PersonalRecordController;
 use App\Http\Controllers\Stride\PlanController;
+use App\Http\Controllers\Stride\ProfileController;
 use App\Http\Controllers\Stride\SessionController;
 use App\Http\Controllers\Stride\SpotController;
 use App\Http\Controllers\Stride\WeightController;
@@ -29,6 +31,9 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('auth/me', [AuthController::class, 'me']);
     Route::post('auth/logout', [AuthController::class, 'logout']);
 
+    // Profile preferences (language, …)
+    Route::patch('profile', [ProfileController::class, 'update']);
+
     // Library
     Route::get('library', [LibraryController::class, 'index']);
     Route::get('equipment', [LibraryController::class, 'equipment']);
@@ -37,6 +42,12 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('home', [HomeController::class, 'index']);
     Route::get('plan', [PlanController::class, 'index']);
     Route::get('blocks/{block}', [PlanController::class, 'show']);
+
+    // Onboarding plan generation
+    Route::post('plan/recommend', [PlanController::class, 'recommend']);
+    Route::post('plan/questions', [PlanController::class, 'questions']);
+    Route::post('plan/answers', [PlanController::class, 'answers']);
+    Route::post('plan/generate', [PlanController::class, 'generate']);
 
     // Sessions (active player)
     Route::get('sessions/{session}', [SessionController::class, 'show']);
@@ -61,8 +72,15 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('weight', [WeightController::class, 'index']);
     Route::post('weight', [WeightController::class, 'store']);
 
+    // Personal records (type-aware bests per exercise)
+    Route::get('personal-records', [PersonalRecordController::class, 'index']);
+    Route::post('personal-records', [PersonalRecordController::class, 'store']);
+    Route::patch('personal-records/{personalRecord}', [PersonalRecordController::class, 'update']);
+    Route::delete('personal-records/{personalRecord}', [PersonalRecordController::class, 'destroy']);
+
     // Spots (training locations)
     Route::get('spots', [SpotController::class, 'index']);
+    Route::post('spots', [SpotController::class, 'store']);
 
     // AI coach
     Route::get('coach/conversations', [CoachController::class, 'index']);

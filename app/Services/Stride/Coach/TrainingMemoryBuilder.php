@@ -7,6 +7,7 @@ use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
+use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 
@@ -20,20 +21,23 @@ use App\Models\Stride\StrideProfile;
  */
 class TrainingMemoryBuilder
 {
-    /** Persona personalities, mirroring the prototype's STRIDE_AI_PERSONAS. */
+    /**
+     * Persona personalities, mirroring the prototype's STRIDE_AI_PERSONAS.
+     * The selectable coaches are real people; "Coach" stays the generic product term.
+     * Keys are stable ids ('calm' is the default); 'buddy' was merged into 'coach'.
+     */
     private const PERSONAS = [
-        'coach' => 'You are "Coach": direct, no-nonsense, motivating. Short, punchy sentences. No fluff.',
-        'calm' => 'You are "Trainer": steady, supportive, evidence-based. Warm but precise.',
-        'nerd' => 'You are "Analyst": stats-first. Lead with volume, RPE and tonnage. Quantify everything.',
-        'buddy' => 'You are "Riley": hype-friend energy, upbeat, casual. Emoji are welcome, sparingly.',
+        'calm' => 'You are "Jožo": a steady, supportive, evidence-based coach. Warm but precise.',
+        'nerd' => 'You are "Peter": stats-first. Lead with volume, RPE and tonnage. Quantify everything.',
+        'coach' => 'You are "Jano": hype-friend energy fused with no-excuses drive — upbeat, motivating, and direct. Short, punchy sentences; an emoji now and then. Push hard, never reckless.',
     ];
 
     /** Stable system instructions — safe to cache for the whole conversation. */
-    public function systemGuide(string $personaKey): string
+    public function systemGuide(string $personaKey, string $language = 'en'): string
     {
         $persona = self::PERSONAS[$personaKey] ?? self::PERSONAS['calm'];
 
-        return <<<TEXT
+        $guide = <<<TEXT
         You are Stride, a personal strength & conditioning coach inside a training app.
         {$persona}
 
@@ -46,6 +50,16 @@ class TrainingMemoryBuilder
         - Be concise. Explain the "why" briefly when you change the plan.
         - Use kilograms and the user's metric/imperial preference. Never invent data you weren't given.
         TEXT;
+
+        if ($language === 'sk') {
+            $guide .= "\n\n".<<<'TEXT'
+            IMPORTANT — LANGUAGE: Reply to the user ONLY in Slovak (po slovensky), using the informal "ty" (tykanie).
+            Keep exercise names, RPE and units (kg) as they are. Tool names and tool ARGUMENTS must stay in English /
+            identifiers exactly as defined — never translate them; only your natural-language reply is in Slovak.
+            TEXT;
+        }
+
+        return $guide;
     }
 
     /** The per-user, per-request training snapshot. */
@@ -73,6 +87,8 @@ class TrainingMemoryBuilder
         $lines[] = $this->injuriesSection($user);
         $lines[] = '';
         $lines[] = $this->goalsSection($user);
+        $lines[] = '';
+        $lines[] = $this->prSection($user);
 
         $facts = CoachMemory::ownedBy($user)->latest('id')->limit(20)->pluck('fact');
         if ($facts->isNotEmpty()) {
@@ -122,6 +138,24 @@ class TrainingMemoryBuilder
             $avoid = $injury->avoid ? ' AVOID: '.implode(', ', $injury->avoid).'.' : '';
             $safe = $injury->safe ? ' SAFE: '.implode(', ', $injury->safe).'.' : '';
             $lines[] = "- {$injury->body_part} — {$injury->label} ({$injury->severity}, {$injury->status}).{$avoid}{$safe}";
+        }
+
+        return implode("\n", $lines);
+    }
+
+    private function prSection(User $user): string
+    {
+        $prs = PersonalRecord::ownedBy($user)->orderByDesc('achieved_on')->orderByDesc('id')->limit(15)->get();
+
+        if ($prs->isEmpty()) {
+            return 'PERSONAL RECORDS: none logged.';
+        }
+
+        $lines = ['PERSONAL RECORDS (favour recent; old ones may be stale):'];
+        foreach ($prs as $pr) {
+            $when = $pr->achieved_on ? ' — '.$pr->achieved_on->format('Y-m') : '';
+            $form = $pr->formNote() ? ' ('.$pr->formNote().')' : '';
+            $lines[] = "- {$pr->label}: {$pr->display()}{$form}{$when}";
         }
 
         return implode("\n", $lines);

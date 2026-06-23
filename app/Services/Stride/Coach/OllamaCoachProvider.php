@@ -48,7 +48,7 @@ class OllamaCoachProvider implements CoachProvider
         }
 
         try {
-            $response = Http::timeout((int) config('stride.coach.ollama.timeout'))
+            $response = Http::timeout($turn->timeoutSeconds ?? (int) config('stride.coach.ollama.timeout'))
                 ->post(rtrim((string) config('stride.coach.ollama.url'), '/').'/api/chat', $payload);
         } catch (ConnectionException $e) {
             throw new RuntimeException(

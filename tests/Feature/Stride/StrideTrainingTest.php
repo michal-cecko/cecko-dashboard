@@ -3,6 +3,7 @@
 namespace Tests\Feature\Stride;
 
 use App\Models\Common\User;
+use App\Models\Stride\Block;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
@@ -59,6 +60,30 @@ class StrideTrainingTest extends TestCase
 
         $this->assertCount(5, $response->json('blocks'));
         $this->assertContains('active', array_column($response->json('blocks'), 'status'));
+    }
+
+    public function test_home_shows_rest_day_with_next_session_when_plan_starts_later(): void
+    {
+        // Fresh user with an active block but NO session today (plan starts in 2 days).
+        $user = User::factory()->create(['email' => 'rester@example.test', 'password' => 'secret-pass']);
+        $token = $this->postJson('/api/stride/auth/login', ['email' => 'rester@example.test', 'password' => 'secret-pass'])->json('token');
+        $auth = ['Authorization' => "Bearer {$token}"];
+
+        $block = Block::create([
+            'user_id' => $user->id, 'name' => 'Foundations', 'phase' => 'Base', 'status' => 'active',
+            'weeks' => 6, 'week_of' => 1, 'starts_on' => now()->addDays(2), 'ends_on' => now()->addWeeks(6),
+        ]);
+        $block->sessions()->create([
+            'user_id' => $user->id, 'kind' => 'Push', 'title' => 'Push — Day', 'status' => 'planned',
+            'scheduled_date' => now()->addDays(2), 'duration_min' => 60, 'volume_kg' => 0,
+        ]);
+
+        $this->getJson('/api/stride/home', $auth)
+            ->assertOk()
+            ->assertJsonPath('today', null)
+            ->assertJsonPath('has_plan', true)
+            ->assertJsonPath('next_session.title', 'Push — Day')
+            ->assertJsonPath('next_session.in_days', 2);
     }
 
     public function test_session_player_flow_start_log_complete(): void

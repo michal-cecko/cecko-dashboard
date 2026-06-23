@@ -69,6 +69,86 @@ class StrideApiTest extends TestCase
             ->assertJsonPath('user.email', 'rider@example.test');
     }
 
+    public function test_profile_language_can_be_set_and_persists(): void
+    {
+        $this->user();
+        $token = $this->loginToken();
+        $auth = ['Authorization' => "Bearer {$token}"];
+
+        // Defaults to English.
+        $this->getJson('/api/stride/auth/me', $auth)
+            ->assertOk()
+            ->assertJsonPath('user.profile.language', 'en');
+
+        // Switching to Slovak is echoed back and then reflected by /auth/me.
+        $this->patchJson('/api/stride/profile', ['language' => 'sk'], $auth)
+            ->assertOk()
+            ->assertJsonPath('profile.language', 'sk');
+
+        $this->getJson('/api/stride/auth/me', $auth)
+            ->assertJsonPath('user.profile.language', 'sk');
+
+        // Unsupported languages are rejected.
+        $this->patchJson('/api/stride/profile', ['language' => 'de'], $auth)->assertStatus(422);
+    }
+
+    public function test_profile_update_persists_full_onboarding_payload(): void
+    {
+        $this->user();
+        $token = $this->loginToken();
+        $auth = ['Authorization' => "Bearer {$token}"];
+
+        $this->getJson('/api/stride/auth/me', $auth)->assertJsonPath('user.onboarded', false);
+
+        $this->patchJson('/api/stride/profile', [
+            'height_cm' => 182,
+            'weight_kg' => 79.5,
+            'goal_weight_kg' => 76,
+            'units' => 'metric',
+            'gender' => 'male',
+            'years_training' => 7,
+            'training_style' => ['heavy', 'calisthenics'],
+            'days_per_week' => 4,
+            'bio' => 'Lifelong lifter.',
+            'onboarded' => true,
+        ], $auth)
+            ->assertOk()
+            ->assertJsonPath('profile.height_cm', 182)
+            ->assertJsonPath('profile.gender', 'male')
+            ->assertJsonPath('profile.training_style', ['heavy', 'calisthenics'])
+            ->assertJsonPath('profile.days_per_week', 4)
+            ->assertJsonPath('profile.onboarded', true);
+
+        // onboarded flag surfaces on /auth/me so the app can skip the wizard.
+        $this->getJson('/api/stride/auth/me', $auth)->assertJsonPath('user.onboarded', true);
+
+        // Out-of-range metrics are rejected.
+        $this->patchJson('/api/stride/profile', ['height_cm' => 5], $auth)->assertStatus(422);
+    }
+
+    public function test_create_spot(): void
+    {
+        $this->user();
+        $token = $this->loginToken();
+        $auth = ['Authorization' => "Bearer {$token}"];
+
+        $this->postJson('/api/stride/spots', [
+            'name' => 'Home Garage',
+            'type' => 'home',
+            'size' => 'Compact',
+            'equipment' => ['Barbell', 'Dumbbells'],
+            'prompt' => 'Time-efficient supersets.',
+        ], $auth)
+            ->assertCreated()
+            ->assertJsonPath('spot.name', 'Home Garage')
+            ->assertJsonPath('spot.isDefault', true)
+            ->assertJsonPath('spot.equipment', ['Barbell', 'Dumbbells']);
+
+        $this->getJson('/api/stride/spots', $auth)
+            ->assertOk()
+            ->assertJsonPath('spots.0.name', 'Home Garage');
+    }
+
     public function test_library_returns_seeded_exercises_and_equipment(): void
     {
         $this->seed([EquipmentSeeder::class, ExerciseSeeder::class, SpotSeeder::class]);

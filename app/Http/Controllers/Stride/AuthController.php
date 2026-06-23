@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Stride;
 use App\Http\Controllers\Controller;
 use App\Models\Common\User;
 use App\Models\Common\UserApiToken;
+use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use Illuminate\Http\JsonResponse;
@@ -78,6 +79,7 @@ class AuthController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'joined' => $user->created_at?->format('M Y'),
+            'onboarded' => (bool) ($profile->preferences['onboarded'] ?? false),
             'total_sessions' => (clone $done)->count(),
             'total_hours' => (int) round((clone $done)->sum('duration_min') / 60),
             'profile' => [
@@ -88,6 +90,19 @@ class AuthController extends Controller
                 'persona_key' => $profile->persona_key,
                 'units' => $profile->units,
                 'streak_days' => $profile->streak_days,
+                'language' => $profile->preferences['language'] ?? 'en',
+                'personal_records' => PersonalRecord::ownedBy($user)
+                    ->orderByDesc('achieved_on')->orderByDesc('id')->get()
+                    ->map(fn (PersonalRecord $pr) => [
+                        'id' => $pr->id,
+                        'exercise_id' => $pr->exercise_id,
+                        'label' => $pr->label,
+                        'metric_type' => $pr->metric_type,
+                        'metrics' => $pr->metrics ?? [],
+                        'display' => $pr->display(),
+                        'achieved_on' => $pr->achieved_on?->toDateString(),
+                        'form_quality' => $pr->form_quality,
+                    ])->values(),
             ],
         ];
     }

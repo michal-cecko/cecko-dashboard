@@ -26,6 +26,36 @@ class SpotController extends Controller
         ]);
     }
 
+    public function store(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:120'],
+            'type' => ['required', 'string', 'max:40'],
+            'size' => ['nullable', 'string', 'max:40'],
+            'prompt' => ['nullable', 'string', 'max:1000'],
+            'notes' => ['nullable', 'string', 'max:1000'],
+            'equipment' => ['nullable', 'array'],
+            'equipment.*' => ['string', 'max:60'],
+        ]);
+
+        $spot = Spot::create([
+            'user_id' => $request->user()->id,
+            'name' => $data['name'],
+            'type' => $data['type'],
+            'size' => $data['size'] ?? null,
+            'blurb' => $data['prompt'] ?? null,
+            'equipment' => $data['equipment'] ?? [],
+            'notes' => $data['notes'] ?? null,
+            'is_official' => false,
+            'is_verified' => false,
+        ]);
+
+        // index() treats the lowest-id owned spot as the default.
+        $isDefault = Spot::ownedBy($request->user())->min('id') === $spot->id;
+
+        return response()->json(['spot' => $this->payload($spot, $isDefault)], 201);
+    }
+
     private function payload(Spot $spot, bool $isDefault): array
     {
         return [

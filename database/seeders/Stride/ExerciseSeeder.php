@@ -12,7 +12,9 @@ use Illuminate\Support\Str;
  * starter set covering each strength group plus a few other categories; the
  * full ~140-exercise catalogue import is a follow-up data task.
  *
- * Each row: [name, category, group, tag, difficulty, equipment, primary, secondary?]
+ * Each row: [name, category, group, tag, difficulty, equipment, primary, secondary?, metric_type?]
+ * metric_type defaults from the category (see defaultMetricType); pass an explicit
+ * 9th element to override (e.g. a calisthenics HOLD).
  */
 class ExerciseSeeder extends Seeder
 {
@@ -21,6 +23,7 @@ class ExerciseSeeder extends Seeder
         foreach ($this->exercises() as $row) {
             [$name, $category, $group, $tag, $difficulty, $equipment, $primary] = $row;
             $secondary = $row[7] ?? [];
+            $metricType = $row[8] ?? $this->defaultMetricType($category);
 
             Exercise::updateOrCreate(
                 ['slug' => Str::slug($name)],
@@ -29,6 +32,7 @@ class ExerciseSeeder extends Seeder
                     'category' => $category,
                     'group' => $group,
                     'tag' => $tag,
+                    'metric_type' => $metricType,
                     'difficulty' => $difficulty,
                     'equipment_label' => $equipment,
                     'primary_muscles' => (array) $primary,
@@ -36,6 +40,17 @@ class ExerciseSeeder extends Seeder
                 ],
             );
         }
+    }
+
+    /** How an exercise's personal records are measured, defaulted from its category. */
+    private function defaultMetricType(string $category): string
+    {
+        return match ($category) {
+            'cardio' => 'run',
+            'conditioning' => 'machine',
+            'calisthenics', 'mobility' => 'reps',
+            default => 'load', // strength
+        };
     }
 
     /** @return array<int, array<int, mixed>> */
@@ -65,8 +80,8 @@ class ExerciseSeeder extends Seeder
             ['Weighted Dips', 'strength', 'Triceps', 'Compound', 'Intermediate', 'Dip bar + belt', 'Triceps', ['Chest']],
 
             // Back
-            ['Pull-up (Strict)', 'strength', 'Back', 'Compound', 'Intermediate', 'Bar', 'Lats'],
-            ['Chin-up', 'strength', 'Back', 'Compound', 'Beginner', 'Bar', 'Lats', ['Biceps']],
+            ['Pull-up (Strict)', 'strength', 'Back', 'Compound', 'Intermediate', 'Bar', 'Lats', [], 'reps'],
+            ['Chin-up', 'strength', 'Back', 'Compound', 'Beginner', 'Bar', 'Lats', ['Biceps'], 'reps'],
             ['Lat Pulldown', 'strength', 'Back', 'Compound', 'Beginner', 'Cable', 'Lats'],
             ['Barbell Row', 'strength', 'Back', 'Compound', 'Intermediate', 'Barbell', 'Mid back'],
             ['Seated Cable Row', 'strength', 'Back', 'Compound', 'Beginner', 'Cable + V-handle', 'Mid back'],
@@ -90,10 +105,18 @@ class ExerciseSeeder extends Seeder
             ['Pistol Squat', 'calisthenics', 'Legs', 'Compound', 'Advanced', 'Bodyweight', 'Quads', ['Balance']],
             ['Hanging Leg Raise', 'calisthenics', 'Core', 'Isolation', 'Intermediate', 'Pull-up bar', 'Abs'],
 
+            // Calisthenics — holds / isometrics (metric_type = hold)
+            ['Front Lever', 'calisthenics', 'Back', 'Compound', 'Advanced', 'Pull-up bar', 'Lats', ['Core'], 'hold'],
+            ['Plank', 'calisthenics', 'Core', 'Isolation', 'Beginner', 'Bodyweight', 'Abs', [], 'hold'],
+            ['L-sit', 'calisthenics', 'Core', 'Compound', 'Intermediate', 'Parallettes', 'Abs', ['Hip flexors'], 'hold'],
+            ['Handstand Hold', 'calisthenics', 'Shoulders', 'Compound', 'Advanced', 'Bodyweight', 'Shoulders', ['Core'], 'hold'],
+
             // Conditioning / Cardio
             ['Assault Bike Intervals', 'conditioning', 'Full body', 'Conditioning', 'Intermediate', 'Assault bike', 'Cardiovascular'],
+            ['Stationary Bike', 'conditioning', 'Full body', 'Conditioning', 'Beginner', 'Stationary bike', 'Cardiovascular'],
             ['Rowing Intervals', 'conditioning', 'Full body', 'Conditioning', 'Beginner', 'Rowing machine', 'Cardiovascular', ['Back', 'Legs']],
             ['Easy Zone 2 Run', 'cardio', 'Running', 'Cardio', 'Beginner', 'Open running area', 'Cardiovascular'],
+            ['Sprint Intervals', 'cardio', 'Running', 'Cardio', 'Intermediate', 'Open running area', 'Cardiovascular', [], 'sprint'],
 
             // Mobility
             ['Band Pull-Apart', 'mobility', 'Shoulders', 'Mobility', 'Beginner', 'Resistance bands', 'Rear delts'],

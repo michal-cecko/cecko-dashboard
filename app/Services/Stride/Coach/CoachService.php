@@ -7,6 +7,7 @@ use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\AiUsage;
 use App\Models\Stride\CoachConversation;
 use App\Models\Stride\CoachMessage;
+use App\Models\Stride\StrideProfile;
 
 /**
  * Orchestrates one coach turn: assemble context → run the tool-use loop →
@@ -35,10 +36,11 @@ class CoachService
 
         $conversation->messages()->create(['role' => 'user', 'content' => $userText]);
 
-        $system = $this->systemBlocks($conversation, $user);
+        $language = $this->resolveLanguage($user);
+        $system = $this->systemBlocks($conversation, $user, $language);
         $messages = $this->history($conversation);
 
-        [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $system, $messages);
+        [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $system, $messages, $language);
 
         $assistant = $conversation->messages()->create([
             'role' => 'assistant',
@@ -60,7 +62,7 @@ class CoachService
     }
 
     /** @return array{0: string, 1: array, 2: array} [finalText, adjustments, usages] */
-    private function runToolLoop(User $user, array $system, array $messages): array
+    private function runToolLoop(User $user, array $system, array $messages, string $language = 'en'): array
     {
         $tools = CoachTools::definitions();
         $maxIterations = (int) config('stride.coach.max_tool_iterations');
@@ -76,6 +78,7 @@ class CoachService
                 messages: $messages,
                 tools: $iteration < $maxIterations ? $tools : [],
                 maxTokens: (int) config('stride.coach.max_tokens'),
+                language: $language,
             );
 
             $start = hrtime(true);
@@ -108,10 +111,10 @@ class CoachService
     }
 
     /** Cached system prompt: stable guide + per-request training memory + rolling summary. */
-    private function systemBlocks(CoachConversation $conversation, User $user): array
+    private function systemBlocks(CoachConversation $conversation, User $user, string $language = 'en'): array
     {
         $blocks = [
-            ['text' => $this->memory->systemGuide($conversation->persona_key), 'cache' => true],
+            ['text' => $this->memory->systemGuide($conversation->persona_key, $language), 'cache' => true],
             ['text' => $this->memory->memory($user), 'cache' => true],
         ];
 
@@ -120,6 +123,14 @@ class CoachService
         }
 
         return $blocks;
+    }
+
+    /** The user's chosen coach/UI language ('en'|'sk'), from their Stride profile preferences. */
+    private function resolveLanguage(User $user): string
+    {
+        $language = StrideProfile::firstOrCreate(['user_id' => $user->id])->preferences['language'] ?? 'en';
+
+        return in_array($language, ['en', 'sk'], true) ? $language : 'en';
     }
 
     /** Recent raw turns after the summarised window, capped to recent_turns. */

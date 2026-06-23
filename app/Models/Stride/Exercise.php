@@ -15,6 +15,7 @@ class Exercise extends Model
         'category',
         'group',
         'tag',
+        'metric_type',
         'difficulty',
         'equipment_label',
         'primary_muscles',
