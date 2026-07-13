@@ -31,12 +31,20 @@ readonly class CoachReply
         }
 
         foreach ($this->toolUses as $tool) {
-            $content[] = [
+            $block = [
                 'type' => 'tool_use',
                 'id' => $tool['id'],
                 'name' => $tool['name'],
                 'input' => (object) $tool['input'],
             ];
+
+            // Gemini 3.x requires the functionCall's thoughtSignature to be echoed
+            // back on the next turn. Providers that don't set it are unaffected.
+            if (! empty($tool['signature'])) {
+                $block['signature'] = $tool['signature'];
+            }
+
+            $content[] = $block;
         }
 
         return $content;

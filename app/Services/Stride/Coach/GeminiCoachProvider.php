@@ -116,10 +116,16 @@ class GeminiCoachProvider implements CoachProvider
                         break;
                     case 'tool_use':
                         $toolNames[$block['id']] = $block['name'];
-                        $parts[] = ['functionCall' => [
+                        $part = ['functionCall' => [
                             'name' => $block['name'],
                             'args' => (object) $block['input'],
                         ]];
+                        // Gemini 3.x rejects a re-sent functionCall without its
+                        // original thoughtSignature (see parse()).
+                        if (! empty($block['signature'])) {
+                            $part['thoughtSignature'] = $block['signature'];
+                        }
+                        $parts[] = $part;
                         break;
                     case 'tool_result':
                         $parts[] = ['functionResponse' => [
@@ -155,6 +161,9 @@ class GeminiCoachProvider implements CoachProvider
                     'id' => 'gemini-'.$call['name'].'-'.$index,
                     'name' => $call['name'],
                     'input' => (array) ($call['args'] ?? []),
+                    // Gemini 3.x "thinking" models return a signature per function
+                    // call that must be echoed back when the call is re-sent.
+                    'signature' => $part['thoughtSignature'] ?? null,
                 ];
             }
         }

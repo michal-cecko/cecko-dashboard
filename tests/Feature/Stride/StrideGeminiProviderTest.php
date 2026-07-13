@@ -27,7 +27,10 @@ class StrideGeminiProviderTest extends TestCase
                     'content' => [
                         'role' => 'model',
                         'parts' => [
-                            ['functionCall' => ['name' => 'set_load', 'args' => ['exercise' => 'Bench Press', 'load_kg' => 60]]],
+                            [
+                                'functionCall' => ['name' => 'set_load', 'args' => ['exercise' => 'Bench Press', 'load_kg' => 60]],
+                                'thoughtSignature' => 'sig-abc',
+                            ],
                         ],
                     ],
                     'finishReason' => 'STOP',
@@ -46,7 +49,7 @@ class StrideGeminiProviderTest extends TestCase
                 ['role' => 'user', 'content' => 'Bench felt too heavy today.'],
                 ['role' => 'assistant', 'content' => [
                     ['type' => 'text', 'text' => 'Let me check.'],
-                    ['type' => 'tool_use', 'id' => 'tu_1', 'name' => 'set_load', 'input' => (object) ['exercise' => 'Bench Press']],
+                    ['type' => 'tool_use', 'id' => 'tu_1', 'name' => 'set_load', 'input' => (object) ['exercise' => 'Bench Press'], 'signature' => 'sig-prev'],
                 ]],
                 ['role' => 'user', 'content' => [
                     ['type' => 'tool_result', 'tool_use_id' => 'tu_1', 'content' => 'Load updated to 62.5kg'],
