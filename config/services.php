@@ -56,4 +56,8 @@ return [
         'research_model' => env('ANTHROPIC_RESEARCH_MODEL', 'claude-opus-4-7'),
     ],
 
+    'gemini' => [
+        'api_key' => env('GEMINI_API_KEY'),
+    ],
+
 ];

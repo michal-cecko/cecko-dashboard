@@ -14,8 +14,15 @@ return [
     */
 
     'coach' => [
-        'driver' => env('STRIDE_COACH_DRIVER', 'anthropic'), // anthropic | ollama | local | fake
+        'driver' => env('STRIDE_COACH_DRIVER', 'anthropic'), // anthropic | gemini | ollama | local | fake
 
+        // Model ids are per-purpose and provider-specific. Switching driver means
+        // switching these too, e.g. for Gemini:
+        //   STRIDE_COACH_DRIVER=gemini
+        //   STRIDE_COACH_MODEL=gemini-2.5-flash
+        //   STRIDE_COACH_SUMMARY_MODEL=gemini-2.5-flash
+        //   STRIDE_COACH_GENERATE_MODEL=gemini-2.5-pro
+        // (the gemini driver rejects non-gemini-* ids to fail fast on a mismatch).
         'model' => env('STRIDE_COACH_MODEL', 'claude-haiku-4-5'),
         'summary_model' => env('STRIDE_COACH_SUMMARY_MODEL', 'claude-haiku-4-5'),
         'generate_model' => env('STRIDE_COACH_GENERATE_MODEL', 'claude-sonnet-4-6'),
@@ -54,6 +61,15 @@ return [
             // models that reject it; false only works on hybrid thinkers.
             'think' => env('STRIDE_OLLAMA_THINK'),
         ],
+
+        // Driver "gemini": Google Generative Language API. Key in
+        // services.gemini.api_key (GEMINI_API_KEY). The model id comes from the
+        // per-purpose config above (must be gemini-*); this block only tunes the
+        // transport. url is overridable mainly so tests can fake the host.
+        'gemini' => [
+            'url' => env('STRIDE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta'),
+            'timeout' => (int) env('STRIDE_GEMINI_TIMEOUT', 60),
+        ],
     ],
 
     /*
@@ -62,13 +78,18 @@ return [
     |--------------------------------------------------------------------------
     |
     | Used to estimate cost_usd on each ai_usage row. Cached reads are ~10% of
-    | the input rate, cache writes ~125%. Update if Anthropic pricing changes.
+    | the input rate, cache writes ~125%. Update if provider pricing changes.
+    | Gemini rows only ever populate cache_read (implicit caching), so its
+    | cache_write rate is nominal. Verify current Google prices before relying
+    | on these for billing.
     |
     */
 
     'pricing' => [
         'claude-haiku-4-5' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
         'claude-sonnet-4-6' => ['input' => 3.00, 'output' => 15.00, 'cache_write' => 3.75, 'cache_read' => 0.30],
+        'gemini-2.5-flash' => ['input' => 0.30, 'output' => 2.50, 'cache_write' => 0.30, 'cache_read' => 0.075],
+        'gemini-2.5-pro' => ['input' => 1.25, 'output' => 10.00, 'cache_write' => 1.25, 'cache_read' => 0.31],
         'default' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
     ],
 
