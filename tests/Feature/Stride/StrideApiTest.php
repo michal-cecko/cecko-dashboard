@@ -106,6 +106,7 @@ class StrideApiTest extends TestCase
             'goal_weight_kg' => 76,
             'units' => 'metric',
             'gender' => 'male',
+            'birth_year' => 1995,
             'years_training' => 7,
             'training_style' => ['heavy', 'calisthenics'],
             'days_per_week' => 4,
@@ -115,15 +116,20 @@ class StrideApiTest extends TestCase
             ->assertOk()
             ->assertJsonPath('profile.height_cm', 182)
             ->assertJsonPath('profile.gender', 'male')
+            ->assertJsonPath('profile.birth_year', 1995)
             ->assertJsonPath('profile.training_style', ['heavy', 'calisthenics'])
             ->assertJsonPath('profile.days_per_week', 4)
             ->assertJsonPath('profile.onboarded', true);
 
-        // onboarded flag surfaces on /auth/me so the app can skip the wizard.
-        $this->getJson('/api/stride/auth/me', $auth)->assertJsonPath('user.onboarded', true);
+        // onboarded flag + derived age surface on /auth/me.
+        $this->getJson('/api/stride/auth/me', $auth)
+            ->assertJsonPath('user.onboarded', true)
+            ->assertJsonPath('user.profile.birth_year', 1995)
+            ->assertJsonPath('user.profile.age', now()->year - 1995);
 
         // Out-of-range metrics are rejected.
         $this->patchJson('/api/stride/profile', ['height_cm' => 5], $auth)->assertStatus(422);
+        $this->patchJson('/api/stride/profile', ['birth_year' => 1850], $auth)->assertStatus(422);
     }
 
     public function test_create_spot(): void

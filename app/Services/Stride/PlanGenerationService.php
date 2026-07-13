@@ -8,11 +8,13 @@ use App\Models\Stride\Exercise;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
 use App\Models\Stride\PersonalRecord;
+use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Throwable;
 
@@ -78,21 +80,27 @@ class PlanGenerationService
     public function questions(User $user, array $option): array
     {
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        // Longest names first so "Barbell Bench Press" wins over a shorter alias.
+        $catalog = Exercise::query()->get(['id', 'name', 'metric_type'])
+            ->sortByDesc(fn (Exercise $e) => mb_strlen($e->name))->values();
+        $onFile = PersonalRecord::ownedBy($user)->get(['exercise_id', 'label']);
 
         try {
             $turn = new CoachTurn(
                 model: (string) config('stride.coach.generate_model'),
                 systemBlocks: [['text' => 'You are a coach gathering the few missing facts needed to program accurately. Output ONLY a JSON array — no prose, no markdown.', 'cache' => false]],
-                messages: [['role' => 'user', 'content' => $this->questionsPrompt($user, $profile, $this->sanitizeOption($option) ?? [])]],
+                messages: [['role' => 'user', 'content' => $this->questionsPrompt($user, $profile, $this->sanitizeOption($option) ?? [], $onFile)]],
                 maxTokens: 700,
                 purpose: 'generate_plan',
                 timeoutSeconds: (int) config('stride.coach.generate_timeout', 180),
             );
 
             $decoded = $this->decodeJson($this->provider->chat($turn)->text);
-            $qs = $this->sanitizeQuestions(is_array($decoded) ? $decoded : []);
-            if ($qs !== []) {
-                return $qs;
+            // A valid (non-empty) array is authoritative — we classify + dedupe it
+            // ourselves. It may sanitise down to [] if every PR was already on file,
+            // which simply skips the step. Only an unparseable reply hits the fallback.
+            if (is_array($decoded) && $decoded !== []) {
+                return $this->sanitizeQuestions($decoded, $catalog, $onFile);
             }
         } catch (Throwable $e) {
             report($e);
@@ -101,49 +109,146 @@ class PlanGenerationService
         return $this->fallbackQuestions();
     }
 
-    private function questionsPrompt(User $user, StrideProfile $profile, array $option): string
+    private function questionsPrompt(User $user, StrideProfile $profile, array $option, Collection $onFile): string
     {
         $goals = Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->take(8)->implode('; ') ?: 'general fitness';
-        $havePrs = PersonalRecord::ownedBy($user)->pluck('label')->take(20)->implode('; ') ?: 'none';
+        $havePrs = $onFile->pluck('label')->filter()->take(20)->implode('; ') ?: 'none';
         $name = $option['name'] ?? 'their plan';
 
         return <<<TXT
-        The athlete is about to generate "{$name}". Goals: {$goals}. PRs already on file: {$havePrs}.
-        Ask 3–6 short questions to program accurately. Prioritise CURRENT-LEVEL numbers the goals imply
-        but that are NOT already on file (as type "pr"), plus 1–2 general ones (equipment access, time/
-        space constraints) as type "text". Do NOT re-ask a PR already on file.
+        The athlete is about to generate "{$name}". Goals: {$goals}.
+        ALREADY LOGGED — assume known, NEVER ask about these exercises: {$havePrs}.
+        Ask 3–6 short questions to program accurately: a "pr" question for each current-level number the
+        goals imply that is NOT already logged, plus 1–2 general "text" questions (equipment, time/space).
+        RULES: any question asking for a weight, time, distance, calories or rep count MUST be type "pr"
+        with a metric_type. Use "text" ONLY for non-numeric answers (equipment, schedule, yes/no). Never
+        ask about an already-logged exercise.
         Return ONLY a JSON array; each item:
-        {"key":"slug","type":"pr","label":"short question","pr_label":"short record name e.g. Front lever hold","metric_type":"load|reps|hold|run|sprint|machine","hint":"why (optional)"}
+        {"key":"slug","type":"pr","label":"short question","pr_label":"exercise name e.g. Back Squat","metric_type":"load|reps|hold|run|sprint|machine","hint":"why (optional)"}
         or {"key":"slug","type":"text","label":"short question","hint":"optional"}
         TXT;
     }
 
-    /** @return array<int, array> */
-    private function sanitizeQuestions(array $raw): array
+    /**
+     * Turn the model's loose questions into a clean, type-correct, de-duplicated set.
+     * We do NOT trust the model's `type`/`metric_type`: a question that names a
+     * catalogue exercise takes that exercise's metric_type (so "back squat load"
+     * always renders as weight×reps), and any PR the athlete already logged is
+     * dropped outright (the model re-asks them otherwise).
+     *
+     * @return array<int, array>
+     */
+    private function sanitizeQuestions(array $raw, Collection $catalog, Collection $onFile): array
     {
+        $onFileIds = $onFile->pluck('exercise_id')->filter()->map(fn ($i) => (int) $i)->all();
+        $onFileNames = $onFile->pluck('label')->filter()->map(fn ($l) => Str::lower(trim((string) $l)))->all();
+
         $out = [];
-        foreach (array_slice($raw, 0, 6) as $item) {
+        foreach (array_slice($raw, 0, 8) as $item) {
             if (! is_array($item) || empty($item['label'])) {
                 continue;
             }
-            $type = ($item['type'] ?? 'text') === 'pr' ? 'pr' : 'text';
+            $label = Str::limit((string) $item['label'], 120, '');
+            $haystack = Str::lower($label.' '.($item['pr_label'] ?? ''));
+            $match = $this->matchCatalogExercise($haystack, $catalog);
+
+            $validMetric = in_array($item['metric_type'] ?? '', ['load', 'reps', 'hold', 'run', 'sprint', 'machine'], true);
+            $saysPr = Str::lower((string) ($item['type'] ?? '')) === 'pr';
+            // A weighted variant ("weighted pull-up", "dips +40kg") is a LOAD PR and a
+            // distinct lift from the bodyweight exercise — so it overrides the catalogue
+            // type and is NOT deduped against the plain movement.
+            $weighted = (bool) preg_match('/\b(weighted|added weight|\+\s*\d+\s*kg|with\s+\d+\s*kg)\b/', $haystack);
+            // Equipment/schedule questions stay text even if they brush a catalogue name.
+            $accessQuestion = (bool) preg_match('/\b(access|equipment|bar|belt|vest|rings|band|gym|do you (have|own)|how many days|per week|schedule|how much time|time per)\b/', $haystack);
+            $isPr = $saysPr || $validMetric || $weighted || ($match !== null && ! $accessQuestion);
+
+            // Drop any question about an already-logged exercise — regardless of how the
+            // model typed it (it often mislabels a PR as "text"). Equipment/access
+            // questions are spared, and a weighted variant is a distinct lift so it's
+            // never deduped against the bodyweight movement.
+            if (! $accessQuestion && ! $weighted && $this->prAlreadyOnFile($haystack, $match, $onFileIds, $onFileNames)) {
+                continue;
+            }
+
             $q = [
                 'key' => Str::slug((string) ($item['key'] ?? $item['label'])) ?: 'q'.count($out),
-                'type' => $type,
-                'label' => Str::limit((string) $item['label'], 120, ''),
+                'type' => $isPr ? 'pr' : 'text',
+                'label' => $label,
                 'hint' => isset($item['hint']) ? Str::limit((string) $item['hint'], 120, '') : null,
             ];
-            if ($type === 'pr') {
-                $q['metric_type'] = in_array($item['metric_type'] ?? '', ['load', 'reps', 'hold', 'run', 'sprint', 'machine'], true)
-                    ? $item['metric_type'] : 'load';
-                // A short record name to store the PR under (the question itself is
-                // too verbose as a PR label); fall back to the question on the client.
-                $q['pr_label'] = ! empty($item['pr_label']) ? Str::limit((string) $item['pr_label'], 60, '') : null;
+            if ($isPr) {
+                $q['metric_type'] = $weighted ? 'load' : ($match ? $match->metric_type : ($validMetric ? $item['metric_type'] : 'load'));
+                $q['exercise_id'] = $weighted ? null : $match?->id;
+                $q['pr_label'] = ($match && ! $weighted) ? $match->name
+                    : (! empty($item['pr_label']) ? Str::limit((string) $item['pr_label'], 60, '') : null);
             }
             $out[] = $q;
+            if (count($out) >= 6) {
+                break;
+            }
         }
 
         return $out;
+    }
+
+    /**
+     * Find the catalogue exercise a question is about (longest/most specific name
+     * wins). Matching ignores spaces/hyphens/case so "frontlever" hits "Front Lever"
+     * and "bench press" hits "Barbell Bench Press".
+     */
+    private function matchCatalogExercise(string $haystack, Collection $catalog): ?Exercise
+    {
+        $hay = $this->normalizeForMatch($haystack);
+        foreach ($catalog as $ex) {
+            foreach ($this->exerciseAliases($ex->name) as $needle) {
+                $n = $this->normalizeForMatch($needle);
+                // Skip very short, ambiguous aliases (e.g. "row", "dips", "l-sit").
+                if (mb_strlen($n) >= 5 && str_contains($hay, $n)) {
+                    return $ex;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /** Strip everything but letters/digits so spacing/hyphen variants match. */
+    private function normalizeForMatch(string $s): string
+    {
+        return (string) preg_replace('/[^a-z0-9]+/', '', Str::lower($s));
+    }
+
+    /** Catalogue name + its equipment-stripped core, e.g. "Barbell Bench Press" → "bench press". */
+    private function exerciseAliases(string $name): array
+    {
+        $name = Str::lower($name);
+        $core = trim((string) preg_replace('/\s*\(.*?\)\s*/', ' ', $name));                                          // drop "(Strict)"
+        $core = trim((string) preg_replace('/^(barbell|dumbbell|cable|machine|kettlebell|smith machine|ez-bar|ez bar)\s+/', '', $core));
+
+        return array_values(array_unique(array_filter([$name, $core])));
+    }
+
+    /** True if the athlete already has this PR (by linked exercise or by name). */
+    private function prAlreadyOnFile(string $haystack, ?Exercise $match, array $onFileIds, array $onFileNames): bool
+    {
+        if ($match && in_array((int) $match->id, $onFileIds, true)) {
+            return true;
+        }
+        $hay = $this->normalizeForMatch($haystack);
+        foreach ($onFileNames as $n) {
+            $full = $this->normalizeForMatch($n);
+            if (mb_strlen($full) >= 5 && str_contains($hay, $full)) {
+                return true; // full name, e.g. "front lever"
+            }
+            // The movement / head word, so "Back Squat" still matches a bare "squat?".
+            $words = preg_split('/\s+/', trim($n)) ?: [];
+            $head = $this->normalizeForMatch((string) end($words));
+            if (mb_strlen($head) >= 5 && str_contains($hay, $head)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /** @return array<int, array> */
@@ -195,7 +300,12 @@ class PlanGenerationService
         $years = $prefs['years_training'] ?? 'unknown';
         $styles = implode(', ', $prefs['training_style'] ?? []) ?: 'general training';
         $daysLine = $days > 0 ? "wants to train {$days} day(s)/week" : 'is flexible on training days';
-        $genderLine = ! empty($prefs['gender']) ? $prefs['gender'].', ' : '';
+        $age = ! empty($prefs['birth_year']) ? max(0, Carbon::now()->year - (int) $prefs['birth_year']) : null;
+        $genderLine = trim(implode(' ', array_filter([
+            $age ? "age {$age}" : '',
+            $prefs['gender'] ?? '',
+        ])));
+        $genderLine = $genderLine !== '' ? $genderLine.', ' : '';
         // The goals are the whole point — the proposed plans must be built to reach them.
         $goals = Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->take(8)->implode('; ') ?: 'general fitness';
         $injuries = Injury::ownedBy($user)->flagged()->pluck('body_part')->implode(', ') ?: 'none';
@@ -511,6 +621,54 @@ class PlanGenerationService
     }
 
     // ── persistence ──────────────────────────────────────────────────────────
+
+    /**
+     * Rebuild ONE existing session's exercises+sets in place (keeps the Session row,
+     * its date and status). Used by the block coach's "regenerate this session" tool.
+     */
+    public function regenerateInto(User $user, Session $session): Session
+    {
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $block = $session->block;
+        $option = [
+            'name' => $block?->name ?? 'Plan',
+            'split' => 'Full body',
+            'phase' => $block?->phase ?? 'Foundations',
+            'weeks' => $block?->weeks ?? 6,
+            'days_per_week' => 3,
+        ];
+
+        $built = $this->buildSession($user, $profile, $option, $session->kind, $this->catalog($user));
+        $this->replaceExercises($session, $built);
+
+        return $session->refresh();
+    }
+
+    /** Swap a session's children for a freshly-built template (shared by persist + regenerate). */
+    private function replaceExercises(Session $session, array $built): void
+    {
+        $session->exercises()->delete(); // FK cascade clears the sets
+        $session->update([
+            'title' => $built['title'] ?? $session->title,
+            'duration_min' => $built['duration_min'] ?? $session->duration_min,
+        ]);
+
+        foreach (array_values($built['exercises'] ?? []) as $pos => $ex) {
+            $sessionExercise = $session->exercises()->create([
+                'exercise_id' => Exercise::query()->where('name', $ex['name'])->value('id'),
+                'name' => $ex['name'],
+                'tag' => $ex['tag'] ?? null,
+                'note' => $ex['note'] ?? '',
+                'position' => $pos,
+            ]);
+            foreach (array_values($ex['sets'] ?? []) as $setPos => $set) {
+                $sessionExercise->sets()->create([
+                    'kind' => $set['kind'], 'reps' => $set['reps'], 'kg' => $set['kg'],
+                    'rest_sec' => $set['rest_sec'], 'position' => $setPos,
+                ]);
+            }
+        }
+    }
 
     private function persist(User $user, array $option, array $plan, ?Carbon $start = null): Block
     {

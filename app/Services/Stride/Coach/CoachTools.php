@@ -9,10 +9,13 @@ namespace App\Services\Stride\Coach;
  */
 class CoachTools
 {
-    /** @return array<int, array{name: string, description: string, input_schema: array}> */
-    public static function definitions(): array
+    /**
+     * @param  bool  $blockScoped  In a block-scoped chat, also offer the block-wide tools.
+     * @return array<int, array{name: string, description: string, input_schema: array}>
+     */
+    public static function definitions(bool $blockScoped = false): array
     {
-        return [
+        $tools = [
             [
                 'name' => 'set_load',
                 'description' => "Change the working weight (and optionally reps) for an exercise in today's session. Use when the user wants to go lighter/heavier.",
@@ -81,5 +84,66 @@ class CoachTools
                 ],
             ],
         ];
+
+        // Block-wide tools (reorder/swap/scale/regenerate the WHOLE block) — only
+        // offered in a block-scoped chat. Each STAGES a proposal across all sessions.
+        if ($blockScoped) {
+            $tools = array_merge($tools, [
+                [
+                    'name' => 'reorder_block',
+                    'description' => 'Reorder exercises in EVERY session of the block by a rule, e.g. "always start with calisthenics first".',
+                    'input_schema' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'match_by' => ['type' => 'string', 'enum' => ['category', 'name'], 'description' => 'Match exercises by catalogue category (e.g. "calisthenics") or by movement name.'],
+                            'match_value' => ['type' => 'string', 'description' => 'e.g. "calisthenics", "strength", or a movement like "pull-up".'],
+                            'position' => ['type' => 'string', 'enum' => ['first', 'last'], 'description' => 'Move matched exercises to the start or end of each session.'],
+                            'reason' => ['type' => 'string'],
+                        ],
+                        'required' => ['match_by', 'match_value', 'position'],
+                    ],
+                ],
+                [
+                    'name' => 'swap_block',
+                    'description' => 'Replace an exercise with another across EVERY session of the block.',
+                    'input_schema' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'from_exercise' => ['type' => 'string', 'description' => 'Exercise to replace (name or part).'],
+                            'to_exercise' => ['type' => 'string', 'description' => 'Replacement exercise name.'],
+                            'reason' => ['type' => 'string'],
+                        ],
+                        'required' => ['from_exercise', 'to_exercise'],
+                    ],
+                ],
+                [
+                    'name' => 'scale_block_load',
+                    'description' => 'Scale working-set loads up or down by a percentage across the whole block.',
+                    'input_schema' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'percent' => ['type' => 'integer', 'description' => 'e.g. -10 to drop all loads 10%, +5 to add 5%.'],
+                            'only_category' => ['type' => 'string', 'description' => 'Optional: limit to one category, e.g. "strength".'],
+                            'reason' => ['type' => 'string'],
+                        ],
+                        'required' => ['percent'],
+                    ],
+                ],
+                [
+                    'name' => 'regenerate_session',
+                    'description' => 'Rebuild one whole session in the block from scratch (new exercises + sets) for a given day/title.',
+                    'input_schema' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'session_ref' => ['type' => 'string', 'description' => 'Which session — its title, kind, or scheduled date.'],
+                            'reason' => ['type' => 'string'],
+                        ],
+                        'required' => ['session_ref'],
+                    ],
+                ],
+            ]);
+        }
+
+        return $tools;
     }
 }

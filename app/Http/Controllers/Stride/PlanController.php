@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Stride;
 
 use App\Http\Controllers\Controller;
 use App\Http\Presenters\Stride\SessionPresenter;
+use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
 use App\Models\Stride\PersonalRecord;
@@ -152,10 +153,31 @@ class PlanController extends Controller
 
         $block->load('sessions');
 
+        $adjustments = AiAdjustment::ownedBy($request->user())->forBlock($block->id);
+
         return response()->json([
             'block' => array_merge($this->blockSummary($block), [
                 'summary' => $block->summary,
                 'sessions' => $block->sessions->map(SessionPresenter::summary(...))->values(),
+                // Applied coach edits = the block's change history.
+                'changes' => (clone $adjustments)->applied()->orderByDesc('id')->limit(30)->get()->map(fn (AiAdjustment $a) => [
+                    'id' => $a->id,
+                    'kind' => $a->kind,
+                    'target' => $a->target,
+                    'text' => $a->text,
+                    'why' => $a->why,
+                    'when' => ($a->applied_at ?? $a->created_at)?->diffForHumans(),
+                ])->values(),
+                // Still-pending proposals for this block, so they survive a reopen.
+                'pending' => (clone $adjustments)->proposed()->orderByDesc('id')->get()->map(fn (AiAdjustment $a) => [
+                    'id' => $a->id,
+                    'status' => 'proposed',
+                    'operation' => $a->operation,
+                    'kind' => $a->kind,
+                    'target' => $a->target,
+                    'text' => $a->text,
+                    'why' => $a->why,
+                ])->values(),
             ]),
         ]);
     }

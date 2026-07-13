@@ -5,6 +5,7 @@ namespace Tests\Feature\Stride;
 use App\Models\Common\User;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
+use App\Models\Stride\Exercise;
 use App\Models\Stride\PersonalRecord;
 use App\Services\Stride\Coach\CoachProvider;
 use Database\Seeders\Stride\ExerciseSeeder;
@@ -205,11 +206,71 @@ class StridePlanGenerationTest extends TestCase
         $this->assertCount(2, $res->json('questions'));
         $this->assertSame('pr', $res->json('questions.0.type'));
         $this->assertSame('hold', $res->json('questions.0.metric_type'));
-        $this->assertSame('Front lever hold', $res->json('questions.0.pr_label')); // short record name for the PR
+        // The catalogue match supplies a clean record name + links the exercise.
+        $this->assertSame('Front Lever', $res->json('questions.0.pr_label'));
+        $this->assertNotNull($res->json('questions.0.exercise_id'));
         $this->assertSame('text', $res->json('questions.1.type'));
         // The chosen plan name reached the prompt.
         $turn = $this->provider->calls[array_key_last($this->provider->calls)];
         $this->assertStringContainsString('Calisthenics Strength', $turn->messages[0]['content']);
+    }
+
+    public function test_questions_fix_type_from_catalogue_and_drop_already_logged_prs(): void
+    {
+        // The athlete already logged a back-squat PR.
+        $squatId = Exercise::where('name', 'Back Squat')->value('id');
+        PersonalRecord::create([
+            'user_id' => $this->user->id, 'exercise_id' => $squatId, 'label' => 'Back Squat',
+            'metric_type' => 'load', 'metrics' => ['weight' => 140, 'reps' => 3],
+        ]);
+
+        // The (weak) model mislabels everything as "text" and re-asks the squat.
+        $this->provider->push(FakeCoachProvider::text(json_encode([
+            ['key' => 'squat', 'type' => 'text', 'label' => 'Current back squat load?'],          // already logged → dropped
+            ['key' => 'sq2', 'type' => 'text', 'label' => 'What is your current squat weight?'],   // bare "squat" → still dropped (head word)
+            ['key' => 'bench', 'type' => 'text', 'label' => 'Current barbell bench press 1RM?'],   // numeric → reclassified to pr/load
+            ['key' => 'rings', 'type' => 'text', 'label' => 'Do you have access to rings?'],       // genuinely text
+        ])));
+
+        $option = ['name' => 'Strength', 'split' => 'Full body'];
+        $qs = $this->postJson('/api/stride/plan/questions', ['option' => $option], $this->auth)
+            ->assertOk()->json('questions');
+
+        // Both squat phrasings dropped (already on file); bench → load PR; rings stays text.
+        $labels = array_column($qs, 'label');
+        $this->assertNotContains('Current back squat load?', $labels);
+        $this->assertNotContains('What is your current squat weight?', $labels);
+        $bench = collect($qs)->firstWhere('label', 'Current barbell bench press 1RM?');
+        $this->assertSame('pr', $bench['type']);
+        $this->assertSame('load', $bench['metric_type']);
+        $this->assertNotNull($bench['exercise_id']);
+        $rings = collect($qs)->firstWhere('label', 'Do you have access to rings?');
+        $this->assertSame('text', $rings['type']);
+    }
+
+    public function test_questions_match_spacing_variants_and_weighted_loads(): void
+    {
+        // Athlete logged a front lever. The athlete wrote goals as one word ("frontlever").
+        $flId = Exercise::where('name', 'Front Lever')->value('id');
+        PersonalRecord::create([
+            'user_id' => $this->user->id, 'exercise_id' => $flId, 'label' => 'Front Lever',
+            'metric_type' => 'hold', 'metrics' => ['seconds' => 7],
+        ]);
+
+        $this->provider->push(FakeCoachProvider::text(json_encode([
+            ['key' => 'fl', 'type' => 'load', 'label' => 'Current frontlever hold time?'],   // spacing variant of a logged PR → dropped
+            ['key' => 'wpu', 'type' => 'reps', 'label' => 'Bodyweight for a weighted pull-up?'], // "weighted" → load, kept
+        ])));
+
+        $option = ['name' => 'Calisthenics', 'split' => 'Full body'];
+        $qs = $this->postJson('/api/stride/plan/questions', ['option' => $option], $this->auth)
+            ->assertOk()->json('questions');
+
+        $labels = array_column($qs, 'label');
+        $this->assertNotContains('Current frontlever hold time?', $labels); // matched "Front Lever" despite no space
+        $wpu = collect($qs)->firstWhere('label', 'Bodyweight for a weighted pull-up?');
+        $this->assertSame('pr', $wpu['type']);
+        $this->assertSame('load', $wpu['metric_type']); // "weighted" overrides the bodyweight reps type
     }
 
     public function test_questions_falls_back_when_model_returns_garbage(): void

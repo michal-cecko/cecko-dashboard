@@ -91,6 +91,11 @@ class AuthController extends Controller
                 'units' => $profile->units,
                 'streak_days' => $profile->streak_days,
                 'language' => $profile->preferences['language'] ?? 'en',
+                'gender' => $profile->preferences['gender'] ?? null,
+                'birth_year' => $profile->preferences['birth_year'] ?? null,
+                'age' => ! empty($profile->preferences['birth_year'])
+                    ? max(0, now()->year - (int) $profile->preferences['birth_year'])
+                    : null,
                 'personal_records' => PersonalRecord::ownedBy($user)
                     ->orderByDesc('achieved_on')->orderByDesc('id')->get()
                     ->map(fn (PersonalRecord $pr) => [

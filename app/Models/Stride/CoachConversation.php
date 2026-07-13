@@ -14,6 +14,7 @@ class CoachConversation extends Model
 
     protected $fillable = [
         'user_id',
+        'block_id',
         'title',
         'persona_key',
         'summary',
@@ -34,6 +35,11 @@ class CoachConversation extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function block(): BelongsTo
+    {
+        return $this->belongsTo(Block::class);
+    }
+
     public function messages(): HasMany
     {
         return $this->hasMany(CoachMessage::class, 'conversation_id')->orderBy('id');
@@ -42,5 +48,10 @@ class CoachConversation extends Model
     public function scopeOwnedBy(Builder $query, User $user): Builder
     {
         return $query->where('user_id', $user->id);
+    }
+
+    public function scopeForBlock(Builder $query, ?int $blockId): Builder
+    {
+        return $query->where('block_id', $blockId);
     }
 }

@@ -89,4 +89,12 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::post('coach/conversations/{conversation}/messages', [CoachController::class, 'message']);
     Route::patch('coach/conversations/{conversation}/persona', [CoachController::class, 'setPersona']);
     Route::get('coach/adjustments', [CoachController::class, 'adjustments']);
+
+    // Block-scoped coach chat (edits the whole block).
+    Route::get('coach/blocks/{block}/conversation', [CoachController::class, 'blockConversation']);
+
+    // Propose → confirm: coach changes are staged, then applied/dismissed by the user.
+    Route::get('coach/proposals', [CoachController::class, 'proposals']);
+    Route::post('coach/proposals/{adjustment}/apply', [CoachController::class, 'applyProposal']);
+    Route::post('coach/proposals/{adjustment}/dismiss', [CoachController::class, 'dismissProposal']);
 });

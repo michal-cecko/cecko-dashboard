@@ -10,6 +10,7 @@ use App\Models\Stride\Injury;
 use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
+use App\Services\Stride\ExerciseCategory;
 
 /**
  * Builds the coach's context, scoped to one user.
@@ -33,7 +34,7 @@ class TrainingMemoryBuilder
     ];
 
     /** Stable system instructions — safe to cache for the whole conversation. */
-    public function systemGuide(string $personaKey, string $language = 'en'): string
+    public function systemGuide(string $personaKey, string $language = 'en', bool $blockScoped = false): string
     {
         $persona = self::PERSONAS[$personaKey] ?? self::PERSONAS['calm'];
 
@@ -43,13 +44,22 @@ class TrainingMemoryBuilder
 
         Rules:
         - Always program around flagged injuries; never prescribe a movement listed under AVOID.
-        - When the user asks to change today's training (lighter, heavier, swap, add, an injury),
-          USE THE TOOLS to apply the change — do not just describe it. Then confirm in one or two sentences.
-        - Never say a change was applied unless you actually called a tool for it in this turn,
-          even if earlier messages in the conversation phrased it differently.
+        - When the user asks to change their training (lighter, heavier, swap, add, reorder, an injury),
+          USE THE TOOLS to STAGE the change — do not just describe it. Every change is a PROPOSAL the
+          athlete must confirm; never claim a change is already applied. Confirm in one or two sentences.
         - Be concise. Explain the "why" briefly when you change the plan.
         - Use kilograms and the user's metric/imperial preference. Never invent data you weren't given.
         TEXT;
+
+        if ($blockScoped) {
+            $guide .= "\n\n".<<<'TEXT'
+            BLOCK EDIT MODE: this conversation edits an ENTIRE training block — every change applies across
+            ALL the block's sessions (shown in BLOCK BEING EDITED below). Use the block tools (reorder_block,
+            swap_block, scale_block_load, regenerate_session, edit_block) to stage block-wide changes. Example:
+            "always start with calisthenics first" → reorder_block(match_by="category", match_value="calisthenics",
+            position="first"). ALWAYS call a tool; the athlete confirms each proposal before it is applied.
+            TEXT;
+        }
 
         if ($language === 'sk') {
             $guide .= "\n\n".<<<'TEXT'
@@ -97,6 +107,36 @@ class TrainingMemoryBuilder
             foreach ($facts as $fact) {
                 $lines[] = "- {$fact}";
             }
+        }
+
+        return implode("\n", $lines);
+    }
+
+    /**
+     * Per-block snapshot for a block-scoped chat: every session and its exercises
+     * (position, resolved category, top working set) so the model can reason about
+     * ordering ("calisthenics first"), swaps and loads across the whole block.
+     */
+    public function blockMemory(Block $block): string
+    {
+        $block->loadMissing('sessions.exercises.sets');
+
+        $lines = [
+            "BLOCK BEING EDITED: {$block->name} ({$block->phase}), {$block->weeks} weeks, {$block->sessions->count()} sessions.",
+            'Every change you stage here applies to ALL the sessions below.',
+            '',
+        ];
+
+        foreach ($block->sessions as $session) {
+            $date = $session->scheduled_date?->toDateString() ?? '—';
+            $lines[] = "SESSION #{$session->id} — {$session->title} ({$session->kind}, {$session->status}, {$date}):";
+            foreach ($session->exercises->sortBy('position') as $exercise) {
+                $category = ExerciseCategory::of($exercise) ?? 'uncategorised';
+                $top = $exercise->sets->where('kind', 'Working')->first();
+                $detail = $top ? sprintf('%d×%g kg', $top->reps, $top->kg) : '—';
+                $lines[] = "  {$exercise->position}. {$exercise->name} [{$category}] {$detail}";
+            }
+            $lines[] = '';
         }
 
         return implode("\n", $lines);

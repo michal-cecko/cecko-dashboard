@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Presenters\Stride\SessionPresenter;
 use App\Models\Stride\ExerciseSet;
 use App\Models\Stride\Session;
+use App\Services\Stride\SessionVolume;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,7 @@ class SessionController extends Controller
             'completed_at' => now(),
             'rpe' => $data['rpe'] ?? $session->rpe,
             'notes' => $data['notes'] ?? $session->notes,
-            'volume_kg' => $this->computeVolume($session),
+            'volume_kg' => SessionVolume::recompute($session),
         ])->save();
 
         return response()->json(['session' => SessionPresenter::full($session->fresh())]);
@@ -73,15 +74,5 @@ class SessionController extends Controller
     private function authorizeSession(Request $request, Session $session): void
     {
         abort_unless($session->user_id === $request->user()->id, 404);
-    }
-
-    /** Sum of logged (or planned) working volume: reps × kg across done sets. */
-    private function computeVolume(Session $session): int
-    {
-        $session->loadMissing('exercises.sets');
-
-        return (int) $session->exercises->flatMap->sets
-            ->where('is_done', true)
-            ->sum(fn (ExerciseSet $s) => ($s->actual_reps ?? $s->reps) * (float) ($s->actual_kg ?? $s->kg));
     }
 }

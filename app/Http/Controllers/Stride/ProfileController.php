@@ -17,7 +17,7 @@ class ProfileController extends Controller
 {
     /** Soft fields stored inside the `preferences` JSON column. */
     private const PREFERENCE_KEYS = [
-        'language', 'gender', 'years_training', 'bio', 'notes', 'training_style', 'days_per_week', 'onboarded',
+        'language', 'gender', 'birth_year', 'years_training', 'bio', 'notes', 'training_style', 'days_per_week', 'onboarded',
     ];
 
     /** Hard fields stored as their own columns. */
@@ -38,6 +38,7 @@ class ProfileController extends Controller
             // preferences bag
             'language' => ['sometimes', 'in:en,sk'],
             'gender' => ['sometimes', 'in:male,female'],
+            'birth_year' => ['sometimes', 'nullable', 'integer', 'between:1920,'.now()->year],
             'years_training' => ['sometimes', 'numeric', 'between:0,70'],
             'bio' => ['sometimes', 'nullable', 'string', 'max:2000'],
             'notes' => ['sometimes', 'nullable', 'string', 'max:2000'],
@@ -80,6 +81,7 @@ class ProfileController extends Controller
             'persona_key' => $profile->persona_key,
             'language' => $prefs['language'] ?? 'en',
             'gender' => $prefs['gender'] ?? null,
+            'birth_year' => $prefs['birth_year'] ?? null,
             'years_training' => $prefs['years_training'] ?? null,
             'bio' => $prefs['bio'] ?? null,
             'notes' => $prefs['notes'] ?? null,

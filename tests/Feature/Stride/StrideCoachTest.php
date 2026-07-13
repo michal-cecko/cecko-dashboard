@@ -110,7 +110,7 @@ class StrideCoachTest extends TestCase
         $this->assertDatabaseHas('stride_ai_usage', ['user_id' => $this->user->id, 'provider' => 'fake', 'purpose' => 'chat']);
     }
 
-    public function test_tool_call_swaps_exercise_and_writes_adjustment(): void
+    public function test_tool_call_swap_is_staged_then_applied_on_confirm(): void
     {
         $conversation = $this->newConversation();
         $this->provider
@@ -119,34 +119,88 @@ class StrideCoachTest extends TestCase
                 'to_exercise' => 'Floor Press',
                 'reason' => 'Protecting the shoulder.',
             ]))
-            ->push(FakeCoachProvider::text('Swapped bench for floor press to protect your shoulder.'));
+            ->push(FakeCoachProvider::text('Proposed swapping bench for floor press.'));
 
-        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
             'message' => 'My shoulder is tight, swap the bench.',
         ], $this->auth)
             ->assertOk()
-            ->assertJsonPath('message.adjustments.0.kind', 'Swapped');
+            ->assertJsonPath('message.adjustments.0.kind', 'Swapped')
+            ->assertJsonPath('message.adjustments.0.status', 'proposed')
+            ->json('message.adjustments.0.id');
 
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+
+        // Staged only — the plan is NOT touched until the user confirms.
+        $this->assertFalse($session->exercises()->where('name', 'Floor Press')->exists());
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'status' => 'proposed', 'operation' => 'swap']);
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('adjustment.status', 'applied');
+
         $this->assertTrue($session->exercises()->where('name', 'Floor Press')->exists());
-        $this->assertDatabaseHas('stride_ai_adjustments', ['user_id' => $this->user->id, 'kind' => 'Swapped']);
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'status' => 'applied']);
     }
 
-    public function test_tool_call_set_load_lowers_working_weight(): void
+    public function test_tool_call_set_load_is_staged_then_applied_on_confirm(): void
     {
         $conversation = $this->newConversation();
         $this->provider
             ->push(FakeCoachProvider::toolCall('set_load', ['exercise_name' => 'Bench', 'kg' => 70, 'reason' => 'RPE was high']))
-            ->push(FakeCoachProvider::text('Dropped bench to 70 kg.'));
+            ->push(FakeCoachProvider::text('Proposed dropping bench to 70 kg.'));
 
-        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
             'message' => 'Go lighter on bench today.',
-        ], $this->auth)->assertOk();
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.status', 'proposed')
+            ->json('message.adjustments.0.id');
 
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
         $bench = $session->exercises()->where('name', 'like', '%Bench%')->firstOrFail();
+        $before = (float) $bench->sets()->where('kind', 'Working')->value('kg');
+
+        // Not applied yet — load unchanged.
+        $this->assertEqualsWithDelta($before, (float) $bench->sets()->where('kind', 'Working')->value('kg'), 0.01);
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
         $this->assertEqualsWithDelta(70.0, (float) $bench->sets()->where('kind', 'Working')->value('kg'), 0.01);
-        $this->assertDatabaseHas('stride_ai_adjustments', ['kind' => 'Lowered intensity']);
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'kind' => 'Lowered intensity', 'status' => 'applied']);
+    }
+
+    public function test_proposal_can_be_dismissed_and_then_cannot_apply(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('set_load', ['exercise_name' => 'Bench', 'kg' => 60]))
+            ->push(FakeCoachProvider::text('Proposed.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'lighter'], $this->auth)
+            ->assertOk()->json('message.adjustments.0.id');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/dismiss", [], $this->auth)->assertOk();
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'status' => 'dismissed']);
+
+        // A dismissed (or already-applied) proposal can't be applied — 409.
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertStatus(409);
+    }
+
+    public function test_proposals_are_scoped_to_the_owner(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('set_load', ['exercise_name' => 'Bench', 'kg' => 60]))
+            ->push(FakeCoachProvider::text('Proposed.'));
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'lighter'], $this->auth)
+            ->assertOk()->json('message.adjustments.0.id');
+
+        User::factory()->create(['email' => 'nope2@example.test', 'password' => 'pw']);
+        $token = $this->postJson('/api/stride/auth/login', ['email' => 'nope2@example.test', 'password' => 'pw'])->json('token');
+        $intruderAuth = ['Authorization' => "Bearer {$token}"];
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $intruderAuth)->assertNotFound();
+        $this->getJson('/api/stride/coach/proposals', $intruderAuth)->assertOk()->assertJsonCount(0, 'proposals');
     }
 
     public function test_tool_call_log_injury_creates_a_flagged_injury(): void

@@ -7,6 +7,7 @@ use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\AiUsage;
 use App\Models\Stride\CoachConversation;
 use App\Models\Stride\CoachMessage;
+use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 
 /**
@@ -40,7 +41,13 @@ class CoachService
         $system = $this->systemBlocks($conversation, $user, $language);
         $messages = $this->history($conversation);
 
-        [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $system, $messages, $language);
+        $context = new CoachContext(
+            conversation: $conversation,
+            todaySession: Session::ownedBy($user)->where('status', 'today')->first(),
+            block: $conversation->block,
+        );
+
+        [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $context, $system, $messages, $language);
 
         $assistant = $conversation->messages()->create([
             'role' => 'assistant',
@@ -62,9 +69,9 @@ class CoachService
     }
 
     /** @return array{0: string, 1: array, 2: array} [finalText, adjustments, usages] */
-    private function runToolLoop(User $user, array $system, array $messages, string $language = 'en'): array
+    private function runToolLoop(User $user, CoachContext $ctx, array $system, array $messages, string $language = 'en'): array
     {
-        $tools = CoachTools::definitions();
+        $tools = CoachTools::definitions($ctx->block !== null);
         $maxIterations = (int) config('stride.coach.max_tool_iterations');
         $adjustments = [];
         $usages = [];
@@ -94,7 +101,7 @@ class CoachService
 
             $results = [];
             foreach ($reply->toolUses as $tool) {
-                $outcome = $this->executor->execute($user, $tool['name'], $tool['input']);
+                $outcome = $this->executor->execute($user, $tool['name'], $tool['input'], $ctx);
                 if ($outcome['adjustment'] !== null) {
                     $adjustments[] = $outcome['adjustment'];
                 }
@@ -113,10 +120,16 @@ class CoachService
     /** Cached system prompt: stable guide + per-request training memory + rolling summary. */
     private function systemBlocks(CoachConversation $conversation, User $user, string $language = 'en'): array
     {
+        $blockScoped = $conversation->block_id !== null;
+
         $blocks = [
-            ['text' => $this->memory->systemGuide($conversation->persona_key, $language), 'cache' => true],
+            ['text' => $this->memory->systemGuide($conversation->persona_key, $language, $blockScoped), 'cache' => true],
             ['text' => $this->memory->memory($user), 'cache' => true],
         ];
+
+        if ($blockScoped && $conversation->block) {
+            $blocks[] = ['text' => $this->memory->blockMemory($conversation->block), 'cache' => true];
+        }
 
         if ($conversation->summary) {
             $blocks[] = ['text' => "EARLIER CONVERSATION SUMMARY:\n".$conversation->summary, 'cache' => false];
@@ -251,6 +264,8 @@ class CoachService
 
         return array_map(fn ($a) => [
             'id' => $a->id,
+            'status' => $a->status,
+            'operation' => $a->operation,
             'kind' => $a->kind,
             'target' => $a->target,
             'text' => $a->text,
