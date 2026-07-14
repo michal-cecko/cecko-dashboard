@@ -35,6 +35,17 @@ return [
 
         'max_tokens' => (int) env('STRIDE_COACH_MAX_TOKENS', 1024),
 
+        // Generation (recommend/questions/session) needs a bigger output budget than
+        // chat: on Gemini "thinking" models the budget is shared by thinking + JSON,
+        // so a small cap truncates the plan. Give it ample room; thinking is bounded
+        // separately (generate_thinking_budget) so the JSON always fits.
+        'generate_max_tokens' => (int) env('STRIDE_COACH_GENERATE_MAX_TOKENS', 4096),
+        'generate_thinking_budget' => (int) env('STRIDE_COACH_GENERATE_THINKING_BUDGET', 2048),
+
+        // Display FX for showing AI cost in EUR (cost is computed in USD from the
+        // pricing map). Rough is fine — it's an estimate, not billing.
+        'eur_per_usd' => (float) env('STRIDE_EUR_PER_USD', 0.92),
+
         // How many recent raw messages to send verbatim; older turns are folded
         // into the conversation's rolling summary.
         'recent_turns' => (int) env('STRIDE_COACH_RECENT_TURNS', 12),

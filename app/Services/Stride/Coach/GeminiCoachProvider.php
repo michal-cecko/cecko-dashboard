@@ -44,9 +44,21 @@ class GeminiCoachProvider implements CoachProvider
             );
         }
 
+        $generationConfig = ['maxOutputTokens' => $turn->maxTokens];
+
+        // Gemini 3.x are "thinking" models and thinking tokens count against
+        // maxOutputTokens. For structured-JSON plan generation that silently
+        // truncates the JSON. Cap thinking so the (generous) budget always leaves
+        // ample room for the actual output — reasoned but never truncated.
+        if ($turn->purpose === 'generate_plan') {
+            $generationConfig['thinkingConfig'] = [
+                'thinkingBudget' => (int) config('stride.coach.generate_thinking_budget', 2048),
+            ];
+        }
+
         $payload = [
             'contents' => $this->contents($turn),
-            'generationConfig' => ['maxOutputTokens' => $turn->maxTokens],
+            'generationConfig' => $generationConfig,
         ];
 
         $system = array_column($turn->systemBlocks, 'text');

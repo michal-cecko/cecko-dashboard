@@ -3,6 +3,7 @@
 namespace App\Services\Stride;
 
 use App\Models\Common\User;
+use App\Models\Stride\AiUsage;
 use App\Models\Stride\Block;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\Goal;
@@ -11,6 +12,7 @@ use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachProvider;
+use App\Services\Stride\Coach\CoachReply;
 use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Illuminate\Support\Carbon;
@@ -34,6 +36,9 @@ class PlanGenerationService
     /** True when the last generate() had to fall back to a deterministic session. */
     private bool $degraded = false;
 
+    /** USD cost accumulated across the AI calls of the most recent generate(). */
+    private float $costUsd = 0.0;
+
     public function __construct(
         private readonly CoachProvider $provider,
         private readonly TrainingMemoryBuilder $memory,
@@ -43,6 +48,80 @@ class PlanGenerationService
     public function wasDegraded(): bool
     {
         return $this->degraded;
+    }
+
+    /** Total USD cost of the AI calls made by the most recent generate(). */
+    public function lastCostUsd(): float
+    {
+        return round($this->costUsd, 6);
+    }
+
+    /** The user's coach language ('en'|'sk') from their profile preferences. */
+    private function language(User $user): string
+    {
+        $lang = StrideProfile::firstOrCreate(['user_id' => $user->id])->preferences['language'] ?? 'en';
+
+        return in_array($lang, ['en', 'sk'], true) ? $lang : 'en';
+    }
+
+    /** A human name for the language, to instruct the model in-prompt. */
+    private function languageName(string $lang): string
+    {
+        return $lang === 'sk' ? 'Slovak' : 'English';
+    }
+
+    /**
+     * Call the model AND record the usage/cost to ai_usage (purpose 'generate',
+     * no conversation) so plan-generation spend is tracked like chat is. Cost is
+     * accumulated for the block brief. Free providers (local/ollama) log cost 0.
+     */
+    private function chatLogged(User $user, CoachTurn $turn): CoachReply
+    {
+        $start = hrtime(true);
+        $reply = $this->provider->chat($turn);
+        $latencyMs = (int) ((hrtime(true) - $start) / 1e6);
+
+        $u = $reply->usage;
+        $cost = in_array($this->provider->name(), ['local', 'ollama'], true)
+            ? 0.0
+            : $this->costOf($turn->model, $u->inputTokens, $u->outputTokens, $u->cacheCreationTokens, $u->cacheReadTokens);
+        $this->costUsd += $cost;
+
+        AiUsage::create([
+            'user_id' => $user->id,
+            'conversation_id' => null,
+            'provider' => $this->provider->name(),
+            'model' => $turn->model,
+            'purpose' => 'generate',
+            'input_tokens' => $u->inputTokens,
+            'output_tokens' => $u->outputTokens,
+            'cache_creation_tokens' => $u->cacheCreationTokens,
+            'cache_read_tokens' => $u->cacheReadTokens,
+            'latency_ms' => $latencyMs,
+            'cost_usd' => $cost,
+        ]);
+
+        return $reply;
+    }
+
+    /** USD cost for a call — indexes the pricing map directly (model ids contain dots). */
+    private function costOf(string $model, int $in, int $out, int $cacheWrite, int $cacheRead): float
+    {
+        $pricing = config('stride.pricing');
+        $r = $pricing[$model] ?? $pricing['default'];
+
+        return round(($in * $r['input'] + $out * $r['output'] + $cacheWrite * $r['cache_write'] + $cacheRead * $r['cache_read']) / 1_000_000, 6);
+    }
+
+    /** A silent AI degradation (unusable output, no exception) — log it so it's debuggable. */
+    private function logDegradation(string $purpose, ?string $raw): void
+    {
+        logger()->warning('Stride generation degraded (unusable AI output → fallback).', [
+            'purpose' => $purpose,
+            'model' => (string) config('stride.coach.generate_model'),
+            'provider' => $this->provider->name(),
+            'raw_snippet' => $raw !== null ? mb_substr($raw, 0, 200) : null,
+        ]);
     }
 
     /**
@@ -57,21 +136,23 @@ class PlanGenerationService
         $prefs = $profile->preferences ?? [];
         $days = (int) ($prefs['days_per_week'] ?? 3);
 
+        $lang = $this->language($user);
         $turn = new CoachTurn(
             model: (string) config('stride.coach.generate_model'),
-            systemBlocks: [['text' => 'You are a strength & conditioning coach. Output ONLY valid minified JSON — no prose, no markdown fences.', 'cache' => false]],
+            systemBlocks: [['text' => 'You are a strength & conditioning coach. Output ONLY valid minified JSON — no prose, no markdown fences. Write all user-facing text (names, summaries) in '.$this->languageName($lang).'.', 'cache' => false]],
             messages: [['role' => 'user', 'content' => $this->recommendPrompt($user, $prefs, $days, $note, $base)]],
-            maxTokens: 800,
+            maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
             purpose: 'generate_plan',
             timeoutSeconds: (int) config('stride.coach.generate_timeout', 90),
         );
 
         try {
-            $decoded = $this->decodeJson($this->provider->chat($turn)->text);
-            $options = $this->sanitizeOptions(is_array($decoded) ? $decoded : []);
+            $text = $this->chatLogged($user, $turn)->text;
+            $options = $this->sanitizeOptions(is_array($decoded = $this->decodeJson($text)) ? $decoded : []);
             if ($options !== []) {
                 return $options;
             }
+            $this->logDegradation('recommend', $text);
         } catch (Throwable $e) {
             report($e);
         }
@@ -94,28 +175,31 @@ class PlanGenerationService
             ->sortByDesc(fn (Exercise $e) => mb_strlen($e->name))->values();
         $onFile = PersonalRecord::ownedBy($user)->get(['exercise_id', 'label']);
 
+        $lang = $this->language($user);
         try {
             $turn = new CoachTurn(
                 model: (string) config('stride.coach.generate_model'),
-                systemBlocks: [['text' => 'You are a coach gathering the few missing facts needed to program accurately. Output ONLY a JSON array — no prose, no markdown.', 'cache' => false]],
+                systemBlocks: [['text' => 'You are a coach gathering the few missing facts needed to program accurately. Output ONLY a JSON array — no prose, no markdown. Write every question label/hint in '.$this->languageName($lang).'.', 'cache' => false]],
                 messages: [['role' => 'user', 'content' => $this->questionsPrompt($user, $profile, $this->sanitizeOption($option) ?? [], $onFile)]],
-                maxTokens: 700,
+                maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
                 purpose: 'generate_plan',
                 timeoutSeconds: (int) config('stride.coach.generate_timeout', 180),
             );
 
-            $decoded = $this->decodeJson($this->provider->chat($turn)->text);
+            $text = $this->chatLogged($user, $turn)->text;
+            $decoded = $this->decodeJson($text);
             // A valid (non-empty) array is authoritative — we classify + dedupe it
             // ourselves. It may sanitise down to [] if every PR was already on file,
             // which simply skips the step. Only an unparseable reply hits the fallback.
             if (is_array($decoded) && $decoded !== []) {
                 return $this->sanitizeQuestions($decoded, $catalog, $onFile);
             }
+            $this->logDegradation('questions', $text);
         } catch (Throwable $e) {
             report($e);
         }
 
-        return $this->fallbackQuestions();
+        return $this->fallbackQuestions($lang);
     }
 
     private function questionsPrompt(User $user, StrideProfile $profile, array $option, Collection $onFile): string
@@ -261,11 +345,15 @@ class PlanGenerationService
     }
 
     /** @return array<int, array> */
-    private function fallbackQuestions(): array
+    private function fallbackQuestions(string $lang = 'en'): array
     {
+        $labels = $lang === 'sk'
+            ? ['Aké vybavenie máš pravidelne k dispozícii?', 'Nejaké obmedzenia — čas na tréning, rozvrh, priestor?']
+            : ['What equipment do you have regular access to?', 'Any constraints — time per session, schedule, space?'];
+
         return [
-            ['key' => 'equipment', 'type' => 'text', 'label' => 'What equipment do you have regular access to?', 'hint' => null],
-            ['key' => 'constraints', 'type' => 'text', 'label' => 'Any constraints — time per session, schedule, space?', 'hint' => null],
+            ['key' => 'equipment', 'type' => 'text', 'label' => $labels[0], 'hint' => null],
+            ['key' => 'constraints', 'type' => 'text', 'label' => $labels[1], 'hint' => null],
         ];
     }
 
@@ -273,6 +361,7 @@ class PlanGenerationService
     public function generate(User $user, array $option, ?string $startDate = null): Block
     {
         $this->degraded = false;
+        $this->costUsd = 0.0;
 
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         $option = $this->sanitizeOption($option)
@@ -443,22 +532,27 @@ class PlanGenerationService
         }
 
         $prompt = $this->sessionPrompt($user, $profile, $option, $kind, $names);
+        // Exercise NAMES must stay verbatim from the catalog (for exercise_id match);
+        // only the free text the model writes (title, notes) is in the user's language.
+        $langLine = ' Write the session title and any notes in '.$this->languageName($this->language($user)).', but keep exercise names EXACTLY as given in the list (do not translate them).';
 
-        // Small local models emit valid JSON only some of the time; a couple of
-        // attempts per session lifts the hit rate a lot. Each call is small/fast and
-        // only this one kind degrades to the deterministic template if all attempts fail.
+        // Small models emit valid JSON only some of the time; a couple of attempts
+        // per session lifts the hit rate. Only this kind degrades to the deterministic
+        // template if all attempts fail.
+        $lastText = null;
         for ($attempt = 0; $attempt < 2; $attempt++) {
             try {
                 $turn = new CoachTurn(
                     model: (string) config('stride.coach.generate_model'),
-                    systemBlocks: [['text' => 'You program ONE training session. Output ONLY a valid minified JSON object for a single session — start with { and nothing else. Pick exercises ONLY from the provided list, exact names. Be terse.', 'cache' => false]],
+                    systemBlocks: [['text' => 'You program ONE training session. Output ONLY a valid minified JSON object for a single session — start with { and nothing else. Pick exercises ONLY from the provided list, exact names. Be terse.'.$langLine, 'cache' => false]],
                     messages: [['role' => 'user', 'content' => $prompt]],
-                    maxTokens: 700,
+                    maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
                     purpose: 'generate_plan',
                     timeoutSeconds: (int) config('stride.coach.generate_timeout', 180),
                 );
 
-                $session = $this->validateSession($this->decodeJson($this->provider->chat($turn)->text), $kind);
+                $lastText = $this->chatLogged($user, $turn)->text;
+                $session = $this->validateSession($this->decodeJson($lastText), $kind);
                 if ($session !== null) {
                     return $session;
                 }
@@ -471,6 +565,8 @@ class PlanGenerationService
                 }
             }
         }
+
+        $this->logDegradation('session:'.$kind, $lastText);
 
         return null;
     }
