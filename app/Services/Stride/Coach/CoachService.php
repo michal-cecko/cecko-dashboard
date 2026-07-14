@@ -245,7 +245,11 @@ class CoachService
             return 0.0;
         }
 
-        $rates = config("stride.pricing.{$model}", config('stride.pricing.default'));
+        // Index the pricing map directly — NOT via config("...{$model}"), because
+        // model ids contain dots (e.g. "gemini-3.5-flash") which Laravel's config
+        // dot-notation would misread as nested keys and silently miss.
+        $pricing = config('stride.pricing');
+        $rates = $pricing[$model] ?? $pricing['default'];
 
         return round((
             $usage->inputTokens * $rates['input']
