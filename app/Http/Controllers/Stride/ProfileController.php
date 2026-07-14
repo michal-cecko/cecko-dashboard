@@ -3,9 +3,22 @@
 namespace App\Http\Controllers\Stride;
 
 use App\Http\Controllers\Controller;
+use App\Models\Stride\AiAdjustment;
+use App\Models\Stride\AiUsage;
+use App\Models\Stride\Block;
+use App\Models\Stride\CoachConversation;
+use App\Models\Stride\CoachMemory;
+use App\Models\Stride\CoachMessage;
+use App\Models\Stride\Goal;
+use App\Models\Stride\Injury;
+use App\Models\Stride\PersonalRecord;
+use App\Models\Stride\Session;
+use App\Models\Stride\Spot;
 use App\Models\Stride\StrideProfile;
+use App\Models\Stride\WeightEntry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Updates the current user's Stride profile + preferences. Hard metrics live in
@@ -24,6 +37,37 @@ class ProfileController extends Controller
     private const COLUMN_KEYS = [
         'height_cm', 'weight_kg', 'goal_weight_kg', 'body_fat_pct', 'units', 'persona_key',
     ];
+
+    /**
+     * Reset the authenticated user's Stride account to a blank, pre-onboarding
+     * state: wipe all of THEIR personal data (plan, sessions, goals, injuries,
+     * weight, PRs, coach history, spots) and delete their profile so `onboarded`
+     * is false again. Scoped strictly to $request->user() — it can never touch
+     * another user or the global catalogue. Used by the app's "reset" action.
+     */
+    public function reset(Request $request): JsonResponse
+    {
+        $id = $request->user()->id;
+
+        DB::transaction(function () use ($id) {
+            $convIds = CoachConversation::where('user_id', $id)->pluck('id');
+            CoachMessage::whereIn('conversation_id', $convIds)->delete();
+            AiUsage::where('user_id', $id)->delete();
+            AiAdjustment::where('user_id', $id)->delete();
+            CoachConversation::where('user_id', $id)->delete();
+            CoachMemory::where('user_id', $id)->delete();
+            Session::where('user_id', $id)->delete();   // cascades exercises + sets
+            Block::where('user_id', $id)->delete();
+            Goal::where('user_id', $id)->delete();
+            Injury::where('user_id', $id)->delete();     // cascades journal
+            WeightEntry::where('user_id', $id)->delete();
+            PersonalRecord::where('user_id', $id)->delete();
+            Spot::where('user_id', $id)->delete();       // only the user's, not official
+            StrideProfile::where('user_id', $id)->delete();
+        });
+
+        return response()->json(['reset' => true]);
+    }
 
     public function update(Request $request): JsonResponse
     {

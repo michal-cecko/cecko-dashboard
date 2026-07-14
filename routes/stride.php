@@ -33,6 +33,8 @@ Route::middleware('stride.auth')->group(function (): void {
 
     // Profile preferences (language, …)
     Route::patch('profile', [ProfileController::class, 'update']);
+    // Reset the authenticated user back to a blank, pre-onboarding state.
+    Route::post('profile/reset', [ProfileController::class, 'reset']);
 
     // Library
     Route::get('library', [LibraryController::class, 'index']);
