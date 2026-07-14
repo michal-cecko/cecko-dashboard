@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Stride;
 
+use App\Models\Common\User;
 use App\Models\Stride\Exercise;
 use Database\Seeders\Stride\FreestyleTricklistSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -36,7 +37,7 @@ class StrideFreestyleTricklistTest extends TestCase
     {
         Artisan::call('db:seed', ['--class' => FreestyleTricklistSeeder::class]);
 
-        \App\Models\Common\User::factory()->create([
+        User::factory()->create([
             'email' => 'rider@example.test',
             'password' => 'secret-pass',
         ]);

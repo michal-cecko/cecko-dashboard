@@ -54,6 +54,6 @@ class FreestyleTricklistSeeder extends Seeder
             }
         }
 
-        $this->command?->info("FreestyleTricklistSeeder: {$created} new / ".count($rows)." total in catalog.");
+        $this->command?->info("FreestyleTricklistSeeder: {$created} new / ".count($rows).' total in catalog.');
     }
 }
