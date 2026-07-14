@@ -1,0 +1,2602 @@
+[
+  {
+    "name": "Swing 360",
+    "difficulty": "Intermediate",
+    "description": "A 360-degree rotation from the swing, the foundational freestyle bar trick and base for many harder elements.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CkYkEw5oViz.mp4",
+    "source_url": "https://www.instagram.com/p/CkYkEw5oViz/",
+    "trick_no": 1
+  },
+  {
+    "name": "Sklopka (Parallel Bars)",
+    "difficulty": "Beginner",
+    "description": "A basic kip (sklopka) on parallel bars, requiring more wrist mobility than the bar version.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CkgfDDsoJXU.mp4",
+    "source_url": "https://www.instagram.com/p/CkgfDDsoJXU/",
+    "trick_no": 2
+  },
+  {
+    "name": "Basic Dismount",
+    "difficulty": "Beginner",
+    "description": "A trivial introductory dismount (jump off) from the bar, testing composure more than skill.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CkqQvC5o2kJ.mp4",
+    "source_url": "https://www.instagram.com/p/CkqQvC5o2kJ/",
+    "trick_no": 3
+  },
+  {
+    "name": "Swing 270 Transfer",
+    "difficulty": "Intermediate",
+    "description": "A swing 270 transfer that starts on one bar and finishes on another, harder than a same-bar turn due to the transfer.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CkyUII4oPzj.mp4",
+    "source_url": "https://www.instagram.com/p/CkyUII4oPzj/",
+    "trick_no": 4
+  },
+  {
+    "name": "Palm Spin",
+    "difficulty": "Intermediate",
+    "description": "A palm spin on the bar performed from a support position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Ck8PT7pIeUA.mp4",
+    "source_url": "https://www.instagram.com/p/Ck8PT7pIeUA/",
+    "trick_no": 5
+  },
+  {
+    "name": "Parallel Bar Elbow Move",
+    "difficulty": "Beginner",
+    "description": "An unnamed creative parallel-bar move that loads the elbows, best done on wide bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/ClEjDUJOLB5.mp4",
+    "source_url": "https://www.instagram.com/p/ClEjDUJOLB5/",
+    "trick_no": 6
+  },
+  {
+    "name": "Giant Swing",
+    "difficulty": "Intermediate",
+    "description": "A full giant swing around the bar, shown from handstand to back using an undergrip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/ClOScLMuOdx.mp4",
+    "source_url": "https://www.instagram.com/p/ClOScLMuOdx/",
+    "trick_no": 7
+  },
+  {
+    "name": "Front Flip Dismount",
+    "difficulty": "Intermediate",
+    "description": "A front flip dismount from the front swing (also called reverse flyaway), kicking the legs and throwing the bar away with the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/ClWbcf0OO14.mp4",
+    "source_url": "https://www.instagram.com/p/ClWbcf0OO14/",
+    "trick_no": 8
+  },
+  {
+    "name": "Foot-Catch Transfer Dismount",
+    "difficulty": "Beginner",
+    "description": "A combined transfer and dismount: swing, place the feet on the opposite bar, then release the hands to land.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Clg3-g2up5Q.mp4",
+    "source_url": "https://www.instagram.com/p/Clg3-g2up5Q/",
+    "trick_no": 9
+  },
+  {
+    "name": "Reverse Giant Swing (#10)",
+    "difficulty": "Intermediate",
+    "description": "A giant swing (veletoc) performed in the opposite direction, turning the palms into a handstand-like position over the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CloXzuxupq9.mp4",
+    "source_url": "https://www.instagram.com/p/CloXzuxupq9/",
+    "trick_no": 10
+  },
+  {
+    "name": "Basic Parallel Bar Dynamic",
+    "difficulty": "Beginner",
+    "description": "A basic first move for learning dynamics on parallel bars, with the main challenge being catching without touching the ground.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/ClywyakOp8u.mp4",
+    "source_url": "https://www.instagram.com/p/ClywyakOp8u/",
+    "trick_no": 11
+  },
+  {
+    "name": "Full Palm Spin",
+    "difficulty": "Intermediate",
+    "description": "A harder palm spin that continues a further 180 degrees instead of catching the legs, finishing on the same side of the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cl6TyrjPe_c.mp4",
+    "source_url": "https://www.instagram.com/p/Cl6TyrjPe_c/",
+    "trick_no": 12
+  },
+  {
+    "name": "Rare Geinger-Like Trick",
+    "difficulty": "Advanced",
+    "description": "A rare freestyle element whose initial motion is somewhat similar to a geinger.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CmEULJ-NW8d.mp4",
+    "source_url": "https://www.instagram.com/p/CmEULJ-NW8d/",
+    "trick_no": 13
+  },
+  {
+    "name": "Korean Dip Turn",
+    "difficulty": "Beginner",
+    "description": "A turn performed in the Korean dip position on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CmMm8sSLSja.mp4",
+    "source_url": "https://www.instagram.com/p/CmMm8sSLSja/",
+    "trick_no": 14
+  },
+  {
+    "name": "Swing Gainer",
+    "difficulty": "Beginner",
+    "description": "The most common freestyle dismount: from the front swing, tuck the knees, look back over the shoulder, and release into a backward flip to land on the feet.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CmV84UPJWJp.mp4",
+    "source_url": "https://www.instagram.com/p/CmV84UPJWJp/",
+    "trick_no": 15
+  },
+  {
+    "name": "Two-Bar Hand Transition",
+    "difficulty": "Beginner",
+    "description": "An easy transition in which each hand catches a different bar; can be simplified by keeping one undergrip hand fixed.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CmeiN5MBPmR.mp4",
+    "source_url": "https://www.instagram.com/p/CmeiN5MBPmR/",
+    "trick_no": 16
+  },
+  {
+    "name": "Double 360",
+    "difficulty": "Intermediate",
+    "description": "Two consecutive 360 rotations on the bar, with the undergrip hand catching either in front of or behind the other.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CmoL9sUhRkh.mp4",
+    "source_url": "https://www.instagram.com/p/CmoL9sUhRkh/",
+    "trick_no": 17
+  },
+  {
+    "name": "Muscle-Up 270 Transfer",
+    "difficulty": "Beginner",
+    "description": "A 270-degree transfer performed from a muscle-up, easiest between bars of equal height.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CmwvpEGBjwj.mp4",
+    "source_url": "https://www.instagram.com/p/CmwvpEGBjwj/",
+    "trick_no": 18
+  },
+  {
+    "name": "Sklopka (Bar Kip)",
+    "difficulty": "Beginner",
+    "description": "A fundamental freestyle kip on the bar, performed with straight arms.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cm6YhbyBjzN.mp4",
+    "source_url": "https://www.instagram.com/p/Cm6YhbyBjzN/",
+    "trick_no": 19
+  },
+  {
+    "name": "Swing 540",
+    "difficulty": "Intermediate",
+    "description": "A 540-degree rotation on the bar: a 180 into a hand slap on the bar, then a further 360.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CnCvHeHBYzU.mp4",
+    "source_url": "https://www.instagram.com/p/CnCvHeHBYzU/",
+    "trick_no": 20
+  },
+  {
+    "name": "Parallel Bar Dynamic Move",
+    "difficulty": "Intermediate",
+    "description": "A lesser-known but aesthetic dynamic element on parallel bars, learnable in one session with good bar dynamics, started facing outward at the bars' end.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CnMKDcchocv.mp4",
+    "source_url": "https://www.instagram.com/p/CnMKDcchocv/",
+    "trick_no": 21
+  },
+  {
+    "name": "Parallel Bar Roll",
+    "difficulty": "Beginner",
+    "description": "A roll on parallel bars that visually resembles a flip, gentle on difficulty but hard on the arms.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CnU2ZfIhGR5.mp4",
+    "source_url": "https://www.instagram.com/p/CnU2ZfIhGR5/",
+    "trick_no": 22
+  },
+  {
+    "name": "Swing Gainer Transfer",
+    "difficulty": "Advanced",
+    "description": "A swing gainer that transfers to a second bar, with technique varying by the gap distance.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CneM1FMBJ1v.mp4",
+    "source_url": "https://www.instagram.com/p/CneM1FMBJ1v/",
+    "trick_no": 23
+  },
+  {
+    "name": "Blind Dislocate Catch",
+    "difficulty": "Beginner",
+    "description": "Catching the bar with the back turned to it (blind) into a dislocate grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cnm15rpBCpp.mp4",
+    "source_url": "https://www.instagram.com/p/Cnm15rpBCpp/",
+    "trick_no": 24
+  },
+  {
+    "name": "Swing to Straight-Arm Support",
+    "difficulty": "Beginner",
+    "description": "A press from the swing up to a straight-arm support over the bar, requiring swing technique and pulling strength.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cnwj0ZDhLT3.mp4",
+    "source_url": "https://www.instagram.com/p/Cnwj0ZDhLT3/",
+    "trick_no": 25
+  },
+  {
+    "name": "Parallel Bar Hoop",
+    "difficulty": "Intermediate",
+    "description": "On parallel bars, throw the legs sideways from the back swing while turning 180 and regripping, then a further 90-degree turn to catch, like an alley hoop plus a quarter turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cn4UYeLvHlp.mp4",
+    "source_url": "https://www.instagram.com/p/Cn4UYeLvHlp/",
+    "trick_no": 26
+  },
+  {
+    "name": "Butt Flip Dismount",
+    "difficulty": "Intermediate",
+    "description": "A backward-rotating flip dismount from the bar, rotating over the head from height.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CoCLwr8uUSr.mp4",
+    "source_url": "https://www.instagram.com/p/CoCLwr8uUSr/",
+    "trick_no": 27
+  },
+  {
+    "name": "Front Swing 360 (#28)",
+    "difficulty": "Intermediate",
+    "description": "A 360 rotation from the front swing, ideally released from both hands during the turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CoKxPiQOWzw.mp4",
+    "source_url": "https://www.instagram.com/p/CoKxPiQOWzw/",
+    "trick_no": 28
+  },
+  {
+    "name": "Support 180 Jump-Over",
+    "difficulty": "Beginner",
+    "description": "A 180-degree jump over the bar performed from a support position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CoUeBumNAII.mp4",
+    "source_url": "https://www.instagram.com/p/CoUeBumNAII/",
+    "trick_no": 29
+  },
+  {
+    "name": "Beginner Bar Basic",
+    "difficulty": "Beginner",
+    "description": "An extremely basic introductory movement on the bar for complete beginners.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cocy_c6NjZJ.mp4",
+    "source_url": "https://www.instagram.com/p/Cocy_c6NjZJ/",
+    "trick_no": 30
+  },
+  {
+    "name": "Over-Bar Body Catch",
+    "difficulty": "Advanced",
+    "description": "An advanced trick in which the whole body flies over the bar before regrabbing, requiring precise height control.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/ComnFifr34R.mp4",
+    "source_url": "https://www.instagram.com/p/ComnFifr34R/",
+    "trick_no": 31
+  },
+  {
+    "name": "Shrimp Flip",
+    "difficulty": "Intermediate",
+    "description": "A well-known flip relying on precise timing, kick angle, and a specific hand motion to rotate and regrab.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Couida9u4Iw.mp4",
+    "source_url": "https://www.instagram.com/p/Couida9u4Iw/",
+    "trick_no": 32
+  },
+  {
+    "name": "Front Swing 270 Transfer",
+    "difficulty": "Intermediate",
+    "description": "A 270-degree rotation from the front swing that transfers to catch the bar, resembling an over-rotated 180.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Co4diAeuc1u.mp4",
+    "source_url": "https://www.instagram.com/p/Co4diAeuc1u/",
+    "trick_no": 33
+  },
+  {
+    "name": "Dip 180",
+    "difficulty": "Beginner",
+    "description": "A 180-degree turn performed during a dip on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CpAulfMtRBP.mp4",
+    "source_url": "https://www.instagram.com/p/CpAulfMtRBP/",
+    "trick_no": 34
+  },
+  {
+    "name": "Muscle-Up Double 360",
+    "difficulty": "Advanced",
+    "description": "A double 360 begun from a muscle-up, caught in mix grip and spun through a second 360 with little swing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CpKpjycjkpk.mp4",
+    "source_url": "https://www.instagram.com/p/CpKpjycjkpk/",
+    "trick_no": 35
+  },
+  {
+    "name": "One-Arm Swing Gainer",
+    "difficulty": "Intermediate",
+    "description": "A swing gainer dismount performed from a single-arm swing, demanding extra grip strength and stabilization.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CpSyEtgvYU5.mp4",
+    "source_url": "https://www.instagram.com/p/CpSyEtgvYU5/",
+    "trick_no": 36
+  },
+  {
+    "name": "Parallel Bar Handspring Dismount",
+    "difficulty": "Beginner",
+    "description": "A front handspring/cartwheel dismount from a support position on parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cpcvnv_MR-_.mp4",
+    "source_url": "https://www.instagram.com/p/Cpcvnv_MR-_/",
+    "trick_no": 37
+  },
+  {
+    "name": "Sklopka to L-Sit",
+    "difficulty": "Intermediate",
+    "description": "A sklopka (kip) that finishes in an L-sit position, requiring good hamstring and hip mobility.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cpk186OtTmA.mp4",
+    "source_url": "https://www.instagram.com/p/Cpk186OtTmA/",
+    "trick_no": 38
+  },
+  {
+    "name": "Backward Sklopka to Sit",
+    "difficulty": "Beginner",
+    "description": "A backward kip (sklopka) that finishes seated on the bar, usable as a transition between elements.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cpu3IRws2sn.mp4",
+    "source_url": "https://www.instagram.com/p/Cpu3IRws2sn/",
+    "trick_no": 39
+  },
+  {
+    "name": "Basic Bar Transition",
+    "difficulty": "Beginner",
+    "description": "A simple, calm transition on the bar used to link elements without breaking flow, trainable on a low bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cp2vCFopqUi.mp4",
+    "source_url": "https://www.instagram.com/p/Cp2vCFopqUi/",
+    "trick_no": 40
+  },
+  {
+    "name": "Bar-to-Bar Jump Transfer",
+    "difficulty": "Intermediate",
+    "description": "A transfer where the feet leave the first bar and the body is briefly airborne before the hands reach the second bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CqASbEBP2xe.mp4",
+    "source_url": "https://www.instagram.com/p/CqASbEBP2xe/",
+    "trick_no": 41
+  },
+  {
+    "name": "Parallel Bar Backflip (#42)",
+    "difficulty": "Intermediate",
+    "description": "A backflip dismount off parallel bars, performed from the swing or from a handstand.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CqImKcppZ0M.mp4",
+    "source_url": "https://www.instagram.com/p/CqImKcppZ0M/",
+    "trick_no": 42
+  },
+  {
+    "name": "Support to Knee-Hang Jump",
+    "difficulty": "Beginner",
+    "description": "A jump from a support position over the bar into a hang caught under the knees, used as a prerequisite for palm spins.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CqSvn7rPJuJ.mp4",
+    "source_url": "https://www.instagram.com/p/CqSvn7rPJuJ/",
+    "trick_no": 43
+  },
+  {
+    "name": "Parallel Bar Transfer",
+    "difficulty": "Beginner",
+    "description": "A transfer on parallel bars using the same motion as trick #29 but jumping farther to catch a different bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CqbGLYwP8uZ.mp4",
+    "source_url": "https://www.instagram.com/p/CqbGLYwP8uZ/",
+    "trick_no": 44
+  },
+  {
+    "name": "Tornado 360",
+    "difficulty": "Intermediate",
+    "description": "A rotational 360 spin performed just above the bar with a strong twisting motion.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CqlKQpzukpy.mp4",
+    "source_url": "https://www.instagram.com/p/CqlKQpzukpy/",
+    "trick_no": 45
+  },
+  {
+    "name": "Kick-Up Arch to Bar",
+    "difficulty": "Intermediate",
+    "description": "A rarely-seen move built from a sklopka-to-L-sit base using a timed kick and a back arch to generate flight before regrabbing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cqs30I9uzQO.mp4",
+    "source_url": "https://www.instagram.com/p/Cqs30I9uzQO/",
+    "trick_no": 46
+  },
+  {
+    "name": "Outside-Grip Sklopka (Parallel Bars)",
+    "difficulty": "Intermediate",
+    "description": "A parallel-bar sklopka (back kip) performed while gripping the bars from the outside rather than the inside.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cq3VwnoOamK.mp4",
+    "source_url": "https://www.instagram.com/p/Cq3VwnoOamK/",
+    "trick_no": 47
+  },
+  {
+    "name": "Dislocate 360",
+    "difficulty": "Intermediate",
+    "description": "A swing 360 rotation performed through a dislocate (shoulder-rotated) grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cq_UChXri62.mp4",
+    "source_url": "https://www.instagram.com/p/Cq_UChXri62/",
+    "trick_no": 48
+  },
+  {
+    "name": "Cast Flip (Palm Drop Backflip)",
+    "difficulty": "Advanced",
+    "description": "A backflip dismount initiated from a support/hand position on top of the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CrIRozQMHnM.mp4",
+    "source_url": "https://www.instagram.com/p/CrIRozQMHnM/",
+    "trick_no": 49
+  },
+  {
+    "name": "Backward Roll Over Bar",
+    "difficulty": "Beginner",
+    "description": "A backward roll around the bar, performed either tucked for slow control or extended with more swing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CrQi3rcM4Qd.mp4",
+    "source_url": "https://www.instagram.com/p/CrQi3rcM4Qd/",
+    "trick_no": 50
+  },
+  {
+    "name": "German Hang 360",
+    "difficulty": "Beginner",
+    "description": "From a German hang, swing and rotate 360 degrees around the vertical axis while hanging.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CramlvMJNcv.mp4",
+    "source_url": "https://www.instagram.com/p/CramlvMJNcv/",
+    "trick_no": 51
+  },
+  {
+    "name": "Lache 360",
+    "difficulty": "Intermediate",
+    "description": "A lache transfer to another bar with a 360-degree turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CrimswSgfeX.mp4",
+    "source_url": "https://www.instagram.com/p/CrimswSgfeX/",
+    "trick_no": 52
+  },
+  {
+    "name": "Bars Kong",
+    "difficulty": "Beginner",
+    "description": "A kong-style transfer on the parallel bars performed without using the legs.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CrsjUO3pbJ5.mp4",
+    "source_url": "https://www.instagram.com/p/CrsjUO3pbJ5/",
+    "trick_no": 53
+  },
+  {
+    "name": "Dragon 360",
+    "difficulty": "Intermediate",
+    "description": "A 360-degree spin performed with the body held near-horizontal in a dragon position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cr0et0ENIQo.mp4",
+    "source_url": "https://www.instagram.com/p/Cr0et0ENIQo/",
+    "trick_no": 54
+  },
+  {
+    "name": "Bar Fly-Over",
+    "difficulty": "Intermediate",
+    "description": "Pulling and flying up over the bar to catch on the other side.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cr-jHAYtUMt.mp4",
+    "source_url": "https://www.instagram.com/p/Cr-jHAYtUMt/",
+    "trick_no": 55
+  },
+  {
+    "name": "Swing To Handstand (Bars) (#56)",
+    "difficulty": "Beginner",
+    "description": "Swinging in support on the parallel bars up into a handstand.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CsGhC55vj2a.mp4",
+    "source_url": "https://www.instagram.com/p/CsGhC55vj2a/",
+    "trick_no": 56
+  },
+  {
+    "name": "Back Transfer (Bars)",
+    "difficulty": "Beginner",
+    "description": "A transfer pushing backward to slot in between the parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CsQfuxBN8xi.mp4",
+    "source_url": "https://www.instagram.com/p/CsQfuxBN8xi/",
+    "trick_no": 57
+  },
+  {
+    "name": "Gienger",
+    "difficulty": "Intermediate",
+    "description": "A back salto with a 180-degree turn, regrabbing the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CsY1j_jOoOb.mp4",
+    "source_url": "https://www.instagram.com/p/CsY1j_jOoOb/",
+    "trick_no": 58
+  },
+  {
+    "name": "Reverse Double 360",
+    "difficulty": "Advanced",
+    "description": "A double 360 spun to the opposite side, the first caught in mix grip and the second as a reverse tornado.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CsidudjgzQZ.mp4",
+    "source_url": "https://www.instagram.com/p/CsidudjgzQZ/",
+    "trick_no": 59
+  },
+  {
+    "name": "Kip To Seat Transfer",
+    "difficulty": "Intermediate",
+    "description": "A kip (drop-kip) into a seat with a transfer to the bar in front.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CsrQGvbtaDM.mp4",
+    "source_url": "https://www.instagram.com/p/CsrQGvbtaDM/",
+    "trick_no": 60
+  },
+  {
+    "name": "Bars Front Flip 180",
+    "difficulty": "Intermediate",
+    "description": "A front flip dismount from the parallel bars with an added 180-degree turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cs0oSWvuydW.mp4",
+    "source_url": "https://www.instagram.com/p/Cs0oSWvuydW/",
+    "trick_no": 61
+  },
+  {
+    "name": "Side Bar Transfer",
+    "difficulty": "Beginner",
+    "description": "A basic transfer pushing sideways from one bar to an adjacent bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cs9OcUYRQ-v.mp4",
+    "source_url": "https://www.instagram.com/p/Cs9OcUYRQ-v/",
+    "trick_no": 62
+  },
+  {
+    "name": "Support Bar Hop",
+    "difficulty": "Beginner",
+    "description": "A hop over the bar keeping the center of mass above it, landing back in support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CtG7Yekg1PF.mp4",
+    "source_url": "https://www.instagram.com/p/CtG7Yekg1PF/",
+    "trick_no": 63
+  },
+  {
+    "name": "Muscle-Up Behind-Back Clap",
+    "difficulty": "Beginner",
+    "description": "A muscle-up with a clap behind the back performed during the movement.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CtO9gTGv-0c.mp4",
+    "source_url": "https://www.instagram.com/p/CtO9gTGv-0c/",
+    "trick_no": 64
+  },
+  {
+    "name": "Behind-Knee Hang Dismount",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #65 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CtZrR0lrHtl.mp4",
+    "source_url": "https://www.instagram.com/p/CtZrR0lrHtl/",
+    "trick_no": 65
+  },
+  {
+    "name": "Swing 180",
+    "difficulty": "Beginner",
+    "description": "A swing with a 180-degree turn caught on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Ctgv0G5tltY.mp4",
+    "source_url": "https://www.instagram.com/p/Ctgv0G5tltY/",
+    "trick_no": 66
+  },
+  {
+    "name": "California Roll",
+    "difficulty": "Intermediate",
+    "description": "A palm-spin variation performed on the parallel bars (the California roll).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CtrONekOWCU.mp4",
+    "source_url": "https://www.instagram.com/p/CtrONekOWCU/",
+    "trick_no": 67
+  },
+  {
+    "name": "No-Touch Pullover",
+    "difficulty": "Beginner",
+    "description": "A pullover onto the bar without resting the belly on the bar, keeping the hands in one position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CtzOTPUshBc.mp4",
+    "source_url": "https://www.instagram.com/p/CtzOTPUshBc/",
+    "trick_no": 68
+  },
+  {
+    "name": "Elbow Swing Gainer",
+    "difficulty": "Intermediate",
+    "description": "A swing gainer performed from the elbow pits instead of the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Ct96QKtRvKZ.mp4",
+    "source_url": "https://www.instagram.com/p/Ct96QKtRvKZ/",
+    "trick_no": 69
+  },
+  {
+    "name": "Parallel Bar Front Flip",
+    "difficulty": "Advanced",
+    "description": "A front flip dismount from the parallel bars, angled to clear the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CuFWp6RuEFL.mp4",
+    "source_url": "https://www.instagram.com/p/CuFWp6RuEFL/",
+    "trick_no": 70
+  },
+  {
+    "name": "Lache 180",
+    "difficulty": "Beginner",
+    "description": "A lache to another bar with a 180-degree turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CuP9Q_wslqd.mp4",
+    "source_url": "https://www.instagram.com/p/CuP9Q_wslqd/",
+    "trick_no": 71
+  },
+  {
+    "name": "360 Bar Transfer",
+    "difficulty": "Beginner",
+    "description": "A transfer from one parallel bar to another with a 360-degree turn, via a seat on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CuXPMwmPQCf.mp4",
+    "source_url": "https://www.instagram.com/p/CuXPMwmPQCf/",
+    "trick_no": 72
+  },
+  {
+    "name": "Triple 360",
+    "difficulty": "Advanced",
+    "description": "Three consecutive 360-degree swing spins caught on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cug775INbz1.mp4",
+    "source_url": "https://www.instagram.com/p/Cug775INbz1/",
+    "trick_no": 73
+  },
+  {
+    "name": "Parallel Bar 180 Transfer To Support",
+    "difficulty": "Advanced",
+    "description": "A back-swing transfer between two sets of parallel bars with a 180-degree turn, caught in support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CupHkWTsVYS.mp4",
+    "source_url": "https://www.instagram.com/p/CupHkWTsVYS/",
+    "trick_no": 74
+  },
+  {
+    "name": "Wet Laundry Dismount",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #75 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CuymGhmNwH4.mp4",
+    "source_url": "https://www.instagram.com/p/CuymGhmNwH4/",
+    "trick_no": 75
+  },
+  {
+    "name": "Swing Gainer Layout",
+    "difficulty": "Intermediate",
+    "description": "A swing gainer dismount performed in a straight-body layout position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cu7f0T3MnPk.mp4",
+    "source_url": "https://www.instagram.com/p/Cu7f0T3MnPk/",
+    "trick_no": 76
+  },
+  {
+    "name": "Front Swing Leg Catch (Bars)",
+    "difficulty": "Beginner",
+    "description": "On parallel bars, from a forward swing catch through and over the legs.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CvF65Ehs16r.mp4",
+    "source_url": "https://www.instagram.com/p/CvF65Ehs16r/",
+    "trick_no": 77
+  },
+  {
+    "name": "Swing 90",
+    "difficulty": "Beginner",
+    "description": "A swing transfer with a quarter (90-degree) turn onto an adjacent bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CvNhFMdv-l1.mp4",
+    "source_url": "https://www.instagram.com/p/CvNhFMdv-l1/",
+    "trick_no": 78
+  },
+  {
+    "name": "Frisbee",
+    "difficulty": "Advanced",
+    "description": "A backward swing gainer with a 180-degree turn, regrabbing the same bar (the frisbee).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CvWgp3HtixP.mp4",
+    "source_url": "https://www.instagram.com/p/CvWgp3HtixP/",
+    "trick_no": 79
+  },
+  {
+    "name": "Swing 90 To Support",
+    "difficulty": "Intermediate",
+    "description": "A swing transfer with a 90-degree turn onto a perpendicular bar, caught into a support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CvfSWvbLLWj.mp4",
+    "source_url": "https://www.instagram.com/p/CvfSWvbLLWj/",
+    "trick_no": 80
+  },
+  {
+    "name": "Cross-Grip Swing Turn",
+    "difficulty": "Beginner",
+    "description": "In the back swing, cross the hands into an X to initiate a turn on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cvo6ZlTrDeS.mp4",
+    "source_url": "https://www.instagram.com/p/Cvo6ZlTrDeS/",
+    "trick_no": 81
+  },
+  {
+    "name": "Low Gienger Transfer To Back Lever",
+    "difficulty": "Intermediate",
+    "description": "A low gienger on high parallel bars used as a transfer, catching one bar and moving into a back lever.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cvwik6jtPGC.mp4",
+    "source_url": "https://www.instagram.com/p/Cvwik6jtPGC/",
+    "trick_no": 82
+  },
+  {
+    "name": "270 Dip",
+    "difficulty": "Beginner",
+    "description": "From a dip on the bar, rotate 270 degrees and catch in a hang.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cv6w31Lv9p9.mp4",
+    "source_url": "https://www.instagram.com/p/Cv6w31Lv9p9/",
+    "trick_no": 83
+  },
+  {
+    "name": "Swing Gainer 90 Transfer",
+    "difficulty": "Advanced",
+    "description": "A swing gainer with a 90-degree transfer onto a perpendicular bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CwC_yuFs_lg.mp4",
+    "source_url": "https://www.instagram.com/p/CwC_yuFs_lg/",
+    "trick_no": 84
+  },
+  {
+    "name": "Shrimp Flip 360",
+    "difficulty": "Intermediate",
+    "description": "A shrimp flip taken directly into a 360-degree spin, caught in mixed grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CwNP_t6M_CQ.mp4",
+    "source_url": "https://www.instagram.com/p/CwNP_t6M_CQ/",
+    "trick_no": 85
+  },
+  {
+    "name": "Muscle-Up 360",
+    "difficulty": "Beginner",
+    "description": "A muscle-up combined with a 360-degree spin, caught back on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CwVq8qyM1o_.mp4",
+    "source_url": "https://www.instagram.com/p/CwVq8qyM1o_/",
+    "trick_no": 86
+  },
+  {
+    "name": "Parallel Bar Backflip (#87)",
+    "difficulty": "Intermediate",
+    "description": "A backflip dismount from swinging on the parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cwf9tnKqwDl.mp4",
+    "source_url": "https://www.instagram.com/p/Cwf9tnKqwDl/",
+    "trick_no": 87
+  },
+  {
+    "name": "Front Swing 180 (Bars)",
+    "difficulty": "Intermediate",
+    "description": "A forward-swing 180-degree turn performed inside the parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CwnjI_DsDqm.mp4",
+    "source_url": "https://www.instagram.com/p/CwnjI_DsDqm/",
+    "trick_no": 88
+  },
+  {
+    "name": "Seated Backward Fall Dismount",
+    "difficulty": "Beginner",
+    "description": "From sitting on the bar, lean back and fall over the head without the hands to dismount.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CwwVbcroeP-.mp4",
+    "source_url": "https://www.instagram.com/p/CwwVbcroeP-/",
+    "trick_no": 89
+  },
+  {
+    "name": "Front Swing 90 Transfer",
+    "difficulty": "Beginner",
+    "description": "A forward-swing transfer with a 90-degree turn onto a perpendicular bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cw5ZkCYMKXH.mp4",
+    "source_url": "https://www.instagram.com/p/Cw5ZkCYMKXH/",
+    "trick_no": 90
+  },
+  {
+    "name": "Parallel Bar Slide",
+    "difficulty": "Beginner",
+    "description": "A sliding move along the length of the parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CxCSEeMM29U.mp4",
+    "source_url": "https://www.instagram.com/p/CxCSEeMM29U/",
+    "trick_no": 91
+  },
+  {
+    "name": "Lache",
+    "difficulty": "Beginner",
+    "description": "Swing and release from one bar to catch another bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CxLsdbiMBJ3.mp4",
+    "source_url": "https://www.instagram.com/p/CxLsdbiMBJ3/",
+    "trick_no": 92
+  },
+  {
+    "name": "Knee Giant",
+    "difficulty": "Intermediate",
+    "description": "A full giant swing around the bar hooked by the backs of the knees, without using the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CxUw4-LMFMa.mp4",
+    "source_url": "https://www.instagram.com/p/CxUw4-LMFMa/",
+    "trick_no": 93
+  },
+  {
+    "name": "Instep-Hang Half Front Flip",
+    "difficulty": "Intermediate",
+    "description": "From hanging by the tops of the feet, perform a half front somersault to dismount.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CxdlCsdsqfS.mp4",
+    "source_url": "https://www.instagram.com/p/CxdlCsdsqfS/",
+    "trick_no": 94
+  },
+  {
+    "name": "Double Palm Spin",
+    "difficulty": "Advanced",
+    "description": "An advanced palm spin combining the parallel-bars palm spin with the high-bar palm spin in one continuous movement.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CxmyTe-MkGS.mp4",
+    "source_url": "https://www.instagram.com/p/CxmyTe-MkGS/",
+    "trick_no": 95
+  },
+  {
+    "name": "Forearm Roll 360",
+    "difficulty": "Intermediate",
+    "description": "A forearm roll on the bar followed immediately by a 360-degree spin.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CxviSLmMXCY.mp4",
+    "source_url": "https://www.instagram.com/p/CxviSLmMXCY/",
+    "trick_no": 96
+  },
+  {
+    "name": "Forearm Roll To Feet",
+    "difficulty": "Beginner",
+    "description": "From a forearm roll, transition into a jump landing on the feet on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cx413ESsdGg.mp4",
+    "source_url": "https://www.instagram.com/p/Cx413ESsdGg/",
+    "trick_no": 97
+  },
+  {
+    "name": "Forward Roll To Support",
+    "difficulty": "Beginner",
+    "description": "A forward roll on the bar without releasing the grip, finishing in a straight-arm support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CyBptYcMCG_.mp4",
+    "source_url": "https://www.instagram.com/p/CyBptYcMCG_/",
+    "trick_no": 98
+  },
+  {
+    "name": "Double-Bar Jump To Support",
+    "difficulty": "Intermediate",
+    "description": "A jump clearing two bars in one leap on double parallel bars, landing in a support position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CyLShQ0MW-A.mp4",
+    "source_url": "https://www.instagram.com/p/CyLShQ0MW-A/",
+    "trick_no": 99
+  },
+  {
+    "name": "Partner Swing Gainer",
+    "difficulty": "Intermediate",
+    "description": "A swing gainer dismount performed from a second person's feet instead of the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CyTmKKnMIpG.mp4",
+    "source_url": "https://www.instagram.com/p/CyTmKKnMIpG/",
+    "trick_no": 100
+  },
+  {
+    "name": "Support Butt Flip",
+    "difficulty": "Intermediate",
+    "description": "From a support position, release the hands and flip backward to catch under the knees, a variation of the seated butt flip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CydzJCGsGZc.mp4",
+    "source_url": "https://www.instagram.com/p/CydzJCGsGZc/",
+    "trick_no": 101
+  },
+  {
+    "name": "Back Hip Circle",
+    "difficulty": "Beginner",
+    "description": "Swing the legs back, bring the pelvis to the bar and let momentum carry the body around backward.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CylfMhiseJE.mp4",
+    "source_url": "https://www.instagram.com/p/CylfMhiseJE/",
+    "trick_no": 102
+  },
+  {
+    "name": "Swing Gainer 180 Dismount",
+    "difficulty": "Intermediate",
+    "description": "A backward swing gainer with a 180-degree rotation performed as a dismount.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CywakRCMpYb.mp4",
+    "source_url": "https://www.instagram.com/p/CywakRCMpYb/",
+    "trick_no": 103
+  },
+  {
+    "name": "Kong Transfer To Bar",
+    "difficulty": "Intermediate",
+    "description": "From a support position, tuck the legs between the arms and kong across to another bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cy3s4-AsPmC.mp4",
+    "source_url": "https://www.instagram.com/p/Cy3s4-AsPmC/",
+    "trick_no": 104
+  },
+  {
+    "name": "Overhand Knee-Hang Transition",
+    "difficulty": "Beginner",
+    "description": "A transitional bar move caught into a behind-the-knee (knee-pit) position using an overhand grip, used to set up moves like the palm spin.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CzBFnJuMwnw.mp4",
+    "source_url": "https://www.instagram.com/p/CzBFnJuMwnw/",
+    "trick_no": 105
+  },
+  {
+    "name": "Sklopka 180 to Elbow Position",
+    "difficulty": "Intermediate",
+    "description": "A drop-swing (sklopka) on parallel bars with a 180-degree turn ending in an elbow-support position with the arms extended forward.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CzJlQBVMYTD.mp4",
+    "source_url": "https://www.instagram.com/p/CzJlQBVMYTD/",
+    "trick_no": 106
+  },
+  {
+    "name": "Cast Flip with Leg Thread-Through",
+    "difficulty": "Advanced",
+    "description": "A cast flip dismount where the legs are first threaded through the hands from a seated position before the flip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CzUKjWsMaz5.mp4",
+    "source_url": "https://www.instagram.com/p/CzUKjWsMaz5/",
+    "trick_no": 107
+  },
+  {
+    "name": "Arm-Strength Uprise (Seated Start)",
+    "difficulty": "Intermediate",
+    "description": "A harder variant of trick 6 starting seated on the bar with the legs outside, pulling up into support using only arm strength.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Czbya1nMLtH.mp4",
+    "source_url": "https://www.instagram.com/p/Czbya1nMLtH/",
+    "trick_no": 108
+  },
+  {
+    "name": "Freestyle Bar Trick 109",
+    "difficulty": "Beginner",
+    "description": "Freestyle bar trick #109 (see video); a transitional move usable between other elements in a dynamic set.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CzlbPa4Mh9z.mp4",
+    "source_url": "https://www.instagram.com/p/CzlbPa4Mh9z/",
+    "trick_no": 109
+  },
+  {
+    "name": "Foot-Assisted Side-to-Inside Transition",
+    "difficulty": "Intermediate",
+    "description": "Transitioning from the side of the parallel bars to the inside using an active foot push, pressing on the underhand-gripped arm.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/CzuFYg0rSMl.mp4",
+    "source_url": "https://www.instagram.com/p/CzuFYg0rSMl/",
+    "trick_no": 110
+  },
+  {
+    "name": "Giant Swing X-Grip",
+    "difficulty": "Advanced",
+    "description": "A giant swing (veletoc) variation with a hand regrab into a crossed X grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cz3OTmOMLyZ.mp4",
+    "source_url": "https://www.instagram.com/p/Cz3OTmOMLyZ/",
+    "trick_no": 111
+  },
+  {
+    "name": "Bar-to-Bar Transfer (#112)",
+    "difficulty": "Beginner",
+    "description": "A basic way to move from one set of parallel bars to an adjacent set.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/Cz_f-3qCdYU.mp4",
+    "source_url": "https://www.instagram.com/p/Cz_f-3qCdYU/",
+    "trick_no": 112
+  },
+  {
+    "name": "Reverse Bar Slide",
+    "difficulty": "Beginner",
+    "description": "A backward sliding move along the parallel bars, the reverse of the forward slide.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C0Kav4hL6Xl.mp4",
+    "source_url": "https://www.instagram.com/p/C0Kav4hL6Xl/",
+    "trick_no": 113
+  },
+  {
+    "name": "Front Swing 360 (#114)",
+    "difficulty": "Intermediate",
+    "description": "From a classic swing, turning 360 degrees in the front swing phase to finish in a dislocate position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C0QWr1RCyjT.mp4",
+    "source_url": "https://www.instagram.com/p/C0QWr1RCyjT/",
+    "trick_no": 114
+  },
+  {
+    "name": "Double 360 X-Grip",
+    "difficulty": "Advanced",
+    "description": "A double 360 rotation on the bar caught in a crossed (X) overhand grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C0caubML04z.mp4",
+    "source_url": "https://www.instagram.com/p/C0caubML04z/",
+    "trick_no": 115
+  },
+  {
+    "name": "Half-Circle Leg Swing (Bars)",
+    "difficulty": "Beginner",
+    "description": "Swinging on parallel bars, leaning over one hand and circling the legs in a half-circle around the released hand.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C0kLBeArx63.mp4",
+    "source_url": "https://www.instagram.com/p/C0kLBeArx63/",
+    "trick_no": 116
+  },
+  {
+    "name": "Foot-Push Bar Vault",
+    "difficulty": "Beginner",
+    "description": "A support vault where the feet plant on the bar tube and push off to rebound back.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C0tjiaws23i.mp4",
+    "source_url": "https://www.instagram.com/p/C0tjiaws23i/",
+    "trick_no": 117
+  },
+  {
+    "name": "Freestyle Bar Trick 118",
+    "difficulty": "Beginner",
+    "description": "Freestyle bar trick #118 (see video); a very easy beginner warm-up move.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C02M8swLaWq.mp4",
+    "source_url": "https://www.instagram.com/p/C02M8swLaWq/",
+    "trick_no": 118
+  },
+  {
+    "name": "Seated Underhand 180 (Bar)",
+    "difficulty": "Intermediate",
+    "description": "From a seated position on the bar with an underhand grip, flying over the bar in a back-uprise position and performing a 180.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1AaovGLBMj.mp4",
+    "source_url": "https://www.instagram.com/p/C1AaovGLBMj/",
+    "trick_no": 119
+  },
+  {
+    "name": "Freestyle Bar Trick 120",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #120 (see video); a combination joining tricks #116 and #118.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1H7GiLM_9Z.mp4",
+    "source_url": "https://www.instagram.com/p/C1H7GiLM_9Z/",
+    "trick_no": 120
+  },
+  {
+    "name": "Palm Spin 540 Dismount",
+    "difficulty": "Advanced",
+    "description": "A palm-spin-based dismount on parallel bars with a 540-degree spin while hopping over one bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1SMBFTMRPk.mp4",
+    "source_url": "https://www.instagram.com/p/C1SMBFTMRPk/",
+    "trick_no": 121
+  },
+  {
+    "name": "Swing Cast Flip",
+    "difficulty": "Advanced",
+    "description": "A cast flip dismount performed from a swing rather than from a support, requiring precise timing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1ZSlNmsdyv.mp4",
+    "source_url": "https://www.instagram.com/p/C1ZSlNmsdyv/",
+    "trick_no": 122
+  },
+  {
+    "name": "Frontflip from Support (Bar)",
+    "difficulty": "Intermediate",
+    "description": "A front flip dismount off the bar performed from a support position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1jzylIM02G.mp4",
+    "source_url": "https://www.instagram.com/p/C1jzylIM02G/",
+    "trick_no": 123
+  },
+  {
+    "name": "Front Swing 180 Transfer",
+    "difficulty": "Intermediate",
+    "description": "A 180-degree turn in the front swing phase performed as a transfer to the adjacent bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1rEG88M-ut.mp4",
+    "source_url": "https://www.instagram.com/p/C1rEG88M-ut/",
+    "trick_no": 124
+  },
+  {
+    "name": "Dislocate Uprise to Support",
+    "difficulty": "Intermediate",
+    "description": "Continuing an uprise all the way to a support with one hand underhand and the other in a dislocate grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C11p5R5sXQs.mp4",
+    "source_url": "https://www.instagram.com/p/C11p5R5sXQs/",
+    "trick_no": 125
+  },
+  {
+    "name": "Kid Tarzan",
+    "difficulty": "Intermediate",
+    "description": "A backward uprise transition on the bar (Kid Tarzan) swinging up from the back swing to pop the feet forward and rise into support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C1-Ee23MRiK.mp4",
+    "source_url": "https://www.instagram.com/p/C1-Ee23MRiK/",
+    "trick_no": 126
+  },
+  {
+    "name": "Swing to Knee-Hang Release",
+    "difficulty": "Advanced",
+    "description": "Generating power from a swing, lifting the legs and releasing both hands to lean back and catch the bar by the backs of the knees.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C2HzuQ4M6zt.mp4",
+    "source_url": "https://www.instagram.com/p/C2HzuQ4M6zt/",
+    "trick_no": 127
+  },
+  {
+    "name": "Straddle (Roznozka)",
+    "difficulty": "Intermediate",
+    "description": "A gymnastics-style straddle on parallel bars requiring strong dip strength to throw and catch the body.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C2QBELgME4Y.mp4",
+    "source_url": "https://www.instagram.com/p/C2QBELgME4Y/",
+    "trick_no": 128
+  },
+  {
+    "name": "Knee-Hang 180",
+    "difficulty": "Intermediate",
+    "description": "From a hang by the knees, swinging and performing a 180-degree turn to bring the legs back underneath.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C2ZvI7_soix.mp4",
+    "source_url": "https://www.instagram.com/p/C2ZvI7_soix/",
+    "trick_no": 129
+  },
+  {
+    "name": "Tornado 360 Variant",
+    "difficulty": "Intermediate",
+    "description": "A 360-degree tornado-style rotation on the bar starting from a dislocate-grip swing position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C2iXRvkrgqK.mp4",
+    "source_url": "https://www.instagram.com/p/C2iXRvkrgqK/",
+    "trick_no": 130
+  },
+  {
+    "name": "Backflip Regrab (Bars)",
+    "difficulty": "Intermediate",
+    "description": "A backflip between the parallel bars caught as a regrab, landing on the forearms or biceps.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C2sXi9jMDTu.mp4",
+    "source_url": "https://www.instagram.com/p/C2sXi9jMDTu/",
+    "trick_no": 131
+  },
+  {
+    "name": "Dip 270 from Elbow Support",
+    "difficulty": "Intermediate",
+    "description": "A 270-degree dip rotation performed from an elbow-support position between the bars rather than from a support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C20VomJgq7s.mp4",
+    "source_url": "https://www.instagram.com/p/C20VomJgq7s/",
+    "trick_no": 132
+  },
+  {
+    "name": "Leg Thread-Through (Bar)",
+    "difficulty": "Beginner",
+    "description": "Threading the legs through the arms while on the bar, similar to a shrimp flip but performed without gravity assistance.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C29SzoGAosm.mp4",
+    "source_url": "https://www.instagram.com/p/C29SzoGAosm/",
+    "trick_no": 133
+  },
+  {
+    "name": "Pull-Up 180 to Back Lever",
+    "difficulty": "Beginner",
+    "description": "A pull-up with a 180-degree turn transitioning into a back lever, one hand finishing underhand.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C3GRYiIMIdj.mp4",
+    "source_url": "https://www.instagram.com/p/C3GRYiIMIdj/",
+    "trick_no": 134
+  },
+  {
+    "name": "Elbow Spin to Support",
+    "difficulty": "Intermediate",
+    "description": "Spinning on the parallel bars in an elbow-support position and then regrabbing onto the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C3P3N5lM4J4.mp4",
+    "source_url": "https://www.instagram.com/p/C3P3N5lM4J4/",
+    "trick_no": 135
+  },
+  {
+    "name": "Sklopka to Elbow Support",
+    "difficulty": "Beginner",
+    "description": "A drop-swing (sklopka) on parallel bars caught into an elbow-support position rather than a full support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C3YPDDQs5Vn.mp4",
+    "source_url": "https://www.instagram.com/p/C3YPDDQs5Vn/",
+    "trick_no": 136
+  },
+  {
+    "name": "Kid Tarzan to Leg-Through Combo",
+    "difficulty": "Intermediate",
+    "description": "A combination linking a Kid Tarzan uprise with a leg-through transition while keeping both hands on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C3iRiMWsHFo.mp4",
+    "source_url": "https://www.instagram.com/p/C3iRiMWsHFo/",
+    "trick_no": 137
+  },
+  {
+    "name": "180 Leg-Over to Sklopka Combo",
+    "difficulty": "Intermediate",
+    "description": "A sequence of a 180-degree turn with a leg throw, a backward drop, a knee-hooked drop-swing, and a leg throw regrabbing into support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C3qGbNnM7Ty.mp4",
+    "source_url": "https://www.instagram.com/p/C3qGbNnM7Ty/",
+    "trick_no": 138
+  },
+  {
+    "name": "Straight-Body 90 Transfer",
+    "difficulty": "Beginner",
+    "description": "A transfer catching a single bar with a 90-degree turn achieved by placing the hands to the side while the body stays straight.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C3z_OMgMZRQ.mp4",
+    "source_url": "https://www.instagram.com/p/C3z_OMgMZRQ/",
+    "trick_no": 139
+  },
+  {
+    "name": "Straight-Body 90 Transfer (High Bar)",
+    "difficulty": "Intermediate",
+    "description": "A single-bar turning transfer performed on a high bar with an added quarter turn, done higher off the ground.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C36_UWegb4Y.mp4",
+    "source_url": "https://www.instagram.com/p/C36_UWegb4Y/",
+    "trick_no": 140
+  },
+  {
+    "name": "Seat Flip 180",
+    "difficulty": "Intermediate",
+    "description": "Performing a seat flip (prdelflip) off the bar with an added 180-degree turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C4Gr3IqAydY.mp4",
+    "source_url": "https://www.instagram.com/p/C4Gr3IqAydY/",
+    "trick_no": 141
+  },
+  {
+    "name": "Handspring Regrab",
+    "difficulty": "Intermediate",
+    "description": "Starting like a front handspring over the bar but regrabbing the hands mid-move to control rotation and avoid falling.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C4OKc2Tsrl-.mp4",
+    "source_url": "https://www.instagram.com/p/C4OKc2Tsrl-/",
+    "trick_no": 142
+  },
+  {
+    "name": "Palm Spin to Adjacent Bars",
+    "difficulty": "Advanced",
+    "description": "A palm spin on parallel bars that travels across into the middle of the adjacent set of bars, ending with a rotated wrist grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C4YeUboAuZ7.mp4",
+    "source_url": "https://www.instagram.com/p/C4YeUboAuZ7/",
+    "trick_no": 143
+  },
+  {
+    "name": "Hop to Elbow Support",
+    "difficulty": "Intermediate",
+    "description": "Hopping up and transitioning the legs through into an elbow-support position between the bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C4gkfjgs6o-.mp4",
+    "source_url": "https://www.instagram.com/p/C4gkfjgs6o-/",
+    "trick_no": 144
+  },
+  {
+    "name": "Legs Muscle-Up (Knee Hang to Sit)",
+    "difficulty": "Intermediate",
+    "description": "From a knee hang, swinging up into a seated position on the bar without using the hands, like a muscle-up performed on the legs.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C4qrHQNMnkc.mp4",
+    "source_url": "https://www.instagram.com/p/C4qrHQNMnkc/",
+    "trick_no": 145
+  },
+  {
+    "name": "Swing to Handstand Press",
+    "difficulty": "Intermediate",
+    "description": "A controlled swinging press up into a handstand, stopping precisely in the handstand position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C4x8gcQsIMB.mp4",
+    "source_url": "https://www.instagram.com/p/C4x8gcQsIMB/",
+    "trick_no": 146
+  },
+  {
+    "name": "Swing Gainer Bar Kick",
+    "difficulty": "Intermediate",
+    "description": "Performing a swing gainer while intentionally kicking one foot against the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C48s8DlMBbv.mp4",
+    "source_url": "https://www.instagram.com/p/C48s8DlMBbv/",
+    "trick_no": 147
+  },
+  {
+    "name": "Underhand Swing-Over (Bars)",
+    "difficulty": "Beginner",
+    "description": "A basic parallel-bar transition swinging over with one hand kept in an underhand grip throughout.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C5EiVYZs82z.mp4",
+    "source_url": "https://www.instagram.com/p/C5EiVYZs82z/",
+    "trick_no": 148
+  },
+  {
+    "name": "Freestyle Bar Trick 149",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #149 (see video); a twisting move that is easier for those skilled at twisting rotations.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C5OtP3Gs-te.mp4",
+    "source_url": "https://www.instagram.com/p/C5OtP3Gs-te/",
+    "trick_no": 149
+  },
+  {
+    "name": "Sklopka 180 Transfer",
+    "difficulty": "Intermediate",
+    "description": "Releasing mid-sklopka and turning 180 degrees while traveling backward to catch the bar behind.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C5WBcqPs0Gb.mp4",
+    "source_url": "https://www.instagram.com/p/C5WBcqPs0Gb/",
+    "trick_no": 150
+  },
+  {
+    "name": "Swing Gainer Double Bar Kick",
+    "difficulty": "Intermediate",
+    "description": "During a swing gainer, kicking both feet against the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C5gtPeNsqlW.mp4",
+    "source_url": "https://www.instagram.com/p/C5gtPeNsqlW/",
+    "trick_no": 151
+  },
+  {
+    "name": "Swing Leg-Over (Nalet)",
+    "difficulty": "Intermediate",
+    "description": "Throwing the legs over the bar during a swing to land the feet on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C5oQseHMzKv.mp4",
+    "source_url": "https://www.instagram.com/p/C5oQseHMzKv/",
+    "trick_no": 152
+  },
+  {
+    "name": "Lache 180 to Sit Transfer",
+    "difficulty": "Intermediate",
+    "description": "Performing a lache between bars with an added 180-degree turn and height to land seated on the opposite bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C5yVeBPMwSQ.mp4",
+    "source_url": "https://www.instagram.com/p/C5yVeBPMwSQ/",
+    "trick_no": 153
+  },
+  {
+    "name": "Swing to Handstand (Bars) (#154)",
+    "difficulty": "Intermediate",
+    "description": "Swinging over a parallel bar all the way up into a handstand with a quarter turn and hand regrab.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C552OiMoJHE.mp4",
+    "source_url": "https://www.instagram.com/p/C552OiMoJHE/",
+    "trick_no": 154
+  },
+  {
+    "name": "Elbow-Hang Backflip Dismount",
+    "difficulty": "Advanced",
+    "description": "From a hang by the elbows behind the back, swinging and performing a flip dismount off the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C6DwvUqgvpg.mp4",
+    "source_url": "https://www.instagram.com/p/C6DwvUqgvpg/",
+    "trick_no": 155
+  },
+  {
+    "name": "Butt-Mount Leg Swap",
+    "difficulty": "Intermediate",
+    "description": "Throwing the legs to the side to sit the hips on the bar, then using the momentum to throw the legs back over to the other side.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C6LgsMTA5OO.mp4",
+    "source_url": "https://www.instagram.com/p/C6LgsMTA5OO/",
+    "trick_no": 156
+  },
+  {
+    "name": "Freestyle Bar Trick 157",
+    "difficulty": "Beginner",
+    "description": "Freestyle bar trick #157 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C6WHvOGsn79.mp4",
+    "source_url": "https://www.instagram.com/p/C6WHvOGsn79/",
+    "trick_no": 157
+  },
+  {
+    "name": "Bar-to-Bar Handstand Transfer",
+    "difficulty": "Intermediate",
+    "description": "Transferring between parallel bars while swinging into a handstand and regrabbing the hands upside down.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C6eSJKasIKz.mp4",
+    "source_url": "https://www.instagram.com/p/C6eSJKasIKz/",
+    "trick_no": 158
+  },
+  {
+    "name": "Korean Dip 180",
+    "difficulty": "Beginner",
+    "description": "From a Korean dip position on parallel bars, swinging the body around 180 degrees.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C6oQfDvsO06.mp4",
+    "source_url": "https://www.instagram.com/p/C6oQfDvsO06/",
+    "trick_no": 159
+  },
+  {
+    "name": "Sklopka Transfer to Sit 90",
+    "difficulty": "Intermediate",
+    "description": "Transferring between parallel bars from a drop-swing (sklopka) into a seated position with a 90-degree turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C6wO4fWM3RQ.mp4",
+    "source_url": "https://www.instagram.com/p/C6wO4fWM3RQ/",
+    "trick_no": 160
+  },
+  {
+    "name": "Underhand Giant Swing Release Regrab",
+    "difficulty": "Advanced",
+    "description": "An underhand giant swing that releases both hands at the top and re-catches the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C65yWoMg7Gp.mp4",
+    "source_url": "https://www.instagram.com/p/C65yWoMg7Gp/",
+    "trick_no": 161
+  },
+  {
+    "name": "Bar Hop (One Hand)",
+    "difficulty": "Beginner",
+    "description": "An easier bar hop over the bar that keeps one hand on throughout for a small controlled swing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C7CDKKEMjyJ.mp4",
+    "source_url": "https://www.instagram.com/p/C7CDKKEMjyJ/",
+    "trick_no": 162
+  },
+  {
+    "name": "Through-the-Gap (Double Bars)",
+    "difficulty": "Intermediate",
+    "description": "A move that squeezes through the narrow gap between double bars, treating one bar as an obstacle to clear.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C7MA3v2MH03.mp4",
+    "source_url": "https://www.instagram.com/p/C7MA3v2MH03/",
+    "trick_no": 163
+  },
+  {
+    "name": "360 (Knee/Elbow Hook)",
+    "difficulty": "Intermediate",
+    "description": "A 360-degree rotation using the backs of the knees and elbows, starting close to the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C7UrsF6gYp4.mp4",
+    "source_url": "https://www.instagram.com/p/C7UrsF6gYp4/",
+    "trick_no": 164
+  },
+  {
+    "name": "Half-Twist Dismount",
+    "difficulty": "Beginner",
+    "description": "The #3 dismount with an added 180-degree twist, a good prep for full twisting technique.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C7eh7f7I2Wr.mp4",
+    "source_url": "https://www.instagram.com/p/C7eh7f7I2Wr/",
+    "trick_no": 165
+  },
+  {
+    "name": "Roll Transfer (Bars)",
+    "difficulty": "Beginner",
+    "description": "A forward-roll transfer from support on one parallel bar, releasing to catch the other bar and pressing back to support.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C7lu6iTMky_.mp4",
+    "source_url": "https://www.instagram.com/p/C7lu6iTMky_/",
+    "trick_no": 166
+  },
+  {
+    "name": "Knee-Hang Spin Up",
+    "difficulty": "Beginner",
+    "description": "A spin on the bar hanging by the backs of the knees, hooking the legs and leaning back with straight arms to rise on top.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C7wtEz3so0Q.mp4",
+    "source_url": "https://www.instagram.com/p/C7wtEz3so0Q/",
+    "trick_no": 167
+  },
+  {
+    "name": "Elbow-Hook Catch (Bars)",
+    "difficulty": "Beginner",
+    "description": "Catching the bar behind by hooking the elbows instead of the hands, following the #166 setup.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C74AnLIoVyB.mp4",
+    "source_url": "https://www.instagram.com/p/C74AnLIoVyB/",
+    "trick_no": 168
+  },
+  {
+    "name": "Korean Dip 270",
+    "difficulty": "Intermediate",
+    "description": "A korean dip transfer rotating 270 degrees to catch the adjacent bar while staying vertical.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8CoCS2Mugs.mp4",
+    "source_url": "https://www.instagram.com/p/C8CoCS2Mugs/",
+    "trick_no": 169
+  },
+  {
+    "name": "Back Roll on Parallel Bars",
+    "difficulty": "Intermediate",
+    "description": "A backward roll along the parallel bars, with crossed hands aiding the rotation.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8Kl9uGgK1G.mp4",
+    "source_url": "https://www.instagram.com/p/C8Kl9uGgK1G/",
+    "trick_no": 170
+  },
+  {
+    "name": "Knee-Hook Catch (Wide Bars)",
+    "difficulty": "Intermediate",
+    "description": "A knee-hang catch where, with wider-spaced bars, the hands release and the body briefly flies back before the knees hook.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8UwKPYs87z.mp4",
+    "source_url": "https://www.instagram.com/p/C8UwKPYs87z/",
+    "trick_no": 171
+  },
+  {
+    "name": "Over-Bar 90 Transfer",
+    "difficulty": "Beginner",
+    "description": "A transfer over the bar and then 90 degrees to the side onto another bar, mechanically close to a bar hop.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8b8tUksCBx.mp4",
+    "source_url": "https://www.instagram.com/p/C8b8tUksCBx/",
+    "trick_no": 172
+  },
+  {
+    "name": "Giant Swing Cast Flip",
+    "difficulty": "Advanced",
+    "description": "A dismount combining a giant swing with a cast flip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8mRprvsrPU.mp4",
+    "source_url": "https://www.instagram.com/p/C8mRprvsrPU/",
+    "trick_no": 173
+  },
+  {
+    "name": "Muscle-Up 90 Transfer",
+    "difficulty": "Beginner",
+    "description": "A 90-degree muscle-up transfer between bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8utQeqgKn7.mp4",
+    "source_url": "https://www.instagram.com/p/C8utQeqgKn7/",
+    "trick_no": 174
+  },
+  {
+    "name": "Transfer to 90 Degrees",
+    "difficulty": "Intermediate",
+    "description": "A transfer into a 90-degree position from a seated or knee-hang start, swinging high enough to sight the side bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C84nynxs6Hd.mp4",
+    "source_url": "https://www.instagram.com/p/C84nynxs6Hd/",
+    "trick_no": 175
+  },
+  {
+    "name": "Shrimp Flip (Seated Entry)",
+    "difficulty": "Intermediate",
+    "description": "A shrimp flip variation started from a seated, L-sit or V-sit on top of the bar, falling back to reach the flip position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C8_lqr6A2K3.mp4",
+    "source_url": "https://www.instagram.com/p/C8_lqr6A2K3/",
+    "trick_no": 176
+  },
+  {
+    "name": "Knee-Swing Transfer to Korean Dip",
+    "difficulty": "Intermediate",
+    "description": "A bar-to-bar transfer swinging on the knees and catching blind behind the back into a korean dip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C9LBUxOA_jj.mp4",
+    "source_url": "https://www.instagram.com/p/C9LBUxOA_jj/",
+    "trick_no": 177
+  },
+  {
+    "name": "Jump to Dislocate",
+    "difficulty": "Beginner",
+    "description": "A basic jump transition into a dislocate grip position, releasing while turned back-to-ground.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C9SEMPVskEY.mp4",
+    "source_url": "https://www.instagram.com/p/C9SEMPVskEY/",
+    "trick_no": 178
+  },
+  {
+    "name": "Palm Spin on Forearm",
+    "difficulty": "Advanced",
+    "description": "A palm spin variation that pivots on the forearm instead of the palm, making the balance point harder to hold.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C9ckfK-MQxq.mp4",
+    "source_url": "https://www.instagram.com/p/C9ckfK-MQxq/",
+    "trick_no": 179
+  },
+  {
+    "name": "Front Flip 180",
+    "difficulty": "Advanced",
+    "description": "A front-flip dismount with an added 180-degree twist.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C9kpZfTsARn.mp4",
+    "source_url": "https://www.instagram.com/p/C9kpZfTsARn/",
+    "trick_no": 180
+  },
+  {
+    "name": "Korean Dip 0",
+    "difficulty": "Beginner",
+    "description": "A korean dip that goes straight forward to the bar in front with no side rotation, suited to cramped setups.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C9uHzwJgGPN.mp4",
+    "source_url": "https://www.instagram.com/p/C9uHzwJgGPN/",
+    "trick_no": 181
+  },
+  {
+    "name": "Geinger With Leg",
+    "difficulty": "Intermediate",
+    "description": "A geinger variation that braces a leg against the bar to make the rotation easier.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C92FVtHAKZR.mp4",
+    "source_url": "https://www.instagram.com/p/C92FVtHAKZR/",
+    "trick_no": 182
+  },
+  {
+    "name": "Seated 360 Flow",
+    "difficulty": "Intermediate",
+    "description": "A harder variation of #156 adding a 360-degree rotation performed on the seat rather than in the air.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C9_x4B9sX7B.mp4",
+    "source_url": "https://www.instagram.com/p/C9_x4B9sX7B/",
+    "trick_no": 183
+  },
+  {
+    "name": "Butt Flip 360",
+    "difficulty": "Advanced",
+    "description": "A butt-flip dismount rotating 360 degrees on both the vertical and horizontal axes.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C-IjoEhsBQk.mp4",
+    "source_url": "https://www.instagram.com/p/C-IjoEhsBQk/",
+    "trick_no": 184
+  },
+  {
+    "name": "Explosive Behind-Back Muscle-Up",
+    "difficulty": "Beginner",
+    "description": "A powerful explosive muscle-up variation building on the behind-the-back clap muscle-up, useful for pull-up explosivity.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C-TQNdoAtk1.mp4",
+    "source_url": "https://www.instagram.com/p/C-TQNdoAtk1/",
+    "trick_no": 185
+  },
+  {
+    "name": "Forearm-Start Press-Up",
+    "difficulty": "Beginner",
+    "description": "A basic parallel-bar press-up (variation of #11) started from the forearms, requiring a bigger push to rise.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C-aD563gqbz.mp4",
+    "source_url": "https://www.instagram.com/p/C-aD563gqbz/",
+    "trick_no": 186
+  },
+  {
+    "name": "Quad 360",
+    "difficulty": "Advanced",
+    "description": "Four consecutive 360-degree rotations on the bar, requiring fast rotation and air coordination.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C-lFKLnAiwa.mp4",
+    "source_url": "https://www.instagram.com/p/C-lFKLnAiwa/",
+    "trick_no": 187
+  },
+  {
+    "name": "Rare Back-Over Bar Catch",
+    "difficulty": "Intermediate",
+    "description": "Falling backward over the head into a specific bar catch that requires good shoulder mobility.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C-szASDgIJm.mp4",
+    "source_url": "https://www.instagram.com/p/C-szASDgIJm/",
+    "trick_no": 188
+  },
+  {
+    "name": "Forearm Bar Jump",
+    "difficulty": "Intermediate",
+    "description": "A parallel-bar jump transition (variation of #77) supported on the forearms rather than the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C-2po-OMfcY.mp4",
+    "source_url": "https://www.instagram.com/p/C-2po-OMfcY/",
+    "trick_no": 189
+  },
+  {
+    "name": "Back Uprise Grip Switch",
+    "difficulty": "Intermediate",
+    "description": "A back uprise with a brief flight phase that switches the grip from overhand to underhand mid-air.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C--_SYAAhwf.mp4",
+    "source_url": "https://www.instagram.com/p/C--_SYAAhwf/",
+    "trick_no": 190
+  },
+  {
+    "name": "Uprise Over Bar to Dislocate",
+    "difficulty": "Intermediate",
+    "description": "A back uprise carried over the bar into a dislocate position, requiring extra power and well-stretched shoulders.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_I2J6osmr-.mp4",
+    "source_url": "https://www.instagram.com/p/C_I2J6osmr-/",
+    "trick_no": 191
+  },
+  {
+    "name": "Swing Gainer 360",
+    "difficulty": "Advanced",
+    "description": "A swing gainer dismount with a full 360-degree twist.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_QjzMesVW1.mp4",
+    "source_url": "https://www.instagram.com/p/C_QjzMesVW1/",
+    "trick_no": 192
+  },
+  {
+    "name": "Reversed Knee-Hang Swing",
+    "difficulty": "Intermediate",
+    "description": "The #177 transfer performed in reverse, relying on hooking the knees and swinging in the opposite direction.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_bXUvSAPSC.mp4",
+    "source_url": "https://www.instagram.com/p/C_bXUvSAPSC/",
+    "trick_no": 193
+  },
+  {
+    "name": "Legs-Out Dismount Regrab",
+    "difficulty": "Intermediate",
+    "description": "A variation of the #65 dismount turned into a regrab, staying close enough to re-catch the bar while still pushing the legs out.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_iRrX_g_fa.mp4",
+    "source_url": "https://www.instagram.com/p/C_iRrX_g_fa/",
+    "trick_no": 194
+  },
+  {
+    "name": "Seated Leg-Through Push",
+    "difficulty": "Intermediate",
+    "description": "Threading the legs backward past the bar from a seated position, combining tricks 57 and 133 and demanding shoulder mobility and compression.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_sMynzgEi4.mp4",
+    "source_url": "https://www.instagram.com/p/C_sMynzgEi4/",
+    "trick_no": 195
+  },
+  {
+    "name": "Seated Spin to Hang",
+    "difficulty": "Beginner",
+    "description": "A spin on the seat starting from throwing the legs over the bar and bracing on the other bar, ending in a hang on the starting bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_1HBtjgM7n.mp4",
+    "source_url": "https://www.instagram.com/p/C_1HBtjgM7n/",
+    "trick_no": 196
+  },
+  {
+    "name": "Seated 270 to Support",
+    "difficulty": "Intermediate",
+    "description": "A 270-degree spin on the seat that ends in a support position on the parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/C_-G-7FArHh.mp4",
+    "source_url": "https://www.instagram.com/p/C_-G-7FArHh/",
+    "trick_no": 197
+  },
+  {
+    "name": "180 Support to Back Lever",
+    "difficulty": "Beginner",
+    "description": "A 180 from support, catching the bar behind the knees to drop into a back lever.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DAGjSk0slyl.mp4",
+    "source_url": "https://www.instagram.com/p/DAGjSk0slyl/",
+    "trick_no": 198
+  },
+  {
+    "name": "Support to Knee-Hang 90 Transfer",
+    "difficulty": "Beginner",
+    "description": "From support, turning 90 degrees and catching the adjacent bar under the knees with a brief moment of flight.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DARGUfDA9tZ.mp4",
+    "source_url": "https://www.instagram.com/p/DARGUfDA9tZ/",
+    "trick_no": 199
+  },
+  {
+    "name": "Seated Weight Transfer to Bar",
+    "difficulty": "Beginner",
+    "description": "A seated variation that stays on the seat longer to transfer body weight onto the arm on the opposite bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DAYtgPwAcXF.mp4",
+    "source_url": "https://www.instagram.com/p/DAYtgPwAcXF/",
+    "trick_no": 200
+  },
+  {
+    "name": "Fake One-Arm 540",
+    "difficulty": "Intermediate",
+    "description": "A 540-degree spin performed in a one-arm style, requiring strong grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DAjhXZfgusO.mp4",
+    "source_url": "https://www.instagram.com/p/DAjhXZfgusO/",
+    "trick_no": 201
+  },
+  {
+    "name": "Shrimp Flip 180 Entry",
+    "difficulty": "Intermediate",
+    "description": "A shrimp flip variation entered from a 180-degree turn with a re-grip of both hands before dropping under the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DAq7XtiAKfF.mp4",
+    "source_url": "https://www.instagram.com/p/DAq7XtiAKfF/",
+    "trick_no": 202
+  },
+  {
+    "name": "Layout Backflip Between Bars",
+    "difficulty": "Advanced",
+    "description": "A layout backflip that lands between the two parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DA0Hu1xgbTj.mp4",
+    "source_url": "https://www.instagram.com/p/DA0Hu1xgbTj/",
+    "trick_no": 203
+  },
+  {
+    "name": "Freestyle Bar Trick 204",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #204 (see video); a power-based warm-up move requiring a back kip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DA9UufZo5dV.mp4",
+    "source_url": "https://www.instagram.com/p/DA9UufZo5dV/",
+    "trick_no": 204
+  },
+  {
+    "name": "Supra Swing to Sit",
+    "difficulty": "Advanced",
+    "description": "Generating a large swing in the supra position from a seated push-off, then pulling through to return to sitting on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DBGYI6Qo354.mp4",
+    "source_url": "https://www.instagram.com/p/DBGYI6Qo354/",
+    "trick_no": 205
+  },
+  {
+    "name": "Seated Spin (Static Transition)",
+    "difficulty": "Beginner",
+    "description": "A spin on the seat used to transition between static holds such as front lever and planche.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DBOuhjHo__g.mp4",
+    "source_url": "https://www.instagram.com/p/DBOuhjHo__g/",
+    "trick_no": 206
+  },
+  {
+    "name": "Knee-Hang Swing Dismount",
+    "difficulty": "Beginner",
+    "description": "Generating a swing from a hang by the backs of the knees and dismounting.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DBZjbtDI_jV.mp4",
+    "source_url": "https://www.instagram.com/p/DBZjbtDI_jV/",
+    "trick_no": 207
+  },
+  {
+    "name": "180 on Parallel Bars (Prep)",
+    "difficulty": "Intermediate",
+    "description": "A 180-degree rotation on the parallel bars, an easier prep version of the full variant that lands in a support catch.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DBg99FmIuFf.mp4",
+    "source_url": "https://www.instagram.com/p/DBg99FmIuFf/",
+    "trick_no": 208
+  },
+  {
+    "name": "Swing 270 Dislocate Transfer",
+    "difficulty": "Intermediate",
+    "description": "A front swing 270 variation with a shoulder dislocate that catches the adjacent bar blind, hands up while looking toward the ground.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DBrpA_2I_V0.mp4",
+    "source_url": "https://www.instagram.com/p/DBrpA_2I_V0/",
+    "trick_no": 209
+  },
+  {
+    "name": "Support Weight-Shift Transition",
+    "difficulty": "Beginner",
+    "description": "A foundational transition shifting body weight over the non-releasing supporting arm on the bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DBzIPlxIAcp.mp4",
+    "source_url": "https://www.instagram.com/p/DBzIPlxIAcp/",
+    "trick_no": 210
+  },
+  {
+    "name": "Knee-Jump Spin Regrab",
+    "difficulty": "Intermediate",
+    "description": "From a jump onto the knees, spinning above the bar while switching grip and re-catching the bar behind the legs.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DB9jbO6IBWe.mp4",
+    "source_url": "https://www.instagram.com/p/DB9jbO6IBWe/",
+    "trick_no": 211
+  },
+  {
+    "name": "Freestyle Bar Trick 212",
+    "difficulty": "Beginner",
+    "description": "Freestyle bar trick #212 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DCFEM75oKdK.mp4",
+    "source_url": "https://www.instagram.com/p/DCFEM75oKdK/",
+    "trick_no": 212
+  },
+  {
+    "name": "Layout Butt Flip",
+    "difficulty": "Intermediate",
+    "description": "A butt-flip dismount performed in a straight, arched layout position with a push up to height before rotating.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DCPzc05ojON.mp4",
+    "source_url": "https://www.instagram.com/p/DCPzc05ojON/",
+    "trick_no": 213
+  },
+  {
+    "name": "Seated Cheat 450 Spin",
+    "difficulty": "Intermediate",
+    "description": "A cheat rotation on the parallel bars that briefly sits on the bar, entered via a prior spin for roughly 450 degrees of total rotation.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DCXbbMCow0P.mp4",
+    "source_url": "https://www.instagram.com/p/DCXbbMCow0P/",
+    "trick_no": 214
+  },
+  {
+    "name": "Knee-Hang Mini-Swing Dismount",
+    "difficulty": "Intermediate",
+    "description": "A dismount from a hang by the knees using a tiny swing so the feet land behind the bar while the torso stays roughly in place.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DChnF8TIN9n.mp4",
+    "source_url": "https://www.instagram.com/p/DChnF8TIN9n/",
+    "trick_no": 215
+  },
+  {
+    "name": "One-Leg Kip",
+    "difficulty": "Beginner",
+    "description": "A single-leg variation of the basic kip (sklopka), physically easier but more coordination-dependent.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DCpKYMJImlJ.mp4",
+    "source_url": "https://www.instagram.com/p/DCpKYMJImlJ/",
+    "trick_no": 216
+  },
+  {
+    "name": "Easy Bar Frontflip",
+    "difficulty": "Intermediate",
+    "description": "A technically easier version of the classic frontflip dismount from the bar, requiring mobile shoulders.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DCyoObcI35P.mp4",
+    "source_url": "https://www.instagram.com/p/DCyoObcI35P/",
+    "trick_no": 217
+  },
+  {
+    "name": "Stand-Up on Bar",
+    "difficulty": "Beginner",
+    "description": "A basic element of standing up to balance on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DC7Ey71IZo6.mp4",
+    "source_url": "https://www.instagram.com/p/DC7Ey71IZo6/",
+    "trick_no": 218
+  },
+  {
+    "name": "Giant Palm-Release Regrab",
+    "difficulty": "Advanced",
+    "description": "A giant swing in which the palms rotate over to handstand, push off and release, then regrab the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DDEjraSIegD.mp4",
+    "source_url": "https://www.instagram.com/p/DDEjraSIegD/",
+    "trick_no": 219
+  },
+  {
+    "name": "Forearm Bar-Jump Entry",
+    "difficulty": "Beginner",
+    "description": "A variation of jumping into the parallel bars, leaning forward and landing directly on the arms instead of rising through the shoulders.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DDNNNXPIFUJ.mp4",
+    "source_url": "https://www.instagram.com/p/DDNNNXPIFUJ/",
+    "trick_no": 220
+  },
+  {
+    "name": "Seated Frontflip Regrab",
+    "difficulty": "Advanced",
+    "description": "Performing the trick-217 front rotation from a seated start for more swing and catching the bar instead of dismounting.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DDX_BF-IV2g.mp4",
+    "source_url": "https://www.instagram.com/p/DDX_BF-IV2g/",
+    "trick_no": 221
+  },
+  {
+    "name": "Hefesto-Entry Transfer",
+    "difficulty": "Beginner",
+    "description": "A mirror-image variation of trick #133, moving the legs through to reach a hefesto starting position and avoid stepping over the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DDfeUpPoNaM.mp4",
+    "source_url": "https://www.instagram.com/p/DDfeUpPoNaM/",
+    "trick_no": 222
+  },
+  {
+    "name": "X-Grip Swing Gainer",
+    "difficulty": "Intermediate",
+    "description": "A harder variation of the classic swing gainer performed with an X (crossed) grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DDqGF79oF5k.mp4",
+    "source_url": "https://www.instagram.com/p/DDqGF79oF5k/",
+    "trick_no": 223
+  },
+  {
+    "name": "Back Roll to Straddle Sit",
+    "difficulty": "Beginner",
+    "description": "A backward roll on the bars, spreading the legs while inverted to end sitting astride the bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DDxIZRmIcAX.mp4",
+    "source_url": "https://www.instagram.com/p/DDxIZRmIcAX/",
+    "trick_no": 224
+  },
+  {
+    "name": "Reverse Korean Spin",
+    "difficulty": "Intermediate",
+    "description": "A dynamic reverse of the classic Korean turns, essentially the movement played backwards.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DD7MYqkIt4r.mp4",
+    "source_url": "https://www.instagram.com/p/DD7MYqkIt4r/",
+    "trick_no": 225
+  },
+  {
+    "name": "Cheat 360",
+    "difficulty": "Intermediate",
+    "description": "A cheat 360 performed from support to support, a prep for the full version.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DEDBlEDIxjG.mp4",
+    "source_url": "https://www.instagram.com/p/DEDBlEDIxjG/",
+    "trick_no": 226
+  },
+  {
+    "name": "No-Swing Gainer",
+    "difficulty": "Intermediate",
+    "description": "A gainer flip performed from a hang without swinging, requiring extra speed and explosiveness.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DENikTvIiwl.mp4",
+    "source_url": "https://www.instagram.com/p/DENikTvIiwl/",
+    "trick_no": 227
+  },
+  {
+    "name": "Front Roll to Sit",
+    "difficulty": "Beginner",
+    "description": "A front roll on the parallel bars, staying longer on the elbow pockets and swinging out to end seated on one bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DEVc_NnomF0.mp4",
+    "source_url": "https://www.instagram.com/p/DEVc_NnomF0/",
+    "trick_no": 228
+  },
+  {
+    "name": "No-Hands Twist",
+    "difficulty": "Intermediate",
+    "description": "A twisting move similar to trick #149 but performed without the hands on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DEf076oI-sa.mp4",
+    "source_url": "https://www.instagram.com/p/DEf076oI-sa/",
+    "trick_no": 229
+  },
+  {
+    "name": "Palm Spin to Under-Knees",
+    "difficulty": "Advanced",
+    "description": "A rare palm spin variation on the parallel bars sent toward the far bar to land under the knees.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DEnrh1XIYOC.mp4",
+    "source_url": "https://www.instagram.com/p/DEnrh1XIYOC/",
+    "trick_no": 230
+  },
+  {
+    "name": "Backward Tip to Bar Hang",
+    "difficulty": "Beginner",
+    "description": "A two-phase move on the bars: tipping backward off a leg push, then transferring from the elbows into a hang on the second bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DEx5ueXoTHN.mp4",
+    "source_url": "https://www.instagram.com/p/DEx5ueXoTHN/",
+    "trick_no": 231
+  },
+  {
+    "name": "Unconventional P-Bar Trick",
+    "difficulty": "Beginner",
+    "description": "Freestyle bar trick #232 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DE5rR1KIMQH.mp4",
+    "source_url": "https://www.instagram.com/p/DE5rR1KIMQH/",
+    "trick_no": 232
+  },
+  {
+    "name": "Hands-Free Under-Knees Drop",
+    "difficulty": "Intermediate",
+    "description": "Falling head-down without the hands to land the legs precisely under the knees on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DFEHXsAo_ED.mp4",
+    "source_url": "https://www.instagram.com/p/DFEHXsAo_ED/",
+    "trick_no": 233
+  },
+  {
+    "name": "180 to Dislo",
+    "difficulty": "Beginner",
+    "description": "Turning 180 degrees and re-catching into a dislocate grip once the back faces the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DFLn-pZoHp_.mp4",
+    "source_url": "https://www.instagram.com/p/DFLn-pZoHp_/",
+    "trick_no": 234
+  },
+  {
+    "name": "No-Twist Swing Gainer",
+    "difficulty": "Intermediate",
+    "description": "A swing gainer variation performed without a twist, usable as a prep for the frisbee.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DFU1J9yoMGq.mp4",
+    "source_url": "https://www.instagram.com/p/DFU1J9yoMGq/",
+    "trick_no": 235
+  },
+  {
+    "name": "Lumbar Rotation Prep",
+    "difficulty": "Beginner",
+    "description": "A basic preparatory movement requiring coordination and lumbar-spine rotational flexibility, used as a prerequisite for harder variations.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DFdZFFjIPX8.mp4",
+    "source_url": "https://www.instagram.com/p/DFdZFFjIPX8/",
+    "trick_no": 236
+  },
+  {
+    "name": "Back Roll Leg-Cross",
+    "difficulty": "Intermediate",
+    "description": "A variation of the backward roll on the bars performed with the legs crossed.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DFm9UoUoAhj.mp4",
+    "source_url": "https://www.instagram.com/p/DFm9UoUoAhj/",
+    "trick_no": 237
+  },
+  {
+    "name": "Back Circle to Giant",
+    "difficulty": "Advanced",
+    "description": "A combination of a backward circle and a classic giant swing, requiring a tight hollow start and switching the hands over the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DFvFS0SornP.mp4",
+    "source_url": "https://www.instagram.com/p/DFvFS0SornP/",
+    "trick_no": 238
+  },
+  {
+    "name": "Split 540",
+    "difficulty": "Advanced",
+    "description": "A 540 performed as a 180 in one direction followed by a 360 in the other, from a bar swing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DF5SmkiIqla.mp4",
+    "source_url": "https://www.instagram.com/p/DF5SmkiIqla/",
+    "trick_no": 239
+  },
+  {
+    "name": "Under-Knees Jump with Extra Turn",
+    "difficulty": "Intermediate",
+    "description": "A jump to an under-the-knees hang with an added rotation, pushing off a foot placed on the bar and requiring balance.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DGBFwARo06G.mp4",
+    "source_url": "https://www.instagram.com/p/DGBFwARo06G/",
+    "trick_no": 240
+  },
+  {
+    "name": "Korean Roll-Over Transfer",
+    "difficulty": "Beginner",
+    "description": "A transfer derived from the Korean dip roll, rolling from one side to the other like turning over in bed.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DGMGsEPI7kd.mp4",
+    "source_url": "https://www.instagram.com/p/DGMGsEPI7kd/",
+    "trick_no": 241
+  },
+  {
+    "name": "Dip 225",
+    "difficulty": "Beginner",
+    "description": "A dip transfer rotating 225 degrees, technically between a Korean dip 180 and a dip 270.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DGS4UzLorsU.mp4",
+    "source_url": "https://www.instagram.com/p/DGS4UzLorsU/",
+    "trick_no": 242
+  },
+  {
+    "name": "Cork Zero Transfer",
+    "difficulty": "Advanced",
+    "description": "An off-axis cork rotation performed as a transfer between bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DGc68AuIoWY.mp4",
+    "source_url": "https://www.instagram.com/p/DGc68AuIoWY/",
+    "trick_no": 243
+  },
+  {
+    "name": "Taco Bar Transfer",
+    "difficulty": "Beginner",
+    "description": "A transfer to the opposite bar driven by a leg kick and pull, ending folded over the bar; a gentler relative of the shrimp flip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DGliUK2I8LN.mp4",
+    "source_url": "https://www.instagram.com/p/DGliUK2I8LN/",
+    "trick_no": 244
+  },
+  {
+    "name": "X-Grip Geinger",
+    "difficulty": "Advanced",
+    "description": "A geinger performed with an X (crossed) grip, staying straight through the swing to keep the crossed grip from twisting.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DGu2v6uIwCd.mp4",
+    "source_url": "https://www.instagram.com/p/DGu2v6uIwCd/",
+    "trick_no": 245
+  },
+  {
+    "name": "Parkour Mount",
+    "difficulty": "Intermediate",
+    "description": "A parkour-inspired mount onto the bar, jumping over the shoulder from an unusual hand placement that stays in contact with the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DG3doZPMb95.mp4",
+    "source_url": "https://www.instagram.com/p/DG3doZPMb95/",
+    "trick_no": 246
+  },
+  {
+    "name": "Giant to Leg-Assisted Geinger",
+    "difficulty": "Advanced",
+    "description": "A giant swing transitioning directly into a leg-assisted geinger, with precise placement of the leg on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DHBB-czIqwW.mp4",
+    "source_url": "https://www.instagram.com/p/DHBB-czIqwW/",
+    "trick_no": 247
+  },
+  {
+    "name": "Knee-Swing Transition",
+    "difficulty": "Beginner",
+    "description": "A transitional movement swinging on the knees, with frequent hand regrips.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DHJ9iL4ofpr.mp4",
+    "source_url": "https://www.instagram.com/p/DHJ9iL4ofpr/",
+    "trick_no": 248
+  },
+  {
+    "name": "270 Twist to Regrab",
+    "difficulty": "Intermediate",
+    "description": "A 270-degree twist to regrab performed while swinging on the knees, in a corner setup.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DHTA1GxobV3.mp4",
+    "source_url": "https://www.instagram.com/p/DHTA1GxobV3/",
+    "trick_no": 249
+  },
+  {
+    "name": "Follower-Requested Bar Trick",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #250 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DHbArhFoqvQ.mp4",
+    "source_url": "https://www.instagram.com/p/DHbArhFoqvQ/",
+    "trick_no": 250
+  },
+  {
+    "name": "Swing Gainer 180",
+    "difficulty": "Intermediate",
+    "description": "A dismount consisting of a swing gainer with an added 180-degree turn, distinct from a geinger.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DHmVD26oh-U.mp4",
+    "source_url": "https://www.instagram.com/p/DHmVD26oh-U/",
+    "trick_no": 251
+  },
+  {
+    "name": "Squat-Power P-Bar Trick",
+    "difficulty": "Intermediate",
+    "description": "A rare p-bar movement requiring squat strength, usable mainly as a combo opener.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DHtp7TIoFu3.mp4",
+    "source_url": "https://www.instagram.com/p/DHtp7TIoFu3/",
+    "trick_no": 252
+  },
+  {
+    "name": "Leg Circle to Catch",
+    "difficulty": "Intermediate",
+    "description": "A full leg circle around the bar while the torso stays in place, ending in a hanging catch.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DH4PKZzIsi5.mp4",
+    "source_url": "https://www.instagram.com/p/DH4PKZzIsi5/",
+    "trick_no": 253
+  },
+  {
+    "name": "Knee-Kip to Bar Top",
+    "difficulty": "Intermediate",
+    "description": "Using the knees on the front bar to generate momentum, then releasing and folding the legs through the arms to get on top of the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DH_ydEgouE1.mp4",
+    "source_url": "https://www.instagram.com/p/DH_ydEgouE1/",
+    "trick_no": 254
+  },
+  {
+    "name": "Spider Muscle-Up",
+    "difficulty": "Beginner",
+    "description": "A muscle-up variation using open-leg drive, sometimes referred to as a spider muscle-up.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DILvbsFo8a5.mp4",
+    "source_url": "https://www.instagram.com/p/DILvbsFo8a5/",
+    "trick_no": 255
+  },
+  {
+    "name": "P-Bar Creative Transition",
+    "difficulty": "Intermediate",
+    "description": "A creative transitional movement on the parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DIRkIUGI_Ig.mp4",
+    "source_url": "https://www.instagram.com/p/DIRkIUGI_Ig/",
+    "trick_no": 256
+  },
+  {
+    "name": "Cancel Geinger",
+    "difficulty": "Intermediate",
+    "description": "An off-axis inverted rotation resembling a reversed geinger, informally called a cancel geinger or upside-down 180.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DIcS-Hjo9B8.mp4",
+    "source_url": "https://www.instagram.com/p/DIcS-Hjo9B8/",
+    "trick_no": 257
+  },
+  {
+    "name": "One-Leg Spin Dismount",
+    "difficulty": "Intermediate",
+    "description": "A dismount off the end of the p-bars using one leg for takeoff and the other to drive the spin.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DIj5htOI1uH.mp4",
+    "source_url": "https://www.instagram.com/p/DIj5htOI1uH/",
+    "trick_no": 258
+  },
+  {
+    "name": "Prdelflip Stand-Up Variation",
+    "difficulty": "Intermediate",
+    "description": "A harder variation of the prdelflip (seat flip) used to arrive standing on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DIuVuOzI8sQ.mp4",
+    "source_url": "https://www.instagram.com/p/DIuVuOzI8sQ/",
+    "trick_no": 259
+  },
+  {
+    "name": "P-Bar Transfer",
+    "difficulty": "Beginner",
+    "description": "A simple, effective transfer between parallel bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DI1qAjcI7-t.mp4",
+    "source_url": "https://www.instagram.com/p/DI1qAjcI7-t/",
+    "trick_no": 260
+  },
+  {
+    "name": "Support Front-Roll Dismount",
+    "difficulty": "Beginner",
+    "description": "An easy dismount from a basic support, generating power with the arms as in a front roll before releasing the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJAUifkIIPg.mp4",
+    "source_url": "https://www.instagram.com/p/DJAUifkIIPg/",
+    "trick_no": 261
+  },
+  {
+    "name": "Elbow-Catch Transfer",
+    "difficulty": "Beginner",
+    "description": "A p-bar transfer using extra swing to reach and catch the second bar with the elbows.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJH53mpoYxa.mp4",
+    "source_url": "https://www.instagram.com/p/DJH53mpoYxa/",
+    "trick_no": 262
+  },
+  {
+    "name": "Korean Dip Roll Transfer",
+    "difficulty": "Beginner",
+    "description": "A basic Korean dip roll used to transfer across to a second bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJRHIcyo5G8.mp4",
+    "source_url": "https://www.instagram.com/p/DJRHIcyo5G8/",
+    "trick_no": 263
+  },
+  {
+    "name": "Creative Bar-Sit Transition",
+    "difficulty": "Beginner",
+    "description": "A creative transitional movement on the bars that ends seated on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJa4qVxIgE-.mp4",
+    "source_url": "https://www.instagram.com/p/DJa4qVxIgE-/",
+    "trick_no": 264
+  },
+  {
+    "name": "Supra 180 Transfer",
+    "difficulty": "Intermediate",
+    "description": "A supra 180 with an added 90-degree twist, turning the move into a transfer between bars.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJkJ-S6Ix80.mp4",
+    "source_url": "https://www.instagram.com/p/DJkJ-S6Ix80/",
+    "trick_no": 265
+  },
+  {
+    "name": "Easy 360 Leg-Swing Spin",
+    "difficulty": "Beginner",
+    "description": "The easiest 360 spin, started by swinging a leg over the bar and leaning forward to let momentum carry the rotation.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJr0LybIfZv.mp4",
+    "source_url": "https://www.instagram.com/p/DJr0LybIfZv/",
+    "trick_no": 266
+  },
+  {
+    "name": "Double 360 Mixed Grip",
+    "difficulty": "Advanced",
+    "description": "A double 360 with one rotation on each side, the first caught in a reversed mixed grip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJ1kyHwI-FX.mp4",
+    "source_url": "https://www.instagram.com/p/DJ1kyHwI-FX/",
+    "trick_no": 267
+  },
+  {
+    "name": "360 Seated Spin Variation",
+    "difficulty": "Beginner",
+    "description": "A 360-degree spin performed seated on the bars, caught with the legs still pointed out while the chest turns toward the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DJ9smM0oyK6.mp4",
+    "source_url": "https://www.instagram.com/p/DJ9smM0oyK6/",
+    "trick_no": 268
+  },
+  {
+    "name": "Forearm Front Handspring",
+    "difficulty": "Beginner",
+    "description": "A front handspring on parallel bars performed on the forearms instead of the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DKHGcZfovjj.mp4",
+    "source_url": "https://www.instagram.com/p/DKHGcZfovjj/",
+    "trick_no": 269
+  },
+  {
+    "name": "Bar-to-Bar Off-Axis Flip",
+    "difficulty": "Advanced",
+    "description": "An off-axis flip performed from one bar to another, tapping the target bar with the hand mid-rotation before catching.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DKQGDjsoTJk.mp4",
+    "source_url": "https://www.instagram.com/p/DKQGDjsoTJk/",
+    "trick_no": 270
+  },
+  {
+    "name": "Twisting Drop",
+    "difficulty": "Beginner",
+    "description": "A move that is essentially a controlled fall from the bar with a bit of twist, good for coordination.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DKaUYQJI910.mp4",
+    "source_url": "https://www.instagram.com/p/DKaUYQJI910/",
+    "trick_no": 271
+  },
+  {
+    "name": "Bar to Bar Transfer (#272)",
+    "difficulty": "Beginner",
+    "description": "A transfer move moving from one bar to another.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DKh_qrBo7TQ.mp4",
+    "source_url": "https://www.instagram.com/p/DKh_qrBo7TQ/",
+    "trick_no": 272
+  },
+  {
+    "name": "Korean Dip Roll Variation",
+    "difficulty": "Intermediate",
+    "description": "An innovated variation of the oldschool korean dip roll (trick #14).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DKsfWlNoxv6.mp4",
+    "source_url": "https://www.instagram.com/p/DKsfWlNoxv6/",
+    "trick_no": 273
+  },
+  {
+    "name": "Thigh-Support P-Bar Move",
+    "difficulty": "Intermediate",
+    "description": "A parallel-bar move staying above the right arm and using the thigh as support on the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DKzuUbHIiQe.mp4",
+    "source_url": "https://www.instagram.com/p/DKzuUbHIiQe/",
+    "trick_no": 274
+  },
+  {
+    "name": "Supra Frontflip Regrab To Side",
+    "difficulty": "Advanced",
+    "description": "A supra frontflip regrab variation catching the bar to the side instead of straight ahead.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DK9jrZ_oGgi.mp4",
+    "source_url": "https://www.instagram.com/p/DK9jrZ_oGgi/",
+    "trick_no": 275
+  },
+  {
+    "name": "Dragon 360 Swing 180 Mix",
+    "difficulty": "Intermediate",
+    "description": "A mix of a dragon 360 and a swing 180 done from a p-bar front roll, tucking the legs during the spin.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DLQV3yNI92k.mp4",
+    "source_url": "https://www.instagram.com/p/DLQV3yNI92k/",
+    "trick_no": 276
+  },
+  {
+    "name": "Kick Grab Release",
+    "difficulty": "Beginner",
+    "description": "A simple move kicking the legs up, grabbing them, and releasing moments later.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DLX_t6dopik.mp4",
+    "source_url": "https://www.instagram.com/p/DLX_t6dopik/",
+    "trick_no": 277
+  },
+  {
+    "name": "Lache 180 to Mixed Grip",
+    "difficulty": "Advanced",
+    "description": "A hard 180 move that can be built from a lache with a 180 to mixed grip, going progressively more upside down.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DLhszg5IEjQ.mp4",
+    "source_url": "https://www.instagram.com/p/DLhszg5IEjQ/",
+    "trick_no": 278
+  },
+  {
+    "name": "P-Bar Trick 274 With 90",
+    "difficulty": "Intermediate",
+    "description": "An easier variation of trick #274 with an added 90-degree spin, leaning on one parallel bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DLqD_hiojiP.mp4",
+    "source_url": "https://www.instagram.com/p/DLqD_hiojiP/",
+    "trick_no": 279
+  },
+  {
+    "name": "Leaping Frog Transfer",
+    "difficulty": "Intermediate",
+    "description": "A single-bar move turned into a bar-to-bar transfer resembling a leaping frog motion.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DLye4YwI61D.mp4",
+    "source_url": "https://www.instagram.com/p/DLye4YwI61D/",
+    "trick_no": 280
+  },
+  {
+    "name": "Fear-Factor Bar Landing",
+    "difficulty": "Intermediate",
+    "description": "A bar move rated mainly for its fear factor, requiring somewhat strong legs to endure the landing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DMFU1eGIuqm.mp4",
+    "source_url": "https://www.instagram.com/p/DMFU1eGIuqm/",
+    "trick_no": 281
+  },
+  {
+    "name": "Butt Spin 360",
+    "difficulty": "Advanced",
+    "description": "A parallel-bar move sitting on the butt (trick #30) taken to a full 360-degree spin.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DMOOzuRoLfX.mp4",
+    "source_url": "https://www.instagram.com/p/DMOOzuRoLfX/",
+    "trick_no": 282
+  },
+  {
+    "name": "Trick 261 With 180",
+    "difficulty": "Beginner",
+    "description": "A harder variation of trick #261 adding an extra 180 degrees of rotation.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DMYP-Ddz9Ol.mp4",
+    "source_url": "https://www.instagram.com/p/DMYP-Ddz9Ol/",
+    "trick_no": 283
+  },
+  {
+    "name": "Lean-In Bar Transition",
+    "difficulty": "Intermediate",
+    "description": "A bar transition where leaning further toward the bar makes it easier and more controlled.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DMf2Ncto4PA.mp4",
+    "source_url": "https://www.instagram.com/p/DMf2Ncto4PA/",
+    "trick_no": 284
+  },
+  {
+    "name": "Leg Hang Transfer Regrab",
+    "difficulty": "Intermediate",
+    "description": "A move relying on squeezing the legs to hang, whose second phase is trick #145 but regrabbing the starting bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DMtWxS8Ir6d.mp4",
+    "source_url": "https://www.instagram.com/p/DMtWxS8Ir6d/",
+    "trick_no": 285
+  },
+  {
+    "name": "Shrimp 180 Mixed Grip",
+    "difficulty": "Beginner",
+    "description": "An easier shrimp 180 variation started in a mixed grip so neither hand leaves the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DM7_ssgoRJE.mp4",
+    "source_url": "https://www.instagram.com/p/DM7_ssgoRJE/",
+    "trick_no": 286
+  },
+  {
+    "name": "Shrimp Zero",
+    "difficulty": "Intermediate",
+    "description": "A shrimp move doing a 180 in one direction and then 180 back to the original position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DNTIPk_oMXR.mp4",
+    "source_url": "https://www.instagram.com/p/DNTIPk_oMXR/",
+    "trick_no": 287
+  },
+  {
+    "name": "Progression One Bar Trick",
+    "difficulty": "Beginner",
+    "description": "The easiest of a three-trick progression series, leading toward tricks #279 and #274.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DNgYW5-IWxd.mp4",
+    "source_url": "https://www.instagram.com/p/DNgYW5-IWxd/",
+    "trick_no": 288
+  },
+  {
+    "name": "Straddle Bar Element",
+    "difficulty": "Beginner",
+    "description": "A straddle-leg variation of a static bar element on a wide bar, usable as an entry into a shrimp flip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DODUi81CPC2.mp4",
+    "source_url": "https://www.instagram.com/p/DODUi81CPC2/",
+    "trick_no": 289
+  },
+  {
+    "name": "No Swing 360",
+    "difficulty": "Intermediate",
+    "description": "A 360-degree turn around the bar performed without swing, also called a pull-up 360.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DOLmf_ZDEzE.mp4",
+    "source_url": "https://www.instagram.com/p/DOLmf_ZDEzE/",
+    "trick_no": 290
+  },
+  {
+    "name": "P-Bar Cheat Kip",
+    "difficulty": "Beginner",
+    "description": "A parallel-bar variation of the basic bar kip, using the bar width to kip up from a hang.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DOo6oK6CHMb.mp4",
+    "source_url": "https://www.instagram.com/p/DOo6oK6CHMb/",
+    "trick_no": 291
+  },
+  {
+    "name": "Reverse Giant Swing (#292)",
+    "difficulty": "Intermediate",
+    "description": "A giant-style swing around the bar performed in the opposite direction to a normal giant.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DPgl1W8CMhZ.mp4",
+    "source_url": "https://www.instagram.com/p/DPgl1W8CMhZ/",
+    "trick_no": 292
+  },
+  {
+    "name": "V-Vylet",
+    "difficulty": "Beginner",
+    "description": "An entry move where the body forms a V shape, serving as a prep for the shrimp flip and bar kip to L-sit.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DPl1Pe-CByV.mp4",
+    "source_url": "https://www.instagram.com/p/DPl1Pe-CByV/",
+    "trick_no": 293
+  },
+  {
+    "name": "Hands-Outside Legs-Between Spin",
+    "difficulty": "Beginner",
+    "description": "A bar move with hands on the outside and legs in between, spinning around the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DPxCLz3iLqU.mp4",
+    "source_url": "https://www.instagram.com/p/DPxCLz3iLqU/",
+    "trick_no": 294
+  },
+  {
+    "name": "Knee Dismount 180",
+    "difficulty": "Beginner",
+    "description": "A knee dismount from the bar with a 180-degree spin before landing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DQEHcfFCMOw.mp4",
+    "source_url": "https://www.instagram.com/p/DQEHcfFCMOw/",
+    "trick_no": 295
+  },
+  {
+    "name": "Giant 360 Twist",
+    "difficulty": "Advanced",
+    "description": "A giant swing around the bar with a 360-degree twist performed while still holding the bar, regripping to swing straight.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DQH0DSQCA45.mp4",
+    "source_url": "https://www.instagram.com/p/DQH0DSQCA45/",
+    "trick_no": 296
+  },
+  {
+    "name": "Beginner Bar Prep Step",
+    "difficulty": "Beginner",
+    "description": "A basic first-step foundational bar move leading toward tricks #261 and #283.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DQUaKNFiO2a.mp4",
+    "source_url": "https://www.instagram.com/p/DQUaKNFiO2a/",
+    "trick_no": 297
+  },
+  {
+    "name": "Freestyle Bar Trick 298",
+    "difficulty": "Intermediate",
+    "description": "Freestyle bar trick #298 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DQd44GZiLVd.mp4",
+    "source_url": "https://www.instagram.com/p/DQd44GZiLVd/",
+    "trick_no": 298
+  },
+  {
+    "name": "Straight-Body Hand Transfer",
+    "difficulty": "Intermediate",
+    "description": "A forward transfer between bars performed with a fully straightened swing, catching the front bar solely with the hands.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DQmBNIyCNvk.mp4",
+    "source_url": "https://www.instagram.com/p/DQmBNIyCNvk/",
+    "trick_no": 299
+  },
+  {
+    "name": "Backflip Regrab",
+    "difficulty": "Advanced",
+    "description": "A backflip released from the bar that is caught again on the same bar mid-rotation.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DQr2Rc8iBxk.mp4",
+    "source_url": "https://www.instagram.com/p/DQr2Rc8iBxk/",
+    "trick_no": 300
+  },
+  {
+    "name": "Knee Slip to Other Side",
+    "difficulty": "Beginner",
+    "description": "A move slipping from under the knees to transfer to the other side of the bar while staying up.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DRMBF6BCPa7.mp4",
+    "source_url": "https://www.instagram.com/p/DRMBF6BCPa7/",
+    "trick_no": 301
+  },
+  {
+    "name": "Flip Dismount Over Head",
+    "difficulty": "Advanced",
+    "description": "A hard flipping dismount that rotates over the head to a standing landing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DRSBK_wiBDG.mp4",
+    "source_url": "https://www.instagram.com/p/DRSBK_wiBDG/",
+    "trick_no": 302
+  },
+  {
+    "name": "Under-Rotated 180",
+    "difficulty": "Intermediate",
+    "description": "A follow-up to #292 that is under-rotated, adding an easy 180-degree turn to face the other direction.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DRfr3GcCCmQ.mp4",
+    "source_url": "https://www.instagram.com/p/DRfr3GcCCmQ/",
+    "trick_no": 303
+  },
+  {
+    "name": "Dislocate Grip Nalet",
+    "difficulty": "Intermediate",
+    "description": "A nalet (bar entry) move started from a dislocated grip, adding difficulty and discomfort to the basic version.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DRmOXYkiBqA.mp4",
+    "source_url": "https://www.instagram.com/p/DRmOXYkiBqA/",
+    "trick_no": 304
+  },
+  {
+    "name": "Backward Undergrip Semi-Giant",
+    "difficulty": "Intermediate",
+    "description": "A backward semi-giant swing around the bar performed in an undergrip.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DRuHdZwCDCY.mp4",
+    "source_url": "https://www.instagram.com/p/DRuHdZwCDCY/",
+    "trick_no": 305
+  },
+  {
+    "name": "P-Bar Kip",
+    "difficulty": "Beginner",
+    "description": "A bar kip performed on parallel bars, kicking the legs to clear the front bar and rise from a hang.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DSGMnPtCOKH.mp4",
+    "source_url": "https://www.instagram.com/p/DSGMnPtCOKH/",
+    "trick_no": 306
+  },
+  {
+    "name": "Off Axis Flip",
+    "difficulty": "Beginner",
+    "description": "The easiest off-axis flip on the bar, throwing the body off its rotational axis.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DSSzZUwCDei.mp4",
+    "source_url": "https://www.instagram.com/p/DSSzZUwCDei/",
+    "trick_no": 307
+  },
+  {
+    "name": "Feet-Over Bar Lean Back",
+    "difficulty": "Advanced",
+    "description": "A follow-up to #292 where the feet pass over the bar and the body immediately leans back into an inverted hang position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DSU-2nrCAAu.mp4",
+    "source_url": "https://www.instagram.com/p/DSU-2nrCAAu/",
+    "trick_no": 308
+  },
+  {
+    "name": "Freestyle Bar Prep Move",
+    "difficulty": "Beginner",
+    "description": "Freestyle bar trick #309 (see video).",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DSzynWOiFCk.mp4",
+    "source_url": "https://www.instagram.com/p/DSzynWOiFCk/",
+    "trick_no": 309
+  },
+  {
+    "name": "P-Bar to High Bar Transfer",
+    "difficulty": "Intermediate",
+    "description": "A transfer moving from parallel bars onto a regular high bar, based on trick #26 with a 90-degree turn.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DTBHoIKCNEm.mp4",
+    "source_url": "https://www.instagram.com/p/DTBHoIKCNEm/",
+    "trick_no": 310
+  },
+  {
+    "name": "Basic Bar Spin Entry",
+    "difficulty": "Beginner",
+    "description": "An easy foundational bar spin move that leads into harder variations such as #119.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DTlJ45tCMG5.mp4",
+    "source_url": "https://www.instagram.com/p/DTlJ45tCMG5/",
+    "trick_no": 311
+  },
+  {
+    "name": "Behind The Head Catch",
+    "difficulty": "Intermediate",
+    "description": "A release move caught behind the head on the bar, with an option to release sooner and land on the back.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DUCCklhCHNN.mp4",
+    "source_url": "https://www.instagram.com/p/DUCCklhCHNN/",
+    "trick_no": 312
+  },
+  {
+    "name": "Straddle Bar Spin",
+    "difficulty": "Beginner",
+    "description": "A variation of trick #167 spinning around the bar with the legs spread in a straddle position.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DUVYTnwCL2S.mp4",
+    "source_url": "https://www.instagram.com/p/DUVYTnwCL2S/",
+    "trick_no": 313
+  },
+  {
+    "name": "Dynamic P-Bar Transition",
+    "difficulty": "Intermediate",
+    "description": "A dynamic pushing transition on parallel bars, a harder version of trick #128.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DUqh50nCBzU.mp4",
+    "source_url": "https://www.instagram.com/p/DUqh50nCBzU/",
+    "trick_no": 314
+  },
+  {
+    "name": "Parallel Bar Leg-Over Swing",
+    "difficulty": "Beginner",
+    "description": "On high parallel bars, a swing that carries the legs over the farther bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DUxiSVOiMZt.mp4",
+    "source_url": "https://www.instagram.com/p/DUxiSVOiMZt/",
+    "trick_no": 315
+  },
+  {
+    "name": "One-Leg Knee Swing",
+    "difficulty": "Intermediate",
+    "description": "A single-leg knee-hang swing on the bar, hanging from one leg before swinging up.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DVJC0NfiH_9.mp4",
+    "source_url": "https://www.instagram.com/p/DVJC0NfiH_9/",
+    "trick_no": 316
+  },
+  {
+    "name": "Jump to Handstand Fail Trick",
+    "difficulty": "Intermediate",
+    "description": "A move invented from jumping toward a handstand push-up and intentionally falling over into a landing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DVgk8EhCClZ.mp4",
+    "source_url": "https://www.instagram.com/p/DVgk8EhCClZ/",
+    "trick_no": 317
+  },
+  {
+    "name": "Twisted Spin Out",
+    "difficulty": "Intermediate",
+    "description": "A move starting from an awkward twisted position on the bar, spinning out to a landing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DVtsAhRiL-e.mp4",
+    "source_url": "https://www.instagram.com/p/DVtsAhRiL-e/",
+    "trick_no": 318
+  },
+  {
+    "name": "Airtime Swing Catch",
+    "difficulty": "Beginner",
+    "description": "A release move with brief airtime that is caught again on the bar with a bit of swing.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DWH7OHdCPH-.mp4",
+    "source_url": "https://www.instagram.com/p/DWH7OHdCPH-/",
+    "trick_no": 319
+  },
+  {
+    "name": "Dislocate Grip Hybrid",
+    "difficulty": "Intermediate",
+    "description": "A dislocated-grip bar move combining elements of two prior tricks, requiring shoulder flexibility.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DWXUKmrCMmg.mp4",
+    "source_url": "https://www.instagram.com/p/DWXUKmrCMmg/",
+    "trick_no": 320
+  },
+  {
+    "name": "Off Axis Swing Gainer to Feet",
+    "difficulty": "Intermediate",
+    "description": "An off-axis swinging gainer flip from the bar that rotates and lands on the feet.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DXFuh90iBN7.mp4",
+    "source_url": "https://www.instagram.com/p/DXFuh90iBN7/",
+    "trick_no": 321
+  },
+  {
+    "name": "Compression Leg Pass Through",
+    "difficulty": "Intermediate",
+    "description": "A forward-falling move requiring strong compression to shove the legs through between the arms and the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DYWeUzeoOJW.mp4",
+    "source_url": "https://www.instagram.com/p/DYWeUzeoOJW/",
+    "trick_no": 322
+  },
+  {
+    "name": "Swing 180 Release Regrab",
+    "difficulty": "Beginner",
+    "description": "A swinging release into a 180-degree turn, clapping in the air and regrabbing the bar.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DZOC0LRIO_w.mp4",
+    "source_url": "https://www.instagram.com/p/DZOC0LRIO_w/",
+    "trick_no": 323
+  },
+  {
+    "name": "High Bar Speedstep Release",
+    "difficulty": "Intermediate",
+    "description": "From a speedstep position atop the high bar, the athlete releases and clears the bar to catch it again below.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DZb_i6YoKaZ.mp4",
+    "source_url": "https://www.instagram.com/p/DZb_i6YoKaZ/",
+    "trick_no": 324
+  },
+  {
+    "name": "Overhand Backflip Dismount",
+    "difficulty": "Intermediate",
+    "description": "A dismount from the bar performed by flipping backward over the head in an overhand grip and releasing to land on the feet.",
+    "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/DaBYffco24k.mp4",
+    "source_url": "https://www.instagram.com/p/DaBYffco24k/",
+    "trick_no": 325
+  }
+]

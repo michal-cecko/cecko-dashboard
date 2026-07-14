@@ -21,6 +21,8 @@ class Exercise extends Model
         'primary_muscles',
         'secondary_muscles',
         'video_url',
+        'description',
+        'source_url',
         'cues',
         'mistakes',
     ];
