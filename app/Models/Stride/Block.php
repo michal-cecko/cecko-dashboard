@@ -25,6 +25,7 @@ class Block extends Model
         'accent',
         'stats',
         'sort',
+        'brief',
     ];
 
     protected function casts(): array
@@ -36,6 +37,7 @@ class Block extends Model
             'ends_on' => 'date',
             'stats' => 'array',
             'sort' => 'integer',
+            'brief' => 'array',
         ];
     }
 

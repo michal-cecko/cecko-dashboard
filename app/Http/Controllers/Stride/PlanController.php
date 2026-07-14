@@ -127,9 +127,12 @@ class PlanController extends Controller
             'option.weeks' => ['nullable', 'integer', 'between:1,16'],
             'option.days_per_week' => ['nullable', 'integer', 'between:1,7'],
             'start_date' => ['nullable', 'date', 'after_or_equal:today'],
+            // Optional free-text the athlete added right before generating; stored
+            // in the block brief and fed to the coach as extra context.
+            'note' => ['nullable', 'string', 'max:1000'],
         ]);
 
-        $block = $planner->generate($request->user(), $data['option'], $data['start_date'] ?? null);
+        $block = $planner->generate($request->user(), $data['option'], $data['start_date'] ?? null, $data['note'] ?? null);
 
         // ai_degraded = the AI couldn't build (part of) the plan, so it's a
         // deterministic starter. The app surfaces this instead of silently
@@ -203,6 +206,11 @@ class PlanController extends Controller
             'accent' => $block->accent,
             'stats' => $block->stats,
             'sessions_count' => $block->sessions_count ?? $block->sessions()->count(),
+            // Chronological key for history (sort is always 0, starts_on can be future).
+            'created_at' => $block->created_at?->toIso8601String(),
+            // What the athlete asked for when this plan was generated (may be null
+            // for older/hand-built blocks).
+            'brief' => $block->brief,
         ];
     }
 }

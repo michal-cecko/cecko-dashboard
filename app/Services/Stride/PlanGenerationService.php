@@ -358,7 +358,7 @@ class PlanGenerationService
     }
 
     /** Generate + persist the concrete week-1 plan for the chosen option. */
-    public function generate(User $user, array $option, ?string $startDate = null): Block
+    public function generate(User $user, array $option, ?string $startDate = null, ?string $note = null): Block
     {
         $this->degraded = false;
         $this->costUsd = 0.0;
@@ -366,6 +366,16 @@ class PlanGenerationService
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         $option = $this->sanitizeOption($option)
             ?? $this->fallbackOptions((int) ($profile->preferences['days_per_week'] ?? 3))[0];
+
+        // Per-generation free-text: fold into the notes the session prompt reads
+        // (in-memory only — NOT persisted to the profile), so it shapes this plan
+        // without permanently changing the athlete's saved notes.
+        $note = trim((string) $note);
+        if ($note !== '') {
+            $prefs = $profile->preferences ?? [];
+            $prefs['notes'] = trim(($prefs['notes'] ?? '')."\n\n".$note);
+            $profile->preferences = $prefs;
+        }
 
         $catalog = $this->catalog($user);
         $kinds = $this->splitKinds($option['split'], $option['days_per_week']);
@@ -390,7 +400,20 @@ class PlanGenerationService
             $start = Carbon::today();
         }
 
-        return $this->persist($user, $option, $plan, $start);
+        // Snapshot what the athlete asked for (shown on the plan; a full history).
+        $costUsd = $this->lastCostUsd();
+        $brief = [
+            'option' => ['name' => $option['name'], 'split' => $option['split'], 'phase' => $option['phase'] ?? null, 'weeks' => $option['weeks'] ?? null, 'days_per_week' => $option['days_per_week'] ?? null],
+            'goals' => Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->take(8)->values()->all(),
+            'note' => $note !== '' ? $note : null,
+            'model' => (string) config('stride.coach.generate_model'),
+            'degraded' => $this->degraded,
+            'generated_at' => now()->toIso8601String(),
+            'cost_usd' => $costUsd,
+            'cost_eur' => round($costUsd * (float) config('stride.coach.eur_per_usd', 0.92), 6),
+        ];
+
+        return $this->persist($user, $option, $plan, $start, $brief);
     }
 
     // ── recommend helpers ────────────────────────────────────────────────────
@@ -790,11 +813,16 @@ class PlanGenerationService
         }
     }
 
-    private function persist(User $user, array $option, array $plan, ?Carbon $start = null): Block
+    private function persist(User $user, array $option, array $plan, ?Carbon $start = null, ?array $brief = null): Block
     {
         $today = Carbon::today();
         $start = ($start ?? $today)->copy()->startOfDay();
         $blockMeta = $plan['block'] ?? [];
+
+        // One active plan at a time: retire any current active block to history
+        // (kept, not deleted) so the new plan is THE active one and the rest browse
+        // as past plans.
+        Block::ownedBy($user)->active()->update(['status' => 'done']);
 
         $block = Block::create([
             'user_id' => $user->id,
@@ -809,6 +837,7 @@ class PlanGenerationService
             'accent' => self::ACCENT,
             'stats' => [],
             'sort' => 0,
+            'brief' => $brief,
         ]);
 
         $count = count($plan['sessions']);

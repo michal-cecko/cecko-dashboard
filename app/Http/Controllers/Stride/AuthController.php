@@ -93,6 +93,13 @@ class AuthController extends Controller
                 'language' => $profile->preferences['language'] ?? 'en',
                 'gender' => $profile->preferences['gender'] ?? null,
                 'birth_year' => $profile->preferences['birth_year'] ?? null,
+                // Setup / training preferences — so the app can show & edit them
+                // after onboarding (previously stored but never returned).
+                'years_training' => $profile->preferences['years_training'] ?? null,
+                'training_style' => $profile->preferences['training_style'] ?? [],
+                'days_per_week' => $profile->preferences['days_per_week'] ?? null,
+                'bio' => $profile->preferences['bio'] ?? null,
+                'notes' => $profile->preferences['notes'] ?? null,
                 'age' => ! empty($profile->preferences['birth_year'])
                     ? max(0, now()->year - (int) $profile->preferences['birth_year'])
                     : null,
