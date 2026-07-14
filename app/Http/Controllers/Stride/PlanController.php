@@ -131,7 +131,14 @@ class PlanController extends Controller
 
         $block = $planner->generate($request->user(), $data['option'], $data['start_date'] ?? null);
 
-        return response()->json(['block_id' => $block->id, 'name' => $block->name], 201);
+        // ai_degraded = the AI couldn't build (part of) the plan, so it's a
+        // deterministic starter. The app surfaces this instead of silently
+        // presenting a generic plan as an AI-tailored one.
+        return response()->json([
+            'block_id' => $block->id,
+            'name' => $block->name,
+            'ai_degraded' => $planner->wasDegraded(),
+        ], 201);
     }
 
     public function index(Request $request): JsonResponse

@@ -31,10 +31,19 @@ class PlanGenerationService
 {
     private const ACCENT = '#FF4D1F';
 
+    /** True when the last generate() had to fall back to a deterministic session. */
+    private bool $degraded = false;
+
     public function __construct(
         private readonly CoachProvider $provider,
         private readonly TrainingMemoryBuilder $memory,
     ) {}
+
+    /** Whether the most recent generate() degraded any session to the rule-based builder. */
+    public function wasDegraded(): bool
+    {
+        return $this->degraded;
+    }
 
     /**
      * Propose 2–3 plan options for the user to choose from (this is where the
@@ -263,6 +272,8 @@ class PlanGenerationService
     /** Generate + persist the concrete week-1 plan for the chosen option. */
     public function generate(User $user, array $option, ?string $startDate = null): Block
     {
+        $this->degraded = false;
+
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         $option = $this->sanitizeOption($option)
             ?? $this->fallbackOptions((int) ($profile->preferences['days_per_week'] ?? 3))[0];
@@ -407,8 +418,16 @@ class PlanGenerationService
     {
         $names = $this->namesForKind($kind, $catalog);
 
-        return $this->askForSession($user, $profile, $option, $kind, $names)
-            ?? $this->deterministicSession($kind, $names, $catalog);
+        $session = $this->askForSession($user, $profile, $option, $kind, $names);
+        if ($session !== null) {
+            return $session;
+        }
+
+        // The AI couldn't produce this session — record that the plan is degraded
+        // so the caller can tell the user it's a deterministic starter (not silent).
+        $this->degraded = true;
+
+        return $this->deterministicSession($kind, $names, $catalog);
     }
 
     /**
@@ -445,6 +464,11 @@ class PlanGenerationService
                 }
             } catch (Throwable $e) {
                 report($e);
+                // Brief backoff before the retry — transient provider errors
+                // (429 / 5xx / timeout) usually clear within a moment.
+                if ($attempt === 0) {
+                    usleep(400_000);
+                }
             }
         }
 

@@ -88,6 +88,10 @@ return [
     'pricing' => [
         'claude-haiku-4-5' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
         'claude-sonnet-4-6' => ['input' => 3.00, 'output' => 15.00, 'cache_write' => 3.75, 'cache_read' => 0.30],
+        // Gemini output rates include thinking tokens (3.x are reasoning models);
+        // cache_read ≈ 25% of input (implicit caching). Verify against current prices.
+        'gemini-3.5-flash' => ['input' => 1.50, 'output' => 9.00, 'cache_write' => 1.50, 'cache_read' => 0.375],
+        'gemini-3.1-pro' => ['input' => 2.00, 'output' => 12.00, 'cache_write' => 2.00, 'cache_read' => 0.50],
         'gemini-2.5-flash' => ['input' => 0.30, 'output' => 2.50, 'cache_write' => 0.30, 'cache_read' => 0.075],
         'gemini-2.5-pro' => ['input' => 1.25, 'output' => 10.00, 'cache_write' => 1.25, 'cache_read' => 0.31],
         'default' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
