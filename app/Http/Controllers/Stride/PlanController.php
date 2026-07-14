@@ -52,10 +52,14 @@ class PlanController extends Controller
             'option.summary' => ['nullable', 'string', 'max:500'],
             'option.weeks' => ['nullable', 'integer', 'between:1,16'],
             'option.days_per_week' => ['nullable', 'integer', 'between:1,7'],
+            // Labels already asked/answered in earlier rounds (so the coach never
+            // repeats and can decide it has enough → empty questions → generate).
+            'answered' => ['nullable', 'array'],
+            'answered.*' => ['string', 'max:300'],
         ]);
 
         return response()->json([
-            'questions' => $planner->questions($request->user(), $data['option']),
+            'questions' => $planner->questions($request->user(), $data['option'], $data['answered'] ?? []),
         ]);
     }
 

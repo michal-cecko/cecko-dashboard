@@ -273,16 +273,27 @@ class StridePlanGenerationTest extends TestCase
         $this->assertSame('load', $wpu['metric_type']); // "weighted" overrides the bodyweight reps type
     }
 
-    public function test_questions_falls_back_when_model_returns_garbage(): void
+    public function test_questions_are_skipped_when_model_output_is_unusable(): void
     {
         $this->provider->push(FakeCoachProvider::text('I cannot do that.'));
 
         $option = ['name' => 'Anything', 'split' => 'Full body'];
         $res = $this->postJson('/api/stride/plan/questions', ['option' => $option], $this->auth)->assertOk();
 
-        // A useful default set so the step is still worth showing.
-        $this->assertNotEmpty($res->json('questions'));
-        $this->assertSame('text', $res->json('questions.0.type'));
+        // Questions are optional: unusable AI output means "no questions" (go
+        // straight to generation) — never invent a forced fallback set.
+        $this->assertSame([], $res->json('questions'));
+    }
+
+    public function test_questions_can_be_empty_when_coach_needs_nothing(): void
+    {
+        $this->provider->push(FakeCoachProvider::text('[]'));
+
+        $option = ['name' => 'Anything', 'split' => 'Full body'];
+        $res = $this->postJson('/api/stride/plan/questions', ['option' => $option], $this->auth)->assertOk();
+
+        // An explicit empty array from the coach is honoured — it decided it has enough.
+        $this->assertSame([], $res->json('questions'));
     }
 
     public function test_answers_persist_prs_and_facts(): void

@@ -167,7 +167,15 @@ class PlanGenerationService
      *
      * @return array<int, array{key:string,type:string,label:string,metric_type?:string,hint?:string}>
      */
-    public function questions(User $user, array $option): array
+    /**
+     * Clarifying questions — AI-driven and OPTIONAL. The coach asks a round ONLY
+     * when it genuinely needs more info; an empty array means "I have enough, go
+     * ahead and generate". $answered carries labels already asked/answered in
+     * prior rounds so it never repeats (the caller loops until [] or a round cap).
+     *
+     * @param  array<int, string>  $answered
+     */
+    public function questions(User $user, array $option, array $answered = []): array
     {
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         // Longest names first so "Barbell Bench Press" wins over a shorter alias.
@@ -179,8 +187,8 @@ class PlanGenerationService
         try {
             $turn = new CoachTurn(
                 model: (string) config('stride.coach.generate_model'),
-                systemBlocks: [['text' => 'You are a coach gathering the few missing facts needed to program accurately. Output ONLY a JSON array — no prose, no markdown. Write every question label/hint in '.$this->languageName($lang).'.', 'cache' => false]],
-                messages: [['role' => 'user', 'content' => $this->questionsPrompt($user, $profile, $this->sanitizeOption($option) ?? [], $onFile)]],
+                systemBlocks: [['text' => 'You are a coach deciding whether you still need any facts to program accurately. Ask nothing unless you truly need it. Output ONLY a JSON array (may be empty) — no prose, no markdown. Write every question label/hint in '.$this->languageName($lang).'.', 'cache' => false]],
+                messages: [['role' => 'user', 'content' => $this->questionsPrompt($user, $profile, $this->sanitizeOption($option) ?? [], $onFile, $answered)]],
                 maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
                 purpose: 'generate_plan',
                 timeoutSeconds: (int) config('stride.coach.generate_timeout', 180),
@@ -188,10 +196,9 @@ class PlanGenerationService
 
             $text = $this->chatLogged($user, $turn)->text;
             $decoded = $this->decodeJson($text);
-            // A valid (non-empty) array is authoritative — we classify + dedupe it
-            // ourselves. It may sanitise down to [] if every PR was already on file,
-            // which simply skips the step. Only an unparseable reply hits the fallback.
-            if (is_array($decoded) && $decoded !== []) {
+            // A valid ARRAY is authoritative — even an empty one (the coach is
+            // satisfied → no questions, generate directly). Never force questions.
+            if (is_array($decoded)) {
                 return $this->sanitizeQuestions($decoded, $catalog, $onFile);
             }
             $this->logDegradation('questions', $text);
@@ -199,24 +206,31 @@ class PlanGenerationService
             report($e);
         }
 
-        return $this->fallbackQuestions($lang);
+        // AI unusable → don't invent questions; go straight to generation.
+        return [];
     }
 
-    private function questionsPrompt(User $user, StrideProfile $profile, array $option, Collection $onFile): string
+    private function questionsPrompt(User $user, StrideProfile $profile, array $option, Collection $onFile, array $answered = []): string
     {
         $goals = Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->take(8)->implode('; ') ?: 'general fitness';
         $havePrs = $onFile->pluck('label')->filter()->take(20)->implode('; ') ?: 'none';
         $name = $option['name'] ?? 'their plan';
+        $answeredLine = $answered !== []
+            ? 'ALREADY ASKED & ANSWERED — never repeat these: '.implode(' | ', array_map(fn ($a) => (string) $a, array_slice($answered, 0, 20))).'.'
+            : '';
 
         return <<<TXT
         The athlete is about to generate "{$name}". Goals: {$goals}.
         ALREADY LOGGED — assume known, NEVER ask about these exercises: {$havePrs}.
-        Ask 3–6 short questions to program accurately: a "pr" question for each current-level number the
-        goals imply that is NOT already logged, plus 1–2 general "text" questions (equipment, time/space).
+        {$answeredLine}
+        Ask a clarifying question ONLY when you genuinely need the answer to program accurately (e.g. a
+        current-level number a goal implies that isn't logged, or a real constraint). If the profile,
+        goals and logged PRs already give you enough, ask NOTHING. Do NOT ask filler questions and do
+        NOT ask for the sake of asking — an empty array is a perfectly good answer. At most 5 questions.
         RULES: any question asking for a weight, time, distance, calories or rep count MUST be type "pr"
         with a metric_type. Use "text" ONLY for non-numeric answers (equipment, schedule, yes/no). Never
-        ask about an already-logged exercise.
-        Return ONLY a JSON array; each item:
+        ask about an already-logged or already-answered topic.
+        Return ONLY a JSON array (possibly empty []); each item:
         {"key":"slug","type":"pr","label":"short question","pr_label":"exercise name e.g. Back Squat","metric_type":"load|reps|hold|run|sprint|machine","hint":"why (optional)"}
         or {"key":"slug","type":"text","label":"short question","hint":"optional"}
         TXT;
