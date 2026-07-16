@@ -77,45 +77,113 @@ class AstraServiceHistorySeeder extends Seeder
     }
 
     /**
-     * Ročné servisné prehliadky prepísané zo servisnej knižky (pečiatky autorizovaných servisov).
+     * Ročné servisné prehliadky — rozsah úkonov nadiktovaný majiteľom zo servisnej knižky (07/2026).
+     * Olej 5W-30 dexos1 + olejový filter sa menili na každom servise; každý ďalší úkon má vlastný
+     * záznam vo svojej kategórii, aby sa dali sledovať intervaly per úkon.
      */
     private function seedServiceRecords(Vehicle $vehicle): void
     {
         $mah = 'M a H Trenčín, s.r.o. (Panónska cesta 43, Bratislava)';
         $becchi = 'Auto Becchi, s.r.o. (Pri Celulózke 3631, Žilina)';
 
-        $records = [
-            ['2017-07-21', 14_580, $mah, 'Prvá ročná servisná prehliadka — výmena motorového oleja 5W-30 (dexos1) a olejového filtra, kontrola vozidla.', null],
-            ['2018-07-18', 31_615, $mah, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', null],
-            ['2019-07-29', 49_800, $mah, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', 'Pridané palivové aditívum.'],
-            ['2020-07-31', 64_118, $mah, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', null],
-            ['2021-08-02', 77_224, $mah, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', 'Pridané palivové aditívum.'],
-            ['2022-07-25', 92_506, $mah, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, výmena peľového filtra, kontrola podľa servisného plánu.', 'Pridané palivové aditívum.'],
-            ['2023-08-08', 107_891, $mah, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', null],
-            ['2024-07-29', 118_575, $becchi, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', 'Nemrznúca ochrana chladiacej kvapaliny nameraná na −40 °C.'],
-            ['2025-08-11', 128_117, $becchi, 'Ročný servis — výmena motorového oleja 5W-30 a olejového filtra, kontrola podľa servisného plánu.', 'Nemrznúca ochrana chladiacej kvapaliny nameraná na −38 °C.'],
+        $oil = fn (?string $notes = null): array => [
+            ServiceCategoryEnum::OIL_CHANGE,
+            'Výmena motorového oleja 5W-30 (dexos1) a olejového filtra.',
+            [['name' => 'Motorový olej 5W-30 (dexos1)', 'quantity' => '4.0 l'], ['name' => 'Olejový filter', 'quantity' => '1 ks']],
+            $notes,
+        ];
+        $cabinFilter = fn (?string $notes = null): array => [
+            ServiceCategoryEnum::CABIN_FILTER,
+            'Výmena peľového filtra.',
+            [['name' => 'Peľový filter', 'quantity' => '1 ks']],
+            $notes,
+        ];
+        $airFilter = [
+            ServiceCategoryEnum::AIR_FILTER,
+            'Výmena vzduchového filtra.',
+            [['name' => 'Vzduchový filter', 'quantity' => '1 ks']],
+            null,
+        ];
+        $brakeFluid = [
+            ServiceCategoryEnum::BRAKES,
+            'Výmena brzdovej kvapaliny.',
+            [['name' => 'Brzdová kvapalina DOT4', 'quantity' => '1 l']],
+            null,
+        ];
+        $sparkPlugs = [
+            ServiceCategoryEnum::SPARK_PLUGS,
+            'Výmena zapaľovacích sviečok.',
+            [['name' => 'Zapaľovacie sviečky', 'quantity' => '4 ks']],
+            null,
         ];
 
-        foreach ($records as [$performedAt, $mileageKm, $shopName, $workSummary, $notes]) {
-            ServiceRecord::query()->updateOrCreate(
+        $visits = [
+            ['2017-07-21', 14_580, $mah, [$oil('Prvá servisná prehliadka.')]],
+            ['2018-07-18', 31_615, $mah, [$oil(), $cabinFilter()]],
+            ['2019-07-29', 49_800, $mah, [$oil()]],
+            ['2020-07-31', 64_118, $mah, [$oil(), $cabinFilter(), $airFilter, $brakeFluid, $sparkPlugs]],
+            ['2021-08-02', 77_224, $mah, [$oil()]],
+            ['2022-07-25', 92_506, $mah, [$oil(), $cabinFilter('Vykonaná dezinfekcia klimatizácie.')]],
+            ['2023-08-08', 107_811, $mah, [$oil()]],
+            ['2024-07-29', 118_575, $becchi, [
+                $oil('Nemrznúca ochrana chladiacej kvapaliny nameraná na −40 °C.'),
+                $cabinFilter(),
+                $airFilter,
                 [
-                    'vehicle_id' => $vehicle->id,
-                    'performed_at' => $performedAt,
-                ],
-                [
-                    'mileage_km' => $mileageKm,
-                    'category' => ServiceCategoryEnum::OIL_CHANGE,
-                    'source' => ServiceSourceEnum::SHOP,
-                    'shop_name' => $shopName,
-                    'work_summary' => $workSummary,
-                    'parts' => [
-                        ['name' => 'Motorový olej 5W-30 (dexos1)', 'quantity' => '4.0 l'],
-                        ['name' => 'Olejový filter', 'quantity' => '1 ks'],
+                    ServiceCategoryEnum::BRAKES,
+                    'Výmena brzdovej kvapaliny a predných aj zadných brzdových doštičiek.',
+                    [
+                        ['name' => 'Brzdová kvapalina DOT4', 'quantity' => '1 l'],
+                        ['name' => 'Predné brzdové doštičky', 'quantity' => '1 sada'],
+                        ['name' => 'Zadné brzdové doštičky', 'quantity' => '1 sada'],
                     ],
-                    'notes' => $notes,
-                ]
-            );
+                    null,
+                ],
+                $sparkPlugs,
+            ]],
+            ['2025-08-11', 128_117, $becchi, [$oil('Nemrznúca ochrana chladiacej kvapaliny nameraná na −38 °C.')]],
+        ];
+
+        foreach ($visits as [$performedAt, $mileageKm, $shopName, $items]) {
+            foreach ($items as [$category, $workSummary, $parts, $notes]) {
+                ServiceRecord::query()->updateOrCreate(
+                    [
+                        'vehicle_id' => $vehicle->id,
+                        'performed_at' => $performedAt,
+                        'category' => $category,
+                    ],
+                    [
+                        'mileage_km' => $mileageKm,
+                        'source' => ServiceSourceEnum::SHOP,
+                        'shop_name' => $shopName,
+                        'work_summary' => $workSummary,
+                        'parts' => $parts,
+                        'notes' => $notes,
+                    ]
+                );
+            }
+
+            $this->normalizeOdometerReading($vehicle, $performedAt, $mileageKm);
         }
+    }
+
+    /**
+     * Hook na ServiceRecord vytvára odometer záznam pri každom create — pri viacerých
+     * záznamoch z jednej návštevy nechá len jeden na dátum a zosúladí kilometre.
+     */
+    private function normalizeOdometerReading(Vehicle $vehicle, string $performedAt, int $mileageKm): void
+    {
+        $readings = $vehicle->odometerReadings()
+            ->where('recorded_at', $performedAt)
+            ->orderBy('id')
+            ->get();
+
+        $readings->skip(1)->each->delete();
+
+        $readings->first()?->update([
+            'reading_km' => $mileageKm,
+            'notes' => 'Auto z ročného servisu.',
+        ]);
     }
 
     /**
@@ -144,13 +212,13 @@ class AstraServiceHistorySeeder extends Seeder
             ],
             [
                 'title' => 'Peľový filter: MANN CUK 24 003 (aktívne uhlie), DIY za kastlíkom',
-                'body' => "Rozmer 240×204×31 mm, za kastlíkom spolujazdca. OEM GM 13356914/13356916, MANN CUK 24 003 (aktívne uhlie, ~27 €), Mahle LA 1123 / LAK 1123 s uhlím (~10-15 €), lacnejšie ekvivalenty 8-10 €. DIY 15-30 min: odskrutkovať bočný panel (~5 skrutiek 7 mm), sklopiť kastlík, vymeniť. Odporúčanie: meniť každý rok (oficiálne 2 roky / 60 000 km). Podľa servisnej knižky menený naposledy 07/2022!\n\nZdroje: mann-filter.com (CUK 24 003), astrakforums.co.uk/threads/pollen-filter-removal.2873",
+                'body' => "Rozmer 240×204×31 mm, za kastlíkom spolujazdca. OEM GM 13356914/13356916, MANN CUK 24 003 (aktívne uhlie, ~27 €), Mahle LA 1123 / LAK 1123 s uhlím (~10-15 €), lacnejšie ekvivalenty 8-10 €. DIY 15-30 min: odskrutkovať bočný panel (~5 skrutiek 7 mm), sklopiť kastlík, vymeniť. Odporúčanie: meniť každý rok (oficiálne 2 roky / 60 000 km). Podľa servisnej knižky menený naposledy 07/2024 → v lete 2026 je presne na 2-ročnom intervale.\n\nZdroje: mann-filter.com (CUK 24 003), astrakforums.co.uk/threads/pollen-filter-removal.2873",
                 'source_url' => 'https://www.mann-filter.com/en/catalog/international/search-results/product.html/cuk24003_mann-filter.html',
                 'tags' => ['filtre', 'diely', 'diy'],
             ],
             [
                 'title' => 'Zapaľovacie sviečky: NGK ILNAR8B7G (91970), 60 000 km / 4 roky',
-                'body' => "OEM GM 55490097 = NGK ILNAR8B7G Laser Iridium (stock 91970), ACDelco 41-156. Žiadny overený Denso/Bosch ekvivalent neexistuje — držať sa NGK/GM. M12×1.25, kľúč 14 mm (tenkostenná hlavica), moment ~20 Nm, irídiové sviečky sa NEPREGAPUJÚ (z výroby 0,7 mm). Sada 4 ks ~80-92 € (Autodoc). Interval 60 000 km / 4 roky. V servisnej knižke nie je jednoznačný záznam o výmene — pri ~138 000 km pravdepodobne po intervale, over podľa faktúr alebo rovno vymeň (DIY ~1 h: kryt motora dole, 4 cievky po 1 skrutke 10 mm).\n\nZdroje: gsparkplug.com, astrakforums.co.uk/threads/how-to-guide-spark-plugs-astra-k-2017-1-4t.6904, autodoc.de",
+                'body' => "OEM GM 55490097 = NGK ILNAR8B7G Laser Iridium (stock 91970), ACDelco 41-156. Žiadny overený Denso/Bosch ekvivalent neexistuje — držať sa NGK/GM. M12×1.25, kľúč 14 mm (tenkostenná hlavica), moment ~20 Nm, irídiové sviečky sa NEPREGAPUJÚ (z výroby 0,7 mm). Sada 4 ks ~80-92 € (Autodoc). Interval 60 000 km / 4 roky. Podľa servisnej knižky menené 07/2020 (64 118 km) a 07/2024 (118 575 km) → ďalšia výmena ~07/2028 alebo ~178 000 km. DIY ~1 h: kryt motora dole, 4 cievky po 1 skrutke 10 mm.\n\nZdroje: gsparkplug.com, astrakforums.co.uk/threads/how-to-guide-spark-plugs-astra-k-2017-1-4t.6904, autodoc.de",
                 'source_url' => 'https://www.astrakforums.co.uk/threads/how-to-guide-spark-plugs-astra-k-2017-1-4t.6904/',
                 'tags' => ['sviecky', 'diely', 'diy'],
             ],
@@ -186,7 +254,7 @@ class AstraServiceHistorySeeder extends Seeder
             ],
             [
                 'title' => 'Brzdová kvapalina DOT4 každé 2 roky — radšej servis než DIY',
-                'body' => "Interval: každé 2 roky bez ohľadu na km. V SK servisoch 30-50 € (AutoČiernik od ~30 €, BestDrive balíček). DIY sa neoplatí: treba tlakovú odvzdušňovačku alebo druhú osobu, správne poradie a chyba (vzduch v ABS) je bezpečnostný problém — úspora pár eur. Podľa servisnej knižky nie je jasný posledný dátum výmeny → ak nebola v 2024/2025, spraviť tento rok spolu s ročným servisom.\n\nZdroje: garage.wiki (Astra K intervaly), autociernik.sk/cennik, bestdrive.sk",
+                'body' => "Interval: každé 2 roky bez ohľadu na km. V SK servisoch 30-50 € (AutoČiernik od ~30 €, BestDrive balíček). DIY sa neoplatí: treba tlakovú odvzdušňovačku alebo druhú osobu, správne poradie a chyba (vzduch v ABS) je bezpečnostný problém — úspora pár eur. Podľa servisnej knižky menená 07/2020 a naposledy 07/2024 (spolu s doštičkami) → ďalšia výmena je na rade v lete 2026 (2-ročný interval).\n\nZdroje: garage.wiki (Astra K intervaly), autociernik.sk/cennik, bestdrive.sk",
                 'source_url' => 'https://garage.wiki/opel/astra-sports-tourer/k/2016/service-intervals.html',
                 'tags' => ['brzdy', 'interval'],
             ],

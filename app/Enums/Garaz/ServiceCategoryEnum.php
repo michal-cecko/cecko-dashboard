@@ -13,6 +13,7 @@ enum ServiceCategoryEnum: string
     case AIR_FILTER = 'air_filter';
     case CABIN_FILTER = 'cabin_filter';
     case FUEL_FILTER = 'fuel_filter';
+    case SPARK_PLUGS = 'spark_plugs';
     case BRAKES = 'brakes';
     case TIRES = 'tires';
     case TIMING = 'timing';

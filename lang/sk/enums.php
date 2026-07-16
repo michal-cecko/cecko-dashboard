@@ -214,6 +214,7 @@ return [
         ServiceCategoryEnum::AIR_FILTER->value => 'Vzduchový filter',
         ServiceCategoryEnum::CABIN_FILTER->value => 'Kabínový filter',
         ServiceCategoryEnum::FUEL_FILTER->value => 'Palivový filter',
+        ServiceCategoryEnum::SPARK_PLUGS->value => 'Zapaľovacie sviečky',
         ServiceCategoryEnum::BRAKES->value => 'Brzdy',
         ServiceCategoryEnum::TIRES->value => 'Pneumatiky',
         ServiceCategoryEnum::TIMING->value => 'Rozvody',
