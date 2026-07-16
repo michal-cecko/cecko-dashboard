@@ -3,6 +3,7 @@
 namespace App\Filament\Garaz\Pages;
 
 use App\Filament\Garaz\Widgets\CostAnalyticsWidget;
+use App\Filament\Garaz\Widgets\DueMaintenanceWidget;
 use App\Filament\Garaz\Widgets\ExpiringDocumentsWidget;
 use App\Filament\Garaz\Widgets\PendingConcernsWidget;
 use BackedEnum;
@@ -20,6 +21,7 @@ class GarazDashboard extends Dashboard
     public function getWidgets(): array
     {
         return [
+            DueMaintenanceWidget::class,
             CostAnalyticsWidget::class,
             PendingConcernsWidget::class,
             ExpiringDocumentsWidget::class,
