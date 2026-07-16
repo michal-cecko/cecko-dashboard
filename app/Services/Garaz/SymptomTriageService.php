@@ -7,6 +7,7 @@ use App\Models\Garaz\AiUsage;
 use App\Models\Garaz\KnowledgeNote;
 use App\Models\Garaz\Vehicle;
 use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiUsageBucket;
 use App\Services\Common\Ai\AnthropicClient;
 use RuntimeException;
 
@@ -62,12 +63,13 @@ class SymptomTriageService
         $reply = $this->client->messages($model, 1024, $systemBlocks, $messages);
         $latencyMs = (int) ((hrtime(true) - $start) / 1e6);
 
-        AiUsage::create([
+        AiUsageBucket::record(AiUsage::class, [
             'user_id' => $vehicle->user_id,
             'vehicle_id' => $vehicle->id,
             'provider' => 'anthropic',
             'model' => $model,
             'purpose' => 'symptom_triage',
+        ], [
             'input_tokens' => $reply->usage->inputTokens,
             'output_tokens' => $reply->usage->outputTokens,
             'cache_creation_tokens' => $reply->usage->cacheCreationTokens,

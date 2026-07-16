@@ -13,6 +13,10 @@ return [
     |
     */
 
+    // Display FX for showing AI cost in EUR (cost is computed in USD from the
+    // pricing map). Rough is fine — it's an estimate, not billing.
+    'eur_per_usd' => (float) env('AI_EUR_PER_USD', env('STRIDE_EUR_PER_USD', 0.92)),
+
     'gemini' => [
         'url' => env('AI_GEMINI_URL', env('STRIDE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta')),
         'timeout' => (int) env('AI_GEMINI_TIMEOUT', env('STRIDE_GEMINI_TIMEOUT', 60)),

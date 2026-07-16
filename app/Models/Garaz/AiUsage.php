@@ -23,6 +23,7 @@ class AiUsage extends Model
         'cache_read_tokens',
         'latency_ms',
         'cost_usd',
+        'calls',
     ];
 
     protected function casts(): array
@@ -34,6 +35,7 @@ class AiUsage extends Model
             'cache_read_tokens' => 'integer',
             'latency_ms' => 'integer',
             'cost_usd' => 'float',
+            'calls' => 'integer',
         ];
     }
 

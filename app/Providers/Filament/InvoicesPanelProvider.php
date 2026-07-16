@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use App\Filament\Invoices\Components\CompanySwitcher;
 use App\Http\Middleware\SetActiveCompany;
@@ -51,6 +52,7 @@ class InvoicesPanelProvider extends PanelProvider
             ->renderHook(PanelsRenderHook::USER_MENU_BEFORE, fn (): string => \Blade::render('@livewire(\''.CompanySwitcher::class.'\')'))
             ->discoverResources(in: app_path('Filament/Invoices/Resources'), for: 'App\Filament\Invoices\Resources')
             ->resources([
+                AiUsageResource::class,
                 UserResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Invoices/Pages'), for: 'App\Filament\Invoices\Pages')

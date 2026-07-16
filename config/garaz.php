@@ -55,4 +55,30 @@ return [
     |
     */
     'forum_ingest_user_id' => env('GARAZ_FORUM_INGEST_USER_ID'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Maintenance intervals
+    |--------------------------------------------------------------------------
+    |
+    | Planning intervals per service category (months and/or km, null = no
+    | limit on that axis) used by the dashboard due-maintenance widget: an item
+    | is overdue once either axis is exceeded since the last record of that
+    | category, and "due soon" within the thresholds below. Categories not
+    | listed here are not tracked. STK/EK expiry is covered by vehicle
+    | documents, not here.
+    |
+    */
+
+    'maintenance_intervals' => [
+        'oil_change' => ['months' => 12, 'km' => 15_000],
+        'cabin_filter' => ['months' => 24, 'km' => 60_000],
+        'air_filter' => ['months' => 48, 'km' => 60_000],
+        'spark_plugs' => ['months' => 48, 'km' => 60_000],
+        'brakes' => ['months' => 24, 'km' => null],
+        'coolant' => ['months' => 72, 'km' => null],
+    ],
+
+    'due_soon_days' => 60,
+    'due_soon_km' => 2_000,
 ];

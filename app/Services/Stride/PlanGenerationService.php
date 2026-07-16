@@ -14,6 +14,7 @@ use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
 use App\Services\Common\Ai\AiReply;
 use App\Services\Common\Ai\AiTokenUsage;
+use App\Services\Common\Ai\AiUsageBucket;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
@@ -89,12 +90,13 @@ class PlanGenerationService
             : $this->costOf($turn->model, $u->inputTokens, $u->outputTokens, $u->cacheCreationTokens, $u->cacheReadTokens);
         $this->costUsd += $cost;
 
-        AiUsage::create([
+        AiUsageBucket::record(AiUsage::class, [
             'user_id' => $user->id,
             'conversation_id' => null,
             'provider' => $this->provider->name(),
             'model' => $turn->model,
             'purpose' => 'generate',
+        ], [
             'input_tokens' => $u->inputTokens,
             'output_tokens' => $u->outputTokens,
             'cache_creation_tokens' => $u->cacheCreationTokens,
@@ -427,7 +429,7 @@ class PlanGenerationService
             'degraded' => $this->degraded,
             'generated_at' => now()->toIso8601String(),
             'cost_usd' => $costUsd,
-            'cost_eur' => round($costUsd * (float) config('stride.coach.eur_per_usd', 0.92), 6),
+            'cost_eur' => round($costUsd * (float) config('ai.eur_per_usd', 0.92), 6),
         ];
 
         return $this->persist($user, $option, $plan, $start, $brief);

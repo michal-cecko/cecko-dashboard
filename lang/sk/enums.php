@@ -59,6 +59,7 @@ return [
         UserCapabilityEnum::MANAGE_MEDIA->value => 'Spravovať zdieľané súbory',
         UserCapabilityEnum::VIEW_ALL_MEDIA->value => 'Zobraziť zdieľané súbory všetkých používateľov',
         UserCapabilityEnum::VIEW_GARAZ->value => 'Prístup do garáže',
+        UserCapabilityEnum::VIEW_AI_USAGE->value => 'Prehľad AI útraty',
         UserCapabilityEnum::MANAGE_GARAZ->value => 'Spravovať garáž',
     ],
 

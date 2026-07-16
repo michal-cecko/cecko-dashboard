@@ -11,6 +11,7 @@ use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
 use App\Services\Common\Ai\AiTokenUsage;
+use App\Services\Common\Ai\AiUsageBucket;
 
 /**
  * Orchestrates one coach turn: assemble context → run the tool-use loop →
@@ -225,12 +226,13 @@ class CoachService
             ? (string) config('ai.ollama.model')
             : (string) config("stride.coach.{$purpose}_model", config('stride.coach.model'));
 
-        AiUsage::create([
+        AiUsageBucket::record(AiUsage::class, [
             'user_id' => $conversation->user_id,
             'conversation_id' => $conversation->id,
             'provider' => $this->provider->name(),
             'model' => $model,
             'purpose' => $purpose,
+        ], [
             'input_tokens' => $usage->inputTokens,
             'output_tokens' => $usage->outputTokens,
             'cache_creation_tokens' => $usage->cacheCreationTokens,

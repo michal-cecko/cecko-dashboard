@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -46,6 +47,7 @@ class GarazPanelProvider extends PanelProvider
             ])
             ->discoverResources(in: app_path('Filament/Garaz/Resources'), for: 'App\Filament\Garaz\Resources')
             ->resources([
+                AiUsageResource::class,
                 UserResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Garaz/Pages'), for: 'App\Filament\Garaz\Pages')

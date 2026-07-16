@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\MobileApps\MobileAppResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use Filament\Http\Middleware\Authenticate;
@@ -48,6 +49,7 @@ class SongsPanelProvider extends PanelProvider
             ])
             ->discoverResources(in: app_path('Filament/Songs/Resources'), for: 'App\Filament\Songs\Resources')
             ->resources([
+                AiUsageResource::class,
                 UserResource::class,
                 MobileAppResource::class,
             ])

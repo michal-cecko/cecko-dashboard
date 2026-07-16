@@ -55,6 +55,38 @@ class SymptomTriageTest extends TestCase
         $usage = AiUsage::sole();
         $this->assertEqualsWithDelta(0.0111, $usage->cost_usd, 0.0001);
         $this->assertNotNull($usage->latency_ms);
+        $this->assertSame(1, $usage->calls);
+    }
+
+    public function test_repeated_calls_within_an_hour_bucket_into_one_row(): void
+    {
+        config()->set('services.anthropic.api_key', 'test-key');
+        config()->set('services.anthropic.default_model', 'claude-sonnet-4-6');
+
+        Http::fake([
+            'api.anthropic.com/*' => Http::response([
+                'content' => [['type' => 'text', 'text' => 'Odpoveď.']],
+                'stop_reason' => 'end_turn',
+                'usage' => ['input_tokens' => 100, 'output_tokens' => 50],
+            ]),
+        ]);
+
+        $user = User::factory()->create();
+        $vehicle = Vehicle::factory()->for($user)->create();
+        $service = app(SymptomTriageService::class);
+
+        $service->ask($vehicle, 'Rachot pri studenom štarte');
+        $service->ask($vehicle, 'A čo pískanie pri brzdení?');
+
+        $usage = AiUsage::sole();
+        $this->assertSame(2, $usage->calls);
+        $this->assertSame(200, $usage->input_tokens);
+        $this->assertSame(100, $usage->output_tokens);
+
+        $this->travel(61)->minutes();
+        $service->ask($vehicle, 'Tretí dotaz po hodine');
+
+        $this->assertSame(2, AiUsage::count());
     }
 
     public function test_ask_without_api_key_throws_and_logs_nothing(): void

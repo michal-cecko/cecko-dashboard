@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -46,6 +47,7 @@ class ToolkitPanelProvider extends PanelProvider
             ])
             ->discoverResources(in: app_path('Filament/Toolkit/Resources'), for: 'App\Filament\Toolkit\Resources')
             ->resources([
+                AiUsageResource::class,
                 UserResource::class,
             ])
             ->discoverPages(in: app_path('Filament/Toolkit/Pages'), for: 'App\Filament\Toolkit\Pages')

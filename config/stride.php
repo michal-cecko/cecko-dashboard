@@ -41,10 +41,6 @@ return [
         // separately (ai.gemini.generate_thinking_budget) so the JSON always fits.
         'generate_max_tokens' => (int) env('STRIDE_COACH_GENERATE_MAX_TOKENS', 4096),
 
-        // Display FX for showing AI cost in EUR (cost is computed in USD from the
-        // pricing map). Rough is fine — it's an estimate, not billing.
-        'eur_per_usd' => (float) env('STRIDE_EUR_PER_USD', 0.92),
-
         // How many recent raw messages to send verbatim; older turns are folded
         // into the conversation's rolling summary.
         'recent_turns' => (int) env('STRIDE_COACH_RECENT_TURNS', 12),
