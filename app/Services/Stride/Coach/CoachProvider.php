@@ -2,13 +2,10 @@
 
 namespace App\Services\Stride\Coach;
 
-/**
- * A model backend for the coach. Implementations are swappable per config
- * (Anthropic now; Gemini/OpenAI later) so the app code never changes.
- */
-interface CoachProvider
-{
-    public function name(): string;
+use App\Services\Common\Ai\AiProvider;
 
-    public function chat(CoachTurn $turn): CoachReply;
-}
+/**
+ * Stride alias of the app-wide AiProvider. Drivers registered for the coach
+ * satisfy the shared interface, so other panels can consume them too.
+ */
+interface CoachProvider extends AiProvider {}

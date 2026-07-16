@@ -3,16 +3,20 @@
 namespace App\Services\Garaz;
 
 use App\Enums\Garaz\KnowledgeSourceEnum;
+use App\Models\Garaz\AiUsage;
 use App\Models\Garaz\KnowledgeNote;
 use App\Models\Garaz\Vehicle;
-use Illuminate\Support\Facades\Http;
+use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AnthropicClient;
 use RuntimeException;
 
 /**
- * Embedded symptom-triage chat against the Anthropic Messages API.
+ * Embedded symptom-triage chat over the app-wide AnthropicClient
+ * (App\Services\Common\Ai) — the same connector the Stride coach uses.
  *
  * Sends the vehicle profile + recent service history + relevant knowledge notes
  * as a cached system prompt; the user message is the symptom description.
+ * Every call is recorded to garaz_ai_usage (tokens, latency, cost).
  *
  * Returns Slovak output by system instruction.
  *
@@ -24,9 +28,11 @@ use RuntimeException;
  */
 class SymptomTriageService
 {
+    public function __construct(private readonly AnthropicClient $client = new AnthropicClient) {}
+
     public function isConfigured(): bool
     {
-        return ! empty(config('services.anthropic.api_key'));
+        return $this->client->isConfigured();
     }
 
     public function ask(Vehicle $vehicle, string $symptom, ?string $previousReply = null): string
@@ -35,29 +41,13 @@ class SymptomTriageService
             throw new RuntimeException('ANTHROPIC_API_KEY nie je nakonfigurovaný — nastav v .env a vyčisti config cache.');
         }
 
-        $apiKey = (string) config('services.anthropic.api_key');
-        $model = (string) config('services.anthropic.default_model', 'claude-sonnet-4-6');
+        $model = $this->client->defaultModel();
 
         $systemBlocks = [
-            [
-                'type' => 'text',
-                'text' => $this->slovakStyleGuide(),
-                'cache_control' => ['type' => 'ephemeral'],
-            ],
-            [
-                'type' => 'text',
-                'text' => $this->vehicleProfile($vehicle),
-                'cache_control' => ['type' => 'ephemeral'],
-            ],
-            [
-                'type' => 'text',
-                'text' => $this->serviceHistorySnapshot($vehicle),
-                'cache_control' => ['type' => 'ephemeral'],
-            ],
-            [
-                'type' => 'text',
-                'text' => $this->relevantKnowledge($vehicle, $symptom),
-            ],
+            ['text' => $this->slovakStyleGuide(), 'cache' => true],
+            ['text' => $this->vehicleProfile($vehicle), 'cache' => true],
+            ['text' => $this->serviceHistorySnapshot($vehicle), 'cache' => true],
+            ['text' => $this->relevantKnowledge($vehicle, $symptom)],
         ];
 
         $messages = [];
@@ -68,29 +58,25 @@ class SymptomTriageService
 
         $messages[] = ['role' => 'user', 'content' => $symptom];
 
-        $response = Http::withHeaders([
-            'x-api-key' => $apiKey,
-            'anthropic-version' => '2023-06-01',
-            'content-type' => 'application/json',
-        ])
-            ->timeout(60)
-            ->post('https://api.anthropic.com/v1/messages', [
-                'model' => $model,
-                'max_tokens' => 1024,
-                'system' => $systemBlocks,
-                'messages' => $messages,
-            ]);
+        $start = hrtime(true);
+        $reply = $this->client->messages($model, 1024, $systemBlocks, $messages);
+        $latencyMs = (int) ((hrtime(true) - $start) / 1e6);
 
-        if (! $response->successful()) {
-            throw new RuntimeException('Anthropic API error: '.$response->status().' — '.$response->body());
-        }
+        AiUsage::create([
+            'user_id' => $vehicle->user_id,
+            'vehicle_id' => $vehicle->id,
+            'provider' => 'anthropic',
+            'model' => $model,
+            'purpose' => 'symptom_triage',
+            'input_tokens' => $reply->usage->inputTokens,
+            'output_tokens' => $reply->usage->outputTokens,
+            'cache_creation_tokens' => $reply->usage->cacheCreationTokens,
+            'cache_read_tokens' => $reply->usage->cacheReadTokens,
+            'latency_ms' => $latencyMs,
+            'cost_usd' => AiCost::usd($model, $reply->usage),
+        ]);
 
-        $body = $response->json();
-
-        return collect($body['content'] ?? [])
-            ->where('type', 'text')
-            ->pluck('text')
-            ->implode("\n");
+        return $reply->text ?? '';
     }
 
     private function slovakStyleGuide(): string

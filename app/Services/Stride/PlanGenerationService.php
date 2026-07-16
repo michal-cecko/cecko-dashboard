@@ -11,8 +11,10 @@ use App\Models\Stride\Injury;
 use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
+use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiReply;
+use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Stride\Coach\CoachProvider;
-use App\Services\Stride\Coach\CoachReply;
 use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Illuminate\Support\Carbon;
@@ -75,7 +77,7 @@ class PlanGenerationService
      * no conversation) so plan-generation spend is tracked like chat is. Cost is
      * accumulated for the block brief. Free providers (local/ollama) log cost 0.
      */
-    private function chatLogged(User $user, CoachTurn $turn): CoachReply
+    private function chatLogged(User $user, CoachTurn $turn): AiReply
     {
         $start = hrtime(true);
         $reply = $this->provider->chat($turn);
@@ -104,13 +106,14 @@ class PlanGenerationService
         return $reply;
     }
 
-    /** USD cost for a call — indexes the pricing map directly (model ids contain dots). */
     private function costOf(string $model, int $in, int $out, int $cacheWrite, int $cacheRead): float
     {
-        $pricing = config('stride.pricing');
-        $r = $pricing[$model] ?? $pricing['default'];
-
-        return round(($in * $r['input'] + $out * $r['output'] + $cacheWrite * $r['cache_write'] + $cacheRead * $r['cache_read']) / 1_000_000, 6);
+        return AiCost::usd($model, new AiTokenUsage(
+            inputTokens: $in,
+            outputTokens: $out,
+            cacheCreationTokens: $cacheWrite,
+            cacheReadTokens: $cacheRead,
+        ));
     }
 
     /** A silent AI degradation (unusable output, no exception) — log it so it's debuggable. */

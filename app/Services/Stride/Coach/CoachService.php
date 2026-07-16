@@ -9,6 +9,8 @@ use App\Models\Stride\CoachConversation;
 use App\Models\Stride\CoachMessage;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
+use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiTokenUsage;
 
 /**
  * Orchestrates one coach turn: assemble context → run the tool-use loop →
@@ -220,7 +222,7 @@ class CoachService
     {
         // Ollama serves every purpose with its single configured local model.
         $model = $this->provider->name() === 'ollama'
-            ? (string) config('stride.coach.ollama.model')
+            ? (string) config('ai.ollama.model')
             : (string) config("stride.coach.{$purpose}_model", config('stride.coach.model'));
 
         AiUsage::create([
@@ -245,18 +247,12 @@ class CoachService
             return 0.0;
         }
 
-        // Index the pricing map directly — NOT via config("...{$model}"), because
-        // model ids contain dots (e.g. "gemini-3.5-flash") which Laravel's config
-        // dot-notation would misread as nested keys and silently miss.
-        $pricing = config('stride.pricing');
-        $rates = $pricing[$model] ?? $pricing['default'];
-
-        return round((
-            $usage->inputTokens * $rates['input']
-            + $usage->outputTokens * $rates['output']
-            + $usage->cacheCreationTokens * $rates['cache_write']
-            + $usage->cacheReadTokens * $rates['cache_read']
-        ) / 1_000_000, 6);
+        return AiCost::usd($model, new AiTokenUsage(
+            inputTokens: $usage->inputTokens,
+            outputTokens: $usage->outputTokens,
+            cacheCreationTokens: $usage->cacheCreationTokens,
+            cacheReadTokens: $usage->cacheReadTokens,
+        ));
     }
 
     /** @param array<int, AiAdjustment> $adjustments */

@@ -1,0 +1,201 @@
+<?php
+
+namespace App\Services\Common\Ai;
+
+use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Support\Facades\Http;
+use RuntimeException;
+
+/**
+ * Google Gemini driver (Generative Language API, v1beta generateContent).
+ *
+ * Translates the Anthropic-shaped AiTurn into Gemini's contents/
+ * systemInstruction/functionDeclarations format and normalises the response
+ * back into an AiReply. Like the Anthropic driver (and unlike the free Ollama
+ * one) it honours the per-purpose model id on the turn — configure gemini-*
+ * ids — so cost logging and pricing lookups work per call.
+ *
+ * Role mapping preserves the conversation shape 1:1:
+ *   assistant → "model", user → "user";
+ *   tool_use  (in an assistant msg) → a functionCall part;
+ *   tool_result (in a user msg)     → a functionResponse part (name resolved
+ *                                     from the earlier tool_use of the same id).
+ */
+class GeminiProvider implements AiProvider
+{
+    public function name(): string
+    {
+        return 'gemini';
+    }
+
+    public function chat(AiTurn $turn): AiReply
+    {
+        $apiKey = (string) config('services.gemini.api_key');
+
+        if ($apiKey === '') {
+            throw new RuntimeException('GEMINI_API_KEY is not configured.');
+        }
+
+        if (! str_starts_with($turn->model, 'gemini')) {
+            throw new RuntimeException(
+                "Gemini driver got a non-Gemini model id ('{$turn->model}'). Configure the calling panel's"
+                .' model ids as gemini-* ids, e.g. gemini-2.5-flash.'
+            );
+        }
+
+        $generationConfig = ['maxOutputTokens' => $turn->maxTokens];
+
+        // Gemini 3.x are "thinking" models and thinking tokens count against
+        // maxOutputTokens. For structured-JSON plan generation that silently
+        // truncates the JSON. Cap thinking so the (generous) budget always leaves
+        // ample room for the actual output — reasoned but never truncated.
+        if ($turn->purpose === 'generate_plan') {
+            $generationConfig['thinkingConfig'] = [
+                'thinkingBudget' => (int) config('ai.gemini.generate_thinking_budget', 2048),
+            ];
+        }
+
+        $payload = [
+            'contents' => $this->contents($turn),
+            'generationConfig' => $generationConfig,
+        ];
+
+        $system = array_column($turn->systemBlocks, 'text');
+        if ($system !== []) {
+            $payload['systemInstruction'] = [
+                'parts' => array_map(fn (string $text): array => ['text' => $text], $system),
+            ];
+        }
+
+        if ($turn->tools !== []) {
+            $payload['tools'] = [[
+                'functionDeclarations' => array_map(fn (array $tool): array => [
+                    'name' => $tool['name'],
+                    'description' => $tool['description'],
+                    'parameters' => $tool['input_schema'],
+                ], $turn->tools),
+            ]];
+            $payload['toolConfig'] = ['functionCallingConfig' => ['mode' => 'AUTO']];
+        }
+
+        $base = rtrim((string) config('ai.gemini.url'), '/');
+        $timeout = $turn->timeoutSeconds ?? (int) config('ai.gemini.timeout', 60);
+
+        try {
+            $response = Http::withHeaders(['x-goog-api-key' => $apiKey])
+                ->timeout($timeout)
+                ->post("{$base}/models/{$turn->model}:generateContent", $payload);
+        } catch (ConnectionException $e) {
+            throw new RuntimeException('Could not reach the Gemini API at '.$base.'.', previous: $e);
+        }
+
+        if (! $response->successful()) {
+            throw new RuntimeException('Gemini API error: '.$response->status().' — '.$response->body());
+        }
+
+        return $this->parse($response->json());
+    }
+
+    /**
+     * Map the Anthropic-style message list to Gemini `contents`. tool_result
+     * blocks need the function name, which Anthropic carries only on the
+     * matching tool_use — so collect an id→name map from the tool_use blocks
+     * (always earlier in the history) and resolve against it.
+     */
+    private function contents(AiTurn $turn): array
+    {
+        $toolNames = [];
+        $contents = [];
+
+        foreach ($turn->messages as $message) {
+            $role = $message['role'] === 'assistant' ? 'model' : 'user';
+
+            if (is_string($message['content'])) {
+                $contents[] = ['role' => $role, 'parts' => [['text' => $message['content']]]];
+
+                continue;
+            }
+
+            $parts = [];
+
+            foreach ($message['content'] as $block) {
+                switch ($block['type'] ?? null) {
+                    case 'text':
+                        if (trim((string) $block['text']) !== '') {
+                            $parts[] = ['text' => $block['text']];
+                        }
+                        break;
+                    case 'tool_use':
+                        $toolNames[$block['id']] = $block['name'];
+                        $part = ['functionCall' => [
+                            'name' => $block['name'],
+                            'args' => (object) $block['input'],
+                        ]];
+                        // Gemini 3.x rejects a re-sent functionCall without its
+                        // original thoughtSignature (see parse()).
+                        if (! empty($block['signature'])) {
+                            $part['thoughtSignature'] = $block['signature'];
+                        }
+                        $parts[] = $part;
+                        break;
+                    case 'tool_result':
+                        $parts[] = ['functionResponse' => [
+                            'name' => $toolNames[$block['tool_use_id']] ?? $block['tool_use_id'],
+                            'response' => ['result' => (string) $block['content']],
+                        ]];
+                        break;
+                }
+            }
+
+            if ($parts !== []) {
+                $contents[] = ['role' => $role, 'parts' => $parts];
+            }
+        }
+
+        return $contents;
+    }
+
+    private function parse(array $body): AiReply
+    {
+        $candidate = $body['candidates'][0] ?? [];
+        $parts = $candidate['content']['parts'] ?? [];
+
+        $text = null;
+        $toolUses = [];
+
+        foreach ($parts as $index => $part) {
+            if (isset($part['text'])) {
+                $text = trim(($text ?? '').$part['text']);
+            } elseif (isset($part['functionCall'])) {
+                $call = $part['functionCall'];
+                $toolUses[] = [
+                    'id' => 'gemini-'.$call['name'].'-'.$index,
+                    'name' => $call['name'],
+                    'input' => (array) ($call['args'] ?? []),
+                    // Gemini 3.x "thinking" models return a signature per function
+                    // call that must be echoed back when the call is re-sent.
+                    'signature' => $part['thoughtSignature'] ?? null,
+                ];
+            }
+        }
+
+        $usage = $body['usageMetadata'] ?? [];
+        $finish = $candidate['finishReason'] ?? 'STOP';
+
+        return new AiReply(
+            text: ($text !== null && $text !== '') ? $text : null,
+            toolUses: $toolUses,
+            stopReason: match (true) {
+                $toolUses !== [] => 'tool_use',
+                $finish === 'MAX_TOKENS' => 'max_tokens',
+                default => 'end_turn',
+            },
+            usage: new AiTokenUsage(
+                inputTokens: (int) ($usage['promptTokenCount'] ?? 0),
+                outputTokens: (int) ($usage['candidatesTokenCount'] ?? 0),
+                cacheCreationTokens: 0,
+                cacheReadTokens: (int) ($usage['cachedContentTokenCount'] ?? 0),
+            ),
+        );
+    }
+}

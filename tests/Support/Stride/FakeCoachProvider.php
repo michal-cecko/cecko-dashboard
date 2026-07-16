@@ -2,6 +2,7 @@
 
 namespace Tests\Support\Stride;
 
+use App\Services\Common\Ai\AiTurn;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\CoachReply;
 use App\Services\Stride\Coach\CoachTurn;
@@ -32,7 +33,7 @@ class FakeCoachProvider implements CoachProvider
         return $this;
     }
 
-    public function chat(CoachTurn $turn): CoachReply
+    public function chat(AiTurn $turn): CoachReply
     {
         $this->calls[] = $turn;
 

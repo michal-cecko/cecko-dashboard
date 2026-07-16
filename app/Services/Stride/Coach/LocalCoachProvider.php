@@ -2,6 +2,8 @@
 
 namespace App\Services\Stride\Coach;
 
+use App\Services\Common\Ai\AiTurn;
+
 /**
  * Keyless, offline coach for local development and demos.
  *
@@ -22,7 +24,7 @@ class LocalCoachProvider implements CoachProvider
         return 'local';
     }
 
-    public function chat(CoachTurn $turn): CoachReply
+    public function chat(AiTurn $turn): CoachReply
     {
         $sk = $turn->language === 'sk';
 

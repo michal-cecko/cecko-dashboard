@@ -16,9 +16,9 @@ class StrideOllamaProviderTest extends TestCase
     {
         parent::setUp();
 
-        config()->set('stride.coach.ollama.url', 'http://localhost:11434');
-        config()->set('stride.coach.ollama.model', 'qwen3:8b');
-        config()->set('stride.coach.ollama.think', false);
+        config()->set('ai.ollama.url', 'http://localhost:11434');
+        config()->set('ai.ollama.model', 'qwen3:8b');
+        config()->set('ai.ollama.think', false);
     }
 
     public function test_translates_turn_to_ollama_format_and_parses_tool_calls(): void

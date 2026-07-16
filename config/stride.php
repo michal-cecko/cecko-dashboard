@@ -38,9 +38,8 @@ return [
         // Generation (recommend/questions/session) needs a bigger output budget than
         // chat: on Gemini "thinking" models the budget is shared by thinking + JSON,
         // so a small cap truncates the plan. Give it ample room; thinking is bounded
-        // separately (generate_thinking_budget) so the JSON always fits.
+        // separately (ai.gemini.generate_thinking_budget) so the JSON always fits.
         'generate_max_tokens' => (int) env('STRIDE_COACH_GENERATE_MAX_TOKENS', 4096),
-        'generate_thinking_budget' => (int) env('STRIDE_COACH_GENERATE_THINKING_BUDGET', 2048),
 
         // Display FX for showing AI cost in EUR (cost is computed in USD from the
         // pricing map). Rough is fine — it's an estimate, not billing.
@@ -59,56 +58,6 @@ return [
         // Per-user daily cap on coach messages during testing.
         'daily_message_quota' => (int) env('STRIDE_COACH_DAILY_QUOTA', 50),
 
-        // Driver "ollama": free local inference for dev. The model must support
-        // tool use (qwen3, llama3.1, mistral-nemo, ...) and serves every purpose
-        // — chat and summary alike. Usage rows are logged with cost 0.
-        'ollama' => [
-            'url' => env('STRIDE_OLLAMA_URL', 'http://localhost:11434'),
-            // Prefer non-thinking instruct models: reasoning variants burn
-            // hundreds of tokens before answering — minutes on CPU.
-            'model' => env('STRIDE_OLLAMA_MODEL', 'qwen3:4b-instruct-2507-q4_K_M'),
-            'timeout' => (int) env('STRIDE_OLLAMA_TIMEOUT', 300),
-            // Sent as Ollama's "think" parameter when not null. Leave null for
-            // models that reject it; false only works on hybrid thinkers.
-            'think' => env('STRIDE_OLLAMA_THINK'),
-        ],
-
-        // Driver "gemini": Google Generative Language API. Key in
-        // services.gemini.api_key (GEMINI_API_KEY). The model id comes from the
-        // per-purpose config above (must be gemini-*); this block only tunes the
-        // transport. url is overridable mainly so tests can fake the host.
-        'gemini' => [
-            'url' => env('STRIDE_GEMINI_URL', 'https://generativelanguage.googleapis.com/v1beta'),
-            'timeout' => (int) env('STRIDE_GEMINI_TIMEOUT', 60),
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Model pricing (USD per million tokens)
-    |--------------------------------------------------------------------------
-    |
-    | Used to estimate cost_usd on each ai_usage row. Cached reads are ~10% of
-    | the input rate, cache writes ~125%. Update if provider pricing changes.
-    | Gemini rows only ever populate cache_read (implicit caching), so its
-    | cache_write rate is nominal. Verify current Google prices before relying
-    | on these for billing.
-    |
-    */
-
-    'pricing' => [
-        'claude-haiku-4-5' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
-        'claude-sonnet-4-6' => ['input' => 3.00, 'output' => 15.00, 'cache_write' => 3.75, 'cache_read' => 0.30],
-        // Gemini output rates include thinking tokens (3.x are reasoning models);
-        // cache_read ≈ 25% of input (implicit caching). Verify against current prices.
-        'gemini-3.5-flash' => ['input' => 1.50, 'output' => 9.00, 'cache_write' => 1.50, 'cache_read' => 0.375],
-        // Pro id on the Developer API is gemini-3.1-pro-preview (bare gemini-3.1-pro 404s);
-        // gemini-pro-latest is the always-valid alias.
-        'gemini-3.1-pro-preview' => ['input' => 2.00, 'output' => 12.00, 'cache_write' => 2.00, 'cache_read' => 0.50],
-        'gemini-pro-latest' => ['input' => 2.00, 'output' => 12.00, 'cache_write' => 2.00, 'cache_read' => 0.50],
-        'gemini-2.5-flash' => ['input' => 0.30, 'output' => 2.50, 'cache_write' => 0.30, 'cache_read' => 0.075],
-        'gemini-2.5-pro' => ['input' => 1.25, 'output' => 10.00, 'cache_write' => 1.25, 'cache_read' => 0.31],
-        'default' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
     ],
 
 ];

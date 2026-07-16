@@ -16,7 +16,7 @@ class StrideGeminiProviderTest extends TestCase
         parent::setUp();
 
         config()->set('services.gemini.api_key', 'test-key');
-        config()->set('stride.coach.gemini.url', 'https://generativelanguage.googleapis.com/v1beta');
+        config()->set('ai.gemini.url', 'https://generativelanguage.googleapis.com/v1beta');
     }
 
     public function test_translates_turn_to_gemini_format_and_parses_function_calls(): void
