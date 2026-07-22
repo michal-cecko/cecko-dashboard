@@ -219,7 +219,7 @@ class CoachService
         }
     }
 
-    private function logUsage(CoachConversation $conversation, CoachUsage $usage, int $latencyMs, string $purpose): void
+    private function logUsage(CoachConversation $conversation, AiTokenUsage $usage, int $latencyMs, string $purpose): void
     {
         // Ollama serves every purpose with its single configured local model.
         $model = $this->provider->name() === 'ollama'
@@ -242,19 +242,14 @@ class CoachService
         ]);
     }
 
-    private function cost(string $model, CoachUsage $usage): float
+    private function cost(string $model, AiTokenUsage $usage): float
     {
         // Local inference (local stub, ollama) is free whatever the token counts.
         if (in_array($this->provider->name(), ['local', 'ollama'], true)) {
             return 0.0;
         }
 
-        return AiCost::usd($model, new AiTokenUsage(
-            inputTokens: $usage->inputTokens,
-            outputTokens: $usage->outputTokens,
-            cacheCreationTokens: $usage->cacheCreationTokens,
-            cacheReadTokens: $usage->cacheReadTokens,
-        ));
+        return AiCost::usd($model, $usage);
     }
 
     /** @param array<int, AiAdjustment> $adjustments */

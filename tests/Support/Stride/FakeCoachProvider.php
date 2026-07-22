@@ -2,11 +2,11 @@
 
 namespace Tests\Support\Stride;
 
+use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiTurn;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\CoachReply;
 use App\Services\Stride\Coach\CoachTurn;
-use App\Services\Stride\Coach\CoachUsage;
 
 /**
  * Deterministic, offline stand-in for a real model. Tests queue scripted
@@ -38,7 +38,7 @@ class FakeCoachProvider implements CoachProvider
         $this->calls[] = $turn;
 
         if ($turn->purpose === 'summary') {
-            return new CoachReply('Earlier turns: user trained and adjusted the plan.', [], 'end_turn', new CoachUsage(60, 25));
+            return new CoachReply('Earlier turns: user trained and adjusted the plan.', [], 'end_turn', new AiTokenUsage(60, 25));
         }
 
         if ($this->queue !== []) {
@@ -46,16 +46,16 @@ class FakeCoachProvider implements CoachProvider
         }
 
         // Default: a plain closing reply with some cached input (so caching is observable).
-        return new CoachReply('Got it.', [], 'end_turn', new CoachUsage(120, 30, 0, 90));
+        return new CoachReply('Got it.', [], 'end_turn', new AiTokenUsage(120, 30, 0, 90));
     }
 
     public static function text(string $text): CoachReply
     {
-        return new CoachReply($text, [], 'end_turn', new CoachUsage(140, 40, 200, 0));
+        return new CoachReply($text, [], 'end_turn', new AiTokenUsage(140, 40, 200, 0));
     }
 
     public static function toolCall(string $name, array $input, ?string $text = null, string $id = 'tool_1'): CoachReply
     {
-        return new CoachReply($text, [['id' => $id, 'name' => $name, 'input' => $input]], 'tool_use', new CoachUsage(150, 35, 200, 0));
+        return new CoachReply($text, [['id' => $id, 'name' => $name, 'input' => $input]], 'tool_use', new AiTokenUsage(150, 35, 200, 0));
     }
 }
