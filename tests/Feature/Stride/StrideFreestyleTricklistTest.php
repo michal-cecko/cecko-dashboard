@@ -37,7 +37,7 @@ class StrideFreestyleTricklistTest extends TestCase
     {
         Artisan::call('db:seed', ['--class' => FreestyleTricklistSeeder::class]);
 
-        User::factory()->create([
+        User::factory()->strideUser()->create([
             'email' => 'rider@example.test',
             'password' => 'secret-pass',
         ]);

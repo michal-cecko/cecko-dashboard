@@ -23,7 +23,7 @@ class StridePersonalRecordTest extends TestCase
         parent::setUp();
         $this->seed(ExerciseSeeder::class);
 
-        $this->user = User::factory()->create(['email' => 'lifter@example.test', 'password' => 'secret-pass']);
+        $this->user = User::factory()->strideUser()->create(['email' => 'lifter@example.test', 'password' => 'secret-pass']);
         $token = $this->postJson('/api/stride/auth/login', ['email' => 'lifter@example.test', 'password' => 'secret-pass'])->json('token');
         $this->auth = ['Authorization' => "Bearer {$token}"];
     }

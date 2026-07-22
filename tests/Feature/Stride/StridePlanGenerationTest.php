@@ -29,7 +29,7 @@ class StridePlanGenerationTest extends TestCase
 
         $this->seed(ExerciseSeeder::class);
 
-        $this->user = User::factory()->create([
+        $this->user = User::factory()->strideUser()->create([
             'email' => 'newbie@example.test',
             'password' => 'secret-pass',
         ]);

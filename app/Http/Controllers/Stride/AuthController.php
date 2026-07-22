@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Stride;
 
+use App\Enums\Common\UserCapabilityEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Common\User;
 use App\Models\Common\UserApiToken;
@@ -33,6 +34,12 @@ class AuthController extends Controller
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
+        }
+
+        if (! $user->hasCapability(UserCapabilityEnum::STRIDE_USER)) {
+            return response()->json([
+                'error' => 'Stride access is not enabled for this account.',
+            ], 403);
         }
 
         $raw = UserApiToken::generateRaw();

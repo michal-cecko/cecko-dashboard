@@ -16,7 +16,7 @@ class StrideApiTest extends TestCase
 
     private function user(string $password = 'secret-pass'): User
     {
-        return User::factory()->create([
+        return User::factory()->strideUser()->create([
             'email' => 'rider@example.test',
             'password' => $password, // hashed by the model's 'password' => 'hashed' cast
         ]);

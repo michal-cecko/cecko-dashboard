@@ -61,6 +61,7 @@ return [
         UserCapabilityEnum::VIEW_GARAZ->value => 'Prístup do garáže',
         UserCapabilityEnum::VIEW_AI_USAGE->value => 'Prehľad AI útraty',
         UserCapabilityEnum::MANAGE_GARAZ->value => 'Spravovať garáž',
+        UserCapabilityEnum::STRIDE_USER->value => 'Prístup do Stride aplikácie',
     ],
 
     VehicleTypeEnum::class => [

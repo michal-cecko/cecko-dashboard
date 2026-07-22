@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware\Stride;
 
+use App\Enums\Common\UserCapabilityEnum;
 use App\Models\Common\UserApiToken;
 use Closure;
 use Illuminate\Http\Request;
@@ -29,6 +30,12 @@ class AuthenticateStrideToken
 
         if ($token === null || ! $token->hasAbility('stride')) {
             return $this->unauthorized();
+        }
+
+        // Panel accounts double as app accounts, gated by the STRIDE_USER
+        // capability — revoking it locks out existing tokens immediately.
+        if ($token->user === null || ! $token->user->hasCapability(UserCapabilityEnum::STRIDE_USER)) {
+            return response()->json(['error' => 'Stride access is not enabled for this account.'], 403);
         }
 
         // Resolve the authenticated user for the rest of the request.

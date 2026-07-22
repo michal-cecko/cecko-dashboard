@@ -32,6 +32,7 @@ return [
         UserCapabilityEnum::VIEW_INVOICES->value => 'Access invoices',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Manage invoices',
         UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Manage all users\' invoices',
+        UserCapabilityEnum::STRIDE_USER->value => 'Access Stride app',
     ],
 
     InvoiceThemeEnum::class => [

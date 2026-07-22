@@ -23,7 +23,7 @@ class StrideTrainingTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = User::factory()->create([
+        $this->user = User::factory()->strideUser()->create([
             'email' => 'athlete@example.test',
             'password' => 'secret-pass',
         ]);
@@ -65,7 +65,7 @@ class StrideTrainingTest extends TestCase
     public function test_home_shows_rest_day_with_next_session_when_plan_starts_later(): void
     {
         // Fresh user with an active block but NO session today (plan starts in 2 days).
-        $user = User::factory()->create(['email' => 'rester@example.test', 'password' => 'secret-pass']);
+        $user = User::factory()->strideUser()->create(['email' => 'rester@example.test', 'password' => 'secret-pass']);
         $token = $this->postJson('/api/stride/auth/login', ['email' => 'rester@example.test', 'password' => 'secret-pass'])->json('token');
         $auth = ['Authorization' => "Bearer {$token}"];
 
@@ -161,7 +161,7 @@ class StrideTrainingTest extends TestCase
 
     public function test_data_is_scoped_to_the_owner(): void
     {
-        $intruder = User::factory()->create(['email' => 'intruder@example.test', 'password' => 'pw']);
+        $intruder = User::factory()->strideUser()->create(['email' => 'intruder@example.test', 'password' => 'pw']);
         $token = $this->postJson('/api/stride/auth/login', [
             'email' => 'intruder@example.test', 'password' => 'pw',
         ])->json('token');

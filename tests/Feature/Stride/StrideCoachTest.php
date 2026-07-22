@@ -28,7 +28,7 @@ class StrideCoachTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = User::factory()->create([
+        $this->user = User::factory()->strideUser()->create([
             'email' => 'coachee@example.test',
             'password' => 'secret-pass',
         ]);
@@ -195,7 +195,7 @@ class StrideCoachTest extends TestCase
         $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'lighter'], $this->auth)
             ->assertOk()->json('message.adjustments.0.id');
 
-        User::factory()->create(['email' => 'nope2@example.test', 'password' => 'pw']);
+        User::factory()->strideUser()->create(['email' => 'nope2@example.test', 'password' => 'pw']);
         $token = $this->postJson('/api/stride/auth/login', ['email' => 'nope2@example.test', 'password' => 'pw'])->json('token');
         $intruderAuth = ['Authorization' => "Bearer {$token}"];
 
@@ -258,7 +258,7 @@ class StrideCoachTest extends TestCase
     {
         $conversation = $this->newConversation();
 
-        $intruder = User::factory()->create(['email' => 'nope@example.test', 'password' => 'pw']);
+        $intruder = User::factory()->strideUser()->create(['email' => 'nope@example.test', 'password' => 'pw']);
         $token = $this->postJson('/api/stride/auth/login', ['email' => 'nope@example.test', 'password' => 'pw'])->json('token');
         $intruderAuth = ['Authorization' => "Bearer {$token}"];
 

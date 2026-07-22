@@ -31,7 +31,7 @@ class StrideBlockCoachTest extends TestCase
         parent::setUp();
         $this->seed(ExerciseSeeder::class);
 
-        $this->user = User::factory()->create(['email' => 'blockcoach@example.test', 'password' => 'secret-pass']);
+        $this->user = User::factory()->strideUser()->create(['email' => 'blockcoach@example.test', 'password' => 'secret-pass']);
         $this->provider = new FakeCoachProvider;
         $this->app->instance(CoachProvider::class, $this->provider);
 
@@ -159,7 +159,7 @@ class StrideBlockCoachTest extends TestCase
         $this->assertDatabaseHas('stride_coach_conversations', ['id' => $first, 'block_id' => $this->block->id]);
 
         // Not the owner → 404.
-        User::factory()->create(['email' => 'intruder3@example.test', 'password' => 'pw']);
+        User::factory()->strideUser()->create(['email' => 'intruder3@example.test', 'password' => 'pw']);
         $token = $this->postJson('/api/stride/auth/login', ['email' => 'intruder3@example.test', 'password' => 'pw'])->json('token');
         $this->getJson("/api/stride/coach/blocks/{$this->block->id}/conversation", ['Authorization' => "Bearer {$token}"])->assertNotFound();
     }
