@@ -962,8 +962,13 @@ class PlanGenerationService
 
         // One active plan at a time: retire any current active block to history
         // (kept, not deleted) so the new plan is THE active one and the rest browse
-        // as past plans.
-        Block::ownedBy($user)->active()->update(['status' => 'done']);
+        // as past plans. Its unfinished sessions become 'skipped' — a lingering
+        // 'today' from a replaced plan would otherwise shadow the new plan's
+        // session on Home (both carry status 'today').
+        foreach (Block::ownedBy($user)->active()->get() as $retired) {
+            $retired->sessions()->whereIn('status', ['today', 'planned'])->update(['status' => 'skipped']);
+            $retired->update(['status' => 'done']);
+        }
 
         $block = Block::create([
             'user_id' => $user->id,

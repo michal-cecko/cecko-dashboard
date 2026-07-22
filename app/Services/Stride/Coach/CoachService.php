@@ -49,7 +49,8 @@ class CoachService
         // back to the athlete's active one so block tools work from either chat.
         $context = new CoachContext(
             conversation: $conversation,
-            todaySession: Session::ownedBy($user)->where('status', 'today')->first(),
+            todaySession: Session::ownedBy($user)->where('status', 'today')
+                ->whereHas('block', fn ($q) => $q->where('status', 'active'))->first(),
             block: $conversation->block ?? Block::ownedBy($user)->active()->first(),
         );
 

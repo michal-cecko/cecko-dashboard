@@ -22,8 +22,11 @@ class HomeController extends Controller
         $user = $request->user();
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
 
+        // Belt & braces: only the ACTIVE block's session counts as "today" — a
+        // stale 'today' row from a replaced plan must never surface on Home.
         $today = Session::ownedBy($user)
             ->where('status', 'today')
+            ->whereHas('block', fn ($q) => $q->where('status', 'active'))
             ->with('exercises.sets')
             ->orderBy('scheduled_date')
             ->first();
@@ -34,6 +37,7 @@ class HomeController extends Controller
         // in X days" instead of a false "nothing planned" when a plan starts later.
         $nextSession = $today ? null : Session::ownedBy($user)
             ->where('status', 'planned')
+            ->whereHas('block', fn ($q) => $q->where('status', 'active'))
             ->whereDate('scheduled_date', '>=', today())
             ->orderBy('scheduled_date')
             ->first();

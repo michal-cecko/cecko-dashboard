@@ -120,6 +120,32 @@ class StrideBlockRolloverTest extends TestCase
         $this->assertSame('1/2', collect($block->stats)->firstWhere('label', 'Sessions')['value']);
     }
 
+    public function test_replacing_a_plan_retires_the_old_blocks_day_statuses(): void
+    {
+        $old = $this->makeBlock(weeks: 4, weekOf: 1, startedDaysAgo: 1);
+        $staleToday = $this->makeSession($old, 'today', dayOffset: 0);
+        $stalePlanned = $this->makeSession($old, 'planned', dayOffset: 2);
+        $doneSession = $this->makeSession($old, 'done', dayOffset: -1);
+
+        $built = ['title' => 'Fresh Day', 'duration_min' => 60, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 5, 'rest_sec' => 150],
+        ]];
+        $this->provider->push(FakeCoachProvider::text(json_encode($built)));
+
+        $option = ['name' => 'Replacement', 'split' => 'Full body', 'phase' => 'Foundations', 'weeks' => 4, 'days_per_week' => 2];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        // Old block retired; its unfinished sessions no longer masquerade as today.
+        $this->assertSame('done', $old->fresh()->status);
+        $this->assertSame('skipped', $staleToday->fresh()->status);
+        $this->assertSame('skipped', $stalePlanned->fresh()->status);
+        $this->assertSame('done', $doneSession->fresh()->status);
+
+        // Home serves the NEW plan's today session.
+        $today = $this->getJson('/api/stride/home', $this->auth)->assertOk()->json('today');
+        $this->assertSame('Fresh Day', $today['title']);
+    }
+
     public function test_recommend_enforces_the_chosen_weeks_range(): void
     {
         $this->provider->push(FakeCoachProvider::text(json_encode([
