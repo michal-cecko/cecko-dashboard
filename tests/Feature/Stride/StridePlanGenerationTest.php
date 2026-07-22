@@ -7,6 +7,7 @@ use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\PersonalRecord;
+use App\Models\Stride\Spot;
 use App\Services\Stride\Coach\CoachProvider;
 use Database\Seeders\Stride\ExerciseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -319,6 +320,32 @@ class StridePlanGenerationTest extends TestCase
         $this->assertStringContainsString('Access to rings', $fact->fact);
         $this->assertStringContainsString('Yes, full set at home', $fact->fact);
         $this->assertSame('onboarding', $fact->source);
+    }
+
+    public function test_session_prompts_carry_equipment_memories_and_gear_tags(): void
+    {
+        Spot::create([
+            'user_id' => $this->user->id, 'name' => 'Park', 'type' => 'outdoor',
+            'equipment' => ['Pull-up bar', 'Parallel bars'],
+        ]);
+        CoachMemory::create([
+            'user_id' => $this->user->id, 'fact' => 'has NO weights or dumbbells in the park',
+            'source' => 'coach', 'last_used_at' => now(),
+        ]);
+
+        $session = ['title' => 'Day A', 'duration_min' => 45, 'exercises' => [
+            ['name' => 'Push-up', 'tag' => 'Compound', 'sets' => 3, 'reps' => 12, 'rest_sec' => 60],
+        ]];
+        $this->provider->push(FakeCoachProvider::text(json_encode($session)));
+
+        $option = ['name' => 'Park Plan', 'split' => 'Full body', 'phase' => 'Foundations', 'weeks' => 4, 'days_per_week' => 2];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $prompt = collect($this->provider->calls)->last()->messages[0]['content'];
+        $this->assertStringContainsString('NO weights or dumbbells', $prompt);          // durable memory reaches generation
+        $this->assertStringContainsString('Park (Pull-up bar, Parallel bars)', $prompt); // spot gear listed
+        $this->assertStringContainsString('never pick an exercise whose [equipment]', $prompt);
+        $this->assertStringContainsString('Barbell Bench Press [Barbell + bench]', $prompt); // per-exercise gear tags
     }
 
     public function test_generate_falls_back_to_deterministic_on_bad_json(): void

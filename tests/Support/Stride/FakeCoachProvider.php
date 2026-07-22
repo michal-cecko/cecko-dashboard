@@ -54,6 +54,12 @@ class FakeCoachProvider implements CoachProvider
         return new CoachReply($text, [], 'end_turn', new AiTokenUsage(140, 40, 200, 0));
     }
 
+    /** A reply cut off by the max_tokens cap mid-sentence. */
+    public static function truncated(string $fragment): CoachReply
+    {
+        return new CoachReply($fragment, [], 'max_tokens', new AiTokenUsage(140, 37, 200, 0));
+    }
+
     public static function toolCall(string $name, array $input, ?string $text = null, string $id = 'tool_1'): CoachReply
     {
         return new CoachReply($text, [['id' => $id, 'name' => $name, 'input' => $input]], 'tool_use', new AiTokenUsage(150, 35, 200, 0));

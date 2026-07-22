@@ -314,6 +314,19 @@ class StrideCoachTest extends TestCase
         $this->assertEqualsWithDelta(70.0, (float) $row->sets()->where('kind', 'Working')->value('kg'), 0.01);
     }
 
+    public function test_truncated_replies_never_surface_as_the_coach_message(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider->push(FakeCoachProvider::truncated("up (against wall)` or `Pike Push-up` — Let's swap `Overhead Press (Standing)` with `"));
+
+        $content = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Remove the weighted exercises please.',
+        ], $this->auth)->assertOk()->json('message.content');
+
+        $this->assertStringNotContainsString('Overhead Press', $content);
+        $this->assertStringContainsString('cut off', $content);
+    }
+
     public function test_today_proposals_from_the_general_chat_stay_today_scoped(): void
     {
         $conversation = $this->newConversation();

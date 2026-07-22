@@ -55,9 +55,15 @@ class CoachService
 
         [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $context, $system, $messages, $language);
 
+        if ($finalText === '') {
+            $finalText = $adjustments !== []
+                ? ($language === 'sk' ? 'Pripravil som zmeny — potvrď ich, prosím, nižšie.' : 'I have staged the changes — please confirm them below.')
+                : ($language === 'sk' ? 'Prepáč — odpoveď sa nepodarilo dokončiť. Skús to, prosím, ešte raz.' : 'Sorry — my reply got cut off. Please try again.');
+        }
+
         $assistant = $conversation->messages()->create([
             'role' => 'assistant',
-            'content' => $finalText !== '' ? $finalText : 'Done.',
+            'content' => $finalText,
             'adjustments' => $this->adjustmentCards($adjustments),
             'input_tokens' => array_sum(array_map(fn ($u) => $u['usage']->inputTokens, $usages)),
             'output_tokens' => array_sum(array_map(fn ($u) => $u['usage']->outputTokens, $usages)),
@@ -99,7 +105,16 @@ class CoachService
             $usages[] = ['usage' => $reply->usage, 'latency' => (int) ((hrtime(true) - $start) / 1e6)];
 
             if (! $reply->wantsTools()) {
-                $finalText = $reply->text ?? '';
+                // A reply cut off at max_tokens is the model's unfinished planning
+                // ("…Let's swap `Overhead Press` with `") — never surface it; the
+                // caller substitutes a clean language-appropriate close instead.
+                $finalText = $reply->stopReason === 'max_tokens' ? '' : ($reply->text ?? '');
+                if ($reply->stopReason === 'max_tokens') {
+                    logger()->warning('Stride coach reply truncated at max_tokens — suppressed fragment.', [
+                        'conversation_id' => $ctx->conversation?->id,
+                        'snippet' => mb_substr((string) $reply->text, 0, 120),
+                    ]);
+                }
                 break;
             }
 

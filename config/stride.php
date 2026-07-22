@@ -33,7 +33,7 @@ return [
         // hanging the whole request (a stuck connection still eventually errors out).
         'generate_timeout' => (int) env('STRIDE_COACH_GENERATE_TIMEOUT', 180),
 
-        'max_tokens' => (int) env('STRIDE_COACH_MAX_TOKENS', 1024),
+        'max_tokens' => (int) env('STRIDE_COACH_MAX_TOKENS', 2048),
 
         // Generation (recommend/questions/session) needs a bigger output budget than
         // chat: on Gemini "thinking" models the budget is shared by thinking + JSON,

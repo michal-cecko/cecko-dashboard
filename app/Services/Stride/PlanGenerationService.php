@@ -5,11 +5,13 @@ namespace App\Services\Stride;
 use App\Models\Common\User;
 use App\Models\Stride\AiUsage;
 use App\Models\Stride\Block;
+use App\Models\Stride\CoachMemory;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
 use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
+use App\Models\Stride\Spot;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
 use App\Services\Common\Ai\AiReply;
@@ -651,19 +653,39 @@ class PlanGenerationService
         $notes = trim((string) ($prefs['notes'] ?? ''));
         $goals = Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->take(6)->implode('; ') ?: 'general fitness';
         $injuries = Injury::ownedBy($user)->flagged()->pluck('body_part')->implode(', ') ?: 'none';
-        $list = implode(', ', array_slice($names, 0, 45));
         $notesLine = $notes !== '' ? " Coaching notes: {$notes}." : '';
         $who = trim(($prefs['gender'] ?? '').' athlete') ?: 'athlete';
         $bodyweight = $profile->weight_kg ? ", {$profile->weight_kg}kg bodyweight" : '';
         $prs = $this->currentPrs($user);
 
+        // Durable coach memory ("no weights in the park") must shape generation,
+        // not just chat — it captures constraints the profile fields don't.
+        $facts = CoachMemory::ownedBy($user)->latest('id')->limit(8)->pluck('fact')->filter()->implode('; ');
+        $factsLine = $facts !== '' ? " Remember about this athlete: {$facts}." : '';
+
+        // Where they train and what gear exists there — with the equipment each
+        // exercise needs tagged onto the list, so "no barbell" is enforceable.
+        $gear = Spot::query()->where('user_id', $user->id)->get(['name', 'equipment'])
+            ->map(fn (Spot $s) => $s->name.' ('.(implode(', ', array_filter((array) $s->equipment)) ?: 'no equipment listed').')')
+            ->implode('; ');
+        $gearLine = $gear !== ''
+            ? " Training spots & available equipment: {$gear}. STRICT: never pick an exercise whose [equipment] the athlete does not have at their spot."
+            : '';
+
+        $shown = array_slice($names, 0, 45);
+        $equipmentByName = Exercise::query()->whereIn('name', $shown)->pluck('equipment_label', 'name');
+        $list = implode(', ', array_map(
+            fn (string $n) => $n.(($equipmentByName[$n] ?? '') !== '' ? ' ['.$equipmentByName[$n].']' : ''),
+            $shown,
+        ));
+
         // COMPACT single-session schema: sets given as a count + reps + rest, expanded
         // into warm-up + working sets in code (far fewer output tokens).
         return <<<TXT
         Program ONE "{$kind}" session for the "{$option['name']}" plan ({$option['split']} split).
-        Athlete: {$who}, {$years} years training{$bodyweight}; enjoys {$styles}. Goals: {$goals}. Injuries to avoid: {$injuries}.{$notesLine}
+        Athlete: {$who}, {$years} years training{$bodyweight}; enjoys {$styles}. Goals: {$goals}. Injuries to avoid: {$injuries}.{$notesLine}{$factsLine}{$gearLine}
         Current PRs (set loads from these; favour recent, treat old cautiously): {$prs}.
-        Use ONLY these exercises (exact names): {$list}.
+        Use ONLY these exercises — exact names WITHOUT the [equipment] suffix: {$list}.
 
         Output ONLY minified JSON for ONE session (no prose, no markdown):
         {"title":"short title","duration_min":60,"exercises":[{"name":"<from list>","tag":"Compound|Isolation","sets":3,"reps":8,"rest_sec":90}]}
@@ -806,8 +828,12 @@ class PlanGenerationService
         // a single large category (freestyle holds hundreds of tricks) silently
         // crowd every other category out of the pool. Beginner-first ordering keeps
         // accessible progressions in the pool before the elite end of a ladder.
+        // Strength holds the full M&S gym import (~1500 rows), so it additionally
+        // orders Compound lifts first within each difficulty — otherwise the cap
+        // fills with alphabetically-early beginner isolation/machine rows and the
+        // bench/squat/row staples never make the pool.
         $buckets = [
-            ['category' => 'strength', 'tag' => null, 'cap' => 60],
+            ['category' => 'strength', 'tag' => null, 'cap' => 100, 'compound_first' => true],
             ['category' => 'calisthenics', 'tag' => null, 'cap' => 100],
             ['category' => 'weighted calisthenics', 'tag' => null, 'cap' => 20],
         ];
@@ -824,6 +850,7 @@ class PlanGenerationService
                 ->where('category', $bucket['category'])
                 ->when($bucket['tag'] !== null, fn ($q) => $q->where('tag', $bucket['tag']))
                 ->orderByRaw("case difficulty when 'Beginner' then 0 when 'Intermediate' then 1 else 2 end")
+                ->when($bucket['compound_first'] ?? false, fn ($q) => $q->orderByRaw("case tag when 'Compound' then 0 else 1 end"))
                 ->orderBy('group')->orderBy('name')
                 ->limit($bucket['cap'])
                 ->get(['name', 'group']);
