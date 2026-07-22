@@ -124,15 +124,29 @@ class StrideCalisthenicsSkillsTest extends TestCase
         $this->assertArrayNotHasKey('Tuck Planche', $catalog);
         $this->assertArrayNotHasKey('Bar Hop', $catalog);
 
-        // A freestyle goal widens the pool with Statics, Strength Dynamics and Dynamics.
+        // A statics-family goal unlocks the holds and their Strength Dynamic
+        // progressions — but NOT the bar tricks; those need their own ask.
         Goal::create(['user_id' => $this->user->id, 'title' => 'Learn the planche', 'is_achieved' => false]);
         $catalog = $this->invokeCatalog($profile);
 
         $this->assertArrayHasKey('Tuck Planche', $catalog);
         $this->assertSame('Shoulders', $catalog['Tuck Planche']);
         $this->assertArrayHasKey('Tuck Front Lever Raise', $catalog);
+        $this->assertArrayNotHasKey('Bar Hop', $catalog);
+    }
+
+    public function test_dynamics_join_only_when_the_athlete_asks_for_them(): void
+    {
+        Artisan::call('db:seed', ['--class' => CalisthenicsSkillsSeeder::class]);
+
+        $profile = StrideProfile::firstOrCreate(['user_id' => $this->user->id]);
+        Goal::create(['user_id' => $this->user->id, 'title' => 'Train freestyle dynamics on the bar', 'is_achieved' => false]);
+
+        $catalog = $this->invokeCatalog($profile);
+
         $this->assertArrayHasKey('Bar Hop', $catalog);
         $this->assertSame('', $catalog['Bar Hop'], 'Dynamic tricks carry no group → Full-body days only');
+        $this->assertArrayNotHasKey('Tuck Planche', $catalog, 'a dynamics ask does not pull in statics');
     }
 
     public function test_training_style_preference_also_signals_freestyle(): void
@@ -140,11 +154,11 @@ class StrideCalisthenicsSkillsTest extends TestCase
         Artisan::call('db:seed', ['--class' => CalisthenicsSkillsSeeder::class]);
 
         $profile = StrideProfile::firstOrCreate(['user_id' => $this->user->id]);
-        $profile->update(['preferences' => ['training_style' => ['freestyle calisthenics']]]);
+        $profile->update(['preferences' => ['training_style' => ['freestyle tricks']]]);
 
         $catalog = $this->invokeCatalog($profile->refresh());
 
-        $this->assertArrayHasKey('Tuck Planche', $catalog);
+        $this->assertArrayHasKey('Bar Hop', $catalog);
     }
 
     public function test_exercise_category_family_match_covers_new_categories(): void

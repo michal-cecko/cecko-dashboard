@@ -788,10 +788,11 @@ class PlanGenerationService
             ['category' => 'calisthenics', 'tag' => null, 'cap' => 100],
             ['category' => 'weighted calisthenics', 'tag' => null, 'cap' => 20],
         ];
-        if ($this->wantsFreestyle($user, $profile)) {
-            $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => 'Static', 'cap' => 40];
-            $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => 'Strength Dynamic', 'cap' => 40];
-            $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => 'Dynamic', 'cap' => 30];
+        $sections = $this->freestyleSections($user, $profile);
+        foreach (['Static' => 40, 'Strength Dynamic' => 40, 'Dynamic' => 30] as $tag => $cap) {
+            if (in_array($tag, $sections, true)) {
+                $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => $tag, 'cap' => $cap];
+            }
         }
 
         $catalog = [];
@@ -813,12 +814,18 @@ class PlanGenerationService
     }
 
     /**
-     * Freestyle skills join the pool only when the athlete asks for them — via
-     * goals, training style or notes (all free text, so keyword-matched). The
+     * Which freestyle sections the athlete EXPLICITLY asked for — via goals,
+     * training style or notes (all free text, so keyword-matched). Nothing is
+     * automatic: no signal → no freestyle in the pool (strength/basics only);
+     * a statics-family signal (planche, lever, handstand…) unlocks the Static
+     * holds AND their Strength Dynamic progressions, but not the bar tricks;
+     * a dynamics signal (dynamics, tricks, swings…) unlocks only Dynamic.
      * Dynamic tricks carry no muscle group, so they surface on Full-body days;
      * Statics and Strength Dynamics carry real groups and slot into Push/Pull.
+     *
+     * @return array<int, string> freestyle `tag` sections to include
      */
-    private function wantsFreestyle(User $user, StrideProfile $profile): bool
+    private function freestyleSections(User $user, StrideProfile $profile): array
     {
         $prefs = $profile->preferences ?? [];
         $haystack = Str::lower(implode(' ', array_filter([
@@ -827,10 +834,21 @@ class PlanGenerationService
             Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->implode(' '),
         ])));
 
-        return Str::contains($haystack, [
-            'freestyle', 'skill', 'planche', 'lever', 'handstand', 'muscle-up', 'muscle up',
-            'human flag', 'statics', 'trick', 'street workout',
-        ]);
+        $sections = [];
+        if (Str::contains($haystack, [
+            'planche', 'lever', 'handstand', 'human flag', 'statics', 'static hold', 'skill',
+            'muscle-up', 'muscle up', 'maltese', 'manna', 'victorian', 'iron cross', 'hefesto',
+            'street workout',
+        ])) {
+            array_push($sections, 'Static', 'Strength Dynamic');
+        }
+        if (Str::contains($haystack, [
+            'freestyle', 'dynamic', 'trick', 'swing', 'flip', 'gienger', 'street workout',
+        ])) {
+            $sections[] = 'Dynamic';
+        }
+
+        return $sections;
     }
 
     // ── persistence ──────────────────────────────────────────────────────────
