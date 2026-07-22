@@ -270,15 +270,22 @@ class PlanGenerationService
             // distinct lift from the bodyweight exercise — so it overrides the catalogue
             // type and is NOT deduped against the plain movement.
             $weighted = (bool) preg_match('/\b(weighted|added weight|\+\s*\d+\s*kg|with\s+\d+\s*kg)\b/', $haystack);
+            // The catalogue now carries real weighted rows ("Weighted Pull-up") — a
+            // weighted question links to one when that's what it matched; otherwise
+            // it stays an unlinked load PR distinct from the bodyweight movement.
+            $weightedRow = $weighted && $match && Str::contains(Str::lower($match->name), 'weighted') ? $match : null;
             // Equipment/schedule questions stay text even if they brush a catalogue name.
             $accessQuestion = (bool) preg_match('/\b(access|equipment|bar|belt|vest|rings|band|gym|do you (have|own)|how many days|per week|schedule|how much time|time per)\b/', $haystack);
             $isPr = $saysPr || $validMetric || $weighted || ($match !== null && ! $accessQuestion);
 
             // Drop any question about an already-logged exercise — regardless of how the
             // model typed it (it often mislabels a PR as "text"). Equipment/access
-            // questions are spared, and a weighted variant is a distinct lift so it's
-            // never deduped against the bodyweight movement.
-            if (! $accessQuestion && ! $weighted && $this->prAlreadyOnFile($haystack, $match, $onFileIds, $onFileNames)) {
+            // questions are spared, and a weighted variant is deduped only against its
+            // own linked catalogue row, never against the bodyweight movement.
+            $alreadyOnFile = $weighted
+                ? ($weightedRow !== null && in_array((int) $weightedRow->id, $onFileIds, true))
+                : $this->prAlreadyOnFile($haystack, $match, $onFileIds, $onFileNames);
+            if (! $accessQuestion && $alreadyOnFile) {
                 continue;
             }
 
@@ -290,9 +297,9 @@ class PlanGenerationService
             ];
             if ($isPr) {
                 $q['metric_type'] = $weighted ? 'load' : ($match ? $match->metric_type : ($validMetric ? $item['metric_type'] : 'load'));
-                $q['exercise_id'] = $weighted ? null : $match?->id;
-                $q['pr_label'] = ($match && ! $weighted) ? $match->name
-                    : (! empty($item['pr_label']) ? Str::limit((string) $item['pr_label'], 60, '') : null);
+                $q['exercise_id'] = $weighted ? $weightedRow?->id : $match?->id;
+                $q['pr_label'] = ($weightedRow ?? ($weighted ? null : $match))?->name
+                    ?? (! empty($item['pr_label']) ? Str::limit((string) $item['pr_label'], 60, '') : null);
             }
             $out[] = $q;
             if (count($out) >= 6) {
@@ -396,7 +403,7 @@ class PlanGenerationService
             $profile->preferences = $prefs;
         }
 
-        $catalog = $this->catalog($user);
+        $catalog = $this->catalog($user, $profile);
         $kinds = $this->splitKinds($option['split'], $option['days_per_week']);
 
         // Build ONE session per UNIQUE kind — small, reliable, goal-aware AI calls —
@@ -770,16 +777,60 @@ class PlanGenerationService
     }
 
     /** Exercise catalog available to the user → [name => group]. */
-    private function catalog(User $user): array
+    private function catalog(User $user, StrideProfile $profile): array
     {
-        $query = Exercise::query()->whereIn('category', ['strength', 'calisthenics']);
+        // Balanced per-bucket caps: one flat limit ordered alphabetically would let
+        // a single large category (freestyle holds hundreds of tricks) silently
+        // crowd every other category out of the pool. Beginner-first ordering keeps
+        // accessible progressions in the pool before the elite end of a ladder.
+        $buckets = [
+            ['category' => 'strength', 'tag' => null, 'cap' => 60],
+            ['category' => 'calisthenics', 'tag' => null, 'cap' => 100],
+            ['category' => 'weighted calisthenics', 'tag' => null, 'cap' => 20],
+        ];
+        if ($this->wantsFreestyle($user, $profile)) {
+            $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => 'Static', 'cap' => 40];
+            $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => 'Strength Dynamic', 'cap' => 40];
+            $buckets[] = ['category' => 'freestyle calisthenics', 'tag' => 'Dynamic', 'cap' => 30];
+        }
 
-        $catalog = $query->orderBy('group')->orderBy('name')->limit(120)->get(['name', 'group'])
-            ->mapWithKeys(fn (Exercise $e) => [$e->name => $e->group ?? ''])
-            ->all();
+        $catalog = [];
+        foreach ($buckets as $bucket) {
+            $rows = Exercise::query()
+                ->where('category', $bucket['category'])
+                ->when($bucket['tag'] !== null, fn ($q) => $q->where('tag', $bucket['tag']))
+                ->orderByRaw("case difficulty when 'Beginner' then 0 when 'Intermediate' then 1 else 2 end")
+                ->orderBy('group')->orderBy('name')
+                ->limit($bucket['cap'])
+                ->get(['name', 'group']);
+            foreach ($rows as $e) {
+                $catalog[$e->name] = $e->group ?? '';
+            }
+        }
 
         // Fallback: if the catalogue is empty, the deterministic path still needs names.
         return $catalog ?: ['Bodyweight Squat' => 'Quads', 'Push-up' => 'Chest', 'Plank' => 'Core'];
+    }
+
+    /**
+     * Freestyle skills join the pool only when the athlete asks for them — via
+     * goals, training style or notes (all free text, so keyword-matched). The
+     * Dynamic tricks carry no muscle group, so they surface on Full-body days;
+     * Statics and Strength Dynamics carry real groups and slot into Push/Pull.
+     */
+    private function wantsFreestyle(User $user, StrideProfile $profile): bool
+    {
+        $prefs = $profile->preferences ?? [];
+        $haystack = Str::lower(implode(' ', array_filter([
+            implode(' ', (array) ($prefs['training_style'] ?? [])),
+            (string) ($prefs['notes'] ?? ''),
+            Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->implode(' '),
+        ])));
+
+        return Str::contains($haystack, [
+            'freestyle', 'skill', 'planche', 'lever', 'handstand', 'muscle-up', 'muscle up',
+            'human flag', 'statics', 'trick', 'street workout',
+        ]);
     }
 
     // ── persistence ──────────────────────────────────────────────────────────
@@ -800,7 +851,7 @@ class PlanGenerationService
             'days_per_week' => 3,
         ];
 
-        $built = $this->buildSession($user, $profile, $option, $session->kind, $this->catalog($user));
+        $built = $this->buildSession($user, $profile, $option, $session->kind, $this->catalog($user, $profile));
         $this->replaceExercises($session, $built);
 
         return $session->refresh();

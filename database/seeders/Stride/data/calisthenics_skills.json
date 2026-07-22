@@ -1,0 +1,4733 @@
+[
+  {
+    "name": "Passive Hang",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Forearms"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "Dead hang from the bar; grip strength and shoulder health.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Support Hold",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Dip bars",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps",
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "Straight-arm support on dip bars; the base position for dips and L-sits.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Ring Support Hold",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Straight-arm support on rings; grip, stability and core.",
+    "source_url": "https://thegravgear.com/blogs/calisthenics/calisthenics-skill-list"
+  },
+  {
+    "name": "RTO Ring Support Hold",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Biceps",
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Rings-turned-out support hold; heavier stabilizer and bicep demand.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Inverted Row",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Low bar",
+    "primary_muscles": [
+      "Mid back"
+    ],
+    "secondary_muscles": [
+      "Biceps",
+      "Rear delts"
+    ],
+    "metric_type": "reps",
+    "description": "Bodyweight row under a low bar (australian pull-up).",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Dips",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Dip bars",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [
+      "Chest",
+      "Front delts"
+    ],
+    "metric_type": "reps",
+    "description": "Parallel-bar dips; the fundamental bodyweight push.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Ring Dips",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Toes to Bar",
+    "category": "calisthenics",
+    "group": "Core",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Hip flexors",
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "Hanging compression raise until the toes touch the bar.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Crow Pose",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Bent-arm balance with knees on elbows; entry point for hand balancing.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Pike Push-up",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Archer Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "One arm does most of the pressing; preparation for the One-Arm Push-up.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "One-Arm Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Triceps",
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Bulgarian Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Front delts"
+    ],
+    "metric_type": "reps",
+    "description": "Wide, elbows-out ring push-up; intense chest stretch and contraction.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Bulgarian Dips",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "Rings flared out during the dip; more stability demand than Ring Dips.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Assisted Pistol Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Shrimp Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Dragon Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes",
+      "Balance"
+    ],
+    "metric_type": "reps",
+    "description": "Lowering pistol variation with the free leg wrapped behind; extreme mobility.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Sissy Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Nordic Hamstring Curl",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Hamstrings"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Reverse Nordic Curl",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Kneeling backward lean; quad strength through length, knee-friendly.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Hollow Body Hold",
+    "category": "calisthenics",
+    "group": "Core",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Dragon Flag",
+    "category": "calisthenics",
+    "group": "Core",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bench",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Bridge Hold",
+    "category": "calisthenics",
+    "group": "Core",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Spinal erectors"
+    ],
+    "secondary_muscles": [
+      "Glutes",
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "Full back bridge; spinal extension strength and shoulder flexibility.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Legless Rope Climb",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Climbing rope",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps",
+      "Forearms"
+    ],
+    "metric_type": "reps",
+    "description": "Rope climb using arms only; pulling strength and grip.",
+    "source_url": "https://thegravgear.com/blogs/calisthenics/calisthenics-skill-list"
+  },
+  {
+    "name": "Skin the Cat",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Pancake Stretch",
+    "category": "mobility",
+    "group": "Hips",
+    "tag": "Mobility",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Hips"
+    ],
+    "secondary_muscles": [
+      "Hamstrings"
+    ],
+    "metric_type": "hold",
+    "description": "Straddle forward fold; hip mobility base for straddle skills.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Side Split",
+    "category": "mobility",
+    "group": "Hips",
+    "tag": "Mobility",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Hips"
+    ],
+    "secondary_muscles": [
+      "Adductors"
+    ],
+    "metric_type": "hold",
+    "description": "Full lateral split; hip mobility and control.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Weighted Pull-up",
+    "category": "weighted calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Dip bar + belt",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "load",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Weighted Chin-up",
+    "category": "weighted calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Dip bar + belt",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "load",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Weighted Muscle-up",
+    "category": "weighted calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Dip bar + belt",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Triceps",
+      "Chest"
+    ],
+    "metric_type": "load",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Wall Handstand Hold",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.8 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Straddle One-Arm Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.7 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Handstand 360 Pirouette",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Handstand on One Bar",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.4 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "X Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.3 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Narrow Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.3 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Wide Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.2 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Hollow Back Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Spinal erectors"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.2 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Scorpion Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Spinal erectors"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — balance element.",
+    "source_url": null
+  },
+  {
+    "name": "Handstand Walk",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "Walking on the hands; balance and overhead endurance.",
+    "source_url": "https://thegravgear.com/blogs/calisthenics/calisthenics-skill-list"
+  },
+  {
+    "name": "90 Degree Handstand Hold",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Planche Lean",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Regression ladder step toward the planche: forward-leaning push-up support.",
+    "source_url": null
+  },
+  {
+    "name": "Frog Stand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Bent-arm balance regression toward the tuck planche.",
+    "source_url": null
+  },
+  {
+    "name": "Tuck Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Advanced Tuck Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "One-Leg Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Regression ladder step between advanced tuck and straddle planche.",
+    "source_url": null
+  },
+  {
+    "name": "Straddle Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.3 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Full Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.5 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 1.1 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Iguana Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.6 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Iguana Straddle Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.4 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Prayer Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.4 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Maltese",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.8 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Straddle Maltese",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.4 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Manna",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.5 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "V-sit",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Hip flexors"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Straight Arm Touch V-sit",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.6 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "Elbow Lever",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Straddle Elbow Lever",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Reverse Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Spinal erectors"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 1.1 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "Iron Cross",
+    "category": "freestyle calisthenics",
+    "group": "Chest",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Lats",
+      "Biceps"
+    ],
+    "metric_type": "hold",
+    "description": "Rings held straight out to the sides; elite straight-arm strength.",
+    "source_url": "https://thegravgear.com/blogs/calisthenics/calisthenics-skill-list"
+  },
+  {
+    "name": "Victorian",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Rear delts"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.8 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "Tuck Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Advanced Tuck Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "One-Leg Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Straddle Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Touch Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Wide Grip Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.4 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "X Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.3 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.6 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Arm Touch Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.7 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "Dragonfly Front",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — isometric pull element.",
+    "source_url": null
+  },
+  {
+    "name": "Dragonfly Back",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Spinal erectors"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "German Hang",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Beginner",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "Passive shoulder-extension hang; prerequisite for the back lever.",
+    "source_url": "https://thegravgear.com/blogs/calisthenics/calisthenics-skill-list"
+  },
+  {
+    "name": "Tuck Back Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Straddle Back Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "Regression ladder step between tuck and full back lever.",
+    "source_url": null
+  },
+  {
+    "name": "Back Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Back Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.2 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Arm Touch Back Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.7 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Flag Support Hold",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "Regression ladder step: vertical flag support with hips high.",
+    "source_url": null
+  },
+  {
+    "name": "Human Flag Straddle",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.1 — isometric frontal body plane hold element.",
+    "source_url": null
+  },
+  {
+    "name": "Human Flag",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats",
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.2 — isometric frontal body plane hold element.",
+    "source_url": null
+  },
+  {
+    "name": "Narrow Grip Human Flag",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats",
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.3 — isometric frontal body plane hold element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Side Flag",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Static",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "hold",
+    "description": "WSWCF Code of Points 0.5 — isometric push element.",
+    "source_url": null
+  },
+  {
+    "name": "Wall Handstand Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Handstand Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Freestanding Handstand Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps",
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Handstand Push-up (Parallettes)",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Deficit Handstand Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Explosive Handstand Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Side to Side Handstand Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "90 Degree Handstand Push-up (Floor)",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "90 Degree Handstand Push-up (Parallettes)",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Press to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Handstand Press",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Stalder Press",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Hamstrings"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Iguana Press to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Bent-Arm Planche Press to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Planche Press to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Planche Press to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Manna to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Abs"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Manna Dislocation to Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Abs"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Pseudo Planche Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Chest",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Planche Push-up Straddle",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Planche Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Explosive Planche Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Explosive Planche Push-up to Maltese",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Pelican Planche Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Planche Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Maltese Push-up",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Press to Maltese from Lying Position",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Press to Japanese Handstand from Maltese",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Parallettes",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Impossible Dip",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Dip bars",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Tuck Front Lever Raise",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Front Lever Raise",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Tuck Front Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Front Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Straddle Front Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Wide Front Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Side to Side Front Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Front Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.8 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Ice Cream Maker",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Back Lever Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "Pull from back lever back up to the bar; advanced back-lever progression.",
+    "source_url": "https://dieringe.com/blog/calisthenics-skills"
+  },
+  {
+    "name": "Back Lever Full Raise",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Archer Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Typewriter Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Assisted One-Arm Pull-up (Band)",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Negative Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Chin-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": "One-arm pull with supinated grip; slightly more bicep-driven than the pull-up.",
+    "source_url": "https://thegravgear.com/blogs/calisthenics/calisthenics-skill-list"
+  },
+  {
+    "name": "Bar Muscle-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Triceps",
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Ring Muscle-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Triceps",
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Muscle-up",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Hefesto",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Back Lever Hefesto",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Archer Hefesto",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Archer Back Lever Hefesto",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Arm Back Lever Hefesto",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Arm Hefesto",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — push move element.",
+    "source_url": null
+  },
+  {
+    "name": "Entrada",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Victorian Press",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Rear delts"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight-Arm Front Lever to Victorian",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Rear delts"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Victorian to Reverse Planche",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Gymnastic rings",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — pull move element.",
+    "source_url": null
+  },
+  {
+    "name": "Human Flag Raise",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — frontal body plane move element.",
+    "source_url": null
+  },
+  {
+    "name": "Human Flag Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Strength Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — frontal body plane move element.",
+    "source_url": null
+  },
+  {
+    "name": "Human Flag Explosive Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — frontal body plane move element.",
+    "source_url": null
+  },
+  {
+    "name": "Human Flag Side to Side Pull-up",
+    "category": "freestyle calisthenics",
+    "group": "Core",
+    "tag": "Strength Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Obliques"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — frontal body plane move element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 720",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Double rotation from the swing (first landed 2018).",
+    "source_url": null
+  },
+  {
+    "name": "Swing 900",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "2.5 rotations from the swing; very few athletes have it.",
+    "source_url": null
+  },
+  {
+    "name": "Baby Giant",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Partial-body giant swing.",
+    "source_url": null
+  },
+  {
+    "name": "360 Pull-up",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Pull-up with a full spin at the top.",
+    "source_url": null
+  },
+  {
+    "name": "Frontflip Regrab",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Front somersault at dead center with a regrab. WSWCF Code of Points 0.8 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Alley Oop",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Sideways flip over the bar, caught inside. WSWCF Code of Points 0.4 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Cast Backflip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Backflip dismount cast off the bar.",
+    "source_url": null
+  },
+  {
+    "name": "Toothbrush",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Dynamic over-bar release trick.",
+    "source_url": null
+  },
+  {
+    "name": "180 Over the Bar",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Flip over a high bar to the far side.",
+    "source_url": null
+  },
+  {
+    "name": "Bar Hop",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Legs over the bar with a backward knee rotation.",
+    "source_url": null
+  },
+  {
+    "name": "Switchblade",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "180-over-the-bar combined with a bar hop.",
+    "source_url": null
+  },
+  {
+    "name": "Tornado Grip Switch",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Mid-swing hand-grip switch for flow.",
+    "source_url": null
+  },
+  {
+    "name": "Katchev",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Dynamic pull from back lever to front support.",
+    "source_url": null
+  },
+  {
+    "name": "Around the World",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Full body circle around the bar.",
+    "source_url": null
+  },
+  {
+    "name": "Swing Forwards to Frontflip Regrab",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing Backwards to Backflip Regrab",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Jaeger 360",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Tkatchev from German Hang",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Salto Forward Over the Bar",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Shrimp Flip Mixed Grip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Backflip Between the Parallel Bars",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Knee Pit Swing to Front Release Regrab",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — sagittal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Gienger Over the Bar",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — frontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Gienger 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — frontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 1260",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Swing 900",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.1 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 1080",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "King 900",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Supra 900",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 1.0 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "El-Grip 720",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Dragon 1080",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.9 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "X-Grip Swing 720",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.8 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "King 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.8 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 540 to Support",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Muscle-up 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Supra 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 540 to Elbow Pit",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "540 from Sitting Position",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Alley Oop Backwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Dragon 720",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Giant Swing 360",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Dragon 720 Mixed Grip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Dislocate 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "No Touch 540",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "One-Arm Swing 360",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 360 to Support",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Alley Oop to Knee Bend",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Elbow 360",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing 360 X-Grip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Undertopsy",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Dragon 360 Mixed Grip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Support Swing to Palm Spin Under the Bar",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Support Swing to 3/4 Twist Under the Bar",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Backward Drop Over the Other Bar",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — horizontal body plane element.",
+    "source_url": null
+  },
+  {
+    "name": "Giant Swing in German Hang",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Giant Swing El-Grip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Giant Swing 180",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Explosive Pullover",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Half Shrimp Flip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Elbow Support Circle Forwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Elbow Support Circle Backwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Sitting Circle Forwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Sitting Circle Backwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Support Circle Forwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Support Circle Backwards",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Support Hip Circle",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — motion without release element.",
+    "source_url": null
+  },
+  {
+    "name": "Triple Backflip Flyaway",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.8 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Double Gainer Double Twist",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.8 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Gainer Double Twist",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.7 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Front Flip with Twist",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Gainer with Twist",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Double Front Flip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Double Flyaway",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Gainer Backflip from Knee Pit",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.6 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Counter-Tempo Frontflip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.5 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Counter-Tempo Frontflip from Support",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.4 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Swing Cast",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Cast Away",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Front Flip",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.3 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Twist Gainer from Knee Pit",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Parallel Bar Front Flip Dismount",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Parallel Bar Backflip Dismount",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.2 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Flyaway",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Flyaway",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Backflip from Seat",
+    "category": "freestyle calisthenics",
+    "group": null,
+    "tag": "Dynamic",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Full body"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "WSWCF Code of Points 0.1 — dismount element.",
+    "source_url": null
+  },
+  {
+    "name": "Diamond Push-up",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Incline Diamond Push-up",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Explosive Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Typewriter Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Hindu Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": "Flowing dive from pike through hollow to upward dog.",
+    "source_url": null
+  },
+  {
+    "name": "Divebomber Push-up",
+    "category": "calisthenics",
+    "group": "Chest",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Chest"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": "Like the Hindu push-up but reversing back along the same path.",
+    "source_url": null
+  },
+  {
+    "name": "Straight Bar Dips",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Archer Straight Bar Dips",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Freestyle bar",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [
+      "Chest"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Bench Dips",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bench",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Bodyweight Tricep Extension",
+    "category": "calisthenics",
+    "group": "Triceps",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Low bar",
+    "primary_muscles": [
+      "Triceps"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Bodyweight skull-crusher on a low bar.",
+    "source_url": null
+  },
+  {
+    "name": "Pike Walk",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Hamstrings"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Wall Walk",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Elevated Pike Push-up",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Australian Face Pull",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Low bar",
+    "primary_muscles": [
+      "Rear delts"
+    ],
+    "secondary_muscles": [
+      "Upper traps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Straight Arm Side Plank Raise",
+    "category": "calisthenics",
+    "group": "Shoulders",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Obliques"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Burpees",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Chest",
+      "Core"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Archer Inverted Row",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Low bar",
+    "primary_muscles": [
+      "Mid back"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Australian Chin-up",
+    "category": "calisthenics",
+    "group": "Biceps",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Low bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Mid back"
+    ],
+    "metric_type": "reps",
+    "description": "Underhand inverted row; bicep-focused horizontal pull.",
+    "source_url": null
+  },
+  {
+    "name": "Commando Pull-up",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Biceps"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Head Bangers",
+    "category": "calisthenics",
+    "group": "Biceps",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "Horizontal in-and-out at the top of a chin-up.",
+    "source_url": null
+  },
+  {
+    "name": "Bodyweight Bar Curl",
+    "category": "calisthenics",
+    "group": "Biceps",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Low bar",
+    "primary_muscles": [
+      "Biceps"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Human Pullover",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Abs"
+    ],
+    "metric_type": "reps",
+    "description": "Drive the body up by pulling the arms down (straight-arm pushdown with bodyweight) — not by curling the trunk with the abs.",
+    "source_url": null
+  },
+  {
+    "name": "Scapular Shrug",
+    "category": "calisthenics",
+    "group": "Back",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Lower traps"
+    ],
+    "secondary_muscles": [
+      "Lats"
+    ],
+    "metric_type": "reps",
+    "description": "Scapula-only pull from a dead hang.",
+    "source_url": null
+  },
+  {
+    "name": "Hanging Knee Raise",
+    "category": "calisthenics",
+    "group": "Core",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Pull-up bar",
+    "primary_muscles": [
+      "Abs"
+    ],
+    "secondary_muscles": [
+      "Hip flexors"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Crab Walk",
+    "category": "calisthenics",
+    "group": "Core",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Bodyweight Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Jump Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Lunge",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Jumping Lunge",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Walking Lunge",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Curtsy Lunge",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [
+      "Quads"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Archer Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Adductors"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Cossack Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Adductors"
+    ],
+    "metric_type": "reps",
+    "description": "Side-to-side deep squat shifting weight between legs.",
+    "source_url": null
+  },
+  {
+    "name": "Sumo Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [
+      "Quads"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Levitation Squat",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": "Single-leg squat with the free shin tucked behind — keeps a neutral pelvis, friendlier than the pistol.",
+    "source_url": null
+  },
+  {
+    "name": "Step-up",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Box",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Box Jump",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Box",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Precision Jump",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [
+      "Calves"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Wall Sit",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Quads"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "hold",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Glute Bridge",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [
+      "Hamstrings"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Single-Leg Glute Bridge",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [
+      "Hamstrings"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Hip Thrust",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Beginner",
+    "equipment_label": "Bench",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [
+      "Hamstrings"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Glute Ham Raise",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Hamstrings"
+    ],
+    "secondary_muscles": [
+      "Glutes"
+    ],
+    "metric_type": "reps",
+    "description": "Glutes contract and stabilize first so the hamstrings work through a safer, stronger curl.",
+    "source_url": null
+  },
+  {
+    "name": "Single-Leg Romanian Deadlift",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Hamstrings"
+    ],
+    "secondary_muscles": [
+      "Glutes",
+      "Balance"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Elevated Hamstring Curl",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Compound",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Hamstrings"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Side-Lying Leg Raise",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Lateral March",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Resistance bands",
+    "primary_muscles": [
+      "Glutes"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Calf Raise",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Calves"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Single-Leg Calf Raise",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Advanced",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Calves"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Reverse Calf Raise",
+    "category": "calisthenics",
+    "group": "Legs",
+    "tag": "Isolation",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Tibialis"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Jumping Jacks",
+    "category": "conditioning",
+    "group": "Full body",
+    "tag": "Conditioning",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Cardiovascular"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "High Knees Run",
+    "category": "conditioning",
+    "group": "Full body",
+    "tag": "Conditioning",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Cardiovascular"
+    ],
+    "secondary_muscles": [
+      "Hip flexors"
+    ],
+    "metric_type": "reps",
+    "description": null,
+    "source_url": null
+  },
+  {
+    "name": "Bent Arm Handstand",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Triceps"
+    ],
+    "metric_type": "hold",
+    "description": "Handstand held on bent arms; scapula-focused total upper body balance.",
+    "source_url": null
+  },
+  {
+    "name": "Band-Assisted Planche",
+    "category": "freestyle calisthenics",
+    "group": "Shoulders",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Resistance bands",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Planche hold with elastic assistance; ladder step toward the free hold.",
+    "source_url": "https://www.mpcalisthenics.com/tutorial/28-days-to-straddle-planche-tutorial-full-body-training-hard-work"
+  },
+  {
+    "name": "Band-Assisted Front Lever",
+    "category": "freestyle calisthenics",
+    "group": "Back",
+    "tag": "Static",
+    "difficulty": "Intermediate",
+    "equipment_label": "Resistance bands",
+    "primary_muscles": [
+      "Lats"
+    ],
+    "secondary_muscles": [
+      "Core"
+    ],
+    "metric_type": "hold",
+    "description": "Front lever hold with elastic assistance; ladder step toward the free hold.",
+    "source_url": "https://calisteniapp.com/articles/front-lever-calisthenics"
+  }
+]

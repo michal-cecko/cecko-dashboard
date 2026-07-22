@@ -34,7 +34,11 @@ class ExerciseCategory
         }
 
         if ($by === 'category') {
-            return self::of($exercise) === mb_strtolower($value);
+            $category = self::of($exercise);
+
+            // Family match: "calisthenics" also covers "weighted calisthenics" and
+            // "freestyle calisthenics" (an exact value still matches only itself).
+            return $category !== null && str_contains($category, mb_strtolower($value));
         }
 
         return str_contains(self::normalize($exercise->name), self::normalize($value));
