@@ -162,10 +162,10 @@ class CoachToolExecutor
 
     private function setLoad(User $user, array $input, CoachContext $ctx): array
     {
-        $session = $ctx->todaySession;
+        $session = $this->targetSession($ctx, $input);
         $exercise = $this->findExercise($session, $input['exercise_name'] ?? '');
         if ($exercise === null) {
-            return $this->miss($input['exercise_name'] ?? '');
+            return $this->miss($input['exercise_name'] ?? '', $input);
         }
 
         $kg = (float) $input['kg'];
@@ -190,10 +190,10 @@ class CoachToolExecutor
 
     private function swapExercise(User $user, array $input, CoachContext $ctx): array
     {
-        $session = $ctx->todaySession;
+        $session = $this->targetSession($ctx, $input);
         $exercise = $this->findExercise($session, $input['from_exercise'] ?? '');
         if ($exercise === null) {
-            return $this->miss($input['from_exercise'] ?? '');
+            return $this->miss($input['from_exercise'] ?? '', $input);
         }
 
         $to = trim((string) $input['to_exercise']);
@@ -214,10 +214,10 @@ class CoachToolExecutor
 
     private function addSet(User $user, array $input, CoachContext $ctx): array
     {
-        $session = $ctx->todaySession;
+        $session = $this->targetSession($ctx, $input);
         $exercise = $this->findExercise($session, $input['exercise_name'] ?? '');
         if ($exercise === null) {
-            return $this->miss($input['exercise_name'] ?? '');
+            return $this->miss($input['exercise_name'] ?? '', $input);
         }
 
         $proposal = $this->propose(
@@ -293,21 +293,41 @@ class CoachToolExecutor
         ?Session $session,
         array $payload,
     ): AiAdjustment {
+        // Scope by the OPERATION, not by which chat staged it: block-wide tools
+        // never pass a $session, today-tools always do. The general chat carries
+        // the active block in $ctx, so a set_load there must still scope 'today'.
+        $blockWide = $session === null && $ctx->block !== null;
+
         return AiAdjustment::create([
             'user_id' => $user->id,
-            'session_id' => $ctx->block !== null ? null : $session?->id,
-            'block_id' => $ctx->block?->id,
+            'session_id' => $blockWide ? null : $session?->id,
+            'block_id' => $blockWide ? $ctx->block->id : null,
             'conversation_id' => $ctx->conversation?->id,
-            'scope' => $ctx->block !== null ? 'block' : 'today',
+            'scope' => $blockWide ? 'block' : 'today',
             'status' => 'proposed',
             'kind' => $kind,
             'operation' => $operation,
-            'target' => $ctx->block !== null ? "Block · {$ctx->block->name}" : ($session ? "Today · {$session->kind}" : 'Profile'),
+            'target' => $blockWide ? "Block · {$ctx->block->name}" : ($session ? "Today · {$session->kind}" : 'Profile'),
             'text' => $text,
             'why' => $why,
             'payload' => $payload,
             'source' => 'coach',
         ]);
+    }
+
+    /**
+     * The session a per-session tool targets: an explicit session_ref resolves
+     * against the block in context (any day is editable from any chat); without
+     * one, today's session — the pre-session_ref behaviour.
+     */
+    private function targetSession(CoachContext $ctx, array $input): ?Session
+    {
+        $ref = trim((string) ($input['session_ref'] ?? ''));
+        if ($ref !== '' && $ctx->block !== null) {
+            return $this->resolveBlockSession($ctx->block, $ref);
+        }
+
+        return $ctx->todaySession;
     }
 
     private function findExercise(?Session $session, string $name): ?SessionExercise
@@ -320,8 +340,12 @@ class CoachToolExecutor
         return $session->exercises()->whereRaw('LOWER(name) LIKE ?', ['%'.$name.'%'])->first();
     }
 
-    private function miss(string $name): array
+    private function miss(string $name, array $input = []): array
     {
-        return ['result' => "No exercise matching \"{$name}\" in today's session.", 'adjustment' => null];
+        $where = trim((string) ($input['session_ref'] ?? '')) !== ''
+            ? "the session matching \"{$input['session_ref']}\""
+            : "today's session";
+
+        return ['result' => "No exercise matching \"{$name}\" in {$where}.", 'adjustment' => null];
     }
 }

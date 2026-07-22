@@ -18,13 +18,14 @@ class CoachTools
         $tools = [
             [
                 'name' => 'set_load',
-                'description' => "Change the working weight (and optionally reps) for an exercise in today's session. Use when the user wants to go lighter/heavier.",
+                'description' => 'Change the working weight (and optionally reps) for an exercise in a session — today\'s by default, or any block session via session_ref. Use when the user wants to go lighter/heavier.',
                 'input_schema' => [
                     'type' => 'object',
                     'properties' => [
-                        'exercise_name' => ['type' => 'string', 'description' => 'Name (or part) of the exercise in today\'s session.'],
+                        'exercise_name' => ['type' => 'string', 'description' => 'Name (or part) of the exercise in the session.'],
                         'kg' => ['type' => 'number', 'description' => 'New working weight in kilograms.'],
                         'reps' => ['type' => 'integer', 'description' => 'Optional new working reps.'],
+                        'session_ref' => ['type' => 'string', 'description' => 'Optional: which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today\'s session.'],
                         'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
                     ],
                     'required' => ['exercise_name', 'kg'],
@@ -32,12 +33,13 @@ class CoachTools
             ],
             [
                 'name' => 'swap_exercise',
-                'description' => "Replace one exercise in today's session with another movement.",
+                'description' => 'Replace one exercise with another movement in a session — today\'s by default, or any block session via session_ref.',
                 'input_schema' => [
                     'type' => 'object',
                     'properties' => [
                         'from_exercise' => ['type' => 'string', 'description' => 'Exercise to replace (name or part).'],
                         'to_exercise' => ['type' => 'string', 'description' => 'Replacement exercise name.'],
+                        'session_ref' => ['type' => 'string', 'description' => 'Optional: which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today\'s session.'],
                         'reason' => ['type' => 'string', 'description' => 'Short rationale.'],
                     ],
                     'required' => ['from_exercise', 'to_exercise'],
@@ -45,7 +47,7 @@ class CoachTools
             ],
             [
                 'name' => 'add_set',
-                'description' => "Add a set to an exercise in today's session.",
+                'description' => 'Add a set to an exercise in a session — today\'s by default, or any block session via session_ref.',
                 'input_schema' => [
                     'type' => 'object',
                     'properties' => [
@@ -53,6 +55,7 @@ class CoachTools
                         'kind' => ['type' => 'string', 'enum' => ['Warm-up', 'Working', 'AMRAP', 'Drop']],
                         'reps' => ['type' => 'integer'],
                         'kg' => ['type' => 'number'],
+                        'session_ref' => ['type' => 'string', 'description' => 'Optional: which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today\'s session.'],
                         'reason' => ['type' => 'string'],
                     ],
                     'required' => ['exercise_name'],

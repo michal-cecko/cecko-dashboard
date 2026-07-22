@@ -5,6 +5,7 @@ namespace App\Services\Stride\Coach;
 use App\Models\Common\User;
 use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\AiUsage;
+use App\Models\Stride\Block;
 use App\Models\Stride\CoachConversation;
 use App\Models\Stride\CoachMessage;
 use App\Models\Stride\Session;
@@ -44,10 +45,12 @@ class CoachService
         $system = $this->systemBlocks($conversation, $user, $language);
         $messages = $this->history($conversation);
 
+        // The general chat can edit the block too: without a scoped block, fall
+        // back to the athlete's active one so block tools work from either chat.
         $context = new CoachContext(
             conversation: $conversation,
             todaySession: Session::ownedBy($user)->where('status', 'today')->first(),
-            block: $conversation->block,
+            block: $conversation->block ?? Block::ownedBy($user)->active()->first(),
         );
 
         [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $context, $system, $messages, $language);
@@ -123,15 +126,15 @@ class CoachService
     /** Cached system prompt: stable guide + per-request training memory + rolling summary. */
     private function systemBlocks(CoachConversation $conversation, User $user, string $language = 'en'): array
     {
-        $blockScoped = $conversation->block_id !== null;
+        $block = $conversation->block ?? Block::ownedBy($user)->active()->first();
 
         $blocks = [
-            ['text' => $this->memory->systemGuide($conversation->persona_key, $language, $blockScoped), 'cache' => true],
+            ['text' => $this->memory->systemGuide($conversation->persona_key, $language, $block !== null), 'cache' => true],
             ['text' => $this->memory->memory($user), 'cache' => true],
         ];
 
-        if ($blockScoped && $conversation->block) {
-            $blocks[] = ['text' => $this->memory->blockMemory($conversation->block), 'cache' => true];
+        if ($block !== null) {
+            $blocks[] = ['text' => $this->memory->blockMemory($block), 'cache' => true];
         }
 
         if ($conversation->summary) {

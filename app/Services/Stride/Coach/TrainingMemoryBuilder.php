@@ -53,14 +53,14 @@ class TrainingMemoryBuilder
 
         if ($blockScoped) {
             $guide .= "\n\n".<<<'TEXT'
-            BLOCK EDIT MODE: this conversation edits an ENTIRE training block — every change applies across
-            ALL the block's sessions (shown in BLOCK BEING EDITED below). Use the block tools (reorder_block,
-            swap_block, scale_block_load, regenerate_session, change_session_kind, edit_block) to stage
-            block-wide changes. Examples: "always start with calisthenics first" → reorder_block(match_by="category",
-            match_value="calisthenics", position="first"); "start today with Pull instead of Push" →
-            change_session_kind(session_ref=today's date, new_kind="Pull") — and one call per other session whose
-            kind shifts (regenerate_session alone can NOT change what a day trains). ALWAYS call a tool; the
-            athlete confirms each proposal before it is applied.
+            BLOCK TOOLS AVAILABLE: you can edit the athlete's current training block (shown in BLOCK BEING
+            EDITED below) — block-wide changes apply across ALL its sessions. Use the block tools (reorder_block,
+            swap_block, scale_block_load, regenerate_session, change_session_kind) to stage them. Examples:
+            "always start with calisthenics first" → reorder_block(match_by="category", match_value="calisthenics",
+            position="first"); "start today with Pull instead of Push" → change_session_kind(session_ref=today's
+            date, new_kind="Pull") — and one call per other session whose kind shifts (regenerate_session alone
+            can NOT change what a day trains). ALWAYS call a tool for a plan change; the athlete confirms each
+            proposal before it is applied.
             TEXT;
         }
 

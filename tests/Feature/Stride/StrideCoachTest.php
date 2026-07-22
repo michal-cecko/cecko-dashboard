@@ -266,4 +266,69 @@ class StrideCoachTest extends TestCase
             ->assertNotFound();
         $this->getJson('/api/stride/coach/conversations', $intruderAuth)->assertOk()->assertJsonCount(0, 'conversations');
     }
+
+    public function test_block_tools_work_from_the_general_chat_via_the_active_block(): void
+    {
+        $conversation = $this->newConversation(); // NOT block-scoped
+        $built = ['title' => 'Pull Day', 'duration_min' => 55, 'exercises' => [
+            ['name' => 'Pull-up (Strict)', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+        ]];
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('change_session_kind', ['session_ref' => 'Push', 'new_kind' => 'Pull']))
+            ->push(FakeCoachProvider::text('Proposed.'))
+            ->push(FakeCoachProvider::text(json_encode($built)));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'I want to train Pull today instead of Push.',
+        ], $this->auth)->assertOk()->json('message.adjustments.0.id');
+
+        // Staged as a block-scoped proposal against the ACTIVE block.
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'scope' => 'block', 'status' => 'proposed']);
+
+        $todaySession = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $this->assertSame('Pull', $todaySession->fresh()->kind);
+        $this->assertSame('Pull Day', $todaySession->fresh()->title);
+    }
+
+    public function test_per_session_tools_can_target_any_block_session_via_session_ref(): void
+    {
+        $conversation = $this->newConversation();
+        $planned = Session::where('user_id', $this->user->id)->where('title', 'Pull — Hypertrophy')->firstOrFail();
+        $row = $planned->exercises()->create(['name' => 'Barbell Row', 'tag' => 'Compound', 'position' => 0]);
+        $row->sets()->create(['kind' => 'Working', 'reps' => 8, 'kg' => 60, 'rest_sec' => 120, 'position' => 0]);
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('set_load', ['exercise_name' => 'Row', 'kg' => 70, 'session_ref' => 'Hypertrophy']))
+            ->push(FakeCoachProvider::text('Proposed.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Heavier rows on the hypertrophy day.',
+        ], $this->auth)->assertOk()->json('message.adjustments.0.id');
+
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'session_id' => $planned->id]);
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $this->assertEqualsWithDelta(70.0, (float) $row->sets()->where('kind', 'Working')->value('kg'), 0.01);
+    }
+
+    public function test_today_proposals_from_the_general_chat_stay_today_scoped(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('set_load', ['exercise_name' => 'Bench', 'kg' => 65]))
+            ->push(FakeCoachProvider::text('Proposed.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Lighter bench today.',
+        ], $this->auth)->assertOk()->json('message.adjustments.0.id');
+
+        // Despite the active block being in context, a today-tool stays today-scoped.
+        $todaySession = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $this->assertDatabaseHas('stride_ai_adjustments', [
+            'id' => $proposalId, 'scope' => 'today', 'block_id' => null, 'session_id' => $todaySession->id,
+        ]);
+    }
 }
