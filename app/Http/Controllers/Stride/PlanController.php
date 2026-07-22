@@ -31,10 +31,18 @@ class PlanController extends Controller
             'base.summary' => ['nullable', 'string', 'max:500'],
             'base.weeks' => ['nullable', 'integer', 'between:1,16'],
             'base.days_per_week' => ['nullable', 'integer', 'between:1,7'],
+            'weeks_min' => ['nullable', 'integer', 'between:3,12'],
+            'weeks_max' => ['nullable', 'integer', 'between:3,12', 'gte:weeks_min'],
         ]);
 
         return response()->json([
-            'options' => $planner->recommend($request->user(), $data['note'] ?? null, $data['base'] ?? null),
+            'options' => $planner->recommend(
+                $request->user(),
+                $data['note'] ?? null,
+                $data['base'] ?? null,
+                $data['weeks_min'] ?? null,
+                $data['weeks_max'] ?? null,
+            ),
         ]);
     }
 

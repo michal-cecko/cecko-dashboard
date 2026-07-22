@@ -135,7 +135,7 @@ class PlanGenerationService
      *
      * @return array<int, array{key:string,name:string,phase:string,weeks:int,days_per_week:int,split:string,summary:string}>
      */
-    public function recommend(User $user, ?string $note = null, ?array $base = null): array
+    public function recommend(User $user, ?string $note = null, ?array $base = null, ?int $weeksMin = null, ?int $weeksMax = null): array
     {
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         $prefs = $profile->preferences ?? [];
@@ -145,7 +145,7 @@ class PlanGenerationService
         $turn = new CoachTurn(
             model: (string) config('stride.coach.generate_model'),
             systemBlocks: [['text' => 'You are a strength & conditioning coach. Output ONLY valid minified JSON — no prose, no markdown fences. Write all user-facing text (names, summaries) in '.$this->languageName($lang).'.', 'cache' => false]],
-            messages: [['role' => 'user', 'content' => $this->recommendPrompt($user, $prefs, $days, $note, $base)]],
+            messages: [['role' => 'user', 'content' => $this->recommendPrompt($user, $prefs, $days, $note, $base, $weeksMin, $weeksMax)]],
             maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
             purpose: 'generate_plan',
             timeoutSeconds: (int) config('stride.coach.generate_timeout', 90),
@@ -155,14 +155,34 @@ class PlanGenerationService
             $text = $this->chatLogged($user, $turn)->text;
             $options = $this->sanitizeOptions(is_array($decoded = $this->decodeJson($text)) ? $decoded : []);
             if ($options !== []) {
-                return $options;
+                return $this->clampOptionWeeks($options, $weeksMin, $weeksMax);
             }
             $this->logDegradation('recommend', $text);
         } catch (Throwable $e) {
             report($e);
         }
 
-        return $this->fallbackOptions($days);
+        return $this->clampOptionWeeks($this->fallbackOptions($days), $weeksMin, $weeksMax);
+    }
+
+    /**
+     * Enforce the athlete's chosen mesocycle length range on every option —
+     * the prompt asks for it, but the model is not trusted to comply.
+     *
+     * @param  array<int, array>  $options
+     * @return array<int, array>
+     */
+    private function clampOptionWeeks(array $options, ?int $weeksMin, ?int $weeksMax): array
+    {
+        if ($weeksMin === null && $weeksMax === null) {
+            return $options;
+        }
+
+        return array_map(function (array $option) use ($weeksMin, $weeksMax) {
+            $option['weeks'] = max($weeksMin ?? 1, min($weeksMax ?? 16, (int) $option['weeks']));
+
+            return $option;
+        }, $options);
     }
 
     /**
@@ -444,8 +464,11 @@ class PlanGenerationService
 
     // ── recommend helpers ────────────────────────────────────────────────────
 
-    private function recommendPrompt(User $user, array $prefs, int $days, ?string $note = null, ?array $base = null): string
+    private function recommendPrompt(User $user, array $prefs, int $days, ?string $note = null, ?array $base = null, ?int $weeksMin = null, ?int $weeksMax = null): string
     {
+        $weeksLine = ($weeksMin !== null || $weeksMax !== null)
+            ? 'The athlete chose a mesocycle length of '.($weeksMin ?? 3).'–'.($weeksMax ?? 12).' weeks — every option\'s "weeks" MUST fall inside that range. '
+            : '';
         $years = $prefs['years_training'] ?? 'unknown';
         $styles = implode(', ', $prefs['training_style'] ?? []) ?: 'general training';
         $daysLine = $days > 0 ? "wants to train {$days} day(s)/week" : 'is flexible on training days';
@@ -481,7 +504,7 @@ class PlanGenerationService
         Injuries to program around: {$injuries}.
         Current personal records (favour recent dates; treat old ones cautiously): {$prs}.
         {$ask}
-        Choose the split, focus and conditioning that most directly serve those goals (e.g. heavy pull/push work for pulling-strength goals, dedicated cardio for VO2max). Return a JSON ARRAY. Each item:
+        {$weeksLine}Choose the split, focus and conditioning that most directly serve those goals (e.g. heavy pull/push work for pulling-strength goals, dedicated cardio for VO2max). Return a JSON ARRAY. Each item:
         {"key":"slug","name":"short name","phase":"e.g. Foundations|Hypertrophy|Strength","weeks":<4-12 int>,"days_per_week":<int>,"split":"e.g. Full body|Upper/Lower|Push/Pull/Legs","summary":"one sentence tying it to the goals"}
         Return ONLY the JSON array.
         TXT;
@@ -928,11 +951,26 @@ class PlanGenerationService
             'brief' => $brief,
         ]);
 
-        $count = count($plan['sessions']);
-        foreach (array_values($plan['sessions']) as $i => $s) {
-            // Spread sessions across week 1 from the start date. A session landing on
-            // today becomes "today" (so Home populates); future-dated ones are "planned".
-            $date = $start->copy()->addDays((int) round($i * 7 / max(1, $count)));
+        $this->persistWeekSessions($block, $user, $plan['sessions'], $start);
+
+        return $block;
+    }
+
+    /**
+     * Persist one week's sessions, spread across the week from $weekStart. A
+     * session landing on today becomes "today" (so Home populates); future-dated
+     * ones are "planned". Shared by initial generation (week 1) and the weekly
+     * rollover (weeks 2..N).
+     *
+     * @param  array<int, array>  $sessions
+     */
+    private function persistWeekSessions(Block $block, User $user, array $sessions, Carbon $weekStart): void
+    {
+        $today = Carbon::today();
+        $count = count($sessions);
+
+        foreach (array_values($sessions) as $i => $s) {
+            $date = $weekStart->copy()->addDays((int) round($i * 7 / max(1, $count)));
 
             $session = $block->sessions()->create([
                 'user_id' => $user->id,
@@ -964,8 +1002,42 @@ class PlanGenerationService
                 }
             }
         }
+    }
 
-        return $block;
+    /**
+     * Generate + persist the sessions for the block's CURRENT week (week_of),
+     * used by the weekly rollover after week_of has been advanced. Progression
+     * comes from the session prompts already carrying current PRs plus an
+     * explicit week-progression note.
+     */
+    public function generateWeek(User $user, Block $block): void
+    {
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $option = [
+            'name' => $block->name,
+            'split' => (string) data_get($block->brief, 'option.split', 'Full body'),
+            'phase' => $block->phase ?: 'Foundations',
+            'weeks' => $block->weeks,
+            'days_per_week' => (int) data_get($block->brief, 'option.days_per_week', 3),
+        ];
+
+        // In-memory only (same pattern as generate()'s per-generation note).
+        $prefs = $profile->preferences ?? [];
+        $prefs['notes'] = trim(($prefs['notes'] ?? '')
+            ."\n\nWeek {$block->week_of} of {$block->weeks} of the current plan: progress slightly over last week's loads/reps where quality allowed.");
+        $profile->preferences = $prefs;
+
+        $catalog = $this->catalog($user, $profile);
+        $kinds = $this->splitKinds($option['split'], $option['days_per_week']);
+
+        $templates = [];
+        foreach (array_unique($kinds) as $kind) {
+            $templates[$kind] = $this->buildSession($user, $profile, $option, $kind, $catalog);
+        }
+        $sessions = array_map(fn (string $k) => $templates[$k], $kinds);
+
+        $weekStart = $block->starts_on->copy()->addWeeks($block->week_of - 1);
+        $this->persistWeekSessions($block, $user, $sessions, $weekStart);
     }
 
     // ── JSON extraction ──────────────────────────────────────────────────────
