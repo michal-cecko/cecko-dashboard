@@ -6,6 +6,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use STS\FilamentImpersonate\Actions\Impersonate;
 
 class UsersTable
 {
@@ -59,6 +60,8 @@ class UsersTable
                 //
             ])
             ->recordActions([
+                Impersonate::make()
+                    ->label('Prihlásiť sa ako'),
                 EditAction::make(),
             ]);
     }

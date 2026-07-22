@@ -82,6 +82,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
         return in_array($capability, $this->capabilities);
     }
 
+    public function canImpersonate(): bool
+    {
+        return $this->hasCapability(UserCapabilityEnum::MANAGE_USERS);
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         return match (FilamentPanelEnum::tryFrom($panel->getId())) {
