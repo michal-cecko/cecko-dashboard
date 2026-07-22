@@ -1,0 +1,212 @@
+- generic [active] [ref=f68e1]:
+  - generic [ref=f68e3]:
+    - heading [level=2] [ref=f68e4]:
+      - link "DoOpla.cz" [ref=f68e5] [cursor=pointer]:
+        - /url: /
+    - generic [ref=f68e8]:
+      - textbox "Vyhledávání" [ref=f68e9]:
+        - /placeholder: Co hledáte?
+      - button "Hledej" [ref=f68e10] [cursor=pointer]
+    - link "Košík 0 Košík":
+      - /url: /kosik.html
+      - generic [ref=f68e11] [cursor=pointer]:
+        - img "Košík" [ref=f68e12]
+        - generic "Košík je prázdný" [ref=f68e13]: "0"
+        - text: Košík
+  - generic [ref=f68e15]:
+    - text: Nové originální díly pro vozy Opel.
+    - generic [ref=f68e16]:
+      - link "Proč originální díly?" [ref=f68e17] [cursor=pointer]:
+        - /url: /originalni-dily.html
+      - text: "|"
+      - link "Vše o nákupu, doprava" [ref=f68e18] [cursor=pointer]:
+        - /url: /vse-o-nakupu.html
+      - text: "|"
+      - link "Obchodní podmínky" [ref=f68e19] [cursor=pointer]:
+        - /url: /obchodni-podminky.html
+  - generic [ref=f68e21]:
+    - img "Sluchátko" [ref=f68e22]
+    - link "704 058 760" [ref=f68e23] [cursor=pointer]:
+      - /url: tel:00420704058760
+    - text: (po – pá, 9:00 – 15:00)
+  - generic [ref=f68e24]:
+    - link "Eshop v provozu pouze do vyprodání skladu" [ref=f68e26] [cursor=pointer]:
+      - /url: /konec-eshopu.html
+    - generic [ref=f68e27]:
+      - heading "Opel Astra K (2015–2022) – Náplně a filtry B14XFT" [level=1] [ref=f68e28]
+      - list [ref=f68e29]:
+        - listitem [ref=f68e30]:
+          - link "Nejžádanější" [ref=f68e31] [cursor=pointer]:
+            - /url: /opel-astra-k/
+        - listitem [ref=f68e32]:
+          - link "Disky a poklice" [ref=f68e33] [cursor=pointer]:
+            - /url: /opel-astra-k/disky-a-poklice/
+        - listitem [ref=f68e34]:
+          - link "Elektroinstalace" [ref=f68e35] [cursor=pointer]:
+            - /url: /opel-astra-k/elektroinstalace/
+        - listitem [ref=f68e36]:
+          - link "Exteriér" [ref=f68e37] [cursor=pointer]:
+            - /url: /opel-astra-k/exterier/
+        - listitem [ref=f68e38]:
+          - link "Chlazení, klimatizace, topení" [ref=f68e39] [cursor=pointer]:
+            - /url: /opel-astra-k/chlazeni-a-klimatizace/
+        - listitem [ref=f68e40]:
+          - link "Interiér" [ref=f68e41] [cursor=pointer]:
+            - /url: /opel-astra-k/interier/
+        - listitem [ref=f68e42]:
+          - link "Motor a spojka" [ref=f68e43] [cursor=pointer]:
+            - /url: /opel-astra-k/motor-a-spojka/
+        - listitem [ref=f68e44]:
+          - link "Náplně a filtry" [ref=f68e46] [cursor=pointer]:
+            - /url: /opel-astra-k/naplne-a-filtry/
+          - list [ref=f68e47]:
+            - listitem [ref=f68e48]:
+              - link "Olejové filtry" [ref=f68e49] [cursor=pointer]:
+                - /url: /opel-astra-k/naplne-a-filtry/#olejove-filtry
+            - listitem [ref=f68e50]:
+              - link "Vzduchové filtry" [ref=f68e51] [cursor=pointer]:
+                - /url: /opel-astra-k/naplne-a-filtry/#vzduchove-filtry
+            - listitem [ref=f68e52]:
+              - link "Kabinové filtry" [ref=f68e53] [cursor=pointer]:
+                - /url: /opel-astra-k/naplne-a-filtry/#kabinove-filtry
+            - listitem [ref=f68e54]:
+              - link "Výpustní šrouby oleje a těsnění" [ref=f68e55] [cursor=pointer]:
+                - /url: /opel-astra-k/naplne-a-filtry/#vypustni-srouby-oleje-a-tesneni
+            - listitem [ref=f68e56]:
+              - link "Palivové filtry" [ref=f68e57] [cursor=pointer]:
+                - /url: /opel-astra-k/naplne-a-filtry/#palivove-filtry
+            - listitem [ref=f68e58]:
+              - link "Náplně" [ref=f68e59] [cursor=pointer]:
+                - /url: /opel-astra-k/naplne-a-filtry/#naplne
+        - listitem [ref=f68e60]:
+          - link "Opravné barvy" [ref=f68e61] [cursor=pointer]:
+            - /url: /opel-astra-k/opravne-barvy/
+        - listitem [ref=f68e62]:
+          - link "Osvětlení" [ref=f68e63] [cursor=pointer]:
+            - /url: /opel-astra-k/osvetleni/
+        - listitem [ref=f68e64]:
+          - link "Palivová soustava" [ref=f68e65] [cursor=pointer]:
+            - /url: /opel-astra-k/palivova-soustava/
+        - listitem [ref=f68e66]:
+          - link "Podvozek a brzdy" [ref=f68e67] [cursor=pointer]:
+            - /url: /opel-astra-k/podvozek-a-brzdy/
+        - listitem [ref=f68e68]:
+          - link "Převodovka, řazení" [ref=f68e69] [cursor=pointer]:
+            - /url: /opel-astra-k/prevodovka-razeni/
+        - listitem [ref=f68e70]:
+          - link "Příslušenství" [ref=f68e71] [cursor=pointer]:
+            - /url: /opel-astra-k/prislusenstvi/
+        - listitem [ref=f68e72]:
+          - link "Řízení" [ref=f68e73] [cursor=pointer]:
+            - /url: /opel-astra-k/rizeni/
+        - listitem [ref=f68e74]:
+          - link "Stěrače a ostřikovače" [ref=f68e75] [cursor=pointer]:
+            - /url: /opel-astra-k/sterace-a-ostrikovace/
+        - listitem [ref=f68e76]:
+          - link "Šrouby, matice, příchytky" [ref=f68e77] [cursor=pointer]:
+            - /url: /opel-astra-k/srouby-matice-prichytky/
+        - listitem [ref=f68e78]:
+          - link "Výfuková soustava" [ref=f68e79] [cursor=pointer]:
+            - /url: /opel-astra-k/vyfukova-soustava/
+        - listitem [ref=f68e80]:
+          - link "Zapalování a žhavení" [ref=f68e81] [cursor=pointer]:
+            - /url: /opel-astra-k/zapalovani-a-zhaveni/
+        - listitem [ref=f68e82]:
+          - link "Znaky a nápisy" [ref=f68e83] [cursor=pointer]:
+            - /url: /opel-astra-k/znaky-a-napisy/
+      - generic [ref=f68e84]:
+        - generic [ref=f68e85]:
+          - text: Vyberte motor
+          - generic [ref=f68e86]:
+            - combobox [ref=f68e87]:
+              - option "Všechny motory"
+              - option "1.0 Turbo (66 kW, 77 kW), D10XFL"
+              - option "1.0 Turbo (77 kW), B10XFL"
+              - option "1.2 DIT (81 kW), F12SHL"
+              - option "1.2 DIT (96 kW), F12SHT"
+              - option "1.2 DIT (107 kW), F12SHR"
+              - option "1.4 (74 kW), B14XE"
+              - option "1.4 Turbo (92 kW), B14XFL"
+              - option "1.4 Turbo (92 kW), D14XFL"
+              - option "1.4 DIT (107 kW), F14SHT"
+              - option "1.4 Turbo (110 kW), B14XFT" [selected]
+              - option "1.4 Turbo (110 kW), D14XFT"
+              - option "1.6 Turbo (147 kW), B16SHT"
+              - option "1.6 Turbo (147 kW), D16SHT"
+              - option "1.5 CDTI (77 kW), F15DVC"
+              - option "1.5 CDTI (90 kW), F15DVH"
+              - option "1.6 CDTI (70 kW, 81 kW), B16DTE"
+              - option "1.6 CDTI (81 kW), B16DTU"
+              - option "1.6 CDTI (81 kW), D16DTI"
+              - option "1.6 CDTI (81 kW), D16DTN"
+              - option "1.6 CDTI (100 kW), B16DTH"
+              - option "1.6 CDTI (100 kW), D16DTH"
+              - option "1.6 CDTI (118 kW), B16DTR"
+              - option "1.6 CDTI (110 kW), D16DTR"
+              - option "1.4 Turbo CNG (81 kW), B14XNT"
+              - option "1.4 Turbo CNG (81 kW), D14XNT"
+            - img "Objem motorového oleje" [ref=f68e88]
+            - text: 4,00 l
+          - text: nebo zadejte VIN
+          - generic [ref=f68e89]:
+            - textbox "W0LBF6EH8GG000123" [ref=f68e90]
+            - button "Filtrovat" [ref=f68e91]
+        - heading "Kabinové filtry" [level=3] [ref=f68e93]
+        - generic [ref=f68e94]:
+          - link "Filtr kabinový, aktivní uhlí – Opel Astra K, Meriva B, Insignia B, Mokka" [ref=f68e96] [cursor=pointer]:
+            - /url: /dily/filtr-kabinovy-aktivni-uhli-opel-1684471080-7882.html
+          - generic [ref=f68e97]:
+            - link [ref=f68e98] [cursor=pointer]:
+              - /url: /dily/filtr-kabinovy-aktivni-uhli-opel-1684471080-7882.html
+              - img "Filtr kabinový, aktivní uhlí – Opel Astra K, Meriva B, Insignia B, Mokka" [ref=f68e99]
+            - generic "Opel – Originální díly" [ref=f68e100]
+          - generic [ref=f68e101]: "Objednací číslo: 1684471080"
+          - generic [ref=f68e102]: od 483 Kč
+          - generic [ref=f68e103]: Skladem
+        - generic [ref=f68e104]:
+          - heading "Výpustní šrouby oleje a těsnění" [level=3] [ref=f68e105]
+          - link "Nahoru" [ref=f68e106] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=f68e107]:
+          - generic [ref=f68e108]:
+            - link "Výpustní šroub oleje" [ref=f68e109] [cursor=pointer]:
+              - /url: /dily/vypustni-sroub-oleje-652254-2339.html
+            - generic [ref=f68e110]: Včetně těsnění
+          - generic [ref=f68e111]:
+            - link [ref=f68e112] [cursor=pointer]:
+              - /url: /dily/vypustni-sroub-oleje-652254-2339.html
+              - img "Výpustní šroub oleje" [ref=f68e113]
+            - generic "Opel – Originální díly" [ref=f68e114]
+          - generic [ref=f68e115]: "Objednací číslo: 55577568"
+          - generic [ref=f68e116]: od 241 Kč
+          - generic [ref=f68e117]: Skladem
+  - generic [ref=f68e119]:
+    - link [ref=f68e121] [cursor=pointer]:
+      - /url: https://www.facebook.com/DoOpla.cz
+      - img "Facebook DoOpla.cz" [ref=f68e122]
+    - generic [ref=f68e123]:
+      - generic [ref=f68e124]:
+        - generic [ref=f68e125]:
+          - text: Dotazy zasílejte na emailovou adresu
+          - link "info@doopla.cz" [ref=f68e127] [cursor=pointer]:
+            - /url: mailto:info@doopla.cz
+        - text: Telefon +420 704 058 760 (pouze v pracovní dny od 9:00 do 15:00, není určeno pro zasílání SMS)
+      - generic [ref=f68e128]: "Eshop provozuje:"
+      - text: Vojtěch Janda, Nová Ves 222, 463 31 (pouze fakturační adresa) IČO 72658681, nejsem plátce DPH
+      - list [ref=f68e129]:
+        - listitem [ref=f68e130]:
+          - link "Všeobecné obchodní podmínky" [ref=f68e131] [cursor=pointer]:
+            - /url: /obchodni-podminky.html
+        - listitem [ref=f68e132]:
+          - link "Reklamační řád pro spotřebitele" [ref=f68e133] [cursor=pointer]:
+            - /url: /reklamacni-rad.html
+        - listitem [ref=f68e134]:
+          - link "Zásady ochrany osobních údajů" [ref=f68e135] [cursor=pointer]:
+            - /url: /zasady-ochrany-osobnich-udaju.html
+        - listitem [ref=f68e136]:
+          - link "Řešení sporů" [ref=f68e137] [cursor=pointer]:
+            - /url: /reseni-sporu.html
+        - listitem [ref=f68e138]:
+          - link "Odstoupení od smlouvy" [ref=f68e139] [cursor=pointer]:
+            - /url: /odstoupeni-od-smlouvy.html
+      - text: © 2026 Vojtěch Janda, Doopla.cz

@@ -1,0 +1,15 @@
+- generic [active] [ref=f69e1]:
+  - heading [level=1] [ref=f69e4]:
+    - link "DoOpla.cz" [ref=f69e5] [cursor=pointer]:
+      - /url: /
+  - generic [ref=f69e6]: Originální a značkové díly pro vozy Opel.
+  - generic [ref=f69e9]:
+    - heading "Stránka nenalezena" [level=2] [ref=f69e10]
+    - paragraph [ref=f69e11]:
+      - text: Pokračujte na
+      - link "úvodní stránku" [ref=f69e12] [cursor=pointer]:
+        - /url: /
+  - generic [ref=f69e14]:
+    - text: ©
+    - link "Auto Janda s.r.o." [ref=f69e15] [cursor=pointer]:
+      - /url: http://www.auto-janda.cz

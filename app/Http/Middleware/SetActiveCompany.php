@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\Common\UserCapabilityEnum;
+use App\Models\Invoices\Company;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,9 +19,10 @@ class SetActiveCompany
         }
 
         if ($user->active_company_id) {
-            $ownsCompany = $user->companies()->where('id', $user->active_company_id)->exists();
+            $canUseCompany = $user->companies()->where('id', $user->active_company_id)->exists()
+                || ($user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES) && Company::query()->whereKey($user->active_company_id)->exists());
 
-            if (! $ownsCompany) {
+            if (! $canUseCompany) {
                 $user->update(['active_company_id' => null]);
             }
         }

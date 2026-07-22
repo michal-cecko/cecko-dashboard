@@ -6,6 +6,7 @@ use App\Filament\Common\Resources\Users\UserResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Contracts\Support\Htmlable;
+use STS\FilamentImpersonate\Actions\Impersonate;
 
 class EditUser extends EditRecord
 {
@@ -19,6 +20,9 @@ class EditUser extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Impersonate::make()
+                ->label('Prihlásiť sa ako')
+                ->record($this->getRecord()),
             DeleteAction::make(),
         ];
     }

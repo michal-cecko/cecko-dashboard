@@ -17,10 +17,9 @@ class CurrentYearIncomeWidget extends StatsOverviewWidget
         $lastYear = $currentYear - 1;
         $company = auth()->user()->activeCompany;
         $currency = $company?->default_currency ?? 'EUR';
-        $companyId = $company?->id;
 
-        $thisYearTotal = $this->getBasePaymentsTotal($companyId, $currentYear);
-        $lastYearTotal = $this->getBasePaymentsTotal($companyId, $lastYear);
+        $thisYearTotal = $this->getBasePaymentsTotal($currentYear);
+        $lastYearTotal = $this->getBasePaymentsTotal($lastYear);
 
         $outstanding = Invoice::query()
             ->whereIn('status', [InvoiceStatusEnum::SENT, InvoiceStatusEnum::DELIVERED])
@@ -47,11 +46,11 @@ class CurrentYearIncomeWidget extends StatsOverviewWidget
         ];
     }
 
-    private function getBasePaymentsTotal(?int $companyId, int $year): float
+    private function getBasePaymentsTotal(int $year): float
     {
         return (float) InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $companyId)
+            ->whereHas('invoice')
             ->whereYear('invoice_payments.payment_date', $year)
             ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
     }

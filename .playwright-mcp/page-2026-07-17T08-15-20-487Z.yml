@@ -1,0 +1,684 @@
+- generic [active] [ref=f70e1]:
+  - generic [ref=f70e3]:
+    - heading [level=2] [ref=f70e4]:
+      - link "DoOpla.cz" [ref=f70e5] [cursor=pointer]:
+        - /url: /
+    - generic [ref=f70e8]:
+      - textbox "Vyhledávání" [ref=f70e9]:
+        - /placeholder: Co hledáte?
+      - button "Hledej" [ref=f70e10] [cursor=pointer]
+    - link "Košík 0 Košík":
+      - /url: /kosik.html
+      - generic [ref=f70e11] [cursor=pointer]:
+        - img "Košík" [ref=f70e12]
+        - generic "Košík je prázdný" [ref=f70e13]: "0"
+        - text: Košík
+  - generic [ref=f70e15]:
+    - text: Nové originální díly pro vozy Opel.
+    - generic [ref=f70e16]:
+      - link "Proč originální díly?" [ref=f70e17] [cursor=pointer]:
+        - /url: /originalni-dily.html
+      - text: "|"
+      - link "Vše o nákupu, doprava" [ref=f70e18] [cursor=pointer]:
+        - /url: /vse-o-nakupu.html
+      - text: "|"
+      - link "Obchodní podmínky" [ref=f70e19] [cursor=pointer]:
+        - /url: /obchodni-podminky.html
+  - generic [ref=f70e21]:
+    - img "Sluchátko" [ref=f70e22]
+    - link "704 058 760" [ref=f70e23] [cursor=pointer]:
+      - /url: tel:00420704058760
+    - text: (po – pá, 9:00 – 15:00)
+  - generic [ref=f70e24]:
+    - link "Eshop v provozu pouze do vyprodání skladu" [ref=f70e26] [cursor=pointer]:
+      - /url: /konec-eshopu.html
+    - generic [ref=f70e27]:
+      - heading "Výpustní šroub oleje 55577568, originální díl Opel" [level=1] [ref=f70e28]
+      - generic [ref=f70e29]: Včetně těsnění
+      - separator [ref=f70e30]
+      - generic [ref=f70e31]:
+        - generic [ref=f70e33]:
+          - generic [ref=f70e35]:
+            - link [ref=f70e36] [cursor=pointer]:
+              - /url: /image/dily/m/6/652254.jpg?1488376395
+              - img "Výpustní šroub oleje 55577568" [ref=f70e37]
+            - generic "Opel – Originální díly" [ref=f70e38]
+          - generic [ref=f70e39]: Klikněte na fotografii pro zvětšení
+          - link [ref=f70e43] [cursor=pointer]:
+            - /url: /image/dily/m/6/652254-2.jpg?1488376395
+            - img "Výpustní šroub oleje" [ref=f70e44]
+        - table [ref=f70e47]:
+          - rowgroup [ref=f70e48]:
+            - row [ref=f70e49]:
+              - rowheader "Objednací číslo:" [ref=f70e50]
+              - cell "55577568" [ref=f70e51]
+            - row [ref=f70e52]:
+              - rowheader "Katalogové číslo Opel:" [ref=f70e53]
+              - cell "652254 (6 52 254)" [ref=f70e54]
+            - row [ref=f70e55]:
+              - rowheader "Cena za 1 kus:" [ref=f70e56]
+              - cell "338 Kč/14,43 € při koupi 1 ks nebo 241 Kč/10,29 € při koupi 2 a více ks" [ref=f70e57]:
+                - generic [ref=f70e58]: 338 Kč
+                - text: /14,43 € při koupi 1 ks
+                - generic [ref=f70e61]:
+                  - text: nebo
+                  - generic [ref=f70e62]: 241 Kč
+                - text: /10,29 € při koupi 2 a více ks
+            - row [ref=f70e64]:
+              - rowheader "Dostupnost:" [ref=f70e65]
+              - cell "Skladem více než 10 kusů" [ref=f70e66]
+            - row [ref=f70e68]:
+              - rowheader [ref=f70e69]
+              - cell [ref=f70e70]:
+                - spinbutton "ks" [ref=f70e71]: "1"
+                - text: ks
+            - row [ref=f70e72]:
+              - rowheader [ref=f70e73]
+              - cell [ref=f70e74]:
+                - button [ref=f70e75] [cursor=pointer]:
+                  - img "kosik" [ref=f70e76]
+                  - text: Koupit
+            - row [ref=f70e77]:
+              - rowheader "Stav:" [ref=f70e78]
+              - cell "Nové, nepoužité" [ref=f70e79]
+            - row [ref=f70e80]:
+              - rowheader "Dodavatel:" [ref=f70e81]
+              - cell [ref=f70e82]:
+                - link "Opel – Originální díly" [ref=f70e83] [cursor=pointer]:
+                  - /url: /originalni-dily.html
+      - generic [ref=f70e84]:
+        - generic [ref=f70e85]: Popis
+        - generic [ref=f70e86]: Sekce
+      - generic [ref=f70e87]:
+        - heading "Vhodné pro vozy" [level=3] [ref=f70e88]
+        - table [ref=f70e90]:
+          - rowgroup [ref=f70e91]:
+            - row [ref=f70e92]:
+              - columnheader "Model" [ref=f70e93]
+              - columnheader "Označení motoru" [ref=f70e94]
+              - columnheader "Kód motoru" [ref=f70e95]
+              - columnheader "Výkon motoru" [ref=f70e96]
+              - columnheader "Palivo" [ref=f70e97]
+              - columnheader "Omezení" [ref=f70e98]
+          - rowgroup [ref=f70e99]:
+            - row [ref=f70e100]:
+              - cell "Opel Adam (2013–2019)" [ref=f70e101]
+              - cell "1.0 Turbo" [ref=f70e102]
+              - cell "B10XFL" [ref=f70e103]
+              - cell "66 kW" [ref=f70e104]
+              - cell "benzín" [ref=f70e105]
+              - cell [ref=f70e106]
+            - row [ref=f70e107]:
+              - cell "1.0 Turbo" [ref=f70e108]
+              - cell "D10XFL" [ref=f70e109]
+              - cell "66 kW" [ref=f70e110]
+              - cell "benzín" [ref=f70e111]
+              - cell [ref=f70e112]
+            - row [ref=f70e113]:
+              - cell "1.0 Turbo" [ref=f70e114]
+              - cell "B10XFT" [ref=f70e115]
+              - cell "85 kW" [ref=f70e116]
+              - cell "benzín" [ref=f70e117]
+              - cell [ref=f70e118]
+            - row [ref=f70e119]:
+              - cell "1.0 Turbo" [ref=f70e120]
+              - cell "D10XFT" [ref=f70e121]
+              - cell "85 kW" [ref=f70e122]
+              - cell "benzín" [ref=f70e123]
+              - cell [ref=f70e124]
+            - row [ref=f70e125]:
+              - cell "Opel Antara (2007–2017)" [ref=f70e126]
+              - cell "2.0 CDTI" [ref=f70e127]
+              - cell "B20DTH" [ref=f70e128]
+              - cell "125 kW" [ref=f70e129]
+              - cell "nafta" [ref=f70e130]
+              - cell [ref=f70e131]
+            - row [ref=f70e132]:
+              - cell "Opel Astra J (2009–2018)" [ref=f70e133]
+              - cell "1.6 Turbo" [ref=f70e134]
+              - cell "A16XHT" [ref=f70e135]
+              - cell "125 kW" [ref=f70e136]
+              - cell "benzín" [ref=f70e137]
+              - cell [ref=f70e138]
+            - row [ref=f70e139]:
+              - cell "1.6 Turbo" [ref=f70e140]
+              - cell "B16SHL" [ref=f70e141]
+              - cell "125 kW" [ref=f70e142]
+              - cell "benzín" [ref=f70e143]
+              - cell [ref=f70e144]
+            - row [ref=f70e145]:
+              - cell "1.6 Turbo" [ref=f70e146]
+              - cell "A16SHT" [ref=f70e147]
+              - cell "147 kW" [ref=f70e148]
+              - cell "benzín" [ref=f70e149]
+              - cell [ref=f70e150]
+            - row [ref=f70e151]:
+              - cell "1.6 Turbo" [ref=f70e152]
+              - cell "B16SHT" [ref=f70e153]
+              - cell "147 kW" [ref=f70e154]
+              - cell "benzín" [ref=f70e155]
+              - cell [ref=f70e156]
+            - row [ref=f70e157]:
+              - cell "1.6 CDTI" [ref=f70e158]
+              - cell "B16DTL" [ref=f70e159]
+              - cell "81 kW" [ref=f70e160]
+              - cell "nafta" [ref=f70e161]
+              - cell [ref=f70e162]
+            - row [ref=f70e163]:
+              - cell "1.6 CDTI" [ref=f70e164]
+              - cell "B16DTH" [ref=f70e165]
+              - cell "100 kW" [ref=f70e166]
+              - cell "nafta" [ref=f70e167]
+              - cell [ref=f70e168]
+            - row [ref=f70e169]:
+              - cell "Opel Astra K (2015–2022)" [ref=f70e170]
+              - cell "1.0 Turbo" [ref=f70e171]
+              - cell "D10XFL" [ref=f70e172]
+              - cell "66 kW, 77 kW" [ref=f70e173]
+              - cell "benzín" [ref=f70e174]
+              - cell [ref=f70e175]
+            - row [ref=f70e176]:
+              - cell "1.0 Turbo" [ref=f70e177]
+              - cell "B10XFL" [ref=f70e178]
+              - cell "77 kW" [ref=f70e179]
+              - cell "benzín" [ref=f70e180]
+              - cell [ref=f70e181]
+            - row [ref=f70e182]:
+              - cell "1.2 DIT" [ref=f70e183]
+              - cell "F12SHL" [ref=f70e184]
+              - cell "81 kW" [ref=f70e185]
+              - cell "benzín" [ref=f70e186]
+              - cell [ref=f70e187]
+            - row [ref=f70e188]:
+              - cell "1.2 DIT" [ref=f70e189]
+              - cell "F12SHT" [ref=f70e190]
+              - cell "96 kW" [ref=f70e191]
+              - cell "benzín" [ref=f70e192]
+              - cell [ref=f70e193]
+            - row [ref=f70e194]:
+              - cell "1.2 DIT" [ref=f70e195]
+              - cell "F12SHR" [ref=f70e196]
+              - cell "107 kW" [ref=f70e197]
+              - cell "benzín" [ref=f70e198]
+              - cell [ref=f70e199]
+            - row [ref=f70e200]:
+              - cell "1.4" [ref=f70e201]
+              - cell "B14XE" [ref=f70e202]
+              - cell "74 kW" [ref=f70e203]
+              - cell "benzín" [ref=f70e204]
+              - cell [ref=f70e205]
+            - row [ref=f70e206]:
+              - cell "1.4 Turbo" [ref=f70e207]
+              - cell "B14XFL" [ref=f70e208]
+              - cell "92 kW" [ref=f70e209]
+              - cell "benzín" [ref=f70e210]
+              - cell [ref=f70e211]
+            - row [ref=f70e212]:
+              - cell "1.4 Turbo" [ref=f70e213]
+              - cell "D14XFL" [ref=f70e214]
+              - cell "92 kW" [ref=f70e215]
+              - cell "benzín" [ref=f70e216]
+              - cell [ref=f70e217]
+            - row [ref=f70e218]:
+              - cell "1.4 Turbo" [ref=f70e219]
+              - cell "B14XFT" [ref=f70e220]
+              - cell "110 kW" [ref=f70e221]
+              - cell "benzín" [ref=f70e222]
+              - cell [ref=f70e223]
+            - row [ref=f70e224]:
+              - cell "1.4 Turbo" [ref=f70e225]
+              - cell "D14XFT" [ref=f70e226]
+              - cell "110 kW" [ref=f70e227]
+              - cell "benzín" [ref=f70e228]
+              - cell [ref=f70e229]
+            - row [ref=f70e230]:
+              - cell "1.6 Turbo" [ref=f70e231]
+              - cell "B16SHT" [ref=f70e232]
+              - cell "147 kW" [ref=f70e233]
+              - cell "benzín" [ref=f70e234]
+              - cell [ref=f70e235]
+            - row [ref=f70e236]:
+              - cell "1.6 Turbo" [ref=f70e237]
+              - cell "D16SHT" [ref=f70e238]
+              - cell "147 kW" [ref=f70e239]
+              - cell "benzín" [ref=f70e240]
+              - cell [ref=f70e241]
+            - row [ref=f70e242]:
+              - cell "1.6 CDTI" [ref=f70e243]
+              - cell "B16DTE" [ref=f70e244]
+              - cell "70 kW, 81 kW" [ref=f70e245]
+              - cell "nafta" [ref=f70e246]
+              - cell [ref=f70e247]
+            - row [ref=f70e248]:
+              - cell "1.6 CDTI" [ref=f70e249]
+              - cell "B16DTU" [ref=f70e250]
+              - cell "81 kW" [ref=f70e251]
+              - cell "nafta" [ref=f70e252]
+              - cell [ref=f70e253]
+            - row [ref=f70e254]:
+              - cell "1.6 CDTI" [ref=f70e255]
+              - cell "D16DTI" [ref=f70e256]
+              - cell "81 kW" [ref=f70e257]
+              - cell "nafta" [ref=f70e258]
+              - cell [ref=f70e259]
+            - row [ref=f70e260]:
+              - cell "1.6 CDTI" [ref=f70e261]
+              - cell "D16DTN" [ref=f70e262]
+              - cell "81 kW" [ref=f70e263]
+              - cell "nafta" [ref=f70e264]
+              - cell [ref=f70e265]
+            - row [ref=f70e266]:
+              - cell "1.6 CDTI" [ref=f70e267]
+              - cell "B16DTH" [ref=f70e268]
+              - cell "100 kW" [ref=f70e269]
+              - cell "nafta" [ref=f70e270]
+              - cell [ref=f70e271]
+            - row [ref=f70e272]:
+              - cell "1.6 CDTI" [ref=f70e273]
+              - cell "D16DTH" [ref=f70e274]
+              - cell "100 kW" [ref=f70e275]
+              - cell "nafta" [ref=f70e276]
+              - cell [ref=f70e277]
+            - row [ref=f70e278]:
+              - cell "1.6 CDTI" [ref=f70e279]
+              - cell "B16DTR" [ref=f70e280]
+              - cell "118 kW" [ref=f70e281]
+              - cell "nafta" [ref=f70e282]
+              - cell [ref=f70e283]
+            - row [ref=f70e284]:
+              - cell "1.6 CDTI" [ref=f70e285]
+              - cell "D16DTR" [ref=f70e286]
+              - cell "110 kW" [ref=f70e287]
+              - cell "nafta" [ref=f70e288]
+              - cell [ref=f70e289]
+            - row [ref=f70e290]:
+              - cell "1.4 Turbo CNG" [ref=f70e291]
+              - cell "B14XNT" [ref=f70e292]
+              - cell "81 kW" [ref=f70e293]
+              - cell "zemní plyn" [ref=f70e294]
+              - cell [ref=f70e295]
+            - row [ref=f70e296]:
+              - cell "1.4 Turbo CNG" [ref=f70e297]
+              - cell "D14XNT" [ref=f70e298]
+              - cell "81 kW" [ref=f70e299]
+              - cell "zemní plyn" [ref=f70e300]
+              - cell [ref=f70e301]
+            - row [ref=f70e302]:
+              - cell "Opel Cascada (2013–2019)" [ref=f70e303]
+              - cell "1.6 Turbo" [ref=f70e304]
+              - cell "A16XHT" [ref=f70e305]
+              - cell "118 kW" [ref=f70e306]
+              - cell "benzín" [ref=f70e307]
+              - cell [ref=f70e308]
+            - row [ref=f70e309]:
+              - cell "1.6 Turbo" [ref=f70e310]
+              - cell "B16SHL" [ref=f70e311]
+              - cell "125 kW" [ref=f70e312]
+              - cell "benzín" [ref=f70e313]
+              - cell [ref=f70e314]
+            - row [ref=f70e315]:
+              - cell "1.6 Turbo" [ref=f70e316]
+              - cell "A16SHT" [ref=f70e317]
+              - cell "147 kW" [ref=f70e318]
+              - cell "benzín" [ref=f70e319]
+              - cell [ref=f70e320]
+            - row [ref=f70e321]:
+              - cell "1.6 Turbo" [ref=f70e322]
+              - cell "B16SHT" [ref=f70e323]
+              - cell "147 kW" [ref=f70e324]
+              - cell "benzín" [ref=f70e325]
+              - cell [ref=f70e326]
+            - row [ref=f70e327]:
+              - cell "2.0 CDTI" [ref=f70e328]
+              - cell "B20DTH" [ref=f70e329]
+              - cell "125 kW" [ref=f70e330]
+              - cell "nafta" [ref=f70e331]
+              - cell [ref=f70e332]
+            - row [ref=f70e333]:
+              - cell "Opel Corsa E (2015–2019)" [ref=f70e334]
+              - cell "1.0 Turbo" [ref=f70e335]
+              - cell "B10XFL" [ref=f70e336]
+              - cell "66 kW" [ref=f70e337]
+              - cell "benzín" [ref=f70e338]
+              - cell [ref=f70e339]
+            - row [ref=f70e340]:
+              - cell "1.0 Turbo" [ref=f70e341]
+              - cell "D10XFL" [ref=f70e342]
+              - cell "66 kW" [ref=f70e343]
+              - cell "benzín" [ref=f70e344]
+              - cell [ref=f70e345]
+            - row [ref=f70e346]:
+              - cell "1.0 Turbo" [ref=f70e347]
+              - cell "F10XFL" [ref=f70e348]
+              - cell "66 kW" [ref=f70e349]
+              - cell "benzín" [ref=f70e350]
+              - cell [ref=f70e351]
+            - row [ref=f70e352]:
+              - cell "1.0 Turbo" [ref=f70e353]
+              - cell "B10XFT" [ref=f70e354]
+              - cell "85 kW" [ref=f70e355]
+              - cell "benzín" [ref=f70e356]
+              - cell [ref=f70e357]
+            - row [ref=f70e358]:
+              - cell "Opel Insignia A (2009–2017)" [ref=f70e359]
+              - cell "1.6 Turbo" [ref=f70e360]
+              - cell "A16XHT" [ref=f70e361]
+              - cell "125 kW" [ref=f70e362]
+              - cell "benzín" [ref=f70e363]
+              - cell [ref=f70e364]
+            - row [ref=f70e365]:
+              - cell "1.6 Turbo" [ref=f70e366]
+              - cell "B16SHL" [ref=f70e367]
+              - cell "125 kW" [ref=f70e368]
+              - cell "benzín" [ref=f70e369]
+              - cell [ref=f70e370]
+            - row [ref=f70e371]:
+              - cell "1.6 CDTI" [ref=f70e372]
+              - cell "B16DTJ" [ref=f70e373]
+              - cell "88 kW" [ref=f70e374]
+              - cell "nafta" [ref=f70e375]
+              - cell [ref=f70e376]
+            - row [ref=f70e377]:
+              - cell "1.6 CDTI" [ref=f70e378]
+              - cell "B16DTH" [ref=f70e379]
+              - cell "100 kW" [ref=f70e380]
+              - cell "nafta" [ref=f70e381]
+              - cell [ref=f70e382]
+            - row [ref=f70e383]:
+              - cell "2.0 CDTI" [ref=f70e384]
+              - cell "B20DTH" [ref=f70e385]
+              - cell "125 kW" [ref=f70e386]
+              - cell "nafta" [ref=f70e387]
+              - cell [ref=f70e388]
+            - row [ref=f70e389]:
+              - cell "Opel Insignia B (2017–2022)" [ref=f70e390]
+              - cell "1.5 Turbo" [ref=f70e391]
+              - cell "B15SFL" [ref=f70e392]
+              - cell "103 kW" [ref=f70e393]
+              - cell "benzín" [ref=f70e394]
+              - cell [ref=f70e395]
+            - row [ref=f70e396]:
+              - cell "1.5 Turbo" [ref=f70e397]
+              - cell "D15SFL" [ref=f70e398]
+              - cell "103 kW" [ref=f70e399]
+              - cell "benzín" [ref=f70e400]
+              - cell [ref=f70e401]
+            - row [ref=f70e402]:
+              - cell "1.5 Turbo" [ref=f70e403]
+              - cell "B15SFT" [ref=f70e404]
+              - cell "121 kW" [ref=f70e405]
+              - cell "benzín" [ref=f70e406]
+              - cell [ref=f70e407]
+            - row [ref=f70e408]:
+              - cell "1.5 Turbo" [ref=f70e409]
+              - cell "D15SFT" [ref=f70e410]
+              - cell "121 kW" [ref=f70e411]
+              - cell "benzín" [ref=f70e412]
+              - cell [ref=f70e413]
+            - row [ref=f70e414]:
+              - cell "1.6 Turbo" [ref=f70e415]
+              - cell "D16SHT" [ref=f70e416]
+              - cell "147 kW" [ref=f70e417]
+              - cell "benzín" [ref=f70e418]
+              - cell [ref=f70e419]
+            - row [ref=f70e420]:
+              - cell "1.6 CDTI" [ref=f70e421]
+              - cell "B16DTE" [ref=f70e422]
+              - cell "81 kW" [ref=f70e423]
+              - cell "nafta" [ref=f70e424]
+              - cell [ref=f70e425]
+            - row [ref=f70e426]:
+              - cell "1.6 CDTI" [ref=f70e427]
+              - cell "D16DTE" [ref=f70e428]
+              - cell "81 kW" [ref=f70e429]
+              - cell "nafta" [ref=f70e430]
+              - cell [ref=f70e431]
+            - row [ref=f70e432]:
+              - cell "1.6 CDTI" [ref=f70e433]
+              - cell "D16DTN" [ref=f70e434]
+              - cell "81 kW" [ref=f70e435]
+              - cell "nafta" [ref=f70e436]
+              - cell [ref=f70e437]
+            - row [ref=f70e438]:
+              - cell "1.6 CDTI" [ref=f70e439]
+              - cell "B16DTH" [ref=f70e440]
+              - cell "100 kW" [ref=f70e441]
+              - cell "nafta" [ref=f70e442]
+              - cell [ref=f70e443]
+            - row [ref=f70e444]:
+              - cell "1.6 CDTI" [ref=f70e445]
+              - cell "D16DTH" [ref=f70e446]
+              - cell "100 kW" [ref=f70e447]
+              - cell "nafta" [ref=f70e448]
+              - cell [ref=f70e449]
+            - row [ref=f70e450]:
+              - cell "2.0 CDTI" [ref=f70e451]
+              - cell "B20DTH" [ref=f70e452]
+              - cell "125 kW" [ref=f70e453]
+              - cell "nafta" [ref=f70e454]
+              - cell [ref=f70e455]
+            - row [ref=f70e456]:
+              - cell "2.0 CDTI" [ref=f70e457]
+              - cell "D20DTH" [ref=f70e458]
+              - cell "125 kW" [ref=f70e459]
+              - cell "nafta" [ref=f70e460]
+              - cell [ref=f70e461]
+            - row [ref=f70e462]:
+              - cell "2.0 CDTI BiTurbo" [ref=f70e463]
+              - cell "D20DTR" [ref=f70e464]
+              - cell "154 kW" [ref=f70e465]
+              - cell "nafta" [ref=f70e466]
+              - cell [ref=f70e467]
+            - row [ref=f70e468]:
+              - cell "Opel Karl (2015–2019)" [ref=f70e469]
+              - cell "1.0" [ref=f70e470]
+              - cell "B10XL" [ref=f70e471]
+              - cell "52 kW" [ref=f70e472]
+              - cell "benzín" [ref=f70e473]
+              - cell [ref=f70e474]
+            - row [ref=f70e475]:
+              - cell "1.0" [ref=f70e476]
+              - cell "B10XE" [ref=f70e477]
+              - cell "54 kW" [ref=f70e478]
+              - cell "benzín" [ref=f70e479]
+              - cell [ref=f70e480]
+            - row [ref=f70e481]:
+              - cell "Opel Meriva B (2010–2017)" [ref=f70e482]
+              - cell "1.6 CDTI" [ref=f70e483]
+              - cell "B16DTC" [ref=f70e484]
+              - cell "70 kW" [ref=f70e485]
+              - cell "nafta" [ref=f70e486]
+              - cell [ref=f70e487]
+            - row [ref=f70e488]:
+              - cell "1.6 CDTI" [ref=f70e489]
+              - cell "B16DTE" [ref=f70e490]
+              - cell "81 kW" [ref=f70e491]
+              - cell "nafta" [ref=f70e492]
+              - cell [ref=f70e493]
+            - row [ref=f70e494]:
+              - cell "1.6 CDTI" [ref=f70e495]
+              - cell "B16DTL" [ref=f70e496]
+              - cell "81 kW" [ref=f70e497]
+              - cell "nafta" [ref=f70e498]
+              - cell [ref=f70e499]
+            - row [ref=f70e500]:
+              - cell "1.6 CDTI" [ref=f70e501]
+              - cell "B16DTN" [ref=f70e502]
+              - cell "81 kW" [ref=f70e503]
+              - cell "nafta" [ref=f70e504]
+              - cell [ref=f70e505]
+            - row [ref=f70e506]:
+              - cell "1.6 CDTI" [ref=f70e507]
+              - cell "B16DTH" [ref=f70e508]
+              - cell "100 kW" [ref=f70e509]
+              - cell "nafta" [ref=f70e510]
+              - cell [ref=f70e511]
+            - row [ref=f70e512]:
+              - cell "Opel Mokka, Mokka X (2012–2019)" [ref=f70e513]
+              - cell "1.4 Turbo" [ref=f70e514]
+              - cell "B14XFT" [ref=f70e515]
+              - cell "112 kW" [ref=f70e516]
+              - cell "benzín" [ref=f70e517]
+              - cell [ref=f70e518]
+            - row [ref=f70e519]:
+              - cell "1.6 CDTI" [ref=f70e520]
+              - cell "B16DTN" [ref=f70e521]
+              - cell "81 kW" [ref=f70e522]
+              - cell "nafta" [ref=f70e523]
+              - cell [ref=f70e524]
+            - row [ref=f70e525]:
+              - cell "1.6 CDTI" [ref=f70e526]
+              - cell "B16DTU" [ref=f70e527]
+              - cell "81 kW" [ref=f70e528]
+              - cell "nafta" [ref=f70e529]
+              - cell [ref=f70e530]
+            - row [ref=f70e531]:
+              - cell "1.6 CDTI" [ref=f70e532]
+              - cell "B16DTH" [ref=f70e533]
+              - cell "100 kW" [ref=f70e534]
+              - cell "nafta" [ref=f70e535]
+              - cell [ref=f70e536]
+            - row [ref=f70e537]:
+              - cell "Opel Zafira C (2012–2019)" [ref=f70e538]
+              - cell "1.6 Turbo" [ref=f70e539]
+              - cell "D16SHJ" [ref=f70e540]
+              - cell "100 kW" [ref=f70e541]
+              - cell "benzín" [ref=f70e542]
+              - cell [ref=f70e543]
+            - row [ref=f70e544]:
+              - cell "1.6 Turbo" [ref=f70e545]
+              - cell "A16XHT" [ref=f70e546]
+              - cell "125 kW" [ref=f70e547]
+              - cell "benzín" [ref=f70e548]
+              - cell [ref=f70e549]
+            - row [ref=f70e550]:
+              - cell "1.6 Turbo" [ref=f70e551]
+              - cell "B16SHL" [ref=f70e552]
+              - cell "125 kW" [ref=f70e553]
+              - cell "benzín" [ref=f70e554]
+              - cell [ref=f70e555]
+            - row [ref=f70e556]:
+              - cell "1.6 Turbo" [ref=f70e557]
+              - cell "D16SHL" [ref=f70e558]
+              - cell "125 kW" [ref=f70e559]
+              - cell "benzín" [ref=f70e560]
+              - cell [ref=f70e561]
+            - row [ref=f70e562]:
+              - cell "1.6 Turbo" [ref=f70e563]
+              - cell "A16SHT" [ref=f70e564]
+              - cell "147 kW" [ref=f70e565]
+              - cell "benzín" [ref=f70e566]
+              - cell [ref=f70e567]
+            - row [ref=f70e568]:
+              - cell "1.6 Turbo" [ref=f70e569]
+              - cell "B16SHT" [ref=f70e570]
+              - cell "147 kW" [ref=f70e571]
+              - cell "benzín" [ref=f70e572]
+              - cell [ref=f70e573]
+            - row [ref=f70e574]:
+              - cell "1.6 CDTI" [ref=f70e575]
+              - cell "D16DTJ" [ref=f70e576]
+              - cell "88 kW" [ref=f70e577]
+              - cell "nafta" [ref=f70e578]
+              - cell [ref=f70e579]
+            - row [ref=f70e580]:
+              - cell "1.6 CDTI" [ref=f70e581]
+              - cell "B16DTH" [ref=f70e582]
+              - cell "100 kW" [ref=f70e583]
+              - cell "nafta" [ref=f70e584]
+              - cell [ref=f70e585]
+            - row [ref=f70e586]:
+              - cell "1.6 CDTI" [ref=f70e587]
+              - cell "D16DTH" [ref=f70e588]
+              - cell "100 kW" [ref=f70e589]
+              - cell "nafta" [ref=f70e590]
+              - cell [ref=f70e591]
+            - row [ref=f70e592]:
+              - cell "2.0 CDTI" [ref=f70e593]
+              - cell "B20DTJ" [ref=f70e594]
+              - cell "96 kW" [ref=f70e595]
+              - cell "nafta" [ref=f70e596]
+              - cell [ref=f70e597]
+            - row [ref=f70e598]:
+              - cell "2.0 CDTI" [ref=f70e599]
+              - cell "D20DTJ" [ref=f70e600]
+              - cell "96 kW" [ref=f70e601]
+              - cell "nafta" [ref=f70e602]
+              - cell [ref=f70e603]
+            - row [ref=f70e604]:
+              - cell "2.0 CDTI" [ref=f70e605]
+              - cell "B20DTH" [ref=f70e606]
+              - cell "125 kW" [ref=f70e607]
+              - cell "nafta" [ref=f70e608]
+              - cell [ref=f70e609]
+            - row [ref=f70e610]:
+              - cell "2.0 CDTI" [ref=f70e611]
+              - cell "D20DTH" [ref=f70e612]
+              - cell "125 kW" [ref=f70e613]
+              - cell "nafta" [ref=f70e614]
+              - cell [ref=f70e615]
+        - paragraph [ref=f70e616]: Výpis nemusí být kompletní. V případě nejasností je rozhodující ověření podle VIN.
+        - paragraph [ref=f70e617]: Modelový rok nemusí být shodný s kalendářním rokem. Modelový rok začíná většinou v srpnu předchozího roku. Například automobil s datem výroby 10/2012 je již modelový rok 2013.
+        - separator [ref=f70e618]
+        - img "Originální díly Opel" [ref=f70e619]
+        - heading "Originální díly Opel – Kvalita zaručena" [level=4] [ref=f70e620]
+        - paragraph [ref=f70e621]:
+          - text: S originálním dílem Opel nemůžete udělat krok vedle, jeho výhody jsou popsány
+          - link "zde" [ref=f70e622] [cursor=pointer]:
+            - /url: /originalni-dily.html
+          - text: .
+      - generic [ref=f70e623]:
+        - heading "Ostatní zákazníci s tímto produktem také nakoupili" [level=3] [ref=f70e624]
+        - generic [ref=f70e625]:
+          - link "Filtr olejový 1.6 CDTI" [ref=f70e627] [cursor=pointer]:
+            - /url: /dily/filtr-olejovy-1-6-cdti-95526687-6865.html
+          - generic [ref=f70e628]:
+            - link [ref=f70e629] [cursor=pointer]:
+              - /url: /dily/filtr-olejovy-1-6-cdti-95526687-6865.html
+              - img "Filtr olejový 1.6 CDTI" [ref=f70e630]
+            - generic "Opel – Originální díly" [ref=f70e631]
+          - generic [ref=f70e632]: "Objednací číslo: 95526687"
+          - generic [ref=f70e633]: od 412 Kč
+          - generic [ref=f70e634]: Skladem
+        - generic [ref=f70e635]:
+          - link "Filtr kabinový, aktivní uhlí – Opel Astra K, Meriva B, Insignia B, Mokka" [ref=f70e637] [cursor=pointer]:
+            - /url: /dily/filtr-kabinovy-aktivni-uhli-opel-1684471080-7882.html
+          - generic [ref=f70e638]:
+            - link [ref=f70e639] [cursor=pointer]:
+              - /url: /dily/filtr-kabinovy-aktivni-uhli-opel-1684471080-7882.html
+              - img "Filtr kabinový, aktivní uhlí – Opel Astra K, Meriva B, Insignia B, Mokka" [ref=f70e640]
+            - generic "Opel – Originální díly" [ref=f70e641]
+          - generic [ref=f70e642]: "Objednací číslo: 1684471080"
+          - generic [ref=f70e643]: od 483 Kč
+          - generic [ref=f70e644]: Skladem
+        - generic [ref=f70e645]: Uvedené ceny jsou koncové, nejsem plátce DPH.
+  - generic [ref=f70e647]:
+    - link [ref=f70e649] [cursor=pointer]:
+      - /url: https://www.facebook.com/DoOpla.cz
+      - img "Facebook DoOpla.cz" [ref=f70e650]
+    - generic [ref=f70e651]:
+      - generic [ref=f70e652]:
+        - generic [ref=f70e653]:
+          - text: Dotazy zasílejte na emailovou adresu
+          - link "info@doopla.cz" [ref=f70e655] [cursor=pointer]:
+            - /url: mailto:info@doopla.cz
+        - text: Telefon +420 704 058 760 (pouze v pracovní dny od 9:00 do 15:00, není určeno pro zasílání SMS)
+      - generic [ref=f70e656]: "Eshop provozuje:"
+      - text: Vojtěch Janda, Nová Ves 222, 463 31 (pouze fakturační adresa) IČO 72658681, nejsem plátce DPH
+      - list [ref=f70e657]:
+        - listitem [ref=f70e658]:
+          - link "Všeobecné obchodní podmínky" [ref=f70e659] [cursor=pointer]:
+            - /url: /obchodni-podminky.html
+        - listitem [ref=f70e660]:
+          - link "Reklamační řád pro spotřebitele" [ref=f70e661] [cursor=pointer]:
+            - /url: /reklamacni-rad.html
+        - listitem [ref=f70e662]:
+          - link "Zásady ochrany osobních údajů" [ref=f70e663] [cursor=pointer]:
+            - /url: /zasady-ochrany-osobnich-udaju.html
+        - listitem [ref=f70e664]:
+          - link "Řešení sporů" [ref=f70e665] [cursor=pointer]:
+            - /url: /reseni-sporu.html
+        - listitem [ref=f70e666]:
+          - link "Odstoupení od smlouvy" [ref=f70e667] [cursor=pointer]:
+            - /url: /odstoupeni-od-smlouvy.html
+      - text: © 2026 Vojtěch Janda, Doopla.cz

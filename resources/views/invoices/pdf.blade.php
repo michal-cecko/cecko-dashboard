@@ -467,6 +467,12 @@
         </div>
     @endif
 
+    @if(!($seller['is_vat_payer'] ?? true))
+        <div style="margin-top: 15px; padding: 10px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 4px; font-size: 10px; font-weight: bold; color: #374151;">
+            {{ __('invoice.not_vat_payer_notice') }}
+        </div>
+    @endif
+
     @if($invoice->notes)
         <div class="notes">
             <strong>{{ __('invoice.notes') }}:</strong><br>

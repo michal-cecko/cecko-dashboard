@@ -2,7 +2,6 @@
 
 namespace App\Filament\Invoices\Resources\Companies;
 
-use App\Enums\Common\UserCapabilityEnum;
 use App\Filament\Invoices\Resources\Companies\Pages\CreateCompany;
 use App\Filament\Invoices\Resources\Companies\Pages\EditCompany;
 use App\Filament\Invoices\Resources\Companies\Pages\ListCompanies;
@@ -49,11 +48,14 @@ class CompanyResource extends Resource
 
         $user = auth()->user();
 
-        if ($user->hasCapability(UserCapabilityEnum::VIEW_ALL_INVOICES)) {
+        if ($user->showsAllInvoiceCompanies()) {
             return $query;
         }
 
-        return $query->where('user_id', $user->id);
+        return $query->where(function (Builder $query) use ($user) {
+            $query->where('user_id', $user->id)
+                ->orWhere('id', $user->active_company_id);
+        });
     }
 
     public static function getRelations(): array

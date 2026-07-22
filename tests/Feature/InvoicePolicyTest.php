@@ -122,7 +122,7 @@ class InvoicePolicyTest extends TestCase
     {
         $user = $this->createUserWithCapabilities([
             UserCapabilityEnum::VIEW_INVOICES,
-            UserCapabilityEnum::VIEW_ALL_INVOICES,
+            UserCapabilityEnum::MANAGE_ALL_INVOICES,
         ]);
         $otherUser = User::factory()->create();
         $company = Company::factory()->create(['user_id' => $otherUser->id]);
@@ -134,7 +134,7 @@ class InvoicePolicyTest extends TestCase
     {
         $user = $this->createUserWithCapabilities([
             UserCapabilityEnum::VIEW_INVOICES,
-            UserCapabilityEnum::VIEW_ALL_INVOICES,
+            UserCapabilityEnum::MANAGE_ALL_INVOICES,
         ]);
         $otherUser = User::factory()->create();
         $company = Company::factory()->create(['user_id' => $otherUser->id]);

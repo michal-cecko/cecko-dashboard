@@ -13,26 +13,31 @@ class InvoiceNumberSequencePolicy
 
     public function viewAny(User $user): bool
     {
-        return $user->hasCapability(UserCapabilityEnum::VIEW_INVOICES);
+        return $user->hasCapability(UserCapabilityEnum::VIEW_INVOICES)
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 
     public function view(User $user, InvoiceNumberSequence $sequence): bool
     {
-        return $user->hasCapability(UserCapabilityEnum::VIEW_INVOICES);
+        return $user->hasCapability(UserCapabilityEnum::VIEW_INVOICES)
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 
     public function create(User $user): bool
     {
-        return $user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES);
+        return $user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES)
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 
     public function update(User $user, InvoiceNumberSequence $sequence): bool
     {
-        return $user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES);
+        return $user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES)
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 
     public function delete(User $user, InvoiceNumberSequence $sequence): bool
     {
-        return $user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES);
+        return $user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES)
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 }

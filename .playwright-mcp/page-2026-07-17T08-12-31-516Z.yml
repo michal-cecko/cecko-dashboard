@@ -1,0 +1,2362 @@
+- generic [ref=f66e1]:
+  - generic [ref=f66e2]:
+    - banner [ref=f66e4]:
+      - generic [ref=f66e6]:
+        - link [ref=f66e7] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/
+          - img "automobilovedily24.cz" [ref=f66e8]
+        - generic [ref=f66e13]:
+          - generic [ref=f66e15]:
+            - textbox "Vyhledat podle produktu, vozidla, značky" [ref=f66e16]
+            - button [ref=f66e17] [cursor=pointer]
+          - button [ref=f66e20] [cursor=pointer]
+        - generic [ref=f66e23]:
+          - button "Přihlásit se" [ref=f66e24] [cursor=pointer]
+          - link "0 0,00 Kč" [ref=f66e28] [cursor=pointer]:
+            - generic [ref=f66e29]: "0"
+            - generic [ref=f66e33]: 0,00 Kč
+      - list [ref=f66e35]:
+        - listitem [ref=f66e36]:
+          - link "Automobilových značek" [ref=f66e37] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/auto
+        - listitem [ref=f66e38]:
+          - link "Autodíly" [ref=f66e39] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/nahradni-dily
+        - listitem [ref=f66e40]:
+          - link "Pneumatiky" [ref=f66e41] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/pneumatiky
+        - listitem [ref=f66e42]:
+          - link "Ráfky" [ref=f66e43] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/rafky
+        - listitem [ref=f66e44]:
+          - link "Motorový olej" [ref=f66e45] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/oleje-motorove
+        - listitem [ref=f66e46]:
+          - link "Autokosmetika" [ref=f66e47] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autochemie
+        - listitem [ref=f66e48]:
+          - link "Autodoplňky" [ref=f66e49] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autodoplnky
+        - listitem [ref=f66e50]:
+          - link "Nářadí" [ref=f66e51] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/naradi
+    - main [ref=f66e52]:
+      - generic [ref=f66e53]:
+        - navigation [ref=f66e54]:
+          - list [ref=f66e55]:
+            - listitem [ref=f66e56]:
+              - link "Autodíly Česká republika" [ref=f66e57] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/#parts
+            - listitem [ref=f66e58]:
+              - link "Katalog součástek" [ref=f66e59] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/nahradni-dily
+            - listitem [ref=f66e60]:
+              - link "Motor auto" [ref=f66e61] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/motor-pr
+            - listitem [ref=f66e62]:
+              - link "Závitová zátka olejová vana" [ref=f66e63] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana
+            - listitem [ref=f66e64]:
+              - link "Závitová zátka olejová vana OPEL" [ref=f66e65] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel
+            - listitem [ref=f66e66]:
+              - link "Závitová zátka, olejová vana Opel ASTRA" [ref=f66e67] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel-astra
+            - listitem [ref=f66e68]:
+              - link "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16)" [ref=f66e69] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-k-sports-tourer
+            - listitem [ref=f66e70]: OPEL ASTRA 1.4 Turbo (35) 125 HP
+        - heading "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP Benzín" [level=1] [ref=f66e72]
+      - generic [ref=f66e74]:
+        - generic [ref=f66e75]:
+          - generic [ref=f66e76]:
+            - img "Závitová zátka, olejová vana OPEL ASTRA 1.4 Turbo (35) 125 HP Benzín" [ref=f66e78]
+            - generic [ref=f66e79]: OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) (92 KW / 125 HP) 2015
+          - generic [ref=f66e80]:
+            - generic [ref=f66e81]:
+              - button [ref=f66e82] [cursor=pointer]
+              - generic [ref=f66e85]: Výběr vozidla
+              - generic [ref=f66e86]:
+                - combobox "maker" [ref=f66e90] [cursor=pointer]:
+                  - option "Vyberte si značku"
+                  - option "VW"
+                  - option "BMW"
+                  - option "SKODA"
+                  - option "FORD"
+                  - option "MERCEDES-BENZ"
+                  - option "AUDI"
+                  - option "OPEL" [selected]
+                  - option "RENAULT"
+                  - option "TOYOTA"
+                  - option "PEUGEOT"
+                  - option "ABARTH"
+                  - option "AC"
+                  - option "ACURA"
+                  - option "AIXAM"
+                  - option "ALFA ROMEO"
+                  - option "ALPINA"
+                  - option "ALPINE"
+                  - option "ALVIS"
+                  - option "ARO"
+                  - option "ARTEGA"
+                  - option "ASIA MOTORS"
+                  - option "ASKAM (FARGO/DESOTO)"
+                  - option "ASTON MARTIN"
+                  - option "AUDI"
+                  - option "AUSTIN"
+                  - option "AUSTIN-HEALEY"
+                  - option "AUTO UNION"
+                  - option "AUTOBIANCHI"
+                  - option "AUVERLAND"
+                  - option "BARKAS"
+                  - option "BEDFORD"
+                  - option "BENTLEY"
+                  - option "BERTONE"
+                  - option "BESTURN (FAW)"
+                  - option "BMW"
+                  - option "BORGWARD"
+                  - option "BRABUS"
+                  - option "BUGATTI"
+                  - option "BUICK"
+                  - option "BUICK (SGM)"
+                  - option "BYD"
+                  - option "CADILLAC"
+                  - option "CARBODIES"
+                  - option "CASALINI"
+                  - option "CATERHAM"
+                  - option "CHERY"
+                  - option "CHEVROLET"
+                  - option "CHRYSLER"
+                  - option "CITROËN"
+                  - option "CUPRA"
+                  - option "DACIA"
+                  - option "DAEWOO"
+                  - option "DAF"
+                  - option "DAIHATSU"
+                  - option "DAIMLER"
+                  - option "DE TOMASO"
+                  - option "DFSK"
+                  - option "DODGE"
+                  - option "DR"
+                  - option "DS"
+                  - option "EBRO"
+                  - option "FERRARI"
+                  - option "FIAT"
+                  - option "FISKER"
+                  - option "FORD"
+                  - option "FORD ASIA / OCEANIA"
+                  - option "FORD OTOSAN"
+                  - option "FORD USA"
+                  - option "FSO"
+                  - option "GAZ"
+                  - option "GEELY (GLEAGLE)"
+                  - option "GENESIS"
+                  - option "GERMAN E-CARS"
+                  - option "GLAS"
+                  - option "GMC"
+                  - option "GOUPIL"
+                  - option "GREAT WALL"
+                  - option "HAVAL"
+                  - option "HOLDEN"
+                  - option "HONDA"
+                  - option "HUMMER"
+                  - option "HYUNDAI"
+                  - option "INDIGO"
+                  - option "INFINITI"
+                  - option "INNOCENTI"
+                  - option "ISUZU"
+                  - option "IVECO"
+                  - option "JAGUAR"
+                  - option "JEEP"
+                  - option "JIANGLING LANDWIND"
+                  - option "JINBEI"
+                  - option "KG MOBILITY"
+                  - option "KIA"
+                  - option "KOENIGSEGG"
+                  - option "KTM"
+                  - option "LADA"
+                  - option "LAMBORGHINI"
+                  - option "LANCIA"
+                  - option "LAND ROVER"
+                  - option "LDV"
+                  - option "LEVC"
+                  - option "LEXUS"
+                  - option "LIGIER"
+                  - option "LINCOLN"
+                  - option "LLOYD"
+                  - option "LOTUS"
+                  - option "LTI"
+                  - option "LUCID"
+                  - option "LYNK & CO"
+                  - option "MAHINDRA"
+                  - option "MAN"
+                  - option "MARUTI"
+                  - option "MASERATI"
+                  - option "MAXUS"
+                  - option "MAYBACH"
+                  - option "MAZDA"
+                  - option "MCLAREN"
+                  - option "MEGA"
+                  - option "MERCEDES-BENZ"
+                  - option "MERCURY"
+                  - option "MG"
+                  - option "MIA ELECTRIC"
+                  - option "MICROCAR"
+                  - option "MINELLI"
+                  - option "MINI"
+                  - option "MITSUBISHI"
+                  - option "MORGAN"
+                  - option "MORRIS"
+                  - option "MOSKVICH"
+                  - option "NISSAN"
+                  - option "NSU"
+                  - option "OLDSMOBILE"
+                  - option "OPEL"
+                  - option "PAGANI"
+                  - option "PANTHER"
+                  - option "PEUGEOT"
+                  - option "PIAGGIO"
+                  - option "PININFARINA"
+                  - option "PLYMOUTH"
+                  - option "POLARIS"
+                  - option "POLESTAR"
+                  - option "PONTIAC"
+                  - option "PORSCHE"
+                  - option "PROTON"
+                  - option "PUCH"
+                  - option "RAM"
+                  - option "RAVON"
+                  - option "RENAULT"
+                  - option "RENAULT TRUCKS"
+                  - option "ROLLS-ROYCE"
+                  - option "ROVER"
+                  - option "RUF"
+                  - option "SAAB"
+                  - option "SANTANA"
+                  - option "SATURN"
+                  - option "SCION"
+                  - option "SEAT"
+                  - option "SHELBY"
+                  - option "SHUANGHUAN AUTO"
+                  - option "SKODA"
+                  - option "SMART"
+                  - option "SPYKER"
+                  - option "SSANGYONG"
+                  - option "STEYR"
+                  - option "STREETSCOOTER"
+                  - option "SUBARU"
+                  - option "SUZUKI"
+                  - option "TALBOT"
+                  - option "TATA (TELCO)"
+                  - option "TESLA"
+                  - option "THINK"
+                  - option "TOYOTA"
+                  - option "TRABANT"
+                  - option "TRIUMPH"
+                  - option "TVR"
+                  - option "UAZ"
+                  - option "UMM"
+                  - option "VAUXHALL"
+                  - option "VICTORY"
+                  - option "VOLVO"
+                  - option "VW"
+                  - option "WARTBURG"
+                  - option "WESTFIELD"
+                  - option "WIESMANN"
+                  - option "ZASTAVA"
+                  - option "ZUENDAPP"
+                - combobox [ref=f66e94] [cursor=pointer]:
+                  - option "Vyberte model"
+                  - option "Adam (M13) (10.2012 - 02.2019)"
+                  - option "Admiral A (04.1964 - 03.1969)"
+                  - option "Admiral B (03.1969 - 01.1978)"
+                  - option "Agila A (H00) (09.2000 - 12.2007)"
+                  - option "Agila B (H08) (04.2008 - 10.2014)"
+                  - option "Ampera (R12) (11.2011 - 03.2015)"
+                  - option "Ampera-e (F17) (05.2017 - 03.2019)"
+                  - option "Antara (L07) (05.2006 - 08.2017)"
+                  - option "Arena Mikrobus (A97) (01.1997 - 12.2001)"
+                  - option "Arena Van (A97) (01.1997 - 12.2001)"
+                  - option "Arena Van (TB, TF) (03.1998 - 08.2001)"
+                  - option "Ascona A Caravan (84, 89) (10.1970 - 08.1975)"
+                  - option "Ascona A Sedan (10.1970 - 08.1975)"
+                  - option "Ascona B Sedan (09.1975 - 08.1981)"
+                  - option "Ascona C CC (J82) (09.1981 - 08.1988)"
+                  - option "Ascona C Sedan (J82) (09.1981 - 10.1988)"
+                  - option "Astra Classic Caravan (A04) (01.2009 - ...)"
+                  - option "Astra Classic Hatchback (A04) (01.2009 - ...)"
+                  - option "Astra Classic Sedan (A04) (01.2009 - ...)"
+                  - option "Astra F CC (T92) (09.1991 - 01.1998)"
+                  - option "Astra F Cabrio (T92) (03.1993 - 03.2001)"
+                  - option "Astra F Caravan (T92) (09.1991 - 01.1998)"
+                  - option "Astra F Classic CC (T92) (01.1998 - 08.2002)"
+                  - option "Astra F Classic Caravan (T92) (01.1998 - 01.2005)"
+                  - option "Astra F Classic Sedan (T92) (01.1998 - 08.2002)"
+                  - option "Astra F Sedan (T92) (09.1991 - 09.1998)"
+                  - option "Astra G CC (T98) (02.1998 - 12.2009)"
+                  - option "Astra G Cabrio (T98) (03.2001 - 10.2005)"
+                  - option "Astra G Caravan (T98) (02.1998 - 12.2009)"
+                  - option "Astra G Classic Caravan (F35) (03.2004 - 07.2009)"
+                  - option "Astra G Classic Hatchback (T98) (03.2004 - 07.2009)"
+                  - option "Astra G Classic Sedan (T98) (03.2004 - 07.2009)"
+                  - option "Astra G Kupé (T98) (03.2000 - 05.2005)"
+                  - option "Astra G Sedan (T98) (09.1998 - 12.2009)"
+                  - option "Astra G Van (F70) (01.1999 - 04.2005)"
+                  - option "Astra H Caravan (A04) (08.2004 - 05.2014)"
+                  - option "Astra H GTC (A04) (03.2005 - 10.2010)"
+                  - option "Astra H Hatchback (A04) (01.2004 - 05.2014)"
+                  - option "Astra H Sedan (A04) (02.2007 - 05.2014)"
+                  - option "Astra H TwinTop (A04) (09.2005 - 10.2010)"
+                  - option "Astra H Van (L70) (02.2004 - 12.2013)"
+                  - option "Astra J GTC (P10) (10.2011 - ...)"
+                  - option "Astra J Hatchback (P10) (12.2009 - 10.2015)"
+                  - option "Astra J Sedan (P10) (06.2012 - ...)"
+                  - option "Astra J Sports Tourer (P10) (10.2010 - 10.2015)"
+                  - option "Astra J Van / Combi (P10) (09.2009 - 10.2015)"
+                  - option "Astra J Van / Hatchback (P10) (09.2009 - 10.2015)"
+                  - option "Astra K Hatchback (B16) (06.2015 - 12.2022)"
+                  - option "Astra K Sports Tourer (B16) (11.2015 - 12.2022)" [selected]
+                  - option "Astra K Van / Combi (B16) (11.2015 - ...)"
+                  - option "Astra K Van / Hatchback (B16) (06.2015 - ...)"
+                  - option "Astra L Hatchback (C02) (10.2021 - ...)"
+                  - option "Astra L Sports Tourer (10.2021 - ...)"
+                  - option "Blazer SUV (01.1996 - 12.2002)"
+                  - option "Calibra A (C89) (06.1990 - 07.1997)"
+                  - option "Campo (TF0, TF1) (08.1987 - 06.2002)"
+                  - option "Cascada (W13) (03.2013 - ...)"
+                  - option "Combo B Van (07.1994 - 10.2001)"
+                  - option "Combo C Tour (10.2001 - 12.2011)"
+                  - option "Combo C Van / Combi (10.2001 - ...)"
+                  - option "Combo D Tour (X12) (02.2012 - ...)"
+                  - option "Combo D Van / Combi (02.2012 - ...)"
+                  - option "Combo E Kasten / Combi (X19) (06.2018 - ...)"
+                  - option "Combo Valník / Podvozek (X12) (08.2012 - ...)"
+                  - option "Combo velkoprostorová limuzína (X19) (06.2018 - ...)"
+                  - option "Commodore A Kupé (08.1967 - 01.1972)"
+                  - option "Commodore A Sedan (08.1967 - 01.1972)"
+                  - option "Commodore B Kupé (01.1972 - 07.1978)"
+                  - option "Commodore B Sedan (01.1972 - 07.1978)"
+                  - option "Commodore C Combi (61) (12.1980 - 12.1982)"
+                  - option "Commodore C Sedan (08.1978 - 12.1982)"
+                  - option "Corsa A CC (S83) (09.1982 - 03.1993)"
+                  - option "Corsa A TR (S83) (09.1982 - 03.1993)"
+                  - option "Corsa A Van (S83) (02.1986 - 09.1994)"
+                  - option "Corsa B Caravan (S93) (01.1999 - 12.2002)"
+                  - option "Corsa B Hatchback (S93) (03.1993 - 12.2002)"
+                  - option "Corsa B Utility Pick-up (01.1996 - 06.2004)"
+                  - option "Corsa B Van (S93) (08.1999 - 09.2000)"
+                  - option "Corsa C Hatchback (X01) (09.2000 - 12.2009)"
+                  - option "Corsa C Sedan (X01) (09.2000 - 12.2009)"
+                  - option "Corsa C Utility Pick-up (01.2003 - 12.2010)"
+                  - option "Corsa C Van (X01) (09.2000 - 12.2012)"
+                  - option "Corsa Classic (08.1994 - 12.2005)"
+                  - option "Corsa D Hatchback (S07) (07.2006 - 08.2014)"
+                  - option "Corsa E Hatchback (X15) (09.2014 - ...)"
+                  - option "Corsa F Hatchback (07.2019 - ...)"
+                  - option "Corsa F Van (07.2019 - ...)"
+                  - option "Crossland X (P17) (03.2017 - ...)"
+                  - option "Diplomat A Kupé (03.1965 - 10.1967)"
+                  - option "Diplomat A Sedan (10.1964 - 03.1969)"
+                  - option "Diplomat B Sedan (03.1969 - 08.1978)"
+                  - option "Frontera A SUV (U92) (03.1992 - 10.1998)"
+                  - option "Frontera A Sport SUV Cabrio (U92) (03.1992 - 10.1998)"
+                  - option "Frontera B SUV (U99) (10.1998 - 07.2004)"
+                  - option "Frontera III (OV24) (07.2024 - ...)"
+                  - option "Grandland II (OV64) (10.2024 - ...)"
+                  - option "Grandland X (A18) (06.2017 - ...)"
+                  - option "GT Kupé (09.1968 - 08.1973)"
+                  - option "GT Roadster (M07) (06.2007 - 12.2011)"
+                  - option "Insignia A Country Tourer (G09) (07.2008 - 03.2017)"
+                  - option "Insignia A Hatchback (G09) (07.2008 - 03.2017)"
+                  - option "Insignia A Sedan (G09) (07.2008 - 03.2017)"
+                  - option "Insignia A Sports Tourer (G09) (07.2008 - 03.2017)"
+                  - option "Insignia B Country Tourer (Z18) (06.2017 - ...)"
+                  - option "Insignia B Grand Sport (Z18) (03.2017 - ...)"
+                  - option "Insignia B Sports Tourer (Z18) (03.2017 - ...)"
+                  - option "Insignia B Sports Tourer Van / Combi (Z18) (03.2017 - ...)"
+                  - option "Kadett A Combi (03.1963 - 08.1968)"
+                  - option "Kadett A Kupé (09.1962 - 08.1965)"
+                  - option "Kadett A Sedan (09.1962 - 08.1965)"
+                  - option "Kadett B Combi (09.1965 - 08.1973)"
+                  - option "Kadett B Kupé (09.1965 - 08.1973)"
+                  - option "Kadett B Sedan (09.1965 - 08.1973)"
+                  - option "Kadett C Aero (09.1976 - 08.1979)"
+                  - option "Kadett C CC (08.1973 - 07.1979)"
+                  - option "Kadett C Combi (08.1973 - 07.1979)"
+                  - option "Kadett C Kupé (08.1973 - 07.1979)"
+                  - option "Kadett C Sedan (08.1973 - 07.1979)"
+                  - option "Kadett D Combi (08.1979 - 08.1984)"
+                  - option "Kadett D Hatchback (08.1979 - 08.1984)"
+                  - option "Kadett D Sedan (08.1979 - 08.1984)"
+                  - option "Kadett E CC (T85) (09.1984 - 08.1991)"
+                  - option "Kadett E Cabrio (T85) (10.1986 - 02.1993)"
+                  - option "Kadett E Caravan (T85) (09.1984 - 08.1991)"
+                  - option "Kadett E Combo (T85) (01.1986 - 07.1994)"
+                  - option "Kadett E Hatchback (09.1990 - 05.2000)"
+                  - option "Kadett E Sedan (T85) (09.1984 - 12.1993)"
+                  - option "Kadett E Van (T85) (08.1984 - 09.1993)"
+                  - option "Kapitän (05.1955 - 12.1958)"
+                  - option "Kapitän A (03.1964 - 12.1968)"
+                  - option "Kapitän B Sedan (08.1968 - 12.1971)"
+                  - option "Kapitän P 2.6 (05.1958 - 12.1963)"
+                  - option "Karl (C16) (01.2015 - 03.2019)"
+                  - option "Manta A Kupé (09.1970 - 08.1975)"
+                  - option "Manta B CC (09.1975 - 08.1988)"
+                  - option "Manta B Sedan (09.1975 - 08.1988)"
+                  - option "Meriva A (X03) (05.2003 - 05.2010)"
+                  - option "Meriva B (S10) (06.2010 - 03.2017)"
+                  - option "Mokka / Mokka X (J13) (06.2012 - ...)"
+                  - option "Mokka II (06.2020 - ...)"
+                  - option "Monterey A (M92) (09.1991 - 07.1998)"
+                  - option "Monterey B (M98) (07.1998 - 08.1999)"
+                  - option "Monza A (02.1978 - 08.1986)"
+                  - option "Movano A Mikrobus (X70) (07.1998 - ...)"
+                  - option "Movano A Sklápěč (X70) (01.1999 - ...)"
+                  - option "Movano A Valník / Podvozek (X70) (07.1998 - ...)"
+                  - option "Movano A Van (X70) (01.1999 - ...)"
+                  - option "Movano B Mikrobus (X62) (12.2010 - ...)"
+                  - option "Movano B Sklápěč (X62) (05.2010 - ...)"
+                  - option "Movano B Valník / Podvozek (X62) (05.2010 - ...)"
+                  - option "Movano B Van (X62) (05.2010 - ...)"
+                  - option "Movano C Valník / Podvozek (U9) (12.2021 - ...)"
+                  - option "Movano C Van (U9) (12.2021 - ...)"
+                  - option "Olympia A Hatchback (08.1967 - 08.1971)"
+                  - option "Olympia A Kupé (08.1967 - 08.1971)"
+                  - option "Olympia Rekord (03.1953 - 08.1966)"
+                  - option "Olympia Rekord Combi (07.1957 - 12.1960)"
+                  - option "Omega A Caravan (V87) (09.1986 - 05.1994)"
+                  - option "Omega A Sedan (V87) (09.1986 - 05.1994)"
+                  - option "Omega B Caravan (V94) (03.1994 - 07.2003)"
+                  - option "Omega B Sedan (V94) (03.1994 - 07.2003)"
+                  - option "Rekord A Combi (01.1963 - 08.1965)"
+                  - option "Rekord A Kupé (01.1963 - 12.1965)"
+                  - option "Rekord A Sedan (01.1963 - 12.1965)"
+                  - option "Rekord B Combi (08.1965 - 03.1967)"
+                  - option "Rekord B Kupé (08.1965 - 02.1967)"
+                  - option "Rekord B Sedan (01.1965 - 12.1966)"
+                  - option "Rekord C Combi (08.1966 - 12.1971)"
+                  - option "Rekord C Kupé (08.1966 - 12.1971)"
+                  - option "Rekord C Sedan (08.1966 - 12.1971)"
+                  - option "Rekord D Combi (01.1972 - 08.1977)"
+                  - option "Rekord D Kupé (01.1972 - 08.1977)"
+                  - option "Rekord D Sedan (01.1972 - 08.1977)"
+                  - option "Rekord E1 Combi (08.1977 - 08.1986)"
+                  - option "Rekord E1 Sedan (08.1977 - 08.1986)"
+                  - option "Rekord E2 Sedan (12.1983 - 12.1995)"
+                  - option "Rekord P1 Combi (07.1957 - 09.1961)"
+                  - option "Rekord P1 Sedan (06.1957 - 09.1961)"
+                  - option "Rekord P2 Combi (08.1960 - 01.1963)"
+                  - option "Rekord P2 Kupé (08.1960 - 01.1963)"
+                  - option "Rekord P2 Sedan (08.1960 - 01.1963)"
+                  - option "Rocks-E Hatchback (10.2021 - ...)"
+                  - option "Senator A (02.1978 - 08.1987)"
+                  - option "Senator B (V88) (09.1987 - 09.1993)"
+                  - option "Signum CC (Z03) (05.2003 - 12.2008)"
+                  - option "Sintra (APV) (11.1996 - 04.1999)"
+                  - option "Speedster (E01) (09.2000 - 08.2006)"
+                  - option "Tigra Kupé (S93) (07.1994 - 12.2000)"
+                  - option "Tigra Twintop (X04) (06.2004 - 12.2010)"
+                  - option "Vectra A CC (J89) (04.1988 - 12.1995)"
+                  - option "Vectra A Sedan (J89) (08.1988 - 12.1995)"
+                  - option "Vectra B CC (J96) (10.1995 - 07.2003)"
+                  - option "Vectra B Combi (J96) (11.1996 - 07.2003)"
+                  - option "Vectra B Sedan (J96) (09.1995 - 04.2002)"
+                  - option "Vectra C CC (Z02) (08.2002 - 01.2009)"
+                  - option "Vectra C Caravan (Z02) (10.2003 - 01.2009)"
+                  - option "Vectra C Sedan (Z02) (04.2002 - 01.2009)"
+                  - option "Vivaro A Combi (X83) (08.2001 - ...)"
+                  - option "Vivaro A Valník / Podvozek (X83) (08.2001 - 07.2014)"
+                  - option "Vivaro A Van (X83) (08.2001 - ...)"
+                  - option "Vivaro B Combi (X82) (06.2014 - 12.2019)"
+                  - option "Vivaro B Valník / Podvozek (X82) (06.2014 - ...)"
+                  - option "Vivaro B Van (X82) (06.2014 - 11.2020)"
+                  - option "Vivaro C Combi (K0) (03.2019 - ...)"
+                  - option "Vivaro C Valník / Podvozek (K0) (03.2019 - ...)"
+                  - option "Vivaro C Van (K0) (03.2019 - ...)"
+                  - option "Zafira A (T98) (04.1999 - 06.2005)"
+                  - option "Zafira B (A05) (07.2005 - 04.2015)"
+                  - option "Zafira C Tourer (P12) (10.2011 - ...)"
+                  - option "Zafira Life (K0) (03.2019 - ...)"
+                - combobox [ref=f66e98] [cursor=pointer]:
+                  - option "Vyberte si modifikaci"
+                  - option "1.0 Turbo (35) (66 KW / 90 HP) (06.2018 - 12.2022)"
+                  - option "1.0 Turbo (35) (77 KW / 105 HP) (11.2015 - 12.2022)"
+                  - option "1.2 Turbo (35) (81 KW / 110 HP) (08.2019 - 12.2022)"
+                  - option "1.2 Turbo (35) (96 KW / 131 HP) (08.2019 - 12.2022)"
+                  - option "1.2 Turbo (35) (107 KW / 145 HP) (08.2019 - 12.2022)"
+                  - option "1.4 (35) (74 KW / 100 HP) (11.2015 - 12.2022)"
+                  - option "1.4 Turbo (35) (92 KW / 125 HP) (11.2015 - 12.2022)" [selected]
+                  - option "1.4 Turbo (35) (107 KW / 145 HP) (08.2019 - 12.2022)"
+                  - option "1.4 Turbo (35) (110 KW / 150 HP) (11.2015 - 12.2022)"
+                  - option "1.6 Turbo (35) (147 KW / 200 HP) (11.2015 - 12.2022)"
+                  - option "1.4 CNG (35) (81 KW / 110 HP) (10.2017 - 12.2022)"
+                  - option "1.5 CRDI (35) (77 KW / 105 HP) (08.2019 - 12.2022)"
+                  - option "1.5 CRDI (35) (90 KW / 122 HP) (08.2019 - 12.2022)"
+                  - option "1.6 BiTurbo (110 KW / 150 HP) (08.2018 - 12.2022)"
+                  - option "1.6 CDTi (35) (70 KW / 95 HP) (11.2015 - 12.2022)"
+                  - option "1.6 CDTi (35) (81 KW / 110 HP) (11.2015 - 12.2022)"
+                  - option "1.6 CDTi (35) (100 KW / 136 HP) (11.2015 - 12.2022)"
+                  - option "1.6 CDTi (35) (118 KW / 160 HP) (11.2015 - 12.2022)"
+                - button "Hledat" [ref=f66e99] [cursor=pointer]
+            - button "Nemůžete v katalogu najít vaše auto?" [ref=f66e102]
+        - generic [ref=f66e103]:
+          - generic [ref=f66e107]:
+            - generic [ref=f66e108]:
+              - generic [ref=f66e109]: "Závitová zátka, olejová vana: vyberte konkrétní náhradní díl"
+              - generic [ref=f66e110]:
+                - generic [ref=f66e111]:
+                  - radio "Ukázat všechny" [checked] [ref=f66e112]
+                  - generic [ref=f66e113] [cursor=pointer]: Ukázat všechny
+                - generic [ref=f66e115]:
+                  - radio "Závitová zátka, olejová vana Závitová zátka, olejová vana" [ref=f66e116]
+                  - generic [ref=f66e117] [cursor=pointer]:
+                    - generic:
+                      - img "Závitová zátka, olejová vana"
+                    - generic [ref=f66e118]: Závitová zátka, olejová vana
+                - generic [ref=f66e119]:
+                  - radio "Tesnici krouzek, olejova vypousteci zatka Tesnici krouzek, olejova vypousteci zatka" [ref=f66e120]
+                  - generic [ref=f66e121] [cursor=pointer]:
+                    - generic:
+                      - img "Tesnici krouzek, olejova vypousteci zatka"
+                    - generic [ref=f66e122]: Tesnici krouzek, olejova vypousteci zatka
+            - generic [ref=f66e123]:
+              - generic [ref=f66e124]: Zvolte výrobce
+              - generic [ref=f66e125]:
+                - button "Previous" [disabled] [ref=f66e126] [cursor=pointer]
+                - generic [ref=f66e128]:
+                  - generic [ref=f66e131]:
+                    - checkbox "RIDEX Závitová zátka, olejová vana OPEL ASTRA 1.4 Turbo (35) 125 HP" [ref=f66e132]
+                    - generic [ref=f66e133] [cursor=pointer]:
+                      - generic:
+                        - img "RIDEX Závitová zátka, olejová vana OPEL ASTRA 1.4 Turbo (35) 125 HP"
+                  - checkbox [ref=f66e137]
+                  - checkbox [ref=f66e142]
+                  - checkbox [ref=f66e147]
+                  - checkbox [ref=f66e152]
+                  - checkbox [ref=f66e157]
+                  - checkbox [ref=f66e162]
+                  - checkbox [ref=f66e167]
+                  - checkbox [ref=f66e172]
+                  - checkbox [ref=f66e177]
+                  - checkbox [ref=f66e182]
+                  - checkbox [ref=f66e187]
+                  - checkbox [ref=f66e192]
+                  - checkbox [ref=f66e197]
+                  - checkbox [ref=f66e202]
+                  - checkbox [ref=f66e207]
+                  - checkbox [ref=f66e212]
+                  - checkbox [ref=f66e217]
+                  - checkbox [ref=f66e222]
+                  - checkbox [ref=f66e227]
+                  - checkbox [ref=f66e232]
+                  - checkbox [ref=f66e237]
+                  - checkbox [ref=f66e242]
+                  - checkbox [ref=f66e247]
+                  - checkbox [ref=f66e252]
+                  - checkbox [ref=f66e257]
+                  - checkbox [ref=f66e262]
+                  - checkbox [ref=f66e267]
+                  - checkbox [ref=f66e272]
+                  - checkbox [ref=f66e277]
+                  - checkbox [ref=f66e282]
+                  - checkbox [ref=f66e287]
+                  - checkbox [ref=f66e292]
+                  - checkbox [ref=f66e297]
+                  - checkbox [ref=f66e302]
+                - button "Next" [ref=f66e304] [cursor=pointer]
+          - generic [ref=f66e305]: 183 položek
+          - generic [ref=f66e307]:
+            - generic [ref=f66e309]:
+              - generic [ref=f66e310]:
+                - link [ref=f66e311] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana AIC 72853" [ref=f66e312]
+                - link [ref=f66e313] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/aic/18611237#zavitova-zatka-olejova-vana
+                  - img "AIC 72853 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2015" [ref=f66e314]
+              - generic [ref=f66e315]:
+                - link "Závitová zátka, olejová vana AIC 72853 M12 x 1,75, Ocel, s těsnicím kroužkem" [ref=f66e316] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/aic/18611237
+                  - text: Závitová zátka, olejová vana AIC 72853
+                  - generic [ref=f66e317]: M12 x 1,75, Ocel, s těsnicím kroužkem
+                - generic [ref=f66e318]:
+                  - generic [ref=f66e319]:
+                    - generic [ref=f66e320]: "EAN: 4046283728534"
+                    - generic [ref=f66e321]: "Článek №: 72853"
+                  - generic [ref=f66e322]:
+                    - link [ref=f66e324] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e325] [cursor=pointer]
+              - generic [ref=f66e326]:
+                - generic [ref=f66e327]:
+                  - generic [ref=f66e328]:
+                    - list [ref=f66e330]:
+                      - listitem [ref=f66e331]:
+                        - generic [ref=f66e332]: "Velikost závitu:"
+                        - generic [ref=f66e333]: M12 x 1,75
+                      - listitem [ref=f66e334]:
+                        - generic [ref=f66e335]: "Doplňující výrobek / doplňkové info 2:"
+                        - generic [ref=f66e336]: s těsnicím kroužkem
+                      - listitem [ref=f66e337]:
+                        - generic [ref=f66e338]: "Materiál:"
+                        - generic [ref=f66e339]: Ocel
+                      - listitem [ref=f66e340]:
+                        - generic [ref=f66e341]: "Číslo produktu:"
+                        - generic [ref=f66e342]: "72853"
+                      - listitem [ref=f66e343]:
+                        - generic [ref=f66e344]: "Naše cena:"
+                        - generic [ref=f66e345]: 73,08 Kč
+                      - listitem [ref=f66e346]:
+                        - generic [ref=f66e347]: "Výrobce:"
+                        - generic [ref=f66e348]: AIC
+                      - listitem [ref=f66e349]:
+                        - generic [ref=f66e350]: "EAN číslo:"
+                        - generic [ref=f66e351]: "4046283728534"
+                      - listitem [ref=f66e352]:
+                        - generic [ref=f66e353]: "Stav:"
+                        - generic [ref=f66e354]: Nové
+                    - text: Více
+                  - button "Zobrazit OEM čísla" [ref=f66e356] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e357]:
+                - generic [ref=f66e359]: Na skladě
+                - generic [ref=f66e361]: 73,08 Kč
+                - generic [ref=f66e362]:
+                  - paragraph [ref=f66e363]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e364]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e365] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e367]:
+                  - generic [ref=f66e368]:
+                    - link [ref=f66e369] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e370] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e371] [cursor=pointer]
+            - generic [ref=f66e376]:
+              - generic [ref=f66e377]:
+                - link [ref=f66e378] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana DR.MOTOR AUTOMOTIVE DRM01369" [ref=f66e379]
+                - link [ref=f66e380] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/dr-motor-automotive/19097366#zavitova-zatka-olejova-vana
+                  - img "DR.MOTOR AUTOMOTIVE DRM01369 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2016" [ref=f66e381]
+              - generic [ref=f66e382]:
+                - link "Závitová zátka, olejová vana DR.MOTOR AUTOMOTIVE DRM01369 M12x1,75x17, s těsnicím kroužkem" [ref=f66e383] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/dr-motor-automotive/19097366
+                  - text: Závitová zátka, olejová vana DR.MOTOR AUTOMOTIVE DRM01369
+                  - generic [ref=f66e384]: M12x1,75x17, s těsnicím kroužkem
+                - generic [ref=f66e385]:
+                  - generic [ref=f66e386]:
+                    - generic [ref=f66e387]: "EAN: 590463960344"
+                    - generic [ref=f66e388]: "Článek №: DRM01369"
+                  - generic [ref=f66e389]:
+                    - link [ref=f66e391] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e392] [cursor=pointer]
+              - generic [ref=f66e393]:
+                - generic [ref=f66e394]:
+                  - generic [ref=f66e395]:
+                    - list [ref=f66e397]:
+                      - listitem [ref=f66e398]:
+                        - generic [ref=f66e399]: "Velikost závitu:"
+                        - generic [ref=f66e400]: M12x1,75x17
+                      - listitem [ref=f66e401]:
+                        - generic [ref=f66e402]: "Hlava šroubu - / Profil matky:"
+                        - generic [ref=f66e403]: vnější šestihran
+                      - listitem [ref=f66e404]:
+                        - generic [ref=f66e405]: "Doplňující výrobek / doplňkové info 2:"
+                        - generic [ref=f66e406]: s těsnicím kroužkem
+                      - listitem [ref=f66e407]:
+                        - generic [ref=f66e408]: Závazné porovnání starého dílu s novým (zejména OE-č.)
+                      - listitem [ref=f66e410]:
+                        - generic [ref=f66e411]: "Číslo produktu:"
+                        - generic [ref=f66e412]: DRM01369
+                      - listitem [ref=f66e413]:
+                        - generic [ref=f66e414]: "Naše cena:"
+                        - generic [ref=f66e415]: 83,98 Kč
+                      - listitem [ref=f66e416]:
+                        - generic [ref=f66e417]: "Výrobce:"
+                        - generic [ref=f66e418]: DR.MOTOR AUTOMOTIVE
+                      - listitem [ref=f66e419]:
+                        - generic [ref=f66e420]: "EAN číslo:"
+                        - generic [ref=f66e421]: "590463960344"
+                      - listitem [ref=f66e422]:
+                        - generic [ref=f66e423]: "Stav:"
+                        - generic [ref=f66e424]: Nové
+                    - text: Více
+                  - button "Zobrazit OEM čísla" [ref=f66e426] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e427]:
+                - generic [ref=f66e429]: Na skladě
+                - generic [ref=f66e431]: 83,98 Kč
+                - generic [ref=f66e432]:
+                  - paragraph [ref=f66e433]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e434]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e435] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e437]:
+                  - generic [ref=f66e438]:
+                    - link [ref=f66e439] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e440] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e441] [cursor=pointer]
+            - generic [ref=f66e446]:
+              - generic [ref=f66e447]:
+                - link [ref=f66e448] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana SW-Stahl 03011L" [ref=f66e449]
+                - link [ref=f66e450] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/sw-stahl/15212802#zavitova-zatka-olejova-vana
+                  - img "SW-Stahl 03011L Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2017" [ref=f66e451]
+                - img "Závitová zátka, olejová vana 03011L Astra K Sports Tourer (B16) 1.4 Turbo rok 2020" [ref=f66e453] [cursor=pointer]
+              - generic [ref=f66e454]:
+                - 'link "Závitová zátka, olejová vana SW-Stahl 03011L M15, Otvor klíče: 20" [ref=f66e455] [cursor=pointer]':
+                  - /url: https://www.automobilovedily24.cz/sw-stahl/15212802
+                  - text: Závitová zátka, olejová vana SW-Stahl 03011L
+                  - generic [ref=f66e456]: "M15, Otvor klíče: 20"
+                - generic [ref=f66e457]:
+                  - generic [ref=f66e458]:
+                    - generic [ref=f66e459]: "EAN: 4033592027380"
+                    - generic [ref=f66e460]: "Článek №: 03011L"
+                  - generic [ref=f66e461]:
+                    - link [ref=f66e463] [cursor=pointer]
+                    - link "recenze - 4" [ref=f66e465] [cursor=pointer]
+              - generic [ref=f66e466]:
+                - generic [ref=f66e468]:
+                  - list [ref=f66e470]:
+                    - listitem [ref=f66e471]:
+                      - generic [ref=f66e472]: "Velikost závitu:"
+                      - generic [ref=f66e473]: M15
+                    - listitem [ref=f66e474]:
+                      - generic [ref=f66e475]: "Délka [mm]:"
+                      - generic [ref=f66e476]: "22"
+                    - listitem [ref=f66e477]:
+                      - generic [ref=f66e478]: "Rozměr klíče:"
+                      - generic [ref=f66e479]: "20"
+                    - listitem [ref=f66e480]:
+                      - generic [ref=f66e481]: "průměr vlákna [mm]:"
+                      - generic [ref=f66e482]: "14"
+                    - listitem [ref=f66e483]:
+                      - generic [ref=f66e484]: "rozteč [mm]:"
+                      - generic [ref=f66e485]: 1,5, 1.5
+                    - listitem [ref=f66e486]:
+                      - generic [ref=f66e487]: "Hmotnost [kg]:"
+                      - generic [ref=f66e488]: 0,034
+                    - listitem [ref=f66e489]:
+                      - generic [ref=f66e490]: "váha [g]:"
+                      - generic [ref=f66e491]: "32"
+                    - listitem [ref=f66e492]:
+                      - generic [ref=f66e493]: "Celková délka [mm]:"
+                      - generic [ref=f66e494]: "20"
+                    - listitem [ref=f66e495]:
+                      - generic [ref=f66e496]: "Kvalita, jakost:"
+                      - generic [ref=f66e497]: Premium
+                    - listitem [ref=f66e498]:
+                      - generic [ref=f66e499]: "Číslo produktu:"
+                      - generic [ref=f66e500]: 03011L
+                  - button "Více" [ref=f66e502] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e503]:
+                - generic [ref=f66e505]: Na skladě
+                - generic [ref=f66e507]: 88,98 Kč
+                - generic [ref=f66e508]: Cena za kus
+                - generic [ref=f66e509]:
+                  - paragraph [ref=f66e510]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e511]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e512] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e514]:
+                  - generic [ref=f66e515]:
+                    - link [ref=f66e516] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e517] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e518] [cursor=pointer]
+            - generic [ref=f66e523]:
+              - generic [ref=f66e524]:
+                - link [ref=f66e525] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana FORCE 964G1-S17" [ref=f66e526]
+                - link [ref=f66e527] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/force/13660294#zavitova-zatka-olejova-vana
+                  - img "FORCE 964G1S17 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2018" [ref=f66e528]
+              - generic [ref=f66e529]:
+                - link "Závitová zátka, olejová vana FORCE 964G1-S17 M17" [ref=f66e530] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/force/13660294
+                  - text: Závitová zátka, olejová vana FORCE 964G1-S17
+                  - generic [ref=f66e531]: M17
+                - generic [ref=f66e532]:
+                  - generic [ref=f66e533]:
+                    - generic [ref=f66e534]: "EAN: 4712865936078"
+                    - generic [ref=f66e535]: "Článek №: 964G1-S17"
+                  - generic [ref=f66e536]:
+                    - link [ref=f66e538] [cursor=pointer]
+                    - link "recenze - 3" [ref=f66e540] [cursor=pointer]
+              - generic [ref=f66e541]:
+                - generic [ref=f66e543]:
+                  - list [ref=f66e545]:
+                    - listitem [ref=f66e546]:
+                      - generic [ref=f66e547]: "Velikost závitu:"
+                      - generic [ref=f66e548]: M17
+                    - listitem [ref=f66e549]:
+                      - generic [ref=f66e550]: "rozteč [mm]:"
+                      - generic [ref=f66e551]: "1.5"
+                    - listitem [ref=f66e552]:
+                      - generic [ref=f66e553]: "Číslo produktu:"
+                      - generic [ref=f66e554]: 964G1-S17
+                    - listitem [ref=f66e555]:
+                      - generic [ref=f66e556]: "Naše cena:"
+                      - generic [ref=f66e557]: 95,18 Kč
+                    - listitem [ref=f66e558]:
+                      - generic [ref=f66e559]: "Výrobce:"
+                      - generic [ref=f66e560]: FORCE
+                    - listitem [ref=f66e561]:
+                      - generic [ref=f66e562]: "EAN číslo:"
+                      - generic [ref=f66e563]: "4712865936078"
+                  - text: Více
+                - text: Zobrazit specifikace
+              - generic [ref=f66e564]:
+                - generic [ref=f66e566]: Na skladě
+                - generic [ref=f66e568]: 95,18 Kč
+                - generic [ref=f66e569]: Cena za kus
+                - generic [ref=f66e570]:
+                  - paragraph [ref=f66e571]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e572]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e573] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e575]:
+                  - generic [ref=f66e576]:
+                    - link [ref=f66e577] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e578] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e579] [cursor=pointer]
+            - generic [ref=f66e584]:
+              - generic [ref=f66e585]:
+                - link [ref=f66e586] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana FORCE 964G1-S20" [ref=f66e587]
+                - link [ref=f66e588] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/force/13660295#zavitova-zatka-olejova-vana
+                  - img "FORCE 964G1S20 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2019" [ref=f66e589]
+              - generic [ref=f66e590]:
+                - link "Závitová zátka, olejová vana FORCE 964G1-S20 M20" [ref=f66e591] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/force/13660295
+                  - text: Závitová zátka, olejová vana FORCE 964G1-S20
+                  - generic [ref=f66e592]: M20
+                - generic [ref=f66e593]:
+                  - generic [ref=f66e594]:
+                    - generic [ref=f66e595]: "EAN: 4712865936085"
+                    - generic [ref=f66e596]: "Článek №: 964G1-S20"
+                  - generic [ref=f66e597]:
+                    - link [ref=f66e599] [cursor=pointer]
+                    - link "recenze - 1" [ref=f66e601] [cursor=pointer]
+              - generic [ref=f66e602]:
+                - generic [ref=f66e604]:
+                  - list [ref=f66e606]:
+                    - listitem [ref=f66e607]:
+                      - generic [ref=f66e608]: "Velikost závitu:"
+                      - generic [ref=f66e609]: M20
+                    - listitem [ref=f66e610]:
+                      - generic [ref=f66e611]: "rozteč [mm]:"
+                      - generic [ref=f66e612]: "1.5"
+                    - listitem [ref=f66e613]:
+                      - generic [ref=f66e614]: "Číslo produktu:"
+                      - generic [ref=f66e615]: 964G1-S20
+                    - listitem [ref=f66e616]:
+                      - generic [ref=f66e617]: "Naše cena:"
+                      - generic [ref=f66e618]: 96,98 Kč
+                    - listitem [ref=f66e619]:
+                      - generic [ref=f66e620]: "Výrobce:"
+                      - generic [ref=f66e621]: FORCE
+                    - listitem [ref=f66e622]:
+                      - generic [ref=f66e623]: "EAN číslo:"
+                      - generic [ref=f66e624]: "4712865936085"
+                  - text: Více
+                - text: Zobrazit specifikace
+              - generic [ref=f66e625]:
+                - generic [ref=f66e627]: Na skladě
+                - generic [ref=f66e629]: 96,98 Kč
+                - generic [ref=f66e630]: Cena za kus
+                - generic [ref=f66e631]:
+                  - paragraph [ref=f66e632]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e633]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e634] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e636]:
+                  - generic [ref=f66e637]:
+                    - link [ref=f66e638] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e639] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e640] [cursor=pointer]
+            - generic [ref=f66e645]:
+              - generic [ref=f66e646]:
+                - link [ref=f66e647] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana FA1 257.862.001" [ref=f66e648]
+                - link [ref=f66e649] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/fa1/12952455#zavitova-zatka-olejova-vana
+                  - img "FA1 257862001 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2020" [ref=f66e650]
+                - img "Závitová zátka, olejová vana 257.862.001 Astra K Sports Tourer (B16) 1.4 Turbo rok 2017" [ref=f66e652] [cursor=pointer]
+              - generic [ref=f66e653]:
+                - link "Závitová zátka, olejová vana FA1 257.862.001 M12x1,75, s těsnicím kroužkem" [ref=f66e654] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/fa1/12952455
+                  - text: Závitová zátka, olejová vana FA1 257.862.001
+                  - generic [ref=f66e655]: M12x1,75, s těsnicím kroužkem
+                - generic [ref=f66e656]:
+                  - generic [ref=f66e657]:
+                    - generic [ref=f66e658]: "EAN: 2236712952455"
+                    - generic [ref=f66e659]: "Článek №: 257.862.001"
+                  - generic [ref=f66e660]:
+                    - link [ref=f66e662] [cursor=pointer]
+                    - link "recenze - 1" [ref=f66e664] [cursor=pointer]
+              - generic [ref=f66e665]:
+                - generic [ref=f66e666]:
+                  - generic [ref=f66e667]:
+                    - list [ref=f66e669]:
+                      - listitem [ref=f66e670]:
+                        - generic [ref=f66e671]: "Velikost závitu:"
+                        - generic [ref=f66e672]: M12x1,75
+                      - listitem [ref=f66e673]:
+                        - generic [ref=f66e674]: "Délka [mm]:"
+                        - generic [ref=f66e675]: "18"
+                      - listitem [ref=f66e676]:
+                        - generic [ref=f66e677]: "Doplňující výrobek / doplňkové info 2:"
+                        - generic [ref=f66e678]: s těsnicím kroužkem
+                      - listitem [ref=f66e679]:
+                        - generic [ref=f66e680]: "Číslo produktu:"
+                        - generic [ref=f66e681]: 257.862.001
+                      - listitem [ref=f66e682]:
+                        - generic [ref=f66e683]: "Naše cena:"
+                        - generic [ref=f66e684]: 114,18 Kč
+                      - listitem [ref=f66e685]:
+                        - generic [ref=f66e686]: "Výrobce:"
+                        - generic [ref=f66e687]: FA1
+                      - listitem [ref=f66e688]:
+                        - generic [ref=f66e689]: "EAN číslo:"
+                        - generic [ref=f66e690]: "2236712952455"
+                      - listitem [ref=f66e691]:
+                        - generic [ref=f66e692]: "Stav:"
+                        - generic [ref=f66e693]: Nové
+                    - text: Více
+                  - button "Zobrazit OEM čísla" [ref=f66e695] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e696]:
+                - generic [ref=f66e698]: Na skladě
+                - generic [ref=f66e700]: 114,18 Kč
+                - generic [ref=f66e701]: Cena za kus
+                - generic [ref=f66e702]:
+                  - paragraph [ref=f66e703]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e704]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e705] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e707]:
+                  - generic [ref=f66e708]:
+                    - link [ref=f66e709] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e710] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e711] [cursor=pointer]
+            - generic [ref=f66e716]:
+              - generic [ref=f66e717]:
+                - link [ref=f66e718] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3112" [ref=f66e719]
+                - link [ref=f66e720] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381117#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3112 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2021" [ref=f66e721]
+              - generic [ref=f66e722]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3112 M14X125" [ref=f66e723] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381117
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3112
+                  - generic [ref=f66e724]: M14X125
+                - generic [ref=f66e725]:
+                  - generic [ref=f66e726]:
+                    - generic [ref=f66e727]: "EAN: 3760020004842"
+                    - generic [ref=f66e728]: "Článek №: PL3112"
+                  - generic [ref=f66e729]:
+                    - link [ref=f66e731] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e732] [cursor=pointer]
+              - generic [ref=f66e733]:
+                - generic [ref=f66e735]:
+                  - list [ref=f66e737]:
+                    - listitem [ref=f66e738]:
+                      - generic [ref=f66e739]: "Velikost závitu:"
+                      - generic [ref=f66e740]: M14X125
+                    - listitem [ref=f66e741]:
+                      - generic [ref=f66e742]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e743]: vnější šestihran
+                    - listitem [ref=f66e744]:
+                      - generic [ref=f66e745]: "Typ vozidla:"
+                      - generic [ref=f66e746]: PSA
+                    - listitem [ref=f66e747]:
+                      - generic [ref=f66e748]: "montovaná strana:"
+                      - generic [ref=f66e749]: strana motoru
+                    - listitem [ref=f66e750]:
+                      - generic [ref=f66e751]: "Omezení výrobce:"
+                      - generic [ref=f66e752]: WITHOUT GASKET
+                    - listitem [ref=f66e753]:
+                      - generic [ref=f66e754]: "Jednotka množství:"
+                      - generic [ref=f66e755]: kus
+                    - listitem [ref=f66e756]:
+                      - generic [ref=f66e757]: "Číslo produktu:"
+                      - generic [ref=f66e758]: PL3112
+                    - listitem [ref=f66e759]:
+                      - generic [ref=f66e760]: "Naše cena:"
+                      - generic [ref=f66e761]: 117,58 Kč
+                    - listitem [ref=f66e762]:
+                      - generic [ref=f66e763]: "Výrobce:"
+                      - generic [ref=f66e764]: PLANET TECH
+                    - listitem [ref=f66e765]:
+                      - generic [ref=f66e766]: "EAN číslo:"
+                      - generic [ref=f66e767]: "3760020004842"
+                  - button "Více" [ref=f66e769] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e770]:
+                - generic [ref=f66e772]: Na skladě
+                - generic [ref=f66e774]: 117,58 Kč
+                - generic [ref=f66e775]:
+                  - paragraph [ref=f66e776]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e777]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e778] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e780]:
+                  - generic [ref=f66e781]:
+                    - link [ref=f66e782] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e783] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e784] [cursor=pointer]
+            - generic [ref=f66e789]:
+              - generic [ref=f66e790]:
+                - link [ref=f66e791] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3123" [ref=f66e792]
+                - link [ref=f66e793] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381128#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3123 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2022" [ref=f66e794]
+              - generic [ref=f66e795]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3123 M14X125, Ocel, Měď" [ref=f66e796] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381128
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3123
+                  - generic [ref=f66e797]: M14X125, Ocel, Měď
+                - generic [ref=f66e798]:
+                  - generic [ref=f66e799]:
+                    - generic [ref=f66e800]: "EAN: 3760020004958"
+                    - generic [ref=f66e801]: "Článek №: PL3123"
+                  - generic [ref=f66e802]:
+                    - link [ref=f66e804] [cursor=pointer]
+                    - link "recenze - 1" [ref=f66e805] [cursor=pointer]
+              - generic [ref=f66e806]:
+                - generic [ref=f66e808]:
+                  - list [ref=f66e810]:
+                    - listitem [ref=f66e811]:
+                      - generic [ref=f66e812]: "Velikost závitu:"
+                      - generic [ref=f66e813]: M14X125
+                    - listitem [ref=f66e814]:
+                      - generic [ref=f66e815]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e816]: vnější šestihran
+                    - listitem [ref=f66e817]:
+                      - generic [ref=f66e818]: "Materiál:"
+                      - generic [ref=f66e819]: Ocel, Měď
+                    - listitem [ref=f66e820]:
+                      - generic [ref=f66e821]: "Typ vozidla:"
+                      - generic [ref=f66e822]: PSA
+                    - listitem [ref=f66e823]:
+                      - generic [ref=f66e824]: "montovaná strana:"
+                      - generic [ref=f66e825]: strana motoru
+                    - listitem [ref=f66e826]:
+                      - generic [ref=f66e827]: "Jednotka množství:"
+                      - generic [ref=f66e828]: kus
+                    - listitem [ref=f66e829]:
+                      - generic [ref=f66e830]: "Číslo produktu:"
+                      - generic [ref=f66e831]: PL3123
+                    - listitem [ref=f66e832]:
+                      - generic [ref=f66e833]: "Naše cena:"
+                      - generic [ref=f66e834]: 117,58 Kč
+                    - listitem [ref=f66e835]:
+                      - generic [ref=f66e836]: "Výrobce:"
+                      - generic [ref=f66e837]: PLANET TECH
+                    - listitem [ref=f66e838]:
+                      - generic [ref=f66e839]: "EAN číslo:"
+                      - generic [ref=f66e840]: "3760020004958"
+                  - button "Více" [ref=f66e842] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e843]:
+                - generic [ref=f66e845]: Na skladě
+                - generic [ref=f66e847]: 117,58 Kč
+                - generic [ref=f66e848]:
+                  - paragraph [ref=f66e849]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e850]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e851] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e853]:
+                  - generic [ref=f66e854]:
+                    - link [ref=f66e855] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e856] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e857] [cursor=pointer]
+            - generic [ref=f66e862]:
+              - generic [ref=f66e863]:
+                - link [ref=f66e864] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3103" [ref=f66e865]
+                - link [ref=f66e866] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381108#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3103 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2015" [ref=f66e867]
+              - generic [ref=f66e868]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3103 M14X150" [ref=f66e869] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381108
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3103
+                  - generic [ref=f66e870]: M14X150
+                - generic [ref=f66e871]:
+                  - generic [ref=f66e872]:
+                    - generic [ref=f66e873]: "EAN: 3760020004750"
+                    - generic [ref=f66e874]: "Článek №: PL3103"
+                  - generic [ref=f66e875]:
+                    - link [ref=f66e877] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e878] [cursor=pointer]
+              - generic [ref=f66e879]:
+                - generic [ref=f66e881]:
+                  - list [ref=f66e883]:
+                    - listitem [ref=f66e884]:
+                      - generic [ref=f66e885]: "Velikost závitu:"
+                      - generic [ref=f66e886]: M14X150
+                    - listitem [ref=f66e887]:
+                      - generic [ref=f66e888]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e889]: vnější šestihran
+                    - listitem [ref=f66e890]:
+                      - generic [ref=f66e891]: "Typ vozidla:"
+                      - generic [ref=f66e892]: VAG
+                    - listitem [ref=f66e893]:
+                      - generic [ref=f66e894]: "montovaná strana:"
+                      - generic [ref=f66e895]: strana motoru
+                    - listitem [ref=f66e896]:
+                      - generic [ref=f66e897]: "Jednotka množství:"
+                      - generic [ref=f66e898]: kus
+                    - listitem [ref=f66e899]:
+                      - generic [ref=f66e900]: "Číslo produktu:"
+                      - generic [ref=f66e901]: PL3103
+                    - listitem [ref=f66e902]:
+                      - generic [ref=f66e903]: "Naše cena:"
+                      - generic [ref=f66e904]: 124,78 Kč
+                    - listitem [ref=f66e905]:
+                      - generic [ref=f66e906]: "Výrobce:"
+                      - generic [ref=f66e907]: PLANET TECH
+                    - listitem [ref=f66e908]:
+                      - generic [ref=f66e909]: "EAN číslo:"
+                      - generic [ref=f66e910]: "3760020004750"
+                    - listitem [ref=f66e911]:
+                      - generic [ref=f66e912]: "Stav:"
+                      - generic [ref=f66e913]: Nové
+                  - text: Více
+                - text: Zobrazit specifikace
+              - generic [ref=f66e914]:
+                - generic [ref=f66e916]: Na skladě
+                - generic [ref=f66e918]: 124,78 Kč
+                - generic [ref=f66e919]:
+                  - paragraph [ref=f66e920]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e921]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e922] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e924]:
+                  - generic [ref=f66e925]:
+                    - link [ref=f66e926] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e927] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e928] [cursor=pointer]
+            - generic [ref=f66e933]:
+              - generic [ref=f66e934]:
+                - link [ref=f66e935] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana TOPRAN 208 522" [ref=f66e936]
+                - link [ref=f66e937] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/topran/12926073#zavitova-zatka-olejova-vana
+                  - img "TOPRAN 208522 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2016" [ref=f66e938]
+                - img "Závitová zátka, olejová vana 208 522 Astra K Sports Tourer (B16) 1.4 Turbo rok 2021" [ref=f66e940] [cursor=pointer]
+              - generic [ref=f66e941]:
+                - 'link "Závitová zátka, olejová vana TOPRAN 208 522 M 12, Otvor klíče: 15, s těsnicím kroužkem" [ref=f66e942] [cursor=pointer]':
+                  - /url: https://www.automobilovedily24.cz/topran/12926073
+                  - text: Závitová zátka, olejová vana TOPRAN 208 522
+                  - generic [ref=f66e943]: "M 12, Otvor klíče: 15, s těsnicím kroužkem"
+                - generic [ref=f66e944]:
+                  - generic [ref=f66e945]:
+                    - generic [ref=f66e946]: "EAN: 2230112926073"
+                    - generic [ref=f66e947]: "Článek №: 208 522"
+                  - generic [ref=f66e948]:
+                    - link [ref=f66e950] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e952] [cursor=pointer]
+              - generic [ref=f66e953]:
+                - generic [ref=f66e954]:
+                  - generic [ref=f66e955]:
+                    - list [ref=f66e957]:
+                      - listitem [ref=f66e958]:
+                        - generic [ref=f66e959]: "Velikost závitu:"
+                        - generic [ref=f66e960]: M 12
+                      - listitem [ref=f66e961]:
+                        - generic [ref=f66e962]: "Rozměr klíče:"
+                        - generic [ref=f66e963]: "15"
+                      - listitem [ref=f66e964]:
+                        - generic [ref=f66e965]: "Hlava šroubu - / Profil matky:"
+                        - generic [ref=f66e966]: vnitřní torx
+                      - listitem [ref=f66e967]:
+                        - generic [ref=f66e968]: "Doplňující výrobek / doplňkové info 2:"
+                        - generic [ref=f66e969]: s těsnicím kroužkem
+                      - listitem [ref=f66e970]:
+                        - generic [ref=f66e971]: "rozteč [mm]:"
+                        - generic [ref=f66e972]: 1,75
+                      - listitem [ref=f66e973]:
+                        - generic [ref=f66e974]: "Typ vozidla:"
+                        - generic [ref=f66e975]: LE2 / B1.4XFL
+                      - listitem [ref=f66e976]:
+                        - generic [ref=f66e977]: "Povrch:"
+                        - generic [ref=f66e978]: pozinkovaný
+                      - listitem [ref=f66e979]:
+                        - generic [ref=f66e980]: "Délka šroubu pod hlavou [mm]:"
+                        - generic [ref=f66e981]: "18"
+                      - listitem [ref=f66e982]:
+                        - generic [ref=f66e983]: "Číslo produktu:"
+                        - generic [ref=f66e984]: 208 522
+                      - listitem [ref=f66e985]:
+                        - generic [ref=f66e986]: "Naše cena:"
+                        - generic [ref=f66e987]: 128,48 Kč
+                    - button "Více" [ref=f66e989] [cursor=pointer]
+                  - button "Zobrazit OEM čísla" [ref=f66e991] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e992]:
+                - generic [ref=f66e994]: Na skladě
+                - generic [ref=f66e996]: 128,48 Kč
+                - generic [ref=f66e997]: Cena za kus
+                - generic [ref=f66e998]:
+                  - paragraph [ref=f66e999]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1000]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1001] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1003]:
+                  - generic [ref=f66e1004]:
+                    - link [ref=f66e1005] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1006] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1007] [cursor=pointer]
+            - generic [ref=f66e1012]:
+              - generic [ref=f66e1013]:
+                - link [ref=f66e1014] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana FEBI BILSTEIN 176254" [ref=f66e1015]
+                - link [ref=f66e1016] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/febi-bilstein/18111508#zavitova-zatka-olejova-vana
+                  - img "FEBI BILSTEIN 176254 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2017" [ref=f66e1017]
+              - generic [ref=f66e1018]:
+                - 'link "Závitová zátka, olejová vana FEBI BILSTEIN 176254 Ocel, Otvor klíče: T45, s těsnicím kroužkem" [ref=f66e1019] [cursor=pointer]':
+                  - /url: https://www.automobilovedily24.cz/febi-bilstein/18111508
+                  - text: Závitová zátka, olejová vana FEBI BILSTEIN 176254
+                  - generic [ref=f66e1020]: "Ocel, Otvor klíče: T45, s těsnicím kroužkem"
+                - generic [ref=f66e1021]:
+                  - generic [ref=f66e1022]:
+                    - generic [ref=f66e1023]: "EAN: 4054224762547"
+                    - generic [ref=f66e1024]: "Článek №: 176254"
+                  - generic [ref=f66e1025]:
+                    - link [ref=f66e1027] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1028] [cursor=pointer]
+              - generic [ref=f66e1029]:
+                - generic [ref=f66e1030]:
+                  - generic [ref=f66e1031]:
+                    - list [ref=f66e1033]:
+                      - listitem [ref=f66e1034]:
+                        - generic [ref=f66e1035]: "Délka [mm]:"
+                        - generic [ref=f66e1036]: "29"
+                      - listitem [ref=f66e1037]:
+                        - generic [ref=f66e1038]: "Rozměr klíče:"
+                        - generic [ref=f66e1039]: T45
+                      - listitem [ref=f66e1040]:
+                        - generic [ref=f66e1041]: "Hlava šroubu - / Profil matky:"
+                        - generic [ref=f66e1042]: vnitřní torx
+                      - listitem [ref=f66e1043]:
+                        - generic [ref=f66e1044]: "Doplňující výrobek / doplňkové info 2:"
+                        - generic [ref=f66e1045]: s těsnicím kroužkem
+                      - listitem [ref=f66e1046]:
+                        - generic [ref=f66e1047]: "průměr vlákna [mm]:"
+                        - generic [ref=f66e1048]: "18"
+                      - listitem [ref=f66e1049]:
+                        - generic [ref=f66e1050]: "Materiál:"
+                        - generic [ref=f66e1051]: Ocel
+                      - listitem [ref=f66e1052]:
+                        - generic [ref=f66e1053]: "Povrch:"
+                        - generic [ref=f66e1054]: pozinkovaný
+                      - listitem [ref=f66e1055]:
+                        - generic [ref=f66e1056]: "Jakost / třída:"
+                        - generic [ref=f66e1057]: "5.8"
+                      - listitem [ref=f66e1058]:
+                        - generic [ref=f66e1059]: "Průměr:"
+                        - generic [ref=f66e1060]: "26"
+                      - listitem [ref=f66e1061]:
+                        - generic [ref=f66e1062]: "Rozměr vnějšího závitu:"
+                        - generic [ref=f66e1063]: M12 x 1,75
+                    - button "Více" [ref=f66e1065] [cursor=pointer]
+                  - button "Zobrazit OEM čísla" [ref=f66e1067] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1068]:
+                - generic [ref=f66e1070]: Na skladě
+                - generic [ref=f66e1072]: 132,08 Kč
+                - generic [ref=f66e1073]: Cena za kus
+                - generic [ref=f66e1074]:
+                  - paragraph [ref=f66e1075]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1076]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1077] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1079]:
+                  - generic [ref=f66e1080]:
+                    - link [ref=f66e1081] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1082] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1083] [cursor=pointer]
+            - generic [ref=f66e1088]:
+              - generic [ref=f66e1089]:
+                - link [ref=f66e1090] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3108" [ref=f66e1091]
+                - link [ref=f66e1092] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381113#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3108 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2018" [ref=f66e1093]
+              - generic [ref=f66e1094]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3108 M14x150" [ref=f66e1095] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381113
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3108
+                  - generic [ref=f66e1096]: M14x150
+                - generic [ref=f66e1097]:
+                  - generic [ref=f66e1098]:
+                    - generic [ref=f66e1099]: "EAN: 3760020004804"
+                    - generic [ref=f66e1100]: "Článek №: PL3108"
+                  - generic [ref=f66e1101]:
+                    - link [ref=f66e1103] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1104] [cursor=pointer]
+              - generic [ref=f66e1105]:
+                - generic [ref=f66e1107]:
+                  - list [ref=f66e1109]:
+                    - listitem [ref=f66e1110]:
+                      - generic [ref=f66e1111]: "Velikost závitu:"
+                      - generic [ref=f66e1112]: M14x150
+                    - listitem [ref=f66e1113]:
+                      - generic [ref=f66e1114]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1115]: vnější šestihran
+                    - listitem [ref=f66e1116]:
+                      - generic [ref=f66e1117]: "Typ vozidla:"
+                      - generic [ref=f66e1118]: MERCEDES-BENZ, CHRYSLER, DODGE, JEEP
+                    - listitem [ref=f66e1119]:
+                      - generic [ref=f66e1120]: "Povrch:"
+                      - generic [ref=f66e1121]: černě lakovaný
+                    - listitem [ref=f66e1122]:
+                      - generic [ref=f66e1123]: "montovaná strana:"
+                      - generic [ref=f66e1124]: strana motoru
+                    - listitem [ref=f66e1125]:
+                      - generic [ref=f66e1126]: "Jednotka množství:"
+                      - generic [ref=f66e1127]: kus
+                    - listitem [ref=f66e1128]:
+                      - generic [ref=f66e1129]: "Číslo produktu:"
+                      - generic [ref=f66e1130]: PL3108
+                    - listitem [ref=f66e1131]:
+                      - generic [ref=f66e1132]: "Naše cena:"
+                      - generic [ref=f66e1133]: 138,88 Kč
+                    - listitem [ref=f66e1134]:
+                      - generic [ref=f66e1135]: "Výrobce:"
+                      - generic [ref=f66e1136]: PLANET TECH
+                    - listitem [ref=f66e1137]:
+                      - generic [ref=f66e1138]: "EAN číslo:"
+                      - generic [ref=f66e1139]: "3760020004804"
+                  - button "Více" [ref=f66e1141] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1142]:
+                - generic [ref=f66e1144]: Na skladě
+                - generic [ref=f66e1146]: 138,88 Kč
+                - generic [ref=f66e1147]:
+                  - paragraph [ref=f66e1148]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1149]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1150] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1152]:
+                  - generic [ref=f66e1153]:
+                    - link [ref=f66e1154] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1155] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1156] [cursor=pointer]
+            - generic [ref=f66e1161]:
+              - generic [ref=f66e1162]:
+                - link [ref=f66e1163] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3109" [ref=f66e1164]
+                - link [ref=f66e1165] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381114#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3109 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2019" [ref=f66e1166]
+              - generic [ref=f66e1167]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3109 M16X150" [ref=f66e1168] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381114
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3109
+                  - generic [ref=f66e1169]: M16X150
+                - generic [ref=f66e1170]:
+                  - generic [ref=f66e1171]:
+                    - generic [ref=f66e1172]: "EAN: 3760020004811"
+                    - generic [ref=f66e1173]: "Článek №: PL3109"
+                  - generic [ref=f66e1174]:
+                    - link [ref=f66e1176] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1177] [cursor=pointer]
+              - generic [ref=f66e1178]:
+                - generic [ref=f66e1180]:
+                  - list [ref=f66e1182]:
+                    - listitem [ref=f66e1183]:
+                      - generic [ref=f66e1184]: "Velikost závitu:"
+                      - generic [ref=f66e1185]: M16X150
+                    - listitem [ref=f66e1186]:
+                      - generic [ref=f66e1187]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1188]: vnější šestihran
+                    - listitem [ref=f66e1189]:
+                      - generic [ref=f66e1190]: "Typ vozidla:"
+                      - generic [ref=f66e1191]: FIAT, NISSAN, OPEL, PSA, CITROËN, PEUGEOT
+                    - listitem [ref=f66e1192]:
+                      - generic [ref=f66e1193]: "montovaná strana:"
+                      - generic [ref=f66e1194]: strana motoru
+                    - listitem [ref=f66e1195]:
+                      - generic [ref=f66e1196]: "Omezení výrobce:"
+                      - generic [ref=f66e1197]: WITHOUT GASKET
+                    - listitem [ref=f66e1198]:
+                      - generic [ref=f66e1199]: "Jednotka množství:"
+                      - generic [ref=f66e1200]: kus
+                    - listitem [ref=f66e1201]:
+                      - generic [ref=f66e1202]: "Číslo produktu:"
+                      - generic [ref=f66e1203]: PL3109
+                    - listitem [ref=f66e1204]:
+                      - generic [ref=f66e1205]: "Naše cena:"
+                      - generic [ref=f66e1206]: 139,08 Kč
+                    - listitem [ref=f66e1207]:
+                      - generic [ref=f66e1208]: "Výrobce:"
+                      - generic [ref=f66e1209]: PLANET TECH
+                    - listitem [ref=f66e1210]:
+                      - generic [ref=f66e1211]: "EAN číslo:"
+                      - generic [ref=f66e1212]: "3760020004811"
+                  - button "Více" [ref=f66e1214] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1215]:
+                - generic [ref=f66e1217]: Na skladě
+                - generic [ref=f66e1219]: 139,08 Kč
+                - generic [ref=f66e1220]:
+                  - paragraph [ref=f66e1221]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1222]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1223] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1225]:
+                  - generic [ref=f66e1226]:
+                    - link [ref=f66e1227] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1228] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1229] [cursor=pointer]
+            - generic [ref=f66e1234]:
+              - generic [ref=f66e1235]:
+                - link [ref=f66e1236] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3113" [ref=f66e1237]
+                - link [ref=f66e1238] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381118#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3113 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2020" [ref=f66e1239]
+              - generic [ref=f66e1240]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3113 M10X125" [ref=f66e1241] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381118
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3113
+                  - generic [ref=f66e1242]: M10X125
+                - generic [ref=f66e1243]:
+                  - generic [ref=f66e1244]:
+                    - generic [ref=f66e1245]: "EAN: 3760020004859"
+                    - generic [ref=f66e1246]: "Článek №: PL3113"
+                  - generic [ref=f66e1247]:
+                    - link [ref=f66e1249] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1250] [cursor=pointer]
+              - generic [ref=f66e1251]:
+                - generic [ref=f66e1253]:
+                  - list [ref=f66e1255]:
+                    - listitem [ref=f66e1256]:
+                      - generic [ref=f66e1257]: "Velikost závitu:"
+                      - generic [ref=f66e1258]: M10X125
+                    - listitem [ref=f66e1259]:
+                      - generic [ref=f66e1260]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1261]: vnější šestihran
+                    - listitem [ref=f66e1262]:
+                      - generic [ref=f66e1263]: "Typ vozidla:"
+                      - generic [ref=f66e1264]: BMW, FIAT, FORD, PSA, RENAULT, CITROËN
+                    - listitem [ref=f66e1265]:
+                      - generic [ref=f66e1266]: "montovaná strana:"
+                      - generic [ref=f66e1267]: strana motoru
+                    - listitem [ref=f66e1268]:
+                      - generic [ref=f66e1269]: "Omezení výrobce:"
+                      - generic [ref=f66e1270]: WITHOUT GASKET
+                    - listitem [ref=f66e1271]:
+                      - generic [ref=f66e1272]: "Jednotka množství:"
+                      - generic [ref=f66e1273]: kus
+                    - listitem [ref=f66e1274]:
+                      - generic [ref=f66e1275]: "Číslo produktu:"
+                      - generic [ref=f66e1276]: PL3113
+                    - listitem [ref=f66e1277]:
+                      - generic [ref=f66e1278]: "Naše cena:"
+                      - generic [ref=f66e1279]: 139,08 Kč
+                    - listitem [ref=f66e1280]:
+                      - generic [ref=f66e1281]: "Výrobce:"
+                      - generic [ref=f66e1282]: PLANET TECH
+                    - listitem [ref=f66e1283]:
+                      - generic [ref=f66e1284]: "EAN číslo:"
+                      - generic [ref=f66e1285]: "3760020004859"
+                  - button "Více" [ref=f66e1287] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1288]:
+                - generic [ref=f66e1290]: Na skladě
+                - generic [ref=f66e1292]: 139,08 Kč
+                - generic [ref=f66e1293]:
+                  - paragraph [ref=f66e1294]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1295]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1296] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1298]:
+                  - generic [ref=f66e1299]:
+                    - link [ref=f66e1300] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1301] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1302] [cursor=pointer]
+            - generic [ref=f66e1307]:
+              - generic [ref=f66e1308]:
+                - link [ref=f66e1309] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3106" [ref=f66e1310]
+                - link [ref=f66e1311] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381111#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3106 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2021" [ref=f66e1312]
+              - generic [ref=f66e1313]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3106 M16X150" [ref=f66e1314] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381111
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3106
+                  - generic [ref=f66e1315]: M16X150
+                - generic [ref=f66e1316]:
+                  - generic [ref=f66e1317]:
+                    - generic [ref=f66e1318]: "EAN: 3760020004781"
+                    - generic [ref=f66e1319]: "Článek №: PL3106"
+                  - generic [ref=f66e1320]:
+                    - link [ref=f66e1322] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1323] [cursor=pointer]
+              - generic [ref=f66e1324]:
+                - generic [ref=f66e1326]:
+                  - list [ref=f66e1328]:
+                    - listitem [ref=f66e1329]:
+                      - generic [ref=f66e1330]: "Velikost závitu:"
+                      - generic [ref=f66e1331]: M16X150
+                    - listitem [ref=f66e1332]:
+                      - generic [ref=f66e1333]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1334]: vnější šestihran
+                    - listitem [ref=f66e1335]:
+                      - generic [ref=f66e1336]: "Typ vozidla:"
+                      - generic [ref=f66e1337]: NISSAN, OPEL, PSA, RENAULT
+                    - listitem [ref=f66e1338]:
+                      - generic [ref=f66e1339]: "montovaná strana:"
+                      - generic [ref=f66e1340]: strana motoru
+                    - listitem [ref=f66e1341]:
+                      - generic [ref=f66e1342]: "Jednotka množství:"
+                      - generic [ref=f66e1343]: kus
+                    - listitem [ref=f66e1344]:
+                      - generic [ref=f66e1345]: "Číslo produktu:"
+                      - generic [ref=f66e1346]: PL3106
+                    - listitem [ref=f66e1347]:
+                      - generic [ref=f66e1348]: "Naše cena:"
+                      - generic [ref=f66e1349]: 155,28 Kč
+                    - listitem [ref=f66e1350]:
+                      - generic [ref=f66e1351]: "Výrobce:"
+                      - generic [ref=f66e1352]: PLANET TECH
+                    - listitem [ref=f66e1353]:
+                      - generic [ref=f66e1354]: "EAN číslo:"
+                      - generic [ref=f66e1355]: "3760020004781"
+                    - listitem [ref=f66e1356]:
+                      - generic [ref=f66e1357]: "Stav:"
+                      - generic [ref=f66e1358]: Nové
+                  - text: Více
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1359]:
+                - generic [ref=f66e1361]: Na skladě
+                - generic [ref=f66e1363]: 155,28 Kč
+                - generic [ref=f66e1364]:
+                  - paragraph [ref=f66e1365]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1366]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1367] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1369]:
+                  - generic [ref=f66e1370]:
+                    - link [ref=f66e1371] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1372] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1373] [cursor=pointer]
+            - generic [ref=f66e1378]:
+              - generic [ref=f66e1379]:
+                - link [ref=f66e1380] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3102" [ref=f66e1381]
+                - link [ref=f66e1382] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381107#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3102 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2022" [ref=f66e1383]
+              - generic [ref=f66e1384]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3102 M12X150" [ref=f66e1385] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381107
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3102
+                  - generic [ref=f66e1386]: M12X150
+                - generic [ref=f66e1387]:
+                  - generic [ref=f66e1388]:
+                    - generic [ref=f66e1389]: "EAN: 3760020004743"
+                    - generic [ref=f66e1390]: "Článek №: PL3102"
+                  - generic [ref=f66e1391]:
+                    - link [ref=f66e1393] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1394] [cursor=pointer]
+              - generic [ref=f66e1395]:
+                - generic [ref=f66e1397]:
+                  - list [ref=f66e1399]:
+                    - listitem [ref=f66e1400]:
+                      - generic [ref=f66e1401]: "Velikost závitu:"
+                      - generic [ref=f66e1402]: M12X150
+                    - listitem [ref=f66e1403]:
+                      - generic [ref=f66e1404]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1405]: vnější šestihran
+                    - listitem [ref=f66e1406]:
+                      - generic [ref=f66e1407]: "Typ vozidla:"
+                      - generic [ref=f66e1408]: BMW, MERCEDES
+                    - listitem [ref=f66e1409]:
+                      - generic [ref=f66e1410]: "montovaná strana:"
+                      - generic [ref=f66e1411]: strana motoru
+                    - listitem [ref=f66e1412]:
+                      - generic [ref=f66e1413]: "Omezení výrobce:"
+                      - generic [ref=f66e1414]: WITHOUT GASKET
+                    - listitem [ref=f66e1415]:
+                      - generic [ref=f66e1416]: "Jednotka množství:"
+                      - generic [ref=f66e1417]: kus
+                    - listitem [ref=f66e1418]:
+                      - generic [ref=f66e1419]: "Číslo produktu:"
+                      - generic [ref=f66e1420]: PL3102
+                    - listitem [ref=f66e1421]:
+                      - generic [ref=f66e1422]: "Naše cena:"
+                      - generic [ref=f66e1423]: 172,28 Kč
+                    - listitem [ref=f66e1424]:
+                      - generic [ref=f66e1425]: "Výrobce:"
+                      - generic [ref=f66e1426]: PLANET TECH
+                    - listitem [ref=f66e1427]:
+                      - generic [ref=f66e1428]: "EAN číslo:"
+                      - generic [ref=f66e1429]: "3760020004743"
+                  - button "Více" [ref=f66e1431] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1432]:
+                - generic [ref=f66e1434]: Na skladě
+                - generic [ref=f66e1436]: 172,28 Kč
+                - generic [ref=f66e1437]:
+                  - paragraph [ref=f66e1438]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1439]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1440] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1442]:
+                  - generic [ref=f66e1443]:
+                    - link [ref=f66e1444] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1445] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1446] [cursor=pointer]
+            - generic [ref=f66e1451]:
+              - generic [ref=f66e1452]:
+                - link [ref=f66e1453] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3114" [ref=f66e1454]
+                - link [ref=f66e1455] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381119#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3114 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2015" [ref=f66e1456]
+              - generic [ref=f66e1457]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3114 M18X150" [ref=f66e1458] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381119
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3114
+                  - generic [ref=f66e1459]: M18X150
+                - generic [ref=f66e1460]:
+                  - generic [ref=f66e1461]:
+                    - generic [ref=f66e1462]: "EAN: 3760020004866"
+                    - generic [ref=f66e1463]: "Článek №: PL3114"
+                  - generic [ref=f66e1464]:
+                    - link [ref=f66e1466] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1467] [cursor=pointer]
+              - generic [ref=f66e1468]:
+                - generic [ref=f66e1470]:
+                  - list [ref=f66e1472]:
+                    - listitem [ref=f66e1473]:
+                      - generic [ref=f66e1474]: "Velikost závitu:"
+                      - generic [ref=f66e1475]: M18X150
+                    - listitem [ref=f66e1476]:
+                      - generic [ref=f66e1477]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1478]: vnější šestihran
+                    - listitem [ref=f66e1479]:
+                      - generic [ref=f66e1480]: "montovaná strana:"
+                      - generic [ref=f66e1481]: strana motoru
+                    - listitem [ref=f66e1482]:
+                      - generic [ref=f66e1483]: "Omezení výrobce:"
+                      - generic [ref=f66e1484]: WITHOUT GASKET
+                    - listitem [ref=f66e1485]:
+                      - generic [ref=f66e1486]: "Jednotka množství:"
+                      - generic [ref=f66e1487]: kus
+                    - listitem [ref=f66e1488]:
+                      - generic [ref=f66e1489]: "Číslo produktu:"
+                      - generic [ref=f66e1490]: PL3114
+                    - listitem [ref=f66e1491]:
+                      - generic [ref=f66e1492]: "Naše cena:"
+                      - generic [ref=f66e1493]: 172,28 Kč
+                    - listitem [ref=f66e1494]:
+                      - generic [ref=f66e1495]: "Výrobce:"
+                      - generic [ref=f66e1496]: PLANET TECH
+                    - listitem [ref=f66e1497]:
+                      - generic [ref=f66e1498]: "EAN číslo:"
+                      - generic [ref=f66e1499]: "3760020004866"
+                    - listitem [ref=f66e1500]:
+                      - generic [ref=f66e1501]: "Stav:"
+                      - generic [ref=f66e1502]: Nové
+                  - text: Více
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1503]:
+                - generic [ref=f66e1505]: Na skladě
+                - generic [ref=f66e1507]: 172,28 Kč
+                - generic [ref=f66e1508]:
+                  - paragraph [ref=f66e1509]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1510]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1511] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1513]:
+                  - generic [ref=f66e1514]:
+                    - link [ref=f66e1515] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1516] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1517] [cursor=pointer]
+            - generic [ref=f66e1522]:
+              - generic [ref=f66e1523]:
+                - link [ref=f66e1524] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3115" [ref=f66e1525]
+                - link [ref=f66e1526] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381120#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3115 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2016" [ref=f66e1527]
+              - generic [ref=f66e1528]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3115 M12X150, Ocel, Měď" [ref=f66e1529] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381120
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3115
+                  - generic [ref=f66e1530]: M12X150, Ocel, Měď
+                - generic [ref=f66e1531]:
+                  - generic [ref=f66e1532]:
+                    - generic [ref=f66e1533]: "EAN: 3760020004873"
+                    - generic [ref=f66e1534]: "Článek №: PL3115"
+                  - generic [ref=f66e1535]:
+                    - link [ref=f66e1537] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1538] [cursor=pointer]
+              - generic [ref=f66e1539]:
+                - generic [ref=f66e1541]:
+                  - list [ref=f66e1543]:
+                    - listitem [ref=f66e1544]:
+                      - generic [ref=f66e1545]: "Velikost závitu:"
+                      - generic [ref=f66e1546]: M12X150
+                    - listitem [ref=f66e1547]:
+                      - generic [ref=f66e1548]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1549]: vnější šestihran
+                    - listitem [ref=f66e1550]:
+                      - generic [ref=f66e1551]: "Materiál:"
+                      - generic [ref=f66e1552]: Ocel, Měď
+                    - listitem [ref=f66e1553]:
+                      - generic [ref=f66e1554]: "Typ vozidla:"
+                      - generic [ref=f66e1555]: BMW, MERCEDES BENZ
+                    - listitem [ref=f66e1556]:
+                      - generic [ref=f66e1557]: "pro OE číslo:"
+                      - generic [ref=f66e1558]: "7703062062"
+                    - listitem [ref=f66e1559]:
+                      - generic [ref=f66e1560]: "montovaná strana:"
+                      - generic [ref=f66e1561]: strana motoru
+                    - listitem [ref=f66e1562]:
+                      - generic [ref=f66e1563]: "Jednotka množství:"
+                      - generic [ref=f66e1564]: kus
+                    - listitem [ref=f66e1565]:
+                      - generic [ref=f66e1566]: "Číslo produktu:"
+                      - generic [ref=f66e1567]: PL3115
+                    - listitem [ref=f66e1568]:
+                      - generic [ref=f66e1569]: "Naše cena:"
+                      - generic [ref=f66e1570]: 172,28 Kč
+                    - listitem [ref=f66e1571]:
+                      - generic [ref=f66e1572]: "Výrobce:"
+                      - generic [ref=f66e1573]: PLANET TECH
+                  - button "Více" [ref=f66e1575] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1576]:
+                - generic [ref=f66e1578]: Na skladě
+                - generic [ref=f66e1580]: 172,28 Kč
+                - generic [ref=f66e1581]:
+                  - paragraph [ref=f66e1582]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1583]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1584] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1586]:
+                  - generic [ref=f66e1587]:
+                    - link [ref=f66e1588] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1589] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1590] [cursor=pointer]
+            - generic [ref=f66e1595]:
+              - generic [ref=f66e1596]:
+                - link [ref=f66e1597] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3120" [ref=f66e1598]
+                - link [ref=f66e1599] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381125#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3120 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2017" [ref=f66e1600]
+              - generic [ref=f66e1601]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3120 M16X150" [ref=f66e1602] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381125
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3120
+                  - generic [ref=f66e1603]: M16X150
+                - generic [ref=f66e1604]:
+                  - generic [ref=f66e1605]:
+                    - generic [ref=f66e1606]: "EAN: 3760020004927"
+                    - generic [ref=f66e1607]: "Článek №: PL3120"
+                  - generic [ref=f66e1608]:
+                    - link [ref=f66e1610] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1611] [cursor=pointer]
+              - generic [ref=f66e1612]:
+                - generic [ref=f66e1614]:
+                  - list [ref=f66e1616]:
+                    - listitem [ref=f66e1617]:
+                      - generic [ref=f66e1618]: "Velikost závitu:"
+                      - generic [ref=f66e1619]: M16X150
+                    - listitem [ref=f66e1620]:
+                      - generic [ref=f66e1621]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1622]: vnější šestihran
+                    - listitem [ref=f66e1623]:
+                      - generic [ref=f66e1624]: "Typ vozidla:"
+                      - generic [ref=f66e1625]: FIAT, NISSAN, OPEL, PSA, RENAULT
+                    - listitem [ref=f66e1626]:
+                      - generic [ref=f66e1627]: "montovaná strana:"
+                      - generic [ref=f66e1628]: strana motoru
+                    - listitem [ref=f66e1629]:
+                      - generic [ref=f66e1630]: "Vlastnosti:"
+                      - generic [ref=f66e1631]: nastavitelná
+                    - listitem [ref=f66e1632]:
+                      - generic [ref=f66e1633]: "Jednotka množství:"
+                      - generic [ref=f66e1634]: kus
+                    - listitem [ref=f66e1635]:
+                      - generic [ref=f66e1636]: "Číslo produktu:"
+                      - generic [ref=f66e1637]: PL3120
+                    - listitem [ref=f66e1638]:
+                      - generic [ref=f66e1639]: "Naše cena:"
+                      - generic [ref=f66e1640]: 172,28 Kč
+                    - listitem [ref=f66e1641]:
+                      - generic [ref=f66e1642]: "Výrobce:"
+                      - generic [ref=f66e1643]: PLANET TECH
+                    - listitem [ref=f66e1644]:
+                      - generic [ref=f66e1645]: "EAN číslo:"
+                      - generic [ref=f66e1646]: "3760020004927"
+                  - button "Více" [ref=f66e1648] [cursor=pointer]
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1649]:
+                - generic [ref=f66e1651]: Na skladě
+                - generic [ref=f66e1653]: 172,28 Kč
+                - generic [ref=f66e1654]:
+                  - paragraph [ref=f66e1655]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1656]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1657] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1659]:
+                  - generic [ref=f66e1660]:
+                    - link [ref=f66e1661] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1662] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1663] [cursor=pointer]
+            - generic [ref=f66e1668]:
+              - generic [ref=f66e1669]:
+                - link [ref=f66e1670] [cursor=pointer]:
+                  - img "Závitová zátka, olejová vana PLANET TECH PL3124" [ref=f66e1671]
+                - link [ref=f66e1672] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381129#zavitova-zatka-olejova-vana
+                  - img "PLANET TECH PL3124 Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP Benzín 2018" [ref=f66e1673]
+              - generic [ref=f66e1674]:
+                - link "Závitová zátka, olejová vana PLANET TECH PL3124 M18X150, Ocel, Měď" [ref=f66e1675] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/planet-tech/22381129
+                  - text: Závitová zátka, olejová vana PLANET TECH PL3124
+                  - generic [ref=f66e1676]: M18X150, Ocel, Měď
+                - generic [ref=f66e1677]:
+                  - generic [ref=f66e1678]:
+                    - generic [ref=f66e1679]: "EAN: 3760020004965"
+                    - generic [ref=f66e1680]: "Článek №: PL3124"
+                  - generic [ref=f66e1681]:
+                    - link [ref=f66e1683] [cursor=pointer]
+                    - link "Prosím, ohodnoťte produkt" [ref=f66e1684] [cursor=pointer]
+              - generic [ref=f66e1685]:
+                - generic [ref=f66e1687]:
+                  - list [ref=f66e1689]:
+                    - listitem [ref=f66e1690]:
+                      - generic [ref=f66e1691]: "Velikost závitu:"
+                      - generic [ref=f66e1692]: M18X150
+                    - listitem [ref=f66e1693]:
+                      - generic [ref=f66e1694]: "Hlava šroubu - / Profil matky:"
+                      - generic [ref=f66e1695]: vnější šestihran
+                    - listitem [ref=f66e1696]:
+                      - generic [ref=f66e1697]: "Materiál:"
+                      - generic [ref=f66e1698]: Ocel, Měď
+                    - listitem [ref=f66e1699]:
+                      - generic [ref=f66e1700]: "montovaná strana:"
+                      - generic [ref=f66e1701]: strana motoru
+                    - listitem [ref=f66e1702]:
+                      - generic [ref=f66e1703]: "Jednotka množství:"
+                      - generic [ref=f66e1704]: kus
+                    - listitem [ref=f66e1705]:
+                      - generic [ref=f66e1706]: "Číslo produktu:"
+                      - generic [ref=f66e1707]: PL3124
+                    - listitem [ref=f66e1708]:
+                      - generic [ref=f66e1709]: "Naše cena:"
+                      - generic [ref=f66e1710]: 172,28 Kč
+                    - listitem [ref=f66e1711]:
+                      - generic [ref=f66e1712]: "Výrobce:"
+                      - generic [ref=f66e1713]: PLANET TECH
+                    - listitem [ref=f66e1714]:
+                      - generic [ref=f66e1715]: "EAN číslo:"
+                      - generic [ref=f66e1716]: "3760020004965"
+                    - listitem [ref=f66e1717]:
+                      - generic [ref=f66e1718]: "Stav:"
+                      - generic [ref=f66e1719]: Nové
+                  - text: Více
+                - text: Zobrazit specifikace
+              - generic [ref=f66e1720]:
+                - generic [ref=f66e1722]: Na skladě
+                - generic [ref=f66e1724]: 172,28 Kč
+                - generic [ref=f66e1725]:
+                  - paragraph [ref=f66e1726]: Cena vč. 21 % DPH
+                  - paragraph [ref=f66e1727]:
+                    - text: částka nezahrnuje
+                    - link "náklady na doručení" [ref=f66e1728] [cursor=pointer]:
+                      - /url: https://www.automobilovedily24.cz/dodani
+                - generic [ref=f66e1730]:
+                  - generic [ref=f66e1731]:
+                    - link [ref=f66e1732] [cursor=pointer]:
+                      - /url: "#"
+                    - textbox: "1"
+                    - link [ref=f66e1733] [cursor=pointer]:
+                      - /url: "#"
+                  - button "Přidat do košíku" [ref=f66e1734] [cursor=pointer]
+          - generic [ref=f66e1738]:
+            - link "Načíst více" [ref=f66e1739] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/15038/zavitova-zatka-olejova-vana?page=2
+            - navigation [ref=f66e1743]:
+              - list [ref=f66e1744]:
+                - listitem [ref=f66e1745]:
+                  - link "1" [ref=f66e1746] [cursor=pointer]
+                - listitem [ref=f66e1747]:
+                  - link "2" [ref=f66e1748] [cursor=pointer]
+                - listitem [ref=f66e1749]:
+                  - link "3" [ref=f66e1750] [cursor=pointer]
+                - listitem [ref=f66e1751]:
+                  - link "4" [ref=f66e1752] [cursor=pointer]
+                - listitem [ref=f66e1753]:
+                  - link "5" [ref=f66e1754] [cursor=pointer]
+                - listitem [ref=f66e1755]:
+                  - link [ref=f66e1756] [cursor=pointer]
+      - generic [ref=f66e1757]:
+        - heading "Motor OPEL Astra K Sports Tourer (B16) 1.4 Turbo Benzín" [level=2] [ref=f66e1758]
+        - navigation [ref=f66e1759]:
+          - list [ref=f66e1760]:
+            - listitem [ref=f66e1761]:
+              - generic [ref=f66e1762] [cursor=pointer]:
+                - link [ref=f66e1763]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10553/sada-rozvodoveho-remene
+                  - img "Vodní čerpadlo + sada rozvodového řemene OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1764]
+                - generic [ref=f66e1765]: Vodní čerpadlo + sada rozvodového řemene
+            - listitem [ref=f66e1766]:
+              - generic [ref=f66e1767] [cursor=pointer]:
+                - link [ref=f66e1768]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10972/nabijec
+                  - img "Turbo OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1769]
+                - generic [ref=f66e1770]: Turbo
+            - listitem [ref=f66e1771]:
+              - generic [ref=f66e1772] [cursor=pointer]:
+                - link [ref=f66e1773]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10480/hlava_motoru
+                  - img "Hlava motoru OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1774]
+                - generic [ref=f66e1775]: Hlava motoru
+            - listitem [ref=f66e1776]:
+              - generic [ref=f66e1777] [cursor=pointer]:
+                - link [ref=f66e1778]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10325/tesneni_pod_hlavu_motoru
+                  - img "Tesneni pod hlavu motoru OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1779]
+                - generic [ref=f66e1780]: Tesneni pod hlavu motoru
+            - listitem [ref=f66e1781]:
+              - generic [ref=f66e1782] [cursor=pointer]:
+                - link [ref=f66e1783]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10638/ulozeni_motoru
+                  - img "Ulozeni motoru OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1784]
+                - generic [ref=f66e1785]: Ulozeni motoru
+            - listitem [ref=f66e1786]:
+              - generic [ref=f66e1787] [cursor=pointer]:
+                - link [ref=f66e1788]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10531/klinovy_zebrovany_remen
+                  - img "Klinovy zebrovany remen OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1789]
+                - generic [ref=f66e1790]: Klinovy zebrovany remen
+            - listitem [ref=f66e1791]:
+              - generic [ref=f66e1792] [cursor=pointer]:
+                - link [ref=f66e1793]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10191/vodni_cerpadlo
+                  - img "Vodni cerpadlo OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1794]
+                - generic [ref=f66e1795]: Vodni cerpadlo
+            - listitem [ref=f66e1796]:
+              - generic [ref=f66e1797] [cursor=pointer]:
+                - link [ref=f66e1798]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10324/kompletni-sada-tesneni-motor
+                  - img "Kompletní sada těsnění, motor OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP" [ref=f66e1799]
+                - generic [ref=f66e1800]: Kompletní sada těsnění, motor
+          - button "Více" [ref=f66e1802] [cursor=pointer]
+      - generic [ref=f66e1803]:
+        - generic [ref=f66e1804]: "Nejlepší prodejci: OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35)"
+        - navigation [ref=f66e1805]:
+          - list [ref=f66e1806]:
+            - listitem [ref=f66e1807]:
+              - generic [ref=f66e1808] [cursor=pointer]:
+                - link [ref=f66e1809]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10132/brzdovy_kotouc
+                  - img "Brzdové kotouče OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1810]
+                - generic [ref=f66e1811]: Brzdové kotouče
+            - listitem [ref=f66e1812]:
+              - generic [ref=f66e1813] [cursor=pointer]:
+                - link [ref=f66e1814]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/12094/motorovy-olej
+                  - img "Motorový olej OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1815]
+                - generic [ref=f66e1816]: Motorový olej
+            - listitem [ref=f66e1817]:
+              - generic [ref=f66e1818] [cursor=pointer]:
+                - link [ref=f66e1819]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10130/brzdova_desticka
+                  - img "Brzdové destičky OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1820]
+                - generic [ref=f66e1821]: Brzdové destičky
+            - listitem [ref=f66e1822]:
+              - generic [ref=f66e1823] [cursor=pointer]:
+                - link [ref=f66e1824]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10221/tlumic_perovani
+                  - img "Tlumiče OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1825]
+                - generic [ref=f66e1826]: Tlumiče
+            - listitem [ref=f66e1827]:
+              - generic [ref=f66e1828] [cursor=pointer]:
+                - link [ref=f66e1829]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10533/svetlomet_hlavni
+                  - img "Hlavní světlomet OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1830]
+                - generic [ref=f66e1831]: Hlavní světlomet
+            - listitem [ref=f66e1832]:
+              - generic [ref=f66e1833] [cursor=pointer]:
+                - link [ref=f66e1834]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10142/baterie
+                  - img "Baterie OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1835]
+                - generic [ref=f66e1836]: Baterie
+            - listitem [ref=f66e1837]:
+              - generic [ref=f66e1838] [cursor=pointer]:
+                - link [ref=f66e1839]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10671/pricne_rameno
+                  - img "Pricne rameno OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1840]
+                - generic [ref=f66e1841]: Pricne rameno
+            - listitem [ref=f66e1842]:
+              - generic [ref=f66e1843] [cursor=pointer]:
+                - link [ref=f66e1844]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/10505/sada_rozvodoveho_remene
+                  - img "Sada rozvodoveho remene OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f66e1845]
+                - generic [ref=f66e1846]: Sada rozvodoveho remene
+          - button "Více" [ref=f66e1848] [cursor=pointer]
+      - navigation [ref=f66e1849]:
+        - strong [ref=f66e1850]: Závitová zátka, olejová vana top modely OPEL ASTRA B16
+        - list [ref=f66e1851]:
+          - listitem [ref=f66e1852]:
+            - link "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi (35) 2015" [ref=f66e1853] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117723/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1854]:
+            - link "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi (35) 2015" [ref=f66e1855] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117725/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1856]:
+            - link "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 2015" [ref=f66e1857] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117721/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1858]:
+            - link "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.0 Turbo (35) 2015" [ref=f66e1859] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117719/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1860]:
+            - link "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi (35) 2015" [ref=f66e1861] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117727/15038/zavitova-zatka-olejova-vana
+      - navigation [ref=f66e1862]:
+        - strong [ref=f66e1863]: Závitová zátka, olejová vana Opel Astra K Sports Tourer (B16) 1.4 Turbo - nejlepší produkty dle výběru zákazníků
+        - list [ref=f66e1864]:
+          - listitem [ref=f66e1865]:
+            - link "ELRING 823.400" [ref=f66e1866] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/elring/13767252
+            - text: ","
+          - listitem [ref=f66e1867]:
+            - link "ELRING 056.130" [ref=f66e1868] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/elring/205456
+            - text: ","
+          - listitem [ref=f66e1869]:
+            - link "FORCE 964G1-S15" [ref=f66e1870] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/force/13660293
+            - text: ","
+          - listitem [ref=f66e1871]:
+            - link "AJUSA 21012700" [ref=f66e1872] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/7248204
+            - text: ","
+          - listitem [ref=f66e1873]:
+            - link "VAICO V40-1651" [ref=f66e1874] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/18118024
+            - text: ","
+          - listitem [ref=f66e1875]:
+            - link "VAICO V40-1110" [ref=f66e1876] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/8005691
+            - text: ","
+          - listitem [ref=f66e1877]:
+            - link "RESTAGRAF 7389" [ref=f66e1878] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/restagraf/17612207
+            - text: ","
+          - listitem [ref=f66e1879]:
+            - link "SWAG 33 10 3867" [ref=f66e1880] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/swag/18261313
+            - text: ","
+          - listitem [ref=f66e1881]:
+            - link "BLUE PRINT ADBP010056" [ref=f66e1882] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/blue-print/26533507
+            - text: ","
+          - listitem [ref=f66e1883]:
+            - link "OPTIMAL OP-ESR0019Y-BG" [ref=f66e1884] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/optimal/26134970
+            - text: ","
+          - listitem [ref=f66e1885]:
+            - link "OPTIMAL OP-ESP0043K-BG" [ref=f66e1886] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/optimal/26134800
+            - text: ","
+          - listitem [ref=f66e1887]:
+            - link "RESTAGRAF 221511" [ref=f66e1888] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/restagraf/17611779
+            - text: ","
+          - listitem [ref=f66e1889]:
+            - link "TOPRAN 206 622" [ref=f66e1890] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/topran/2727574
+            - text: ","
+          - listitem [ref=f66e1891]:
+            - link "AJUSA 01288800" [ref=f66e1892] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8561132
+            - text: ","
+          - listitem [ref=f66e1893]:
+            - link "METZGER 8030057" [ref=f66e1894] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/metzger/15820479
+      - navigation [ref=f66e1895]:
+        - strong [ref=f66e1896]: Závitová zátka, olejová vana pro ostatní modely auto OPEL
+        - list [ref=f66e1897]:
+          - listitem [ref=f66e1898]:
+            - link "Závitová zátka, olejová vana Opel Corsa C 1.2 (F08, F68) 2000" [ref=f66e1899] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/corsa-c-f08-f68/14911/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1900]:
+            - link "Závitová zátka, olejová vana Opel Corsa D 1.3 CDTI (L08, L68) 2006" [ref=f66e1901] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/corsa-d/19725/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1902]:
+            - link "Závitová zátka, olejová vana Opel Corsa D 1.2 (L08, L68) 2006" [ref=f66e1903] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/corsa-d/19723/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1904]:
+            - link "Závitová zátka, olejová vana Opel Zafira B 1.9 CDTI (M75) 2005" [ref=f66e1905] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/zafira-b-a05/18691/15038/zavitova-zatka-olejova-vana
+            - text: ","
+          - listitem [ref=f66e1906]:
+            - link "Závitová zátka, olejová vana Opel Zafira A 2.0 DTI 16V (F75) 2000" [ref=f66e1907] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/opel/zafira-a-f75/15333/15038/zavitova-zatka-olejova-vana
+      - navigation [ref=f66e1908]:
+        - strong [ref=f66e1909]: Čisla OEM
+        - list [ref=f66e1910]:
+          - listitem [ref=f66e1911]:
+            - link "55577568" [ref=f66e1912] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/55577568
+            - text: ","
+          - listitem [ref=f66e1913]:
+            - link "11562588" [ref=f66e1914] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/11562588
+            - text: ","
+          - listitem [ref=f66e1915]:
+            - link "4948795" [ref=f66e1916] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/4948795
+            - text: ","
+          - listitem [ref=f66e1917]:
+            - link "652254" [ref=f66e1918] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/652254
+            - text: ","
+          - listitem [ref=f66e1919]:
+            - link "11519933" [ref=f66e1920] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/11519933
+            - text: ","
+          - listitem [ref=f66e1921]:
+            - link "0652254" [ref=f66e1922] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/0652254
+            - text: ","
+          - listitem [ref=f66e1923]:
+            - link "LR025048" [ref=f66e1924] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/lr025048
+            - text: ","
+          - listitem [ref=f66e1925]:
+            - link "71739255" [ref=f66e1926] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/71739255
+            - text: ","
+          - listitem [ref=f66e1927]:
+            - link "652736" [ref=f66e1928] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/652736
+            - text: ","
+          - listitem [ref=f66e1929]:
+            - link "652454" [ref=f66e1930] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/652454
+      - list [ref=f66e1933]:
+        - listitem [ref=f66e1934] [cursor=pointer]:
+          - img "Závitová zátka, olejová vana OPEL ASTRA 1.4 Turbo (35) 125 HP Benzín" [ref=f66e1936]
+          - generic [ref=f66e1937]: Nejatraktivnější ceny
+        - listitem [ref=f66e1938] [cursor=pointer]:
+          - img "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP Benzín" [ref=f66e1940]
+          - generic [ref=f66e1941]: Obrovský výběr
+        - listitem [ref=f66e1942] [cursor=pointer]:
+          - img "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo Benzín 125 HP" [ref=f66e1944]
+          - generic [ref=f66e1945]: Rychlé dodání
+    - contentinfo [ref=f66e1947]:
+      - generic [ref=f66e1949]:
+        - generic [ref=f66e1951]:
+          - generic [ref=f66e1953]:
+            - paragraph [ref=f66e1954]: Způsoby platby
+            - generic [ref=f66e1955]:
+              - img "Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo (35) 125 HP D 14 XFL nákup kreditní kartou Visa Card" [ref=f66e1957]
+              - img "Závitová zátka, olejová vana výměna OPEL Astra K Sports Tourer (B16) 1.4 Turbo Benzín 125 HP D 14 XFL nákup kreditní kartou Mastercard" [ref=f66e1959]
+              - img "Výměna Závitová zátka, olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo Benzín 125 HP 11.2015 nákup PayPal" [ref=f66e1961]
+              - img "Závitová zátka, olejová vana OPEL ASTRA 1.4 Turbo (35) 125 HP D 14 XFL nákup Peněžní převod" [ref=f66e1963]
+              - img "American Express" [ref=f66e1965]
+          - generic [ref=f66e1967]:
+            - paragraph [ref=f66e1968]: Způsob dopravy
+            - img "DPD" [ref=f66e1971]
+          - generic [ref=f66e1973]:
+            - paragraph [ref=f66e1974]: Technická podpora
+            - generic [ref=f66e1975]:
+              - img "TecDoc inside online obchodů s náhradní díly Automobilovedily24.cz" [ref=f66e1976]
+              - img "COMODO - platit bezpečně pro Závitová zátka, olejová vana pro OPEL ASTRA 1.4 Turbo (35) 125 HP 11.2015" [ref=f66e1977]
+        - generic [ref=f66e1979]:
+          - generic [ref=f66e1981]:
+            - generic [ref=f66e1982]: Uveďte vaši emailovou adresu a nakupujte autodíly za výhodné ceny!
+            - generic [ref=f66e1983]:
+              - generic [ref=f66e1984]:
+                - textbox "Email*" [ref=f66e1986]
+                - button "Přihlaste se" [ref=f66e1987] [cursor=pointer]
+              - generic [ref=f66e1989]:
+                - checkbox "Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd... Více" [ref=f66e1990]
+                - generic [ref=f66e1991] [cursor=pointer]:
+                  - text: Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd...
+                  - button "Více" [ref=f66e1993]
+          - generic [ref=f66e1995]:
+            - generic [ref=f66e1996]: Země
+            - button "www.automobilovedily24.cz Česko" [ref=f66e1999] [cursor=pointer]:
+              - generic [ref=f66e2000]:
+                - img "www.automobilovedily24.cz" [ref=f66e2001]
+                - generic [ref=f66e2002]: Česko
+      - generic [ref=f66e2004]:
+        - link [ref=f66e2006] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/#main
+          - img "Automobilovedily24.cz - autodíly online obchod" [ref=f66e2008]
+        - generic [ref=f66e2009]:
+          - list [ref=f66e2012]:
+            - listitem [ref=f66e2013]:
+              - link "Právní oznámení" [ref=f66e2014] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/firma
+            - listitem [ref=f66e2015]:
+              - link "Blog" [ref=f66e2016] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/blog
+          - list [ref=f66e2019]:
+            - listitem [ref=f66e2020]:
+              - generic [ref=f66e2021]: Nastavení souborů cookie
+            - listitem [ref=f66e2022]:
+              - link "Pravidla ochrany osobních údajů" [ref=f66e2023] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ochrana-soukromi
+            - listitem [ref=f66e2024]:
+              - link "Obchodní podmínky" [ref=f66e2025] [cursor=pointer]
+            - listitem [ref=f66e2026]:
+              - link "Právo odstoupit od smlouvy" [ref=f66e2027] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vraceni-zbozi
+            - listitem [ref=f66e2028]:
+              - link "Výměna" [ref=f66e2029] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vymena
+            - listitem [ref=f66e2030]:
+              - link "Kontakt" [ref=f66e2031] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/kontakt
+            - listitem [ref=f66e2032]:
+              - link "Dodání" [ref=f66e2033] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - listitem [ref=f66e2034]:
+              - link "Soupis požadovaných výrobků" [ref=f66e2035] [cursor=pointer]
+            - listitem [ref=f66e2036]:
+              - link "Platba" [ref=f66e2037] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/platba
+            - listitem [ref=f66e2038]:
+              - link "Vrácení zboží" [ref=f66e2039] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/navrat
+            - listitem [ref=f66e2040]:
+              - link "Prohlášení o přístupnosti" [ref=f66e2041] [cursor=pointer]
+          - list [ref=f66e2044]:
+            - listitem [ref=f66e2045]:
+              - link "Pneumatiky" [ref=f66e2046] [cursor=pointer]
+            - listitem [ref=f66e2047]:
+              - link "Všichni výrobci" [ref=f66e2048] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/nahradni-dily-vyrobcu
+            - listitem [ref=f66e2049]:
+              - link "Nakupovat dle modelu" [ref=f66e2050] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-modell
+            - listitem [ref=f66e2051]:
+              - link "Nakupovat dle značky" [ref=f66e2052] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-auto
+          - generic [ref=f66e2054]:
+            - paragraph [ref=f66e2055]: Autodíly app
+            - link [ref=f66e2057] [cursor=pointer]:
+              - 'img "Automobilovedily24.cz: vše, co potřebujete pro vaše auto v jedné aplikaci." [ref=f66e2058]'
+            - generic [ref=f66e2059]:
+              - paragraph [ref=f66e2060]: "Pracovní doba zákaznické linky podpory pro Českou republiku:Pon-Pá: 8:00 - 17:00"
+              - paragraph [ref=f66e2061]: "Sobota – Neděle: nepracovní dny"
+        - generic [ref=f66e2062]: "©2026 www.automobilovedily24.cz: Náhradní díly na auto eshop » kvalitní autodíly levně online"
+  - button [ref=f66e2064] [cursor=pointer]
+  - generic [ref=f66e2067]:
+    - generic [ref=f66e2068]:
+      - button "Odmítnout všechny cookies" [ref=f66e2069] [cursor=pointer]
+      - generic [ref=f66e2070]: Používání souborů cookie a podobných technologií
+      - paragraph
+      - paragraph [ref=f66e2071]: Tento web používá soubory cookie, které jsou nezbytné pro fungování webu. S Vaším souhlasem se používají další soubory cookie a podobné technologie („nástroje“), zejména k integraci externího obsahu, analýze využití, personalizaci nabídek a zlepšení funkčnosti webu.
+      - paragraph [ref=f66e2072]: Všechny tyto nástroje můžete přijmout nebo odmítnout pomocí níže umístěných tlačítek. V sekci „Spravovat předvolby“ naleznete podrobné informace o všech nástrojích a můžete si individuálně upravit nastavení. Pokud při používání určitého nástroje dochází k přenosu údajů do třetích zemí mimo EHP, které mohou mít nižší úroveň ochrany údajů, Váš souhlas se výslovně vztahuje i na tento přenos a následné zpracování.
+      - paragraph [ref=f66e2073]: V sekci „Nastavení souborů cookie“ v zápatí našeho webu můžete kdykoli odvolat svůj souhlas nebo aktualizovat svůj výběr.
+      - paragraph [ref=f66e2074]:
+        - text: Další informace naleznete v našich
+        - link "Pravidlech ochrany osobních údajů." [ref=f66e2075] [cursor=pointer]
+    - generic [ref=f66e2076]:
+      - button "Spravovat předvolby" [ref=f66e2077] [cursor=pointer]
+      - button "Povolit všechny cookies" [active] [ref=f66e2078] [cursor=pointer]

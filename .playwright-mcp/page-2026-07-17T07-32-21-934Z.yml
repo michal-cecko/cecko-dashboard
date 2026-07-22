@@ -1,0 +1,2236 @@
+- generic [ref=f10e2]:
+  - generic:
+    - generic:
+      - link "Preskočiť na hlavný obsah":
+        - /url: "#main"
+  - banner [ref=f10e4]:
+    - generic [ref=f10e6]:
+      - link [ref=f10e8] [cursor=pointer]:
+        - /url: https://www.autodoc.sk/
+        - img "AUTODOC Slovensko" [ref=f10e9]
+      - generic [ref=f10e11]:
+        - button "Pridať vozidlo" [ref=f10e13] [cursor=pointer]
+        - generic [ref=f10e20]:
+          - textbox "Zadajte číslo alebo názov súčiastky" [ref=f10e22]: W 7056
+          - button
+      - button [ref=f10e24] [cursor=pointer]
+      - 'link "0 Produkty #57-1248 0, 00 €" [ref=f10e26] [cursor=pointer]':
+        - generic [ref=f10e27]: "0"
+        - generic [ref=f10e30]:
+          - text: Produkty
+          - generic [ref=f10e31]: "#57-1248"
+        - generic [ref=f10e32]: 0, 00 €
+    - navigation [ref=f10e35]:
+      - list [ref=f10e36]:
+        - listitem [ref=f10e37]:
+          - link "Osobné auto" [ref=f10e38] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/nahradne-diely
+        - listitem [ref=f10e41]:
+          - link "Pneumatiky" [ref=f10e42] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/pneumatiky
+        - listitem [ref=f10e43]:
+          - link "Disky" [ref=f10e44] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/disky
+        - listitem [ref=f10e45]:
+          - link "Náradie" [ref=f10e46] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/naradie
+        - listitem [ref=f10e47]:
+          - link "Starostlivosť o auto" [ref=f10e48] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/autochemia
+        - listitem [ref=f10e49]:
+          - link "Autodoplnky" [ref=f10e50] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/autodoplnky
+        - listitem [ref=f10e51]:
+          - link "Motorový olej" [ref=f10e52] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/motorovy-olej
+        - listitem [ref=f10e53]:
+          - link "Filtre" [ref=f10e54] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/nahradne-diely/filtre
+        - listitem [ref=f10e55]:
+          - link "Brzdový systém" [ref=f10e56] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/nahradne-diely/brzdovy_system
+      - link "PLUS" [ref=f10e59] [cursor=pointer]
+  - main [ref=f10e63]:
+    - generic [ref=f10e66]:
+      - paragraph [ref=f10e67]: "Určite si vyberte konkrétne auto, inak riskujete, že si kúpite náhradný diel, ktorý nebude pasovať do vášho auta. Upozornenie: náš systém vyhľadávania vám môže zobraziť iba výsledky relevantné pre konkrétny typ vozidla."
+      - text: Viac
+    - generic [ref=f10e69]:
+      - generic [ref=f10e71]:
+        - generic [ref=f10e72]:
+          - generic [ref=f10e73]: Vyberte si vozidlo a nájdite správne autodiely
+          - generic [ref=f10e74]:
+            - generic [ref=f10e76]:
+              - generic: Vyberte si značku
+              - generic [ref=f10e77]:
+                - button [ref=f10e78] [cursor=pointer]
+                - paragraph [ref=f10e79]: Pridajte informácie o vašom vozidle, aby sme vám našli diely, ktoré budú do vozidla pasovať
+            - generic [ref=f10e80]: Vybrať model
+            - generic [ref=f10e82]: Vyberte si modifikáciu
+            - button "Vyhľadávať" [ref=f10e84] [cursor=pointer]
+        - button "NEMÔŽETE V KATALÓGU NÁJSŤ VAŠE AUTO?" [ref=f10e87]
+      - generic [ref=f10e88]:
+        - heading "10000 nájdených výsledkov pre W 7056" [level=1] [ref=f10e91]
+        - generic [ref=f10e95]:
+          - generic [ref=f10e96]:
+            - generic [ref=f10e97]: Zvoľte si želanú kategóriu dielov
+            - list [ref=f10e98]:
+              - button "Previous" [disabled] [ref=f10e99] [cursor=pointer]
+              - generic [ref=f10e101]:
+                - listitem [ref=f10e104]:
+                  - radio "Všetky kategórie" [checked] [ref=f10e105]
+                  - generic [ref=f10e106] [cursor=pointer]: Všetky kategórie
+                - listitem [ref=f10e111]:
+                  - radio "Pneumatiky Pneumatiky" [ref=f10e112]
+                  - generic [ref=f10e113] [cursor=pointer]:
+                    - img "Pneumatiky" [ref=f10e115]
+                    - generic [ref=f10e116]: Pneumatiky
+                - listitem [ref=f10e119]:
+                  - radio "Alternátor Alternátor" [ref=f10e120]
+                  - generic [ref=f10e121] [cursor=pointer]:
+                    - img "Alternátor" [ref=f10e123]
+                    - generic [ref=f10e124]: Alternátor
+                - listitem [ref=f10e127]:
+                  - radio "Olejový filter Olejový filter" [ref=f10e128]
+                  - generic [ref=f10e129] [cursor=pointer]:
+                    - img "Olejový filter" [ref=f10e131]
+                    - generic [ref=f10e132]: Olejový filter
+                - listitem [ref=f10e135]:
+                  - radio [ref=f10e136]
+                  - generic [ref=f10e137] [cursor=pointer]: Tesniaci krúżok kľukového hriadeľa
+                - listitem [ref=f10e143]:
+                  - radio [ref=f10e144]
+                  - generic [ref=f10e145] [cursor=pointer]: Set na výmenu oleja (Olejový filter + Motorový olej)
+                - listitem [ref=f10e151]:
+                  - radio [ref=f10e152]
+                  - generic [ref=f10e153] [cursor=pointer]: Olej do automatickej prevodovky
+                - listitem [ref=f10e159]:
+                  - radio [ref=f10e160]
+                  - generic [ref=f10e161] [cursor=pointer]: Ráfik
+                - listitem [ref=f10e167]:
+                  - radio [ref=f10e168]
+                  - generic [ref=f10e169] [cursor=pointer]: Vanička do kufra
+                - listitem [ref=f10e175]:
+                  - radio [ref=f10e176]
+                  - generic [ref=f10e177] [cursor=pointer]: Nárazník
+                - listitem [ref=f10e183]:
+                  - radio [ref=f10e184]
+                  - generic [ref=f10e185] [cursor=pointer]: Motorový olej
+                - listitem [ref=f10e191]:
+                  - radio [ref=f10e192]
+                  - generic [ref=f10e193] [cursor=pointer]: Ozdobná / ochranná liżta blatníka
+                - listitem [ref=f10e199]:
+                  - radio [ref=f10e200]
+                  - generic [ref=f10e201] [cursor=pointer]: Kondenzátor klimatizácie
+                - listitem [ref=f10e207]:
+                  - radio [ref=f10e208]
+                  - generic [ref=f10e209] [cursor=pointer]: Systém żportového vzduchového filtra
+                - listitem [ref=f10e215]:
+                  - radio [ref=f10e216]
+                  - generic [ref=f10e217] [cursor=pointer]: Tesniaci krúżok vačkového hriadeľa
+                - listitem [ref=f10e223]:
+                  - radio [ref=f10e224]
+                  - generic [ref=f10e225] [cursor=pointer]: Kompresor klimatizácie
+                - listitem [ref=f10e231]:
+                  - radio [ref=f10e232]
+                  - generic [ref=f10e233] [cursor=pointer]: Vonkajżie spätné zrkadlo
+                - listitem [ref=f10e239]:
+                  - radio [ref=f10e240]
+                  - generic [ref=f10e241] [cursor=pointer]: Tesniaci krúżok drieku ventilu
+                - listitem [ref=f10e247]:
+                  - radio [ref=f10e248]
+                  - generic [ref=f10e249] [cursor=pointer]: Vlożka svetlometu, hlavný svetlomet
+                - listitem [ref=f10e255]:
+                  - radio [ref=f10e256]
+                  - generic [ref=f10e257] [cursor=pointer]: Prerużovač smerových svetiel
+                - listitem [ref=f10e263]:
+                  - radio [ref=f10e264]
+                  - generic [ref=f10e265] [cursor=pointer]: Chladiaca kvapalina
+                - listitem [ref=f10e271]:
+                  - radio [ref=f10e272]
+                  - generic [ref=f10e273] [cursor=pointer]: Regulátor alternátora
+                - listitem [ref=f10e279]:
+                  - radio [ref=f10e280]
+                  - generic [ref=f10e281] [cursor=pointer]: Kryt motora motocykla
+                - listitem [ref=f10e287]:
+                  - radio [ref=f10e288]
+                  - generic [ref=f10e289] [cursor=pointer]: Tesnenie hlavy valcov
+                - listitem [ref=f10e295]:
+                  - radio [ref=f10e296]
+                  - generic [ref=f10e297] [cursor=pointer]: Ozdobná / ochranná liżta nárazníka
+                - listitem [ref=f10e303]:
+                  - radio [ref=f10e304]
+                  - generic [ref=f10e305] [cursor=pointer]: Zadný nárazník
+                - listitem [ref=f10e311]:
+                  - radio [ref=f10e312]
+                  - generic [ref=f10e313] [cursor=pointer]: Chladič motora
+                - listitem [ref=f10e319]:
+                  - radio [ref=f10e320]
+                  - generic [ref=f10e321] [cursor=pointer]: Brzdová hadica
+                - listitem [ref=f10e327]:
+                  - radio [ref=f10e328]
+                  - generic [ref=f10e329] [cursor=pointer]: Ventilátor chladenia motora
+                - listitem [ref=f10e335]:
+                  - radio [ref=f10e336]
+                  - generic [ref=f10e337] [cursor=pointer]: Ochranné okuliare
+                - listitem [ref=f10e343]:
+                  - radio [ref=f10e344]
+                  - generic [ref=f10e345] [cursor=pointer]: Koaxialne reproduktory
+                - listitem [ref=f10e351]:
+                  - radio [ref=f10e352]
+                  - generic [ref=f10e353] [cursor=pointer]: Vetracia mrieżka v nárazníku
+                - listitem [ref=f10e359]:
+                  - radio [ref=f10e360]
+                  - generic [ref=f10e361] [cursor=pointer]: Sada oblożenia lamiel, spojka
+                - listitem [ref=f10e367]:
+                  - radio [ref=f10e368]
+                  - generic [ref=f10e369] [cursor=pointer]: Sada oceľových lamiel, spojka
+                - listitem [ref=f10e375]:
+                  - radio [ref=f10e376]
+                  - generic [ref=f10e377] [cursor=pointer]: Uhlová brúska (akumulátor)
+                - listitem [ref=f10e383]:
+                  - radio [ref=f10e384]
+                  - generic [ref=f10e385] [cursor=pointer]: Spojková sada
+                - listitem [ref=f10e391]:
+                  - radio [ref=f10e392]
+                  - generic [ref=f10e393] [cursor=pointer]: Spínacia jednotka brzdového systému
+                - listitem [ref=f10e399]:
+                  - radio [ref=f10e400]
+                  - generic [ref=f10e401] [cursor=pointer]: Kryt reťaze
+                - listitem [ref=f10e407]:
+                  - radio [ref=f10e408]
+                  - generic [ref=f10e409] [cursor=pointer]: Żiarovka pre osvetlenie prístrojového panelu
+                - listitem [ref=f10e415]:
+                  - radio [ref=f10e416]
+                  - generic [ref=f10e417] [cursor=pointer]: Obrysové svetlá
+                - listitem [ref=f10e423]:
+                  - radio [ref=f10e424]
+                  - generic [ref=f10e425] [cursor=pointer]: Veko spojkovej skrine
+                - listitem [ref=f10e431]:
+                  - radio [ref=f10e432]
+                  - generic [ref=f10e433] [cursor=pointer]: Tesnenie mechanickej prevodovky
+                - listitem [ref=f10e439]:
+                  - radio [ref=f10e440]
+                  - generic [ref=f10e441] [cursor=pointer]: Zariadenie na vlastnú diagnostiku
+                - listitem [ref=f10e447]:
+                  - radio [ref=f10e448]
+                  - generic [ref=f10e449] [cursor=pointer]: Menič napätia
+                - listitem [ref=f10e455]:
+                  - radio [ref=f10e456]
+                  - generic [ref=f10e457] [cursor=pointer]: Anténa
+                - listitem [ref=f10e463]:
+                  - radio [ref=f10e464]
+                  - generic [ref=f10e465] [cursor=pointer]: Nezávislé vykurovanie
+                - listitem [ref=f10e471]:
+                  - radio [ref=f10e472]
+                  - generic [ref=f10e473] [cursor=pointer]: Komponentné reproduktory
+                - listitem [ref=f10e479]:
+                  - radio [ref=f10e480]
+                  - generic [ref=f10e481] [cursor=pointer]: Pádové protektory
+                - listitem [ref=f10e487]:
+                  - radio [ref=f10e488]
+                  - generic [ref=f10e489] [cursor=pointer]: Predné svetlo
+                - listitem [ref=f10e495]:
+                  - radio [ref=f10e496]
+                  - generic [ref=f10e497] [cursor=pointer]: Hlava / čap spojovacej tyče riadenia
+                - listitem [ref=f10e503]:
+                  - radio [ref=f10e504]
+                  - generic [ref=f10e505] [cursor=pointer]: Sada tesnení veka hlavy valcov
+                - listitem [ref=f10e511]:
+                  - radio [ref=f10e512]
+                  - generic [ref=f10e513] [cursor=pointer]: Chladiaci box
+                - listitem [ref=f10e519]:
+                  - radio [ref=f10e520]
+                  - generic [ref=f10e521] [cursor=pointer]: Mreža do auta pre psa
+                - listitem [ref=f10e527]:
+                  - radio [ref=f10e528]
+                  - generic [ref=f10e529] [cursor=pointer]: Motor nekompletný
+                - listitem [ref=f10e535]:
+                  - radio [ref=f10e536]
+                  - generic [ref=f10e537] [cursor=pointer]: Turbodúchadlo
+                - listitem [ref=f10e543]:
+                  - radio [ref=f10e544]
+                  - generic [ref=f10e545] [cursor=pointer]: Sada hydraulického filtra automatickej prevodovky
+                - listitem [ref=f10e551]:
+                  - radio [ref=f10e552]
+                  - generic [ref=f10e553] [cursor=pointer]: Montážna lampa
+                - listitem [ref=f10e559]:
+                  - radio [ref=f10e560]
+                  - generic [ref=f10e561] [cursor=pointer]: Stieracia lišta
+                - listitem [ref=f10e567]:
+                  - radio [ref=f10e568]
+                  - generic [ref=f10e569] [cursor=pointer]: Sada denného osvetlenia
+                - listitem [ref=f10e575]:
+                  - radio [ref=f10e576]
+                  - generic [ref=f10e577] [cursor=pointer]: Výparník klimatizácie
+                - listitem [ref=f10e583]:
+                  - radio [ref=f10e584]
+                  - generic [ref=f10e585] [cursor=pointer]: Uhlová brúska
+                - listitem [ref=f10e591]:
+                  - radio [ref=f10e592]
+                  - generic [ref=f10e593] [cursor=pointer]: Krytka, Hlavný svetlomet
+                - listitem [ref=f10e599]:
+                  - radio [ref=f10e600]
+                  - generic [ref=f10e601] [cursor=pointer]: Tesniaci krúżok hriadeľa diferenciálu
+                - listitem [ref=f10e607]:
+                  - radio [ref=f10e608]
+                  - generic [ref=f10e609] [cursor=pointer]: Vzduchový filter
+                - listitem [ref=f10e615]:
+                  - radio [ref=f10e616]
+                  - generic [ref=f10e617] [cursor=pointer]: Bočné obrysové svetlo
+                - listitem [ref=f10e623]:
+                  - radio [ref=f10e624]
+                  - generic [ref=f10e625] [cursor=pointer]: Záżażový ventil
+                - listitem [ref=f10e631]:
+                  - radio [ref=f10e632]
+                  - generic [ref=f10e633] [cursor=pointer]: Audio zosilňovač
+                - listitem [ref=f10e639]:
+                  - radio [ref=f10e640]
+                  - generic [ref=f10e641] [cursor=pointer]: Opravná sada vodného čerpadla
+                - listitem [ref=f10e647]:
+                  - radio [ref=f10e648]
+                  - generic [ref=f10e649] [cursor=pointer]: Zadné svetlo
+                - listitem [ref=f10e655]:
+                  - radio [ref=f10e656]
+                  - generic [ref=f10e657] [cursor=pointer]: Sadas spojkových prużín
+                - listitem [ref=f10e663]:
+                  - radio [ref=f10e664]
+                  - generic [ref=f10e665] [cursor=pointer]: Ojnica
+                - listitem [ref=f10e671]:
+                  - radio [ref=f10e672]
+                  - generic [ref=f10e673] [cursor=pointer]: Sada brúsnych kotúčov, excentrická brúska
+                - listitem [ref=f10e679]:
+                  - radio [ref=f10e680]
+                  - generic [ref=f10e681] [cursor=pointer]: Nadstavec, leżtička
+                - listitem [ref=f10e687]:
+                  - radio [ref=f10e688]
+                  - generic [ref=f10e689] [cursor=pointer]: Autonabíjačka na mobil
+                - listitem [ref=f10e695]:
+                  - radio [ref=f10e696]
+                  - generic [ref=f10e697] [cursor=pointer]: Triaxiálne reproduktory
+                - listitem [ref=f10e703]:
+                  - radio [ref=f10e704]
+                  - generic [ref=f10e705] [cursor=pointer]: Zimné moto rukavice
+                - listitem [ref=f10e711]:
+                  - radio [ref=f10e712]
+                  - generic [ref=f10e713] [cursor=pointer]: Baterka
+                - listitem [ref=f10e719]:
+                  - radio [ref=f10e720]
+                  - generic [ref=f10e721] [cursor=pointer]: Żiarovka pre diaľkový svetlomet
+                - listitem [ref=f10e727]:
+                  - radio [ref=f10e728]
+                  - generic [ref=f10e729] [cursor=pointer]: Pracovný svetlomet
+                - listitem [ref=f10e735]:
+                  - radio [ref=f10e736]
+                  - generic [ref=f10e737] [cursor=pointer]: Nadstavec krimpovacích klieżtí
+                - listitem [ref=f10e743]:
+                  - radio [ref=f10e744]
+                  - generic [ref=f10e745] [cursor=pointer]: Reżaz
+                - listitem [ref=f10e751]:
+                  - radio [ref=f10e752]
+                  - generic [ref=f10e753] [cursor=pointer]: Sada tesnení automatickej prevodovky
+                - listitem [ref=f10e759]:
+                  - radio [ref=f10e760]
+                  - generic [ref=f10e761] [cursor=pointer]: Spona na opravu plastov
+                - listitem [ref=f10e767]:
+                  - radio [ref=f10e768]
+                  - generic [ref=f10e769] [cursor=pointer]: Spotrebný materiál, Zváračky
+                - listitem [ref=f10e775]:
+                  - radio [ref=f10e776]
+                  - generic [ref=f10e777] [cursor=pointer]: Leżtička
+                - listitem [ref=f10e783]:
+                  - radio [ref=f10e784]
+                  - generic [ref=f10e785] [cursor=pointer]: Vysúżač klimatizácie
+                - listitem [ref=f10e791]:
+                  - radio [ref=f10e792]
+                  - generic [ref=f10e793] [cursor=pointer]: Nástupný schodík
+                - listitem [ref=f10e799]:
+                  - radio [ref=f10e800]
+                  - generic [ref=f10e801] [cursor=pointer]: Kontaktný kolík
+                - listitem [ref=f10e807]:
+                  - radio [ref=f10e808]
+                  - generic [ref=f10e809] [cursor=pointer]: Prah dverí
+                - listitem [ref=f10e815]:
+                  - radio [ref=f10e816]
+                  - generic [ref=f10e817] [cursor=pointer]: Lanko ručnej prevodovky
+                - listitem [ref=f10e823]:
+                  - radio [ref=f10e824]
+                  - generic [ref=f10e825] [cursor=pointer]: Sortiment spojok potrubí
+                - listitem [ref=f10e831]:
+                  - radio [ref=f10e832]
+                  - generic [ref=f10e833] [cursor=pointer]: Prevodka riadenia
+                - listitem [ref=f10e839]:
+                  - radio [ref=f10e840]
+                  - generic [ref=f10e841] [cursor=pointer]: Chladič motorového oleja
+                - listitem [ref=f10e847]:
+                  - radio [ref=f10e848]
+                  - generic [ref=f10e849] [cursor=pointer]: Vzduchový kompresor
+                - listitem [ref=f10e855]:
+                  - radio [ref=f10e856]
+                  - generic [ref=f10e857] [cursor=pointer]: Opravná sada, svorka alternátora
+                - listitem [ref=f10e863]:
+                  - radio [ref=f10e864]
+                  - generic [ref=f10e865] [cursor=pointer]: Vŕtacie kladivo
+                - listitem [ref=f10e871]:
+                  - radio [ref=f10e872]
+                  - generic [ref=f10e873] [cursor=pointer]: Tesniaci krúżok hriadeľa náboja kolesa
+                - listitem [ref=f10e879]:
+                  - radio [ref=f10e880]
+                  - generic [ref=f10e881] [cursor=pointer]: Elektromagnetický spínač pre żtartér
+                - listitem [ref=f10e887]:
+                  - radio [ref=f10e888]
+                  - generic [ref=f10e889] [cursor=pointer]: Brzdová kvapalina
+                - listitem [ref=f10e895]:
+                  - radio [ref=f10e896]
+                  - generic [ref=f10e897] [cursor=pointer]: Parkovací ohrievač, montážny set
+              - button "Next" [ref=f10e901] [cursor=pointer]
+          - generic [ref=f10e902]:
+            - generic [ref=f10e903]: Výrobcovia
+            - list [ref=f10e904]:
+              - button "Previous" [disabled] [ref=f10e905] [cursor=pointer]
+              - generic [ref=f10e907]:
+                - listitem [ref=f10e910]:
+                  - checkbox "RIDEX" [ref=f10e911]
+                  - img "RIDEX" [ref=f10e914] [cursor=pointer]
+                - listitem [ref=f10e917]:
+                  - checkbox "ABAKUS" [ref=f10e918]
+                  - img "ABAKUS" [ref=f10e921] [cursor=pointer]
+                - listitem [ref=f10e924]:
+                  - checkbox "ALANKO" [ref=f10e925]
+                  - img "ALANKO" [ref=f10e928] [cursor=pointer]
+                - listitem [ref=f10e931]:
+                  - checkbox "APlus" [ref=f10e932]
+                  - img "APlus" [ref=f10e935] [cursor=pointer]
+                - listitem [ref=f10e938]:
+                  - checkbox "ARIVO" [ref=f10e939]
+                  - img "ARIVO" [ref=f10e942] [cursor=pointer]
+                - listitem [ref=f10e945]:
+                  - checkbox "AUSTONE" [ref=f10e946]
+                  - img "AUSTONE" [ref=f10e949] [cursor=pointer]
+                - listitem [ref=f10e952]:
+                  - checkbox "AUTOELECTRO" [ref=f10e953]
+                  - img "AUTOELECTRO" [ref=f10e956] [cursor=pointer]
+                - listitem [ref=f10e959]:
+                  - checkbox "Aptany" [ref=f10e960]
+                  - img "Aptany" [ref=f10e963] [cursor=pointer]
+                - listitem [ref=f10e966]:
+                  - checkbox "Atlas" [ref=f10e967]
+                  - img "Atlas" [ref=f10e970] [cursor=pointer]
+                - listitem [ref=f10e973]:
+                  - checkbox "Avon" [ref=f10e974]
+                  - img "Avon" [ref=f10e977] [cursor=pointer]
+                - listitem [ref=f10e980]:
+                  - checkbox [ref=f10e981]
+                - listitem [ref=f10e987]:
+                  - checkbox [ref=f10e988]
+                - listitem [ref=f10e994]:
+                  - checkbox [ref=f10e995]
+                - listitem [ref=f10e1001]:
+                  - checkbox [ref=f10e1002]
+                - listitem [ref=f10e1008]:
+                  - checkbox [ref=f10e1009]
+                - listitem [ref=f10e1015]:
+                  - checkbox [ref=f10e1016]
+                - listitem [ref=f10e1022]:
+                  - checkbox [ref=f10e1023]
+                - listitem [ref=f10e1029]:
+                  - checkbox [ref=f10e1030]
+                - listitem [ref=f10e1036]:
+                  - checkbox [ref=f10e1037]
+                - listitem [ref=f10e1043]:
+                  - checkbox [ref=f10e1044]
+                - listitem [ref=f10e1050]:
+                  - checkbox [ref=f10e1051]
+                - listitem [ref=f10e1057]:
+                  - checkbox [ref=f10e1058]
+                - listitem [ref=f10e1064]:
+                  - checkbox [ref=f10e1065]
+                - listitem [ref=f10e1071]:
+                  - checkbox [ref=f10e1072]
+                - listitem [ref=f10e1078]:
+                  - checkbox [ref=f10e1079]
+                - listitem [ref=f10e1085]:
+                  - checkbox [ref=f10e1086]
+                - listitem [ref=f10e1092]:
+                  - checkbox [ref=f10e1093]
+                - listitem [ref=f10e1099]:
+                  - checkbox [ref=f10e1100]
+                - listitem [ref=f10e1106]:
+                  - checkbox [ref=f10e1107]
+                - listitem [ref=f10e1113]:
+                  - checkbox [ref=f10e1114]
+                - listitem [ref=f10e1120]:
+                  - checkbox [ref=f10e1121]
+                - listitem [ref=f10e1127]:
+                  - checkbox [ref=f10e1128]
+                - listitem [ref=f10e1134]:
+                  - checkbox [ref=f10e1135]
+                - listitem [ref=f10e1141]:
+                  - checkbox [ref=f10e1142]
+                - listitem [ref=f10e1148]:
+                  - checkbox [ref=f10e1149]
+                - listitem [ref=f10e1155]:
+                  - checkbox [ref=f10e1156]
+                - listitem [ref=f10e1162]:
+                  - checkbox [ref=f10e1163]
+                - listitem [ref=f10e1169]:
+                  - checkbox [ref=f10e1170]
+                - listitem [ref=f10e1176]:
+                  - checkbox [ref=f10e1177]
+                - listitem [ref=f10e1183]:
+                  - checkbox [ref=f10e1184]
+                - listitem [ref=f10e1190]:
+                  - checkbox [ref=f10e1191]
+                - listitem [ref=f10e1197]:
+                  - checkbox [ref=f10e1198]
+                - listitem [ref=f10e1204]:
+                  - checkbox [ref=f10e1205]
+                - listitem [ref=f10e1211]:
+                  - checkbox [ref=f10e1212]
+                - listitem [ref=f10e1218]:
+                  - checkbox [ref=f10e1219]
+                - listitem [ref=f10e1225]:
+                  - checkbox [ref=f10e1226]
+                - listitem [ref=f10e1232]:
+                  - checkbox [ref=f10e1233]
+                - listitem [ref=f10e1239]:
+                  - checkbox [ref=f10e1240]
+                - listitem [ref=f10e1246]:
+                  - checkbox [ref=f10e1247]
+                - listitem [ref=f10e1253]:
+                  - checkbox [ref=f10e1254]
+                - listitem [ref=f10e1260]:
+                  - checkbox [ref=f10e1261]
+                - listitem [ref=f10e1267]:
+                  - checkbox [ref=f10e1268]
+                - listitem [ref=f10e1274]:
+                  - checkbox [ref=f10e1275]
+                - listitem [ref=f10e1281]:
+                  - checkbox [ref=f10e1282]
+                - listitem [ref=f10e1288]:
+                  - checkbox [ref=f10e1289]
+                - listitem [ref=f10e1295]:
+                  - checkbox [ref=f10e1296]
+                - listitem [ref=f10e1302]:
+                  - checkbox [ref=f10e1303]
+                - listitem [ref=f10e1309]:
+                  - checkbox [ref=f10e1310]
+                - listitem [ref=f10e1316]:
+                  - checkbox [ref=f10e1317]
+                - listitem [ref=f10e1323]:
+                  - checkbox [ref=f10e1324]
+                - listitem [ref=f10e1330]:
+                  - checkbox [ref=f10e1331]
+                - listitem [ref=f10e1337]:
+                  - checkbox [ref=f10e1338]
+                - listitem [ref=f10e1344]:
+                  - checkbox [ref=f10e1345]
+                - listitem [ref=f10e1351]:
+                  - checkbox [ref=f10e1352]
+                - listitem [ref=f10e1358]:
+                  - checkbox [ref=f10e1359]
+                - listitem [ref=f10e1365]:
+                  - checkbox [ref=f10e1366]
+                - listitem [ref=f10e1372]:
+                  - checkbox [ref=f10e1373]
+                - listitem [ref=f10e1379]:
+                  - checkbox [ref=f10e1380]
+                - listitem [ref=f10e1386]:
+                  - checkbox [ref=f10e1387]
+                - listitem [ref=f10e1393]:
+                  - checkbox [ref=f10e1394]
+                - listitem [ref=f10e1400]:
+                  - checkbox [ref=f10e1401]
+                - listitem [ref=f10e1407]:
+                  - checkbox [ref=f10e1408]
+                - listitem [ref=f10e1414]:
+                  - checkbox [ref=f10e1415]
+                - listitem [ref=f10e1421]:
+                  - checkbox [ref=f10e1422]
+                - listitem [ref=f10e1428]:
+                  - checkbox [ref=f10e1429]
+                - listitem [ref=f10e1435]:
+                  - checkbox [ref=f10e1436]
+                - listitem [ref=f10e1442]:
+                  - checkbox [ref=f10e1443]
+                - listitem [ref=f10e1449]:
+                  - checkbox [ref=f10e1450]
+                - listitem [ref=f10e1456]:
+                  - checkbox [ref=f10e1457]
+                - listitem [ref=f10e1463]:
+                  - checkbox [ref=f10e1464]
+                - listitem [ref=f10e1470]:
+                  - checkbox [ref=f10e1471]
+                - listitem [ref=f10e1477]:
+                  - checkbox [ref=f10e1478]
+                - listitem [ref=f10e1484]:
+                  - checkbox [ref=f10e1485]
+                - listitem [ref=f10e1491]:
+                  - checkbox [ref=f10e1492]
+                - listitem [ref=f10e1498]:
+                  - checkbox [ref=f10e1499]
+                - listitem [ref=f10e1505]:
+                  - checkbox [ref=f10e1506]
+                - listitem [ref=f10e1512]:
+                  - checkbox [ref=f10e1513]
+                - listitem [ref=f10e1519]:
+                  - checkbox [ref=f10e1520]
+                - listitem [ref=f10e1526]:
+                  - checkbox [ref=f10e1527]
+                - listitem [ref=f10e1533]:
+                  - checkbox [ref=f10e1534]
+                - listitem [ref=f10e1540]:
+                  - checkbox [ref=f10e1541]
+                - listitem [ref=f10e1547]:
+                  - checkbox [ref=f10e1548]
+                - listitem [ref=f10e1554]:
+                  - checkbox [ref=f10e1555]
+                - listitem [ref=f10e1561]:
+                  - checkbox [ref=f10e1562]
+                - listitem [ref=f10e1568]:
+                  - checkbox [ref=f10e1569]
+                - listitem [ref=f10e1575]:
+                  - checkbox [ref=f10e1576]
+                - listitem [ref=f10e1582]:
+                  - checkbox [ref=f10e1583]
+                - listitem [ref=f10e1589]:
+                  - checkbox [ref=f10e1590]
+                - listitem [ref=f10e1596]:
+                  - checkbox [ref=f10e1597]
+                - listitem [ref=f10e1603]:
+                  - checkbox [ref=f10e1604]
+              - button "Next" [ref=f10e1608] [cursor=pointer]
+        - generic [ref=f10e1609]:
+          - text: 10000 Produkty
+          - generic [ref=f10e1610]:
+            - generic [ref=f10e1611]: "Zoradiť podľa:"
+            - button "Odporúčané" [ref=f10e1614] [cursor=pointer]
+        - generic [ref=f10e1617]:
+          - generic [ref=f10e1619]:
+            - generic [ref=f10e1620]:
+              - link [ref=f10e1621] [cursor=pointer]:
+                - img "MANN-FILTER Olejový filter W 7056" [ref=f10e1622]
+              - link [ref=f10e1623] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/mann-filter/13766011#olejovy-filter
+                - img "Olejový filter MANN-FILTER W 7056" [ref=f10e1624]
+              - button "W 7056" [ref=f10e1626] [cursor=pointer]
+            - generic [ref=f10e1627]:
+              - link "W 7056 MANN-FILTER Olejový filter M22x1.5, Skrutkovací filter" [ref=f10e1628] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/mann-filter/13766011
+                - text: W 7056 MANN-FILTER Olejový filter
+                - generic [ref=f10e1629]: M22x1.5, Skrutkovací filter
+              - generic [ref=f10e1630]:
+                - generic [ref=f10e1631]: "Číslo produktu: W 7056"
+                - generic [ref=f10e1633]:
+                  - link [ref=f10e1634] [cursor=pointer]
+                  - link "recenzie - 55" [ref=f10e1636] [cursor=pointer]
+            - generic [ref=f10e1637]:
+              - generic [ref=f10e1638]:
+                - generic [ref=f10e1639]:
+                  - list [ref=f10e1641]:
+                    - listitem [ref=f10e1642]:
+                      - generic [ref=f10e1643]: "Prevedenie filtra:"
+                      - generic [ref=f10e1644]: Skrutkovací filter
+                    - listitem [ref=f10e1645]:
+                      - generic [ref=f10e1646]: "Doplnkový tovar / Dopňujúca informácia 2:"
+                      - generic [ref=f10e1647]: s jednym spätným ventilom
+                    - listitem [ref=f10e1648]:
+                      - generic [ref=f10e1649]: "EÚ Nariadenie o bezpečnosti výrobkov (GPSR):"
+                      - generic [ref=f10e1650]: IEC 60417-6183 mechanické vedomosti potrebné
+                    - listitem [ref=f10e1651]:
+                      - generic [ref=f10e1652]: "Výška:"
+                      - generic [ref=f10e1653]: "75"
+                    - listitem [ref=f10e1654]:
+                      - generic [ref=f10e1655]: "Rozmer závitu:"
+                      - generic [ref=f10e1656]: M22x1.5
+                    - listitem [ref=f10e1657]:
+                      - generic [ref=f10e1658]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e1659]: "76"
+                    - listitem [ref=f10e1660]:
+                      - generic [ref=f10e1661]: "Otvárací tlak obehového ventilu [bar]:"
+                      - generic [ref=f10e1662]: 1,8
+                  - button "Viac" [ref=f10e1664] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e1666] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e1668] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e1671]:
+              - generic [ref=f10e1673]: Na sklade
+              - button "-41% v porovnaní s OMC 24,60 €" [ref=f10e1674] [cursor=pointer]:
+                - generic [ref=f10e1675]: "-41%"
+                - generic [ref=f10e1676]:
+                  - generic [ref=f10e1677]: v porovnaní s
+                  - generic [ref=f10e1678]: OMC 24,60 €
+              - generic [ref=f10e1680]: 14, 49 €
+              - generic [ref=f10e1681]:
+                - paragraph [ref=f10e1682]: Cena vr. 23% DPH
+                - paragraph [ref=f10e1683]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e1684] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e1685]:
+                - generic [ref=f10e1686]:
+                  - generic [ref=f10e1687]:
+                    - button [ref=f10e1688] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e1689] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e1690] [cursor=pointer]
+                - generic [ref=f10e1693] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e1697] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e1700]: Sledovať zníženia ceny
+          - generic [ref=f10e1707]:
+            - generic [ref=f10e1708]:
+              - link [ref=f10e1709] [cursor=pointer]:
+                - img "RIDEX Olejový filter 7O0158" [ref=f10e1710]
+              - link [ref=f10e1711] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ridex/13468023#olejovy-filter
+                - img "Olejový filter RIDEX 7O0158" [ref=f10e1712]
+              - button "7O0158" [ref=f10e1714] [cursor=pointer]
+            - generic [ref=f10e1715]:
+              - link "7O0158 RIDEX Olejový filter Skrutkovací filter" [ref=f10e1716] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ridex/13468023
+                - text: 7O0158 RIDEX Olejový filter
+                - generic [ref=f10e1717]: Skrutkovací filter
+              - generic [ref=f10e1718]:
+                - generic [ref=f10e1719]:
+                  - generic [ref=f10e1720]: "Číslo produktu: 7O0158"
+                  - generic [ref=f10e1721]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e1722]: W 7056
+                - generic [ref=f10e1723]:
+                  - link [ref=f10e1724] [cursor=pointer]
+                  - link "recenzie - 47" [ref=f10e1726] [cursor=pointer]
+            - generic [ref=f10e1727]:
+              - generic [ref=f10e1728]:
+                - generic [ref=f10e1729]:
+                  - list [ref=f10e1731]:
+                    - listitem [ref=f10e1732]:
+                      - generic [ref=f10e1733]: "Prevedenie filtra:"
+                      - generic [ref=f10e1734]: Skrutkovací filter
+                    - listitem [ref=f10e1735]:
+                      - generic [ref=f10e1736]: "Doplnkový tovar / Dopňujúca informácia 2:"
+                      - generic [ref=f10e1737]: s jednym spätným ventilom
+                    - listitem [ref=f10e1738]:
+                      - generic [ref=f10e1739]: "Priemer:"
+                      - generic [ref=f10e1740]: 76,0
+                    - listitem [ref=f10e1741]:
+                      - generic [ref=f10e1742]: "Výška:"
+                      - generic [ref=f10e1743]: 85,0
+                    - listitem [ref=f10e1744]:
+                      - generic [ref=f10e1745]: "Pripojovací závit:"
+                      - generic [ref=f10e1746]: M22x1,5
+                    - listitem [ref=f10e1747]:
+                      - generic [ref=f10e1748]: "Uťahovací moment [Nm]:"
+                      - generic [ref=f10e1749]: "14"
+                    - listitem [ref=f10e1750]:
+                      - generic [ref=f10e1751]: "Typ ventilu:"
+                      - generic [ref=f10e1752]: Prepadový ventil
+                  - button "Viac" [ref=f10e1754] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e1756] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e1758] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e1761]:
+              - generic [ref=f10e1763]: Na sklade
+              - button "-8% v porovnaní s OMC 8,30 €" [ref=f10e1764] [cursor=pointer]:
+                - generic [ref=f10e1765]: "-8%"
+                - generic [ref=f10e1766]:
+                  - generic [ref=f10e1767]: v porovnaní s
+                  - generic [ref=f10e1768]: OMC 8,30 €
+              - generic [ref=f10e1770]: 7, 59 €
+              - generic [ref=f10e1771]:
+                - paragraph [ref=f10e1772]: Cena vr. 23% DPH
+                - paragraph [ref=f10e1773]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e1774] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e1775]:
+                - generic [ref=f10e1776]:
+                  - generic [ref=f10e1777]:
+                    - button [ref=f10e1778] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e1779] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e1780] [cursor=pointer]
+                - generic [ref=f10e1783] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e1787] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e1790]: Sledovať zníženia ceny
+          - generic [ref=f10e1797]:
+            - generic [ref=f10e1798]:
+              - link [ref=f10e1799] [cursor=pointer]:
+                - img "RIDEX PLUS Olejový filter 7O0158P" [ref=f10e1800]
+              - link [ref=f10e1801] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ridex-plus/18743995#olejovy-filter
+                - img "Olejový filter RIDEX PLUS 7O0158P" [ref=f10e1802]
+              - button "7O0158P" [ref=f10e1804] [cursor=pointer]
+            - generic [ref=f10e1805]:
+              - link "7O0158P RIDEX PLUS Olejový filter Skrutkovací filter" [ref=f10e1806] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ridex-plus/18743995
+                - text: 7O0158P RIDEX PLUS Olejový filter
+                - generic [ref=f10e1807]: Skrutkovací filter
+              - generic [ref=f10e1808]:
+                - generic [ref=f10e1809]:
+                  - generic [ref=f10e1810]: "Číslo produktu: 7O0158P"
+                  - generic [ref=f10e1811]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e1812]: W 7056
+                - generic [ref=f10e1813]:
+                  - link [ref=f10e1814] [cursor=pointer]
+                  - link "recenzie - 4" [ref=f10e1816] [cursor=pointer]
+            - generic [ref=f10e1817]:
+              - generic [ref=f10e1818]:
+                - generic [ref=f10e1819]:
+                  - list [ref=f10e1821]:
+                    - listitem [ref=f10e1822]:
+                      - generic [ref=f10e1823]: "Prevedenie filtra:"
+                      - generic [ref=f10e1824]: Skrutkovací filter
+                    - listitem [ref=f10e1825]:
+                      - generic [ref=f10e1826]: "Doplnkový tovar / Dopňujúca informácia 2:"
+                      - generic [ref=f10e1827]: s jednym spätným ventilom
+                    - listitem [ref=f10e1828]:
+                      - generic [ref=f10e1829]: "Priemer:"
+                      - generic [ref=f10e1830]: 76,0
+                    - listitem [ref=f10e1831]:
+                      - generic [ref=f10e1832]: "Výška:"
+                      - generic [ref=f10e1833]: 85,0, 85
+                    - listitem [ref=f10e1834]:
+                      - generic [ref=f10e1835]: "Pripojovací závit:"
+                      - generic [ref=f10e1836]: M22x1,5
+                    - listitem [ref=f10e1837]:
+                      - generic [ref=f10e1838]: "Priemer 2 [mm]:"
+                      - generic [ref=f10e1839]: 71,0
+                    - listitem [ref=f10e1840]:
+                      - generic [ref=f10e1841]: "Priemer 3 [mm]:"
+                      - generic [ref=f10e1842]: 63,0
+                  - button "Viac" [ref=f10e1844] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e1846] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e1848] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e1851]:
+              - generic [ref=f10e1853]: Na sklade
+              - button "-53% v porovnaní s OMC 20,72 €" [ref=f10e1854] [cursor=pointer]:
+                - generic [ref=f10e1855]: "-53%"
+                - generic [ref=f10e1856]:
+                  - generic [ref=f10e1857]: v porovnaní s
+                  - generic [ref=f10e1858]: OMC 20,72 €
+              - generic [ref=f10e1860]: 9, 59 €
+              - generic [ref=f10e1861]:
+                - paragraph [ref=f10e1862]: Cena vr. 23% DPH
+                - paragraph [ref=f10e1863]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e1864] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e1865]:
+                - generic [ref=f10e1866]:
+                  - generic [ref=f10e1867]:
+                    - button [ref=f10e1868] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e1869] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e1870] [cursor=pointer]
+                - generic [ref=f10e1873] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e1877] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e1880]: Sledovať zníženia ceny
+          - generic [ref=f10e1887]:
+            - generic [ref=f10e1888]:
+              - link [ref=f10e1889] [cursor=pointer]:
+                - img "KAMOKA Olejový filter F118501" [ref=f10e1890]
+              - link [ref=f10e1891] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/kamoka/15501963#olejovy-filter
+                - img "Olejový filter KAMOKA F118501" [ref=f10e1892]
+            - generic [ref=f10e1893]:
+              - link "F118501 KAMOKA Olejový filter Skrutkovací filter" [ref=f10e1894] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/kamoka/15501963
+                - text: F118501 KAMOKA Olejový filter
+                - generic [ref=f10e1895]: Skrutkovací filter
+              - generic [ref=f10e1896]:
+                - generic [ref=f10e1897]:
+                  - generic [ref=f10e1898]: "Číslo produktu: F118501"
+                  - generic [ref=f10e1899]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e1900]: W 7056
+                - generic [ref=f10e1901]:
+                  - link [ref=f10e1902] [cursor=pointer]
+                  - link "recenzie - 8" [ref=f10e1904] [cursor=pointer]
+            - generic [ref=f10e1905]:
+              - generic [ref=f10e1906]:
+                - generic [ref=f10e1907]:
+                  - list [ref=f10e1909]:
+                    - listitem [ref=f10e1910]:
+                      - generic [ref=f10e1911]: "Prevedenie filtra:"
+                      - generic [ref=f10e1912]: Skrutkovací filter
+                    - listitem [ref=f10e1913]:
+                      - generic [ref=f10e1914]: "Výška:"
+                      - generic [ref=f10e1915]: "85"
+                    - listitem [ref=f10e1916]:
+                      - generic [ref=f10e1917]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e1918]: "77"
+                    - listitem [ref=f10e1919]:
+                      - generic [ref=f10e1920]: "Vnútorný priemer 1 [mm]:"
+                      - generic [ref=f10e1921]: 71, 62
+                    - listitem [ref=f10e1922]:
+                      - generic [ref=f10e1923]: "Číslo položky:"
+                      - generic [ref=f10e1924]: F118501
+                    - listitem [ref=f10e1925]:
+                      - generic [ref=f10e1926]: "Naša cena:"
+                      - generic [ref=f10e1927]: 7,29 €
+                    - listitem [ref=f10e1928]:
+                      - generic [ref=f10e1929]: "Značka:"
+                      - generic [ref=f10e1930]: KAMOKA
+                  - button "Viac" [ref=f10e1932] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e1934] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e1936] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e1939]:
+              - generic [ref=f10e1941]: Na sklade
+              - generic [ref=f10e1942]: 7, 29 €
+              - generic [ref=f10e1943]:
+                - paragraph [ref=f10e1944]: Cena vr. 23% DPH
+                - paragraph [ref=f10e1945]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e1946] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e1947]:
+                - generic [ref=f10e1948]:
+                  - generic [ref=f10e1949]:
+                    - button [ref=f10e1950] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e1951] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e1952] [cursor=pointer]
+                - generic [ref=f10e1955] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e1959] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e1962]: Sledovať zníženia ceny
+          - generic [ref=f10e1969]:
+            - generic [ref=f10e1970]:
+              - link [ref=f10e1971] [cursor=pointer]:
+                - img "KAMOKA Olejový filter F117301" [ref=f10e1972]
+              - link [ref=f10e1973] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/kamoka/15501951#olejovy-filter
+                - img "Olejový filter KAMOKA F117301" [ref=f10e1974]
+            - generic [ref=f10e1975]:
+              - link "F117301 KAMOKA Olejový filter Skrutkovací filter" [ref=f10e1976] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/kamoka/15501951
+                - text: F117301 KAMOKA Olejový filter
+                - generic [ref=f10e1977]: Skrutkovací filter
+              - generic [ref=f10e1978]:
+                - generic [ref=f10e1979]:
+                  - generic [ref=f10e1980]: "Číslo produktu: F117301"
+                  - generic [ref=f10e1981]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e1982]: W7056
+                - generic [ref=f10e1983]:
+                  - link [ref=f10e1984] [cursor=pointer]
+                  - link "recenzie - 2" [ref=f10e1986] [cursor=pointer]
+            - generic [ref=f10e1987]:
+              - generic [ref=f10e1988]:
+                - generic [ref=f10e1989]:
+                  - list [ref=f10e1991]:
+                    - listitem [ref=f10e1992]:
+                      - generic [ref=f10e1993]: "Prevedenie filtra:"
+                      - generic [ref=f10e1994]: Skrutkovací filter
+                    - listitem [ref=f10e1995]:
+                      - generic [ref=f10e1996]: "Výška:"
+                      - generic [ref=f10e1997]: "91"
+                    - listitem [ref=f10e1998]:
+                      - generic [ref=f10e1999]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2000]: "74"
+                    - listitem [ref=f10e2001]:
+                      - generic [ref=f10e2002]: "Vnútorný priemer 1 [mm]:"
+                      - generic [ref=f10e2003]: 70, 62
+                    - listitem [ref=f10e2004]:
+                      - generic [ref=f10e2005]: "Číslo položky:"
+                      - generic [ref=f10e2006]: F117301
+                    - listitem [ref=f10e2007]:
+                      - generic [ref=f10e2008]: "Naša cena:"
+                      - generic [ref=f10e2009]: 7,59 €
+                    - listitem [ref=f10e2010]:
+                      - generic [ref=f10e2011]: "Značka:"
+                      - generic [ref=f10e2012]: KAMOKA
+                  - button "Viac" [ref=f10e2014] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2016] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2018] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2021]:
+              - generic [ref=f10e2023]: Na sklade
+              - generic [ref=f10e2024]: 7, 59 €
+              - generic [ref=f10e2025]:
+                - paragraph [ref=f10e2026]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2027]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2028] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2029]:
+                - generic [ref=f10e2030]:
+                  - generic [ref=f10e2031]:
+                    - button [ref=f10e2032] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2033] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2034] [cursor=pointer]
+                - generic [ref=f10e2037] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2041] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2044]: Sledovať zníženia ceny
+          - generic [ref=f10e2051]:
+            - generic [ref=f10e2052]:
+              - link [ref=f10e2053] [cursor=pointer]:
+                - img "DENCKERMANN Olejový filter A210721PL" [ref=f10e2054]
+              - link [ref=f10e2055] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/denckermann/10584788#olejovy-filter
+                - img "Olejový filter DENCKERMANN A210721PL" [ref=f10e2056]
+            - generic [ref=f10e2057]:
+              - link "A210721PL DENCKERMANN Olejový filter Skrutkovací filter" [ref=f10e2058] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/denckermann/10584788
+                - text: A210721PL DENCKERMANN Olejový filter
+                - generic [ref=f10e2059]: Skrutkovací filter
+              - generic [ref=f10e2060]:
+                - generic [ref=f10e2061]:
+                  - generic [ref=f10e2062]: "Číslo produktu: A210721PL"
+                  - generic [ref=f10e2063]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2064]: W 7056
+                - generic [ref=f10e2065]:
+                  - link [ref=f10e2066] [cursor=pointer]
+                  - link "recenzie - 4" [ref=f10e2068] [cursor=pointer]
+            - generic [ref=f10e2069]:
+              - generic [ref=f10e2070]:
+                - generic [ref=f10e2071]:
+                  - list [ref=f10e2073]:
+                    - listitem [ref=f10e2074]:
+                      - generic [ref=f10e2075]: "Prevedenie filtra:"
+                      - generic [ref=f10e2076]: Skrutkovací filter
+                    - listitem [ref=f10e2077]:
+                      - generic [ref=f10e2078]: "Rozmer závitu 1:"
+                      - generic [ref=f10e2079]: M22X1.5
+                    - listitem [ref=f10e2080]:
+                      - generic [ref=f10e2081]: "Výška:"
+                      - generic [ref=f10e2082]: "87"
+                    - listitem [ref=f10e2083]:
+                      - generic [ref=f10e2084]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2085]: "75"
+                    - listitem [ref=f10e2086]:
+                      - generic [ref=f10e2087]: "Číslo položky:"
+                      - generic [ref=f10e2088]: A210721PL
+                    - listitem [ref=f10e2089]:
+                      - generic [ref=f10e2090]: "Naša cena:"
+                      - generic [ref=f10e2091]: 9,59 €
+                    - listitem [ref=f10e2092]:
+                      - generic [ref=f10e2093]: "Značka:"
+                      - generic [ref=f10e2094]: DENCKERMANN
+                  - button "Viac" [ref=f10e2096] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2098] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2100] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2103]:
+              - generic [ref=f10e2105]: Na sklade
+              - generic [ref=f10e2106]: 9, 59 €
+              - generic [ref=f10e2107]:
+                - paragraph [ref=f10e2108]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2109]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2110] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2111]:
+                - generic [ref=f10e2112]:
+                  - generic [ref=f10e2113]:
+                    - button [ref=f10e2114] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2115] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2116] [cursor=pointer]
+                - generic [ref=f10e2119] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2123] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2126]: Sledovať zníženia ceny
+          - generic [ref=f10e2133]:
+            - generic [ref=f10e2134]:
+              - link [ref=f10e2135] [cursor=pointer]:
+                - img "DENCKERMANN Olejový filter A211039" [ref=f10e2136]
+              - link [ref=f10e2137] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/denckermann/17412412#olejovy-filter
+                - img "Olejový filter DENCKERMANN A211039" [ref=f10e2138]
+            - generic [ref=f10e2139]:
+              - link "A211039 DENCKERMANN Olejový filter M 22 X 1.5, Skrutkovací filter" [ref=f10e2140] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/denckermann/17412412
+                - text: A211039 DENCKERMANN Olejový filter
+                - generic [ref=f10e2141]: M 22 X 1.5, Skrutkovací filter
+              - generic [ref=f10e2142]:
+                - generic [ref=f10e2143]:
+                  - generic [ref=f10e2144]: "Číslo produktu: A211039"
+                  - generic [ref=f10e2145]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2146]: W 7056
+                - generic [ref=f10e2147]:
+                  - link [ref=f10e2148] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2150] [cursor=pointer]
+            - generic [ref=f10e2151]:
+              - generic [ref=f10e2152]:
+                - generic [ref=f10e2153]:
+                  - list [ref=f10e2155]:
+                    - listitem [ref=f10e2156]:
+                      - generic [ref=f10e2157]: "Prevedenie filtra:"
+                      - generic [ref=f10e2158]: Skrutkovací filter
+                    - listitem [ref=f10e2159]:
+                      - generic [ref=f10e2160]: "Doplnkový tovar / Dopňujúca informácia 2:"
+                      - generic [ref=f10e2161]: s jednym spätným ventilom
+                    - listitem [ref=f10e2162]:
+                      - generic [ref=f10e2163]: "Otvárací tlak obehového ventilu [bar]:"
+                      - generic [ref=f10e2164]: 1,8
+                    - listitem [ref=f10e2165]:
+                      - generic [ref=f10e2166]: "Výška:"
+                      - generic [ref=f10e2167]: "75"
+                    - listitem [ref=f10e2168]:
+                      - generic [ref=f10e2169]: "Rozmer závitu:"
+                      - generic [ref=f10e2170]: M 22 X 1.5
+                    - listitem [ref=f10e2171]:
+                      - generic [ref=f10e2172]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2173]: "76"
+                    - listitem [ref=f10e2174]:
+                      - generic [ref=f10e2175]: "Vonkajší priemer 2 [mm]:"
+                      - generic [ref=f10e2176]: "70"
+                  - button "Viac" [ref=f10e2178] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2180] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2182] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2185]:
+              - generic [ref=f10e2187]: Na sklade
+              - generic [ref=f10e2188]: 9, 99 €
+              - generic [ref=f10e2189]:
+                - paragraph [ref=f10e2190]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2191]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2192] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2193]:
+                - generic [ref=f10e2194]:
+                  - generic [ref=f10e2195]:
+                    - button [ref=f10e2196] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2197] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2198] [cursor=pointer]
+                - generic [ref=f10e2201] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2205] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2208]: Sledovať zníženia ceny
+          - generic [ref=f10e2215]:
+            - generic [ref=f10e2216]:
+              - link [ref=f10e2217] [cursor=pointer]:
+                - img "ASHIKA Olejový filter 10-08-801" [ref=f10e2218]
+              - link [ref=f10e2219] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ashika/8750296#olejovy-filter
+                - img "Olejový filter ASHIKA 10-08-801" [ref=f10e2220]
+            - generic [ref=f10e2221]:
+              - link "10-08-801 ASHIKA Olejový filter Skrutkovací filter" [ref=f10e2222] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ashika/8750296
+                - text: 10-08-801 ASHIKA Olejový filter
+                - generic [ref=f10e2223]: Skrutkovací filter
+              - generic [ref=f10e2224]:
+                - generic [ref=f10e2225]:
+                  - generic [ref=f10e2226]: "Číslo produktu: 10-08-801"
+                  - generic [ref=f10e2227]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2228]: W 7056
+                - generic [ref=f10e2229]:
+                  - link [ref=f10e2230] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2231] [cursor=pointer]
+            - generic [ref=f10e2232]:
+              - generic [ref=f10e2233]:
+                - generic [ref=f10e2234]:
+                  - list [ref=f10e2236]:
+                    - listitem [ref=f10e2237]:
+                      - generic [ref=f10e2238]: "Prevedenie filtra:"
+                      - generic [ref=f10e2239]: Skrutkovací filter
+                    - listitem [ref=f10e2240]:
+                      - generic [ref=f10e2241]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2242]: "75"
+                    - listitem [ref=f10e2243]:
+                      - generic [ref=f10e2244]: "Montážny priemer [mm]:"
+                      - generic [ref=f10e2245]: "63"
+                    - listitem [ref=f10e2246]:
+                      - generic [ref=f10e2247]: "Vnútorný závit [mm]:"
+                      - generic [ref=f10e2248]: M 22x1,5
+                    - listitem [ref=f10e2249]:
+                      - generic [ref=f10e2250]: "Dĺžka [mm]:"
+                      - generic [ref=f10e2251]: "86"
+                    - listitem [ref=f10e2252]:
+                      - generic [ref=f10e2253]: "pre OE-číslo:"
+                      - generic [ref=f10e2254]: 1651078J01
+                    - listitem [ref=f10e2255]:
+                      - generic [ref=f10e2256]: "Číslo položky:"
+                      - generic [ref=f10e2257]: 10-08-801
+                  - button "Viac" [ref=f10e2259] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2261] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2263] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2266]:
+              - generic [ref=f10e2268]: "Na sklade (Zostáva položiek: 3)"
+              - generic [ref=f10e2269]: 9, 99 €
+              - generic [ref=f10e2270]:
+                - paragraph [ref=f10e2271]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2272]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2273] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2274]:
+                - generic [ref=f10e2275]:
+                  - generic [ref=f10e2276]:
+                    - button [ref=f10e2277] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2278] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2279] [cursor=pointer]
+                - generic [ref=f10e2282] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2286] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2289]: Sledovať zníženia ceny
+          - generic [ref=f10e2296]:
+            - generic [ref=f10e2297]:
+              - link [ref=f10e2298] [cursor=pointer]:
+                - img "MAXGEAR Olejový filter 26-1221" [ref=f10e2299]
+              - link [ref=f10e2300] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/13934170#olejovy-filter
+                - img "Olejový filter MAXGEAR 26-1221" [ref=f10e2301]
+            - generic [ref=f10e2302]:
+              - link "26-1221 MAXGEAR Olejový filter M 22 X 1.5, Skrutkovací filter" [ref=f10e2303] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/13934170
+                - text: 26-1221 MAXGEAR Olejový filter
+                - generic [ref=f10e2304]: M 22 X 1.5, Skrutkovací filter
+              - generic [ref=f10e2305]:
+                - generic [ref=f10e2306]:
+                  - generic [ref=f10e2307]: "Číslo produktu: 26-1221"
+                  - generic [ref=f10e2308]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2309]: W7056
+                - generic [ref=f10e2310]:
+                  - link [ref=f10e2311] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2313] [cursor=pointer]
+            - generic [ref=f10e2314]:
+              - generic [ref=f10e2315]:
+                - generic [ref=f10e2316]:
+                  - list [ref=f10e2318]:
+                    - listitem [ref=f10e2319]:
+                      - generic [ref=f10e2320]: "Prevedenie filtra:"
+                      - generic [ref=f10e2321]: Skrutkovací filter
+                    - listitem [ref=f10e2322]:
+                      - generic [ref=f10e2323]: "Rozmer závitu:"
+                      - generic [ref=f10e2324]: M 22 X 1.5
+                    - listitem [ref=f10e2325]:
+                      - generic [ref=f10e2326]: "Výška:"
+                      - generic [ref=f10e2327]: "88"
+                    - listitem [ref=f10e2328]:
+                      - generic [ref=f10e2329]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2330]: "75"
+                    - listitem [ref=f10e2331]:
+                      - generic [ref=f10e2332]: "Vonkajší priemer 2 [mm]:"
+                      - generic [ref=f10e2333]: "70"
+                    - listitem [ref=f10e2334]:
+                      - generic [ref=f10e2335]: "Vnútorný priemer 2 [mm]:"
+                      - generic [ref=f10e2336]: "61"
+                    - listitem [ref=f10e2337]:
+                      - generic [ref=f10e2338]: "Otvárací tlak obehového ventilu [bar]:"
+                      - generic [ref=f10e2339]: 0,8
+                  - button "Viac" [ref=f10e2341] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2343] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2345] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2348]:
+              - generic [ref=f10e2350]: Na sklade
+              - generic [ref=f10e2351]: 10, 49 €
+              - generic [ref=f10e2352]:
+                - paragraph [ref=f10e2353]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2354]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2355] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2356]:
+                - generic [ref=f10e2357]:
+                  - generic [ref=f10e2358]:
+                    - button [ref=f10e2359] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2360] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2361] [cursor=pointer]
+                - generic [ref=f10e2364] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2368] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2371]: Sledovať zníženia ceny
+          - generic [ref=f10e2378]:
+            - generic [ref=f10e2379]:
+              - link [ref=f10e2380] [cursor=pointer]:
+                - img "DACO Germany Olejový filter DFO0401" [ref=f10e2381]
+              - link [ref=f10e2382] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/daco-germany/17708950#olejovy-filter
+                - img "Olejový filter DACO Germany DFO0401" [ref=f10e2383]
+            - generic [ref=f10e2384]:
+              - link "DFO0401 DACO Germany Olejový filter M 22 X 1.5, Skrutkovací filter" [ref=f10e2385] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/daco-germany/17708950
+                - text: DFO0401 DACO Germany Olejový filter
+                - generic [ref=f10e2386]: M 22 X 1.5, Skrutkovací filter
+              - generic [ref=f10e2387]:
+                - generic [ref=f10e2388]:
+                  - generic [ref=f10e2389]: "Číslo produktu: DFO0401"
+                  - generic [ref=f10e2390]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2391]: W7056
+                - generic [ref=f10e2392]:
+                  - link [ref=f10e2393] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2395] [cursor=pointer]
+            - generic [ref=f10e2396]:
+              - generic [ref=f10e2397]:
+                - generic [ref=f10e2398]:
+                  - list [ref=f10e2400]:
+                    - listitem [ref=f10e2401]:
+                      - generic [ref=f10e2402]: "Prevedenie filtra:"
+                      - generic [ref=f10e2403]: Skrutkovací filter
+                    - listitem [ref=f10e2404]:
+                      - generic [ref=f10e2405]: "Výška:"
+                      - generic [ref=f10e2406]: "85"
+                    - listitem [ref=f10e2407]:
+                      - generic [ref=f10e2408]: "Rozmer závitu:"
+                      - generic [ref=f10e2409]: M 22 X 1.5
+                    - listitem [ref=f10e2410]:
+                      - generic [ref=f10e2411]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2412]: "77"
+                    - listitem [ref=f10e2413]:
+                      - generic [ref=f10e2414]: "Vnútorný priemer 1 [mm]:"
+                      - generic [ref=f10e2415]: 71, 62
+                    - listitem [ref=f10e2416]:
+                      - generic [ref=f10e2417]: "Číslo položky:"
+                      - generic [ref=f10e2418]: DFO0401
+                    - listitem [ref=f10e2419]:
+                      - generic [ref=f10e2420]: "Naša cena:"
+                      - generic [ref=f10e2421]: 8,59 €
+                  - button "Viac" [ref=f10e2423] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2425] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2427] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2430]:
+              - generic [ref=f10e2432]: "Na sklade (Zostáva položiek: 3)"
+              - generic [ref=f10e2433]: 8, 59 €
+              - generic [ref=f10e2434]:
+                - paragraph [ref=f10e2435]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2436]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2437] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2438]:
+                - generic [ref=f10e2439]:
+                  - generic [ref=f10e2440]:
+                    - button [ref=f10e2441] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2442] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2443] [cursor=pointer]
+                - generic [ref=f10e2446] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2450] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2453]: Sledovať zníženia ceny
+          - generic [ref=f10e2460]:
+            - generic [ref=f10e2461]:
+              - link [ref=f10e2462] [cursor=pointer]:
+                - img "MAPCO Olejový filter 61703" [ref=f10e2463]
+              - link [ref=f10e2464] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/mapco/13835968#olejovy-filter
+                - img "Olejový filter MAPCO 61703" [ref=f10e2465]
+            - generic [ref=f10e2466]:
+              - link "61703 MAPCO Olejový filter Skrutkovací filter" [ref=f10e2467] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/mapco/13835968
+                - text: 61703 MAPCO Olejový filter
+                - generic [ref=f10e2468]: Skrutkovací filter
+              - generic [ref=f10e2469]:
+                - generic [ref=f10e2470]:
+                  - generic [ref=f10e2471]: "Číslo produktu: 61703"
+                  - generic [ref=f10e2472]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2473]: W 7056
+                - generic [ref=f10e2474]:
+                  - link [ref=f10e2475] [cursor=pointer]
+                  - link "recenzie - 2" [ref=f10e2477] [cursor=pointer]
+            - generic [ref=f10e2478]:
+              - generic [ref=f10e2479]:
+                - generic [ref=f10e2480]:
+                  - list [ref=f10e2482]:
+                    - listitem [ref=f10e2483]:
+                      - generic [ref=f10e2484]: "Prevedenie filtra:"
+                      - generic [ref=f10e2485]: Skrutkovací filter
+                    - listitem [ref=f10e2486]:
+                      - generic [ref=f10e2487]: "Priemer obalu, veka [mm]:"
+                      - generic [ref=f10e2488]: "76"
+                    - listitem [ref=f10e2489]:
+                      - generic [ref=f10e2490]: "Výška:"
+                      - generic [ref=f10e2491]: "80"
+                    - listitem [ref=f10e2492]:
+                      - generic [ref=f10e2493]: "Pripojovací závit:"
+                      - generic [ref=f10e2494]: M22x1,5
+                    - listitem [ref=f10e2495]:
+                      - generic [ref=f10e2496]: "Priemer gufera (mm):"
+                      - generic [ref=f10e2497]: "72"
+                    - listitem [ref=f10e2498]:
+                      - generic [ref=f10e2499]: "Vnútorný priemer 2 [mm]:"
+                      - generic [ref=f10e2500]: "62"
+                    - listitem [ref=f10e2501]:
+                      - generic [ref=f10e2502]: "Otvárací tlak obehového ventilu [bar]:"
+                      - generic [ref=f10e2503]: 1,6
+                  - button "Viac" [ref=f10e2505] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2507] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2509] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2512]:
+              - generic [ref=f10e2514]: Na sklade
+              - button "-71% v porovnaní s OMC 32,40 €" [ref=f10e2515] [cursor=pointer]:
+                - generic [ref=f10e2516]: "-71%"
+                - generic [ref=f10e2517]:
+                  - generic [ref=f10e2518]: v porovnaní s
+                  - generic [ref=f10e2519]: OMC 32,40 €
+              - generic [ref=f10e2521]: 9, 29 €
+              - generic [ref=f10e2522]:
+                - paragraph [ref=f10e2523]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2524]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2525] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2526]:
+                - generic [ref=f10e2527]:
+                  - generic [ref=f10e2528]:
+                    - button [ref=f10e2529] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2530] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2531] [cursor=pointer]
+                - generic [ref=f10e2534] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2538] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2541]: Sledovať zníženia ceny
+          - generic [ref=f10e2548]:
+            - generic [ref=f10e2549]:
+              - link [ref=f10e2550] [cursor=pointer]:
+                - img "goCORE Olejový filter GCG0090" [ref=f10e2551]
+              - link [ref=f10e2552] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/gocore/21855164#olejovy-filter
+                - img "Olejový filter goCORE GCG0090" [ref=f10e2553]
+            - generic [ref=f10e2554]:
+              - link "GCG0090 goCORE Olejový filter Skrutkovací filter" [ref=f10e2555] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/gocore/21855164
+                - text: GCG0090 goCORE Olejový filter
+                - generic [ref=f10e2556]: Skrutkovací filter
+              - generic [ref=f10e2557]:
+                - generic [ref=f10e2558]:
+                  - generic [ref=f10e2559]: "Číslo produktu: GCG0090"
+                  - generic [ref=f10e2560]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2561]: W 7056
+                - generic [ref=f10e2562]:
+                  - link [ref=f10e2563] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2565] [cursor=pointer]
+            - generic [ref=f10e2566]:
+              - generic [ref=f10e2567]:
+                - generic [ref=f10e2568]:
+                  - list [ref=f10e2570]:
+                    - listitem [ref=f10e2571]:
+                      - generic [ref=f10e2572]: "Prevedenie filtra:"
+                      - generic [ref=f10e2573]: Skrutkovací filter
+                    - listitem [ref=f10e2574]:
+                      - generic [ref=f10e2575]: "Priemer:"
+                      - generic [ref=f10e2576]: "76"
+                    - listitem [ref=f10e2577]:
+                      - generic [ref=f10e2578]: "Výška:"
+                      - generic [ref=f10e2579]: "85"
+                    - listitem [ref=f10e2580]:
+                      - generic [ref=f10e2581]: "Pripojovací závit:"
+                      - generic [ref=f10e2582]: M22x1,5
+                    - listitem [ref=f10e2583]:
+                      - generic [ref=f10e2584]: "Priemer gufera (mm):"
+                      - generic [ref=f10e2585]: 71,5
+                    - listitem [ref=f10e2586]:
+                      - generic [ref=f10e2587]: "Otvárací tlak obehového ventilu [bar]:"
+                      - generic [ref=f10e2588]: 1,5
+                    - listitem [ref=f10e2589]:
+                      - generic [ref=f10e2590]: "Doporučený interval výmeny [km]:"
+                      - generic [ref=f10e2591]: "24000"
+                  - button "Viac" [ref=f10e2593] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2595] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2597] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2600]:
+              - generic [ref=f10e2602]: Na sklade
+              - generic [ref=f10e2603]: 18, 49 €
+              - generic [ref=f10e2604]:
+                - paragraph [ref=f10e2605]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2606]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2607] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2608]:
+                - generic [ref=f10e2609]:
+                  - generic [ref=f10e2610]:
+                    - button [ref=f10e2611] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2612] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2613] [cursor=pointer]
+                - generic [ref=f10e2616] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2620] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2623]: Sledovať zníženia ceny
+          - generic [ref=f10e2630]:
+            - generic [ref=f10e2631]:
+              - link [ref=f10e2632] [cursor=pointer]:
+                - img "TOPRAN Olejový filter 208 808" [ref=f10e2633]
+              - link [ref=f10e2634] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/topran/12926095#olejovy-filter
+                - img "Olejový filter TOPRAN 208 808" [ref=f10e2635]
+            - generic [ref=f10e2636]:
+              - link "208 808 TOPRAN Olejový filter Skrutkovací filter" [ref=f10e2637] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/topran/12926095
+                - text: 208 808 TOPRAN Olejový filter
+                - generic [ref=f10e2638]: Skrutkovací filter
+              - generic [ref=f10e2639]:
+                - generic [ref=f10e2640]:
+                  - generic [ref=f10e2641]: "Číslo produktu: 208 808"
+                  - generic [ref=f10e2642]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2643]: W7056
+                - generic [ref=f10e2644]:
+                  - link [ref=f10e2645] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2646] [cursor=pointer]
+            - generic [ref=f10e2647]:
+              - generic [ref=f10e2648]:
+                - generic [ref=f10e2649]:
+                  - list [ref=f10e2651]:
+                    - listitem [ref=f10e2652]:
+                      - generic [ref=f10e2653]: "Prevedenie filtra:"
+                      - generic [ref=f10e2654]: Skrutkovací filter
+                    - listitem [ref=f10e2655]:
+                      - generic [ref=f10e2656]: "Doplnkový tovar / Dopňujúca informácia:"
+                      - generic [ref=f10e2657]: s tesnenim
+                    - listitem [ref=f10e2658]:
+                      - generic [ref=f10e2659]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2660]: "76"
+                    - listitem [ref=f10e2661]:
+                      - generic [ref=f10e2662]: "Výška:"
+                      - generic [ref=f10e2663]: "87"
+                    - listitem [ref=f10e2664]:
+                      - generic [ref=f10e2665]: "Materiál krytu:"
+                      - generic [ref=f10e2666]: ocelovy plech
+                    - listitem [ref=f10e2667]:
+                      - generic [ref=f10e2668]: "Číslo položky:"
+                      - generic [ref=f10e2669]: 208 808
+                    - listitem [ref=f10e2670]:
+                      - generic [ref=f10e2671]: "Naša cena:"
+                      - generic [ref=f10e2672]: 9,59 €
+                  - button "Viac" [ref=f10e2674] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2676] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2678] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2681]:
+              - generic [ref=f10e2683]: "Na sklade (Zostáva položiek: 3)"
+              - button "-36% v porovnaní s OMC 15,00 €" [ref=f10e2684] [cursor=pointer]:
+                - generic [ref=f10e2685]: "-36%"
+                - generic [ref=f10e2686]:
+                  - generic [ref=f10e2687]: v porovnaní s
+                  - generic [ref=f10e2688]: OMC 15,00 €
+              - generic [ref=f10e2690]: 9, 59 €
+              - generic [ref=f10e2691]:
+                - paragraph [ref=f10e2692]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2693]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2694] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2695]:
+                - generic [ref=f10e2696]:
+                  - generic [ref=f10e2697]:
+                    - button [ref=f10e2698] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2699] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2700] [cursor=pointer]
+                - generic [ref=f10e2703] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2707] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2710]: Sledovať zníženia ceny
+          - generic [ref=f10e2717]:
+            - generic [ref=f10e2718]:
+              - link [ref=f10e2719] [cursor=pointer]:
+                - img "MAXGEAR Olejový filter 26-2053" [ref=f10e2720]
+              - link [ref=f10e2721] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/17031178#olejovy-filter
+                - img "Olejový filter MAXGEAR 26-2053" [ref=f10e2722]
+            - generic [ref=f10e2723]:
+              - link "26-2053 MAXGEAR Olejový filter M 22 x 1,5, Skrutkovací filter" [ref=f10e2724] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/17031178
+                - text: 26-2053 MAXGEAR Olejový filter
+                - generic [ref=f10e2725]: M 22 x 1,5, Skrutkovací filter
+              - generic [ref=f10e2726]:
+                - generic [ref=f10e2727]:
+                  - generic [ref=f10e2728]: "Číslo produktu: 26-2053"
+                  - generic [ref=f10e2729]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2730]: W7056
+                - generic [ref=f10e2731]:
+                  - link [ref=f10e2732] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2733] [cursor=pointer]
+            - generic [ref=f10e2734]:
+              - generic [ref=f10e2735]:
+                - generic [ref=f10e2736]:
+                  - list [ref=f10e2738]:
+                    - listitem [ref=f10e2739]:
+                      - generic [ref=f10e2740]: "Prevedenie filtra:"
+                      - generic [ref=f10e2741]: Skrutkovací filter
+                    - listitem [ref=f10e2742]:
+                      - generic [ref=f10e2743]: "Rozmer závitu:"
+                      - generic [ref=f10e2744]: M 22 x 1,5
+                    - listitem [ref=f10e2745]:
+                      - generic [ref=f10e2746]: "Výška:"
+                      - generic [ref=f10e2747]: "86"
+                    - listitem [ref=f10e2748]:
+                      - generic [ref=f10e2749]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2750]: "74"
+                    - listitem [ref=f10e2751]:
+                      - generic [ref=f10e2752]: "Vnútorný priemer [mm]:"
+                      - generic [ref=f10e2753]: "62"
+                    - listitem [ref=f10e2754]:
+                      - generic [ref=f10e2755]: "Hmotnosť [kg]:"
+                      - generic [ref=f10e2756]: 0,3
+                    - listitem [ref=f10e2757]:
+                      - generic [ref=f10e2758]: "Číslo položky:"
+                      - generic [ref=f10e2759]: 26-2053
+                  - button "Viac" [ref=f10e2761] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2763] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2765] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2768]:
+              - generic [ref=f10e2770]: Na sklade
+              - generic [ref=f10e2771]: 13, 99 €
+              - generic [ref=f10e2772]:
+                - paragraph [ref=f10e2773]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2774]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2775] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2776]:
+                - generic [ref=f10e2777]:
+                  - generic [ref=f10e2778]:
+                    - button [ref=f10e2779] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2780] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2781] [cursor=pointer]
+                - generic [ref=f10e2784] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2788] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2791]: Sledovať zníženia ceny
+          - generic [ref=f10e2798]:
+            - generic [ref=f10e2799]:
+              - link [ref=f10e2800] [cursor=pointer]:
+                - img "MAXGEAR Olejový filter 26-2034" [ref=f10e2801]
+              - link [ref=f10e2802] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/17031161#olejovy-filter
+                - img "Olejový filter MAXGEAR 26-2034" [ref=f10e2803]
+            - generic [ref=f10e2804]:
+              - link "26-2034 MAXGEAR Olejový filter M22x1,5, Skrutkovací filter" [ref=f10e2805] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/17031161
+                - text: 26-2034 MAXGEAR Olejový filter
+                - generic [ref=f10e2806]: M22x1,5, Skrutkovací filter
+              - generic [ref=f10e2807]:
+                - generic [ref=f10e2808]:
+                  - generic [ref=f10e2809]: "Číslo produktu: 26-2034"
+                  - generic [ref=f10e2810]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2811]: W7056
+                - generic [ref=f10e2812]:
+                  - link [ref=f10e2813] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e2815] [cursor=pointer]
+            - generic [ref=f10e2816]:
+              - generic [ref=f10e2817]:
+                - generic [ref=f10e2818]:
+                  - list [ref=f10e2820]:
+                    - listitem [ref=f10e2821]:
+                      - generic [ref=f10e2822]: "Prevedenie filtra:"
+                      - generic [ref=f10e2823]: Skrutkovací filter
+                    - listitem [ref=f10e2824]:
+                      - generic [ref=f10e2825]: "Rozmer závitu:"
+                      - generic [ref=f10e2826]: M22x1,5
+                    - listitem [ref=f10e2827]:
+                      - generic [ref=f10e2828]: "Výška:"
+                      - generic [ref=f10e2829]: "85"
+                    - listitem [ref=f10e2830]:
+                      - generic [ref=f10e2831]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2832]: "77"
+                    - listitem [ref=f10e2833]:
+                      - generic [ref=f10e2834]: "Číslo položky:"
+                      - generic [ref=f10e2835]: 26-2034
+                    - listitem [ref=f10e2836]:
+                      - generic [ref=f10e2837]: "Naša cena:"
+                      - generic [ref=f10e2838]: 13,99 €
+                    - listitem [ref=f10e2839]:
+                      - generic [ref=f10e2840]: "Značka:"
+                      - generic [ref=f10e2841]: MAXGEAR
+                  - button "Viac" [ref=f10e2843] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2845] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2847] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2850]:
+              - generic [ref=f10e2852]: Na sklade
+              - generic [ref=f10e2853]: 13, 99 €
+              - generic [ref=f10e2854]:
+                - paragraph [ref=f10e2855]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2856]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2857] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2858]:
+                - generic [ref=f10e2859]:
+                  - generic [ref=f10e2860]:
+                    - button [ref=f10e2861] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2862] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2863] [cursor=pointer]
+                - generic [ref=f10e2866] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2870] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2873]: Sledovať zníženia ceny
+          - generic [ref=f10e2880]:
+            - generic [ref=f10e2881]:
+              - link [ref=f10e2882] [cursor=pointer]:
+                - img "BLUE PRINT Olejový filter ADA102112" [ref=f10e2883]
+              - link [ref=f10e2884] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/blue-print/2878600#olejovy-filter
+                - img "Olejový filter BLUE PRINT ADA102112" [ref=f10e2885]
+            - generic [ref=f10e2886]:
+              - link "ADA102112 BLUE PRINT Olejový filter Skrutkovací filter" [ref=f10e2887] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/blue-print/2878600
+                - text: ADA102112 BLUE PRINT Olejový filter
+                - generic [ref=f10e2888]: Skrutkovací filter
+              - generic [ref=f10e2889]:
+                - generic [ref=f10e2890]:
+                  - generic [ref=f10e2891]: "Číslo produktu: ADA102112"
+                  - generic [ref=f10e2892]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2893]: W7056
+                - generic [ref=f10e2894]:
+                  - link [ref=f10e2895] [cursor=pointer]
+                  - link "recenzie - 2" [ref=f10e2897] [cursor=pointer]
+            - generic [ref=f10e2898]:
+              - generic [ref=f10e2899]:
+                - generic [ref=f10e2900]:
+                  - list [ref=f10e2902]:
+                    - listitem [ref=f10e2903]:
+                      - generic [ref=f10e2904]: "Prevedenie filtra:"
+                      - generic [ref=f10e2905]: Skrutkovací filter
+                    - listitem [ref=f10e2906]:
+                      - generic [ref=f10e2907]: "Materiál krytu:"
+                      - generic [ref=f10e2908]: ocelovy plech
+                    - listitem [ref=f10e2909]:
+                      - generic [ref=f10e2910]: "Výška:"
+                      - generic [ref=f10e2911]: "86"
+                    - listitem [ref=f10e2912]:
+                      - generic [ref=f10e2913]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e2914]: "74"
+                    - listitem [ref=f10e2915]:
+                      - generic [ref=f10e2916]: "Rozmer vnútorného závitu:"
+                      - generic [ref=f10e2917]: M22 x 1,5
+                    - listitem [ref=f10e2918]:
+                      - generic [ref=f10e2919]: "Priemer gufera (mm):"
+                      - generic [ref=f10e2920]: "71"
+                    - listitem [ref=f10e2921]:
+                      - generic [ref=f10e2922]: "Hmotnosť [kg]:"
+                      - generic [ref=f10e2923]: 0,3
+                  - button "Viac" [ref=f10e2925] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e2927] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e2929] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e2932]:
+              - generic [ref=f10e2934]: Na sklade
+              - button "-63% v porovnaní s OMC 22,65 €" [ref=f10e2935] [cursor=pointer]:
+                - generic [ref=f10e2936]: "-63%"
+                - generic [ref=f10e2937]:
+                  - generic [ref=f10e2938]: v porovnaní s
+                  - generic [ref=f10e2939]: OMC 22,65 €
+              - generic [ref=f10e2941]: 8, 29 €
+              - generic [ref=f10e2942]:
+                - paragraph [ref=f10e2943]: Cena vr. 23% DPH
+                - paragraph [ref=f10e2944]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e2945] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e2946]:
+                - generic [ref=f10e2947]:
+                  - generic [ref=f10e2948]:
+                    - button [ref=f10e2949] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e2950] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e2951] [cursor=pointer]
+                - generic [ref=f10e2954] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e2958] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e2961]: Sledovať zníženia ceny
+          - generic [ref=f10e2968]:
+            - generic [ref=f10e2969]:
+              - link [ref=f10e2970] [cursor=pointer]:
+                - img "FEBI BILSTEIN Olejový filter 49661" [ref=f10e2971]
+              - link [ref=f10e2972] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/febi-bilstein/9808245#olejovy-filter
+                - img "Olejový filter FEBI BILSTEIN 49661" [ref=f10e2973]
+              - button "49661" [ref=f10e2975] [cursor=pointer]
+            - generic [ref=f10e2976]:
+              - link "49661 FEBI BILSTEIN Olejový filter Skrutkovací filter" [ref=f10e2977] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/febi-bilstein/9808245
+                - text: 49661 FEBI BILSTEIN Olejový filter
+                - generic [ref=f10e2978]: Skrutkovací filter
+              - generic [ref=f10e2979]:
+                - generic [ref=f10e2980]:
+                  - generic [ref=f10e2981]: "Číslo produktu: 49661"
+                  - generic [ref=f10e2982]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e2983]: W 7056
+                - generic [ref=f10e2984]:
+                  - link [ref=f10e2985] [cursor=pointer]
+                  - link "recenzie - 16" [ref=f10e2987] [cursor=pointer]
+            - generic [ref=f10e2988]:
+              - generic [ref=f10e2989]:
+                - generic [ref=f10e2990]:
+                  - list [ref=f10e2992]:
+                    - listitem [ref=f10e2993]:
+                      - generic [ref=f10e2994]: "Prevedenie filtra:"
+                      - generic [ref=f10e2995]: Skrutkovací filter
+                    - listitem [ref=f10e2996]:
+                      - generic [ref=f10e2997]: "Výška:"
+                      - generic [ref=f10e2998]: "87"
+                    - listitem [ref=f10e2999]:
+                      - generic [ref=f10e3000]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e3001]: "74"
+                    - listitem [ref=f10e3002]:
+                      - generic [ref=f10e3003]: "Rozmer vnútorného závitu:"
+                      - generic [ref=f10e3004]: M22 x 1,5
+                    - listitem [ref=f10e3005]:
+                      - generic [ref=f10e3006]: "Priemer gufera (mm):"
+                      - generic [ref=f10e3007]: "71"
+                    - listitem [ref=f10e3008]:
+                      - generic [ref=f10e3009]: "Hmotnosť [kg]:"
+                      - generic [ref=f10e3010]: 0,30
+                    - listitem [ref=f10e3011]:
+                      - generic [ref=f10e3012]: "pre OE-číslo:"
+                      - generic [ref=f10e3013]: "55496755"
+                  - button "Viac" [ref=f10e3015] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e3017] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e3019] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e3022]:
+              - generic [ref=f10e3024]: Na sklade
+              - button "-68% v porovnaní s OMC 27,56 €" [ref=f10e3025] [cursor=pointer]:
+                - generic [ref=f10e3026]: "-68%"
+                - generic [ref=f10e3027]:
+                  - generic [ref=f10e3028]: v porovnaní s
+                  - generic [ref=f10e3029]: OMC 27,56 €
+              - generic [ref=f10e3031]: 8, 59 €
+              - generic [ref=f10e3032]:
+                - paragraph [ref=f10e3033]: Cena vr. 23% DPH
+                - paragraph [ref=f10e3034]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e3035] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e3036]:
+                - generic [ref=f10e3037]:
+                  - generic [ref=f10e3038]:
+                    - button [ref=f10e3039] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e3040] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e3041] [cursor=pointer]
+                - generic [ref=f10e3044] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e3048] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e3051]: Sledovať zníženia ceny
+          - generic [ref=f10e3058]:
+            - generic [ref=f10e3059]:
+              - link [ref=f10e3060] [cursor=pointer]:
+                - img "MAXGEAR Olejový filter 26-2094" [ref=f10e3061]
+              - link [ref=f10e3062] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/19361165#olejovy-filter
+                - img "Olejový filter MAXGEAR 26-2094" [ref=f10e3063]
+            - generic [ref=f10e3064]:
+              - link "26-2094 MAXGEAR Olejový filter M 22 X 1.5, Skrutkovací filter" [ref=f10e3065] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/maxgear/19361165
+                - text: 26-2094 MAXGEAR Olejový filter
+                - generic [ref=f10e3066]: M 22 X 1.5, Skrutkovací filter
+              - generic [ref=f10e3067]:
+                - generic [ref=f10e3068]:
+                  - generic [ref=f10e3069]: "Číslo produktu: 26-2094"
+                  - generic [ref=f10e3070]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e3071]: W7056
+                - generic [ref=f10e3072]:
+                  - link [ref=f10e3073] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e3075] [cursor=pointer]
+            - generic [ref=f10e3076]:
+              - generic [ref=f10e3077]:
+                - generic [ref=f10e3078]:
+                  - list [ref=f10e3080]:
+                    - listitem [ref=f10e3081]:
+                      - generic [ref=f10e3082]: "Prevedenie filtra:"
+                      - generic [ref=f10e3083]: Skrutkovací filter
+                    - listitem [ref=f10e3084]:
+                      - generic [ref=f10e3085]: "Doplnkový tovar / Dopňujúca informácia 2:"
+                      - generic [ref=f10e3086]: s jednym spätným ventilom
+                    - listitem [ref=f10e3087]:
+                      - generic [ref=f10e3088]: "Rozmer závitu:"
+                      - generic [ref=f10e3089]: M 22 X 1.5
+                    - listitem [ref=f10e3090]:
+                      - generic [ref=f10e3091]: "Výška:"
+                      - generic [ref=f10e3092]: "75"
+                    - listitem [ref=f10e3093]:
+                      - generic [ref=f10e3094]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e3095]: "76"
+                    - listitem [ref=f10e3096]:
+                      - generic [ref=f10e3097]: "Vonkajší priemer 2 [mm]:"
+                      - generic [ref=f10e3098]: "70"
+                    - listitem [ref=f10e3099]:
+                      - generic [ref=f10e3100]: "Vnútorný priemer 2 [mm]:"
+                      - generic [ref=f10e3101]: "63"
+                  - button "Viac" [ref=f10e3103] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e3105] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e3107] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e3110]:
+              - generic [ref=f10e3112]: Na sklade
+              - generic [ref=f10e3113]: 14, 99 €
+              - generic [ref=f10e3114]:
+                - paragraph [ref=f10e3115]: Cena vr. 23% DPH
+                - paragraph [ref=f10e3116]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e3117] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e3118]:
+                - generic [ref=f10e3119]:
+                  - generic [ref=f10e3120]:
+                    - button [ref=f10e3121] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e3122] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e3123] [cursor=pointer]
+                - generic [ref=f10e3126] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e3130] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e3133]: Sledovať zníženia ceny
+          - generic [ref=f10e3140]:
+            - generic [ref=f10e3141]:
+              - link [ref=f10e3142] [cursor=pointer]:
+                - img "UFI Olejový filter 23.519.00" [ref=f10e3143]
+              - link [ref=f10e3144] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ufi/7626493#olejovy-filter
+                - img "Olejový filter UFI 23.519.00" [ref=f10e3145]
+            - generic [ref=f10e3146]:
+              - link "23.519.00 UFI Olejový filter M 22 x 1,5, Skrutkovací filter" [ref=f10e3147] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/ufi/7626493
+                - text: 23.519.00 UFI Olejový filter
+                - generic [ref=f10e3148]: M 22 x 1,5, Skrutkovací filter
+              - generic [ref=f10e3149]:
+                - generic [ref=f10e3150]:
+                  - generic [ref=f10e3151]: "Číslo produktu: 23.519.00"
+                  - generic [ref=f10e3152]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e3153]: W 7056
+                - generic [ref=f10e3154]:
+                  - link [ref=f10e3155] [cursor=pointer]
+                  - link "Vytvoriť hodnotenie" [ref=f10e3157] [cursor=pointer]
+            - generic [ref=f10e3158]:
+              - generic [ref=f10e3159]:
+                - generic [ref=f10e3160]:
+                  - list [ref=f10e3162]:
+                    - listitem [ref=f10e3163]:
+                      - generic [ref=f10e3164]: "Prevedenie filtra:"
+                      - generic [ref=f10e3165]: Skrutkovací filter
+                    - listitem [ref=f10e3166]:
+                      - generic [ref=f10e3167]: "Doplnkový tovar / Dopňujúca informácia 2:"
+                      - generic [ref=f10e3168]: s jednym spätným ventilom
+                    - listitem [ref=f10e3169]:
+                      - generic [ref=f10e3170]: "Otvárací tlak obehového ventilu [bar]:"
+                      - generic [ref=f10e3171]: 1,2
+                    - listitem [ref=f10e3172]:
+                      - generic [ref=f10e3173]: "Výška:"
+                      - generic [ref=f10e3174]: "86"
+                    - listitem [ref=f10e3175]:
+                      - generic [ref=f10e3176]: "Rozmer závitu:"
+                      - generic [ref=f10e3177]: M 22 x 1,5
+                    - listitem [ref=f10e3178]:
+                      - generic [ref=f10e3179]: "Vonkajší priemer 1 [mm]:"
+                      - generic [ref=f10e3180]: "76"
+                    - listitem [ref=f10e3181]:
+                      - generic [ref=f10e3182]: "Vonkajší priemer 2 [mm]:"
+                      - generic [ref=f10e3183]: "71"
+                  - button "Viac" [ref=f10e3185] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e3187] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e3189] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e3192]:
+              - generic [ref=f10e3194]: Na sklade
+              - button "-50% v porovnaní s OMC 16,88 €" [ref=f10e3195] [cursor=pointer]:
+                - generic [ref=f10e3196]: "-50%"
+                - generic [ref=f10e3197]:
+                  - generic [ref=f10e3198]: v porovnaní s
+                  - generic [ref=f10e3199]: OMC 16,88 €
+              - generic [ref=f10e3201]: 8, 29 €
+              - generic [ref=f10e3202]:
+                - paragraph [ref=f10e3203]: Cena vr. 23% DPH
+                - paragraph [ref=f10e3204]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e3205] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e3206]:
+                - generic [ref=f10e3207]:
+                  - generic [ref=f10e3208]:
+                    - button [ref=f10e3209] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e3210] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e3211] [cursor=pointer]
+                - generic [ref=f10e3214] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e3218] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e3221]: Sledovať zníženia ceny
+          - generic [ref=f10e3228]:
+            - generic [ref=f10e3229]:
+              - link [ref=f10e3230] [cursor=pointer]:
+                - img "BLUE PRINT Olejový filter ADW192105" [ref=f10e3231]
+              - link [ref=f10e3232] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/blue-print/10628016#olejovy-filter
+                - img "Olejový filter BLUE PRINT ADW192105" [ref=f10e3233]
+              - button "ADW192105" [ref=f10e3235] [cursor=pointer]
+            - generic [ref=f10e3236]:
+              - link "ADW192105 BLUE PRINT Olejový filter Skrutkovací filter" [ref=f10e3237] [cursor=pointer]:
+                - /url: https://www.autodoc.sk/blue-print/10628016
+                - text: ADW192105 BLUE PRINT Olejový filter
+                - generic [ref=f10e3238]: Skrutkovací filter
+              - generic [ref=f10e3239]:
+                - generic [ref=f10e3240]:
+                  - generic [ref=f10e3241]: "Číslo produktu: ADW192105"
+                  - generic [ref=f10e3242]:
+                    - text: "Podobný tovar:"
+                    - generic [ref=f10e3243]: W 7056
+                - generic [ref=f10e3244]:
+                  - link [ref=f10e3245] [cursor=pointer]
+                  - link "recenzie - 11" [ref=f10e3247] [cursor=pointer]
+            - generic [ref=f10e3248]:
+              - generic [ref=f10e3249]:
+                - generic [ref=f10e3250]:
+                  - list [ref=f10e3252]:
+                    - listitem [ref=f10e3253]:
+                      - generic [ref=f10e3254]: "Prevedenie filtra:"
+                      - generic [ref=f10e3255]: Skrutkovací filter
+                    - listitem [ref=f10e3256]:
+                      - generic [ref=f10e3257]: "Výška:"
+                      - generic [ref=f10e3258]: 86,5
+                    - listitem [ref=f10e3259]:
+                      - generic [ref=f10e3260]: "Vonkajší priemer [mm]:"
+                      - generic [ref=f10e3261]: 74,0
+                    - listitem [ref=f10e3262]:
+                      - generic [ref=f10e3263]: "Rozmer vnútorného závitu:"
+                      - generic [ref=f10e3264]: M22 x 1,5
+                    - listitem [ref=f10e3265]:
+                      - generic [ref=f10e3266]: "Priemer gufera (mm):"
+                      - generic [ref=f10e3267]: "71"
+                    - listitem [ref=f10e3268]:
+                      - generic [ref=f10e3269]: "Číslo položky:"
+                      - generic [ref=f10e3270]: ADW192105
+                    - listitem [ref=f10e3271]:
+                      - generic [ref=f10e3272]: "Naša cena:"
+                      - generic [ref=f10e3273]: 8,59 €
+                  - button "Viac" [ref=f10e3275] [cursor=pointer]
+                - button "+ Ukázať OEM čísla produktu" [ref=f10e3277] [cursor=pointer]
+                - link "Podrobnosti" [ref=f10e3279] [cursor=pointer]
+              - text: Zobraziť špecifikácie
+            - generic [ref=f10e3282]:
+              - generic [ref=f10e3284]: Na sklade
+              - button "-68% v porovnaní s OMC 27,56 €" [ref=f10e3285] [cursor=pointer]:
+                - generic [ref=f10e3286]: "-68%"
+                - generic [ref=f10e3287]:
+                  - generic [ref=f10e3288]: v porovnaní s
+                  - generic [ref=f10e3289]: OMC 27,56 €
+              - generic [ref=f10e3291]: 8, 59 €
+              - generic [ref=f10e3292]:
+                - paragraph [ref=f10e3293]: Cena vr. 23% DPH
+                - paragraph [ref=f10e3294]:
+                  - text: čiastka nezahŕňa
+                  - link "náklady na doručenie" [ref=f10e3295] [cursor=pointer]:
+                    - /url: https://www.autodoc.sk/services/dorucenie
+              - generic [ref=f10e3296]:
+                - generic [ref=f10e3297]:
+                  - generic [ref=f10e3298]:
+                    - button [ref=f10e3299] [cursor=pointer]
+                    - textbox: "1"
+                    - button [ref=f10e3300] [cursor=pointer]
+                  - button "Kúpiť" [ref=f10e3301] [cursor=pointer]
+                - generic [ref=f10e3304] [cursor=pointer]: Pridať do zoznamu na porovnanie
+                - generic [ref=f10e3308] [cursor=pointer]: Pridať do zoznamu želaní
+                - generic [ref=f10e3311]: Sledovať zníženia ceny
+        - generic [ref=f10e3317]:
+          - link "Načítať viac" [ref=f10e3318] [cursor=pointer]:
+            - /url: https://www.autodoc.sk/search?keyword=W%207056&page=2
+          - list [ref=f10e3321]:
+            - listitem [ref=f10e3322]:
+              - generic [ref=f10e3323] [cursor=pointer]: "1"
+            - listitem [ref=f10e3324]:
+              - link "2" [ref=f10e3325] [cursor=pointer]
+            - listitem [ref=f10e3326]:
+              - link "3" [ref=f10e3327] [cursor=pointer]
+            - listitem [ref=f10e3328]:
+              - link "4" [ref=f10e3329] [cursor=pointer]
+            - listitem [ref=f10e3330]:
+              - link "5" [ref=f10e3331] [cursor=pointer]
+            - listitem [ref=f10e3332]:
+              - link [ref=f10e3333] [cursor=pointer]
+            - listitem [ref=f10e3334]:
+              - link [ref=f10e3335] [cursor=pointer]
+  - contentinfo [ref=f10e3336]:
+    - generic [ref=f10e3339]:
+      - generic [ref=f10e3340]:
+        - generic [ref=f10e3341]: Oprava auta nikdy nebola taká jednoduchá
+        - paragraph [ref=f10e3342]: Povedzte NIE komplikovaným pokynom a mätúcim schémam. Použite praktické a jednoduché tutoriály od AUTODOC ako si opraviť auto.
+      - generic [ref=f10e3343]:
+        - img "AUTODOC CLUB" [ref=f10e3345]
+        - link [ref=f10e3346] [cursor=pointer]:
+          - img "AUTODOC CLUB" [ref=f10e3347]
+        - generic [ref=f10e3348]: Bezplatné a podrobné návody a video tutoriály, ako si svojpomocne opraviť auto.
+        - link "PRIDAŤ SA DO KLUBU" [ref=f10e3349] [cursor=pointer]
+      - generic [ref=f10e3352]:
+        - img "AUTODOC Youtube" [ref=f10e3354]
+        - link [ref=f10e3355] [cursor=pointer]:
+          - img "AUTODOC Youtube" [ref=f10e3356]
+        - generic [ref=f10e3357]: Video lekcie od našich odborníkov – všetky informácie o oprave auta, ktoré práve potrebujete.
+        - link "PREJSŤ NA NÁŠ YOUTUBE KANÁL" [ref=f10e3358] [cursor=pointer]
+      - generic [ref=f10e3361]:
+        - img "AUTODOC Instagram" [ref=f10e3363]
+        - link [ref=f10e3364] [cursor=pointer]:
+          - img "AUTODOC Instagram" [ref=f10e3365]
+        - generic [ref=f10e3366]: Nasledujte nové trendy a vychutnajte si aktualizácie, užitočné tipy a príspevky o autách.
+        - link "ZOBRAZIŤ VIAC NA INSTAGRAME" [ref=f10e3367] [cursor=pointer]
+    - generic [ref=f10e3372]:
+      - generic [ref=f10e3374]:
+        - generic: O AUTODOC
+        - list [ref=f10e3375]:
+          - listitem [ref=f10e3376]:
+            - link "O nás" [ref=f10e3377] [cursor=pointer]
+          - listitem [ref=f10e3378]:
+            - link "Právne oznámenie" [ref=f10e3379] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/spolocnost
+          - listitem [ref=f10e3380]:
+            - link "Bonusový program" [ref=f10e3381] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/bonus-system
+          - listitem [ref=f10e3382]:
+            - link "Tlač" [ref=f10e3383] [cursor=pointer]
+          - listitem [ref=f10e3384]:
+            - link "AUTODOC aplikácia" [ref=f10e3385] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/mobile-app
+          - listitem [ref=f10e3386]:
+            - link "AUTODOC PLUS" [ref=f10e3387] [cursor=pointer]
+          - listitem [ref=f10e3388]:
+            - link "RIDEX" [ref=f10e3389] [cursor=pointer]
+      - generic [ref=f10e3391]:
+        - generic: POMOC A PODPORA
+        - list [ref=f10e3392]:
+          - listitem [ref=f10e3393]:
+            - link "AUTODOC Club" [ref=f10e3394] [cursor=pointer]:
+              - /url: https://club.autodoc.sk/
+          - listitem [ref=f10e3395]:
+            - link "Blog" [ref=f10e3396] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/info
+          - listitem [ref=f10e3397]:
+            - link "Návody a video tutoriály, ako si opraviť auto" [ref=f10e3398] [cursor=pointer]:
+              - /url: https://club.autodoc.sk/manuals
+          - listitem [ref=f10e3399]:
+            - link "Obchodne podmienky" [ref=f10e3400] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/obchodne-podmienky
+          - listitem [ref=f10e3401]:
+            - link "VOP - PLUS" [ref=f10e3402] [cursor=pointer]
+          - listitem [ref=f10e3403]:
+            - link "Právo na odstúpenie od zmluvy" [ref=f10e3404] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/zrusenie-objednavky
+          - listitem [ref=f10e3405]:
+            - link "Pravidlá ochrany osobných údajov" [ref=f10e3406] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/ochrana-sukromia
+          - listitem [ref=f10e3407]:
+            - button "Nastavenia súborov cookie" [ref=f10e3408] [cursor=pointer]
+          - listitem [ref=f10e3409]:
+            - link "Kódex správania" [ref=f10e3410] [cursor=pointer]
+          - listitem [ref=f10e3411]:
+            - link "Vyhlásenie o prístupnosti" [ref=f10e3412] [cursor=pointer]
+      - generic [ref=f10e3414]:
+        - generic: SLUŽBY ZÁKAZNÍKOM
+        - list [ref=f10e3415]:
+          - listitem [ref=f10e3416]:
+            - link "Centrum pomoci" [ref=f10e3417] [cursor=pointer]
+          - listitem [ref=f10e3418]:
+            - link "Platba" [ref=f10e3419] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/platba
+          - listitem [ref=f10e3420]:
+            - link "Doručenie" [ref=f10e3421] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/dorucenie
+          - listitem [ref=f10e3422]:
+            - link "Kontaktujte nás" [ref=f10e3423] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/kontakty
+          - listitem [ref=f10e3424]:
+            - link "Vrátenie tovaru a peňazí" [ref=f10e3425] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/vratenie
+          - listitem [ref=f10e3426]:
+            - link "Výmena tovaru" [ref=f10e3427] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/services/vymena-tovaru
+          - listitem [ref=f10e3428]:
+            - link "Bezpečnosť produktu" [ref=f10e3429] [cursor=pointer]
+      - generic [ref=f10e3431]:
+        - generic: TOP PRODUKTY
+        - list [ref=f10e3432]:
+          - listitem [ref=f10e3433]:
+            - link "Kamión" [ref=f10e3434] [cursor=pointer]:
+              - /url: https://kamiony.autodoc.sk/
+          - listitem [ref=f10e3435]:
+            - link "Motocykel" [ref=f10e3436] [cursor=pointer]:
+              - /url: https://moto.autodoc.sk/
+          - listitem [ref=f10e3437]:
+            - link "E-mobilita" [ref=f10e3438] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/ev
+          - listitem [ref=f10e3439]:
+            - link "Osvetlenie" [ref=f10e3440] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/nahradne-diely/osvetlenie
+          - listitem [ref=f10e3441]:
+            - link "Tlmič pruzenia" [ref=f10e3442] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/nahradne-diely/tlmic_pruzenia-10221
+          - listitem [ref=f10e3443]:
+            - link "Spojka, sada" [ref=f10e3444] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/nahradne-diely/spojka_sada-10151
+          - listitem [ref=f10e3445]:
+            - link "Priečne rameno" [ref=f10e3446] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/nahradne-diely/priecne_rameno-10671
+          - listitem [ref=f10e3447]:
+            - link "Lozisko kolesa" [ref=f10e3448] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/nahradne-diely/lozisko_kolesa-10679
+          - listitem [ref=f10e3449]:
+            - link "Autokozmetika" [ref=f10e3450] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/autochemia
+          - listitem [ref=f10e3451]:
+            - link "Nakupujte podľa značky" [ref=f10e3452] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/auto-diely
+          - listitem [ref=f10e3453]:
+            - link "Nakupovať podľa modelu" [ref=f10e3454] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/auto-diely-models
+          - listitem [ref=f10e3455]:
+            - link "Vyhľadávanie podľa modelu auta" [ref=f10e3456] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/auto-diely-cars
+          - listitem [ref=f10e3457]:
+            - link "Značky autodielov" [ref=f10e3458] [cursor=pointer]:
+              - /url: https://www.autodoc.sk/vyrobcovia-autodielov
+    - generic [ref=f10e3459]:
+      - list [ref=f10e3462]:
+        - listitem [ref=f10e3463]:
+          - img "Visa" [ref=f10e3464]
+        - listitem [ref=f10e3465]:
+          - img "Mastercard" [ref=f10e3466]
+        - listitem [ref=f10e3467]:
+          - img "PayPal" [ref=f10e3468]
+        - listitem [ref=f10e3469]:
+          - img "Bankový prevod" [ref=f10e3470]
+        - listitem [ref=f10e3471]:
+          - img "Bankový prevod" [ref=f10e3472]
+        - listitem [ref=f10e3473]:
+          - img "DPD" [ref=f10e3474]
+      - generic [ref=f10e3475]:
+        - generic [ref=f10e3477]:
+          - generic [ref=f10e3479]:
+            - generic [ref=f10e3480]:
+              - generic [ref=f10e3481]: "Pracovný čas Tímu podpory pre zákazníkov pre Slovensko:"
+              - paragraph [ref=f10e3482]: "Pondelok - Piatok: 8:00 - 17:00 Sobota - Nedeľa: nepracovné dni"
+            - generic [ref=f10e3483]:
+              - link "youtube" [ref=f10e3484] [cursor=pointer]
+              - link "facebook" [ref=f10e3485] [cursor=pointer]
+              - link "instagram" [ref=f10e3486] [cursor=pointer]
+              - link "tiktok" [ref=f10e3487] [cursor=pointer]
+          - generic [ref=f10e3489]:
+            - generic [ref=f10e3490]: Prihlás sa k odberu teraz a získaj 2,00 € na tvoj ďalší nákup!
+            - generic [ref=f10e3491]:
+              - generic [ref=f10e3492]:
+                - textbox "email" [ref=f10e3494]:
+                  - /placeholder: E-mail*
+                - button "Prihlásiť sa k odberu" [ref=f10e3495] [cursor=pointer]
+              - generic [ref=f10e3497]:
+                - checkbox "Áno, súhlasím so zasielaním newslettera AUTODOC s personalizovanými ponukami, špeciálnymi zľavami, žiadosťami o prieskum, exkluzívnymi novinkami, pripomienkami tovaru v košíku a ďalšími užitočnými informáciami. Viac" [ref=f10e3498]
+                - generic [ref=f10e3500] [cursor=pointer]:
+                  - generic [ref=f10e3501]: Áno, súhlasím so zasielaním newslettera AUTODOC s personalizovanými ponukami, špeciálnymi zľavami, žiadosťami o prieskum, exkluzívnymi novinkami, pripomienkami tovaru v košíku a ďalšími užitočnými informáciami.
+                  - generic [ref=f10e3502]: Viac
+          - generic [ref=f10e3504]:
+            - generic [ref=f10e3505]: Medzinárodný zákaznícky servis
+            - button "AUTODOC SK Slovensko" [ref=f10e3508] [cursor=pointer]:
+              - generic [ref=f10e3509]:
+                - img "AUTODOC SK" [ref=f10e3510]
+                - generic [ref=f10e3511]: Slovensko
+        - generic [ref=f10e3515]:
+          - img "nahradne diely podla vin, autodiely podla spz - TecDoc Inside" [ref=f10e3516]
+          - paragraph [ref=f10e3517]: Tu zobrazené údaje, najmä celá databáza, sa nesmú kopírovať. Reprodukovanie a šírenie údajov a databázy bez predchádzajúceho súhlasu TecAlliance a/alebo zapájanie tretích strán do takýchto aktivít je prísne zakázané. Akékoľvek neoprávnené použitie obsahu predstavuje porušenie autorských práv a bude predmetom súdneho konania.
+        - paragraph [ref=f10e3520]: "© 2026 www.autodoc.sk: AUTODOC online obchod"
+  - button "Podpora pre zákazníkov" [ref=f10e3522] [cursor=pointer]

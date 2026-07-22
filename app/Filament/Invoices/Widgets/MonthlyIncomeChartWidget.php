@@ -13,11 +13,10 @@ class MonthlyIncomeChartWidget extends ChartWidget
     protected function getData(): array
     {
         $currentYear = now()->year;
-        $company = auth()->user()->activeCompany;
 
         $monthlyData = InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $company?->id)
+            ->whereHas('invoice')
             ->whereYear('invoice_payments.payment_date', $currentYear)
             ->select(
                 DB::raw('EXTRACT(MONTH FROM invoice_payments.payment_date) as month'),

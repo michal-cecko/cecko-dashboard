@@ -31,7 +31,7 @@ return [
         UserCapabilityEnum::MANAGE_USERS->value => 'Spravovat uživatele',
         UserCapabilityEnum::VIEW_INVOICES->value => 'Přístup k fakturám',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Spravovat faktury',
-        UserCapabilityEnum::VIEW_ALL_INVOICES->value => 'Zobrazit faktury všech uživatelů',
+        UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Spravovat faktury všech uživatelů',
     ],
 
     InvoiceThemeEnum::class => [

@@ -18,7 +18,7 @@ class CompanyPolicy
 
     public function view(User $user, Company $company): bool
     {
-        return $user->hasCapability(UserCapabilityEnum::VIEW_ALL_INVOICES)
+        return $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES)
             || $company->user_id === $user->id;
     }
 
@@ -30,12 +30,12 @@ class CompanyPolicy
     public function update(User $user, Company $company): bool
     {
         return ($user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES) && $company->user_id === $user->id)
-            || $user->hasCapability(UserCapabilityEnum::VIEW_ALL_INVOICES);
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 
     public function delete(User $user, Company $company): bool
     {
         return ($user->hasCapability(UserCapabilityEnum::MANAGE_INVOICES) && $company->user_id === $user->id)
-            || $user->hasCapability(UserCapabilityEnum::VIEW_ALL_INVOICES);
+            || $user->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
     }
 }

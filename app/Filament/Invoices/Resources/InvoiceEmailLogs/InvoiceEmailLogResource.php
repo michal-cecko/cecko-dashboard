@@ -33,9 +33,7 @@ class InvoiceEmailLogResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()
-            ->whereHas('invoice', fn (Builder $query) => $query
-                ->where('company_id', auth()->user()->active_company_id));
+        return parent::getEloquentQuery()->whereHas('invoice');
     }
 
     public static function table(Table $table): Table

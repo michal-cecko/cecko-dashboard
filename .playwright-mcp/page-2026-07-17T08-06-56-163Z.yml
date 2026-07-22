@@ -1,0 +1,554 @@
+- generic [ref=f37e1]:
+  - generic [ref=f37e2]:
+    - banner [ref=f37e4]:
+      - generic [ref=f37e6]:
+        - link [ref=f37e7] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/
+          - img "automobilovedily24.cz" [ref=f37e8]
+        - generic [ref=f37e13]:
+          - generic [ref=f37e15]:
+            - textbox "Vyhledat podle produktu, vozidla, značky" [ref=f37e16]
+            - button [ref=f37e17] [cursor=pointer]
+          - button [ref=f37e20] [cursor=pointer]
+        - generic [ref=f37e23]:
+          - button "Přihlásit se" [ref=f37e24] [cursor=pointer]
+          - link "0 0,00 Kč" [ref=f37e28] [cursor=pointer]:
+            - generic [ref=f37e29]: "0"
+            - generic [ref=f37e33]: 0,00 Kč
+      - list [ref=f37e35]:
+        - listitem [ref=f37e36]:
+          - link "Automobilových značek" [ref=f37e37] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/auto
+        - listitem [ref=f37e38]:
+          - link "Autodíly" [ref=f37e39] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/nahradni-dily
+        - listitem [ref=f37e40]:
+          - link "Pneumatiky" [ref=f37e41] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/pneumatiky
+        - listitem [ref=f37e42]:
+          - link "Ráfky" [ref=f37e43] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/rafky
+        - listitem [ref=f37e44]:
+          - link "Motorový olej" [ref=f37e45] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/oleje-motorove
+        - listitem [ref=f37e46]:
+          - link "Autokosmetika" [ref=f37e47] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autochemie
+        - listitem [ref=f37e48]:
+          - link "Autodoplňky" [ref=f37e49] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autodoplnky
+        - listitem [ref=f37e50]:
+          - link "Nářadí" [ref=f37e51] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/naradi
+    - main [ref=f37e52]:
+      - navigation [ref=f37e54]:
+        - list [ref=f37e55]:
+          - listitem [ref=f37e56]:
+            - link "Automobilovedily24.cz" [ref=f37e57] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/#parts
+          - listitem [ref=f37e58]:
+            - link "Katalog náhradních dílů" [ref=f37e59] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/nahradni-dily
+          - listitem [ref=f37e60]:
+            - link "Těsnění / těsnící kroužky na auto" [ref=f37e61] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/tesneni-tesnici-krouzky-pr
+          - listitem [ref=f37e62]:
+            - link "Tesnici krouzek olejova vypousteci zatka" [ref=f37e63] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/tesnici-krouzek-olejova-vypousteci-zatka
+          - listitem [ref=f37e64]: VAICO V40-1110
+      - generic [ref=f37e67]:
+        - generic [ref=f37e68]:
+          - button [ref=f37e69] [cursor=pointer]
+          - generic [ref=f37e72]: Pro zobrazení náhradních dílů pro vaše auto potřebujeme více informací
+          - generic [ref=f37e73]:
+            - combobox "maker" [ref=f37e77] [cursor=pointer]:
+              - option "Vyberte si značku" [selected]
+            - combobox [ref=f37e81] [cursor=pointer]:
+              - option "Vyberte model" [selected]
+            - combobox [ref=f37e85] [cursor=pointer]:
+              - option "Vyberte si modifikaci" [selected]
+            - button "Hledat" [ref=f37e86] [cursor=pointer]
+        - button "Nemůžete v katalogu najít vaše auto?" [ref=f37e89]
+      - generic [ref=f37e91]:
+        - heading "VAICO V40-1110 Tesnici krouzek, olejova vypousteci zatka NBR (Nitril-Butadien-Kautschuk), Original VAICO Quality" [level=1] [ref=f37e92]:
+          - text: VAICO V40-1110 Tesnici krouzek, olejova vypousteci zatka
+          - generic [ref=f37e93]: NBR (Nitril-Butadien-Kautschuk), Original VAICO Quality
+        - generic [ref=f37e94]:
+          - generic [ref=f37e95]: "Článek №: V40-1110"
+          - generic [ref=f37e96]: "EAN: 4046001649387"
+          - button "Prosím, ohodnoťte produkt" [ref=f37e97] [cursor=pointer]
+        - generic [ref=f37e101]:
+          - generic [ref=f37e103]:
+            - generic [ref=f37e104]:
+              - link [ref=f37e105] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/tesnici-krouzek-olejova-vypousteci-zatka/m-vaico
+                - img "VAICO Tesnici krouzek olejova vypousteci zatka" [ref=f37e106]
+              - button [ref=f37e108] [cursor=pointer]:
+                - 'img "VAICO V40-1110 Tesnici krouzek, olejova vypousteci zatka Tloušťka/síla: 2,5mm, Vnitřní průměr: 11mm" [ref=f37e109]'
+            - list [ref=f37e111]:
+              - listitem [ref=f37e112] [cursor=pointer]:
+                - img "Tesnici krouzek, olejova vypousteci zatka VAICO V40-1110 Hodnocení" [ref=f37e113]
+              - listitem [ref=f37e114] [cursor=pointer]:
+                - img "Tesnici krouzek, olejova vypousteci zatka VAICO 1053008 odborné znalosti" [ref=f37e115]
+              - listitem [ref=f37e116] [cursor=pointer]:
+                - img "Tesnici krouzek, olejova vypousteci zatka VAICO V40-1110 4046001649387" [ref=f37e117]
+          - generic [ref=f37e118]:
+            - generic [ref=f37e119]:
+              - generic [ref=f37e120]: VAICO V40-1110 Tesnici krouzek, olejova vypousteci zatka NBR (Nitril-Butadien-Kautschuk), Original VAICO Quality
+              - generic [ref=f37e121]:
+                - list [ref=f37e123]:
+                  - listitem [ref=f37e124]:
+                    - generic [ref=f37e125]: "Materiál:"
+                    - generic [ref=f37e126]: NBR (Nitril-Butadien-Kautschuk)
+                  - listitem [ref=f37e127]:
+                    - generic [ref=f37e128]: "doplnkove info:"
+                    - generic [ref=f37e129]: Original VAICO Quality
+                  - listitem [ref=f37e130]:
+                    - generic [ref=f37e131]: "vnitřní průměr [mm]:"
+                    - generic [ref=f37e132]: "11"
+                  - listitem [ref=f37e133]:
+                    - generic [ref=f37e134]: "Tloušťka / síla:"
+                    - generic [ref=f37e135]: 2,5
+                  - listitem [ref=f37e136]:
+                    - generic [ref=f37e137]: "Průměr:"
+                    - generic [ref=f37e139]:
+                      - img "VAICO 1053008 21 Průměr" [ref=f37e140]
+                      - text: "21"
+                  - listitem [ref=f37e141]:
+                    - generic [ref=f37e142]: "montovaná strana:"
+                    - generic [ref=f37e143]: Olejová vana
+                  - listitem [ref=f37e144]:
+                    - generic [ref=f37e145]: "Výška balení [cm]:"
+                    - generic [ref=f37e146]: 0,252
+                  - listitem [ref=f37e147]:
+                    - generic [ref=f37e148]: "délka balení [cm]:"
+                    - generic [ref=f37e149]: 2,073
+                  - listitem [ref=f37e150]:
+                    - generic [ref=f37e151]: "Číslo produktu:"
+                    - generic [ref=f37e152]: V40-1110
+                  - listitem [ref=f37e153]:
+                    - generic [ref=f37e154]: "Naše cena:"
+                    - generic [ref=f37e155]: 38,88 Kč
+                - button "Více" [ref=f37e157] [cursor=pointer]
+            - generic [ref=f37e158]:
+              - generic [ref=f37e159]: "Další označení: VAICO 1053008"
+              - generic: Více
+          - generic [ref=f37e160]:
+            - generic [ref=f37e161]: Na skladě
+            - generic [ref=f37e163]: 38,88 Kč
+            - generic [ref=f37e165]: Cena za kus
+            - generic [ref=f37e166]:
+              - paragraph [ref=f37e167]: Cena vč. 21 % DPH
+              - paragraph [ref=f37e168]:
+                - text: částka nezahrnuje
+                - link "náklady na doručení" [ref=f37e169] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/dodani
+            - generic [ref=f37e170]:
+              - generic [ref=f37e171]:
+                - link [ref=f37e172] [cursor=pointer]:
+                  - /url: "#"
+                - textbox: "1"
+                - link [ref=f37e173] [cursor=pointer]:
+                  - /url: "#"
+              - button "Přidat do košíku" [ref=f37e174] [cursor=pointer]
+            - button "Bezpečná transakce" [ref=f37e179] [cursor=pointer]
+            - button "Zkontrolovat číslo OE" [ref=f37e183] [cursor=pointer]
+            - button "Bezpečnostní a produktové informace" [ref=f37e187] [cursor=pointer]
+      - generic [ref=f37e189]:
+        - link "Vlastnosti" [ref=f37e190] [cursor=pointer]:
+          - /url: "#description"
+        - link "Čisla OEM" [ref=f37e191] [cursor=pointer]:
+          - /url: "#oem"
+        - link "Hodnocení" [ref=f37e192] [cursor=pointer]:
+          - /url: "#reviews"
+      - complementary
+      - generic [ref=f37e193]:
+        - 'heading "VAICO 1053008: Plně ekvivalentní produkty" [level=3] [ref=f37e194]'
+        - generic [ref=f37e197]:
+          - link "AJUSA 01288800 Tesnici krouzek, olejova vypousteci zatka" [ref=f37e198] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/ajusa/8561132
+          - generic [ref=f37e201]:
+            - generic [ref=f37e202]: "Článek №: 01288800"
+            - button [ref=f37e205] [cursor=pointer]
+          - generic [ref=f37e207]:
+            - img "AJUSA" [ref=f37e208]
+            - link [ref=f37e209] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8561132#tesnici-krouzek-olejova-vypousteci-zatka
+              - img "AJUSA 01288800 Tesnici krouzek, olejova vypousteci zatka" [ref=f37e210]
+          - generic [ref=f37e215]: 73,88 Kč
+          - generic [ref=f37e218]:
+            - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+            - link "náklady na doručení" [ref=f37e219] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/dodani
+          - button "Přidat do košíku" [ref=f37e220] [cursor=pointer]
+      - list [ref=f37e226]:
+        - listitem [ref=f37e227] [cursor=pointer]:
+          - img "Běžná doba na vrácení zboží je 14 dní" [ref=f37e229]
+          - generic [ref=f37e230]: Vrácení a výměna 14 dnů
+        - listitem [ref=f37e231] [cursor=pointer]:
+          - img "Pouze za 89,99 Kč máte možnost prodloužení doby pro vrácení zakoupeného zboží až na 100 dní" [ref=f37e233]
+          - generic [ref=f37e234]: Bezpečná objednávka 100 dnů
+        - listitem [ref=f37e235] [cursor=pointer]:
+          - img "Rychlé dodání" [ref=f37e237]
+          - generic [ref=f37e238]: Rychlé dodání
+      - generic [ref=f37e240]:
+        - generic: Vhodný osobní automobile
+        - generic [ref=f37e241]: Výrobce / Model / Typ / KW / Vyrobeno rok (od - do)
+        - generic [ref=f37e243]:
+          - link "ALFA-ROMEO" [ref=f37e245] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/alfa-romeo
+          - generic [ref=f37e246]: BUICK
+          - generic [ref=f37e248]: CADILLAC
+          - link "CHEVROLET" [ref=f37e251] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/chevrolet
+          - generic [ref=f37e252]: DAEWOO
+          - link "FIAT" [ref=f37e255] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/fiat
+          - generic [ref=f37e256]: FISKER
+          - link "FORD" [ref=f37e259] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/ford
+          - link "FORD-USA" [ref=f37e261] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/ford-usa
+          - generic [ref=f37e262]: GMC
+          - link "HUMMER" [ref=f37e265] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/hummer
+          - link "ISUZU" [ref=f37e267] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/isuzu
+          - link "JAGUAR" [ref=f37e269] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/jaguar
+          - link "LAND-ROVER" [ref=f37e271] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/land-rover
+          - link "MG" [ref=f37e273] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/mg
+          - generic [ref=f37e274]: OLDSMOBILE
+          - link "OPEL" [ref=f37e277] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/opel
+          - generic [ref=f37e278]: POLARIS
+          - generic [ref=f37e280]: PONTIAC
+          - link "SAAB" [ref=f37e283] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/saab
+          - generic [ref=f37e284]: SATURN
+          - link "SUZUKI" [ref=f37e287] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/suzuki
+          - generic [ref=f37e288]: VAUXHALL
+          - link "VOLVO" [ref=f37e291] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/volvo
+          - generic [ref=f37e292]: WESTFIELD
+      - generic [ref=f37e294]:
+        - generic [ref=f37e295]: "VAICO V40-1110 Tesnici krouzek, olejova vypousteci zatka: náhradní díly s podobnými vlastnostmi"
+        - generic [ref=f37e296]:
+          - generic [ref=f37e297]:
+            - generic [ref=f37e298]:
+              - generic [ref=f37e300]:
+                - generic [ref=f37e301]: DORMAN
+                - generic [ref=f37e302]: 097-119
+              - generic [ref=f37e303]:
+                - link "ELRING 056.130" [ref=f37e304] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/elring/205456
+                  - generic [ref=f37e305]: ELRING
+                  - generic [ref=f37e306]: "056.130"
+                - generic [ref=f37e307]: 71,48 Kč*
+            - generic [ref=f37e309]:
+              - generic [ref=f37e310]:
+                - link "FA1 244.851.100" [ref=f37e311] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/fa1/7605636
+                  - generic [ref=f37e312]: FA1
+                  - generic [ref=f37e313]: 244.851.100
+                - generic [ref=f37e314]: 291,78 Kč*
+              - generic [ref=f37e317]:
+                - generic [ref=f37e318]: METZGER AUTOTEILE
+                - generic [ref=f37e319]: "2430268"
+            - generic [ref=f37e320]:
+              - generic [ref=f37e322]:
+                - generic [ref=f37e323]: OPTIMAL
+                - generic [ref=f37e324]: OP-ESR0019H-BG
+              - generic [ref=f37e325]:
+                - link "TOPRAN 206 622" [ref=f37e326] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/topran/2727574
+                  - generic [ref=f37e327]: TOPRAN
+                  - generic [ref=f37e328]: 206 622
+                - generic [ref=f37e329]:
+                  - generic [ref=f37e330]: 21,58 Kč*
+                  - generic [ref=f37e331]: Nejlepší cena
+            - generic [ref=f37e332]:
+              - generic [ref=f37e334]:
+                - generic [ref=f37e335]: VAICO
+                - generic [ref=f37e336]: 40-1110
+              - generic [ref=f37e338]:
+                - generic [ref=f37e339]: VICTOR REINZ
+                - generic [ref=f37e340]: B45828
+          - generic [ref=f37e341]:
+            - text: "*Cena vč. 21 % DPH, částka nezahrnuje"
+            - link "náklady na doručení" [ref=f37e342] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/dodani
+      - generic [ref=f37e344]:
+        - generic:
+          - generic: Čisla OEM
+          - paragraph: "Podobně jako OE čísel (jen pro srovnání):"
+        - navigation [ref=f37e346]:
+          - list [ref=f37e347]:
+            - listitem [ref=f37e348]:
+              - link "CHEVROLET 0652544" [ref=f37e349] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/0652544
+            - listitem [ref=f37e350]:
+              - link "FIAT 32021818" [ref=f37e351] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/32021818
+            - listitem [ref=f37e352]:
+              - link "FIAT 71 739 194" [ref=f37e353] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/71739194
+            - listitem [ref=f37e354]:
+              - link "OPEL / VAG 03536966" [ref=f37e355] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/03536966
+            - listitem [ref=f37e356]:
+              - link "OPEL 06 52 526" [ref=f37e357] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/0652526
+            - listitem [ref=f37e358]:
+              - link "OPEL 35 36 966" [ref=f37e359] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/3536966
+            - listitem [ref=f37e360]:
+              - link "OPEL 6 52 526" [ref=f37e361] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/652526
+            - listitem [ref=f37e362]:
+              - link "OPEL 652544" [ref=f37e363] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/652544
+            - listitem [ref=f37e364]:
+              - link "OPEL / CHEVROLET / VAUXHALL 12 616 850" [ref=f37e365] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/oen/12616850
+          - text: Více
+      - generic [ref=f37e367]:
+        - generic:
+          - heading "VAICO V401110 Tesnici krouzek, olejova vypousteci zatka pro tvoje auto" [level=3]
+        - navigation [ref=f37e369]:
+          - list [ref=f37e370]:
+            - listitem [ref=f37e371]:
+              - link "Závitová zátka olejová vana Ford Mondeo Mk4" [ref=f37e372] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/ford/mondeo-iv-turnier-ba7
+            - listitem [ref=f37e373]:
+              - link "Závitová zátka olejová vana Opel Insignia A" [ref=f37e374] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/insignia-kombik
+            - listitem [ref=f37e375]:
+              - link "Závitová zátka olejová vana Ford S-Max WA6" [ref=f37e376] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/ford/s-max-wa6
+            - listitem [ref=f37e377]:
+              - link "Závitová zátka olejová vana Ford Galaxy Mk2" [ref=f37e378] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/ford/galaxy-wa6
+            - listitem [ref=f37e379]:
+              - link "Závitová zátka olejová vana Volvo XC60 156" [ref=f37e380] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/volvo/xc60-2008
+            - listitem [ref=f37e381]:
+              - link "Závitová zátka olejová vana Ford Mondeo Mk5" [ref=f37e382] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/ford/mondeo-v-turnier
+            - listitem [ref=f37e383]:
+              - link "Závitová zátka olejová vana Opel Zafira B" [ref=f37e384] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/zafira-b-a05
+            - listitem [ref=f37e385]:
+              - link "Závitová zátka olejová vana Ford Kuga dm2" [ref=f37e386] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/ford/kuga-ii-dm2
+            - listitem [ref=f37e387]:
+              - link "Závitová zátka olejová vana Suzuki Grand Vitara JT" [ref=f37e388] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/suzuki/grand-vitara-ii-jt
+            - listitem [ref=f37e389]:
+              - link "Závitová zátka olejová vana Ford Ranger TKE" [ref=f37e390] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/ford/ranger-tke
+            - listitem [ref=f37e391]:
+              - link "Závitová zátka olejová vana OPEL Zafira C Tourer (P12)" [ref=f37e392] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/zafira-tourer-c-p12
+            - listitem [ref=f37e393]:
+              - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16)" [ref=f37e394] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-k-sports-tourer
+          - button "Více" [ref=f37e396] [cursor=pointer]
+      - generic [ref=f37e397]:
+        - heading "Tesnici krouzek, olejova vypousteci zatka V40-1110 VAICO vhodné pro" [level=2] [ref=f37e398]
+        - generic [ref=f37e399]:
+          - paragraph
+          - generic [ref=f37e400]:
+            - table [ref=f37e401]:
+              - rowgroup [ref=f37e402]:
+                - row [ref=f37e403]:
+                  - cell "Modely aut:" [ref=f37e404]
+                  - cell "Opel Zafira B; Opel Insignia A; Volvo XC60 156; Volvo v70 bw; Ford Focus DYB Hatchback; Opel Astra j p10; Ford S-Max WA6; Ford Kuga dm2; Ford Mondeo Mk4; Opel Astra J Sports Tourer; Opel Astra g f48; Mokka / Mokka X (J13); Opel Corsa E x15; Volvo V60 155; Opel Zafira A; Zafira C Tourer (P12); Ford C Max 2; Ford Ranger TKE; Chevrolet Captiva C100; Range Rover Evoque l538" [ref=f37e405]
+                - row [ref=f37e406]:
+                  - cell "Motory:" [ref=f37e407]
+                  - cell "2.2; 2.0 CDTI 4x4; 2.0 CDTI; 2.0 Turbo; 1.6 SIDI; 2.8 V6 Turbo OPC 4x4; 2.0 Turbo 4x4; 2.8 V6 Turbo 4x4; 2.0 E85 Turbo; 2.0 T; T5; 2.0; 2.0 EcoBoost; 2.5; 2.0 SCTi; 2.2 16V; 1.4 4x4; 1.0; 1.6; 2.0 CDTi; 2.0 Energi; 2.5 i; 2.5 i 4x4; 2.0 D; 3.0 4WD; 3.2 4WD; 2.4 4WD; 2.4; 2.0 4x4; 3.2 JTS; 3.2 JTS Q4; 2.2 JTS; 1.9 JTS; 1.4 Turbo; 1.2 Turbo; 1.0 Turbo; 1.4 CNG; 1.6 Turbo; 1.4; 3.2 Allrad; 2.8 Turbo V6; 2.8 Turbo V6 XWD; 2.0 t BioPower XWD; 2.0 t XWD; 2.0 t; 2.0 t Bio Power; 2.0 Hybrid iVCT; 2.3 ST EcoBoost; 2.0 Turbo E85; 2.0 Si4 4x4" [ref=f37e408]
+            - button "Více" [ref=f37e410] [cursor=pointer]
+      - generic [ref=f37e412]:
+        - generic:
+          - heading "Váš názor je pro nás důležitý" [level=3]
+        - generic [ref=f37e414]:
+          - generic [ref=f37e417]:
+            - generic [ref=f37e418]:
+              - slider "rating" [ref=f37e421]
+              - generic [ref=f37e423]: Prosím, ohodnoťte produkt
+            - generic [ref=f37e424]:
+              - generic [ref=f37e425]:
+                - generic [ref=f37e427]:
+                  - generic [ref=f37e428]: Jméno*
+                  - textbox "Jméno*" [ref=f37e429]
+                - generic [ref=f37e431]:
+                  - generic [ref=f37e432]: Email*
+                  - textbox "Email*" [ref=f37e433]
+              - generic [ref=f37e435]:
+                - checkbox "Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd... Více" [ref=f37e436]
+                - generic [ref=f37e437] [cursor=pointer]:
+                  - text: Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd...
+                  - button "Více" [ref=f37e439]
+              - generic [ref=f37e440]:
+                - generic [ref=f37e441]: Komentář*
+                - textbox "Komentář*" [ref=f37e442]
+              - button "Vytvořit hodnocení" [ref=f37e443] [cursor=pointer]
+          - generic [ref=f37e445]:
+            - generic [ref=f37e446]:
+              - generic [ref=f37e447]:
+                - generic [ref=f37e448]: "8.0"
+                - generic [ref=f37e452]: Hodnocení produktu
+              - text: Více
+            - generic [ref=f37e453]:
+              - generic [ref=f37e454]: Vytvořit hodnocení
+              - generic [ref=f37e455]:
+                - generic [ref=f37e456]: 0 hvězdiček
+                - progressbar [ref=f37e457]
+                - generic [ref=f37e459]: 5 hvězdiček
+              - generic [ref=f37e460]:
+                - button "Jak se vypočítává hvězdičkové hodnocení" [ref=f37e462] [cursor=pointer]
+                - button "Jak ověřujeme recenze" [ref=f37e464] [cursor=pointer]
+      - navigation [ref=f37e465]:
+        - strong [ref=f37e466]: Také by se vám mohlo líbit
+        - list [ref=f37e467]:
+          - listitem [ref=f37e468]:
+            - link "AJUSA 00545800" [ref=f37e469] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8017468
+          - listitem [ref=f37e470]:
+            - link "AJUSA 21007100" [ref=f37e471] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8017652
+          - listitem [ref=f37e472]:
+            - link "AJUSA 21031300" [ref=f37e473] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8017656
+          - listitem [ref=f37e474]:
+            - link "VAICO V40-1108" [ref=f37e475] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/8005689
+          - listitem [ref=f37e476]:
+            - link "VAICO V25-0809" [ref=f37e477] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/8005685
+          - listitem [ref=f37e478]:
+            - link "VAICO V20-2423" [ref=f37e479] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/8005682
+          - listitem [ref=f37e480]:
+            - link "ELRING 243.600" [ref=f37e481] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/elring/7693680
+          - listitem [ref=f37e482]:
+            - link "FA1 397.980.010" [ref=f37e483] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/fa1/12952620
+    - contentinfo [ref=f37e485]:
+      - generic [ref=f37e487]:
+        - generic [ref=f37e489]:
+          - generic [ref=f37e491]:
+            - paragraph [ref=f37e492]: Způsoby platby
+            - generic [ref=f37e493]:
+              - img "Náhradní díly Tesnici krouzek, olejova vypousteci zatka pro automobily nákup Visa" [ref=f37e495]
+              - img "Levné náhradní díly VAICO V40-1110 Tesnici krouzek, olejova vypousteci zatka nákup kreditní kartou Mastercard" [ref=f37e497]
+              - img "Automobilový díly VAICO Tesnici krouzek, olejova vypousteci zatka V40-1110 nákup kreditní kartou PayPal" [ref=f37e499]
+              - img "Peněžní převod" [ref=f37e501]
+              - img "American Express" [ref=f37e503]
+          - generic [ref=f37e505]:
+            - paragraph [ref=f37e506]: Způsob dopravy
+            - img "DPD" [ref=f37e509]
+          - generic [ref=f37e511]:
+            - paragraph [ref=f37e512]: Technická podpora
+            - generic [ref=f37e513]:
+              - img "TecDoc inside online obchodů s náhradní díly Automobilovedily24.cz" [ref=f37e514]
+              - img "Je bezpečné kupovat VAICO V401110 Tesnici krouzek, olejova vypousteci zatka" [ref=f37e515]
+        - generic [ref=f37e517]:
+          - generic [ref=f37e519]:
+            - generic [ref=f37e520]: Uveďte vaši emailovou adresu a nakupujte autodíly za výhodné ceny!
+            - generic [ref=f37e521]:
+              - generic [ref=f37e522]:
+                - textbox "Email*" [ref=f37e524]
+                - button "Přihlaste se" [ref=f37e525] [cursor=pointer]
+              - generic [ref=f37e527]:
+                - checkbox "Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd... Více" [ref=f37e528]
+                - generic [ref=f37e529] [cursor=pointer]:
+                  - text: Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd...
+                  - button "Více" [ref=f37e531]
+          - generic [ref=f37e533]:
+            - generic [ref=f37e534]: Země
+            - button "www.automobilovedily24.cz Česko" [ref=f37e537] [cursor=pointer]:
+              - generic [ref=f37e538]:
+                - img "www.automobilovedily24.cz" [ref=f37e539]
+                - generic [ref=f37e540]: Česko
+      - generic [ref=f37e542]:
+        - link [ref=f37e544] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/#main
+          - img "Automobilovedily24.cz - autodíly online obchod" [ref=f37e546]
+        - generic [ref=f37e547]:
+          - list [ref=f37e550]:
+            - listitem [ref=f37e551]:
+              - link "Právní oznámení" [ref=f37e552] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/firma
+            - listitem [ref=f37e553]:
+              - link "Blog" [ref=f37e554] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/blog
+          - list [ref=f37e557]:
+            - listitem [ref=f37e558]:
+              - generic [ref=f37e559]: Nastavení souborů cookie
+            - listitem [ref=f37e560]:
+              - link "Pravidla ochrany osobních údajů" [ref=f37e561] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ochrana-soukromi
+            - listitem [ref=f37e562]:
+              - link "Obchodní podmínky" [ref=f37e563] [cursor=pointer]
+            - listitem [ref=f37e564]:
+              - link "Právo odstoupit od smlouvy" [ref=f37e565] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vraceni-zbozi
+            - listitem [ref=f37e566]:
+              - link "Výměna" [ref=f37e567] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vymena
+            - listitem [ref=f37e568]:
+              - link "Kontakt" [ref=f37e569] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/kontakt
+            - listitem [ref=f37e570]:
+              - link "Dodání" [ref=f37e571] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - listitem [ref=f37e572]:
+              - link "Soupis požadovaných výrobků" [ref=f37e573] [cursor=pointer]
+            - listitem [ref=f37e574]:
+              - link "Platba" [ref=f37e575] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/platba
+            - listitem [ref=f37e576]:
+              - link "Vrácení zboží" [ref=f37e577] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/navrat
+            - listitem [ref=f37e578]:
+              - link "Prohlášení o přístupnosti" [ref=f37e579] [cursor=pointer]
+          - list [ref=f37e582]:
+            - listitem [ref=f37e583]:
+              - link "Pneumatiky" [ref=f37e584] [cursor=pointer]
+            - listitem [ref=f37e585]:
+              - link "Všichni výrobci" [ref=f37e586] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/nahradni-dily-vyrobcu
+            - listitem [ref=f37e587]:
+              - link "Nakupovat dle modelu" [ref=f37e588] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-modell
+            - listitem [ref=f37e589]:
+              - link "Nakupovat dle značky" [ref=f37e590] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-auto
+          - generic [ref=f37e592]:
+            - paragraph [ref=f37e593]: Autodíly app
+            - link [ref=f37e595] [cursor=pointer]:
+              - 'img "Automobilovedily24.cz: vše, co potřebujete pro vaše auto v jedné aplikaci." [ref=f37e596]'
+            - generic [ref=f37e597]:
+              - paragraph [ref=f37e598]: "Pracovní doba zákaznické linky podpory pro Českou republiku:Pon-Pá: 8:00 - 17:00"
+              - paragraph [ref=f37e599]: "Sobota – Neděle: nepracovní dny"
+        - generic [ref=f37e600]: "©2026 www.automobilovedily24.cz: Náhradní díly na auto eshop » kvalitní autodíly levně online"
+  - button [ref=f37e602] [cursor=pointer]
+  - generic [ref=f37e605]:
+    - generic [ref=f37e606]:
+      - button "Odmítnout všechny cookies" [ref=f37e607] [cursor=pointer]
+      - generic [ref=f37e608]: Používání souborů cookie a podobných technologií
+      - paragraph
+      - paragraph [ref=f37e609]: Tento web používá soubory cookie, které jsou nezbytné pro fungování webu. S Vaším souhlasem se používají další soubory cookie a podobné technologie („nástroje“), zejména k integraci externího obsahu, analýze využití, personalizaci nabídek a zlepšení funkčnosti webu.
+      - paragraph [ref=f37e610]: Všechny tyto nástroje můžete přijmout nebo odmítnout pomocí níže umístěných tlačítek. V sekci „Spravovat předvolby“ naleznete podrobné informace o všech nástrojích a můžete si individuálně upravit nastavení. Pokud při používání určitého nástroje dochází k přenosu údajů do třetích zemí mimo EHP, které mohou mít nižší úroveň ochrany údajů, Váš souhlas se výslovně vztahuje i na tento přenos a následné zpracování.
+      - paragraph [ref=f37e611]: V sekci „Nastavení souborů cookie“ v zápatí našeho webu můžete kdykoli odvolat svůj souhlas nebo aktualizovat svůj výběr.
+      - paragraph [ref=f37e612]:
+        - text: Další informace naleznete v našich
+        - link "Pravidlech ochrany osobních údajů." [ref=f37e613] [cursor=pointer]
+    - generic [ref=f37e614]:
+      - button "Spravovat předvolby" [ref=f37e615] [cursor=pointer]
+      - button "Povolit všechny cookies" [active] [ref=f37e616] [cursor=pointer]

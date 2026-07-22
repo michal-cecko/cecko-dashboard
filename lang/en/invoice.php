@@ -34,6 +34,7 @@ return [
     'ic_dph' => 'VAT ID',
     'reverse_charge_notice' => 'Tax to be paid by the customer',
     'reverse_charge_law' => 'Invoice under reverse charge mechanism',
+    'not_vat_payer_notice' => 'Not a VAT payer.',
     'printed_by' => 'Printed by',
     'page' => 'page',
 ];

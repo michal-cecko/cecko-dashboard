@@ -38,18 +38,17 @@ class PaidMonthStatsWidget extends StatsOverviewWidget
 
         $company = auth()->user()->activeCompany;
         $currency = $company?->default_currency ?? 'EUR';
-        $companyId = $company?->id;
 
         $monthTotal = (float) InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $companyId)
+            ->whereHas('invoice')
             ->whereYear('invoice_payments.payment_date', $year)
             ->whereMonth('invoice_payments.payment_date', $month)
             ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
 
         $invoiceCount = InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $companyId)
+            ->whereHas('invoice')
             ->whereYear('invoice_payments.payment_date', $year)
             ->whereMonth('invoice_payments.payment_date', $month)
             ->distinct('invoice_payments.invoice_id')
@@ -60,13 +59,13 @@ class PaidMonthStatsWidget extends StatsOverviewWidget
 
         $thisYearTotal = (float) InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $companyId)
+            ->whereHas('invoice')
             ->whereYear('invoice_payments.payment_date', $currentYear)
             ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
 
         $lastYearTotal = (float) InvoicePayment::query()
             ->join('invoices', 'invoice_payments.invoice_id', '=', 'invoices.id')
-            ->where('invoices.company_id', $companyId)
+            ->whereHas('invoice')
             ->whereYear('invoice_payments.payment_date', $lastYear)
             ->sum(DB::raw('CASE WHEN invoices.exchange_rate IS NOT NULL AND invoices.exchange_rate > 0 THEN invoice_payments.amount * invoices.exchange_rate ELSE invoice_payments.amount END'));
 

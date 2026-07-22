@@ -1,0 +1,457 @@
+- generic [active] [ref=f73e1]:
+  - banner [ref=f73e2]:
+    - generic [ref=f73e4]:
+      - generic [ref=f73e5]:
+        - generic [ref=f73e6]: Zrušení
+        - generic [ref=f73e8]: Platba
+        - generic [ref=f73e10]: Doprava
+      - generic [ref=f73e12]:
+        - generic:
+          - textbox "Zdejte klíčové slovo / číslo položky" [ref=f73e13]
+          - button "Submit" [ref=f73e14] [cursor=pointer]
+      - link [ref=f73e16] [cursor=pointer]:
+        - /url: "#"
+        - emphasis [ref=f73e17]: Česko
+      - generic [ref=f73e20]:
+        - link [ref=f73e22] [cursor=pointer]:
+          - /url: "#"
+          - emphasis [ref=f73e23]: Přihlášení
+        - generic [ref=f73e25]: Registrace
+    - generic [ref=f73e28]:
+      - link [ref=f73e30] [cursor=pointer]:
+        - /url: https://www.euautodily.cz/
+        - img "EUautodily.cz Online obchod" [ref=f73e31]
+      - generic [ref=f73e33]:
+        - generic [ref=f73e34] [cursor=pointer]: 0,00 Kč
+        - generic [ref=f73e35]:
+          - text: "#"
+          - figure [ref=f73e36]: 71-6151
+      - img "EUautodily.cz - podpora" [ref=f73e38]
+    - generic [ref=f73e39]:
+      - generic [ref=f73e40]:
+        - generic [ref=f73e41]: Začněte vyhledávání náhradních dílů pomocí kriterií pro výběr vozidla
+        - generic [ref=f73e42]:
+          - generic [ref=f73e44] [cursor=pointer]:
+            - combobox [ref=f73e45]:
+              - option "Vybrat výrobce auto" [selected]
+              - option "VW"
+              - option "BMW"
+              - option "SKODA"
+              - option "FORD"
+              - option "MERCEDES-BENZ"
+              - option "AUDI"
+              - option "OPEL"
+              - option "RENAULT"
+              - option "TOYOTA"
+              - option "PEUGEOT"
+              - option "ABARTH"
+              - option "AC"
+              - option "ACURA"
+              - option "AIXAM"
+              - option "ALFA ROMEO"
+              - option "ALPINA"
+              - option "ALPINE"
+              - option "ALVIS"
+              - option "ARO"
+              - option "ARTEGA"
+              - option "ASIA MOTORS"
+              - option "ASKAM (FARGO/DESOTO)"
+              - option "ASTON MARTIN"
+              - option "AUDI"
+              - option "AUSTIN"
+              - option "AUSTIN-HEALEY"
+              - option "AUTO UNION"
+              - option "AUTOBIANCHI"
+              - option "AUVERLAND"
+              - option "BARKAS"
+              - option "BEDFORD"
+              - option "BENTLEY"
+              - option "BERTONE"
+              - option "BESTURN (FAW)"
+              - option "BMW"
+              - option "BORGWARD"
+              - option "BRABUS"
+              - option "BUGATTI"
+              - option "BUICK"
+              - option "BUICK (SGM)"
+              - option "BYD"
+              - option "CADILLAC"
+              - option "CARBODIES"
+              - option "CASALINI"
+              - option "CATERHAM"
+              - option "CHERY"
+              - option "CHEVROLET"
+              - option "CHRYSLER"
+              - option "CITROËN"
+              - option "CUPRA"
+              - option "DACIA"
+              - option "DAEWOO"
+              - option "DAF"
+              - option "DAIHATSU"
+              - option "DAIMLER"
+              - option "DE TOMASO"
+              - option "DFSK"
+              - option "DODGE"
+              - option "DR"
+              - option "DS"
+              - option "EBRO"
+              - option "FERRARI"
+              - option "FIAT"
+              - option "FISKER"
+              - option "FORD"
+              - option "FORD ASIA / OCEANIA"
+              - option "FORD OTOSAN"
+              - option "FORD USA"
+              - option "FSO"
+              - option "GAZ"
+              - option "GEELY (GLEAGLE)"
+              - option "GENESIS"
+              - option "GERMAN E-CARS"
+              - option "GLAS"
+              - option "GMC"
+              - option "GOUPIL"
+              - option "GREAT WALL"
+              - option "HAVAL"
+              - option "HOLDEN"
+              - option "HONDA"
+              - option "HUMMER"
+              - option "HYUNDAI"
+              - option "INDIGO"
+              - option "INFINITI"
+              - option "INNOCENTI"
+              - option "ISUZU"
+              - option "IVECO"
+              - option "JAGUAR"
+              - option "JEEP"
+              - option "JIANGLING LANDWIND"
+              - option "JINBEI"
+              - option "KG MOBILITY"
+              - option "KIA"
+              - option "KOENIGSEGG"
+              - option "KTM"
+              - option "LADA"
+              - option "LAMBORGHINI"
+              - option "LANCIA"
+              - option "LAND ROVER"
+              - option "LDV"
+              - option "LEVC"
+              - option "LEXUS"
+              - option "LIGIER"
+              - option "LINCOLN"
+              - option "LLOYD"
+              - option "LOTUS"
+              - option "LTI"
+              - option "LUCID"
+              - option "LYNK & CO"
+              - option "MAHINDRA"
+              - option "MAN"
+              - option "MARUTI"
+              - option "MASERATI"
+              - option "MAXUS"
+              - option "MAYBACH"
+              - option "MAZDA"
+              - option "MCLAREN"
+              - option "MEGA"
+              - option "MERCEDES-BENZ"
+              - option "MERCURY"
+              - option "MG"
+              - option "MIA ELECTRIC"
+              - option "MICROCAR"
+              - option "MINELLI"
+              - option "MINI"
+              - option "MITSUBISHI"
+              - option "MORGAN"
+              - option "MORRIS"
+              - option "MOSKVICH"
+              - option "NISSAN"
+              - option "NSU"
+              - option "OLDSMOBILE"
+              - option "OPEL"
+              - option "PAGANI"
+              - option "PANTHER"
+              - option "PEUGEOT"
+              - option "PIAGGIO"
+              - option "PININFARINA"
+              - option "PLYMOUTH"
+              - option "POLARIS"
+              - option "POLESTAR"
+              - option "PONTIAC"
+              - option "PORSCHE"
+              - option "PROTON"
+              - option "PUCH"
+              - option "RAM"
+              - option "RAVON"
+              - option "RENAULT"
+              - option "RENAULT TRUCKS"
+              - option "ROLLS-ROYCE"
+              - option "ROVER"
+              - option "RUF"
+              - option "SAAB"
+              - option "SANTANA"
+              - option "SATURN"
+              - option "SCION"
+              - option "SEAT"
+              - option "SHELBY"
+              - option "SHUANGHUAN AUTO"
+              - option "SKODA"
+              - option "SMART"
+              - option "SPYKER"
+              - option "SSANGYONG"
+              - option "STEYR"
+              - option "STREETSCOOTER"
+              - option "SUBARU"
+              - option "SUZUKI"
+              - option "TALBOT"
+              - option "TATA (TELCO)"
+              - option "TESLA"
+              - option "THINK"
+              - option "TOYOTA"
+              - option "TRABANT"
+              - option "TRIUMPH"
+              - option "TVR"
+              - option "UAZ"
+              - option "UMM"
+              - option "VAUXHALL"
+              - option "VICTORY"
+              - option "VOLVO"
+              - option "VW"
+              - option "WARTBURG"
+              - option "WESTFIELD"
+              - option "WIESMANN"
+              - option "ZASTAVA"
+              - option "ZUENDAPP"
+            - generic [ref=f73e46]: Vybrat výrobce auto
+          - generic [ref=f73e51]:
+            - combobox [disabled] [ref=f73e52]:
+              - option "Vyberte model" [selected]
+            - generic [ref=f73e53]: Vyberte model
+          - generic [ref=f73e58]:
+            - combobox [disabled] [ref=f73e59]:
+              - option "Vyberte typ" [selected]
+            - generic [ref=f73e60]: Vyberte typ
+      - generic [ref=f73e66]:
+        - img "Více než 1 000 000 autodílů" [ref=f73e67]
+        - generic [ref=f73e68]: Více než
+        - generic [ref=f73e69]: autodílů
+    - generic [ref=f73e71]:
+      - list:
+        - listitem [ref=f73e72]:
+          - generic [ref=f73e73] [cursor=pointer]: VŠECHNY DÍLY
+        - listitem [ref=f73e74]:
+          - generic [ref=f73e75] [cursor=pointer]: Příslušenství
+        - listitem [ref=f73e76]:
+          - link "Filtry" [ref=f73e77] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/filtr
+        - listitem [ref=f73e79]:
+          - link "Motor" [ref=f73e80] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/motor
+        - listitem [ref=f73e82]:
+          - link "Cisteni skel" [ref=f73e83] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/okna-cisteni-celniho-skla
+        - listitem [ref=f73e85]:
+          - link "Řemeny, řetězy, válečky" [ref=f73e86] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/remeny
+        - listitem [ref=f73e88]:
+          - link "Zavěšení kol, ramena" [ref=f73e89] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/zaveseni_napravy_vedeni_kol
+        - listitem [ref=f73e91]:
+          - link "Brzdový systém" [ref=f73e92] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/brzdy
+        - listitem [ref=f73e94]:
+          - link "Systém zapalování a žhavení" [ref=f73e95] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/zapalovani-zhavici-zarizeni
+        - listitem [ref=f73e97]:
+          - link "Elektroinstalace" [ref=f73e98] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/elektroinstalace
+        - listitem [ref=f73e100]:
+          - link "Spojka / prislusenstvi" [ref=f73e101] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/spojka_prislusenstvi
+        - listitem [ref=f73e103]:
+          - link "Karoserie" [ref=f73e104] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/karoserie
+        - listitem [ref=f73e106]:
+          - link "Kloub hnacího hřídele / hnací hřídel" [ref=f73e107] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/pohon_kol
+        - listitem [ref=f73e109]:
+          - link "Prevodovka" [ref=f73e110] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/prevodovka
+        - listitem [ref=f73e112]:
+          - link "Systém chlazení motoru" [ref=f73e113] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/chlazeni
+        - listitem [ref=f73e115]:
+          - link "Systém přívodu paliva" [ref=f73e116] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/priprava-paliva
+        - listitem [ref=f73e118]:
+          - link "Výfukový systém" [ref=f73e119] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/vyfukovy-system
+        - listitem [ref=f73e121]:
+          - link "Zaveseni / Tlumeni" [ref=f73e122] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/zaveseni_tlumeni
+        - listitem [ref=f73e124]:
+          - link "Vnitrni vybaveni" [ref=f73e125] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/vnitrni-vybaveni
+        - listitem [ref=f73e127]:
+          - link "Kloubové hřídele a diferenciály" [ref=f73e128] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/pohon_napravy
+        - listitem [ref=f73e130]:
+          - link "Hadičky a trubky" [ref=f73e131] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/hadicky-a-trubky
+        - listitem [ref=f73e133]:
+          - link "Snímače, relé, řídící jednotky" [ref=f73e134] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/snimace-rele-ridici-jednotky
+        - listitem [ref=f73e136]:
+          - link "Topeni / chlazeni" [ref=f73e137] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/topeni_chlazeni
+        - listitem [ref=f73e139]:
+          - link "Rizeni" [ref=f73e140] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/rizeni
+        - listitem [ref=f73e142]:
+          - link "Klimatizace" [ref=f73e143] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/klimatizace
+        - listitem [ref=f73e145]:
+          - link "Prstence těsnění a uzávěry" [ref=f73e146] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/prstence-tesneni-a-uzavery
+        - listitem [ref=f73e148]:
+          - link "Ložiska kol" [ref=f73e149] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/loziska
+        - listitem [ref=f73e151]:
+          - link "Oleje a kapaliny" [ref=f73e152] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/oleje-a-kapaliny
+        - listitem [ref=f73e154]:
+          - link "Opravné sety" [ref=f73e155] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/opravne-sety
+        - listitem [ref=f73e157]:
+          - link "Zavesne zarizeni / prislusenstvi" [ref=f73e158] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/zavesne_zarizeni_prislusenstvi
+        - listitem [ref=f73e160]:
+          - link "Osvětlení" [ref=f73e161] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/katalog-nahradnichdilu/osvetleni
+  - generic [ref=f73e165]:
+    - generic [ref=f73e168]:
+      - generic [ref=f73e169]: Odmítnout všechny cookies
+      - generic [ref=f73e170]: Používání souborů cookie a podobných technologií
+      - paragraph
+      - generic [ref=f73e172]:
+        - paragraph [ref=f73e173]: Tento web používá soubory cookie, které jsou nezbytné pro fungování webu. S Vaším souhlasem se používají další soubory cookie a podobné technologie („nástroje“), zejména k integraci externího obsahu, analýze využití, personalizaci nabídek a zlepšení funkčnosti webu.
+        - paragraph [ref=f73e174]: Všechny tyto nástroje můžete přijmout nebo odmítnout pomocí níže umístěných tlačítek. V sekci „Spravovat předvolby“ naleznete podrobné informace o všech nástrojích a můžete si individuálně upravit nastavení. Pokud při používání určitého nástroje dochází k přenosu údajů do třetích zemí mimo EHP, které mohou mít nižší úroveň ochrany údajů, Váš souhlas se výslovně vztahuje i na tento přenos a následné zpracování.
+        - paragraph [ref=f73e175]: V sekci „Nastavení souborů cookie“ v zápatí našeho webu můžete kdykoli odvolat svůj souhlas nebo aktualizovat svůj výběr.
+        - paragraph [ref=f73e176]: Další informace naleznete v našich
+      - text: Pravidlech ochrany osobních údajů.
+      - paragraph
+      - generic [ref=f73e177]:
+        - generic [ref=f73e178] [cursor=pointer]: Spravovat předvolby
+        - generic [ref=f73e179] [cursor=pointer]: Povolit všechny cookies
+    - generic [ref=f73e180]:
+      - generic [ref=f73e182]:
+        - generic [ref=f73e183]:
+          - link "EU-Autodíly" [ref=f73e184] [cursor=pointer]:
+            - /url: https://www.euautodily.cz/
+          - text: "-"
+        - generic [ref=f73e185]: Dodání
+      - heading "Přepravní náklady a odeslání" [level=3] [ref=f73e187]
+      - generic [ref=f73e190]:
+        - paragraph [ref=f73e191]: "Doručení v rámci Česka:"
+        - paragraph [ref=f73e192]: Cena za doručení při objednávkách s hodnotou pod 2700,00 Kč je 235,00 Kč. Bezplatné doručení nabízíme v případě objednávek s hodnotou nad 2700,00 Kč (kromě doručení do zahraničí, a doručení speciálních druhů zásilek - nadrozměrné zboží, vyměnitelné součástky a pneumatiky).
+        - paragraph [ref=f73e193]: Při použití způsobů platby, například PayPal nebo platební karta vám nebude účtován žádný další poplatek za transakci.
+        - paragraph [ref=f73e194]: "Doručení mimo Česko:"
+        - paragraph [ref=f73e195]: Cena za doručení do jiných zemí uvedená níže je platná bez ohledu na hodnotu objednávky, a musí být zaplacena.
+        - generic [ref=f73e196] [cursor=pointer]:
+          - combobox [ref=f73e197]:
+            - option "Belgie"
+            - option "Bulharsko"
+            - option "Česká republika" [selected]
+            - option "Dánsko"
+            - option "Estonsko"
+            - option "Faerské ostrovy"
+            - option "Finsko"
+            - option "Francie"
+            - option "Holandsko"
+            - option "Irsko"
+            - option "Itálie"
+            - option "Litva"
+            - option "Lotyšsko"
+            - option "Lucembursko"
+            - option "Maďarsko"
+            - option "Německo"
+            - option "Norsko"
+            - option "Polsko"
+            - option "Portugalsko"
+            - option "Rakousko"
+            - option "Řecko"
+            - option "Rumunsko"
+            - option "Slovensko"
+            - option "Slovinsko"
+            - option "Španělsko"
+            - option "Spojené království"
+            - option "Švédsko"
+            - option "Švýcarsko"
+          - generic [ref=f73e198]: Česká republika
+        - generic [ref=f73e202]: 235,00 Kč pro Česká republika
+        - paragraph [ref=f73e203]: "Příplatek za nadrozměrné zboží:"
+        - paragraph [ref=f73e204]: "Za nadrozměrné zboží jsou považovány následující náhradní díly: Autobaterie, katalyzátory, svodové potrubí, tlumiče výfuku, závodní tlumiče výfuku, prahy, křídla, palivové nádrže, spoilery, boční panely, tažné spojení (závěsné spojení), přední kapoty a kryty, kryty motoru, kapoty, izolace motorového prostoru a nárazníky."
+        - paragraph [ref=f73e205]: "Poplatek za nadrozměrný náklad v Česká republika činí: 507,00 Kč."
+        - paragraph [ref=f73e206]: "Doručení nadrozměrného zboží v rámci Německa:"
+        - paragraph [ref=f73e207]: 1) Cena doručení svodných potrubí, katalyzátorů, tlumičů výfuku nebo závodních tlumičů výfuku je navýšena o příplatek za nadrozměrné zboží v hodnotě 847,00 Kč 2) Doručení autobaterií, blatníků, prahů, palivových nádrží, bočních panelů, spoilerů a nárazníků je navýšeny o příplatek za nadrozměrné zboží v hodnotě 847,00 Kč 3) Doručení předních kapot a krytů, tažných spojení (závěsů), krytů motoru, kapot a nárazníků v rámci Německa je navýšení o příplatek za nadrozměrné zboží v hodnotě 847,00 Kč.
+        - paragraph [ref=f73e208]: "Dodatečné náklady na doručení nadměrného zboží v jiných zemích: Belgie: 991,00 Kč Bulharsko: 2468,00 Kč Dánsko: 2057,00 Kč Estonsko: 2322,00 Kč Finsko: 749,00 Kč Francie: 1088,00 Kč Holandsko: 653,00 Kč Itálie: 483,00 Kč Litva: 2346,00 Kč Lotyšsko: 2346,00 Kč Lucembursko: 653,00 Kč Maďarsko: 2130,00 Kč Polsko: 1380,00 Kč Portugalsko: 1330,00 Kč Rakousko: 846,00 Kč Řecko: 3411,00 Kč Rumunsko: 2517,00 Kč Slovensko: 749,00 Kč Slovinsko: 2177,00 Kč Španělsko: 1209,00 Kč Švédsko: 2372,00 Kč Švýcarsko: 653,00 Kč"
+        - paragraph [ref=f73e209]: Příplatek za nadrozměrné zboží se vztahuje na každou položku.
+        - paragraph [ref=f73e210]: "Poznámka:"
+        - paragraph [ref=f73e211]: Doručení nadměrného zboží do zemí, které nejsou uvedeny v seznamu výše, není možné.
+        - paragraph [ref=f73e212]: Všechny uvedené ceny jsou předmětem platby DPH při současné výši 21%.
+        - paragraph [ref=f73e213]: "Lhůty doručení:"
+        - paragraph [ref=f73e214]: Na skladě
+        - paragraph [ref=f73e215]: Produkt je dostupný. Položky s tímto statusem dostupnosti odesíláme do 1-2 pracovních dnů po obdržení platby.
+        - paragraph [ref=f73e216]: Momentálně není skladem
+        - paragraph [ref=f73e217]: Tuto položku nelze objednat. Již není dostupná, nebo se přestala vyrábět. Můžete si objednat podobný produkt od jiného výrobce.
+        - paragraph [ref=f73e218]:
+          - text: Čas doručení závisí na dostupnosti produktu. Prosím, zkontrolujte si status dostupnosti produktu, o který se zajímáte. Informace o možných celních poplatcích naleznete
+          - link "zde." [ref=f73e219] [cursor=pointer]:
+            - /url: https://www.celnisprava.cz/en/clo/Pages/default.aspx
+        - paragraph [ref=f73e220]: Během svátků nedoručujeme.
+        - paragraph [ref=f73e221]: Dodatečná možnost "Bezpečná objednávka"
+        - paragraph [ref=f73e222]: S dodatečnou možností "Bezpečná objednávka" máte možnost prodloužit standardní právo na zrušení objednávky. Pro nízkonákladovou platbu 89,99 Kč na objednávku nabízíme plné vrácení peněz a bezplatné vrácení zboží v rámci prvních 100 dní, aniž byste museli uvést důvod. Na standardní právo na zrušení objednávky se odkazuje s ohledem na zpracování. Tato možnost, tak jak je nabízena, je dostupná v posledním kroku procesu objednávání. Platí pouze v případě, že produkt je v původním stavu, není poškozen a nebyl instalován. Vaše zákonné právo na zrušení objednávky tímto není nahrazeno ani ovlivněno možností "Bezpečná objednávka".
+        - paragraph [ref=f73e223]: "Požadavky pro vrácení zboží při použití služby \"Bezpečná objednávka\":"
+        - paragraph [ref=f73e224]:
+          - text: "- Prosím, žádost o vrácení zboží podejte ve vašem osobním účtu na stránce"
+          - link "www.euautodily.cz" [ref=f73e225] [cursor=pointer]:
+            - /url: http://www.euautodily.cz
+          - text: ", nebo kontaktujte podporu pro zákazníky. - Pošlete nám produkt v původním balení i spolu s fakturou - Náhradní díly nesmí být použity, musí být bez poškození, a bez známek namontování."
+        - paragraph [ref=f73e226]: Možnost Bezpečná objednávka platí jen na jedno vrácení v rámci jedné objednávky.
+        - paragraph [ref=f73e227]: Když od vás dostaneme zpět náhradní díly, důkladně je zkontrolujeme. Pokud součástka splňuje výše uvedené požadavky, součástku vyměníme za jinou nebo vám vrátíme peníze - podle vámi preferované možnosti.
+        - paragraph [ref=f73e228]: "Poznámka:"
+        - paragraph [ref=f73e229]: Podmínky možnosti Bezpečná objednávka se nevztahují na nadrozměrné zboží, staré vyměnitelné díly a pneumatiky. Kromě toho se podmínky možnosti Bezpečná objednávka nevztahují na produkty z jiných objednávek, pro které tato možnost nebyla zvolena.
+        - paragraph [ref=f73e230]: Pneumatiky nedoručujeme do Skotska.
+  - contentinfo [ref=f73e231]:
+    - generic [ref=f73e232]:
+      - generic [ref=f73e233]: EUautodily.cz servisní informace
+      - table [ref=f73e234]:
+        - rowgroup [ref=f73e235]:
+          - row [ref=f73e236]:
+            - cell [ref=f73e237]:
+              - list [ref=f73e238]:
+                - listitem [ref=f73e239]: Platba
+                - listitem [ref=f73e240]: Dodání
+                - listitem [ref=f73e241]: Vrácení zboží
+            - cell [ref=f73e242]:
+              - list [ref=f73e243]:
+                - listitem [ref=f73e244]: Obchodní podmínky
+                - listitem [ref=f73e245]: Kontaktní údaje
+                - listitem [ref=f73e246]: Právní oznámení
+            - cell [ref=f73e247]:
+              - list [ref=f73e248]:
+                - listitem [ref=f73e249]: Pravidla ochrany osobních údajů
+                - listitem [ref=f73e250]:
+                  - button "Nastavení souborů cookie" [ref=f73e251] [cursor=pointer]
+                - listitem [ref=f73e252]: Bezpečnost produktů
+                - listitem [ref=f73e253]: Výměna
+                - listitem [ref=f73e254]: Prohlášení o přístupnosti
+            - cell [ref=f73e255]:
+              - list [ref=f73e257]:
+                - listitem [ref=f73e258]:
+                  - link "Soupis požadovaných výrobků" [ref=f73e259] [cursor=pointer]:
+                    - /url: https://www.euautodily.cz/wishlist
+          - row [ref=f73e260]:
+            - cell [ref=f73e261]
+            - cell [ref=f73e262]:
+              - generic [ref=f73e264]:
+                - img "EUautodily.cz - horká linka" [ref=f73e266]
+                - paragraph [ref=f73e269]: "© 2026 www.euautodily.cz : EUautodily Internetový obchod"

@@ -82,6 +82,12 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
         return in_array($capability, $this->capabilities);
     }
 
+    public function showsAllInvoiceCompanies(): bool
+    {
+        return session()->get('invoices.show_all_companies', false)
+            && $this->hasCapability(UserCapabilityEnum::MANAGE_ALL_INVOICES);
+    }
+
     public function canImpersonate(): bool
     {
         return $this->hasCapability(UserCapabilityEnum::MANAGE_USERS);

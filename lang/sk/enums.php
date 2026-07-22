@@ -54,7 +54,7 @@ return [
         UserCapabilityEnum::MANAGE_USERS->value => 'Upravovať používateľov',
         UserCapabilityEnum::VIEW_INVOICES->value => 'Prístup k faktúram',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Spravovať faktúry',
-        UserCapabilityEnum::VIEW_ALL_INVOICES->value => 'Zobraziť faktúry všetkých používateľov',
+        UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Spravovať faktúry všetkých používateľov',
         UserCapabilityEnum::VIEW_MEDIA->value => 'Prístup ku zdieľaným súborom',
         UserCapabilityEnum::MANAGE_MEDIA->value => 'Spravovať zdieľané súbory',
         UserCapabilityEnum::VIEW_ALL_MEDIA->value => 'Zobraziť zdieľané súbory všetkých používateľov',

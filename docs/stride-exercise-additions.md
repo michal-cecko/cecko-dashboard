@@ -69,12 +69,13 @@ Chin-up, Pull-up (Strict), Hanging Leg Raise, Plank, Bulgarian Split Squat.
 | Back Lever | Back | Compound | Advanced | Pull-up bar | Lats | hold |
 
 ### A3. Legs  (group → Legs)
-| Name | group | tag | difficulty | equipment | primary | metric |
-|---|---|---|---|---|---|---|
-| Assisted Pistol Squat | Legs | Compound | Beginner | Bodyweight | Quads | reps |
-| Shrimp Squat | Legs | Compound | Advanced | Bodyweight | Quads | reps |
-| Nordic Hamstring Curl | Legs | Compound | Advanced | Bodyweight | Hamstrings | reps |
+| Name | group | tag | difficulty   | equipment | primary | metric |
+|---|---|---|--------------|---|---|---|
+| Assisted Pistol Squat | Legs | Compound | Beginner     | Bodyweight | Quads | reps |
+| Shrimp Squat | Legs | Compound | Advanced     | Bodyweight | Quads | reps |
+| Nordic Hamstring Curl | Legs | Compound | Advanced     | Bodyweight | Hamstrings | reps |
 | Sissy Squat | Legs | Isolation | Intermediate | Bodyweight | Quads | reps |
+| Pistol Squat | Legs | Compound | Intermediate | Bodyweight | Quads | reps |
 
 ### A4. Core / whole-body statics  (group → Core; appear on Full-body days)
 | Name | group | tag | difficulty | equipment | primary | metric |

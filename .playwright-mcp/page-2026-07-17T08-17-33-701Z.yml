@@ -1,0 +1,251 @@
+- generic [ref=f76e1]:
+  - dialog "Vítejte na webu Heureka Group Správa souhlasů" [ref=f76e3]:
+    - document [active] [ref=f76e4]:
+      - heading "Logo" [level=1] [ref=f76e6]
+      - button "zavřete a vraťte se do zobrazení správy souhlasu" [ref=f76e7] [cursor=pointer]: ×
+      - generic [ref=f76e8]:
+        - generic [ref=f76e10]:
+          - paragraph
+          - heading "Dáte nám souhlas s využíváním cookies, prosím?" [level=2] [ref=f76e11]
+          - paragraph
+          - paragraph [ref=f76e12]: "Na rovinu: aby vám Heureka i nadále byla nejlepším nákupním rádcem a ať"
+          - list [ref=f76e13]:
+            - listitem [ref=f76e14]: netápete a vždy rychle najdete to, co hledáte,
+            - listitem [ref=f76e15]: vás nepřepadá nevhodná reklama,
+            - listitem [ref=f76e16]: můžeme Heureku pilovat k dokonalosti,
+          - paragraph [ref=f76e17]:
+            - text: používáme my i naši partneři
+            - strong [ref=f76e18]: cookies
+            - text: (a další síťové identifikátory). Bez některých cookies se náš web neobejde a nelze je vypnout. Z jiných pak získáváme údaje o vašem chování na webu a o tom, co vás zajímá. S
+            - link "partnery" [ref=f76e19] [cursor=pointer]:
+              - /url: javascript:Didomi.preferences.show('vendors')
+            - text: proto ukládáme a přistupujeme k informacím z vašeho zařízení a zpracováváme je k účelům uvedeným níže.
+          - paragraph
+          - heading "Upečete s námi lepší Heureku? Předem děkujeme!" [level=3] [ref=f76e20]
+          - paragraph
+          - paragraph [ref=f76e21]: Souhlas můžete odvolat a své volby změnit v Nastavení souhlasu. Někteří partneři souhlas nepožadují a spoléhají se při zpracování údajů na svůj oprávněný zájem. Proti tomu můžete vznést námitku.
+        - button "Podívejte se na našich 935 partnerů" [ref=f76e22] [cursor=pointer]
+      - generic [ref=f76e23]:
+        - button "Další informace" [ref=f76e24] [cursor=pointer]
+        - button "Povolit nezbytné" [ref=f76e25] [cursor=pointer]
+        - button "Souhlasit a zavřít" [ref=f76e26] [cursor=pointer]
+  - banner [ref=f76e29]:
+    - generic [ref=f76e30]:
+      - link [ref=f76e31] [cursor=pointer]:
+        - /url: https://www.heureka.cz
+        - img "Heureka.cz — Vybírejte úžasně!" [ref=f76e32]
+      - generic [ref=f76e34]:
+        - combobox "Vyheurekujte si to" [ref=f76e35]
+        - generic: Zkuste iPhone 15 Pro
+        - button "Smazat"
+        - button "Hledat" [ref=f76e36] [cursor=pointer]
+      - list [ref=f76e38]:
+        - listitem [ref=f76e39]:
+          - link "0 Kč" [ref=f76e40] [cursor=pointer]:
+            - /url: https://checkout.heureka.cz/
+        - listitem [ref=f76e44]:
+          - link "Přihlásit se" [ref=f76e45] [cursor=pointer]:
+            - /url: https://ucet.heureka.cz/prihlaseni?callbackUrl=https%3A%2F%2Fwww.heureka.cz%2Fmann-filter-w-7056%2F
+    - link [ref=f76e49] [cursor=pointer]:
+      - /url: https://www.heureka.cz/hp-landing-page
+      - text: Speciální nabídky
+  - navigation [ref=f76e53]:
+    - list [ref=f76e54]:
+      - listitem [ref=f76e55]:
+        - link "Tipy" [ref=f76e56] [cursor=pointer]:
+          - /url: https://www.heureka.cz/a/
+      - listitem [ref=f76e59]:
+        - link "Letní akce" [ref=f76e60] [cursor=pointer]:
+          - /url: https://akce.heureka.cz/leto
+      - listitem [ref=f76e63]:
+        - link "Elektronika" [ref=f76e64] [cursor=pointer]:
+          - /url: https://elektronika.heureka.cz/
+      - listitem [ref=f76e67]:
+        - link "Dílna, stavba, zahrada" [ref=f76e68] [cursor=pointer]:
+          - /url: https://dum-zahrada.heureka.cz/
+      - listitem [ref=f76e71]:
+        - link "Sport a outdoor" [ref=f76e72] [cursor=pointer]:
+          - /url: https://sport.heureka.cz/
+      - listitem [ref=f76e75]:
+        - link "Domácí a osobní spotřebiče" [ref=f76e76] [cursor=pointer]:
+          - /url: https://male-spotrebice.heureka.cz/
+    - link "Další (16)" [ref=f76e80] [cursor=pointer]:
+      - /url: "#"
+  - generic [ref=f76e84]:
+    - heading "Ztratili jste se?" [level=1] [ref=f76e85]
+    - paragraph [ref=f76e86]: Na této stránce rozhodně nic není. Nejspíš se vám do adresy vloudil nějaký překlep.
+    - paragraph [ref=f76e87]:
+      - text: Zkontrolujte adresu nebo
+      - link "přejděte na úvodní stránku" [ref=f76e88] [cursor=pointer]:
+        - /url: https://www.heureka.cz
+      - text: .
+    - paragraph [ref=f76e89]: Chyba 404
+  - contentinfo [ref=f76e92]:
+    - generic [ref=f76e93]:
+      - generic [ref=f76e94]:
+        - img "Heureka.cz — Vybírejte úžasně!" [ref=f76e95]
+        - paragraph [ref=f76e96]:
+          - text: U nás najdete přes
+          - strong [ref=f76e97]: 29 000 000
+          - text: produktů a
+          - strong [ref=f76e98]: 38 100
+          - text: internetových obchodů.
+      - generic [ref=f76e99]:
+        - generic [ref=f76e100]:
+          - paragraph [ref=f76e101]: O Heurece
+          - list [ref=f76e102]:
+            - listitem [ref=f76e103]:
+              - link "Co je Heureka?" [ref=f76e104] [cursor=pointer]:
+                - /url: https://heureka.group/cs/o-nas
+            - listitem [ref=f76e105]:
+              - link "Kontakty" [ref=f76e106] [cursor=pointer]:
+                - /url: https://www.heureka.cz/a/kontakty-c-30281/
+            - listitem [ref=f76e107]:
+              - link "Podmínky používání" [ref=f76e108] [cursor=pointer]:
+                - /url: https://www.heureka.cz/a/podminky-pouzivani-c-30250/
+            - listitem [ref=f76e109]:
+              - link "Volná pracovní místa" [ref=f76e110] [cursor=pointer]:
+                - /url: https://join.heureka.group/cs/jobs
+            - listitem [ref=f76e111]:
+              - link "Pro média" [ref=f76e112] [cursor=pointer]:
+                - /url: https://heureka.group/cs/novinky-a-dokumenty?cat=tiskove-zpravy
+            - listitem [ref=f76e113]:
+              - link "Heureka bloguje" [ref=f76e114] [cursor=pointer]:
+                - /url: https://heureka.group/cs/novinky-a-dokumenty
+            - listitem [ref=f76e115]:
+              - link "Blog HeurekaDevs" [ref=f76e116] [cursor=pointer]:
+                - /url: https://www.heurekadevs.cz/
+            - listitem [ref=f76e117]:
+              - link "Oznámit nezákonný obsah" [ref=f76e118] [cursor=pointer]:
+                - /url: https://www.startquestion.com/survey/1127330/nahlaseni-nezakonneho-obsahu.html
+            - listitem [ref=f76e119]:
+              - link "Přístupnost" [ref=f76e120] [cursor=pointer]:
+                - /url: https://heureka.group/cz-cs/podminky-pouzivani/prohlaseni-o-pristupnosti-portalu-heureka-cz/
+        - generic [ref=f76e121]:
+          - paragraph [ref=f76e122]: Pro zákazníky
+          - list [ref=f76e123]:
+            - listitem [ref=f76e124]:
+              - link "Jak nakoupit?" [ref=f76e125] [cursor=pointer]:
+                - /url: https://www.heurekashopping.cz/pro-zakazniky/pruvodce-heurekou/jak-nakoupit
+            - listitem [ref=f76e126]:
+              - link "Heureka v mobilu" [ref=f76e127] [cursor=pointer]:
+                - /url: https://www.heurekashopping.cz/pro-zakazniky/heureka-v-mobilu
+            - listitem [ref=f76e128]:
+              - link "Heureka radí" [ref=f76e129] [cursor=pointer]:
+                - /url: https://www.youtube.com/playlist?list=PLtdMALNtUx6tuUS6WbjtrfLSYSa3fhJHN
+            - listitem [ref=f76e130]:
+              - link "Nakupte přímo u nás" [ref=f76e131] [cursor=pointer]:
+                - /url: https://www.heurekashopping.cz/pro-zakazniky/pruvodce-heurekou/jak-nakoupit/kosik-nakoupit-muzete-i-primo-u-nas
+            - listitem [ref=f76e132]:
+              - link "Nastavení souhlasu" [ref=f76e133] [cursor=pointer]:
+                - /url: javascript:Didomi.preferences.show()
+            - listitem [ref=f76e134]:
+              - link "Ochrana soukromí" [ref=f76e135] [cursor=pointer]:
+                - /url: https://www.heureka.cz/a/ochrana-osobnich-udaju-na-portalech-heureka-group-c-30247/
+            - listitem [ref=f76e136]:
+              - link [ref=f76e137] [cursor=pointer]:
+                - /url: https://www.heurekashopping.cz/pro-zakazniky/pruvodce-heurekou/jak-platit-bezpecne-online
+                - text: Bezpečná platba kartou
+                - img "Bezpečná platba kartou" [ref=f76e138]
+            - listitem [ref=f76e139]:
+              - link "VOP pro uživatelský výzkum" [ref=f76e140] [cursor=pointer]:
+                - /url: https://heureka.group/cs/podminky-pouzivani/obchodni-podminky-ucasti-ve-vyzkumnem-panelu
+        - generic [ref=f76e141]:
+          - paragraph [ref=f76e142]: Pro partnery
+          - list [ref=f76e143]:
+            - listitem [ref=f76e144]:
+              - link "Administrace e-shopu" [ref=f76e145] [cursor=pointer]:
+                - /url: https://ucet.heureka.cz/prihlaseni?callbackUrl=https://sluzby.heureka.cz/obchody/
+            - listitem [ref=f76e146]:
+              - link "Registrovat nový e-shop" [ref=f76e147] [cursor=pointer]:
+                - /url: https://sluzby.heureka.cz/shop-registration/company
+            - listitem [ref=f76e148]:
+              - link "Služby pro e-shopy" [ref=f76e149] [cursor=pointer]:
+                - /url: https://heureka.group/cs/pro-eshopy
+            - listitem [ref=f76e150]:
+              - link "Heureka Marketplace" [ref=f76e151] [cursor=pointer]:
+                - /url: https://heureka.group/cs/pro-eshopy/marketplace
+            - listitem [ref=f76e152]:
+              - link "Služby pro značky" [ref=f76e153] [cursor=pointer]:
+                - /url: https://heureka.group/cs/pro-znacky-a-vyrobce
+            - listitem [ref=f76e154]:
+              - link "Datové přehledy" [ref=f76e155] [cursor=pointer]:
+                - /url: https://heureka.group/cs/pro-eshopy/rozhodujte-se-podle-dat
+            - listitem [ref=f76e156]:
+              - link "Affiliate program" [ref=f76e157] [cursor=pointer]:
+                - /url: https://heureka.group/cs/affiliate-program
+            - listitem [ref=f76e158]:
+              - link "Edukační videa" [ref=f76e159] [cursor=pointer]:
+                - /url: https://www.youtube.com/playlist?list=PLVazGhalYsBMkzMXkpf9lpQjdA6gFUzWF
+            - listitem [ref=f76e160]:
+              - link "Nápověda" [ref=f76e161] [cursor=pointer]:
+                - /url: https://sluzby.heureka.cz/napoveda/pruvodce-heurekou-pro-eshopy/
+        - generic [ref=f76e162]:
+          - paragraph [ref=f76e163]: Projekty
+          - list [ref=f76e164]:
+            - listitem [ref=f76e165]:
+              - link "Ověřeno zákazníky" [ref=f76e166] [cursor=pointer]:
+                - /url: https://www.overenozakazniky.cz/
+            - listitem [ref=f76e167]:
+              - link "ShopRoku" [ref=f76e168] [cursor=pointer]:
+                - /url: https://www.shoproku.cz/
+            - listitem [ref=f76e169]:
+              - link "ProduktRoku" [ref=f76e170] [cursor=pointer]:
+                - /url: https://www.produktroku.cz/
+            - listitem [ref=f76e171]:
+              - link "Certifikace partnerů" [ref=f76e172] [cursor=pointer]:
+                - /url: https://heureka.group/cs/certifikace-partneru
+            - listitem [ref=f76e173]:
+              - link "Inspirace" [ref=f76e174] [cursor=pointer]:
+                - /url: https://www.heureka.cz/a/
+            - listitem [ref=f76e175]:
+              - link "Udržitelný e-shop" [ref=f76e176] [cursor=pointer]:
+                - /url: https://www.udrzitelnyeshop.cz/
+        - generic [ref=f76e177]:
+          - generic [ref=f76e178]:
+            - heading "Zákaznická podpora" [level=2] [ref=f76e179]
+            - link "Napište nám" [ref=f76e180] [cursor=pointer]:
+              - /url: mailto:info@heureka.cz
+          - generic [ref=f76e181]:
+            - heading "Zpětná vazba" [level=2] [ref=f76e182]
+            - link "Napište nám" [ref=f76e183] [cursor=pointer]:
+              - /url: https://www.startquestion.com/survey/928572/23-04-heureka-feedback-form.html
+          - generic [ref=f76e184]:
+            - heading "Stáhněte si naši mobilní aplikaci" [level=2] [ref=f76e185]
+            - list [ref=f76e186]:
+              - listitem [ref=f76e187]:
+                - link [ref=f76e188] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/app/heureka-cz-srovn%C3%A1va%C4%8D-cen/id436106975
+                  - img "Stáhnout v Apple Store" [ref=f76e189]
+              - listitem [ref=f76e190]:
+                - link [ref=f76e191] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/details?id=cz.ursimon.heureka.client.android&pcampaignid=web_share
+                  - img "Nyní na Google Play" [ref=f76e192]
+    - generic [ref=f76e194]:
+      - heading "Sledujte nás na sociálních sítích" [level=2] [ref=f76e195]
+      - list [ref=f76e196]:
+        - listitem [ref=f76e197]:
+          - link "facebook" [ref=f76e198] [cursor=pointer]:
+            - /url: https://www.facebook.com/heureka.cz
+            - img "facebook" [ref=f76e199]
+        - listitem [ref=f76e200]:
+          - link "youtube" [ref=f76e201] [cursor=pointer]:
+            - /url: https://www.youtube.com/c/heureka
+            - img "youtube" [ref=f76e202]
+        - listitem [ref=f76e203]:
+          - link "twitter" [ref=f76e204] [cursor=pointer]:
+            - /url: https://twitter.com/heurekacz
+            - img "twitter" [ref=f76e205]
+        - listitem [ref=f76e206]:
+          - link "linkedin" [ref=f76e207] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/heureka.cz
+            - img "linkedin" [ref=f76e208]
+        - listitem [ref=f76e209]:
+          - link "instagram" [ref=f76e210] [cursor=pointer]:
+            - /url: https://www.instagram.com/heurekacz/
+            - img "instagram" [ref=f76e211]
+    - paragraph [ref=f76e214]:
+      - text: Copyright © 2007–2026,
+      - link "Heureka Group a.s." [ref=f76e215] [cursor=pointer]:
+        - /url: https://heureka.group/heureka-group-a-s
+      - text: ", všechna práva vyhrazena."

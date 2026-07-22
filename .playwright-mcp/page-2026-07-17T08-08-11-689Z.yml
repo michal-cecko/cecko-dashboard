@@ -1,0 +1,1298 @@
+- generic [ref=f64e1]:
+  - generic [ref=f64e2]:
+    - banner [ref=f64e4]:
+      - generic [ref=f64e6]:
+        - link [ref=f64e7] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/
+          - img "automobilovedily24.cz" [ref=f64e8]
+        - generic [ref=f64e13]:
+          - generic [ref=f64e15]:
+            - textbox "Vyhledat podle produktu, vozidla, značky" [ref=f64e16]
+            - button [ref=f64e17] [cursor=pointer]
+          - button [ref=f64e20] [cursor=pointer]
+        - generic [ref=f64e23]:
+          - button "Přihlásit se" [ref=f64e24] [cursor=pointer]
+          - link "0 0,00 Kč" [ref=f64e28] [cursor=pointer]:
+            - generic [ref=f64e29]: "0"
+            - generic [ref=f64e33]: 0,00 Kč
+      - list [ref=f64e35]:
+        - listitem [ref=f64e36]:
+          - link "Automobilových značek" [ref=f64e37] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/auto
+        - listitem [ref=f64e38]:
+          - link "Autodíly" [ref=f64e39] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/nahradni-dily
+        - listitem [ref=f64e40]:
+          - link "Pneumatiky" [ref=f64e41] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/pneumatiky
+        - listitem [ref=f64e42]:
+          - link "Ráfky" [ref=f64e43] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/rafky
+        - listitem [ref=f64e44]:
+          - link "Motorový olej" [ref=f64e45] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/oleje-motorove
+        - listitem [ref=f64e46]:
+          - link "Autokosmetika" [ref=f64e47] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autochemie
+        - listitem [ref=f64e48]:
+          - link "Autodoplňky" [ref=f64e49] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autodoplnky
+        - listitem [ref=f64e50]:
+          - link "Nářadí" [ref=f64e51] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/naradi
+    - main [ref=f64e52]:
+      - generic [ref=f64e53]:
+        - navigation [ref=f64e54]:
+          - list [ref=f64e55]:
+            - listitem [ref=f64e56]:
+              - link "Autodíly Česká republika" [ref=f64e57] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/#parts
+            - listitem [ref=f64e58]:
+              - link "Katalog autodílů" [ref=f64e59] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/nahradni-dily
+            - listitem [ref=f64e60]:
+              - link "Motor" [ref=f64e61] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/motor-pr
+            - listitem [ref=f64e62]:
+              - link "Závitová zátka olejová vana auto" [ref=f64e63] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana
+            - listitem [ref=f64e64]:
+              - link "Závitová zátka olejová vana OPEL" [ref=f64e65] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel
+            - listitem [ref=f64e66]:
+              - link "Závitová zátka olejová vana ASTRA" [ref=f64e67] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel-astra
+            - listitem [ref=f64e68]: Astra K Sports Tourer (B16)
+        - heading "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16)" [level=1] [ref=f64e70]
+      - generic [ref=f64e73]:
+        - generic [ref=f64e75]:
+          - generic [ref=f64e76]:
+            - button [ref=f64e77] [cursor=pointer]
+            - generic [ref=f64e80]: "Závitová zátka olejová vana: OPEL Astra K Sports Tourer (B16) Výběr varianty motoru"
+            - generic [ref=f64e81]:
+              - combobox "maker" [ref=f64e85] [cursor=pointer]:
+                - option "Vyberte si značku"
+                - option "VW"
+                - option "BMW"
+                - option "SKODA"
+                - option "FORD"
+                - option "MERCEDES-BENZ"
+                - option "AUDI"
+                - option "OPEL" [selected]
+                - option "RENAULT"
+                - option "TOYOTA"
+                - option "PEUGEOT"
+                - option "ABARTH"
+                - option "AC"
+                - option "ACURA"
+                - option "AIXAM"
+                - option "ALFA ROMEO"
+                - option "ALPINA"
+                - option "ALPINE"
+                - option "ALVIS"
+                - option "ARO"
+                - option "ARTEGA"
+                - option "ASIA MOTORS"
+                - option "ASKAM (FARGO/DESOTO)"
+                - option "ASTON MARTIN"
+                - option "AUDI"
+                - option "AUSTIN"
+                - option "AUSTIN-HEALEY"
+                - option "AUTO UNION"
+                - option "AUTOBIANCHI"
+                - option "AUVERLAND"
+                - option "BARKAS"
+                - option "BEDFORD"
+                - option "BENTLEY"
+                - option "BERTONE"
+                - option "BESTURN (FAW)"
+                - option "BMW"
+                - option "BORGWARD"
+                - option "BRABUS"
+                - option "BUGATTI"
+                - option "BUICK"
+                - option "BUICK (SGM)"
+                - option "BYD"
+                - option "CADILLAC"
+                - option "CARBODIES"
+                - option "CASALINI"
+                - option "CATERHAM"
+                - option "CHERY"
+                - option "CHEVROLET"
+                - option "CHRYSLER"
+                - option "CITROËN"
+                - option "CUPRA"
+                - option "DACIA"
+                - option "DAEWOO"
+                - option "DAF"
+                - option "DAIHATSU"
+                - option "DAIMLER"
+                - option "DE TOMASO"
+                - option "DFSK"
+                - option "DODGE"
+                - option "DR"
+                - option "DS"
+                - option "EBRO"
+                - option "FERRARI"
+                - option "FIAT"
+                - option "FISKER"
+                - option "FORD"
+                - option "FORD ASIA / OCEANIA"
+                - option "FORD OTOSAN"
+                - option "FORD USA"
+                - option "FSO"
+                - option "GAZ"
+                - option "GEELY (GLEAGLE)"
+                - option "GENESIS"
+                - option "GERMAN E-CARS"
+                - option "GLAS"
+                - option "GMC"
+                - option "GOUPIL"
+                - option "GREAT WALL"
+                - option "HAVAL"
+                - option "HOLDEN"
+                - option "HONDA"
+                - option "HUMMER"
+                - option "HYUNDAI"
+                - option "INDIGO"
+                - option "INFINITI"
+                - option "INNOCENTI"
+                - option "ISUZU"
+                - option "IVECO"
+                - option "JAGUAR"
+                - option "JEEP"
+                - option "JIANGLING LANDWIND"
+                - option "JINBEI"
+                - option "KG MOBILITY"
+                - option "KIA"
+                - option "KOENIGSEGG"
+                - option "KTM"
+                - option "LADA"
+                - option "LAMBORGHINI"
+                - option "LANCIA"
+                - option "LAND ROVER"
+                - option "LDV"
+                - option "LEVC"
+                - option "LEXUS"
+                - option "LIGIER"
+                - option "LINCOLN"
+                - option "LLOYD"
+                - option "LOTUS"
+                - option "LTI"
+                - option "LUCID"
+                - option "LYNK & CO"
+                - option "MAHINDRA"
+                - option "MAN"
+                - option "MARUTI"
+                - option "MASERATI"
+                - option "MAXUS"
+                - option "MAYBACH"
+                - option "MAZDA"
+                - option "MCLAREN"
+                - option "MEGA"
+                - option "MERCEDES-BENZ"
+                - option "MERCURY"
+                - option "MG"
+                - option "MIA ELECTRIC"
+                - option "MICROCAR"
+                - option "MINELLI"
+                - option "MINI"
+                - option "MITSUBISHI"
+                - option "MORGAN"
+                - option "MORRIS"
+                - option "MOSKVICH"
+                - option "NISSAN"
+                - option "NSU"
+                - option "OLDSMOBILE"
+                - option "OPEL"
+                - option "PAGANI"
+                - option "PANTHER"
+                - option "PEUGEOT"
+                - option "PIAGGIO"
+                - option "PININFARINA"
+                - option "PLYMOUTH"
+                - option "POLARIS"
+                - option "POLESTAR"
+                - option "PONTIAC"
+                - option "PORSCHE"
+                - option "PROTON"
+                - option "PUCH"
+                - option "RAM"
+                - option "RAVON"
+                - option "RENAULT"
+                - option "RENAULT TRUCKS"
+                - option "ROLLS-ROYCE"
+                - option "ROVER"
+                - option "RUF"
+                - option "SAAB"
+                - option "SANTANA"
+                - option "SATURN"
+                - option "SCION"
+                - option "SEAT"
+                - option "SHELBY"
+                - option "SHUANGHUAN AUTO"
+                - option "SKODA"
+                - option "SMART"
+                - option "SPYKER"
+                - option "SSANGYONG"
+                - option "STEYR"
+                - option "STREETSCOOTER"
+                - option "SUBARU"
+                - option "SUZUKI"
+                - option "TALBOT"
+                - option "TATA (TELCO)"
+                - option "TESLA"
+                - option "THINK"
+                - option "TOYOTA"
+                - option "TRABANT"
+                - option "TRIUMPH"
+                - option "TVR"
+                - option "UAZ"
+                - option "UMM"
+                - option "VAUXHALL"
+                - option "VICTORY"
+                - option "VOLVO"
+                - option "VW"
+                - option "WARTBURG"
+                - option "WESTFIELD"
+                - option "WIESMANN"
+                - option "ZASTAVA"
+                - option "ZUENDAPP"
+              - combobox [ref=f64e89] [cursor=pointer]:
+                - option "Vyberte model"
+                - option "Adam (M13) (10.2012 - 02.2019)"
+                - option "Admiral A (04.1964 - 03.1969)"
+                - option "Admiral B (03.1969 - 01.1978)"
+                - option "Agila A (H00) (09.2000 - 12.2007)"
+                - option "Agila B (H08) (04.2008 - 10.2014)"
+                - option "Ampera (R12) (11.2011 - 03.2015)"
+                - option "Ampera-e (F17) (05.2017 - 03.2019)"
+                - option "Antara (L07) (05.2006 - 08.2017)"
+                - option "Arena Mikrobus (A97) (01.1997 - 12.2001)"
+                - option "Arena Van (A97) (01.1997 - 12.2001)"
+                - option "Arena Van (TB, TF) (03.1998 - 08.2001)"
+                - option "Ascona A Caravan (84, 89) (10.1970 - 08.1975)"
+                - option "Ascona A Sedan (10.1970 - 08.1975)"
+                - option "Ascona B Sedan (09.1975 - 08.1981)"
+                - option "Ascona C CC (J82) (09.1981 - 08.1988)"
+                - option "Ascona C Sedan (J82) (09.1981 - 10.1988)"
+                - option "Astra Classic Caravan (A04) (01.2009 - ...)"
+                - option "Astra Classic Hatchback (A04) (01.2009 - ...)"
+                - option "Astra Classic Sedan (A04) (01.2009 - ...)"
+                - option "Astra F CC (T92) (09.1991 - 01.1998)"
+                - option "Astra F Cabrio (T92) (03.1993 - 03.2001)"
+                - option "Astra F Caravan (T92) (09.1991 - 01.1998)"
+                - option "Astra F Classic CC (T92) (01.1998 - 08.2002)"
+                - option "Astra F Classic Caravan (T92) (01.1998 - 01.2005)"
+                - option "Astra F Classic Sedan (T92) (01.1998 - 08.2002)"
+                - option "Astra F Sedan (T92) (09.1991 - 09.1998)"
+                - option "Astra G CC (T98) (02.1998 - 12.2009)"
+                - option "Astra G Cabrio (T98) (03.2001 - 10.2005)"
+                - option "Astra G Caravan (T98) (02.1998 - 12.2009)"
+                - option "Astra G Classic Caravan (F35) (03.2004 - 07.2009)"
+                - option "Astra G Classic Hatchback (T98) (03.2004 - 07.2009)"
+                - option "Astra G Classic Sedan (T98) (03.2004 - 07.2009)"
+                - option "Astra G Kupé (T98) (03.2000 - 05.2005)"
+                - option "Astra G Sedan (T98) (09.1998 - 12.2009)"
+                - option "Astra G Van (F70) (01.1999 - 04.2005)"
+                - option "Astra H Caravan (A04) (08.2004 - 05.2014)"
+                - option "Astra H GTC (A04) (03.2005 - 10.2010)"
+                - option "Astra H Hatchback (A04) (01.2004 - 05.2014)"
+                - option "Astra H Sedan (A04) (02.2007 - 05.2014)"
+                - option "Astra H TwinTop (A04) (09.2005 - 10.2010)"
+                - option "Astra H Van (L70) (02.2004 - 12.2013)"
+                - option "Astra J GTC (P10) (10.2011 - ...)"
+                - option "Astra J Hatchback (P10) (12.2009 - 10.2015)"
+                - option "Astra J Sedan (P10) (06.2012 - ...)"
+                - option "Astra J Sports Tourer (P10) (10.2010 - 10.2015)"
+                - option "Astra J Van / Combi (P10) (09.2009 - 10.2015)"
+                - option "Astra J Van / Hatchback (P10) (09.2009 - 10.2015)"
+                - option "Astra K Hatchback (B16) (06.2015 - 12.2022)"
+                - option "Astra K Sports Tourer (B16) (11.2015 - 12.2022)" [selected]
+                - option "Astra K Van / Combi (B16) (11.2015 - ...)"
+                - option "Astra K Van / Hatchback (B16) (06.2015 - ...)"
+                - option "Astra L Hatchback (C02) (10.2021 - ...)"
+                - option "Astra L Sports Tourer (10.2021 - ...)"
+                - option "Blazer SUV (01.1996 - 12.2002)"
+                - option "Calibra A (C89) (06.1990 - 07.1997)"
+                - option "Campo (TF0, TF1) (08.1987 - 06.2002)"
+                - option "Cascada (W13) (03.2013 - ...)"
+                - option "Combo B Van (07.1994 - 10.2001)"
+                - option "Combo C Tour (10.2001 - 12.2011)"
+                - option "Combo C Van / Combi (10.2001 - ...)"
+                - option "Combo D Tour (X12) (02.2012 - ...)"
+                - option "Combo D Van / Combi (02.2012 - ...)"
+                - option "Combo E Kasten / Combi (X19) (06.2018 - ...)"
+                - option "Combo Valník / Podvozek (X12) (08.2012 - ...)"
+                - option "Combo velkoprostorová limuzína (X19) (06.2018 - ...)"
+                - option "Commodore A Kupé (08.1967 - 01.1972)"
+                - option "Commodore A Sedan (08.1967 - 01.1972)"
+                - option "Commodore B Kupé (01.1972 - 07.1978)"
+                - option "Commodore B Sedan (01.1972 - 07.1978)"
+                - option "Commodore C Combi (61) (12.1980 - 12.1982)"
+                - option "Commodore C Sedan (08.1978 - 12.1982)"
+                - option "Corsa A CC (S83) (09.1982 - 03.1993)"
+                - option "Corsa A TR (S83) (09.1982 - 03.1993)"
+                - option "Corsa A Van (S83) (02.1986 - 09.1994)"
+                - option "Corsa B Caravan (S93) (01.1999 - 12.2002)"
+                - option "Corsa B Hatchback (S93) (03.1993 - 12.2002)"
+                - option "Corsa B Utility Pick-up (01.1996 - 06.2004)"
+                - option "Corsa B Van (S93) (08.1999 - 09.2000)"
+                - option "Corsa C Hatchback (X01) (09.2000 - 12.2009)"
+                - option "Corsa C Sedan (X01) (09.2000 - 12.2009)"
+                - option "Corsa C Utility Pick-up (01.2003 - 12.2010)"
+                - option "Corsa C Van (X01) (09.2000 - 12.2012)"
+                - option "Corsa Classic (08.1994 - 12.2005)"
+                - option "Corsa D Hatchback (S07) (07.2006 - 08.2014)"
+                - option "Corsa E Hatchback (X15) (09.2014 - ...)"
+                - option "Corsa F Hatchback (07.2019 - ...)"
+                - option "Corsa F Van (07.2019 - ...)"
+                - option "Crossland X (P17) (03.2017 - ...)"
+                - option "Diplomat A Kupé (03.1965 - 10.1967)"
+                - option "Diplomat A Sedan (10.1964 - 03.1969)"
+                - option "Diplomat B Sedan (03.1969 - 08.1978)"
+                - option "Frontera A SUV (U92) (03.1992 - 10.1998)"
+                - option "Frontera A Sport SUV Cabrio (U92) (03.1992 - 10.1998)"
+                - option "Frontera B SUV (U99) (10.1998 - 07.2004)"
+                - option "Frontera III (OV24) (07.2024 - ...)"
+                - option "Grandland II (OV64) (10.2024 - ...)"
+                - option "Grandland X (A18) (06.2017 - ...)"
+                - option "GT Kupé (09.1968 - 08.1973)"
+                - option "GT Roadster (M07) (06.2007 - 12.2011)"
+                - option "Insignia A Country Tourer (G09) (07.2008 - 03.2017)"
+                - option "Insignia A Hatchback (G09) (07.2008 - 03.2017)"
+                - option "Insignia A Sedan (G09) (07.2008 - 03.2017)"
+                - option "Insignia A Sports Tourer (G09) (07.2008 - 03.2017)"
+                - option "Insignia B Country Tourer (Z18) (06.2017 - ...)"
+                - option "Insignia B Grand Sport (Z18) (03.2017 - ...)"
+                - option "Insignia B Sports Tourer (Z18) (03.2017 - ...)"
+                - option "Insignia B Sports Tourer Van / Combi (Z18) (03.2017 - ...)"
+                - option "Kadett A Combi (03.1963 - 08.1968)"
+                - option "Kadett A Kupé (09.1962 - 08.1965)"
+                - option "Kadett A Sedan (09.1962 - 08.1965)"
+                - option "Kadett B Combi (09.1965 - 08.1973)"
+                - option "Kadett B Kupé (09.1965 - 08.1973)"
+                - option "Kadett B Sedan (09.1965 - 08.1973)"
+                - option "Kadett C Aero (09.1976 - 08.1979)"
+                - option "Kadett C CC (08.1973 - 07.1979)"
+                - option "Kadett C Combi (08.1973 - 07.1979)"
+                - option "Kadett C Kupé (08.1973 - 07.1979)"
+                - option "Kadett C Sedan (08.1973 - 07.1979)"
+                - option "Kadett D Combi (08.1979 - 08.1984)"
+                - option "Kadett D Hatchback (08.1979 - 08.1984)"
+                - option "Kadett D Sedan (08.1979 - 08.1984)"
+                - option "Kadett E CC (T85) (09.1984 - 08.1991)"
+                - option "Kadett E Cabrio (T85) (10.1986 - 02.1993)"
+                - option "Kadett E Caravan (T85) (09.1984 - 08.1991)"
+                - option "Kadett E Combo (T85) (01.1986 - 07.1994)"
+                - option "Kadett E Hatchback (09.1990 - 05.2000)"
+                - option "Kadett E Sedan (T85) (09.1984 - 12.1993)"
+                - option "Kadett E Van (T85) (08.1984 - 09.1993)"
+                - option "Kapitän (05.1955 - 12.1958)"
+                - option "Kapitän A (03.1964 - 12.1968)"
+                - option "Kapitän B Sedan (08.1968 - 12.1971)"
+                - option "Kapitän P 2.6 (05.1958 - 12.1963)"
+                - option "Karl (C16) (01.2015 - 03.2019)"
+                - option "Manta A Kupé (09.1970 - 08.1975)"
+                - option "Manta B CC (09.1975 - 08.1988)"
+                - option "Manta B Sedan (09.1975 - 08.1988)"
+                - option "Meriva A (X03) (05.2003 - 05.2010)"
+                - option "Meriva B (S10) (06.2010 - 03.2017)"
+                - option "Mokka / Mokka X (J13) (06.2012 - ...)"
+                - option "Mokka II (06.2020 - ...)"
+                - option "Monterey A (M92) (09.1991 - 07.1998)"
+                - option "Monterey B (M98) (07.1998 - 08.1999)"
+                - option "Monza A (02.1978 - 08.1986)"
+                - option "Movano A Mikrobus (X70) (07.1998 - ...)"
+                - option "Movano A Sklápěč (X70) (01.1999 - ...)"
+                - option "Movano A Valník / Podvozek (X70) (07.1998 - ...)"
+                - option "Movano A Van (X70) (01.1999 - ...)"
+                - option "Movano B Mikrobus (X62) (12.2010 - ...)"
+                - option "Movano B Sklápěč (X62) (05.2010 - ...)"
+                - option "Movano B Valník / Podvozek (X62) (05.2010 - ...)"
+                - option "Movano B Van (X62) (05.2010 - ...)"
+                - option "Movano C Valník / Podvozek (U9) (12.2021 - ...)"
+                - option "Movano C Van (U9) (12.2021 - ...)"
+                - option "Olympia A Hatchback (08.1967 - 08.1971)"
+                - option "Olympia A Kupé (08.1967 - 08.1971)"
+                - option "Olympia Rekord (03.1953 - 08.1966)"
+                - option "Olympia Rekord Combi (07.1957 - 12.1960)"
+                - option "Omega A Caravan (V87) (09.1986 - 05.1994)"
+                - option "Omega A Sedan (V87) (09.1986 - 05.1994)"
+                - option "Omega B Caravan (V94) (03.1994 - 07.2003)"
+                - option "Omega B Sedan (V94) (03.1994 - 07.2003)"
+                - option "Rekord A Combi (01.1963 - 08.1965)"
+                - option "Rekord A Kupé (01.1963 - 12.1965)"
+                - option "Rekord A Sedan (01.1963 - 12.1965)"
+                - option "Rekord B Combi (08.1965 - 03.1967)"
+                - option "Rekord B Kupé (08.1965 - 02.1967)"
+                - option "Rekord B Sedan (01.1965 - 12.1966)"
+                - option "Rekord C Combi (08.1966 - 12.1971)"
+                - option "Rekord C Kupé (08.1966 - 12.1971)"
+                - option "Rekord C Sedan (08.1966 - 12.1971)"
+                - option "Rekord D Combi (01.1972 - 08.1977)"
+                - option "Rekord D Kupé (01.1972 - 08.1977)"
+                - option "Rekord D Sedan (01.1972 - 08.1977)"
+                - option "Rekord E1 Combi (08.1977 - 08.1986)"
+                - option "Rekord E1 Sedan (08.1977 - 08.1986)"
+                - option "Rekord E2 Sedan (12.1983 - 12.1995)"
+                - option "Rekord P1 Combi (07.1957 - 09.1961)"
+                - option "Rekord P1 Sedan (06.1957 - 09.1961)"
+                - option "Rekord P2 Combi (08.1960 - 01.1963)"
+                - option "Rekord P2 Kupé (08.1960 - 01.1963)"
+                - option "Rekord P2 Sedan (08.1960 - 01.1963)"
+                - option "Rocks-E Hatchback (10.2021 - ...)"
+                - option "Senator A (02.1978 - 08.1987)"
+                - option "Senator B (V88) (09.1987 - 09.1993)"
+                - option "Signum CC (Z03) (05.2003 - 12.2008)"
+                - option "Sintra (APV) (11.1996 - 04.1999)"
+                - option "Speedster (E01) (09.2000 - 08.2006)"
+                - option "Tigra Kupé (S93) (07.1994 - 12.2000)"
+                - option "Tigra Twintop (X04) (06.2004 - 12.2010)"
+                - option "Vectra A CC (J89) (04.1988 - 12.1995)"
+                - option "Vectra A Sedan (J89) (08.1988 - 12.1995)"
+                - option "Vectra B CC (J96) (10.1995 - 07.2003)"
+                - option "Vectra B Combi (J96) (11.1996 - 07.2003)"
+                - option "Vectra B Sedan (J96) (09.1995 - 04.2002)"
+                - option "Vectra C CC (Z02) (08.2002 - 01.2009)"
+                - option "Vectra C Caravan (Z02) (10.2003 - 01.2009)"
+                - option "Vectra C Sedan (Z02) (04.2002 - 01.2009)"
+                - option "Vivaro A Combi (X83) (08.2001 - ...)"
+                - option "Vivaro A Valník / Podvozek (X83) (08.2001 - 07.2014)"
+                - option "Vivaro A Van (X83) (08.2001 - ...)"
+                - option "Vivaro B Combi (X82) (06.2014 - 12.2019)"
+                - option "Vivaro B Valník / Podvozek (X82) (06.2014 - ...)"
+                - option "Vivaro B Van (X82) (06.2014 - 11.2020)"
+                - option "Vivaro C Combi (K0) (03.2019 - ...)"
+                - option "Vivaro C Valník / Podvozek (K0) (03.2019 - ...)"
+                - option "Vivaro C Van (K0) (03.2019 - ...)"
+                - option "Zafira A (T98) (04.1999 - 06.2005)"
+                - option "Zafira B (A05) (07.2005 - 04.2015)"
+                - option "Zafira C Tourer (P12) (10.2011 - ...)"
+                - option "Zafira Life (K0) (03.2019 - ...)"
+              - combobox [ref=f64e93] [cursor=pointer]:
+                - option "Vyberte si modifikaci" [selected]
+                - option "1.0 Turbo (35) (66 KW / 90 HP) (06.2018 - 12.2022)"
+                - option "1.0 Turbo (35) (77 KW / 105 HP) (11.2015 - 12.2022)"
+                - option "1.2 Turbo (35) (81 KW / 110 HP) (08.2019 - 12.2022)"
+                - option "1.2 Turbo (35) (96 KW / 131 HP) (08.2019 - 12.2022)"
+                - option "1.2 Turbo (35) (107 KW / 145 HP) (08.2019 - 12.2022)"
+                - option "1.4 (35) (74 KW / 100 HP) (11.2015 - 12.2022)"
+                - option "1.4 Turbo (35) (92 KW / 125 HP) (11.2015 - 12.2022)"
+                - option "1.4 Turbo (35) (107 KW / 145 HP) (08.2019 - 12.2022)"
+                - option "1.4 Turbo (35) (110 KW / 150 HP) (11.2015 - 12.2022)"
+                - option "1.6 Turbo (35) (147 KW / 200 HP) (11.2015 - 12.2022)"
+                - option "1.4 CNG (35) (81 KW / 110 HP) (10.2017 - 12.2022)"
+                - option "1.5 CRDI (35) (77 KW / 105 HP) (08.2019 - 12.2022)"
+                - option "1.5 CRDI (35) (90 KW / 122 HP) (08.2019 - 12.2022)"
+                - option "1.6 BiTurbo (110 KW / 150 HP) (08.2018 - 12.2022)"
+                - option "1.6 CDTi (35) (70 KW / 95 HP) (11.2015 - 12.2022)"
+                - option "1.6 CDTi (35) (81 KW / 110 HP) (11.2015 - 12.2022)"
+                - option "1.6 CDTi (35) (100 KW / 136 HP) (11.2015 - 12.2022)"
+                - option "1.6 CDTi (35) (118 KW / 160 HP) (11.2015 - 12.2022)"
+              - button "Hledat" [ref=f64e94] [cursor=pointer]
+          - button "Nemůžete v katalogu najít vaše auto?" [ref=f64e97]
+        - generic [ref=f64e98]:
+          - heading "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16)" [level=2] [ref=f64e99]
+          - 'img "Eshop: OPEL Astra K Sports Tourer (B16) Závitová zátka olejová vana" [ref=f64e101]'
+      - generic [ref=f64e102]:
+        - 'heading "Bestsellery: Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) za dobrou cenu" [level=3] [ref=f64e103]'
+        - generic [ref=f64e104]:
+          - generic [ref=f64e106]:
+            - 'link "823.400 ELRING Závitová zátka, olejová vana M12x1,75x17, Otvor klíče: 15 mm, s těsnicím kroužkem" [ref=f64e107] [cursor=pointer]':
+              - /url: https://www.automobilovedily24.cz/elring/13767252
+              - generic [ref=f64e108]: 823.400 ELRING Závitová zátka, olejová vana
+              - generic [ref=f64e109]: "M12x1,75x17, Otvor klíče: 15 mm, s těsnicím kroužkem"
+            - generic [ref=f64e111]:
+              - generic [ref=f64e112]: "Článek №: 823.400"
+              - button [ref=f64e115] [cursor=pointer]
+            - generic [ref=f64e117]:
+              - img "Originální ELRING 823.400" [ref=f64e118]
+              - link [ref=f64e119] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/elring/13767252#zavitova-zatka-olejova-vana
+                - img "ELRING 823400 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e120]
+            - link "Recenze - 1" [ref=f64e125] [cursor=pointer]
+            - generic [ref=f64e126]: 214,68 Kč
+            - generic [ref=f64e129]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e130] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e131] [cursor=pointer]
+          - generic [ref=f64e136]:
+            - link "056.130 ELRING Tesnici krouzek, olejova vypousteci zatka FPM (Fluor-Kautschuk)" [ref=f64e137] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/elring/205456
+              - generic [ref=f64e138]: 056.130 ELRING Tesnici krouzek, olejova vypousteci zatka
+              - generic [ref=f64e139]: FPM (Fluor-Kautschuk)
+            - generic [ref=f64e141]:
+              - generic [ref=f64e142]: "Článek №: 056.130"
+              - button [ref=f64e145] [cursor=pointer]
+            - generic [ref=f64e147]:
+              - img "Originální ELRING 056.130" [ref=f64e148]
+              - link [ref=f64e149] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/elring/205456#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "ELRING 056130 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e150]
+            - link "Recenze - 3" [ref=f64e155] [cursor=pointer]
+            - generic [ref=f64e156]: 71,48 Kč
+            - generic [ref=f64e159]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e160] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e161] [cursor=pointer]
+          - generic [ref=f64e166]:
+            - link "V40-1110 VAICO 1053008 Tesnici krouzek, olejova vypousteci zatka NBR (Nitril-Butadien-Kautschuk), Original VAICO Quality" [ref=f64e167] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/8005691
+              - generic [ref=f64e168]: V40-1110 VAICO 1053008 Tesnici krouzek, olejova vypousteci zatka
+              - generic [ref=f64e169]: NBR (Nitril-Butadien-Kautschuk), Original VAICO Quality
+            - generic [ref=f64e171]:
+              - generic [ref=f64e172]: "Článek №: V40-1110"
+              - button [ref=f64e175] [cursor=pointer]
+            - generic [ref=f64e177]:
+              - img "Originální VAICO V40-1110" [ref=f64e178]
+              - link [ref=f64e179] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vaico/8005691#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "1053008 VAICO V401110 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e180]
+            - generic [ref=f64e185]: 38,88 Kč
+            - generic [ref=f64e188]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e189] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e190] [cursor=pointer]
+          - generic [ref=f64e195]:
+            - link "257.862.001 FA1 Závitová zátka, olejová vana M12x1,75, s těsnicím kroužkem" [ref=f64e196] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/fa1/12952455
+              - generic [ref=f64e197]: 257.862.001 FA1 Závitová zátka, olejová vana
+              - generic [ref=f64e198]: M12x1,75, s těsnicím kroužkem
+            - generic [ref=f64e200]:
+              - generic [ref=f64e201]: "Článek №: 257.862.001"
+              - button [ref=f64e204] [cursor=pointer]
+            - generic [ref=f64e206]:
+              - img "Originální FA1 257.862.001" [ref=f64e207]
+              - link [ref=f64e208] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/fa1/12952455#zavitova-zatka-olejova-vana
+                - img "FA1 257862001 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e209]
+            - link "Recenze - 1" [ref=f64e214] [cursor=pointer]
+            - generic [ref=f64e215]: 114,18 Kč
+            - generic [ref=f64e218]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e219] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e220] [cursor=pointer]
+          - generic [ref=f64e225]:
+            - link "206 622 TOPRAN 206 622 001 Tesnici krouzek, olejova vypousteci zatka NBR (Nitril-Butadien-Kautschuk)" [ref=f64e226] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/topran/2727574
+              - generic [ref=f64e227]: 206 622 TOPRAN 206 622 001 Tesnici krouzek, olejova vypousteci zatka
+              - generic [ref=f64e228]: NBR (Nitril-Butadien-Kautschuk)
+            - generic [ref=f64e230]:
+              - generic [ref=f64e231]: "Článek №: 206 622"
+              - button [ref=f64e234] [cursor=pointer]
+            - generic [ref=f64e236]:
+              - img "TOPRAN 206 622 levné ceny" [ref=f64e237]
+              - link [ref=f64e238] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/topran/2727574#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "206 622 001 TOPRAN 206622 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e239]
+            - link "Recenze - 2" [ref=f64e244] [cursor=pointer]
+            - generic [ref=f64e245]: 21,58 Kč
+            - generic [ref=f64e248]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e249] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e250] [cursor=pointer]
+          - generic [ref=f64e255]:
+            - link "21012700 AJUSA Tesnici krouzek, olejova vypousteci zatka" [ref=f64e256] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/7248204
+            - generic [ref=f64e259]:
+              - generic [ref=f64e260]: "Článek №: 21012700"
+              - button [ref=f64e263] [cursor=pointer]
+            - generic [ref=f64e265]:
+              - img "AJUSA 21012700 levné ceny" [ref=f64e266]
+              - link [ref=f64e267] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ajusa/7248204#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "AJUSA 21012700 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e268]
+            - link "Recenze - 8" [ref=f64e273] [cursor=pointer]
+            - generic [ref=f64e274]: 25,18 Kč
+            - generic [ref=f64e277]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e278] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e279] [cursor=pointer]
+          - generic [ref=f64e284]:
+            - 'link "208 522 TOPRAN 208 522 001 Závitová zátka, olejová vana M 12, Otvor klíče: 15, s těsnicím kroužkem" [ref=f64e285] [cursor=pointer]':
+              - /url: https://www.automobilovedily24.cz/topran/12926073
+              - generic [ref=f64e286]: 208 522 TOPRAN 208 522 001 Závitová zátka, olejová vana
+              - generic [ref=f64e287]: "M 12, Otvor klíče: 15, s těsnicím kroužkem"
+            - generic [ref=f64e289]:
+              - generic [ref=f64e290]: "Článek №: 208 522"
+              - button [ref=f64e293] [cursor=pointer]
+            - generic [ref=f64e295]:
+              - img "TOPRAN 208 522 levné ceny" [ref=f64e296]
+              - link [ref=f64e297] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/topran/12926073#zavitova-zatka-olejova-vana
+                - img "208 522 001 TOPRAN 208522 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e298]
+            - generic [ref=f64e303]: 128,48 Kč
+            - generic [ref=f64e306]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e307] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e308] [cursor=pointer]
+          - generic [ref=f64e313]:
+            - 'link "176254 FEBI BILSTEIN Závitová zátka, olejová vana Ocel, Otvor klíče: T45, s těsnicím kroužkem" [ref=f64e314] [cursor=pointer]':
+              - /url: https://www.automobilovedily24.cz/febi-bilstein/18111508
+              - generic [ref=f64e315]: 176254 FEBI BILSTEIN Závitová zátka, olejová vana
+              - generic [ref=f64e316]: "Ocel, Otvor klíče: T45, s těsnicím kroužkem"
+            - generic [ref=f64e318]:
+              - generic [ref=f64e319]: "Článek №: 176254"
+              - button [ref=f64e322] [cursor=pointer]
+            - generic [ref=f64e324]:
+              - img "FEBI BILSTEIN 176254 levné ceny" [ref=f64e325]
+              - link [ref=f64e326] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/febi-bilstein/18111508#zavitova-zatka-olejova-vana
+                - img "FEBI BILSTEIN 176254 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e327]
+            - generic [ref=f64e331]: 132,08 Kč
+            - generic [ref=f64e334]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e335] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e336] [cursor=pointer]
+          - generic [ref=f64e341]:
+            - link "V40-1651 VAICO 1014714 Závitová zátka, olejová vana M12x1.75mm, M12x1.75, s těsnicím kroužkem" [ref=f64e342] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/vaico/18118024
+              - generic [ref=f64e343]: V40-1651 VAICO 1014714 Závitová zátka, olejová vana
+              - generic [ref=f64e344]: M12x1.75mm, M12x1.75, s těsnicím kroužkem
+            - generic [ref=f64e346]:
+              - generic [ref=f64e347]: "Článek №: V40-1651"
+              - button [ref=f64e350] [cursor=pointer]
+            - generic [ref=f64e352]:
+              - img "VAICO V40-1651" [ref=f64e353]
+              - link [ref=f64e354] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vaico/18118024#zavitova-zatka-olejova-vana
+                - img "1014714 VAICO V401651 Závitová zátka olejová vana Astra K Sports Tourer (B16) cena" [ref=f64e355]
+            - generic [ref=f64e359]: 158,08 Kč
+            - generic [ref=f64e362]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e363] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e364] [cursor=pointer]
+          - generic [ref=f64e369]:
+            - link "01288800 AJUSA Tesnici krouzek, olejova vypousteci zatka" [ref=f64e370] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8561132
+            - generic [ref=f64e373]:
+              - generic [ref=f64e374]: "Článek №: 01288800"
+              - button [ref=f64e377] [cursor=pointer]
+            - generic [ref=f64e379]:
+              - img "AJUSA 01288800" [ref=f64e380]
+              - link [ref=f64e381] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ajusa/8561132#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "AJUSA 01288800 Závitová zátka olejová vana Astra K Sports Tourer (B16) cena" [ref=f64e382]
+            - generic [ref=f64e387]: 73,88 Kč
+            - generic [ref=f64e390]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e391] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e392] [cursor=pointer]
+          - generic [ref=f64e397]:
+            - 'link "8030057 METZGER Závitová zátka, olejová vana M12 x 1,75, Ocel, Otvor klíče: 15, s těsnicím kroužkem" [ref=f64e398] [cursor=pointer]':
+              - /url: https://www.automobilovedily24.cz/metzger/15820479
+              - generic [ref=f64e399]: 8030057 METZGER Závitová zátka, olejová vana
+              - generic [ref=f64e400]: "M12 x 1,75, Ocel, Otvor klíče: 15, s těsnicím kroužkem"
+            - generic [ref=f64e402]:
+              - generic [ref=f64e403]: "Článek №: 8030057"
+              - button [ref=f64e406] [cursor=pointer]
+            - generic [ref=f64e408]:
+              - img "METZGER 8030057" [ref=f64e409]
+              - link [ref=f64e410] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/metzger/15820479#zavitova-zatka-olejova-vana
+                - img "METZGER 8030057 Závitová zátka olejová vana Astra K Sports Tourer (B16) cena" [ref=f64e411]
+            - generic [ref=f64e416]: 145,48 Kč
+            - generic [ref=f64e419]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e420] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e421] [cursor=pointer]
+          - generic [ref=f64e426]:
+            - link "DRM0448S DR.MOTOR AUTOMOTIVE Tesnici krouzek, olejova vypousteci zatka" [ref=f64e427] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/dr-motor-automotive/16339775
+            - generic [ref=f64e430]:
+              - generic [ref=f64e431]: "Článek №: DRM0448S"
+              - button [ref=f64e434] [cursor=pointer]
+            - generic [ref=f64e436]:
+              - img "DR.MOTOR AUTOMOTIVE DRM0448S" [ref=f64e437]
+              - link [ref=f64e438] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dr-motor-automotive/16339775#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "DR.MOTOR AUTOMOTIVE DRM0448S Závitová zátka olejová vana Astra K Sports Tourer (B16) cena" [ref=f64e439]
+            - generic [ref=f64e444]: 124,28 Kč
+            - generic [ref=f64e447]:
+              - text: Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e448] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e449] [cursor=pointer]
+          - generic [ref=f64e454]:
+            - link "DRM01369 DR.MOTOR AUTOMOTIVE Závitová zátka, olejová vana M12x1,75x17, s těsnicím kroužkem" [ref=f64e455] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/dr-motor-automotive/19097366
+              - generic [ref=f64e456]: DRM01369 DR.MOTOR AUTOMOTIVE Závitová zátka, olejová vana
+              - generic [ref=f64e457]: M12x1,75x17, s těsnicím kroužkem
+            - generic [ref=f64e459]:
+              - generic [ref=f64e460]: "Článek №: DRM01369"
+              - button [ref=f64e463] [cursor=pointer]
+            - generic [ref=f64e465]:
+              - img "DR.MOTOR AUTOMOTIVE DRM01369" [ref=f64e466]
+              - link [ref=f64e467] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dr-motor-automotive/19097366#zavitova-zatka-olejova-vana
+                - img "DR.MOTOR AUTOMOTIVE DRM01369 Závitová zátka olejová vana Astra K Sports Tourer (B16)" [ref=f64e468]
+            - generic [ref=f64e472]: 83,98 Kč
+            - generic [ref=f64e475]:
+              - text: Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e476] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e477] [cursor=pointer]
+          - generic [ref=f64e482]:
+            - link "7389 RESTAGRAF Tesnici krouzek, olejova vypousteci zatka" [ref=f64e483] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/restagraf/17612207
+            - generic [ref=f64e486]:
+              - generic [ref=f64e487]: "Článek №: 7389"
+              - button [ref=f64e490] [cursor=pointer]
+            - generic [ref=f64e492]:
+              - img "RESTAGRAF 7389" [ref=f64e493]
+              - link [ref=f64e494] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/restagraf/17612207#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "RESTAGRAF 7389 Závitová zátka olejová vana Astra K Sports Tourer (B16)" [ref=f64e495]
+            - generic [ref=f64e500]: 314,78 Kč
+            - generic [ref=f64e503]:
+              - text: Cena za set se 10 kusy | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e504] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e505] [cursor=pointer]
+          - generic [ref=f64e510]:
+            - link "01148400 AJUSA Tesnici krouzek, olejova vypousteci zatka" [ref=f64e511] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/ajusa/8017508
+            - generic [ref=f64e514]:
+              - generic [ref=f64e515]: "Článek №: 01148400"
+              - button [ref=f64e518] [cursor=pointer]
+            - generic [ref=f64e520]:
+              - img "AJUSA 01148400" [ref=f64e521]
+              - link [ref=f64e522] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ajusa/8017508#tesnici-krouzek-olejova-vypousteci-zatka
+                - img "AJUSA 01148400 Závitová zátka olejová vana Astra K Sports Tourer (B16)" [ref=f64e523]
+            - generic [ref=f64e528]: 62,18 Kč
+            - generic [ref=f64e531]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e532] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e533] [cursor=pointer]
+          - generic [ref=f64e538]:
+            - link "74264 AIC Závitová zátka, olejová vana Plast, s těsnicím kroužkem" [ref=f64e539] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/aic/20425189
+              - generic [ref=f64e540]: 74264 AIC Závitová zátka, olejová vana
+              - generic [ref=f64e541]: Plast, s těsnicím kroužkem
+            - generic [ref=f64e543]:
+              - generic [ref=f64e544]: "Článek №: 74264"
+              - button [ref=f64e547] [cursor=pointer]
+            - generic [ref=f64e549]:
+              - img "AIC 74264" [ref=f64e550]
+              - link [ref=f64e551] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/aic/20425189#zavitova-zatka-olejova-vana
+                - img "AIC 74264 Závitová zátka olejová vana Astra K Sports Tourer (B16)" [ref=f64e552]
+            - generic [ref=f64e556]: 253,88 Kč
+            - generic [ref=f64e559]:
+              - text: Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e560] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e561] [cursor=pointer]
+          - generic [ref=f64e566]:
+            - link "8030101 METZGER Závitová zátka, olejová vana Plast, s těsnicím kroužkem" [ref=f64e567] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/metzger/18431274
+              - generic [ref=f64e568]: 8030101 METZGER Závitová zátka, olejová vana
+              - generic [ref=f64e569]: Plast, s těsnicím kroužkem
+            - generic [ref=f64e571]:
+              - generic [ref=f64e572]: "Článek №: 8030101"
+              - button [ref=f64e575] [cursor=pointer]
+            - generic [ref=f64e577]:
+              - img "METZGER 8030101" [ref=f64e578]
+              - link [ref=f64e579] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/metzger/18431274#zavitova-zatka-olejova-vana
+                - img "METZGER 8030101 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e580]
+            - generic [ref=f64e584]: 312,88 Kč
+            - generic [ref=f64e587]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e588] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e589] [cursor=pointer]
+          - generic [ref=f64e594]:
+            - 'link "186019 FEBI BILSTEIN Závitová zátka, olejová vana Otvor klíče: 8, s těsnicím kroužkem" [ref=f64e595] [cursor=pointer]':
+              - /url: https://www.automobilovedily24.cz/febi-bilstein/20844954
+              - generic [ref=f64e596]: 186019 FEBI BILSTEIN Závitová zátka, olejová vana
+              - generic [ref=f64e597]: "Otvor klíče: 8, s těsnicím kroužkem"
+            - generic [ref=f64e599]:
+              - generic [ref=f64e600]: "Článek №: 186019"
+              - button [ref=f64e603] [cursor=pointer]
+            - generic [ref=f64e605]:
+              - img "FEBI BILSTEIN 186019" [ref=f64e606]
+              - link [ref=f64e607] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/febi-bilstein/20844954#zavitova-zatka-olejova-vana
+                - img "FEBI BILSTEIN 186019 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e608]
+            - generic [ref=f64e612]: 175,48 Kč
+            - generic [ref=f64e615]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e616] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e617] [cursor=pointer]
+          - generic [ref=f64e622]:
+            - link "083.390 ELRING Závitová zátka, olejová vana Plast, s těsnicím kroužkem" [ref=f64e623] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/elring/20263683
+              - generic [ref=f64e624]: 083.390 ELRING Závitová zátka, olejová vana
+              - generic [ref=f64e625]: Plast, s těsnicím kroužkem
+            - generic [ref=f64e627]:
+              - generic [ref=f64e628]: "Článek №: 083.390"
+              - button [ref=f64e631] [cursor=pointer]
+            - generic [ref=f64e633]:
+              - img "ELRING 083.390" [ref=f64e634]
+              - link [ref=f64e635] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/elring/20263683#zavitova-zatka-olejova-vana
+                - img "ELRING 083390 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e636]
+            - generic [ref=f64e640]: 179,68 Kč
+            - generic [ref=f64e643]:
+              - text: Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e644] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e645] [cursor=pointer]
+          - generic [ref=f64e650]:
+            - 'link "33 10 3867 SWAG Závitová zátka, olejová vana Ocel, Otvor klíče: T45, s těsnicím kroužkem" [ref=f64e651] [cursor=pointer]':
+              - /url: https://www.automobilovedily24.cz/swag/18261313
+              - generic [ref=f64e652]: 33 10 3867 SWAG Závitová zátka, olejová vana
+              - generic [ref=f64e653]: "Ocel, Otvor klíče: T45, s těsnicím kroužkem"
+            - generic [ref=f64e655]:
+              - generic [ref=f64e656]: "Článek №: 33 10 3867"
+              - button [ref=f64e659] [cursor=pointer]
+            - generic [ref=f64e661]:
+              - img "SWAG 33 10 3867" [ref=f64e662]
+              - link [ref=f64e663] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/swag/18261313#zavitova-zatka-olejova-vana
+                - img "SWAG 33103867 Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e664]
+            - generic [ref=f64e668]: 168,38 Kč
+            - generic [ref=f64e671]:
+              - text: Cena za kus | Cena vč. 21 % DPH, částka nezahrnuje
+              - link "náklady na doručení" [ref=f64e672] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - button "Přidat do košíku" [ref=f64e673] [cursor=pointer]
+      - generic [ref=f64e677]:
+        - 'heading "Závitová zátka olejová vana: hledáte OPEL Astra K Sports Tourer B16? V tom případě jste na správném místě!" [level=2] [ref=f64e678]'
+        - generic [ref=f64e679]:
+          - strong [ref=f64e680]: Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) Benzín / 1.0 - 1.6 Litr / 2015 - 2022 rok
+          - navigation [ref=f64e681]:
+            - list [ref=f64e682]:
+              - listitem [ref=f64e683]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.0 Turbo 90 HP" [ref=f64e684] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/132194/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e685]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.0 Turbo 105 HP" [ref=f64e686] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117719/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e687]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.2 Turbo 110 HP" [ref=f64e688] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/137736/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e689]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.2 Turbo 131 HP" [ref=f64e690] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/137737/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e691]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.2 Turbo 145 HP" [ref=f64e692] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/137738/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e693]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.4 100 HP" [ref=f64e694] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117718/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e695]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo 125 HP" [ref=f64e696] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117720/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e697]:
+                - link "Astra K Sports Tourer (B16) 1.4 Turbo 145 HP" [ref=f64e698] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/137739/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e699]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.4 Turbo 150 HP" [ref=f64e700] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117721/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e701]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.6 Turbo 200 HP" [ref=f64e702] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117724/15038/zavitova-zatka-olejova-vana
+          - text: Více
+        - generic [ref=f64e703]:
+          - strong [ref=f64e704]: Závitová zátka olejová vana OPEL Astra K Sports Tourer B16 Diesel / 1.5 - 1.6 Litr / 2015 - 2022 rok výroby
+          - navigation [ref=f64e705]:
+            - list [ref=f64e706]:
+              - listitem [ref=f64e707]:
+                - link "Astra K Sports Tourer (B16) 1.5 CRDI 105 HP" [ref=f64e708] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/137740/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e709]:
+                - link "Astra K Sports Tourer (B16) 1.5 CRDI 122 HP" [ref=f64e710] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/137741/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e711]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.6 BiTurbo 150 HP" [ref=f64e712] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/133204/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e713]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi 95 HP" [ref=f64e714] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117722/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e715]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi 110 HP" [ref=f64e716] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117723/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e717]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi 136 HP" [ref=f64e718] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117725/15038/zavitova-zatka-olejova-vana
+              - listitem [ref=f64e719]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.6 CDTi 160 HP" [ref=f64e720] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/117727/15038/zavitova-zatka-olejova-vana
+          - text: Více
+        - generic [ref=f64e721]:
+          - strong [ref=f64e722]: Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) Benzin/zemni plyn (CNG) / 1.4 Litr / 2017 - 2022 rok
+          - navigation [ref=f64e723]:
+            - list [ref=f64e724]:
+              - listitem [ref=f64e725]:
+                - link "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) 1.4 CNG 110 HP" [ref=f64e726] [cursor=pointer]:
+                  - /url: https://www.automobilovedily24.cz/opel/astra-k-sports-tourer/128814/15038/zavitova-zatka-olejova-vana
+          - text: Více
+      - generic [ref=f64e727]:
+        - heading "Závitová zátka olejová vana pro další oblíbené modely OPEL ASTRA – najděte si ten správný díl" [level=3] [ref=f64e728]
+        - navigation [ref=f64e729]:
+          - list [ref=f64e730]:
+            - listitem [ref=f64e731]:
+              - link "Opel Astra J Sports Tourer Astra J Sports Tourer (P10) 10.2010 - 10.2015" [ref=f64e732] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-j-sports-tourer
+            - listitem [ref=f64e733]:
+              - link "Opel Astra H Astra H Hatchback (A04) 01.2004 - 05.2014" [ref=f64e734] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-h-l48
+            - listitem [ref=f64e735]:
+              - link "Opel Astra H Caravan Astra H Caravan (A04) 08.2004 - 05.2014" [ref=f64e736] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-h-kombik-l35
+            - listitem [ref=f64e737]:
+              - link "Opel Astra j p10 ASTRA J 12.2009 - 10.2015" [ref=f64e738] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-j
+            - listitem [ref=f64e739]:
+              - link "Opel Astra G Caravan Astra G Caravan (T98) 02.1998 - 12.2009" [ref=f64e740] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-g-kombik-f35
+            - listitem [ref=f64e741]:
+              - link "Závitová zátka olejová vana Opel Astra K B16 06.2015 - 12.2022" [ref=f64e742] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-k
+            - listitem [ref=f64e743]:
+              - link "Závitová zátka olejová vana Opel Astra G Sedan 09.1998 - 12.2009" [ref=f64e744] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-g-limuzina-f69
+            - listitem [ref=f64e745]:
+              - link "Závitová zátka olejová vana Opel Astra g f48 02.1998 - 12.2009" [ref=f64e746] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-g-sikma-zadni-cast-f48-f08
+            - listitem [ref=f64e747]:
+              - link "Závitová zátka olejová vana Opel Astra J gtc 10.2011 - ..." [ref=f64e748] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-gtc-j
+            - listitem [ref=f64e749]:
+              - link "Závitová zátka olejová vana Opel Astra H TwinTop 09.2005 - 10.2010" [ref=f64e750] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-h-twintop-l67
+            - listitem [ref=f64e751]:
+              - link "Závitová zátka olejová vana Opel l08 03.2005 - 10.2010" [ref=f64e752] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-h-gtc-l08
+            - listitem [ref=f64e753]:
+              - link "Závitová zátka olejová vana Opel Astra J Sedan 06.2012 - ..." [ref=f64e754] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-j-limuzina
+            - listitem [ref=f64e755]:
+              - link "Závitová zátka olejová vana Opel Astra G t98 03.2001 - 10.2005" [ref=f64e756] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-g-kabriolet-f67
+            - listitem [ref=f64e757]:
+              - link "Závitová zátka olejová vana Opel Astra H Sedan 02.2007 - 05.2014" [ref=f64e758] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-h-limuzina-l69
+            - listitem [ref=f64e759]:
+              - link "Závitová zátka olejová vana Opel Astra G Classic 03.2004 - 07.2009" [ref=f64e760] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-g-classic-t98
+            - listitem [ref=f64e761]:
+              - link "Opel Astra F Caravan 09.1991 - 01.1998" [ref=f64e762] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/zavitova-zatka-olejova-vana/opel/astra-f-kombik-51-52
+          - button "Více" [ref=f64e764] [cursor=pointer]
+      - generic [ref=f64e765]:
+        - heading "Podívejte se na nejnovější nabídky jiných autodílů a OPEL Astra K Sports Tourer (B16) Závitová zátka olejová vana" [level=2] [ref=f64e766]
+        - navigation [ref=f64e767]:
+          - list [ref=f64e768]:
+            - listitem [ref=f64e769]:
+              - generic [ref=f64e770] [cursor=pointer]:
+                - link [ref=f64e771]:
+                  - /url: https://www.automobilovedily24.cz/oleje-motorove/opel/astra-k-sports-tourer
+                  - img "Motorove oleje OPEL Astra K Sports Tourer (B16) cena" [ref=f64e772]
+                - generic [ref=f64e773]: Motorove oleje
+            - listitem [ref=f64e774]:
+              - generic [ref=f64e775] [cursor=pointer]:
+                - link [ref=f64e776]:
+                  - /url: https://www.automobilovedily24.cz/hlava-motoru/opel/astra-k-sports-tourer
+                  - img "Hlava motoru OPEL Astra K Sports Tourer (B16) cena" [ref=f64e777]
+                - generic [ref=f64e778]: Hlava motoru
+            - listitem [ref=f64e779]:
+              - generic [ref=f64e780] [cursor=pointer]:
+                - link [ref=f64e781]:
+                  - /url: https://www.automobilovedily24.cz/zaveseni-motoru/opel/astra-k-sports-tourer
+                  - img "Silentblok motoru OPEL Astra K Sports Tourer (B16) cena" [ref=f64e782]
+                - generic [ref=f64e783]: Silentblok motoru
+            - listitem [ref=f64e784]:
+              - generic [ref=f64e785] [cursor=pointer]:
+                - link [ref=f64e786]:
+                  - /url: https://www.automobilovedily24.cz/sada-tesneni-klikove-skrine/opel/astra-k-sports-tourer
+                  - img "Sada těsnění klikové skříně OPEL Astra K Sports Tourer (B16) cena" [ref=f64e787]
+                - generic [ref=f64e788]: Sada těsnění klikové skříně
+            - listitem [ref=f64e789]:
+              - generic [ref=f64e790] [cursor=pointer]:
+                - link [ref=f64e791]:
+                  - /url: https://www.automobilovedily24.cz/kompletni-sada-tesneni-motor/opel/astra-k-sports-tourer
+                  - img "Kompletní sada těsnění motor OPEL Astra K Sports Tourer (B16) cena" [ref=f64e792]
+                - generic [ref=f64e793]: Kompletní sada těsnění motor
+            - listitem [ref=f64e794]:
+              - generic [ref=f64e795] [cursor=pointer]:
+                - link [ref=f64e796]:
+                  - /url: https://www.automobilovedily24.cz/kryt-hlavy-valce/opel/astra-k-sports-tourer
+                  - img "Víko hlavy válců OPEL Astra K Sports Tourer (B16) cena" [ref=f64e797]
+                - generic [ref=f64e798]: Víko hlavy válců
+            - listitem [ref=f64e799]:
+              - generic [ref=f64e800] [cursor=pointer]:
+                - link [ref=f64e801]:
+                  - /url: https://www.automobilovedily24.cz/hrdlo-koleno-saciho-potrubi/opel/astra-k-sports-tourer
+                  - img "Saci potrubi OPEL Astra K Sports Tourer (B16) cena" [ref=f64e802]
+                - generic [ref=f64e803]: Saci potrubi
+            - listitem [ref=f64e804]:
+              - generic [ref=f64e805] [cursor=pointer]:
+                - link [ref=f64e806]:
+                  - /url: https://www.automobilovedily24.cz/vackovy-h-idel/opel/astra-k-sports-tourer
+                  - img "Vačkový hřídel OPEL Astra K Sports Tourer (B16) cena" [ref=f64e807]
+                - generic [ref=f64e808]: Vačkový hřídel
+            - listitem [ref=f64e809]:
+              - generic [ref=f64e810] [cursor=pointer]:
+                - link [ref=f64e811]:
+                  - /url: https://www.automobilovedily24.cz/hadice-vetrani-klikove-sk-ine/opel/astra-k-sports-tourer
+                  - img "Ventil odvetrani klikove skrine OPEL Astra K Sports Tourer (B16) cena" [ref=f64e812]
+                - generic [ref=f64e813]: Ventil odvetrani klikove skrine
+            - listitem [ref=f64e814]:
+              - generic [ref=f64e815] [cursor=pointer]:
+                - link [ref=f64e816]:
+                  - /url: https://www.automobilovedily24.cz/sada-tesneni-hlava-valce/opel/astra-k-sports-tourer
+                  - img "Sada těsnění hlava válce OPEL Astra K Sports Tourer (B16) cena" [ref=f64e817]
+                - generic [ref=f64e818]: Sada těsnění hlava válce
+            - listitem [ref=f64e819]:
+              - generic [ref=f64e820] [cursor=pointer]:
+                - link [ref=f64e821]:
+                  - /url: https://www.automobilovedily24.cz/sada-pistnich-krouzku/opel/astra-k-sports-tourer
+                  - img "Pístní kroužky Astra K Sports Tourer (B16) originální cena" [ref=f64e822]
+                - generic [ref=f64e823]: Pístní kroužky
+            - listitem [ref=f64e824]:
+              - generic [ref=f64e825] [cursor=pointer]:
+                - link [ref=f64e826]:
+                  - /url: https://www.automobilovedily24.cz/zdvihatko-ventilu/opel/astra-k-sports-tourer
+                  - img "Hydroštel Astra K Sports Tourer (B16) originální cena" [ref=f64e827]
+                - generic [ref=f64e828]: Hydroštel
+            - listitem [ref=f64e829]:
+              - generic [ref=f64e830] [cursor=pointer]:
+                - link [ref=f64e831]:
+                  - /url: https://www.automobilovedily24.cz/olejove-cerpadlo/opel/astra-k-sports-tourer
+                  - img "Olejové čerpadlo Astra K Sports Tourer (B16) originální cena" [ref=f64e832]
+                - generic [ref=f64e833]: Olejové čerpadlo
+            - listitem [ref=f64e834]:
+              - generic [ref=f64e835] [cursor=pointer]:
+                - link [ref=f64e836]:
+                  - /url: https://www.automobilovedily24.cz/olejova-vana/opel/astra-k-sports-tourer
+                  - img "Olejova vana Astra K Sports Tourer (B16) originální cena" [ref=f64e837]
+                - generic [ref=f64e838]: Olejova vana
+            - listitem [ref=f64e839]:
+              - generic [ref=f64e840] [cursor=pointer]:
+                - link [ref=f64e841]:
+                  - /url: https://www.automobilovedily24.cz/pist/opel/astra-k-sports-tourer
+                  - img "Píst Astra K Sports Tourer (B16) originální cena" [ref=f64e842]
+                - generic [ref=f64e843]: Píst
+            - listitem [ref=f64e844]:
+              - generic [ref=f64e845] [cursor=pointer]:
+                - link [ref=f64e846]:
+                  - /url: https://www.automobilovedily24.cz/ozubene-kolo-vackovy-hridel/opel/astra-k-sports-tourer
+                  - img "Ozubené kolo, vačkový hřídel Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e847]
+                - generic [ref=f64e848]: Ozubené kolo, vačkový hřídel
+            - listitem [ref=f64e849]:
+              - generic [ref=f64e850] [cursor=pointer]:
+                - link [ref=f64e851]:
+                  - /url: https://www.automobilovedily24.cz/sada-sroubu-pro-hlavy-valcu/opel/astra-k-sports-tourer
+                  - img "Sada sroubu pro hlavy valcu Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e852]
+                - generic [ref=f64e853]: Sada sroubu pro hlavy valcu
+            - listitem [ref=f64e854]:
+              - generic [ref=f64e855] [cursor=pointer]:
+                - link [ref=f64e856]:
+                  - /url: https://www.automobilovedily24.cz/ventil-pneumaticke-rizeni-nasavany-vzduch/opel/astra-k-sports-tourer
+                  - img "Ventil, pneumatické řízení - nasávaný vzduch Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e857]
+                - generic [ref=f64e858]: Ventil, pneumatické řízení - nasávaný vzduch
+            - listitem [ref=f64e859]:
+              - generic [ref=f64e860] [cursor=pointer]:
+                - link [ref=f64e861]:
+                  - /url: https://www.automobilovedily24.cz/ridici-ventil-serizeni-vackoveho-hridele/opel/astra-k-sports-tourer
+                  - img "Ridici ventil, serizeni vackoveho hridele Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e862]
+                - generic [ref=f64e863]: Ridici ventil, serizeni vackoveho hridele
+            - listitem [ref=f64e864]:
+              - generic [ref=f64e865] [cursor=pointer]:
+                - link [ref=f64e866]:
+                  - /url: https://www.automobilovedily24.cz/snimac-hladiny-oleje/opel/astra-k-sports-tourer
+                  - img "Snímač hladiny oleje Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e867]
+                - generic [ref=f64e868]: Snímač hladiny oleje
+            - listitem [ref=f64e869]:
+              - generic [ref=f64e870] [cursor=pointer]:
+                - link [ref=f64e871]:
+                  - /url: https://www.automobilovedily24.cz/montazni-sada-dmychadlo/opel/astra-k-sports-tourer
+                  - img "Montážní sada dmychadlo Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e872]
+                - generic [ref=f64e873]: Montážní sada dmychadlo
+            - listitem [ref=f64e874]:
+              - generic [ref=f64e875] [cursor=pointer]:
+                - link [ref=f64e876]:
+                  - /url: https://www.automobilovedily24.cz/vahadlo-ventilu/opel/astra-k-sports-tourer
+                  - img "Vahadlo ventilu Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e877]
+                - generic [ref=f64e878]: Vahadlo ventilu
+            - listitem [ref=f64e879]:
+              - generic [ref=f64e880] [cursor=pointer]:
+                - link [ref=f64e881]:
+                  - /url: https://www.automobilovedily24.cz/ojnicni-lozisko/opel/astra-k-sports-tourer
+                  - img "Ojniční ložiska Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e882]
+                - generic [ref=f64e883]: Ojniční ložiska
+            - listitem [ref=f64e884]:
+              - generic [ref=f64e885] [cursor=pointer]:
+                - link [ref=f64e886]:
+                  - /url: https://www.automobilovedily24.cz/vyfukovy-ventil/opel/astra-k-sports-tourer
+                  - img "Výfukový ventil Astra K Sports Tourer (B16) za nízkou cenu" [ref=f64e887]
+                - generic [ref=f64e888]: Výfukový ventil
+          - text: Více
+      - list [ref=f64e891]:
+        - listitem [ref=f64e892] [cursor=pointer]:
+          - img "Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) cena" [ref=f64e894]
+          - generic [ref=f64e895]: Nejatraktivnější ceny
+        - listitem [ref=f64e896] [cursor=pointer]:
+          - img "Závitová zátka olejová vana Astra K Sports Tourer (B16) originální díly online" [ref=f64e898]
+          - generic [ref=f64e899]: Obrovský výběr
+        - listitem [ref=f64e900] [cursor=pointer]:
+          - img "Závitová zátka olejová vana Astra K Sports Tourer (B16) cena originální" [ref=f64e902]
+          - generic [ref=f64e903]: Rychlé dodání
+      - navigation [ref=f64e904]:
+        - strong [ref=f64e905]: Čisla OEM
+        - list [ref=f64e906]:
+          - listitem [ref=f64e907]:
+            - link "995641400" [ref=f64e908] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/995641400
+            - text: ","
+          - listitem [ref=f64e909]:
+            - link "12616850" [ref=f64e910] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/12616850
+            - text: ","
+          - listitem [ref=f64e911]:
+            - link "995621400" [ref=f64e912] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/995621400
+            - text: ","
+          - listitem [ref=f64e913]:
+            - link "10280060" [ref=f64e914] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/10280060
+            - text: ","
+          - listitem [ref=f64e915]:
+            - link "0652254" [ref=f64e916] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/0652254
+            - text: ","
+          - listitem [ref=f64e917]:
+            - link "007603014106" [ref=f64e918] [cursor=pointer]:
+              - /url: https://www.automobilovedily24.cz/oen/007603014106
+    - contentinfo [ref=f64e920]:
+      - generic [ref=f64e922]:
+        - generic [ref=f64e924]:
+          - generic [ref=f64e926]:
+            - paragraph [ref=f64e927]: Způsoby platby
+            - generic [ref=f64e928]:
+              - img "Originální Závitová zátka olejová vana pro vůz Astra K Sports Tourer (B16) - Koupit levné autodílů prostřednictvím Visa" [ref=f64e930]
+              - img "Použitéé výměna Závitová zátka olejová vana na vozidlo OPEL Astra K Sports Tourer (B16) - nákup kreditní kartou Mastercard Card" [ref=f64e932]
+              - img "Online katalog výměna Závitová zátka olejová vana OPEL Astra K Sports Tourer (B16) - Koupit nejlevnější autodílů kartou PayPal" [ref=f64e934]
+              - img "Peněžní převod" [ref=f64e936]
+              - img "American Express" [ref=f64e938]
+          - generic [ref=f64e940]:
+            - paragraph [ref=f64e941]: Způsob dopravy
+            - img "DPD" [ref=f64e944]
+          - generic [ref=f64e946]:
+            - paragraph [ref=f64e947]: Technická podpora
+            - generic [ref=f64e948]:
+              - img "TecDoc inside online obchodů s náhradní díly Automobilovedily24.cz" [ref=f64e949]
+              - img "COMODO - platit bezpečně pro použité Závitová zátka olejová vana na OPEL Astra K Sports Tourer (B16)" [ref=f64e950]
+        - generic [ref=f64e952]:
+          - generic [ref=f64e954]:
+            - generic [ref=f64e955]: Uveďte vaši emailovou adresu a nakupujte autodíly za výhodné ceny!
+            - generic [ref=f64e956]:
+              - generic [ref=f64e957]:
+                - textbox "Email*" [ref=f64e959]
+                - button "Přihlaste se" [ref=f64e960] [cursor=pointer]
+              - generic [ref=f64e962]:
+                - checkbox "Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd... Více" [ref=f64e963]
+                - generic [ref=f64e964] [cursor=pointer]:
+                  - text: Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd...
+                  - button "Více" [ref=f64e966]
+          - generic [ref=f64e968]:
+            - generic [ref=f64e969]: Země
+            - button "www.automobilovedily24.cz Česko" [ref=f64e972] [cursor=pointer]:
+              - generic [ref=f64e973]:
+                - img "www.automobilovedily24.cz" [ref=f64e974]
+                - generic [ref=f64e975]: Česko
+      - generic [ref=f64e977]:
+        - link [ref=f64e979] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/#main
+          - img "Automobilovedily24.cz - autodíly online obchod" [ref=f64e981]
+        - generic [ref=f64e982]:
+          - list [ref=f64e985]:
+            - listitem [ref=f64e986]:
+              - link "Právní oznámení" [ref=f64e987] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/firma
+            - listitem [ref=f64e988]:
+              - link "Blog" [ref=f64e989] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/blog
+          - list [ref=f64e992]:
+            - listitem [ref=f64e993]:
+              - generic [ref=f64e994]: Nastavení souborů cookie
+            - listitem [ref=f64e995]:
+              - link "Pravidla ochrany osobních údajů" [ref=f64e996] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ochrana-soukromi
+            - listitem [ref=f64e997]:
+              - link "Obchodní podmínky" [ref=f64e998] [cursor=pointer]
+            - listitem [ref=f64e999]:
+              - link "Právo odstoupit od smlouvy" [ref=f64e1000] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vraceni-zbozi
+            - listitem [ref=f64e1001]:
+              - link "Výměna" [ref=f64e1002] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vymena
+            - listitem [ref=f64e1003]:
+              - link "Kontakt" [ref=f64e1004] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/kontakt
+            - listitem [ref=f64e1005]:
+              - link "Dodání" [ref=f64e1006] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - listitem [ref=f64e1007]:
+              - link "Soupis požadovaných výrobků" [ref=f64e1008] [cursor=pointer]
+            - listitem [ref=f64e1009]:
+              - link "Platba" [ref=f64e1010] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/platba
+            - listitem [ref=f64e1011]:
+              - link "Vrácení zboží" [ref=f64e1012] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/navrat
+            - listitem [ref=f64e1013]:
+              - link "Prohlášení o přístupnosti" [ref=f64e1014] [cursor=pointer]
+          - list [ref=f64e1017]:
+            - listitem [ref=f64e1018]:
+              - link "Pneumatiky" [ref=f64e1019] [cursor=pointer]
+            - listitem [ref=f64e1020]:
+              - link "Všichni výrobci" [ref=f64e1021] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/nahradni-dily-vyrobcu
+            - listitem [ref=f64e1022]:
+              - link "Nakupovat dle modelu" [ref=f64e1023] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-modell
+            - listitem [ref=f64e1024]:
+              - link "Nakupovat dle značky" [ref=f64e1025] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-auto
+          - generic [ref=f64e1027]:
+            - paragraph [ref=f64e1028]: Autodíly app
+            - link [ref=f64e1030] [cursor=pointer]:
+              - 'img "Automobilovedily24.cz: vše, co potřebujete pro vaše auto v jedné aplikaci." [ref=f64e1031]'
+            - generic [ref=f64e1032]:
+              - paragraph [ref=f64e1033]: "Pracovní doba zákaznické linky podpory pro Českou republiku:Pon-Pá: 8:00 - 17:00"
+              - paragraph [ref=f64e1034]: "Sobota – Neděle: nepracovní dny"
+        - generic [ref=f64e1035]: "©2026 www.automobilovedily24.cz: Náhradní díly na auto eshop » kvalitní autodíly levně online"
+  - button [ref=f64e1037] [cursor=pointer]
+  - generic [ref=f64e1040]:
+    - generic [ref=f64e1041]:
+      - button "Odmítnout všechny cookies" [ref=f64e1042] [cursor=pointer]
+      - generic [ref=f64e1043]: Používání souborů cookie a podobných technologií
+      - paragraph
+      - paragraph [ref=f64e1044]: Tento web používá soubory cookie, které jsou nezbytné pro fungování webu. S Vaším souhlasem se používají další soubory cookie a podobné technologie („nástroje“), zejména k integraci externího obsahu, analýze využití, personalizaci nabídek a zlepšení funkčnosti webu.
+      - paragraph [ref=f64e1045]: Všechny tyto nástroje můžete přijmout nebo odmítnout pomocí níže umístěných tlačítek. V sekci „Spravovat předvolby“ naleznete podrobné informace o všech nástrojích a můžete si individuálně upravit nastavení. Pokud při používání určitého nástroje dochází k přenosu údajů do třetích zemí mimo EHP, které mohou mít nižší úroveň ochrany údajů, Váš souhlas se výslovně vztahuje i na tento přenos a následné zpracování.
+      - paragraph [ref=f64e1046]: V sekci „Nastavení souborů cookie“ v zápatí našeho webu můžete kdykoli odvolat svůj souhlas nebo aktualizovat svůj výběr.
+      - paragraph [ref=f64e1047]:
+        - text: Další informace naleznete v našich
+        - link "Pravidlech ochrany osobních údajů." [ref=f64e1048] [cursor=pointer]
+    - generic [ref=f64e1049]:
+      - button "Spravovat předvolby" [ref=f64e1050] [cursor=pointer]
+      - button "Povolit všechny cookies" [active] [ref=f64e1051] [cursor=pointer]

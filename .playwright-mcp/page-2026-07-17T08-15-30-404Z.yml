@@ -1,0 +1,129 @@
+- generic [active] [ref=f71e1]:
+  - generic [ref=f71e3]:
+    - heading [level=2] [ref=f71e4]:
+      - link "DoOpla.cz" [ref=f71e5] [cursor=pointer]:
+        - /url: /
+    - generic [ref=f71e8]:
+      - textbox "Vyhledávání" [ref=f71e9]:
+        - /placeholder: Co hledáte?
+      - button "Hledej" [ref=f71e10] [cursor=pointer]
+    - link "Košík 0 Košík":
+      - /url: /kosik.html
+      - generic [ref=f71e11] [cursor=pointer]:
+        - img "Košík" [ref=f71e12]
+        - generic "Košík je prázdný" [ref=f71e13]: "0"
+        - text: Košík
+  - generic [ref=f71e15]:
+    - text: Nové originální díly pro vozy Opel.
+    - generic [ref=f71e16]:
+      - link "Proč originální díly?" [ref=f71e17] [cursor=pointer]:
+        - /url: /originalni-dily.html
+      - text: "|"
+      - link "Vše o nákupu, doprava" [ref=f71e18] [cursor=pointer]:
+        - /url: /vse-o-nakupu.html
+      - text: "|"
+      - link "Obchodní podmínky" [ref=f71e19] [cursor=pointer]:
+        - /url: /obchodni-podminky.html
+  - generic [ref=f71e21]:
+    - img "Sluchátko" [ref=f71e22]
+    - link "704 058 760" [ref=f71e23] [cursor=pointer]:
+      - /url: tel:00420704058760
+    - text: (po – pá, 9:00 – 15:00)
+  - generic [ref=f71e24]:
+    - link "Eshop v provozu pouze do vyprodání skladu" [ref=f71e26] [cursor=pointer]:
+      - /url: /konec-eshopu.html
+    - generic [ref=f71e27]:
+      - heading "Vše o nákupu" [level=1] [ref=f71e28]
+      - heading "Platba a způsob dodání" [level=2] [ref=f71e29]
+      - paragraph [ref=f71e30]: V současné době nabízíme zaslání zboží Balíkovnou na adresu (Česká pošta, dříve Balík do ruky). Zasíláme také na výdejní místa Balíkovny. Platba v rámci ČR je možná prostřednictvím dobírky (vyjma AlzaBoxů) nebo platby předem na účet (Fio banka). Na Slovensko je možné zaslat na adresu, ale je možná pouze platba předem na účet.
+      - heading "Minimální hodnota objednávky - zaslání do ČR" [level=2] [ref=f71e31]
+      - paragraph [ref=f71e32]: Mimimální hodnota objednávky je 200 Kč při platbě předem na účet. Mimimální hodnota objednávky pro zaslání na dobírku je 300 Kč. Do této ceny se nezapočítávají náklady na dopravu (poštovné).
+      - heading "Minimální hodnota objednávky - zaslání do zahraničí" [level=2] [ref=f71e33]
+      - paragraph [ref=f71e34]: Mimimální hodnota objednávky pro zaslání do zahraničí je 1000 Kč. Do této ceny se nezapočítávají náklady na dopravu (poštovné).
+      - heading "Balné" [level=2] [ref=f71e35]
+      - paragraph [ref=f71e36]: Balné ve výši 20 Kč je účtováno pouze u objednávek do 300 Kč (bez poštovného).
+      - heading "Cena poštovného – Česká republika" [level=2] [ref=f71e37]
+      - table [ref=f71e39]:
+        - rowgroup [ref=f71e40]:
+          - row [ref=f71e41]:
+            - cell [ref=f71e42]
+            - cell [ref=f71e43]:
+              - img "Balíkovna" [ref=f71e44]
+              - text: Balíkovna
+            - cell [ref=f71e45]:
+              - img "Balíkovna na adresu" [ref=f71e46]
+              - text: Balíkovna na adresu(dříve Balík do ruky)
+          - row [ref=f71e47]:
+            - rowheader "Poštovné" [ref=f71e48]
+            - cell "69 Kč" [ref=f71e49]
+            - cell "99 Kč" [ref=f71e50]
+          - row [ref=f71e51]:
+            - rowheader "Platba při převzetí/dobírka" [ref=f71e52]
+            - cell "50 Kč (Dobírka není možná při doručení do AlzaBoxů)" [ref=f71e53]: 50 Kč(Dobírka není možná při doručení do AlzaBoxů)
+            - cell "50 Kč" [ref=f71e54]
+          - row [ref=f71e55]:
+            - rowheader "Maximální hmotnost" [ref=f71e56]
+            - cell "15 kg Těžší objednávky budou rozděleny do více balíků a bude naúčtováno poštovné odpovídající počtu balíků" [ref=f71e57]: 15 kgTěžší objednávky budou rozděleny do více balíků a bude naúčtováno poštovné odpovídající počtu balíků
+            - cell "15 kg Těžší objednávky budou rozděleny do více balíků a bude naúčtováno poštovné odpovídající počtu balíků" [ref=f71e58]: 15 kgTěžší objednávky budou rozděleny do více balíků a bude naúčtováno poštovné odpovídající počtu balíků
+          - row [ref=f71e59]:
+            - rowheader "Maximální rozměr" [ref=f71e60]
+            - cell "Max. 50 × 50 × 50 cm" [ref=f71e61]
+            - cell [ref=f71e62]:
+              - generic [ref=f71e63]: Délka jedné strany max. 180 cmSoučet tří rozměrů max. 240 cm (d+š+v)
+      - heading "Cena poštovného – Slovensko" [level=2] [ref=f71e64]
+      - table [ref=f71e66]:
+        - rowgroup [ref=f71e67]:
+          - row [ref=f71e68]:
+            - cell [ref=f71e69]
+            - cell [ref=f71e70]:
+              - img "Slovensko na adresu" [ref=f71e71]
+              - text: Slovensko na adresu
+          - row [ref=f71e72]:
+            - rowheader "Poštovné" [ref=f71e73]
+            - cell "10,67 € (250 Kč)" [ref=f71e74]
+          - row [ref=f71e75]:
+            - rowheader "Platba při převzetí/dobírka" [ref=f71e76]
+            - cell "Pouze platba předem na účet" [ref=f71e77]
+          - row [ref=f71e78]:
+            - rowheader "Maximální hmotnost" [ref=f71e79]
+            - cell "15 kg Těžší objednávky budou rozděleny do více balíků a bude naúčtováno poštovné odpovídající počtu balíků" [ref=f71e80]: 15 kgTěžší objednávky budou rozděleny do více balíků a bude naúčtováno poštovné odpovídající počtu balíků
+          - row [ref=f71e81]:
+            - rowheader "Maximální rozměr" [ref=f71e82]
+            - cell [ref=f71e83]:
+              - generic [ref=f71e84]: Délka jedné strany max. 150 cmSoučet tří rozměrů max. 175 cm (d+š+v)
+      - paragraph [ref=f71e85]: Uvedené ceny jsou koncové, nejsem plátce DPH.
+      - heading "Zaslání zboží do zahraničí" [level=2] [ref=f71e86]
+      - paragraph [ref=f71e87]: Zboží zasíláme po území České republiky a na Slovensko. Po dohodě také v rámci zbytku EU.
+      - heading "Záruka" [level=2] [ref=f71e88]
+      - paragraph [ref=f71e89]: Na náhradní díly zakoupené v eshopu DoOpla.cz poskytujeme záruku v trvání 24 měsíců.
+      - paragraph [ref=f71e90]: Z této záruky jsou vyloučeny díly podléhající běžnému opotřebení, díly poškozené vnějšími vlivy a díly, které nebyly namontovány v souladu s předepsaným technologickým postupem výrobce vozu.
+  - generic [ref=f71e92]:
+    - link [ref=f71e94] [cursor=pointer]:
+      - /url: https://www.facebook.com/DoOpla.cz
+      - img "Facebook DoOpla.cz" [ref=f71e95]
+    - generic [ref=f71e96]:
+      - generic [ref=f71e97]:
+        - generic [ref=f71e98]:
+          - text: Dotazy zasílejte na emailovou adresu
+          - link "info@doopla.cz" [ref=f71e100] [cursor=pointer]:
+            - /url: mailto:info@doopla.cz
+        - text: Telefon +420 704 058 760 (pouze v pracovní dny od 9:00 do 15:00, není určeno pro zasílání SMS)
+      - generic [ref=f71e101]: "Eshop provozuje:"
+      - text: Vojtěch Janda, Nová Ves 222, 463 31 (pouze fakturační adresa) IČO 72658681, nejsem plátce DPH
+      - list [ref=f71e102]:
+        - listitem [ref=f71e103]:
+          - link "Všeobecné obchodní podmínky" [ref=f71e104] [cursor=pointer]:
+            - /url: /obchodni-podminky.html
+        - listitem [ref=f71e105]:
+          - link "Reklamační řád pro spotřebitele" [ref=f71e106] [cursor=pointer]:
+            - /url: /reklamacni-rad.html
+        - listitem [ref=f71e107]:
+          - link "Zásady ochrany osobních údajů" [ref=f71e108] [cursor=pointer]:
+            - /url: /zasady-ochrany-osobnich-udaju.html
+        - listitem [ref=f71e109]:
+          - link "Řešení sporů" [ref=f71e110] [cursor=pointer]:
+            - /url: /reseni-sporu.html
+        - listitem [ref=f71e111]:
+          - link "Odstoupení od smlouvy" [ref=f71e112] [cursor=pointer]:
+            - /url: /odstoupeni-od-smlouvy.html
+      - text: © 2026 Vojtěch Janda, Doopla.cz

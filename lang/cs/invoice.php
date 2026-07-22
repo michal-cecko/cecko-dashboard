@@ -34,6 +34,7 @@ return [
     'ic_dph' => 'IČ DPH',
     'reverse_charge_notice' => 'Daň odvede zákazník',
     'reverse_charge_law' => 'Faktura v režimu přenesení daňové povinnosti',
+    'not_vat_payer_notice' => 'Nejsme plátci DPH.',
     'printed_by' => 'Vytiskl(a)',
     'page' => 'strana',
 ];

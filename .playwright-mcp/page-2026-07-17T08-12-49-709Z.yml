@@ -1,0 +1,361 @@
+- generic [active] [ref=f67e1]:
+  - generic [ref=f67e2]:
+    - banner [ref=f67e4]:
+      - generic [ref=f67e6]:
+        - link [ref=f67e7] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/
+          - img "automobilovedily24.cz" [ref=f67e8]
+        - generic [ref=f67e13]:
+          - generic [ref=f67e15]:
+            - textbox "Vyhledat podle produktu, vozidla, značky" [ref=f67e16]
+            - button [ref=f67e17] [cursor=pointer]
+          - button [ref=f67e20] [cursor=pointer]
+        - generic [ref=f67e23]:
+          - button "Přihlásit se" [ref=f67e24] [cursor=pointer]
+          - link "0 0,00 Kč" [ref=f67e28] [cursor=pointer]:
+            - generic [ref=f67e29]: "0"
+            - generic [ref=f67e33]: 0,00 Kč
+      - list [ref=f67e35]:
+        - listitem [ref=f67e36]:
+          - link "Automobilových značek" [ref=f67e37] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/auto
+        - listitem [ref=f67e38]:
+          - link "Autodíly" [ref=f67e39] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/nahradni-dily
+        - listitem [ref=f67e40]:
+          - link "Pneumatiky" [ref=f67e41] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/pneumatiky
+        - listitem [ref=f67e42]:
+          - link "Ráfky" [ref=f67e43] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/rafky
+        - listitem [ref=f67e44]:
+          - link "Motorový olej" [ref=f67e45] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/oleje-motorove
+        - listitem [ref=f67e46]:
+          - link "Autokosmetika" [ref=f67e47] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autochemie
+        - listitem [ref=f67e48]:
+          - link "Autodoplňky" [ref=f67e49] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/autodoplnky
+        - listitem [ref=f67e50]:
+          - link "Nářadí" [ref=f67e51] [cursor=pointer]:
+            - /url: https://www.automobilovedily24.cz/naradi
+    - main [ref=f67e52]:
+      - generic [ref=f67e54]:
+        - generic [ref=f67e56]:
+          - img "Česká republika" [ref=f67e57]
+          - heading "DODÁNÍ" [level=1] [ref=f67e58]
+        - img "dpd" [ref=f67e62]
+      - generic [ref=f67e63]:
+        - generic [ref=f67e64]:
+          - generic [ref=f67e65]:
+            - generic [ref=f67e69]:
+              - generic [ref=f67e70]: Pro objednávky pod 2700,00 Kč je poplatek za doručení
+              - generic [ref=f67e71]: 235,00 Kč
+            - generic [ref=f67e75]:
+              - generic [ref=f67e76]: Pro objednávky nad 2700,00 Kč je poplatek za doručení
+              - generic [ref=f67e77]: 0,00 Kč
+            - generic [ref=f67e81]:
+              - generic [ref=f67e82]: Cena doručení pneumatik
+              - generic [ref=f67e83]: 48,46 Kč
+          - paragraph [ref=f67e84]: "*V celkové částce objednávky není zahrnuta cena pneumatik.Bezplatné doručení se nevztahuje na nadrozměrné položky. Bezplatné doručení nelze uplatnit pro balíky doručované mimo České Republiky."
+        - generic [ref=f67e85]:
+          - heading "POPLATKY ZA DORUČENÍ MIMO ÚZEMÍ ČESKÉ REPUBLIKY" [level=3] [ref=f67e86]
+          - generic [ref=f67e87]:
+            - generic [ref=f67e89]:
+              - img "Belgie" [ref=f67e90]
+              - generic [ref=f67e91]: Belgie
+              - generic [ref=f67e92]: 240,73 Kč
+            - generic [ref=f67e94]:
+              - img "Bulharsko" [ref=f67e95]
+              - generic [ref=f67e96]: Bulharsko
+              - generic [ref=f67e97]: 240,73 Kč
+            - generic [ref=f67e99]:
+              - img "Česká republika" [ref=f67e100]
+              - generic [ref=f67e101]: Česká republika
+              - generic [ref=f67e102]: 235,00 Kč
+            - generic [ref=f67e104]:
+              - img "Dánsko" [ref=f67e105]
+              - generic [ref=f67e106]: Dánsko
+              - generic [ref=f67e107]: 255,69 Kč
+            - generic [ref=f67e109]:
+              - img "Estonsko" [ref=f67e110]
+              - generic [ref=f67e111]: Estonsko
+              - generic [ref=f67e112]: 264,92 Kč
+            - generic [ref=f67e114]:
+              - img "Faerské ostrovy" [ref=f67e115]
+              - generic [ref=f67e116]: Faerské ostrovy
+              - generic [ref=f67e117]: 501,66 Kč
+            - generic [ref=f67e119]:
+              - img "Finsko" [ref=f67e120]
+              - generic [ref=f67e121]: Finsko
+              - generic [ref=f67e122]: 240,73 Kč
+            - generic [ref=f67e124]:
+              - img "Francie" [ref=f67e125]
+              - generic [ref=f67e126]: Francie
+              - generic [ref=f67e127]: 240,73 Kč
+            - generic [ref=f67e129]:
+              - img "Holandsko" [ref=f67e130]
+              - generic [ref=f67e131]: Holandsko
+              - generic [ref=f67e132]: 240,73 Kč
+            - generic [ref=f67e134]:
+              - img "Irsko" [ref=f67e135]
+              - generic [ref=f67e136]: Irsko
+              - generic [ref=f67e137]: 434,28 Kč
+            - generic [ref=f67e139]:
+              - img "Itálie" [ref=f67e140]
+              - generic [ref=f67e141]: Itálie
+              - generic [ref=f67e142]: 240,73 Kč
+            - generic [ref=f67e144]:
+              - img "Litva" [ref=f67e145]
+              - generic [ref=f67e146]: Litva
+              - generic [ref=f67e147]: 240,73 Kč
+            - generic [ref=f67e149]:
+              - img "Lotyšsko" [ref=f67e150]
+              - generic [ref=f67e151]: Lotyšsko
+              - generic [ref=f67e152]: 240,73 Kč
+            - generic [ref=f67e154]:
+              - img "Lucembursko" [ref=f67e155]
+              - generic [ref=f67e156]: Lucembursko
+              - generic [ref=f67e157]: 240,73 Kč
+            - generic [ref=f67e159]:
+              - img "Maďarsko" [ref=f67e160]
+              - generic [ref=f67e161]: Maďarsko
+              - generic [ref=f67e162]: 211,08 Kč
+            - generic [ref=f67e164]:
+              - img "Německo" [ref=f67e165]
+              - generic [ref=f67e166]: Německo
+              - generic [ref=f67e167]: 168,15 Kč
+            - generic [ref=f67e169]:
+              - img "Norsko" [ref=f67e170]
+              - generic [ref=f67e171]: Norsko
+              - generic [ref=f67e172]: 481,08 Kč
+            - generic [ref=f67e174]:
+              - img "Polsko" [ref=f67e175]
+              - generic [ref=f67e176]: Polsko
+              - generic [ref=f67e177]: 162,09 Kč
+            - generic [ref=f67e179]:
+              - img "Portugalsko" [ref=f67e180]
+              - generic [ref=f67e181]: Portugalsko
+              - generic [ref=f67e182]: 240,73 Kč
+            - generic [ref=f67e184]:
+              - img "Rakousko" [ref=f67e185]
+              - generic [ref=f67e186]: Rakousko
+              - generic [ref=f67e187]: 240,73 Kč
+            - generic [ref=f67e189]:
+              - img "Řecko" [ref=f67e190]
+              - generic [ref=f67e191]: Řecko
+              - generic [ref=f67e192]: 240,73 Kč
+            - generic [ref=f67e194]:
+              - img "Rumunsko" [ref=f67e195]
+              - generic [ref=f67e196]: Rumunsko
+              - generic [ref=f67e197]: 230,81 Kč
+            - generic [ref=f67e199]:
+              - img "Slovensko" [ref=f67e200]
+              - generic [ref=f67e201]: Slovensko
+              - generic [ref=f67e202]: 240,73 Kč
+            - generic [ref=f67e204]:
+              - img "Slovinsko" [ref=f67e205]
+              - generic [ref=f67e206]: Slovinsko
+              - generic [ref=f67e207]: 240,73 Kč
+          - button "Více" [ref=f67e209] [cursor=pointer]
+          - button "Nemůžete najít svou zemi?" [ref=f67e211] [cursor=pointer]
+        - list [ref=f67e213]:
+          - listitem [ref=f67e214]:
+            - img "Úspora na nákladech za dopravu" [ref=f67e216]
+            - generic [ref=f67e217]: Pro objednávky nad 2700,00 Kč nabízíme bezplatné doručení.
+          - listitem [ref=f67e218]:
+            - img "Rychlé dodání" [ref=f67e220]
+            - generic [ref=f67e221]: Položky odešleme do 24 hodin.
+          - listitem [ref=f67e222]:
+            - img "Obrovský výběr" [ref=f67e224]
+            - generic [ref=f67e225]: "Bezpečná objednávka: položku můžete vrátit do 100 dnů od datumu nákupu."
+        - paragraph [ref=f67e229]: Všechny uvedené ceny jsou včetně 21% DPH.
+        - generic [ref=f67e230]:
+          - heading "Čas doručení" [level=3] [ref=f67e231]
+          - paragraph [ref=f67e232]: Lhůta doručení závisí na dostupnosti produktu. Na stránce produktu, o který se zajímáte, si prosím zkontrolujte jeho aktuální dostupnost. Nedoručujeme během svátků.
+          - generic [ref=f67e233]:
+            - generic [ref=f67e234]:
+              - generic [ref=f67e235]: Skladem
+              - paragraph [ref=f67e236]: Položku momentálně máme skladem. Produkty s tímto označením odesíláme 1-2 dny po zaplacení objednávky.
+            - generic [ref=f67e237]:
+              - generic [ref=f67e238]: Momentálně není skladem
+              - paragraph [ref=f67e239]: "Položku nelze objednat: přestala se vyrábět nebo je momentálně vyprodána a nedostupná. Vybrat si ovšem můžete podobný produkt od jiného výrobce. Stačí pouze kliknout na tlačítko \"Ukázat ekvivalenty\"."
+        - generic [ref=f67e240]:
+          - heading "Možné důvody zpoždění doručení" [level=3] [ref=f67e241]
+          - generic [ref=f67e242]:
+            - button "Země pro doručení" [ref=f67e244] [cursor=pointer]
+            - button "Dostupnost produktů" [ref=f67e247] [cursor=pointer]
+            - generic [ref=f67e249]:
+              - button "Den v týdnu" [ref=f67e250] [cursor=pointer]
+              - text: • •
+            - button "Selhání na straně doručovací společnosti" [ref=f67e253] [cursor=pointer]
+        - generic [ref=f67e255]:
+          - heading "Bezpečná objednávka" [level=3] [ref=f67e256]
+          - generic [ref=f67e257]: Vrácení produktů nebylo nikdy tak jednoduché a pohodlné! Běžná doba na vrácení zboží je 14 dní. ALE vy si ji můžete prodloužit na 100 dní!
+          - generic [ref=f67e258]:
+            - generic [ref=f67e259]:
+              - generic [ref=f67e260]: "100"
+              - generic [ref=f67e261]: dní
+            - generic [ref=f67e262]:
+              - generic [ref=f67e263]: záruka
+              - generic [ref=f67e264]: vrácení
+              - generic [ref=f67e265]: peněz
+            - generic [ref=f67e266]:
+              - generic [ref=f67e267]: OD
+              - generic [ref=f67e268]: 89,99 Kč
+            - img "BEZPEČNÁ OBJEDNÁVKA" [ref=f67e270]
+          - generic [ref=f67e271]:
+            - generic [ref=f67e273]:
+              - generic [ref=f67e274]: Jak na to?
+              - paragraph [ref=f67e276]: Stačí k tomu pouze jeden krok! V posledním kroku objednávky jednoduše aktivujete službu BEZPEČNÁ OBJEDNÁVKA.
+            - generic [ref=f67e278]:
+              - generic [ref=f67e279]: Kolik to stojí?
+              - paragraph [ref=f67e281]: Pouze za 89,99 Kč máte možnost prodloužení doby pro vrácení zakoupeného zboží až na 100 dní.
+            - generic [ref=f67e283]:
+              - generic [ref=f67e284]: Jaké jsou výhody?
+              - list [ref=f67e286]:
+                - listitem [ref=f67e287]: Máte 7-krát delší dobu na vrácení produktu, který nepasuje do vašeho auta.
+                - listitem [ref=f67e288]: Nemusíte uvést žádný důvod pro zrušení objednávky.
+                - listitem [ref=f67e289]: Žádné poplatky za vrácení zboží; obvykle se v průměru pohybují na úrovni 235,00 Kč.
+            - generic [ref=f67e291]:
+              - generic [ref=f67e292]: Jaké produkty můžu vrátit?
+              - generic [ref=f67e293]:
+                - paragraph [ref=f67e294]: "Můžete vrátit pouze produkty, které:"
+                - list [ref=f67e295]:
+                  - listitem [ref=f67e296]: Se nepoužívaly.
+                  - listitem [ref=f67e297]: Nebyly poškozeny nebo instalovány (žádné viditelné známky instalace).
+                  - listitem [ref=f67e298]: Mají nepoškozené originální balení.
+                  - listitem [ref=f67e299]: Obsahují potvrzení o zaplacení.
+                  - listitem [ref=f67e300]: Nejsou z kategorie pneumatik nebo nadměrného zboží.
+                - paragraph [ref=f67e301]: Možnost Bezpečná objednávka lze uplatnit pouze na jedno vrácení na jednu objednávku.
+                - paragraph [ref=f67e302]: Když od vás dostaneme náhradní díl, důkladně ho prozkoumáme. Pokud autodíl splňuje výše uvedené požadavky, součástku vyměníme za jinou nebo vám vrátíme peníze - dle vaší volby.
+                - paragraph [ref=f67e303]: Podmínky možnosti Bezpečná objednávka se nevztahují na produkty z jiných vašich objednávek, pro které tato možnost nebyla aktivována.
+        - generic [ref=f67e304]:
+          - heading "Odeslání nadměrného zboží" [level=3] [ref=f67e305]
+          - generic [ref=f67e306]: "Každá položka odeslaná jako nadrozměrné zboží je takto řádně označena. Poplatek za nadrozměrný náklad v České republice činí: 507,00 Kč. Pokud při ceně zboží uvidíte označení \"nadrozměrné zboží\", znamená to, že produkt:"
+          - generic [ref=f67e307]:
+            - generic [ref=f67e308]:
+              - img "se nevejde do standardního balení" [ref=f67e309]
+              - generic [ref=f67e310]: se nevejde do standardního balení
+            - generic [ref=f67e311]:
+              - img "má nadměrnou váhu" [ref=f67e312]
+              - generic [ref=f67e313]: má nadměrnou váhu
+          - generic [ref=f67e314]:
+            - generic [ref=f67e315]:
+              - button "Na tyto položky se mohou vztahovat dodatečné přepravní poplatky" [ref=f67e316] [cursor=pointer]
+              - button "Náklady na doručení nadměrného zboží do jiných zemí" [ref=f67e317] [cursor=pointer]
+            - generic [ref=f67e319]:
+              - list [ref=f67e321]:
+                - listitem [ref=f67e322]: Katalyzátor
+                - listitem [ref=f67e323]: Blatník
+                - listitem [ref=f67e324]: Nárazník
+              - button "Více" [ref=f67e326] [cursor=pointer]
+        - generic [ref=f67e327]:
+          - 'heading "NEJČASTĚJŠÍ DOTAZY: často kladené otázky" [level=2] [ref=f67e328]'
+          - generic [ref=f67e329]:
+            - button "Proč trvá doručení objednaných součástek tak dlouho?" [ref=f67e331] [cursor=pointer]
+            - button "Kdy dostanu svůj nákup?" [ref=f67e334] [cursor=pointer]
+            - button "Musím zaplatit celní daň po doručení mého balíku?" [ref=f67e337] [cursor=pointer]
+          - link "Chcete-li pokračovat v nákupu" [ref=f67e340] [cursor=pointer]:
+            - /url: "#"
+    - contentinfo [ref=f67e341]:
+      - generic [ref=f67e343]:
+        - generic [ref=f67e345]:
+          - generic [ref=f67e347]:
+            - paragraph [ref=f67e348]: Způsoby platby
+            - generic [ref=f67e349]:
+              - img "Visa" [ref=f67e351]
+              - img "Mastercard" [ref=f67e353]
+              - img "PayPal" [ref=f67e355]
+              - img "Peněžní převod" [ref=f67e357]
+              - img "American Express" [ref=f67e359]
+          - generic [ref=f67e361]:
+            - paragraph [ref=f67e362]: Způsob dopravy
+            - img "DPD" [ref=f67e365]
+          - generic [ref=f67e367]:
+            - paragraph [ref=f67e368]: Technická podpora
+            - generic [ref=f67e369]:
+              - img "TecDoc inside online obchodů s náhradní díly Automobilovedily24.cz" [ref=f67e370]
+              - img "COMODO - platit bezpečně pro automobilové náhradní díly" [ref=f67e371]
+        - generic [ref=f67e373]:
+          - generic [ref=f67e375]:
+            - generic [ref=f67e376]: Uveďte vaši emailovou adresu a nakupujte autodíly za výhodné ceny!
+            - generic [ref=f67e377]:
+              - generic [ref=f67e378]:
+                - textbox "Email*" [ref=f67e380]
+                - button "Přihlaste se" [ref=f67e381] [cursor=pointer]
+              - generic [ref=f67e383]:
+                - checkbox "Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd... Více" [ref=f67e384]
+                - generic [ref=f67e385] [cursor=pointer]:
+                  - text: Ano, chci dostávat personalizovaný newsletter Automobilovedily24.cz s informacemi o produktech, slevách, speciálních nabíd...
+                  - button "Více" [ref=f67e387]
+          - generic [ref=f67e389]:
+            - generic [ref=f67e390]: Země
+            - button "www.automobilovedily24.cz Česko" [ref=f67e393] [cursor=pointer]:
+              - generic [ref=f67e394]:
+                - img "www.automobilovedily24.cz" [ref=f67e395]
+                - generic [ref=f67e396]: Česko
+      - generic [ref=f67e398]:
+        - link [ref=f67e400] [cursor=pointer]:
+          - /url: https://www.automobilovedily24.cz/#main
+          - img "Automobilovedily24.cz - autodíly online obchod" [ref=f67e402]
+        - generic [ref=f67e403]:
+          - list [ref=f67e406]:
+            - listitem [ref=f67e407]:
+              - link "Právní oznámení" [ref=f67e408] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/firma
+            - listitem [ref=f67e409]:
+              - link "Blog" [ref=f67e410] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/blog
+          - list [ref=f67e413]:
+            - listitem [ref=f67e414]:
+              - generic [ref=f67e415]: Nastavení souborů cookie
+            - listitem [ref=f67e416]:
+              - link "Pravidla ochrany osobních údajů" [ref=f67e417] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/ochrana-soukromi
+            - listitem [ref=f67e418]:
+              - link "Obchodní podmínky" [ref=f67e419] [cursor=pointer]
+            - listitem [ref=f67e420]:
+              - link "Právo odstoupit od smlouvy" [ref=f67e421] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vraceni-zbozi
+            - listitem [ref=f67e422]:
+              - link "Výměna" [ref=f67e423] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/vymena
+            - listitem [ref=f67e424]:
+              - link "Kontakt" [ref=f67e425] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/kontakt
+            - listitem [ref=f67e426]:
+              - link "Dodání" [ref=f67e427] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/dodani
+            - listitem [ref=f67e428]:
+              - link "Soupis požadovaných výrobků" [ref=f67e429] [cursor=pointer]
+            - listitem [ref=f67e430]:
+              - link "Platba" [ref=f67e431] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/platba
+            - listitem [ref=f67e432]:
+              - link "Vrácení zboží" [ref=f67e433] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/navrat
+            - listitem [ref=f67e434]:
+              - link "Prohlášení o přístupnosti" [ref=f67e435] [cursor=pointer]
+          - list [ref=f67e438]:
+            - listitem [ref=f67e439]:
+              - link "Pneumatiky" [ref=f67e440] [cursor=pointer]
+            - listitem [ref=f67e441]:
+              - link "Všichni výrobci" [ref=f67e442] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/nahradni-dily-vyrobcu
+            - listitem [ref=f67e443]:
+              - link "Nakupovat dle modelu" [ref=f67e444] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-modell
+            - listitem [ref=f67e445]:
+              - link "Nakupovat dle značky" [ref=f67e446] [cursor=pointer]:
+                - /url: https://www.automobilovedily24.cz/bestseller-auto
+          - generic [ref=f67e448]:
+            - paragraph [ref=f67e449]: Autodíly app
+            - link [ref=f67e451] [cursor=pointer]:
+              - 'img "Automobilovedily24.cz: vše, co potřebujete pro vaše auto v jedné aplikaci." [ref=f67e452]'
+            - generic [ref=f67e453]:
+              - paragraph [ref=f67e454]: "Pracovní doba zákaznické linky podpory pro Českou republiku:Pon-Pá: 8:00 - 17:00"
+              - paragraph [ref=f67e455]: "Sobota – Neděle: nepracovní dny"
+        - generic [ref=f67e456]: "©2026 www.automobilovedily24.cz: Náhradní díly na auto eshop » kvalitní autodíly levně online"
+  - button [ref=f67e458] [cursor=pointer]

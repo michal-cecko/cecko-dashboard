@@ -31,7 +31,7 @@ return [
         UserCapabilityEnum::MANAGE_USERS->value => 'Manage users',
         UserCapabilityEnum::VIEW_INVOICES->value => 'Access invoices',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Manage invoices',
-        UserCapabilityEnum::VIEW_ALL_INVOICES->value => 'View all users\' invoices',
+        UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Manage all users\' invoices',
     ],
 
     InvoiceThemeEnum::class => [

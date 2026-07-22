@@ -295,6 +295,117 @@ class InvoiceModelTest extends TestCase
         $this->assertEquals($this->company->id, $invoices->first()->company_id);
     }
 
+    public function test_user_without_active_company_sees_no_invoices(): void
+    {
+        Invoice::factory()->draft()->create([
+            'company_id' => $this->company->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        $userWithoutCompany = User::factory()->create([
+            'capabilities' => [UserCapabilityEnum::VIEW_INVOICES],
+        ]);
+
+        $this->actingAs($userWithoutCompany);
+
+        $this->assertCount(0, Invoice::all());
+    }
+
+    public function test_manage_all_invoices_user_is_scoped_by_default(): void
+    {
+        $this->user->update([
+            'capabilities' => [
+                UserCapabilityEnum::VIEW_INVOICES,
+                UserCapabilityEnum::MANAGE_INVOICES,
+                UserCapabilityEnum::MANAGE_ALL_INVOICES,
+            ],
+        ]);
+
+        $this->actingAs($this->user->fresh());
+
+        $otherUser = User::factory()->create();
+        $otherCompany = Company::factory()->create(['user_id' => $otherUser->id]);
+
+        Invoice::factory()->draft()->create([
+            'company_id' => $this->company->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        Invoice::factory()->draft()->create([
+            'company_id' => $otherCompany->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        $invoices = Invoice::all();
+
+        $this->assertCount(1, $invoices);
+        $this->assertEquals($this->company->id, $invoices->first()->company_id);
+    }
+
+    public function test_manage_all_invoices_user_sees_all_invoices_with_session_flag(): void
+    {
+        $this->user->update([
+            'capabilities' => [
+                UserCapabilityEnum::VIEW_INVOICES,
+                UserCapabilityEnum::MANAGE_INVOICES,
+                UserCapabilityEnum::MANAGE_ALL_INVOICES,
+            ],
+        ]);
+
+        $this->actingAs($this->user->fresh());
+        session()->put('invoices.show_all_companies', true);
+
+        $otherUser = User::factory()->create();
+        $otherCompany = Company::factory()->create(['user_id' => $otherUser->id]);
+
+        Invoice::factory()->draft()->create([
+            'company_id' => $this->company->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        Invoice::factory()->draft()->create([
+            'company_id' => $otherCompany->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        $this->assertCount(2, Invoice::all());
+    }
+
+    public function test_session_flag_does_not_unscope_user_without_capability(): void
+    {
+        $this->actingAs($this->user);
+        session()->put('invoices.show_all_companies', true);
+
+        $otherUser = User::factory()->create();
+        $otherCompany = Company::factory()->create(['user_id' => $otherUser->id]);
+
+        Invoice::factory()->draft()->create([
+            'company_id' => $this->company->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        Invoice::factory()->draft()->create([
+            'company_id' => $otherCompany->id,
+            'customer_id' => $this->customer->id,
+        ]);
+
+        $invoices = Invoice::all();
+
+        $this->assertCount(1, $invoices);
+        $this->assertEquals($this->company->id, $invoices->first()->company_id);
+    }
+
+    public function test_customers_are_shared_across_companies(): void
+    {
+        $this->actingAs($this->user);
+
+        $otherUser = User::factory()->create();
+        $otherCompany = Company::factory()->create(['user_id' => $otherUser->id]);
+        Customer::factory()->create(['company_id' => $otherCompany->id]);
+
+        $this->assertCount(2, Customer::all());
+    }
+
     public function test_soft_deleted_invoice_can_be_restored(): void
     {
         $invoice = Invoice::factory()->draft()->create([
