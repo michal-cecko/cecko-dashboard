@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Stride;
 
+use App\Enums\Common\UserCapabilityEnum;
 use App\Models\Common\User;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
@@ -36,7 +37,11 @@ class StrideDemoSeeder extends Seeder
     {
         $user = User::firstOrCreate(
             ['email' => self::EMAIL],
-            ['name' => 'Alex (Stride demo)', 'password' => Hash::make(self::PASSWORD)],
+            [
+                'name' => 'Alex (Stride demo)',
+                'password' => Hash::make(self::PASSWORD),
+                'capabilities' => [UserCapabilityEnum::STRIDE_USER],
+            ],
         );
 
         $this->seedFor($user);
