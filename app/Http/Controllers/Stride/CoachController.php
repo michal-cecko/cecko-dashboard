@@ -23,6 +23,7 @@ class CoachController extends Controller
     public function index(Request $request): JsonResponse
     {
         $conversations = CoachConversation::ownedBy($request->user())
+            ->with('block')
             ->orderByDesc('last_message_at')
             ->orderByDesc('id')
             ->get()
@@ -80,6 +81,15 @@ class CoachController extends Controller
             'message' => $this->messagePayload($assistant),
             'conversation_id' => $conversation->id,
         ]);
+    }
+
+    public function destroy(Request $request, CoachConversation $conversation): JsonResponse
+    {
+        $this->authorize($request, $conversation);
+
+        $conversation->delete();
+
+        return response()->json(['ok' => true]);
     }
 
     public function setPersona(Request $request, CoachConversation $conversation): JsonResponse
@@ -173,6 +183,7 @@ class CoachController extends Controller
         abort_unless($adjustment->status === 'proposed', 409, 'This change is no longer pending.');
 
         $adjustment->update(['status' => 'dismissed']);
+        AiAdjustment::query()->pendingDuplicatesOf($adjustment)->update(['status' => 'dismissed']);
 
         return response()->json(['ok' => true]);
     }
@@ -203,6 +214,8 @@ class CoachController extends Controller
             'id' => $conversation->id,
             'title' => $conversation->title,
             'persona_key' => $conversation->persona_key,
+            'block_id' => $conversation->block_id,
+            'block_name' => $conversation->block_id ? $conversation->block?->name : null,
             'last_message_at' => $conversation->last_message_at?->toIso8601String(),
         ];
     }

@@ -57,6 +57,10 @@ class ProposalApplyService
 
             $proposal->update(['status' => 'applied', 'applied_at' => now()]);
 
+            // Twin proposals staging the exact same edit are now moot — dismiss
+            // them so the user never confirms (or fails to confirm) a change twice.
+            AiAdjustment::query()->pendingDuplicatesOf($proposal)->update(['status' => 'dismissed']);
+
             return ['ok' => true, 'result' => $result, 'session_ids' => $sessionIds];
         });
     }

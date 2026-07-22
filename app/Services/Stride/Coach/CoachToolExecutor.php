@@ -23,6 +23,18 @@ class CoachToolExecutor
 {
     public function execute(User $user, string $tool, array $input, CoachContext $ctx): array
     {
+        $outcome = $this->executeTool($user, $tool, $input, $ctx);
+
+        $adjustment = $outcome['adjustment'];
+        if ($adjustment !== null && ! $adjustment->wasRecentlyCreated && $adjustment->status === 'proposed') {
+            $outcome['result'] = "Already staged: {$adjustment->text} — awaiting the athlete's confirmation. Do NOT stage this change again.";
+        }
+
+        return $outcome;
+    }
+
+    private function executeTool(User $user, string $tool, array $input, CoachContext $ctx): array
+    {
         return match ($tool) {
             'set_load' => $this->setLoad($user, $input, $ctx),
             'swap_exercise' => $this->swapExercise($user, $input, $ctx),
@@ -297,6 +309,21 @@ class CoachToolExecutor
         // never pass a $session, today-tools always do. The general chat carries
         // the active block in $ctx, so a set_load there must still scope 'today'.
         $blockWide = $session === null && $ctx->block !== null;
+
+        // The model can call the same tool repeatedly within one reply (or across
+        // turns) — an identical still-pending proposal is reused, never duplicated.
+        $existing = AiAdjustment::query()
+            ->where('user_id', $user->id)
+            ->where('status', 'proposed')
+            ->where('operation', $operation)
+            ->where('scope', $blockWide ? 'block' : 'today')
+            ->where('text', $text)
+            ->where('block_id', $blockWide ? $ctx->block->id : null)
+            ->where('session_id', $blockWide ? null : $session?->id)
+            ->first();
+        if ($existing !== null) {
+            return $existing;
+        }
 
         return AiAdjustment::create([
             'user_id' => $user->id,

@@ -124,7 +124,8 @@ class CoachService
             $results = [];
             foreach ($reply->toolUses as $tool) {
                 $outcome = $this->executor->execute($user, $tool['name'], $tool['input'], $ctx);
-                if ($outcome['adjustment'] !== null) {
+                if ($outcome['adjustment'] !== null
+                    && ! in_array($outcome['adjustment']->id, array_map(fn ($a) => $a->id, $adjustments), true)) {
                     $adjustments[] = $outcome['adjustment'];
                 }
                 $results[] = [

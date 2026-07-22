@@ -88,6 +88,7 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('coach/conversations', [CoachController::class, 'index']);
     Route::post('coach/conversations', [CoachController::class, 'store']);
     Route::get('coach/conversations/{conversation}', [CoachController::class, 'show']);
+    Route::delete('coach/conversations/{conversation}', [CoachController::class, 'destroy']);
     Route::post('coach/conversations/{conversation}/messages', [CoachController::class, 'message']);
     Route::patch('coach/conversations/{conversation}/persona', [CoachController::class, 'setPersona']);
     Route::get('coach/adjustments', [CoachController::class, 'adjustments']);

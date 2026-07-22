@@ -82,4 +82,25 @@ class AiAdjustment extends Model
     {
         return $query->where('block_id', $blockId);
     }
+
+    /**
+     * Still-pending proposals that stage the SAME edit as this one (same user,
+     * operation, scope, target rows, and rendered text) — the tool loop can stage
+     * an edit repeatedly, so resolving one proposal must resolve its twins.
+     */
+    public function scopePendingDuplicatesOf(Builder $query, self $adjustment): Builder
+    {
+        return $query->whereKeyNot($adjustment->id)
+            ->where('user_id', $adjustment->user_id)
+            ->where('status', 'proposed')
+            ->where('operation', $adjustment->operation)
+            ->where('scope', $adjustment->scope)
+            ->where('text', $adjustment->text)
+            ->when($adjustment->block_id !== null,
+                fn (Builder $q) => $q->where('block_id', $adjustment->block_id),
+                fn (Builder $q) => $q->whereNull('block_id'))
+            ->when($adjustment->session_id !== null,
+                fn (Builder $q) => $q->where('session_id', $adjustment->session_id),
+                fn (Builder $q) => $q->whereNull('session_id'));
+    }
 }

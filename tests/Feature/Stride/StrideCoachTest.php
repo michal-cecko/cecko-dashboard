@@ -3,6 +3,8 @@
 namespace Tests\Feature\Stride;
 
 use App\Models\Common\User;
+use App\Models\Stride\AiAdjustment;
+use App\Models\Stride\Block;
 use App\Models\Stride\CoachConversation;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
@@ -223,6 +225,88 @@ class StrideCoachTest extends TestCase
             'user_id' => $this->user->id, 'body_part' => 'R. Elbow', 'status' => 'monitoring',
         ]);
         $this->assertTrue(Injury::where('user_id', $this->user->id)->where('body_part', 'R. Elbow')->first()->journalEntries()->exists());
+    }
+
+    public function test_repeated_identical_tool_calls_stage_a_single_proposal(): void
+    {
+        $conversation = $this->newConversation();
+        $swap = ['from_exercise' => 'Barbell Bench Press', 'to_exercise' => 'Floor Press', 'reason' => 'No bench available.'];
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('swap_block', $swap))
+            ->push(FakeCoachProvider::toolCall('swap_block', $swap))
+            ->push(FakeCoachProvider::toolCall('swap_block', $swap))
+            ->push(FakeCoachProvider::text('Proposed the swap.'));
+
+        $response = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Swap bench for floor press everywhere.',
+        ], $this->auth)->assertOk();
+
+        $this->assertCount(1, $response->json('message.adjustments'));
+        $this->assertSame(1, AiAdjustment::ownedBy($this->user)->proposed()->where('operation', 'swap')->count());
+
+        // The repeat tool calls were answered with an "already staged" result so
+        // the model stops re-staging.
+        $lastTurn = $this->provider->calls[array_key_last($this->provider->calls)];
+        $toolResults = collect($lastTurn->messages)->where('role', 'user')->flatMap(fn ($m) => is_array($m['content']) ? $m['content'] : [])
+            ->where('type', 'tool_result')->pluck('content');
+        $this->assertTrue($toolResults->contains(fn ($c) => str_contains((string) $c, 'Already staged')));
+    }
+
+    public function test_applying_a_proposal_dismisses_its_pending_duplicates(): void
+    {
+        $twins = collect(range(1, 3))->map(fn () => $this->duplicateBlockProposal());
+        $other = $this->duplicateBlockProposal(['text' => 'Curl → Chin-up (whole block)']);
+
+        $this->postJson("/api/stride/coach/proposals/{$twins[0]->id}/apply", [], $this->auth)->assertOk();
+
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $twins[0]->id, 'status' => 'applied']);
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $twins[1]->id, 'status' => 'dismissed']);
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $twins[2]->id, 'status' => 'dismissed']);
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $other->id, 'status' => 'proposed']);
+    }
+
+    public function test_dismissing_a_proposal_dismisses_its_pending_duplicates(): void
+    {
+        $twins = collect(range(1, 2))->map(fn () => $this->duplicateBlockProposal());
+
+        $this->postJson("/api/stride/coach/proposals/{$twins[0]->id}/dismiss", [], $this->auth)->assertOk();
+
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $twins[0]->id, 'status' => 'dismissed']);
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $twins[1]->id, 'status' => 'dismissed']);
+    }
+
+    public function test_conversation_can_be_deleted_by_its_owner_only(): void
+    {
+        $conversation = $this->newConversation();
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'hi'], $this->auth)->assertOk();
+
+        $intruder = User::factory()->strideUser()->create(['email' => 'nope3@example.test', 'password' => 'pw']);
+        $token = $this->postJson('/api/stride/auth/login', ['email' => 'nope3@example.test', 'password' => 'pw'])->json('token');
+        $this->deleteJson("/api/stride/coach/conversations/{$conversation->id}", [], ['Authorization' => "Bearer {$token}"])
+            ->assertNotFound();
+
+        $this->deleteJson("/api/stride/coach/conversations/{$conversation->id}", [], $this->auth)->assertOk();
+        $this->assertDatabaseMissing('stride_coach_conversations', ['id' => $conversation->id]);
+        $this->assertDatabaseMissing('stride_coach_messages', ['conversation_id' => $conversation->id]);
+    }
+
+    /** A block-scoped 'proposed' swap row, as the pre-dedupe tool loop used to spam them. */
+    private function duplicateBlockProposal(array $overrides = []): AiAdjustment
+    {
+        $block = Block::ownedBy($this->user)->active()->firstOrFail();
+
+        return AiAdjustment::create(array_merge([
+            'user_id' => $this->user->id,
+            'block_id' => $block->id,
+            'scope' => 'block',
+            'status' => 'proposed',
+            'kind' => 'Swapped',
+            'operation' => 'swap',
+            'target' => "Block · {$block->name}",
+            'text' => 'Hammer Curl → Chin-up (whole block)',
+            'payload' => ['from' => ['name_like' => 'Hammer Curl'], 'to' => ['name' => 'Chin-up']],
+            'source' => 'coach',
+        ], $overrides));
     }
 
     public function test_daily_quota_returns_429(): void
