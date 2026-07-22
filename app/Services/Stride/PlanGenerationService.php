@@ -689,7 +689,9 @@ class PlanGenerationService
 
         Output ONLY minified JSON for ONE session (no prose, no markdown):
         {"title":"short title","duration_min":60,"exercises":[{"name":"<from list>","tag":"Compound|Isolation","sets":3,"reps":8,"rest_sec":90}]}
-        Pick 4–6 exercises that best serve the goals for a {$kind} day. Keep it brief.
+        Pick 4–8 exercises that best serve the goals for a {$kind} day. Whatever the athlete's
+        coaching notes or remembered facts EXPLICITLY ask for (session structure, ordering, exercise
+        count, exclusions) OVERRIDES every default above — follow it exactly. Keep it brief.
         TXT;
     }
 
@@ -836,6 +838,7 @@ class PlanGenerationService
             ['category' => 'strength', 'tag' => null, 'cap' => 100, 'compound_first' => true],
             ['category' => 'calisthenics', 'tag' => null, 'cap' => 100],
             ['category' => 'weighted calisthenics', 'tag' => null, 'cap' => 20],
+            ['category' => 'mobility', 'tag' => null, 'cap' => 15],
         ];
         $sections = $this->freestyleSections($user, $profile);
         foreach (['Static' => 40, 'Strength Dynamic' => 40, 'Dynamic' => 30] as $tag => $cap) {

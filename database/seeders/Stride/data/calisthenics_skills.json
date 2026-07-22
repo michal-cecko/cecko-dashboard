@@ -462,6 +462,87 @@
     "source_url": "https://dieringe.com/blog/calisthenics-skills"
   },
   {
+    "name": "Band Shoulder Dislocates",
+    "category": "mobility",
+    "group": "Shoulders",
+    "tag": "Mobility",
+    "difficulty": "Beginner",
+    "equipment_label": "Resistance bands",
+    "primary_muscles": [
+      "Shoulders"
+    ],
+    "secondary_muscles": [
+      "Rotator cuff"
+    ],
+    "metric_type": "reps",
+    "description": "Overhead pass-throughs with a band; shoulder + rotator warm-up staple.",
+    "source_url": null
+  },
+  {
+    "name": "Band External Rotation",
+    "category": "mobility",
+    "group": "Shoulders",
+    "tag": "Mobility",
+    "difficulty": "Beginner",
+    "equipment_label": "Resistance bands",
+    "primary_muscles": [
+      "Rotator cuff"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Elbow-pinned external rotation against a band; rotator cuff prep.",
+    "source_url": null
+  },
+  {
+    "name": "Band Internal Rotation",
+    "category": "mobility",
+    "group": "Shoulders",
+    "tag": "Mobility",
+    "difficulty": "Beginner",
+    "equipment_label": "Resistance bands",
+    "primary_muscles": [
+      "Rotator cuff"
+    ],
+    "secondary_muscles": [],
+    "metric_type": "reps",
+    "description": "Elbow-pinned internal rotation against a band; rotator cuff prep.",
+    "source_url": null
+  },
+  {
+    "name": "Scapular Push-up",
+    "category": "mobility",
+    "group": "Shoulders",
+    "tag": "Mobility",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Serratus"
+    ],
+    "secondary_muscles": [
+      "Shoulders"
+    ],
+    "metric_type": "reps",
+    "description": "Protraction-retraction push-up; scapular control warm-up.",
+    "source_url": null
+  },
+  {
+    "name": "Wrist Prep Routine",
+    "category": "mobility",
+    "group": "Shoulders",
+    "tag": "Mobility",
+    "difficulty": "Beginner",
+    "equipment_label": "Bodyweight",
+    "primary_muscles": [
+      "Forearms"
+    ],
+    "secondary_muscles": [
+      "Wrists"
+    ],
+    "metric_type": "reps",
+    "description": "Wrist circles, palm lifts and rocks; before planche/handstand work.",
+    "source_url": null
+  },
+  {
     "name": "Weighted Pull-up",
     "category": "weighted calisthenics",
     "group": "Back",
