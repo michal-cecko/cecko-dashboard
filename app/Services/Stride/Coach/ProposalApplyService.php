@@ -42,6 +42,7 @@ class ProposalApplyService
                 'reorder' => $this->applyReorder($user, $proposal, $touched),
                 'scale_load' => $this->applyScaleLoad($user, $proposal, $touched),
                 'regenerate_session' => $this->applyRegenerate($user, $proposal, $touched),
+                'change_session_kind' => $this->applyChangeKind($user, $proposal, $touched),
                 default => null,
             };
 
@@ -122,6 +123,24 @@ class ProposalApplyService
         $touched[] = $session->id;
 
         return "Rebuilt {$session->title}.";
+    }
+
+    /** payload: { session_id, new_kind } — retarget what the session trains, then rebuild it */
+    private function applyChangeKind(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        $newKind = trim((string) ($payload['new_kind'] ?? ''));
+        if ($session === null || $newKind === '') {
+            return null;
+        }
+
+        $oldKind = $session->kind;
+        $session->update(['kind' => $newKind]);
+        app(PlanGenerationService::class)->regenerateInto($user, $session->refresh());
+        $touched[] = $session->id;
+
+        return "Changed {$session->title} from {$oldKind} to {$newKind} and rebuilt it.";
     }
 
     // ── block-wide ops (fan out across the block) ──────────────────────────────

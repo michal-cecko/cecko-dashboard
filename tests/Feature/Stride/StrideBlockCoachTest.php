@@ -210,4 +210,43 @@ class StrideBlockCoachTest extends TestCase
         $pull = Session::where('block_id', $this->block->id)->where('kind', 'Pull')->first();
         $this->assertSame(4, $pull->exercises()->count());
     }
+
+    public function test_change_session_kind_retargets_and_rebuilds_the_session(): void
+    {
+        $conversation = $this->blockConversation();
+        $pushId = Session::where('block_id', $this->block->id)->where('kind', 'Push')->value('id');
+        $built = ['title' => 'Pull Day', 'duration_min' => 55, 'exercises' => [
+            ['name' => 'Pull-up (Strict)', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+        ]];
+        // toolCall + closing text (the turn), then the single-session JSON the rebuild asks for on apply.
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('change_session_kind', ['session_ref' => 'Push', 'new_kind' => 'Pull']))
+            ->push(FakeCoachProvider::text('Proposed.'))
+            ->push(FakeCoachProvider::text(json_encode($built)));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'start today with pull'], $this->auth)
+            ->assertOk()->json('message.adjustments.0.id');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        // The Push session now trains Pull and was rebuilt for it.
+        $changed = Session::find($pushId);
+        $this->assertSame('Pull', $changed->kind);
+        $this->assertSame('Pull Day', $changed->title);
+        $this->assertSame(1, $changed->exercises()->count());
+        $this->assertSame('Pull-up (Strict)', $changed->exercises()->first()->name);
+    }
+
+    public function test_change_session_kind_to_the_same_kind_stages_nothing(): void
+    {
+        $conversation = $this->blockConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('change_session_kind', ['session_ref' => 'Push', 'new_kind' => 'Push']))
+            ->push(FakeCoachProvider::text('Already a Push day.'));
+
+        $adjustments = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'make push day push'], $this->auth)
+            ->assertOk()->json('message.adjustments');
+
+        $this->assertSame([], $adjustments);
+    }
 }

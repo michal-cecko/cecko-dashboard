@@ -31,6 +31,7 @@ class CoachToolExecutor
             'swap_block' => $this->swapBlock($user, $input, $ctx),
             'scale_block_load' => $this->scaleBlockLoad($user, $input, $ctx),
             'regenerate_session' => $this->regenerateSession($user, $input, $ctx),
+            'change_session_kind' => $this->changeSessionKind($user, $input, $ctx),
             'log_injury' => $this->logInjury($user, $input),
             'remember_fact' => $this->rememberFact($user, $input),
             default => ['result' => "Unknown tool: {$tool}.", 'adjustment' => null],
@@ -117,6 +118,33 @@ class CoachToolExecutor
         );
 
         return ['result' => "Proposed: rebuild {$session->title} from scratch — awaiting confirmation.", 'adjustment' => $proposal];
+    }
+
+    private function changeSessionKind(User $user, array $input, CoachContext $ctx): array
+    {
+        if ($ctx->block === null) {
+            return ['result' => 'No block in context.', 'adjustment' => null];
+        }
+        $session = $this->resolveBlockSession($ctx->block, (string) ($input['session_ref'] ?? ''));
+        if ($session === null) {
+            return ['result' => "No session matching \"{$input['session_ref']}\" in this block.", 'adjustment' => null];
+        }
+        $newKind = trim((string) ($input['new_kind'] ?? ''));
+        if (! in_array($newKind, ['Push', 'Pull', 'Legs', 'Upper', 'Lower', 'Full body'], true)) {
+            return ['result' => "Unsupported session kind: \"{$newKind}\".", 'adjustment' => null];
+        }
+        if ($newKind === $session->kind) {
+            return ['result' => "{$session->title} already trains {$newKind}.", 'adjustment' => null];
+        }
+
+        $day = $session->scheduled_date?->toDateString() ?? $session->title;
+        $proposal = $this->propose(
+            $user, $ctx, 'change_session_kind', 'Reordered',
+            "{$session->kind} → {$newKind} on {$day}", $input['reason'] ?? null, null,
+            ['session_id' => $session->id, 'new_kind' => $newKind],
+        );
+
+        return ['result' => "Proposed: change {$session->title} from {$session->kind} to {$newKind} (the session gets rebuilt) — awaiting confirmation.", 'adjustment' => $proposal];
     }
 
     private function resolveBlockSession(Block $block, string $ref): ?Session

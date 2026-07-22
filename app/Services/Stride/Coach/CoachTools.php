@@ -131,7 +131,7 @@ class CoachTools
                 ],
                 [
                     'name' => 'regenerate_session',
-                    'description' => 'Rebuild one whole session in the block from scratch (new exercises + sets) for a given day/title.',
+                    'description' => 'Rebuild one whole session in the block from scratch (new exercises + sets) for a given day/title. Keeps what the session trains (its kind) — to change that, use change_session_kind.',
                     'input_schema' => [
                         'type' => 'object',
                         'properties' => [
@@ -139,6 +139,19 @@ class CoachTools
                             'reason' => ['type' => 'string'],
                         ],
                         'required' => ['session_ref'],
+                    ],
+                ],
+                [
+                    'name' => 'change_session_kind',
+                    'description' => 'Change WHAT a session in the block trains (its kind, e.g. Push → Pull) and rebuild its exercises to match. Use when the user wants a different day order, e.g. "start today with Pull instead of Push" — call it once per session to change.',
+                    'input_schema' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'session_ref' => ['type' => 'string', 'description' => 'Which session — its title, kind, or scheduled date (YYYY-MM-DD).'],
+                            'new_kind' => ['type' => 'string', 'enum' => ['Push', 'Pull', 'Legs', 'Upper', 'Lower', 'Full body'], 'description' => 'What the session should train instead.'],
+                            'reason' => ['type' => 'string'],
+                        ],
+                        'required' => ['session_ref', 'new_kind'],
                     ],
                 ],
             ]);
