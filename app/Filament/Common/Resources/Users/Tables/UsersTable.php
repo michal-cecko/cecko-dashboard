@@ -29,21 +29,6 @@ class UsersTable
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('capabilities')
-                    ->label('Oprávnenia')
-                    ->badge()
-                    ->formatStateUsing(function ($state) {
-                        if (empty($state)) {
-                            return 'Žiadne oprávnenia';
-                        }
-
-                        return collect($state)->map(function ($capability) {
-                            return $capability->translation();
-                        })->join(', ');
-                    })
-                    ->color(fn ($state) => empty($state) ? 'gray' : 'success')
-                    ->separator(', '),
-
                 TextColumn::make('created_at')
                     ->label('Vytvorený')
                     ->dateTime('d.m.Y H:i')
