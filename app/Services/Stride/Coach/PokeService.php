@@ -100,7 +100,9 @@ class PokeService
                 model: (string) config('stride.coach.generate_model'),
                 systemBlocks: [['text' => 'You write push notifications for a training app coach. Output ONLY valid minified JSON.', 'cache' => false]],
                 messages: [['role' => 'user', 'content' => $prompt]],
-                maxTokens: 600,
+                // Generous budget: thinking models (Gemini Flash) spend reasoning
+                // tokens from the same pool — 600 truncated the JSON mid-string.
+                maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
                 purpose: 'poke',
                 timeoutSeconds: 45,
             );
