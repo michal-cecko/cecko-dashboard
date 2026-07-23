@@ -29,7 +29,15 @@ class HomeController extends Controller
             ->whereHas('block', fn ($q) => $q->where('status', 'active'))
             ->with('exercises.sets')
             ->orderBy('scheduled_date')
-            ->first();
+            ->first()
+            // Already trained today? Home still needs that session (done card +
+            // recap) — otherwise a completed day reads as a false "rest day".
+            ?? Session::ownedBy($user)
+                ->where('status', 'done')
+                ->whereDate('scheduled_date', today())
+                ->with('exercises.sets')
+                ->orderByDesc('completed_at')
+                ->first();
 
         $activeBlock = Block::ownedBy($user)->active()->first();
 

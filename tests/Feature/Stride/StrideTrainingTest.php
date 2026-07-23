@@ -63,6 +63,23 @@ class StrideTrainingTest extends TestCase
         $this->assertContains('active', array_column($response->json('blocks'), 'status'));
     }
 
+    public function test_home_returns_todays_done_session_after_completion(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->forceFill([
+            'status' => 'done',
+            'scheduled_date' => today(),
+            'started_at' => now()->subHour(),
+            'completed_at' => now(),
+        ])->save();
+
+        // A completed day must NOT read as a rest day — the done session comes back.
+        $this->getJson('/api/stride/home', $this->auth)
+            ->assertOk()
+            ->assertJsonPath('today.id', $session->id)
+            ->assertJsonPath('today.status', 'done');
+    }
+
     public function test_home_shows_rest_day_with_next_session_when_plan_starts_later(): void
     {
         // Fresh user with an active block but NO session today (plan starts in 2 days).
