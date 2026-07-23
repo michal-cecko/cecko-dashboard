@@ -38,6 +38,8 @@ class ProposalApplyService
             $result = match ($proposal->operation) {
                 'set_load' => $this->applySetLoad($user, $proposal, $touched),
                 'add_set' => $this->applyAddSet($user, $proposal, $touched),
+                'remove_set' => $this->applyRemoveSet($user, $proposal, $touched),
+                'remove_exercise' => $this->applyRemoveExercise($user, $proposal, $touched),
                 'swap' => $this->applySwap($user, $proposal, $touched),
                 'reorder' => $this->applyReorder($user, $proposal, $touched),
                 'scale_load' => $this->applyScaleLoad($user, $proposal, $touched),
@@ -114,6 +116,53 @@ class ProposalApplyService
         return "Added a set to {$exercise->name}.";
     }
 
+    /** payload: { session_id, exercise_name } — drop the last not-done set. */
+    private function applyRemoveSet(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        if ($session === null) {
+            return null;
+        }
+        $exercise = $this->findExercise($session, $payload['exercise_name'] ?? '');
+        if ($exercise === null) {
+            return "No exercise matching \"{$payload['exercise_name']}\" anymore.";
+        }
+
+        // Never delete performed work — only the last still-pending set goes.
+        $set = $exercise->sets()->where('is_done', false)->orderByDesc('position')->first();
+        if ($set === null) {
+            return "All sets of {$exercise->name} are already done — nothing to drop.";
+        }
+        $set->delete();
+        $touched[] = $session->id;
+
+        return "Dropped a set from {$exercise->name}.";
+    }
+
+    /** payload: { session_id, exercise_name } — drop a whole exercise ("cut it short"). */
+    private function applyRemoveExercise(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        if ($session === null) {
+            return null;
+        }
+        $exercise = $this->findExercise($session, $payload['exercise_name'] ?? '');
+        if ($exercise === null) {
+            return "No exercise matching \"{$payload['exercise_name']}\" anymore.";
+        }
+        if ($exercise->sets()->where('is_done', false)->doesntExist()) {
+            return "{$exercise->name} is already fully done — nothing to drop.";
+        }
+
+        $name = $exercise->name;
+        $exercise->delete(); // cascades sets + their metric rows
+        $touched[] = $session->id;
+
+        return "Dropped {$name} from the session.";
+    }
+
     /** payload: { session_id, option } — rebuild one session from scratch. */
     private function applyRegenerate(User $user, AiAdjustment $proposal, array &$touched): ?string
     {
@@ -121,6 +170,10 @@ class ProposalApplyService
         $session = $this->ownedSession($user, $payload['session_id'] ?? null);
         if ($session === null) {
             return null;
+        }
+        // A started session would lose its logged work in a rebuild — refuse.
+        if ($session->started_at !== null && $session->status !== 'done') {
+            return "{$session->title} is in progress — a full rebuild would wipe logged work. Adjust it with smaller edits instead.";
         }
 
         app(PlanGenerationService::class)->regenerateInto($user, $session);
@@ -137,6 +190,10 @@ class ProposalApplyService
         $newKind = trim((string) ($payload['new_kind'] ?? ''));
         if ($session === null || $newKind === '') {
             return null;
+        }
+        // Same in-progress guard as regenerate — the rebuild would wipe logged work.
+        if ($session->started_at !== null && $session->status !== 'done') {
+            return "{$session->title} is in progress — changing what it trains would rebuild it and wipe logged work.";
         }
 
         $oldKind = $session->kind;

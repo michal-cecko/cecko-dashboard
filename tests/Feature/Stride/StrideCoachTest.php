@@ -171,6 +171,85 @@ class StrideCoachTest extends TestCase
         $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'kind' => 'Lowered intensity', 'status' => 'applied']);
     }
 
+    public function test_tool_call_remove_set_is_staged_and_never_deletes_done_sets(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('remove_set', ['exercise_name' => 'Bench', 'reason' => 'Running out of time.']))
+            ->push(FakeCoachProvider::text('Proposed dropping a set.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Less volume on bench today.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.status', 'proposed')
+            ->json('message.adjustments.0.id');
+
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $bench = $session->exercises()->where('name', 'like', '%Bench%')->firstOrFail();
+
+        // The first set is already performed — it must survive the removal.
+        $doneSet = $bench->sets()->orderBy('position')->firstOrFail();
+        $doneSet->update(['is_done' => true]);
+        $lastPending = $bench->sets()->where('is_done', false)->orderByDesc('position')->firstOrFail();
+        $before = $bench->sets()->count();
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $this->assertSame($before - 1, $bench->sets()->count());
+        $this->assertDatabaseHas('stride_sets', ['id' => $doneSet->id, 'is_done' => true]);
+        // The dropped set is the LAST pending one, not the done one.
+        $this->assertDatabaseMissing('stride_sets', ['id' => $lastPending->id]);
+    }
+
+    public function test_tool_call_remove_exercise_drops_the_exercise(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('remove_exercise', ['exercise_name' => 'Bench', 'reason' => 'Cutting it short.']))
+            ->push(FakeCoachProvider::text('Proposed dropping bench.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Cut the session short.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.kind', 'Cut short')
+            ->json('message.adjustments.0.id');
+
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $this->assertTrue($session->exercises()->where('name', 'like', '%Bench%')->exists());
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $this->assertFalse($session->exercises()->where('name', 'like', '%Bench%')->exists());
+    }
+
+    public function test_regenerate_refuses_to_rebuild_a_started_session(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->forceFill(['started_at' => now()])->save();
+        $exerciseIds = $session->exercises()->pluck('id')->all();
+
+        $proposal = AiAdjustment::create([
+            'user_id' => $this->user->id,
+            'session_id' => $session->id,
+            'scope' => 'today',
+            'status' => 'proposed',
+            'kind' => 'Rebuilt',
+            'operation' => 'regenerate_session',
+            'target' => 'Today',
+            'text' => 'Rebuild today',
+            'payload' => ['session_id' => $session->id],
+            'source' => 'coach',
+        ]);
+
+        $result = $this->postJson("/api/stride/coach/proposals/{$proposal->id}/apply", [], $this->auth)
+            ->assertOk()
+            ->json('result');
+
+        $this->assertStringContainsString('in progress', $result);
+        // Session rows survived untouched.
+        $this->assertSame($exerciseIds, $session->exercises()->pluck('id')->all());
+    }
+
     public function test_proposal_can_be_dismissed_and_then_cannot_apply(): void
     {
         $conversation = $this->newConversation();

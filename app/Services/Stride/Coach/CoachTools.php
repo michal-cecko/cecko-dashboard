@@ -62,6 +62,32 @@ class CoachTools
                 ],
             ],
             [
+                'name' => 'remove_set',
+                'description' => 'Remove the last not-yet-done set from an exercise in a session — today\'s by default. Use when the user wants less volume on one movement.',
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'exercise_name' => ['type' => 'string', 'description' => 'Name (or part) of the exercise in the session.'],
+                        'session_ref' => ['type' => 'string', 'description' => 'Optional: which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today\'s session.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['exercise_name'],
+                ],
+            ],
+            [
+                'name' => 'remove_exercise',
+                'description' => 'Drop a whole exercise from a session — today\'s by default. To cut a session short, call this once per exercise to drop (never removes already-done work).',
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'exercise_name' => ['type' => 'string', 'description' => 'Name (or part) of the exercise to drop.'],
+                        'session_ref' => ['type' => 'string', 'description' => 'Optional: which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today\'s session.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['exercise_name'],
+                ],
+            ],
+            [
                 'name' => 'log_injury',
                 'description' => 'Record an injury/niggle so the coach programs around it going forward.',
                 'input_schema' => [
@@ -134,7 +160,7 @@ class CoachTools
                 ],
                 [
                     'name' => 'regenerate_session',
-                    'description' => 'Rebuild one whole session in the block from scratch (new exercises + sets) for a given day/title. Keeps what the session trains (its kind) — to change that, use change_session_kind.',
+                    'description' => 'Rebuild one whole session in the block from scratch (new exercises + sets) for a given day/title. Keeps what the session trains (its kind) — to change that, use change_session_kind. Never use on a session the athlete has already started — use set_load/add_set/remove_set/remove_exercise/swap_exercise instead.',
                     'input_schema' => [
                         'type' => 'object',
                         'properties' => [

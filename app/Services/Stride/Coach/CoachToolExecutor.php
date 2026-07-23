@@ -39,6 +39,8 @@ class CoachToolExecutor
             'set_load' => $this->setLoad($user, $input, $ctx),
             'swap_exercise' => $this->swapExercise($user, $input, $ctx),
             'add_set' => $this->addSet($user, $input, $ctx),
+            'remove_set' => $this->removeSet($user, $input, $ctx),
+            'remove_exercise' => $this->removeExercise($user, $input, $ctx),
             'reorder_block' => $this->reorderBlock($user, $input, $ctx),
             'swap_block' => $this->swapBlock($user, $input, $ctx),
             'scale_block_load' => $this->scaleBlockLoad($user, $input, $ctx),
@@ -245,6 +247,40 @@ class CoachToolExecutor
         );
 
         return ['result' => "Proposed: add a set to {$exercise->name} — awaiting confirmation.", 'adjustment' => $proposal];
+    }
+
+    private function removeSet(User $user, array $input, CoachContext $ctx): array
+    {
+        $session = $this->targetSession($ctx, $input);
+        $exercise = $this->findExercise($session, $input['exercise_name'] ?? '');
+        if ($exercise === null) {
+            return $this->miss($input['exercise_name'] ?? '', $input);
+        }
+
+        $proposal = $this->propose(
+            $user, $ctx, 'remove_set', 'Reduced volume',
+            "Drop a set from {$exercise->name}", $input['reason'] ?? null, $session,
+            ['session_id' => $session->id, 'exercise_name' => $exercise->name],
+        );
+
+        return ['result' => "Proposed: drop the last remaining set of {$exercise->name} — awaiting confirmation.", 'adjustment' => $proposal];
+    }
+
+    private function removeExercise(User $user, array $input, CoachContext $ctx): array
+    {
+        $session = $this->targetSession($ctx, $input);
+        $exercise = $this->findExercise($session, $input['exercise_name'] ?? '');
+        if ($exercise === null) {
+            return $this->miss($input['exercise_name'] ?? '', $input);
+        }
+
+        $proposal = $this->propose(
+            $user, $ctx, 'remove_exercise', 'Cut short',
+            "Drop {$exercise->name} from the session", $input['reason'] ?? null, $session,
+            ['session_id' => $session->id, 'exercise_name' => $exercise->name],
+        );
+
+        return ['result' => "Proposed: drop {$exercise->name} from the session — awaiting confirmation.", 'adjustment' => $proposal];
     }
 
     private function logInjury(User $user, array $input): array

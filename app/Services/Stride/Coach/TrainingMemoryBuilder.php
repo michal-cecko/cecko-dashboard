@@ -153,7 +153,8 @@ class TrainingMemoryBuilder
             return 'TODAY: no active session.';
         }
 
-        $lines = ["TODAY: {$today->title} ({$today->kind}), target {$today->duration_min} min."];
+        $inProgress = $today->started_at !== null;
+        $lines = ["TODAY: {$today->title} ({$today->kind}), target {$today->duration_min} min.".($inProgress ? ' IN PROGRESS — the athlete is mid-workout; suggest small live edits (set_load/add_set/remove_set/remove_exercise/swap_exercise), never a rebuild.' : '')];
 
         foreach ($today->exercises as $exercise) {
             $working = $exercise->sets->where('kind', 'Working');
@@ -161,7 +162,16 @@ class TrainingMemoryBuilder
             $detail = $topSet
                 ? sprintf('%d×%g kg × %d sets', $topSet->reps, $topSet->kg, $working->count())
                 : 'see plan';
-            $lines[] = "  - {$exercise->name}: {$detail}";
+            // Mid-workout: anchor suggestions to what has actually happened.
+            $progress = '';
+            if ($inProgress) {
+                $done = $exercise->sets->where('is_done', true);
+                $progress = sprintf(' — done %d/%d sets', $done->count(), $exercise->sets->count());
+                if (($last = $done->last()) !== null && ($last->actual_reps !== null || $last->actual_kg !== null)) {
+                    $progress .= sprintf(' (last: %s%s)', $last->actual_reps !== null ? $last->actual_reps : '?', $last->actual_kg !== null ? sprintf(' @ %g kg', $last->actual_kg) : '');
+                }
+            }
+            $lines[] = "  - {$exercise->name}: {$detail}{$progress}";
         }
 
         return implode("\n", $lines);
