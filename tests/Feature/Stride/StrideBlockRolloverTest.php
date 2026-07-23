@@ -125,6 +125,7 @@ class StrideBlockRolloverTest extends TestCase
         $old = $this->makeBlock(weeks: 4, weekOf: 1, startedDaysAgo: 1);
         $staleToday = $this->makeSession($old, 'today', dayOffset: 0);
         $stalePlanned = $this->makeSession($old, 'planned', dayOffset: 2);
+        $pastMiss = $this->makeSession($old, 'planned', dayOffset: -1);
         $doneSession = $this->makeSession($old, 'done', dayOffset: -1);
 
         $built = ['title' => 'Fresh Day', 'duration_min' => 60, 'exercises' => [
@@ -135,10 +136,13 @@ class StrideBlockRolloverTest extends TestCase
         $option = ['name' => 'Replacement', 'split' => 'Full body', 'phase' => 'Foundations', 'weeks' => 4, 'days_per_week' => 2];
         $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
 
-        // Old block retired; its unfinished sessions no longer masquerade as today.
+        // Old block retired. Unstarted sessions from today onward are deleted —
+        // the new plan owns those dates, so no phantom skips. Only the genuinely
+        // missed past day is kept as 'skipped'.
         $this->assertSame('done', $old->fresh()->status);
-        $this->assertSame('skipped', $staleToday->fresh()->status);
-        $this->assertSame('skipped', $stalePlanned->fresh()->status);
+        $this->assertNull($staleToday->fresh());
+        $this->assertNull($stalePlanned->fresh());
+        $this->assertSame('skipped', $pastMiss->fresh()->status);
         $this->assertSame('done', $doneSession->fresh()->status);
 
         // Home serves the NEW plan's today session.
