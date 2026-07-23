@@ -713,7 +713,7 @@ class PlanGenerationService
                 'tag' => in_array($ex['tag'] ?? '', ['Compound', 'Isolation'], true) ? $ex['tag'] : 'Compound',
                 'note' => Str::limit((string) ($ex['note'] ?? ''), 200, ''),
                 // Tolerate either a verbose set array or the compact {sets,reps,rest} shape.
-                'sets' => is_array($ex['sets'] ?? null) ? $this->normalizeSets($ex['sets']) : $this->expandSets($ex),
+                'sets' => is_array($ex['sets'] ?? null) ? $this->normalizeSets($ex['sets'], (string) $ex['name']) : $this->expandSets($ex),
             ];
         }
 
@@ -729,8 +729,34 @@ class PlanGenerationService
         ];
     }
 
+    /** Lowercased exercise name → metric_type, loaded once per generate(). */
+    private ?array $metricByName = null;
+
+    private function metricFor(string $name): string
+    {
+        $this->metricByName ??= Exercise::query()->pluck('metric_type', 'name')
+            ->mapWithKeys(fn ($m, $n) => [mb_strtolower(trim((string) $n)) => $m ?: 'load'])
+            ->all();
+
+        return $this->metricByName[mb_strtolower(trim($name))] ?? 'load';
+    }
+
+    /**
+     * Warm-up prescription that is EASIER than the working sets, per metric type.
+     * A "reps + 4" warm-up only makes sense with an empty bar — for timed holds
+     * (front lever) or bodyweight reps, more is strictly HARDER than the working set.
+     */
+    private function warmupReps(string $name, int $workingReps): int
+    {
+        return match ($this->metricFor($name)) {
+            'hold' => min(max(3, (int) round($workingReps / 2)), $workingReps),
+            'reps' => min(max(3, (int) round($workingReps * 0.6)), $workingReps),
+            default => min($workingReps + 4, 15),
+        };
+    }
+
     /** Normalise a verbose set array; defaults if empty. */
-    private function normalizeSets(array $sets): array
+    private function normalizeSets(array $sets, string $name = ''): array
     {
         $out = [];
         foreach ($sets as $set) {
@@ -745,6 +771,21 @@ class PlanGenerationService
             ];
         }
 
+        // Safety net for AI-authored sets: on hold/bodyweight metrics a warm-up
+        // heavier than the lightest working set is impossible — re-derive it.
+        if (in_array($this->metricFor($name), ['hold', 'reps'], true)) {
+            $working = array_column(array_filter($out, fn ($s) => $s['kind'] !== 'Warm-up'), 'reps');
+            $cap = $working === [] ? null : min($working);
+            if ($cap !== null) {
+                foreach ($out as &$s) {
+                    if ($s['kind'] === 'Warm-up' && $s['reps'] > $cap) {
+                        $s['reps'] = $this->warmupReps($name, $cap);
+                    }
+                }
+                unset($s);
+            }
+        }
+
         return $out ?: [['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90]];
     }
 
@@ -755,7 +796,7 @@ class PlanGenerationService
         $reps = max(1, min(50, (int) ($ex['reps'] ?? 8)));
         $rest = max(0, min(600, (int) ($ex['rest_sec'] ?? 90)));
 
-        $sets = [['kind' => 'Warm-up', 'reps' => min($reps + 4, 15), 'kg' => 0, 'rest_sec' => 60]];
+        $sets = [['kind' => 'Warm-up', 'reps' => $this->warmupReps((string) ($ex['name'] ?? ''), $reps), 'kg' => 0, 'rest_sec' => 60]];
         for ($i = 0; $i < $working; $i++) {
             $sets[] = ['kind' => 'Working', 'reps' => $reps, 'kg' => 0, 'rest_sec' => $rest];
         }
@@ -772,7 +813,7 @@ class PlanGenerationService
             'tag' => 'Compound',
             'note' => '',
             'sets' => [
-                ['kind' => 'Warm-up', 'reps' => 10, 'kg' => 0, 'rest_sec' => 60],
+                ['kind' => 'Warm-up', 'reps' => $this->warmupReps($name, 8), 'kg' => 0, 'rest_sec' => 60],
                 ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
                 ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
             ],

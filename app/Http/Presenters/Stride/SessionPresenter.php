@@ -33,7 +33,7 @@ class SessionPresenter
     /** The full session player payload: exercises + sets. */
     public static function full(Session $session): array
     {
-        $session->loadMissing('exercises.sets');
+        $session->loadMissing('exercises.sets', 'exercises.exercise');
 
         return array_merge(self::summary($session), [
             'block_id' => $session->block_id,
@@ -53,6 +53,9 @@ class SessionPresenter
             'tag' => $exercise->tag,
             'note' => $exercise->note,
             'video_cue' => $exercise->video_cue,
+            // How this exercise is measured — 'hold' renders seconds (not reps)
+            // in the workout player. Falls back to 'load' for unlinked rows.
+            'metric_type' => $exercise->exercise?->metric_type ?? 'load',
             'sets' => $exercise->sets->map(self::set(...))->values(),
         ];
     }
