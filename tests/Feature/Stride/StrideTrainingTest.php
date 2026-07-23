@@ -4,6 +4,7 @@ namespace Tests\Feature\Stride;
 
 use App\Models\Common\User;
 use App\Models\Stride\Block;
+use App\Models\Stride\ExerciseSet;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
@@ -104,6 +105,21 @@ class StrideTrainingTest extends TestCase
             'actual_reps' => 10,
             'actual_kg' => 42.5,
         ], $this->auth)->assertOk();
+
+        // Metric-keyed logging: rows land in stride_set_metrics (unknown keys
+        // dropped), reps/weight mirror into the legacy actual_* columns, and the
+        // payload reflects them under sets.*.logged.
+        $secondSetId = $show->json('session.exercises.0.sets.1.id');
+        $logged = $this->patchJson("/api/stride/sessions/{$session->id}/sets/{$secondSetId}", [
+            'is_done' => true,
+            'metrics' => ['seconds' => 5, 'band_kg' => 15, 'weight_kg' => 2.5, 'bogus' => 9],
+        ], $this->auth)->assertOk()
+            ->json('session.exercises.0.sets.1.logged');
+
+        $this->assertEquals(['band_kg' => 15, 'seconds' => 5, 'weight_kg' => 2.5], collect($logged)->sortKeys()->all());
+        $this->assertDatabaseHas('stride_set_metrics', ['set_id' => $secondSetId, 'metric' => 'band_kg', 'value' => 15]);
+        $this->assertDatabaseMissing('stride_set_metrics', ['set_id' => $secondSetId, 'metric' => 'bogus']);
+        $this->assertEquals(2.5, ExerciseSet::find($secondSetId)->actual_kg);
 
         $this->postJson("/api/stride/sessions/{$session->id}/complete", ['rpe' => 7.5], $this->auth)
             ->assertOk()

@@ -33,7 +33,7 @@ class SessionPresenter
     /** The full session player payload: exercises + sets. */
     public static function full(Session $session): array
     {
-        $session->loadMissing('exercises.sets', 'exercises.exercise');
+        $session->loadMissing('exercises.sets.metricValues', 'exercises.exercise');
 
         return array_merge(self::summary($session), [
             'block_id' => $session->block_id,
@@ -56,6 +56,9 @@ class SessionPresenter
             // How this exercise is measured — 'hold' renders seconds (not reps)
             // in the workout player. Falls back to 'load' for unlinked rows.
             'metric_type' => $exercise->exercise?->metric_type ?? 'load',
+            // Ordered SetMetric values this exercise logs (null → player falls
+            // back to metric_type / name heuristics).
+            'metrics' => $exercise->exercise?->metrics,
             'sets' => $exercise->sets->map(self::set(...))->values(),
         ];
     }
@@ -67,10 +70,14 @@ class SessionPresenter
             'kind' => $set->kind,
             'reps' => $set->reps,
             'kg' => $set->kg,
+            // Band pull (kg) at stretch for band-assisted work; null when bandless.
+            'band' => $set->band_kg,
             'rest' => $set->rest_sec,
             'is_done' => $set->is_done,
             'actual_reps' => $set->actual_reps,
             'actual_kg' => $set->actual_kg,
+            // What was actually logged, keyed by SetMetric value ({} until done).
+            'logged' => (object) $set->metricValues->pluck('value', 'metric')->all(),
         ];
     }
 }

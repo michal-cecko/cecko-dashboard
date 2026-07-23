@@ -16,6 +16,7 @@ class Exercise extends Model
         'group',
         'tag',
         'metric_type',
+        'metrics',
         'difficulty',
         'equipment_label',
         'primary_muscles',
@@ -30,6 +31,7 @@ class Exercise extends Model
     protected function casts(): array
     {
         return [
+            'metrics' => 'array',
             'primary_muscles' => 'array',
             'secondary_muscles' => 'array',
             'cues' => 'array',

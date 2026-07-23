@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Stride;
 
+use App\Enums\Stride\SetMetric;
 use App\Http\Controllers\Controller;
 use App\Http\Presenters\Stride\SessionPresenter;
 use App\Models\Stride\ExerciseSet;
@@ -64,7 +65,26 @@ class SessionController extends Controller
             'is_done' => ['nullable', 'boolean'],
             'actual_reps' => ['nullable', 'integer', 'min:0'],
             'actual_kg' => ['nullable', 'numeric', 'min:0'],
+            'metrics' => ['nullable', 'array'],
+            'metrics.*' => ['numeric', 'min:0'],
         ]);
+
+        // Metric-keyed log (reps/seconds/weight_kg/band_kg/…): one row per set +
+        // metric; unknown keys are dropped. reps/weight_kg are mirrored into the
+        // legacy actual_* columns so SessionVolume::recompute stays correct.
+        foreach ($data['metrics'] ?? [] as $key => $value) {
+            if (SetMetric::tryFrom((string) $key) === null) {
+                continue;
+            }
+            $set->metricValues()->updateOrCreate(['metric' => $key], ['value' => $value]);
+            if ($key === SetMetric::REPS->value) {
+                $data['actual_reps'] = $data['actual_reps'] ?? (int) $value;
+            }
+            if ($key === SetMetric::WEIGHT_KG->value) {
+                $data['actual_kg'] = $data['actual_kg'] ?? $value;
+            }
+        }
+        unset($data['metrics']);
 
         $set->fill($data)->save();
 

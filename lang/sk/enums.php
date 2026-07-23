@@ -34,6 +34,7 @@ use App\Enums\Invoices\InvoiceThemeEnum;
 use App\Enums\Invoices\PaymentMethodEnum;
 use App\Enums\Invoices\RecurringIntervalEnum;
 use App\Enums\Invoices\VatTypeEnum;
+use App\Enums\Stride\SetMetric;
 
 return [
     CountryEnum::class => [
@@ -316,5 +317,13 @@ return [
         InvoiceItemVariableEnum::QUARTER->value => 'Štvrťrok',
         InvoiceItemVariableEnum::QUARTER_PERIOD->value => 'Štvrťrok s rokom',
         InvoiceItemVariableEnum::DATE_RANGE->value => 'Rozsah dátumov',
+    ],
+    SetMetric::class => [
+        SetMetric::REPS->value => 'Opakovania',
+        SetMetric::SECONDS->value => 'Sekundy',
+        SetMetric::WEIGHT_KG->value => 'Váha (kg)',
+        SetMetric::BAND_KG->value => 'Odpor gumy (kg)',
+        SetMetric::DISTANCE_M->value => 'Vzdialenosť (m)',
+        SetMetric::DURATION_SEC->value => 'Trvanie (s)',
     ],
 ];

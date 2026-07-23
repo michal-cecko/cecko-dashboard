@@ -11,6 +11,7 @@ use App\Enums\Invoices\InvoiceThemeEnum;
 use App\Enums\Invoices\PaymentMethodEnum;
 use App\Enums\Invoices\RecurringIntervalEnum;
 use App\Enums\Invoices\VatTypeEnum;
+use App\Enums\Stride\SetMetric;
 
 return [
     CountryEnum::class => [
@@ -95,5 +96,13 @@ return [
         InvoiceItemVariableEnum::QUARTER->value => 'Quarter',
         InvoiceItemVariableEnum::QUARTER_PERIOD->value => 'Quarter with year',
         InvoiceItemVariableEnum::DATE_RANGE->value => 'Date range',
+    ],
+    SetMetric::class => [
+        SetMetric::REPS->value => 'Reps',
+        SetMetric::SECONDS->value => 'Seconds',
+        SetMetric::WEIGHT_KG->value => 'Weight (kg)',
+        SetMetric::BAND_KG->value => 'Band resistance (kg)',
+        SetMetric::DISTANCE_M->value => 'Distance (m)',
+        SetMetric::DURATION_SEC->value => 'Duration (s)',
     ],
 ];
