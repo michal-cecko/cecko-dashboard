@@ -50,12 +50,17 @@ class HomeController extends Controller
             ->orderBy('scheduled_date')
             ->first();
 
-        $week = $activeBlock
-            ? $activeBlock->sessions()->ownedBy($user)->get()
-            : Session::ownedBy($user)
-                ->whereBetween('scheduled_date', [now()->startOfWeek(), now()->endOfWeek()])
-                ->orderBy('scheduled_date')
-                ->get();
+        // The plan timeline: every session of the ACTIVE block, plus done/skipped
+        // history from earlier (finished or replaced) blocks — a workout skipped
+        // yesterday must stay on the week view even after a plan regeneration
+        // retired its block.
+        $week = Session::ownedBy($user)
+            ->where(function ($q) {
+                $q->whereHas('block', fn ($b) => $b->where('status', 'active'))
+                    ->orWhereIn('status', ['done', 'skipped']);
+            })
+            ->orderBy('scheduled_date')
+            ->get();
 
         $recent = Session::ownedBy($user)
             ->where('status', 'done')
@@ -64,7 +69,10 @@ class HomeController extends Controller
             ->get();
 
         $goals = Goal::ownedBy($user)->where('is_achieved', false)->get();
-        $sessionsDoneThisWeek = $week->where('status', 'done')->count();
+        // $week now spans the whole plan (+history) — count only the calendar week.
+        $thisWeek = $week->filter(fn (Session $s) => $s->scheduled_date !== null
+            && $s->scheduled_date->betweenIncluded(now()->startOfWeek(), now()->endOfWeek()));
+        $sessionsDoneThisWeek = $thisWeek->where('status', 'done')->count();
 
         return response()->json([
             'today' => $today ? SessionPresenter::full($today) : null,
@@ -84,7 +92,7 @@ class HomeController extends Controller
             'streak_days' => $profile->streak_days,
             'this_week' => [
                 'done' => $sessionsDoneThisWeek,
-                'target' => $week->whereNotIn('kind', ['Rest'])->count(),
+                'target' => $thisWeek->whereNotIn('kind', ['Rest'])->count(),
             ],
         ]);
     }

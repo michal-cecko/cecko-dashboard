@@ -56,6 +56,52 @@ class SessionController extends Controller
         return response()->json(['session' => SessionPresenter::full($session->fresh())]);
     }
 
+    /**
+     * Manually skip an upcoming session (with an optional reason) instead of
+     * waiting for the nightly roll to mark it skipped with no context.
+     */
+    public function skip(Request $request, Session $session): JsonResponse
+    {
+        $this->authorizeSession($request, $session);
+
+        $data = $request->validate([
+            'reason' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        abort_unless(in_array($session->status, ['today', 'planned'], true), 422);
+
+        $session->forceFill([
+            'status' => 'skipped',
+            'skip_reason' => $data['reason'] ?? null,
+        ])->save();
+
+        return response()->json(['session' => SessionPresenter::full($session)]);
+    }
+
+    /**
+     * "I'll do it tomorrow": push a session one day out. A today/past session
+     * moves to tomorrow; a future planned one shifts a day from its own date.
+     * Works on skipped sessions too — that's the Reschedule action reviving one.
+     */
+    public function postpone(Request $request, Session $session): JsonResponse
+    {
+        $this->authorizeSession($request, $session);
+
+        abort_unless(in_array($session->status, ['today', 'planned', 'skipped'], true), 422);
+
+        $target = $session->scheduled_date !== null && $session->scheduled_date->isAfter(today())
+            ? $session->scheduled_date->copy()->addDay()
+            : today()->addDay();
+
+        $session->forceFill([
+            'status' => 'planned',
+            'scheduled_date' => $target,
+            'skip_reason' => null,
+        ])->save();
+
+        return response()->json(['session' => SessionPresenter::full($session)]);
+    }
+
     public function logSet(Request $request, Session $session, ExerciseSet $set): JsonResponse
     {
         $this->authorizeSession($request, $session);

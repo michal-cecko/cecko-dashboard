@@ -54,6 +54,7 @@ TEST*.xml
 Homestead.json
 Homestead.yaml
 Thumbs.db
+/.playwright-mcp
 
 # Applications
 *.app

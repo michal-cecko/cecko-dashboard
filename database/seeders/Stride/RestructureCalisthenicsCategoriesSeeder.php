@@ -12,6 +12,9 @@ use Illuminate\Database\Seeder;
  * day-matching never matched (e.g. Push-up had group "Push", but a Push day
  * looks for Chest/Shoulders/Triceps).
  *
+ * Weighted calisthenics deliberately groups by movement pattern (Push | Pull)
+ * instead of muscle — the generator's namesForKind() matches these groups too.
+ *
  * SURGICAL + IDEMPOTENT: only per-slug UPDATEs on stride_exercises — no
  * deletes, no truncation, no other tables touched.
  */
@@ -24,7 +27,10 @@ class RestructureCalisthenicsCategoriesSeeder extends Seeder
             'handstand-hold' => ['category' => 'freestyle calisthenics', 'tag' => 'Static'],
             'chin-up' => ['category' => 'calisthenics'],
             'pull-up-strict' => ['category' => 'calisthenics'],
-            'weighted-dips' => ['category' => 'weighted calisthenics'],
+            'weighted-dips' => ['category' => 'weighted calisthenics', 'group' => 'Push'],
+            'weighted-pull-up' => ['group' => 'Pull'],
+            'weighted-chin-up' => ['group' => 'Pull'],
+            'weighted-muscle-up' => ['group' => 'Pull'],
             'push-up' => ['group' => 'Chest'],
         ];
 

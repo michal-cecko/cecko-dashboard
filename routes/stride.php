@@ -55,6 +55,8 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('sessions/{session}', [SessionController::class, 'show']);
     Route::post('sessions/{session}/start', [SessionController::class, 'start']);
     Route::post('sessions/{session}/complete', [SessionController::class, 'complete']);
+    Route::post('sessions/{session}/skip', [SessionController::class, 'skip']);
+    Route::post('sessions/{session}/postpone', [SessionController::class, 'postpone']);
     Route::patch('sessions/{session}/sets/{set}', [SessionController::class, 'logSet']);
 
     // Goals

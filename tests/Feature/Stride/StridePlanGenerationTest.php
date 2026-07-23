@@ -98,6 +98,37 @@ class StridePlanGenerationTest extends TestCase
         $this->assertSame(2, $exercise->sets()->count());
     }
 
+    public function test_regenerating_retires_old_block_without_phantom_future_skips(): void
+    {
+        $old = Block::create([
+            'user_id' => $this->user->id, 'name' => 'Old', 'phase' => 'Base', 'status' => 'active',
+            'weeks' => 6, 'week_of' => 1, 'starts_on' => now()->subDays(3), 'ends_on' => now()->addWeeks(6),
+        ]);
+        $mk = fn (string $status, int $dayOffset) => $old->sessions()->create([
+            'user_id' => $this->user->id, 'kind' => 'Pull', 'title' => 'Pull — Day', 'status' => $status,
+            'scheduled_date' => today()->addDays($dayOffset), 'duration_min' => 60, 'volume_kg' => 0,
+        ]);
+        $done = $mk('done', -2);
+        $missed = $mk('today', -1);   // yesterday, never done — a real miss
+        $todays = $mk('planned', 0);  // unstarted; the new plan owns today
+        $future = $mk('planned', 2);  // unstarted; the new plan owns this date too
+
+        $this->provider->push(FakeCoachProvider::text(json_encode([
+            'title' => 'Day A', 'duration_min' => 60, 'exercises' => [
+                ['name' => 'Barbell Bench Press', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+            ],
+        ])));
+        $option = ['name' => 'New Plan', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $this->assertSame('done', $old->refresh()->status);
+        $this->assertSame('done', $done->refresh()->status);       // history untouched
+        $this->assertSame('skipped', $missed->refresh()->status);  // the real miss is preserved
+        // Unstarted today/future sessions are deleted, not littered as 'skipped'.
+        $this->assertDatabaseMissing('stride_sessions', ['id' => $todays->id]);
+        $this->assertDatabaseMissing('stride_sessions', ['id' => $future->id]);
+    }
+
     public function test_generate_expands_compact_set_counts(): void
     {
         // The model returns the compact shape (sets as an int count) — the service

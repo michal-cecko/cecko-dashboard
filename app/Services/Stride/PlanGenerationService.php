@@ -843,10 +843,10 @@ class PlanGenerationService
     private function namesForKind(string $kind, array $catalog): array
     {
         $groups = match ($kind) {
-            'Push' => ['Chest', 'Shoulders', 'Triceps'],
-            'Pull' => ['Back', 'Biceps'],
+            'Push' => ['Chest', 'Shoulders', 'Triceps', 'Push'],
+            'Pull' => ['Back', 'Biceps', 'Pull'],
             'Legs', 'Lower' => ['Quads', 'Hamstrings', 'Glutes', 'Legs', 'Calves'],
-            'Upper' => ['Chest', 'Back', 'Shoulders', 'Triceps', 'Biceps'],
+            'Upper' => ['Chest', 'Back', 'Shoulders', 'Triceps', 'Biceps', 'Push', 'Pull'],
             default => [], // Full body etc. → the whole catalogue
         };
 
@@ -1003,10 +1003,17 @@ class PlanGenerationService
 
         // One active plan at a time: retire any current active block to history
         // (kept, not deleted) so the new plan is THE active one and the rest browse
-        // as past plans. Its unfinished sessions become 'skipped' — a lingering
-        // 'today' from a replaced plan would otherwise shadow the new plan's
-        // session on Home (both carry status 'today').
+        // as past plans. Unstarted sessions from today onward are DELETED — the new
+        // plan owns those dates, and keeping them as 'skipped' would litter the
+        // calendar with phantom skips the athlete never actually missed (and a
+        // lingering 'today' would shadow the new plan's session on Home). Only
+        // past-dated unfinished sessions become 'skipped': those days genuinely
+        // went untrained and belong in the history.
         foreach (Block::ownedBy($user)->active()->get() as $retired) {
+            $retired->sessions()->whereIn('status', ['today', 'planned'])
+                ->whereNull('started_at')
+                ->whereDate('scheduled_date', '>=', $today)
+                ->delete();
             $retired->sessions()->whereIn('status', ['today', 'planned'])->update(['status' => 'skipped']);
             $retired->update(['status' => 'done']);
         }

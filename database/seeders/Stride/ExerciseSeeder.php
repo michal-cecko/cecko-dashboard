@@ -77,7 +77,7 @@ class ExerciseSeeder extends Seeder
             // Triceps
             ['Tricep Rope Pushdown', 'strength', 'Triceps', 'Isolation', 'Beginner', 'Cable + rope', 'Triceps'],
             ['Skullcrusher', 'strength', 'Triceps', 'Isolation', 'Intermediate', 'EZ-bar + bench', 'Long head'],
-            ['Weighted Dips', 'strength', 'Triceps', 'Compound', 'Intermediate', 'Dip bar + belt', 'Triceps', ['Chest']],
+            ['Weighted Dips', 'strength', 'Push', 'Compound', 'Intermediate', 'Dip bar + belt', 'Triceps', ['Chest']],
 
             // Back
             ['Pull-up (Strict)', 'strength', 'Back', 'Compound', 'Intermediate', 'Bar', 'Lats', [], 'reps'],

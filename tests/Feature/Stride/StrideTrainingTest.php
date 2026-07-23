@@ -146,6 +146,60 @@ class StrideTrainingTest extends TestCase
         $this->assertGreaterThan(0, $session->fresh()->volume_kg);
     }
 
+    public function test_session_can_be_skipped_manually_with_reason(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+
+        $this->postJson("/api/stride/sessions/{$session->id}/skip", ['reason' => 'Sore knee'], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'skipped')
+            ->assertJsonPath('session.skip_reason', 'Sore knee');
+
+        // A finished session can't be skipped.
+        $session->forceFill(['status' => 'done'])->save();
+        $this->postJson("/api/stride/sessions/{$session->id}/skip", [], $this->auth)->assertStatus(422);
+    }
+
+    public function test_postpone_moves_todays_session_to_tomorrow(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+
+        $this->postJson("/api/stride/sessions/{$session->id}/postpone", [], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'planned')
+            ->assertJsonPath('session.scheduled_date', today()->addDay()->toDateString());
+    }
+
+    public function test_postpone_revives_a_skipped_session(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'skipped')->firstOrFail();
+        $session->forceFill(['scheduled_date' => today()->subDay()])->save();
+
+        $this->postJson("/api/stride/sessions/{$session->id}/postpone", [], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'planned')
+            ->assertJsonPath('session.scheduled_date', today()->addDay()->toDateString())
+            ->assertJsonPath('session.skip_reason', null);
+    }
+
+    public function test_home_week_keeps_skipped_history_from_retired_blocks(): void
+    {
+        // A plan regeneration retires the old block to 'done' — its genuinely
+        // missed (skipped) sessions must still surface on the week view.
+        $retired = Block::create([
+            'user_id' => $this->user->id, 'name' => 'Replaced', 'phase' => 'Base', 'status' => 'done',
+            'weeks' => 6, 'week_of' => 1, 'starts_on' => now()->subWeek(), 'ends_on' => now()->addWeeks(5),
+        ]);
+        $missed = $retired->sessions()->create([
+            'user_id' => $this->user->id, 'kind' => 'Pull', 'title' => 'Pull — Missed', 'status' => 'skipped',
+            'scheduled_date' => today()->subDay(), 'duration_min' => 60, 'volume_kg' => 0,
+        ]);
+
+        $week = $this->getJson('/api/stride/home', $this->auth)->assertOk()->json('week');
+
+        $this->assertContains($missed->id, array_column($week, 'id'));
+    }
+
     public function test_goals_crud(): void
     {
         $this->getJson('/api/stride/goals', $this->auth)->assertOk()->assertJsonCount(4, 'goals');

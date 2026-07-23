@@ -545,7 +545,7 @@
   {
     "name": "Weighted Pull-up",
     "category": "weighted calisthenics",
-    "group": "Back",
+    "group": "Pull",
     "tag": "Compound",
     "difficulty": "Intermediate",
     "equipment_label": "Dip bar + belt",
@@ -562,7 +562,7 @@
   {
     "name": "Weighted Chin-up",
     "category": "weighted calisthenics",
-    "group": "Back",
+    "group": "Pull",
     "tag": "Compound",
     "difficulty": "Intermediate",
     "equipment_label": "Dip bar + belt",
@@ -579,7 +579,7 @@
   {
     "name": "Weighted Muscle-up",
     "category": "weighted calisthenics",
-    "group": "Back",
+    "group": "Pull",
     "tag": "Compound",
     "difficulty": "Advanced",
     "equipment_label": "Dip bar + belt",
