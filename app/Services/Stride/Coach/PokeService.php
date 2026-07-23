@@ -6,6 +6,7 @@ use App\Models\Common\User;
 use App\Models\Stride\AiUsage;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiReply;
 use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiUsageBucket;
 use Illuminate\Support\Str;
@@ -196,7 +197,7 @@ class PokeService
 
     // ── LLM plumbing (mirrors PlanGenerationService) ───────────────────────────
 
-    private function chatLogged(User $user, CoachTurn $turn): \App\Services\Common\Ai\AiReply
+    private function chatLogged(User $user, CoachTurn $turn): AiReply
     {
         $start = hrtime(true);
         $reply = $this->provider->chat($turn);
