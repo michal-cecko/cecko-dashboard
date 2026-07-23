@@ -171,6 +171,47 @@ class StrideCoachTest extends TestCase
         $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'kind' => 'Lowered intensity', 'status' => 'applied']);
     }
 
+    public function test_pokes_are_generated_cached_and_reused(): void
+    {
+        $this->provider->push(FakeCoachProvider::text(json_encode([
+            ['slot' => 'morning', 'at' => '08:15', 'title' => 'Streak day 4', 'body' => 'Pull day awaits — keep the chain going.'],
+            ['slot' => 'evening', 'at' => '19:00', 'title' => 'Last call', 'body' => 'Short session beats none.'],
+        ])));
+
+        $items = $this->getJson('/api/stride/coach/pokes?energy=3&done=0', $this->auth)
+            ->assertOk()
+            ->json('items');
+
+        $this->assertCount(2, $items);
+        $this->assertSame(['slot', 'at', 'title', 'body'], array_keys($items[0]));
+        $this->assertSame('08:15', $items[0]['at']);
+
+        // Same date + context → served from the profile cache, provider NOT called again
+        // (the fake's queue is empty — a second real call would blow up / differ).
+        $again = $this->getJson('/api/stride/coach/pokes?energy=3&done=0', $this->auth)
+            ->assertOk()->json('items');
+        $this->assertSame($items, $again);
+
+        $profile = StrideProfile::where('user_id', $this->user->id)->first();
+        $this->assertSame(today()->toDateString(), $profile->daily_pokes['date']);
+    }
+
+    public function test_pokes_fall_back_when_model_output_is_garbage(): void
+    {
+        $this->provider->push(FakeCoachProvider::text('sorry, I cannot do JSON today'));
+
+        $items = $this->getJson('/api/stride/coach/pokes?done=1', $this->auth)
+            ->assertOk()
+            ->json('items');
+
+        $this->assertNotEmpty($items);
+        $this->assertLessThanOrEqual(4, count($items));
+        foreach ($items as $item) {
+            $this->assertMatchesRegularExpression('/^\d{2}:\d{2}$/', $item['at']);
+            $this->assertNotSame('', $item['title']);
+        }
+    }
+
     public function test_tool_call_remove_set_is_staged_and_never_deletes_done_sets(): void
     {
         $conversation = $this->newConversation();

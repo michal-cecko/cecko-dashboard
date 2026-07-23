@@ -10,6 +10,7 @@ use App\Models\Stride\CoachMessage;
 use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachQuotaException;
 use App\Services\Stride\Coach\CoachService;
+use App\Services\Stride\Coach\PokeService;
 use App\Services\Stride\Coach\ProposalApplyService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -100,6 +101,28 @@ class CoachController extends Controller
         $conversation->update(['persona_key' => $data['persona_key']]);
 
         return response()->json(['conversation' => $this->conversationSummary($conversation)]);
+    }
+
+    /**
+     * Coach "pokes": 1-4 short context-aware notification texts for today, in
+     * the persona's voice. The app schedules them as local notifications.
+     * `energy` (1-5) is the client-side check-in; `done` whether the client
+     * already sees today's training as finished.
+     */
+    public function pokes(Request $request, PokeService $pokes): JsonResponse
+    {
+        $data = $request->validate([
+            'energy' => ['nullable', 'integer', 'between:1,5'],
+            'done' => ['nullable', 'boolean'],
+        ]);
+
+        return response()->json([
+            'items' => $pokes->pokes(
+                $request->user(),
+                isset($data['energy']) ? (int) $data['energy'] : null,
+                array_key_exists('done', $data) ? filter_var($data['done'], FILTER_VALIDATE_BOOLEAN) : null,
+            ),
+        ]);
     }
 
     /** The coach's recent plan changes — the "why" feed for Home/Plan. */

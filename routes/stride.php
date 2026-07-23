@@ -92,6 +92,7 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::post('coach/conversations/{conversation}/messages', [CoachController::class, 'message']);
     Route::patch('coach/conversations/{conversation}/persona', [CoachController::class, 'setPersona']);
     Route::get('coach/adjustments', [CoachController::class, 'adjustments']);
+    Route::get('coach/pokes', [CoachController::class, 'pokes']);
 
     // Block-scoped coach chat (edits the whole block).
     Route::get('coach/blocks/{block}/conversation', [CoachController::class, 'blockConversation']);

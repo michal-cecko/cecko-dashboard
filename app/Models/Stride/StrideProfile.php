@@ -18,6 +18,7 @@ class StrideProfile extends Model
         'units',
         'streak_days',
         'preferences',
+        'daily_pokes',
     ];
 
     protected function casts(): array
@@ -29,6 +30,7 @@ class StrideProfile extends Model
             'body_fat_pct' => 'float',
             'streak_days' => 'integer',
             'preferences' => 'array',
+            'daily_pokes' => 'array',
         ];
     }
 
