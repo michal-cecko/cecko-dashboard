@@ -88,9 +88,11 @@ class PokeService
         ATHLETE CONTEXT:
         {$this->memory->memory($user)}
 
-        Output ONLY minified JSON, no prose — an array of 1-4 items, at most one per slot:
-        [{"slot":"morning"|"midday"|"afternoon"|"evening","at":"HH:MM","title":"...","body":"..."}]
-        title ≤ 40 chars, body ≤ 120 chars. Times: morning 07-10, midday 11-14, afternoon 15-17, evening 18-21.
+        Output ONLY a minified JSON array with 1 to 4 objects (never empty), at most one per slot.
+        Example of the EXACT format:
+        [{"slot":"morning","at":"08:30","title":"Streak day 4","body":"Pull day awaits — keep the chain going."},{"slot":"evening","at":"19:30","title":"Last call","body":"A short session beats none."}]
+        Valid slot values: morning, midday, afternoon, evening.
+        title max 40 chars, body max 120 chars. Times: morning 07-10, midday 11-14, afternoon 15-17, evening 18-21.
         TXT;
 
         try {
@@ -108,6 +110,11 @@ class PokeService
             if ($items !== []) {
                 return $items;
             }
+            logger()->warning('Stride pokes degraded (unusable AI output → fallback).', [
+                'model' => (string) config('stride.coach.generate_model'),
+                'provider' => $this->provider->name(),
+                'raw_snippet' => mb_substr($reply->text, 0, 200),
+            ]);
         } catch (Throwable $e) {
             report($e);
         }
