@@ -68,6 +68,7 @@ class LibraryController extends Controller
             'primary' => $exercise->primary_muscles,
             'secondary' => $exercise->secondary_muscles,
             'video_url' => $exercise->video_url,
+            'thumbnail_url' => $exercise->thumbnail_url,
             'description' => $exercise->description,
             'source_url' => $exercise->source_url,
         ];

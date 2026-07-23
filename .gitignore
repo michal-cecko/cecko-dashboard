@@ -72,3 +72,11 @@ Thumbs.db
 
 # Composer auth credentials (provide via Dokploy COMPOSER_AUTH build arg)
 auth.json
+
+# M&S gym-exercise pipeline intermediates (regenerable; see tools/mns/scrape.py)
+database/seeders/Stride/tools/mns/cache/
+database/seeders/Stride/tools/mns/videos/
+database/seeders/Stride/tools/mns/thumbs/
+database/seeders/Stride/tools/tricklist_thumbs/
+database/seeders/Stride/tools/mns/scraped.json
+database/seeders/Stride/tools/mns/scrape.log

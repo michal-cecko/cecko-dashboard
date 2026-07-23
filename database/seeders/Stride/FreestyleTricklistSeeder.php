@@ -44,6 +44,7 @@ class FreestyleTricklistSeeder extends Seeder
                     'primary_muscles' => ['Full body'],
                     'secondary_muscles' => [],
                     'video_url' => $row['video_url'] ?? null,
+                    'thumbnail_url' => $row['thumbnail_url'] ?? null,
                     'description' => $row['description'] ?? null,
                     'source_url' => $row['source_url'] ?? null,
                 ],
@@ -51,6 +52,8 @@ class FreestyleTricklistSeeder extends Seeder
 
             if ($exercise->wasRecentlyCreated) {
                 $created++;
+            } elseif ($exercise->thumbnail_url === null && ($row['thumbnail_url'] ?? null) !== null) {
+                $exercise->update(['thumbnail_url' => $row['thumbnail_url']]);
             }
         }
 
