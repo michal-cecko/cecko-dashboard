@@ -62,6 +62,23 @@ class CoachTools
                 ],
             ],
             [
+                'name' => 'add_exercise',
+                'description' => 'Add a brand-new exercise (with default working sets) to a session — today\'s by default, or any block session via session_ref. You can add a movement on its own; you never need to remove one to make room.',
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'name' => ['type' => 'string', 'description' => 'Exercise name to add.'],
+                        'tag' => ['type' => 'string', 'enum' => ['Compound', 'Isolation'], 'description' => 'Movement type. Defaults to Compound.'],
+                        'sets' => ['type' => 'integer', 'description' => 'Number of working sets (default 3).'],
+                        'reps' => ['type' => 'integer', 'description' => 'Target reps per set (default 8).'],
+                        'kg' => ['type' => 'number', 'description' => 'Optional working weight in kilograms.'],
+                        'session_ref' => ['type' => 'string', 'description' => 'Optional: which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today\'s session.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['name'],
+                ],
+            ],
+            [
                 'name' => 'remove_set',
                 'description' => 'Remove the last not-yet-done set from an exercise in a session — today\'s by default. Use when the user wants less volume on one movement.',
                 'input_schema' => [

@@ -39,6 +39,7 @@ class CoachToolExecutor
             'set_load' => $this->setLoad($user, $input, $ctx),
             'swap_exercise' => $this->swapExercise($user, $input, $ctx),
             'add_set' => $this->addSet($user, $input, $ctx),
+            'add_exercise' => $this->addExercise($user, $input, $ctx),
             'remove_set' => $this->removeSet($user, $input, $ctx),
             'remove_exercise' => $this->removeExercise($user, $input, $ctx),
             'reorder_block' => $this->reorderBlock($user, $input, $ctx),
@@ -247,6 +248,37 @@ class CoachToolExecutor
         );
 
         return ['result' => "Proposed: add a set to {$exercise->name} — awaiting confirmation.", 'adjustment' => $proposal];
+    }
+
+    private function addExercise(User $user, array $input, CoachContext $ctx): array
+    {
+        $session = $this->targetSession($ctx, $input);
+        if ($session === null) {
+            return ['result' => 'No session to add an exercise to.', 'adjustment' => null];
+        }
+        $name = trim((string) ($input['name'] ?? ''));
+        if ($name === '') {
+            return ['result' => 'I need the name of the exercise to add.', 'adjustment' => null];
+        }
+
+        $sets = max(1, min(6, (int) ($input['sets'] ?? 3)));
+        $reps = max(1, min(50, (int) ($input['reps'] ?? 8)));
+        $tag = in_array($input['tag'] ?? '', ['Compound', 'Isolation'], true) ? $input['tag'] : 'Compound';
+
+        $proposal = $this->propose(
+            $user, $ctx, 'add_exercise', 'Added exercise',
+            "Add {$name} to the session", $input['reason'] ?? null, $session,
+            [
+                'session_id' => $session->id,
+                'name' => $name,
+                'tag' => $tag,
+                'sets' => $sets,
+                'reps' => $reps,
+                'kg' => (float) ($input['kg'] ?? 0),
+            ],
+        );
+
+        return ['result' => "Proposed: add {$name} to the session — awaiting confirmation.", 'adjustment' => $proposal];
     }
 
     private function removeSet(User $user, array $input, CoachContext $ctx): array

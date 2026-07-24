@@ -154,7 +154,7 @@ class TrainingMemoryBuilder
         }
 
         $inProgress = $today->started_at !== null;
-        $lines = ["TODAY: {$today->title} ({$today->kind}), target {$today->duration_min} min.".($inProgress ? ' IN PROGRESS — the athlete is mid-workout; suggest small live edits (set_load/add_set/remove_set/remove_exercise/swap_exercise), never a rebuild.' : '')];
+        $lines = ["TODAY: {$today->title} ({$today->kind}), target {$today->duration_min} min.".($inProgress ? ' IN PROGRESS — the athlete is mid-workout; suggest small live edits (set_load/add_set/remove_set/add_exercise/remove_exercise/swap_exercise), never a rebuild.' : '')];
 
         foreach ($today->exercises as $exercise) {
             $working = $exercise->sets->where('kind', 'Working');

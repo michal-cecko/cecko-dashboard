@@ -38,6 +38,7 @@ class ProposalApplyService
             $result = match ($proposal->operation) {
                 'set_load' => $this->applySetLoad($user, $proposal, $touched),
                 'add_set' => $this->applyAddSet($user, $proposal, $touched),
+                'add_exercise' => $this->applyAddExercise($user, $proposal, $touched),
                 'remove_set' => $this->applyRemoveSet($user, $proposal, $touched),
                 'remove_exercise' => $this->applyRemoveExercise($user, $proposal, $touched),
                 'swap' => $this->applySwap($user, $proposal, $touched),
@@ -114,6 +115,41 @@ class ProposalApplyService
         $touched[] = $session->id;
 
         return "Added a set to {$exercise->name}.";
+    }
+
+    /** payload: { session_id, name, tag, sets, reps, kg } — append a new exercise + default working sets. */
+    private function applyAddExercise(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        if ($session === null) {
+            return null;
+        }
+        $name = trim((string) ($payload['name'] ?? ''));
+        if ($name === '') {
+            return 'No exercise name was given.';
+        }
+
+        $sets = max(1, min(6, (int) ($payload['sets'] ?? 3)));
+        $reps = max(1, min(50, (int) ($payload['reps'] ?? 8)));
+        $kg = (float) ($payload['kg'] ?? 0);
+
+        $exercise = $session->exercises()->create([
+            'exercise_id' => Exercise::query()->where('name', $name)->value('id'),
+            'name' => $name,
+            'tag' => in_array($payload['tag'] ?? '', ['Compound', 'Isolation'], true) ? $payload['tag'] : 'Compound',
+            'note' => '',
+            'position' => (int) $session->exercises()->max('position') + 1,
+        ]);
+
+        for ($i = 0; $i < $sets; $i++) {
+            $exercise->sets()->create([
+                'kind' => 'Working', 'reps' => $reps, 'kg' => $kg, 'rest_sec' => 90, 'position' => $i,
+            ]);
+        }
+        $touched[] = $session->id;
+
+        return "Added {$name} ({$sets}×{$reps}) to the session.";
     }
 
     /** payload: { session_id, exercise_name } — drop the last not-done set. */

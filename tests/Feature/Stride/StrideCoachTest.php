@@ -263,6 +263,32 @@ class StrideCoachTest extends TestCase
         $this->assertFalse($session->exercises()->where('name', 'like', '%Bench%')->exists());
     }
 
+    public function test_tool_call_add_exercise_is_staged_then_applied_on_confirm(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('add_exercise', ['name' => 'Face Pull', 'tag' => 'Isolation', 'sets' => 3, 'reps' => 15]))
+            ->push(FakeCoachProvider::text('Proposed adding face pulls.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Add some face pulls.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.kind', 'Added exercise')
+            ->json('message.adjustments.0.id');
+
+        // Staged only — not in the session yet.
+        $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'status' => 'proposed', 'operation' => 'add_exercise']);
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $this->assertFalse($session->exercises()->where('name', 'Face Pull')->exists());
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        // Applied — the exercise + 3 working sets now exist.
+        $added = $session->exercises()->where('name', 'Face Pull')->firstOrFail();
+        $this->assertSame(3, $added->sets()->where('kind', 'Working')->count());
+        $this->assertSame((int) $session->exercises()->max('position'), (int) $added->position);
+    }
+
     public function test_regenerate_refuses_to_rebuild_a_started_session(): void
     {
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
