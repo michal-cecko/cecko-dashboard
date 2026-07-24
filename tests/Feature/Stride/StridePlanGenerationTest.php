@@ -130,6 +130,31 @@ class StridePlanGenerationTest extends TestCase
         $this->assertDatabaseMissing('stride_sessions', ['id' => $future->id]);
     }
 
+    public function test_regenerating_deletes_an_untrained_block_instead_of_a_phantom_done(): void
+    {
+        // A block whose only sessions are future & unstarted — never trained.
+        $old = Block::create([
+            'user_id' => $this->user->id, 'name' => 'Untrained', 'phase' => 'Base', 'status' => 'active',
+            'weeks' => 6, 'week_of' => 1, 'starts_on' => today(), 'ends_on' => now()->addWeeks(6),
+        ]);
+        $old->sessions()->create([
+            'user_id' => $this->user->id, 'kind' => 'Push', 'title' => 'Push — Day', 'status' => 'planned',
+            'scheduled_date' => today()->addDays(2), 'duration_min' => 60, 'volume_kg' => 0,
+        ]);
+
+        $this->provider->push(FakeCoachProvider::text(json_encode([
+            'title' => 'A', 'duration_min' => 60, 'exercises' => [
+                ['name' => 'Barbell Bench Press', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+            ],
+        ])));
+        $this->postJson('/api/stride/plan/generate', [
+            'option' => ['name' => 'Fresh', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3],
+        ], $this->auth)->assertCreated();
+
+        // The untrained block is gone — not lingering as a phantom "done" plan.
+        $this->assertNull(Block::find($old->id));
+    }
+
     public function test_generate_expands_compact_set_counts(): void
     {
         // The model returns the compact shape (sets as an int count) — the service

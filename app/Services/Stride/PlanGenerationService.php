@@ -1178,7 +1178,15 @@ class PlanGenerationService
                 ->whereDate('scheduled_date', '>=', $today)
                 ->delete();
             $retired->sessions()->whereIn('status', ['today', 'planned'])->update(['status' => 'skipped']);
-            $retired->update(['status' => 'done']);
+
+            // A block the athlete never actually trained (no sessions left after the
+            // cleanup — e.g. from regenerating the plan a few times) is deleted, not
+            // kept as a phantom "done" plan that litters the history.
+            if ($retired->sessions()->doesntExist()) {
+                $retired->delete();
+            } else {
+                $retired->update(['status' => 'done']);
+            }
         }
 
         $block = Block::create([
