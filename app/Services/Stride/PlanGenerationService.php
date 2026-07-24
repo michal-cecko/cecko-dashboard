@@ -22,6 +22,7 @@ use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Throwable;
 
@@ -580,8 +581,10 @@ class PlanGenerationService
     private function buildSession(User $user, StrideProfile $profile, array $option, string $kind, array $catalog): array
     {
         $names = $this->namesForKind($kind, $catalog);
+        $grouped = ($profile->preferences['warmup_style'] ?? 'per_exercise') === 'grouped';
+        $level = $this->athleteLevel($profile);
 
-        $session = $this->askForSession($user, $profile, $option, $kind, $names);
+        $session = $this->askForSession($user, $profile, $option, $kind, $names, $grouped, $level);
         if ($session !== null) {
             return $session;
         }
@@ -590,7 +593,78 @@ class PlanGenerationService
         // so the caller can tell the user it's a deterministic starter (not silent).
         $this->degraded = true;
 
-        return $this->deterministicSession($kind, $names, $catalog);
+        return $this->deterministicSession($kind, $names, $catalog, $grouped, $level);
+    }
+
+    /** Coarse experience bucket from years trained — drives warm-up volume. */
+    private function athleteLevel(StrideProfile $profile): string
+    {
+        $years = 0;
+        if (preg_match('/\d+/', (string) ($profile->preferences['years_training'] ?? ''), $m)) {
+            $years = (int) $m[0];
+        }
+
+        return match (true) {
+            $years >= 4 => 'advanced',
+            $years >= 2 => 'intermediate',
+            default => 'beginner',
+        };
+    }
+
+    /**
+     * A minimal, level-scaled dedicated warm-up group for a session kind. Bands /
+     * mobility / ramp-up — beginners get a fuller block, advanced athletes a short
+     * one. Names are catalogue-independent (exercise_id resolves to null on persist).
+     *
+     * @return array<int, array{name: string, tag: string, section: string, note: string, sets: array}>
+     */
+    private function warmupTemplate(string $kind, string $level): array
+    {
+        $pool = match ($kind) {
+            'Push' => ['Arm Circles', 'Band Pull-Apart', 'Scapular Push-up', 'Shoulder CARs', 'Slow Push-up'],
+            'Pull' => ['Band Pull-Apart', 'Scapular Pull-up', 'Cat-Cow', 'Dead Hang', 'Wrist Circles'],
+            'Legs', 'Lower' => ['Bodyweight Squat', '90/90 Hip Switch', 'Leg Swings', 'Glute Bridge', 'Walking Lunge'],
+            'Upper' => ['Arm Circles', 'Band Pull-Apart', 'Scapular Push-up', 'Cat-Cow', 'Wrist Circles'],
+            default => ['Bodyweight Squat', 'Arm Circles', 'Band Pull-Apart', 'Cat-Cow', 'Leg Swings'],
+        };
+
+        $count = match ($level) {
+            'advanced' => 2,
+            'intermediate' => 3,
+            default => 4,
+        };
+
+        return array_map(fn (string $name) => [
+            'name' => $name,
+            'tag' => 'Mobility',
+            'section' => 'warmup',
+            'note' => '',
+            'sets' => [['kind' => 'Working', 'reps' => 10, 'kg' => 0, 'rest_sec' => 30]],
+        ], array_slice($pool, 0, $count));
+    }
+
+    /** Normalise an LLM-supplied warm-up array into warm-up exercise rows. */
+    private function normalizeWarmup(mixed $raw): array
+    {
+        if (! is_array($raw)) {
+            return [];
+        }
+
+        $out = [];
+        foreach (array_slice($raw, 0, 5) as $w) {
+            if (! is_array($w) || empty($w['name'])) {
+                continue;
+            }
+            $out[] = [
+                'name' => Str::limit((string) $w['name'], 120, ''),
+                'tag' => 'Mobility',
+                'section' => 'warmup',
+                'note' => '',
+                'sets' => [['kind' => 'Working', 'reps' => max(1, min(30, (int) ($w['reps'] ?? 10))), 'kg' => 0, 'rest_sec' => 30]],
+            ];
+        }
+
+        return $out;
     }
 
     /**
@@ -599,13 +673,13 @@ class PlanGenerationService
      * (per the "don't cap, let localhost finish" preference) without ever hanging
      * the whole plan, since failures degrade only this one session.
      */
-    private function askForSession(User $user, StrideProfile $profile, array $option, string $kind, array $names): ?array
+    private function askForSession(User $user, StrideProfile $profile, array $option, string $kind, array $names, bool $grouped = false, string $level = 'beginner'): ?array
     {
         if ($names === []) {
             return null;
         }
 
-        $prompt = $this->sessionPrompt($user, $profile, $option, $kind, $names);
+        $prompt = $this->sessionPrompt($user, $profile, $option, $kind, $names, $grouped, $level);
         // Exercise NAMES must stay verbatim from the catalog (for exercise_id match);
         // only the free text the model writes (title, notes) is in the user's language.
         $langLine = ' Write the session title and any notes in '.$this->languageName($this->language($user)).', but keep exercise names EXACTLY as given in the list (do not translate them).';
@@ -626,7 +700,7 @@ class PlanGenerationService
                 );
 
                 $lastText = $this->chatLogged($user, $turn)->text;
-                $session = $this->validateSession($this->decodeJson($lastText), $kind);
+                $session = $this->validateSession($this->decodeJson($lastText), $kind, $grouped, $level);
                 if ($session !== null) {
                     return $session;
                 }
@@ -645,7 +719,7 @@ class PlanGenerationService
         return null;
     }
 
-    private function sessionPrompt(User $user, StrideProfile $profile, array $option, string $kind, array $names): string
+    private function sessionPrompt(User $user, StrideProfile $profile, array $option, string $kind, array $names, bool $grouped = false, string $level = 'beginner'): string
     {
         $prefs = $profile->preferences ?? [];
         $years = $prefs['years_training'] ?? 'unknown';
@@ -681,6 +755,11 @@ class PlanGenerationService
 
         // COMPACT single-session schema: sets given as a count + reps + rest, expanded
         // into warm-up + working sets in code (far fewer output tokens).
+        $warmupSchema = $grouped ? ',"warmup":[{"name":"mobility/activation move","reps":10}]' : '';
+        $warmupLine = $grouped
+            ? "\n        Also include a \"warmup\" array of ".($level === 'advanced' ? '2' : ($level === 'intermediate' ? '3' : '4'))." minimal mobility/activation moves suited to a {$kind} day for a {$level} athlete (do NOT add warm-up sets to the working exercises)."
+            : '';
+
         return <<<TXT
         Program ONE "{$kind}" session for the "{$option['name']}" plan ({$option['split']} split).
         Athlete: {$who}, {$years} years training{$bodyweight}; enjoys {$styles}. Goals: {$goals}. Injuries to avoid: {$injuries}.{$notesLine}{$factsLine}{$gearLine}
@@ -688,15 +767,15 @@ class PlanGenerationService
         Use ONLY these exercises — exact names WITHOUT the [equipment] suffix: {$list}.
 
         Output ONLY minified JSON for ONE session (no prose, no markdown):
-        {"title":"short title","duration_min":60,"exercises":[{"name":"<from list>","tag":"Compound|Isolation","sets":3,"reps":8,"rest_sec":90}]}
+        {"title":"short title","duration_min":60,"exercises":[{"name":"<from list>","tag":"Compound|Isolation","sets":3,"reps":8,"rest_sec":90}]{$warmupSchema}}
         Pick 4–8 exercises that best serve the goals for a {$kind} day. Whatever the athlete's
         coaching notes or remembered facts EXPLICITLY ask for (session structure, ordering, exercise
-        count, exclusions) OVERRIDES every default above — follow it exactly. Keep it brief.
+        count, exclusions) OVERRIDES every default above — follow it exactly. Keep it brief.{$warmupLine}
         TXT;
     }
 
     /** Validate + clamp a single-session reply; null if unusable. */
-    private function validateSession(mixed $raw, string $kind): ?array
+    private function validateSession(mixed $raw, string $kind, bool $grouped = false, string $level = 'beginner'): ?array
     {
         if (! is_array($raw) || empty($raw['exercises']) || ! is_array($raw['exercises'])) {
             return null;
@@ -712,13 +791,22 @@ class PlanGenerationService
                 'name' => Str::limit((string) $ex['name'], 120, ''),
                 'tag' => in_array($ex['tag'] ?? '', ['Compound', 'Isolation'], true) ? $ex['tag'] : 'Compound',
                 'note' => Str::limit((string) ($ex['note'] ?? ''), 200, ''),
+                'section' => 'working',
                 // Tolerate either a verbose set array or the compact {sets,reps,rest} shape.
-                'sets' => is_array($ex['sets'] ?? null) ? $this->normalizeSets($ex['sets'], (string) $ex['name']) : $this->expandSets($ex),
+                // When grouped, working exercises carry no warm-up set (it moves to the group).
+                'sets' => is_array($ex['sets'] ?? null) ? $this->normalizeSets($ex['sets'], (string) $ex['name'], $grouped) : $this->expandSets($ex, $grouped),
             ];
         }
 
         if ($exercises === []) {
             return null;
+        }
+
+        // Grouped mode: a dedicated warm-up block leads — from the model if it
+        // supplied one, else the deterministic level-aware template.
+        if ($grouped) {
+            $warmup = $this->normalizeWarmup($raw['warmup'] ?? null) ?: $this->warmupTemplate($kind, $level);
+            $exercises = array_merge($warmup, $exercises);
         }
 
         return [
@@ -756,15 +844,19 @@ class PlanGenerationService
     }
 
     /** Normalise a verbose set array; defaults if empty. */
-    private function normalizeSets(array $sets, string $name = ''): array
+    private function normalizeSets(array $sets, string $name = '', bool $grouped = false): array
     {
         $out = [];
         foreach ($sets as $set) {
             if (! is_array($set)) {
                 continue;
             }
+            $kind = in_array($set['kind'] ?? '', ['Warm-up', 'Working', 'AMRAP', 'Drop'], true) ? $set['kind'] : 'Working';
+            if ($grouped && $kind === 'Warm-up') {
+                continue; // warm-ups live in the dedicated group, not per exercise
+            }
             $out[] = [
-                'kind' => in_array($set['kind'] ?? '', ['Warm-up', 'Working', 'AMRAP', 'Drop'], true) ? $set['kind'] : 'Working',
+                'kind' => $kind,
                 'reps' => max(1, min(50, (int) ($set['reps'] ?? 8))),
                 'kg' => max(0, (float) ($set['kg'] ?? 0)),
                 'rest_sec' => max(0, min(600, (int) ($set['rest_sec'] ?? 90))),
@@ -789,14 +881,14 @@ class PlanGenerationService
         return $out ?: [['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90]];
     }
 
-    /** Expand a compact `{sets:int, reps:int, rest_sec:int}` into warm-up + working sets. */
-    private function expandSets(array $ex): array
+    /** Expand a compact `{sets:int, reps:int, rest_sec:int}` into working sets (+ a warm-up set unless grouped). */
+    private function expandSets(array $ex, bool $grouped = false): array
     {
         $working = max(1, min(6, (int) ($ex['sets'] ?? 3)));
         $reps = max(1, min(50, (int) ($ex['reps'] ?? 8)));
         $rest = max(0, min(600, (int) ($ex['rest_sec'] ?? 90)));
 
-        $sets = [['kind' => 'Warm-up', 'reps' => $this->warmupReps((string) ($ex['name'] ?? ''), $reps), 'kg' => 0, 'rest_sec' => 60]];
+        $sets = $grouped ? [] : [['kind' => 'Warm-up', 'reps' => $this->warmupReps((string) ($ex['name'] ?? ''), $reps), 'kg' => 0, 'rest_sec' => 60]];
         for ($i = 0; $i < $working; $i++) {
             $sets[] = ['kind' => 'Working', 'reps' => $reps, 'kg' => 0, 'rest_sec' => $rest];
         }
@@ -805,19 +897,24 @@ class PlanGenerationService
     }
 
     /** Rule-based single session so onboarding always yields a real plan. */
-    private function deterministicSession(string $kind, array $names, array $catalog): array
+    private function deterministicSession(string $kind, array $names, array $catalog, bool $grouped = false, string $level = 'beginner'): array
     {
         $picks = array_slice($names !== [] ? $names : array_keys($catalog), 0, 5);
-        $exercises = array_map(fn (string $name) => [
+        $working = array_map(fn (string $name) => [
             'name' => $name,
             'tag' => 'Compound',
             'note' => '',
-            'sets' => [
-                ['kind' => 'Warm-up', 'reps' => $this->warmupReps($name, 8), 'kg' => 0, 'rest_sec' => 60],
-                ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
-                ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
-            ],
+            'section' => 'working',
+            'sets' => array_merge(
+                $grouped ? [] : [['kind' => 'Warm-up', 'reps' => $this->warmupReps($name, 8), 'kg' => 0, 'rest_sec' => 60]],
+                [
+                    ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
+                    ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
+                ],
+            ),
         ], $picks);
+
+        $exercises = $grouped ? array_merge($this->warmupTemplate($kind, $level), $working) : $working;
 
         return ['kind' => $kind, 'title' => "{$kind} — Day", 'duration_min' => 60, 'exercises' => $exercises];
     }
@@ -969,6 +1066,71 @@ class PlanGenerationService
         return $session->refresh();
     }
 
+    /**
+     * Restructure ONE session's warm-ups in place — WITHOUT re-rolling the working
+     * exercises. 'grouped' moves warm-ups into a dedicated, level-scaled group at the
+     * top; 'per_exercise' drops the group and gives each working exercise a leading
+     * warm-up set. Non-destructive to the working exercises (and their logged sets).
+     */
+    public function applyWarmupStyle(User $user, Session $session, string $style): void
+    {
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $level = $this->athleteLevel($profile);
+
+        DB::transaction(function () use ($session, $style, $level) {
+            // Clear any existing warm-up group first (idempotent).
+            $session->exercises()->where('section', 'warmup')->get()->each->delete();
+
+            $working = $session->exercises()->where('section', '!=', 'warmup')->orderBy('position')->get();
+
+            if ($style === 'grouped') {
+                foreach ($working as $ex) {
+                    $ex->sets()->where('kind', 'Warm-up')->delete();
+                    foreach ($ex->sets()->orderBy('position')->get()->values() as $i => $s) {
+                        if ((int) $s->position !== $i) {
+                            $s->update(['position' => $i]);
+                        }
+                    }
+                }
+
+                $pos = 0;
+                foreach ($this->warmupTemplate($session->kind, $level) as $w) {
+                    $we = $session->exercises()->create([
+                        'exercise_id' => Exercise::query()->where('name', $w['name'])->value('id'),
+                        'name' => $w['name'],
+                        'tag' => $w['tag'],
+                        'section' => 'warmup',
+                        'note' => '',
+                        'position' => $pos++,
+                    ]);
+                    foreach (array_values($w['sets']) as $sp => $s) {
+                        $we->sets()->create([
+                            'kind' => $s['kind'], 'reps' => $s['reps'], 'kg' => $s['kg'],
+                            'rest_sec' => $s['rest_sec'], 'position' => $sp,
+                        ]);
+                    }
+                }
+
+                foreach ($working as $i => $ex) {
+                    $ex->update(['section' => 'working', 'position' => $pos + $i]);
+                }
+            } else {
+                foreach ($working as $i => $ex) {
+                    $ex->update(['section' => 'working', 'position' => $i]);
+
+                    if (! $ex->sets()->where('kind', 'Warm-up')->exists()) {
+                        foreach ($ex->sets()->orderByDesc('position')->get() as $s) {
+                            $s->update(['position' => $s->position + 1]);
+                        }
+                        $firstWorking = $ex->sets()->where('kind', 'Working')->orderBy('position')->first();
+                        $reps = $firstWorking ? $this->warmupReps($ex->name, (int) $firstWorking->reps) : 10;
+                        $ex->sets()->create(['kind' => 'Warm-up', 'reps' => $reps, 'kg' => 0, 'rest_sec' => 60, 'position' => 0]);
+                    }
+                }
+            }
+        });
+    }
+
     /** Swap a session's children for a freshly-built template (shared by persist + regenerate). */
     private function replaceExercises(Session $session, array $built): void
     {
@@ -983,6 +1145,7 @@ class PlanGenerationService
                 'exercise_id' => Exercise::query()->where('name', $ex['name'])->value('id'),
                 'name' => $ex['name'],
                 'tag' => $ex['tag'] ?? null,
+                'section' => $ex['section'] ?? 'working',
                 'note' => $ex['note'] ?? '',
                 'position' => $pos,
             ]);
@@ -1070,6 +1233,7 @@ class PlanGenerationService
                     'exercise_id' => Exercise::query()->where('name', $ex['name'])->value('id'),
                     'name' => $ex['name'],
                     'tag' => $ex['tag'],
+                    'section' => $ex['section'] ?? 'working',
                     'note' => $ex['note'],
                     'position' => $pos,
                 ]);

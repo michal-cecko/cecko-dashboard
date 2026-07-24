@@ -30,7 +30,7 @@ class ProfileController extends Controller
 {
     /** Soft fields stored inside the `preferences` JSON column. */
     private const PREFERENCE_KEYS = [
-        'language', 'gender', 'birth_year', 'years_training', 'bio', 'notes', 'training_style', 'days_per_week', 'onboarded',
+        'language', 'gender', 'birth_year', 'years_training', 'bio', 'notes', 'training_style', 'days_per_week', 'onboarded', 'warmup_style',
     ];
 
     /** Hard fields stored as their own columns. */
@@ -90,6 +90,7 @@ class ProfileController extends Controller
             'training_style.*' => ['string', 'max:40'],
             'days_per_week' => ['sometimes', 'integer', 'between:1,7'],
             'onboarded' => ['sometimes', 'boolean'],
+            'warmup_style' => ['sometimes', 'in:per_exercise,grouped'],
         ]);
 
         $profile = StrideProfile::firstOrCreate(['user_id' => $request->user()->id]);
@@ -132,6 +133,7 @@ class ProfileController extends Controller
             'training_style' => $prefs['training_style'] ?? [],
             'days_per_week' => $prefs['days_per_week'] ?? null,
             'onboarded' => (bool) ($prefs['onboarded'] ?? false),
+            'warmup_style' => $prefs['warmup_style'] ?? 'per_exercise',
         ];
     }
 }

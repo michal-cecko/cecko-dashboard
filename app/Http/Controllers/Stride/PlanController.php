@@ -8,6 +8,7 @@ use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
 use App\Models\Stride\PersonalRecord;
+use App\Models\Stride\StrideProfile;
 use App\Services\Stride\PlanGenerationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -154,6 +155,39 @@ class PlanController extends Controller
             'name' => $block->name,
             'ai_degraded' => $planner->wasDegraded(),
         ], 201);
+    }
+
+    /**
+     * Set the warm-up preference and restructure upcoming sessions in place so they
+     * carry the chosen structure (grouped warm-up block, or per-exercise warm-up
+     * sets). Only today's + future UNSTARTED sessions in the active block change —
+     * history and in-progress work are left untouched.
+     */
+    public function warmupStyle(Request $request, PlanGenerationService $planner): JsonResponse
+    {
+        $data = $request->validate(['style' => ['required', 'in:per_exercise,grouped']]);
+        $user = $request->user();
+
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $prefs = $profile->preferences ?? [];
+        $prefs['warmup_style'] = $data['style'];
+        $profile->preferences = $prefs;
+        $profile->save();
+
+        $block = Block::ownedBy($user)->active()->first();
+        $sessions = $block
+            ? $block->sessions()
+                ->whereIn('status', ['today', 'planned'])
+                ->whereNull('started_at')
+                ->whereDate('scheduled_date', '>=', today())
+                ->get()
+            : collect();
+
+        foreach ($sessions as $session) {
+            $planner->applyWarmupStyle($user, $session, $data['style']);
+        }
+
+        return response()->json(['warmup_style' => $data['style'], 'sessions_updated' => $sessions->count()]);
     }
 
     public function index(Request $request): JsonResponse

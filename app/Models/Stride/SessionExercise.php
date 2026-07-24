@@ -15,6 +15,7 @@ class SessionExercise extends Model
         'exercise_id',
         'name',
         'tag',
+        'section',
         'note',
         'video_cue',
         'position',

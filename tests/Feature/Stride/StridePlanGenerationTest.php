@@ -8,6 +8,7 @@ use App\Models\Stride\CoachMemory;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Spot;
+use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachProvider;
 use Database\Seeders\Stride\ExerciseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -147,6 +148,87 @@ class StridePlanGenerationTest extends TestCase
         $this->assertSame(4, $exercise->sets()->count());
         $this->assertSame(3, $exercise->sets()->where('kind', 'Working')->count());
         $this->assertSame(5, $exercise->sets()->where('kind', 'Working')->first()->reps);
+        $this->assertSame('working', $exercise->section); // default style tags exercises 'working'
+    }
+
+    private function setWarmupStyle(string $style, int $years = 1): void
+    {
+        StrideProfile::query()->updateOrCreate(
+            ['user_id' => $this->user->id],
+            ['preferences' => ['warmup_style' => $style, 'years_training' => $years]],
+        );
+    }
+
+    public function test_grouped_warmup_prepends_a_group_and_strips_working_warmup_sets(): void
+    {
+        $this->setWarmupStyle('grouped', years: 1);
+
+        $session = ['title' => 'A', 'duration_min' => 60, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 5, 'rest_sec' => 120],
+        ], 'warmup' => [
+            ['name' => 'Leg Swings', 'reps' => 10],
+            ['name' => 'Glute Bridge', 'reps' => 12],
+        ]];
+        $this->provider->push(FakeCoachProvider::text(json_encode($session)));
+
+        $option = ['name' => 'Grouped', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $today = Block::where('user_id', $this->user->id)->first()->sessions()->where('status', 'today')->firstOrFail();
+        $ordered = $today->exercises()->orderBy('position')->get();
+
+        $this->assertSame('warmup', $ordered[0]->section);
+        $this->assertSame('Leg Swings', $ordered[0]->name);
+        $this->assertSame('warmup', $ordered[1]->section);
+
+        $squat = $today->exercises()->where('name', 'Back Squat')->firstOrFail();
+        $this->assertSame('working', $squat->section);
+        $this->assertSame(0, $squat->sets()->where('kind', 'Warm-up')->count());
+        $this->assertSame(3, $squat->sets()->where('kind', 'Working')->count());
+    }
+
+    public function test_grouped_warmup_falls_back_to_level_scaled_template(): void
+    {
+        $this->setWarmupStyle('grouped', years: 6); // advanced → 2 warm-up moves
+        $this->provider->push(FakeCoachProvider::text('nope'))->push(FakeCoachProvider::text('still nope'));
+
+        $option = ['name' => 'Grouped FB', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $today = Block::where('user_id', $this->user->id)->first()->sessions()->where('status', 'today')->firstOrFail();
+        $this->assertSame(2, $today->exercises()->where('section', 'warmup')->count());
+        $this->assertGreaterThan(0, $today->exercises()->where('section', 'working')->count());
+        foreach ($today->exercises()->where('section', 'working')->get() as $ex) {
+            $this->assertSame(0, $ex->sets()->where('kind', 'Warm-up')->count());
+        }
+    }
+
+    public function test_warmup_style_endpoint_restructures_upcoming_sessions_in_place(): void
+    {
+        // Start from a default (per-exercise) plan.
+        $this->provider->push(FakeCoachProvider::text(json_encode(['title' => 'A', 'duration_min' => 60, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 5, 'rest_sec' => 120],
+        ]])));
+        $option = ['name' => 'InPlace', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $today = Block::where('user_id', $this->user->id)->first()->sessions()->where('status', 'today')->firstOrFail();
+        $workingBefore = $today->exercises()->where('section', 'working')->pluck('name')->sort()->values()->all();
+
+        $this->postJson('/api/stride/plan/warmup-style', ['style' => 'grouped'], $this->auth)
+            ->assertOk()->assertJsonPath('warmup_style', 'grouped');
+
+        $today->refresh();
+        $this->assertGreaterThan(0, $today->exercises()->where('section', 'warmup')->count());
+        // Working exercises preserved, now without warm-up sets.
+        $this->assertSame($workingBefore, $today->exercises()->where('section', 'working')->pluck('name')->sort()->values()->all());
+        $this->assertSame(0, $today->exercises()->where('name', 'Back Squat')->firstOrFail()->sets()->where('kind', 'Warm-up')->count());
+
+        // Switching back restores a per-exercise warm-up set and clears the group.
+        $this->postJson('/api/stride/plan/warmup-style', ['style' => 'per_exercise'], $this->auth)->assertOk();
+        $today->refresh();
+        $this->assertSame(0, $today->exercises()->where('section', 'warmup')->count());
+        $this->assertSame(1, $today->exercises()->where('name', 'Back Squat')->firstOrFail()->sets()->where('kind', 'Warm-up')->count());
     }
 
     public function test_recommend_accepts_a_rejection_note(): void

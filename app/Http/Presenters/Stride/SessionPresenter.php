@@ -51,6 +51,7 @@ class SessionPresenter
             'exercise_id' => $exercise->exercise_id,
             'name' => $exercise->name,
             'tag' => $exercise->tag,
+            'section' => $exercise->section ?? 'working',
             'note' => $exercise->note,
             'video_cue' => $exercise->video_cue,
             // How this exercise is measured — 'hold' renders seconds (not reps)

@@ -50,6 +50,7 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::post('plan/questions', [PlanController::class, 'questions']);
     Route::post('plan/answers', [PlanController::class, 'answers']);
     Route::post('plan/generate', [PlanController::class, 'generate']);
+    Route::post('plan/warmup-style', [PlanController::class, 'warmupStyle']);
 
     // Sessions (active player)
     Route::get('sessions/{session}', [SessionController::class, 'show']);
