@@ -4,10 +4,12 @@ namespace Tests\Feature\Stride;
 
 use App\Models\Common\User;
 use App\Models\Stride\Block;
+use App\Models\Stride\Exercise;
 use App\Models\Stride\ExerciseSet;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
+use App\Support\Stride\StrideLanguage;
 use Database\Seeders\Stride\StrideDemoSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -172,7 +174,7 @@ class StrideTrainingTest extends TestCase
 
     public function test_library_shows_slovak_names_for_slovak_users(): void
     {
-        $exercise = \App\Models\Stride\Exercise::create([
+        $exercise = Exercise::create([
             'slug' => 'dumbell-romanian-deadlift-test',
             'name' => 'Dumbell Romanian Deadlift',
             'name_sk' => 'Rumunský mŕtvy ťah s jednoručkami',
@@ -186,7 +188,7 @@ class StrideTrainingTest extends TestCase
 
         // …Slovak once the profile says so, with the English kept alongside.
         $this->patchJson('/api/stride/profile', ['language' => 'sk'], $this->auth)->assertOk();
-        \App\Support\Stride\StrideLanguage::fake(null);
+        StrideLanguage::fake(null);
 
         $payload = $this->getJson('/api/stride/library', $this->auth)->assertOk()->json('exercises');
         $row = collect($payload)->firstWhere('id', $exercise->id);

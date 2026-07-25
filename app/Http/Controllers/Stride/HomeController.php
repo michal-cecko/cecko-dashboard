@@ -32,9 +32,12 @@ class HomeController extends Controller
             ->first()
             // Already trained today? Home still needs that session (done card +
             // recap) — otherwise a completed day reads as a false "rest day".
+            // Matched on when it was COMPLETED as well as when it was scheduled:
+            // a session finished today whose scheduled_date lagged behind (nightly
+            // roll / manual move) would otherwise vanish the moment it was done.
             ?? Session::ownedBy($user)
                 ->where('status', 'done')
-                ->whereDate('scheduled_date', today())
+                ->where(fn ($q) => $q->whereDate('scheduled_date', today())->orWhereDate('completed_at', today()))
                 ->with('exercises.sets')
                 ->orderByDesc('completed_at')
                 ->first();

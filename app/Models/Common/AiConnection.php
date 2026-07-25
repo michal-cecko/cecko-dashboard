@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Shared app-wide (Stride coach, Garáž, …). No row / provider "free" means the
  * user runs on the app-subsidised free tier.
  *
- * @property string $provider   anthropic|gemini|openai|free
- * @property string $auth_type  api_key|oauth|none
- * @property array|null $credentials  {api_key} or {access_token, refresh_token, expires_at, scope}
+ * @property string $provider anthropic|gemini|openai|free
+ * @property string $auth_type api_key|oauth|none
+ * @property array|null $credentials {api_key} or {access_token, refresh_token, expires_at, scope}
  * @property string|null $model
- * @property string $status     unverified|active|invalid
+ * @property string $status unverified|active|invalid
  */
 class AiConnection extends Model
 {

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Stride;
 
+use App\Services\Common\Ai\AiCredentials;
 use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\OpenAiCoachProvider;
 use Illuminate\Http\Client\Request;
@@ -149,7 +150,7 @@ class StrideOpenAiProviderTest extends TestCase
             messages: [['role' => 'user', 'content' => 'hi']],
         );
 
-        (new OpenAiCoachProvider(new \App\Services\Common\Ai\AiCredentials(apiKey: 'sk-user-byok')))->chat($turn);
+        (new OpenAiCoachProvider(new AiCredentials(apiKey: 'sk-user-byok')))->chat($turn);
 
         Http::assertSent(fn (Request $request): bool => $request->hasHeader('Authorization', 'Bearer sk-user-byok'));
     }
