@@ -10,6 +10,7 @@ use App\Models\Stride\Session;
 use App\Services\Stride\SessionVolume;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 /**
  * Active-session player: read the full session, start/complete it, and log
@@ -79,22 +80,30 @@ class SessionController extends Controller
     }
 
     /**
-     * "I'll do it tomorrow": push a session one day out. A today/past session
-     * moves to tomorrow; a future planned one shifts a day from its own date.
-     * Works on skipped sessions too — that's the Reschedule action reviving one.
+     * Move a session to another day. The app sends the date the athlete picked
+     * ('date'); without one this stays the old "I'll do it tomorrow" shortcut —
+     * a today/past session moves to tomorrow, a future planned one shifts a day
+     * from its own date. Works on skipped sessions too (Reschedule revives one).
      */
     public function postpone(Request $request, Session $session): JsonResponse
     {
         $this->authorizeSession($request, $session);
 
+        $data = $request->validate([
+            'date' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:today'],
+        ]);
+
         abort_unless(in_array($session->status, ['today', 'planned', 'skipped'], true), 422);
 
-        $target = $session->scheduled_date !== null && $session->scheduled_date->isAfter(today())
-            ? $session->scheduled_date->copy()->addDay()
-            : today()->addDay();
+        $target = isset($data['date'])
+            ? Carbon::createFromFormat('Y-m-d', $data['date'])->startOfDay()
+            : ($session->scheduled_date !== null && $session->scheduled_date->isAfter(today())
+                ? $session->scheduled_date->copy()->addDay()
+                : today()->addDay());
 
         $session->forceFill([
-            'status' => 'planned',
+            // Moving it back onto today makes it today's session again.
+            'status' => $target->isToday() ? 'today' : 'planned',
             'scheduled_date' => $target,
             'skip_reason' => null,
         ])->save();

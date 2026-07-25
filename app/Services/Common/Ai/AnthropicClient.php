@@ -16,8 +16,20 @@ use RuntimeException;
  */
 class AnthropicClient
 {
+    /**
+     * Optional per-call credentials. When null the client uses the server key
+     * from config (the app default / free tier), preserving the original
+     * single-key behaviour. When set it uses the user's BYOK key or, for an
+     * OAuth (subscription) connection, a Bearer token + the oauth beta header.
+     */
+    public function __construct(private readonly ?AiCredentials $credentials = null) {}
+
     public function isConfigured(): bool
     {
+        if ($this->credentials !== null && ! $this->credentials->isEmpty()) {
+            return true;
+        }
+
         return ! empty(config('services.anthropic.api_key'));
     }
 
@@ -33,12 +45,6 @@ class AnthropicClient
      */
     public function messages(string $model, int $maxTokens, array $systemBlocks, array $messages, array $tools = []): AiReply
     {
-        $apiKey = (string) config('services.anthropic.api_key');
-
-        if ($apiKey === '') {
-            throw new RuntimeException('ANTHROPIC_API_KEY is not configured.');
-        }
-
         $payload = [
             'model' => $model,
             'max_tokens' => $maxTokens,
@@ -51,17 +57,40 @@ class AnthropicClient
             $payload['tool_choice'] = ['type' => 'auto'];
         }
 
-        $response = Http::withHeaders([
-            'x-api-key' => $apiKey,
-            'anthropic-version' => '2023-06-01',
-            'content-type' => 'application/json',
-        ])->timeout(60)->post('https://api.anthropic.com/v1/messages', $payload);
+        $response = Http::withHeaders($this->authHeaders())
+            ->timeout(60)
+            ->post('https://api.anthropic.com/v1/messages', $payload);
 
         if (! $response->successful()) {
             throw new RuntimeException('Anthropic API error: '.$response->status().' — '.$response->body());
         }
 
         return $this->parse($response->json());
+    }
+
+    /** Auth + version headers, using a Bearer token for OAuth or x-api-key otherwise. */
+    private function authHeaders(): array
+    {
+        $base = [
+            'anthropic-version' => '2023-06-01',
+            'content-type' => 'application/json',
+        ];
+
+        if ($this->credentials?->usesOAuth()) {
+            return [
+                ...$base,
+                'authorization' => 'Bearer '.$this->credentials->oauthToken,
+                'anthropic-beta' => (string) config('stride.ai.oauth.anthropic.beta_header', 'oauth-2025-04-20'),
+            ];
+        }
+
+        $apiKey = $this->credentials?->apiKey ?: (string) config('services.anthropic.api_key');
+
+        if ($apiKey === '' || $apiKey === null) {
+            throw new RuntimeException('ANTHROPIC_API_KEY is not configured.');
+        }
+
+        return [...$base, 'x-api-key' => $apiKey];
     }
 
     /** @param array<int, array{text: string, cache?: bool}> $systemBlocks */

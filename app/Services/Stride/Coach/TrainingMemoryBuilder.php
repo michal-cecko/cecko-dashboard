@@ -103,6 +103,21 @@ class TrainingMemoryBuilder
         $lines[] = '';
         $lines[] = $this->prSection($user);
 
+        // The athlete's own standing instructions ("You → Personal notes" and the
+        // training-preferences note). These OVERRIDE the coach's defaults — e.g.
+        // "poke me to train even on rest days" lifts the rest-day no-nudge rule.
+        $notes = array_filter([
+            trim((string) ($profile->preferences['notes'] ?? '')),
+            trim((string) ($profile->preferences['bio'] ?? '')),
+        ]);
+        if ($notes !== []) {
+            $lines[] = '';
+            $lines[] = 'STANDING REQUESTS FROM THE ATHLETE (their own words — these win over default coaching rules):';
+            foreach ($notes as $note) {
+                $lines[] = "- {$note}";
+            }
+        }
+
         $facts = CoachMemory::ownedBy($user)->latest('id')->limit(20)->pluck('fact');
         if ($facts->isNotEmpty()) {
             $lines[] = '';
@@ -150,7 +165,13 @@ class TrainingMemoryBuilder
         $today = Session::ownedBy($user)->where('status', 'today')->with('exercises.sets')->first();
 
         if ($today === null) {
-            return 'TODAY: no active session.';
+            // Say REST explicitly — "no active session" reads to the model like
+            // missing data, and it starts suggesting workouts on a rest day.
+            $done = Session::ownedBy($user)->where('status', 'done')->whereDate('scheduled_date', today())->first();
+
+            return $done !== null
+                ? "TODAY: {$done->title} — already completed. Nothing else is scheduled."
+                : 'TODAY: REST day — no session is scheduled and none is expected. Do not propose training today.';
         }
 
         $inProgress = $today->started_at !== null;

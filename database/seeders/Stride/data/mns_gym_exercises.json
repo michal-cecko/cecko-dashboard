@@ -170,13 +170,13 @@
  },
  {
   "slug": "alternate-bent-over-dumbbell-kickback",
-  "name": "Alternating Bent-Over Dumbbell Kickback",
+  "name": "Alternating Bent-Over Dumbell Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -195,26 +195,26 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-bent-over-dumbbell-reverse-fly.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-bent-over-dumbbell-reverse-fly.jpg",
-  "description": "The alternating dumbbell rear delt fly is a variation of the dumbbell reverse fly , also known as the rear delt fly. It's a great exercise to assist you in building a complete set of shoulders. Many lifters utilize this exercise to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts.",
+  "description": "The alternating dumbell rear delt fly is a variation of the dumbell reverse fly , also known as the rear delt fly. It's a great exercise to assist you in building a complete set of shoulders. Many lifters utilize this exercise to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-bent-over-dumbbell-reverse-fly.html",
   "youtube_id": null
  },
  {
   "slug": "alternate-decline-dumbbell-flys",
-  "name": "Alternating Decline Dumbbell Fly",
+  "name": "Alternating Decline Dumbell Fly",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -229,13 +229,13 @@
  },
  {
   "slug": "alternate-dumbbell-bench-press-high-start",
-  "name": "Alternate Dumbbell Bench Press (high start)",
+  "name": "Alternate Dumbell Bench Press (high start)",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -245,19 +245,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The alternate dumbbell bench press exercise is a chest exercise that also challenges the stabilization muscles of the core and shoulders. By keeping one weight elevated during the alternate dumbbell bench press, you keep constant tension on the shoulder and pec. By alternating each rep, you also force your core to stabilize your body on the bench to complete each rep. Be sure to start with the weaker side of your chest when performing alternate dumbbell bench press. This exercise is a great way to challenge yourself if you are used to perform dumbbell bench press only.",
+  "description": "The alternate dumbell bench press exercise is a chest exercise that also challenges the stabilization muscles of the core and shoulders. By keeping one weight elevated during the alternate dumbell bench press, you keep constant tension on the shoulder and pec. By alternating each rep, you also force your core to stabilize your body on the bench to complete each rep. Be sure to start with the weaker side of your chest when performing alternate dumbell bench press. This exercise is a great way to challenge yourself if you are used to perform dumbell bench press only.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-dumbbell-bench-press-high-start.html",
   "youtube_id": "LL561B2xQu0"
  },
  {
   "slug": "alternate-dumbbell-bench-press-low-start",
-  "name": "Alternating Dumbbell Bench Press (Low Start)",
+  "name": "Alternating Dumbell Bench Press (Low Start)",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -273,13 +273,13 @@
  },
  {
   "slug": "alternate-dumbbell-flys",
-  "name": "Alternating Dumbbell Fly",
+  "name": "Alternating Dumbell Fly",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -294,13 +294,13 @@
  },
  {
   "slug": "alternate-dumbbell-hammer-preacher-curl",
-  "name": "Alternating Dumbbell Hammer Preacher Curl",
+  "name": "Alternating Dumbell Hammer Preacher Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -315,32 +315,32 @@
  },
  {
   "slug": "alternate-dumbbell-lateral-raise",
-  "name": "Alternating Dumbbell Lateral Raise",
+  "name": "Alternating Dumbell Lateral Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-dumbbell-lateral-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-dumbbell-lateral-raise.jpg",
-  "description": "Alternating dumbbell lateral raises are a variation of the dumbbell lateral raise and are used to isolate the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "Alternating dumbell lateral raises are a variation of the dumbell lateral raise and are used to isolate the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-dumbbell-lateral-raise.html",
   "youtube_id": null
  },
  {
   "slug": "alternate-dumbbell-preacher-curl",
-  "name": "Alternating Dumbbell Preacher Curl",
+  "name": "Alternating Dumbell Preacher Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -359,26 +359,26 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-dumbbell-reverse-fly-on-incline-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-dumbbell-reverse-fly-on-incline-bench.jpg",
-  "description": "The alternating incline rear delt fly is a variation of an incline rear delt fly and a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the dumbbell rear fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts by using the incline rear delt fly can lead to improved posture and a greater level of strength on other lifts.",
+  "description": "The alternating incline rear delt fly is a variation of an incline rear delt fly and a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the dumbell rear fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts by using the incline rear delt fly can lead to improved posture and a greater level of strength on other lifts.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-dumbbell-reverse-fly-on-incline-bench.html",
   "youtube_id": null
  },
  {
   "slug": "alternate-incline-dumbbell-curl",
-  "name": "Alternating Incline Dumbbell Curl",
+  "name": "Alternating Incline Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -391,13 +391,13 @@
  },
  {
   "slug": "alternate-incline-dumbbell-flys",
-  "name": "Alternating Incline Dumbbell Fly",
+  "name": "Alternating Incline Dumbell Fly",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -418,7 +418,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -433,13 +433,13 @@
  },
  {
   "slug": "alternate-lying-dumbbell-extension",
-  "name": "Alternating Lying Dumbbell Extension",
+  "name": "Alternating Lying Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -458,7 +458,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -471,13 +471,13 @@
  },
  {
   "slug": "alternate-one-arm-standing-palms-in-dumbbell-press",
-  "name": "Standing Neutral Grip Alternating Dumbbell Shoulder Press",
+  "name": "Standing Neutral Grip Alternating Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -488,7 +488,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The standing neutral grip alternating dumbbell shoulder press is a variation of the standing dumbbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The neutral grip used in the exercise can be especially helpful for those who experience shoulder and elbow pain in other variations. Alternating reps will provide a core and shoulder stability challenge while you fight to maintain proper spinal alignment and keep the weight in a pressing position. This exercise can be incorporated into your shoulder workouts , upper body workouts, push workouts, or full body…",
+  "description": "The standing neutral grip alternating dumbell shoulder press is a variation of the standing dumbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The neutral grip used in the exercise can be especially helpful for those who experience shoulder and elbow pain in other variations. Alternating reps will provide a core and shoulder stability challenge while you fight to maintain proper spinal alignment and keep the weight in a pressing position. This exercise can be incorporated into your shoulder workouts , upper body workouts, push workouts, or full body…",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-one-arm-standing-palms-in-dumbbell-press.html",
   "youtube_id": "G0eJa-Bwlhc"
  },
@@ -519,7 +519,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -534,13 +534,13 @@
  },
  {
   "slug": "alternate-seated-bent-over-dumbbell-kickback",
-  "name": "Seated Alternating Bent Over Dumbbell Kickback",
+  "name": "Seated Alternating Bent Over Dumbell Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -559,26 +559,26 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-seated-bent-over-dumbbell-reverse-fly.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-seated-bent-over-dumbbell-reverse-fly.jpg",
-  "description": "The alternating seated bent over dumbbell rear delt fly is a variation of the bent over dumbbell reverse fly , also known as the bent over rear delt fly. It's a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the bent over dumbbell rear delt fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards…",
+  "description": "The alternating seated bent over dumbell rear delt fly is a variation of the bent over dumbell reverse fly , also known as the bent over rear delt fly. It's a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the bent over dumbell rear delt fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards…",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-seated-bent-over-dumbbell-reverse-fly.html",
   "youtube_id": null
  },
  {
   "slug": "alternate-seated-dumbbell-curl",
-  "name": "Alternating Seated Dumbbell Curl",
+  "name": "Alternating Seated Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -591,32 +591,32 @@
  },
  {
   "slug": "alternate-seated-dumbbell-front-raise",
-  "name": "Seated Alternating Dumbbell Front Raise",
+  "name": "Seated Alternating Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-seated-dumbbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-seated-dumbbell-front-raise.jpg",
-  "description": "The alternating dumbbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The alternating dumbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-seated-dumbbell-front-raise.html",
   "youtube_id": null
  },
  {
   "slug": "alternate-seated-dumbbell-press",
-  "name": "Alternate Seated Dumbbell Press",
+  "name": "Alternate Seated Dumbell Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -626,7 +626,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated alternating dumbbell press is a variation of the seated dumbbell press and an exercise utilized to build shoulder muscle size and strength. By alternating the shoulder press, you will challenge both your shoulder and core stability to maintain proper alignment and form throughout the exercise. Alternating and unilateral exercises are especially helpful in building balanced size and strength.",
+  "description": "The seated alternating dumbell press is a variation of the seated dumbell press and an exercise utilized to build shoulder muscle size and strength. By alternating the shoulder press, you will challenge both your shoulder and core stability to maintain proper alignment and form throughout the exercise. Alternating and unilateral exercises are especially helpful in building balanced size and strength.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-seated-dumbbell-press.html",
   "youtube_id": "AYacfAeoNGo"
  },
@@ -638,7 +638,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -653,13 +653,13 @@
  },
  {
   "slug": "alternate-seated-palms-in-dumbbell-press",
-  "name": "Seated Alternating Neutral Grip Dumbbell Shoulder Press",
+  "name": "Seated Alternating Neutral Grip Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -668,7 +668,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-seated-palms-in-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-seated-palms-in-dumbbell-press.jpg",
-  "description": "The seated alternating neutral grip dumbbell shoulder press is a variation of the seated neutral grip dumbbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. Performing unilateral movements can…",
+  "description": "The seated alternating neutral grip dumbell shoulder press is a variation of the seated neutral grip dumbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. Performing unilateral movements can…",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-seated-palms-in-dumbbell-press.html",
   "youtube_id": null
  },
@@ -680,7 +680,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -695,32 +695,32 @@
  },
  {
   "slug": "alternate-standing-dumbbell-front-raise",
-  "name": "Alternating Dumbbell Front Raise",
+  "name": "Alternating Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-standing-dumbbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-standing-dumbbell-front-raise.jpg",
-  "description": "The alternating dumbbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The alternating dumbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-standing-dumbbell-front-raise.html",
   "youtube_id": null
  },
  {
   "slug": "alternate-standing-dumbbell-press",
-  "name": "Alternating Standing Dumbbell Shoulder Press",
+  "name": "Alternating Standing Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -729,7 +729,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/alternate-standing-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/alternate-standing-dumbbell-press.jpg",
-  "description": "The alternating standing dumbbell press is a variation of the standing dumbbell press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise can be included in shoulder workouts , push workouts, upper body workouts, and full body workouts .",
+  "description": "The alternating standing dumbell press is a variation of the standing dumbell press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise can be included in shoulder workouts , push workouts, upper body workouts, and full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/alternate-standing-dumbbell-press.html",
   "youtube_id": null
  },
@@ -741,7 +741,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -756,13 +756,13 @@
  },
  {
   "slug": "alternating-standing-dumbbell-curl",
-  "name": "Alternating Standing Dumbbell Curl",
+  "name": "Alternating Standing Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -876,7 +876,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The barbell front raise is a shoulder exercise used to target the front deltoids. Use of the barbell can allow you to overload the muscles to a greater degree than one may be capable of doing with dumbbells. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to an appearance of a complete set of shoulders and wider framed upper body.",
+  "description": "The barbell front raise is a shoulder exercise used to target the front deltoids. Use of the barbell can allow you to overload the muscles to a greater degree than one may be capable of doing with dumbells. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to an appearance of a complete set of shoulders and wider framed upper body.",
   "source_url": "https://www.muscleandstrength.com/exercises/barbell-front-raise.html",
   "youtube_id": "lhV2-z6s_bI"
  },
@@ -1044,7 +1044,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The barbell reverse lunge is a leg building exercise used to target the quads. It is a variation of the lunge movement pattern, which is a foundational movement to train. Some lifters experience less knee pressure when performing the barbell reverse lunge than they do when performing the traditional barbell lunge . Utilizing a barbell also allows the lifter to use more weight during the lunge than they would if they were to perform the dumbbell or bodyweight variations.",
+  "description": "The barbell reverse lunge is a leg building exercise used to target the quads. It is a variation of the lunge movement pattern, which is a foundational movement to train. Some lifters experience less knee pressure when performing the barbell reverse lunge than they do when performing the traditional barbell lunge . Utilizing a barbell also allows the lifter to use more weight during the lunge than they would if they were to perform the dumbell or bodyweight variations.",
   "source_url": "https://www.muscleandstrength.com/exercises/barbell-rear-lunge.html",
   "youtube_id": "U1gWfjAIS4Q"
  },
@@ -1188,7 +1188,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The barbell step up is an exercise used to target the muscles of the legs with an emphasis on the quads. The barbell step up is a variation of the lunge movement pattern and a progression to the dumbbell step up and bodyweight step up . People often progress to the barbell step up to utilize more weight than they could holding dumbbells.",
+  "description": "The barbell step up is an exercise used to target the muscles of the legs with an emphasis on the quads. The barbell step up is a variation of the lunge movement pattern and a progression to the dumbell step up and bodyweight step up . People often progress to the barbell step up to utilize more weight than they could holding dumbells.",
   "source_url": "https://www.muscleandstrength.com/exercises/barbell-step-ups.html",
   "youtube_id": "_uzlVEERPyM"
  },
@@ -1226,7 +1226,7 @@
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/barbell-wrist-curl-over-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/barbell-wrist-curl-over-bench.jpg",
-  "description": "The barbell wrist curl is a variation of the dumbbell wrist curl and an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
+  "description": "The barbell wrist curl is a variation of the dumbell wrist curl and an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
   "source_url": "https://www.muscleandstrength.com/exercises/barbell-wrist-curl-over-bench.html",
   "youtube_id": null
  },
@@ -1294,13 +1294,13 @@
  },
  {
   "slug": "bench-one-leg-dumbbell-squat",
-  "name": "Dumbbell Pistol Squat (On Bench)",
+  "name": "Dumbell Pistol Squat (On Bench)",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -1364,32 +1364,32 @@
  },
  {
   "slug": "bent-over-dumbbell-kickback",
-  "name": "Bent Over Dumbbell Tricep Kickback",
+  "name": "Bent Over Dumbell Tricep Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The bent over dumbbell tricep kickback is a classic tricep exercise that has been used for ages. When performing bent over dumbbell tricep kickbacks, the movement should be slow and focused. The point of this exercise is to get a good contraction on the triceps and establish a mind-muscle connection. The bent over dumbbell tricep kickback is typically included in hypertrophy-based splits and are also an excellent tricep finisher at the end of your workout.",
+  "description": "The bent over dumbell tricep kickback is a classic tricep exercise that has been used for ages. When performing bent over dumbell tricep kickbacks, the movement should be slow and focused. The point of this exercise is to get a good contraction on the triceps and establish a mind-muscle connection. The bent over dumbell tricep kickback is typically included in hypertrophy-based splits and are also an excellent tricep finisher at the end of your workout.",
   "source_url": "https://www.muscleandstrength.com/exercises/bent-over-dumbbell-kickback.html",
   "youtube_id": "BL9CzOQZDrs"
  },
  {
   "slug": "bent-over-dumbbell-reverse-fly",
-  "name": "Bent Over Dumbbell Reverse Fly",
+  "name": "Bent Over Dumbell Reverse Fly",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -1399,19 +1399,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The bent over dumbbell reverse fly, also known as the bent over rear delt fly, is a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the bent over dumbbell reverse fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts by using the bent over rear delt fly can lead to improved posture and a greater level of strength on other lifts.",
+  "description": "The bent over dumbell reverse fly, also known as the bent over rear delt fly, is a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the bent over dumbell reverse fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts by using the bent over rear delt fly can lead to improved posture and a greater level of strength on other lifts.",
   "source_url": "https://www.muscleandstrength.com/exercises/bent-over-dumbbell-reverse-fly.html",
   "youtube_id": "Fgz_FdzDukE"
  },
  {
   "slug": "bent-over-dumbbell-row",
-  "name": "Bent Over Dumbbell Row",
+  "name": "Bent Over Dumbell Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -1424,7 +1424,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell row is a variation of the bent over row and an exercise used to build back muscle and strength. The back is a muscle group that requires a fair amount of variation. So, experiment with several different angles and hand positions to maximize your back muscle growth. Rows are a foundational movement pattern and are very important to train for balanced muscle growth and strength. So, experiment until you find a rowing variation that you enjoy and work on it. The dumbbell row can be performed during your back workouts , upper body workouts, pull workouts, and full body workouts .",
+  "description": "The dumbell row is a variation of the bent over row and an exercise used to build back muscle and strength. The back is a muscle group that requires a fair amount of variation. So, experiment with several different angles and hand positions to maximize your back muscle growth. Rows are a foundational movement pattern and are very important to train for balanced muscle growth and strength. So, experiment until you find a rowing variation that you enjoy and work on it. The dumbell row can be performed during your back workouts , upper body workouts, pull workouts, and full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/bent-over-dumbbell-row.html",
   "youtube_id": "DhewkuU_95s"
  },
@@ -2295,13 +2295,13 @@
  },
  {
   "slug": "close-grip-dumbbell-press",
-  "name": "Close Grip Dumbbell Press (AKA Crush Press)",
+  "name": "Close Grip Dumbell Press (AKA Crush Press)",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -2311,7 +2311,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell crush press is a variation of the dumbbell bench press and an exercise used to build the muscles of the chest and triceps. The crush press is particularly effective in activating the chest as you’ll squeeze the pecs while pressing the dumbbells together. Additionally, the crush press incorporates the triceps more so than other bench press variations. This exercise is useful for bodybuilders trying to establish mind-muscle connection with their chest, as well as other lifters looking to build stronger triceps to assist them in other press variations.",
+  "description": "The dumbell crush press is a variation of the dumbell bench press and an exercise used to build the muscles of the chest and triceps. The crush press is particularly effective in activating the chest as you’ll squeeze the pecs while pressing the dumbells together. Additionally, the crush press incorporates the triceps more so than other bench press variations. This exercise is useful for bodybuilders trying to establish mind-muscle connection with their chest, as well as other lifters looking to build stronger triceps to assist them in other press variations.",
   "source_url": "https://www.muscleandstrength.com/exercises/close-grip-dumbbell-press.html",
   "youtube_id": "XZ3XSwmk1Os"
  },
@@ -2451,7 +2451,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -2719,13 +2719,13 @@
  },
  {
   "slug": "decline-dumbbell-bench-press",
-  "name": "Decline Dumbbell Bench Press",
+  "name": "Decline Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -2735,19 +2735,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The decline dumbbell bench press is a variation of the decline bench press . By using dumbbells during a decline bench press, you allow yourself for a greater range of motion during the exercise. Using dumbbells also requires a great deal of shoulder stability, thus it recruits more muscle fibers to stabilize the body than its barbell counterpart. The decline dumbbell bench press is a chest exercise that also indirectly targets the shoulders, triceps, and core. The decline angle used during a decline dumbbell bench press is useful for those attempting to build the lower part of their chest.",
+  "description": "The decline dumbell bench press is a variation of the decline bench press . By using dumbells during a decline bench press, you allow yourself for a greater range of motion during the exercise. Using dumbells also requires a great deal of shoulder stability, thus it recruits more muscle fibers to stabilize the body than its barbell counterpart. The decline dumbell bench press is a chest exercise that also indirectly targets the shoulders, triceps, and core. The decline angle used during a decline dumbell bench press is useful for those attempting to build the lower part of their chest.",
   "source_url": "https://www.muscleandstrength.com/exercises/decline-dumbbell-bench-press.html",
   "youtube_id": "5pDbtYmX5fM"
  },
  {
   "slug": "decline-dumbbell-flys",
-  "name": "Decline Dumbbell Flys",
+  "name": "Decline Dumbell Flys",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -2757,7 +2757,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The decline dumbbell chest fly is a variation of the dumbbell fly used to target the muscles of the chest. In particular, the decline dumbbell chest fly targets the lower chest due to the decline angle used.",
+  "description": "The decline dumbell chest fly is a variation of the dumbell fly used to target the muscles of the chest. In particular, the decline dumbell chest fly targets the lower chest due to the decline angle used.",
   "source_url": "https://www.muscleandstrength.com/exercises/decline-dumbbell-flys.html",
   "youtube_id": "4ahnfPhKoFo"
  },
@@ -2769,7 +2769,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Abs"
   ],
@@ -2803,20 +2803,20 @@
  },
  {
   "slug": "decline-lying-dumbbell-extension",
-  "name": "Decline Lying Dumbbell Extension",
+  "name": "Decline Lying Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The decline dumbbell extension is a variation of the lying dumbbell extension used to target the muscles of the triceps. Using a decline bench during decline dumbbell extensions creates a greater range of motion to target the tricep muscle. The decline dumbbell extension is an excellent option for those looking to build more defined triceps and those looking to strengthen their triceps to build a bigger bench press.",
+  "description": "The decline dumbell extension is a variation of the lying dumbell extension used to target the muscles of the triceps. Using a decline bench during decline dumbell extensions creates a greater range of motion to target the tricep muscle. The decline dumbell extension is an excellent option for those looking to build more defined triceps and those looking to strengthen their triceps to build a bigger bench press.",
   "source_url": "https://www.muscleandstrength.com/exercises/decline-lying-dumbbell-extension.html",
   "youtube_id": "hKGDJNuPsb0"
  },
@@ -2978,7 +2978,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -2993,13 +2993,13 @@
  },
  {
   "slug": "dumbbell-bench-press",
-  "name": "Dumbbell Bench Press",
+  "name": "Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -3009,19 +3009,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell bench press is a variation of the barbell bench press and an exercise used to build the muscles of the chest. Often times, the dumbbell bench press is recommended after reaching a certain point of strength on the barbell bench press to avoid pec and shoulder injuries. Additionally, the dumbbell bench press provides an ego check in the amount of weight used due to the need to maintain shoulder stability throughout the exercise. The exercise itself can be featured as a main lift in your workouts or an accessory lift to the bench press depending on your goals.",
+  "description": "The dumbell bench press is a variation of the barbell bench press and an exercise used to build the muscles of the chest. Often times, the dumbell bench press is recommended after reaching a certain point of strength on the barbell bench press to avoid pec and shoulder injuries. Additionally, the dumbell bench press provides an ego check in the amount of weight used due to the need to maintain shoulder stability throughout the exercise. The exercise itself can be featured as a main lift in your workouts or an accessory lift to the bench press depending on your goals.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-bench-press.html",
   "youtube_id": "dGqI0Z5ul4k"
  },
  {
   "slug": "dumbbell-deadlift",
-  "name": "Dumbbell Deadlift",
+  "name": "Dumbell Deadlift",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Lower Back"
   ],
@@ -3042,13 +3042,13 @@
  },
  {
   "slug": "dumbbell-floor-press",
-  "name": "Dumbbell Floor Press",
+  "name": "Dumbell Floor Press",
   "category": "strength",
   "group": "Triceps",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -3058,19 +3058,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell floor press is a variation of the floor press and an exercise used to strengthen the muscles of the triceps and chest. Primarily, the dumbbell floor press will target the muscles of the triceps. The limited range of motion effectively takes the chest somewhat out of the equation of the press. However, the chest can still be indirectly targeted when using the floor press. Simply focus on squeezing the pecs at the top of the movement. Floor presses, in generally, are particular helpful for those looking to build stronger triceps to help with locking out more compound press…",
+  "description": "The dumbell floor press is a variation of the floor press and an exercise used to strengthen the muscles of the triceps and chest. Primarily, the dumbell floor press will target the muscles of the triceps. The limited range of motion effectively takes the chest somewhat out of the equation of the press. However, the chest can still be indirectly targeted when using the floor press. Simply focus on squeezing the pecs at the top of the movement. Floor presses, in generally, are particular helpful for those looking to build stronger triceps to help with locking out more compound press…",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-floor-press.html",
   "youtube_id": "gaBOfLlIXjs"
  },
  {
   "slug": "dumbbell-flys",
-  "name": "Dumbbell Flys",
+  "name": "Dumbell Flys",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -3080,38 +3080,38 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell fly utilizes a chest fly movement pattern to isolate the muscles fo the chest to better help the muscles grow and become stronger. The dumbbell fly is often thought of as a classic bodybuilding movement as the goal of the exercise is to isolate the chest for aesthetic purposes. The movement itself can be used to help build a stronger bench press but isn’t typically thought of from an increased performance stand-point. Thus, this movement is best reserved for traditional chest workouts in bodybuilding style splits.",
+  "description": "The dumbell fly utilizes a chest fly movement pattern to isolate the muscles fo the chest to better help the muscles grow and become stronger. The dumbell fly is often thought of as a classic bodybuilding movement as the goal of the exercise is to isolate the chest for aesthetic purposes. The movement itself can be used to help build a stronger bench press but isn’t typically thought of from an increased performance stand-point. Thus, this movement is best reserved for traditional chest workouts in bodybuilding style splits.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-flys.html",
   "youtube_id": "-lcbvOddoi8"
  },
  {
   "slug": "dumbbell-front-raise",
-  "name": "Standing Dumbbell Front Raise",
+  "name": "Standing Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-front-raise.jpg",
-  "description": "The dumbbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body.",
+  "description": "The dumbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-front-raise.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-front-raise-on-incline-bench",
-  "name": "Lying Dumbbell Front Raise On Incline Bench",
+  "name": "Lying Dumbell Front Raise On Incline Bench",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -3120,19 +3120,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The lying dumbbell front raise on incline bench video is a variation of the dumbbell front raise and an exercise used to build the muscles of the shoulder. Specifically, the lying dumbbell front raise will primarily work the front deltoid. Having well built front deltoids can equate to stronger lifts, broader shoulders, and more shoulder stability. This exercise can be incorporated into your shoulder workouts , upper body workouts, or full body workouts .",
+  "description": "The lying dumbell front raise on incline bench video is a variation of the dumbell front raise and an exercise used to build the muscles of the shoulder. Specifically, the lying dumbell front raise will primarily work the front deltoid. Having well built front deltoids can equate to stronger lifts, broader shoulders, and more shoulder stability. This exercise can be incorporated into your shoulder workouts , upper body workouts, or full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-front-raise-on-incline-bench.html",
   "youtube_id": "brYmE1oIWfc"
  },
  {
   "slug": "dumbbell-hammer-preacher-curl",
-  "name": "Dumbbell Hammer Preacher Curl",
+  "name": "Dumbell Hammer Preacher Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -3141,19 +3141,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The preacher dumbbell hammer curl is a variation of the hammer curl and an exercise used to build bigger biceps. Utilizing the preacher set up while performing preacher dumbbell hammer curls promotes a fixed range of motion for the hammer curl, allowing for a more focused contraction on the biceps. When trying to build your biceps, using a wide range of exercises which focus on different ranges of motion is the best approach.",
+  "description": "The preacher dumbell hammer curl is a variation of the hammer curl and an exercise used to build bigger biceps. Utilizing the preacher set up while performing preacher dumbell hammer curls promotes a fixed range of motion for the hammer curl, allowing for a more focused contraction on the biceps. When trying to build your biceps, using a wide range of exercises which focus on different ranges of motion is the best approach.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-hammer-preacher-curl.html",
   "youtube_id": "ZdcFOgFi1Dg"
  },
  {
   "slug": "dumbbell-hamstring-curl",
-  "name": "Dumbbell Hamstring Curl",
+  "name": "Dumbell Hamstring Curl",
   "category": "strength",
   "group": "Hamstrings",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Hamstrings"
   ],
@@ -3166,13 +3166,13 @@
  },
  {
   "slug": "dumbbell-jumping-squat",
-  "name": "Dumbbell Squat Jump",
+  "name": "Dumbell Squat Jump",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3189,32 +3189,32 @@
  },
  {
   "slug": "dumbbell-lateral-raise",
-  "name": "Dumbbell Lateral Raise",
+  "name": "Dumbell Lateral Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-lateral-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-lateral-raise.jpg",
-  "description": "The dumbbell lateral raise is a shoulder exercise used to strengthen the muscles of the shoulder. It's a good exercise for building width in your upper body which gives you the \"V\" shape.",
+  "description": "The dumbell lateral raise is a shoulder exercise used to strengthen the muscles of the shoulder. It's a good exercise for building width in your upper body which gives you the \"V\" shape.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-lateral-raise.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-lunge",
-  "name": "Dumbbell Lunge",
+  "name": "Dumbell Lunge",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3225,19 +3225,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-lunge.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-lunge.jpg",
-  "description": "The dumbbell lunge targets the quadriceps, hamstrings, glutes, and calves while also engaging the core for stability. This exercise is a unilateral movement, meaning it primarily works one leg at a time. By challenging each leg independently, it improves lower body strength, balance, and coordination. It also mimics functional movements, improving flexibility and mobility in the hips and legs. The lunge is a foundational movement pattern that should be incorporated into every workout program and trained fairly frequently. Those looking to add lunges into their own workout programs should…",
+  "description": "The dumbell lunge targets the quadriceps, hamstrings, glutes, and calves while also engaging the core for stability. This exercise is a unilateral movement, meaning it primarily works one leg at a time. By challenging each leg independently, it improves lower body strength, balance, and coordination. It also mimics functional movements, improving flexibility and mobility in the hips and legs. The lunge is a foundational movement pattern that should be incorporated into every workout program and trained fairly frequently. Those looking to add lunges into their own workout programs should…",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-lunge.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-preacher-curl",
-  "name": "Dumbbell Preacher Curl",
+  "name": "Dumbell Preacher Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -3246,19 +3246,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell preacher curl is a variation of the preacher curl and an exercise used to isolate the biceps. The angle used when performing preacher curl variations allows for a more focused concentric portion of the curl. This is especially helpful when trying to build bicep peaks and promote a pump in the biceps. The dumbbell preacher curl would be an exercise primarily used by bodybuilders to help build bigger biceps. It is an isolation movement that is best used towards the end of your workouts if your goal is building a more aesthetic physique.",
+  "description": "The dumbell preacher curl is a variation of the preacher curl and an exercise used to isolate the biceps. The angle used when performing preacher curl variations allows for a more focused concentric portion of the curl. This is especially helpful when trying to build bicep peaks and promote a pump in the biceps. The dumbell preacher curl would be an exercise primarily used by bodybuilders to help build bigger biceps. It is an isolation movement that is best used towards the end of your workouts if your goal is building a more aesthetic physique.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-preacher-curl.html",
   "youtube_id": "pwEhS1sg9mU"
  },
  {
   "slug": "dumbbell-pullover",
-  "name": "Dumbbell Pullover",
+  "name": "Dumbell Pullover",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -3267,19 +3267,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-pullover.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-pullover.jpg",
-  "description": "A Dumbbell Pullover is an exercise that primarily targets the chest (pectorals) and lats (latissimus dorsi), while also engaging the triceps and core. This movement helps to improve upper body strength, flexibility, and muscle definition in both the chest and back. It can be performed as a chest or back-focused exercise depending on the angle and emphasis.",
+  "description": "A Dumbell Pullover is an exercise that primarily targets the chest (pectorals) and lats (latissimus dorsi), while also engaging the triceps and core. This movement helps to improve upper body strength, flexibility, and muscle definition in both the chest and back. It can be performed as a chest or back-focused exercise depending on the angle and emphasis.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-pullover.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-rear-lunge",
-  "name": "Dumbbell Rear Lunge",
+  "name": "Dumbell Rear Lunge",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3290,19 +3290,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell reverse lunge is a dumbbell lunge variation and an exercise used to target the muscles of the quads, as well as the rest of the muscles of the leg. The lunge is a foundational movement pattern that every lifter should strive to master.",
+  "description": "The dumbell reverse lunge is a dumbell lunge variation and an exercise used to target the muscles of the quads, as well as the rest of the muscles of the leg. The lunge is a foundational movement pattern that every lifter should strive to master.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-rear-lunge.html",
   "youtube_id": "Ix9QZ3Pnneo"
  },
  {
   "slug": "dumbbell-reverse-fly",
-  "name": "Seated Bent Over Dumbbell Reverse Fly",
+  "name": "Seated Bent Over Dumbell Reverse Fly",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -3312,7 +3312,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated bent over dumbbell reverse fly is a dumbbell reverse fly variation and an exercise used to strength then rear deltoids. The rear deltoids are a smaller muscle group of the shoulder and upper back. They are heavily involved in maintaining proper posture and strengthening them by using exercises such as the seated bent over dumbbell reverse fly can help keep you injury free.",
+  "description": "The seated bent over dumbell reverse fly is a dumbell reverse fly variation and an exercise used to strength then rear deltoids. The rear deltoids are a smaller muscle group of the shoulder and upper back. They are heavily involved in maintaining proper posture and strengthening them by using exercises such as the seated bent over dumbell reverse fly can help keep you injury free.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-reverse-fly.html",
   "youtube_id": "b9YUtRP184o"
  },
@@ -3324,7 +3324,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -3334,19 +3334,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-reverse-fly-on-incline-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-reverse-fly-on-incline-bench.jpg",
-  "description": "The incline rear delt fly, also known as a reverse fly, is a variation of a bent-over dumbbell reverse fly and a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the dumbbell reverse fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts by performing a rear delt fly can lead to improved posture and a greater level of strength on other lifts.",
+  "description": "The incline rear delt fly, also known as a reverse fly, is a variation of a bent-over dumbell reverse fly and a great exercise to assist you in building a complete set of shoulders. Many lifters utilize the dumbell reverse fly to target the rear delts, an often lagging muscle for many lifters alike. Strengthening the rear delts by performing a rear delt fly can lead to improved posture and a greater level of strength on other lifts.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-reverse-fly-on-incline-bench.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-reverse-preacher-curl",
-  "name": "Reverse Grip Dumbbell Preacher Curl",
+  "name": "Reverse Grip Dumbell Preacher Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -3361,13 +3361,13 @@
  },
  {
   "slug": "dumbbell-shrugs",
-  "name": "Dumbbell Shrug",
+  "name": "Dumbell Shrug",
   "category": "strength",
   "group": "Back",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Traps"
   ],
@@ -3377,19 +3377,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell shrug is a variation of the shrug and an exercise used to build trap muscle size. Traps, being a stubborn muscle group for many, can be trained with a fairly high frequency during the week. When doing so, be sure to mix up the volume, intensity, and implements you use to train the traps. Dumbbell shrugs can be included into your shoulder workouts , back workouts , upper body workouts, and full body workouts .",
+  "description": "The dumbell shrug is a variation of the shrug and an exercise used to build trap muscle size. Traps, being a stubborn muscle group for many, can be trained with a fairly high frequency during the week. When doing so, be sure to mix up the volume, intensity, and implements you use to train the traps. Dumbell shrugs can be included into your shoulder workouts , back workouts , upper body workouts, and full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-shrugs.html",
   "youtube_id": "dj2Gm628kas"
  },
  {
   "slug": "dumbbell-side-bends",
-  "name": "Dumbbell Side Bends",
+  "name": "Dumbell Side Bends",
   "category": "strength",
   "group": "Core",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Obliques"
   ],
@@ -3398,19 +3398,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-side-bends.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-side-bends.jpg",
-  "description": "Dumbbell Side Bends are a core-strengthening exercise that targets the obliques, the muscles along the sides of your abdomen. This movement helps improve lateral stability, supports better posture, and can enhance core definition when paired with a balanced training program. In addition to the obliques, dumbbell side bends also engage the quadratus lumborum (lower back) and hip stabilizers, making it a functional movement for overall core balance and strength.",
+  "description": "Dumbell Side Bends are a core-strengthening exercise that targets the obliques, the muscles along the sides of your abdomen. This movement helps improve lateral stability, supports better posture, and can enhance core definition when paired with a balanced training program. In addition to the obliques, dumbell side bends also engage the quadratus lumborum (lower back) and hip stabilizers, making it a functional movement for overall core balance and strength.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-side-bends.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-side-lunge",
-  "name": "Dumbbell Lateral Lunge",
+  "name": "Dumbell Lateral Lunge",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3427,13 +3427,13 @@
  },
  {
   "slug": "dumbbell-split-jump",
-  "name": "Dumbbell Split Squat With Jump",
+  "name": "Dumbell Split Squat With Jump",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3450,13 +3450,13 @@
  },
  {
   "slug": "dumbbell-squat",
-  "name": "Dumbbell Squat",
+  "name": "Dumbell Squat",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3468,19 +3468,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-squat.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-squat.jpg",
-  "description": "Dumbbell squats are a foundational strength training exercise that targets the lower body, especially the quads, glutes, hamstrings, and core. They’re a great option for building strength, improving balance, and developing proper squat form with added resistance. Common variations include the goblet squat , front-loaded squats (dumbbells racked at shoulders), and sumo dumbbell squats (wide stance with a single dumbbell between the legs). For more advanced training, you can progress to Bulgarian split squats or increase the load over time. Benefits of dumbbell squats include improved muscular…",
+  "description": "Dumbell squats are a foundational strength training exercise that targets the lower body, especially the quads, glutes, hamstrings, and core. They’re a great option for building strength, improving balance, and developing proper squat form with added resistance. Common variations include the goblet squat , front-loaded squats (dumbells racked at shoulders), and sumo dumbell squats (wide stance with a single dumbell between the legs). For more advanced training, you can progress to Bulgarian split squats or increase the load over time. Benefits of dumbell squats include improved muscular…",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-squat.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-squat-to-bench",
-  "name": "Dumbbell Box Squat",
+  "name": "Dumbell Box Squat",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3498,13 +3498,13 @@
  },
  {
   "slug": "dumbbell-step-up",
-  "name": "Dumbbell Step Up",
+  "name": "Dumbell Step Up",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3515,19 +3515,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-step-up.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-step-up.jpg",
-  "description": "The Dumbbell Step-Up is an effective lower-body exercise that targets the quads, hamstrings, and glutes while engaging the core for stability. Utilizing an elevated platform improves balance and coordination. This unilateral exercise helps correct muscle imbalances between legs and builds functional strength, making it ideal for athletes or anyone looking to enhance leg power and mobility. It's also low-impact, making it easier on the joints compared to exercises like squats or lunges . Incorporating dumbbell step-ups into your routine can improve both strength and stability, supporting…",
+  "description": "The Dumbell Step-Up is an effective lower-body exercise that targets the quads, hamstrings, and glutes while engaging the core for stability. Utilizing an elevated platform improves balance and coordination. This unilateral exercise helps correct muscle imbalances between legs and builds functional strength, making it ideal for athletes or anyone looking to enhance leg power and mobility. It's also low-impact, making it easier on the joints compared to exercises like squats or lunges . Incorporating dumbell step-ups into your routine can improve both strength and stability, supporting…",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-step-up.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-stiff-leg-deadlift",
-  "name": "Dumbbell Stiff Leg Deadlift",
+  "name": "Dumbell Romanian Deadlift",
   "category": "strength",
   "group": "Hamstrings",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Hamstrings"
   ],
@@ -3537,19 +3537,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-stiff-leg-deadlift.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-stiff-leg-deadlift.jpg",
-  "description": "The dumbbell stiff leg deadlift is an effective exercise that targets the hamstrings, glutes, and lower back. This exercise enhances posterior chain strength, flexibility, and mobility by focusing on hip hinge movement. Benefits include improved hamstring development, core stability, better posture, and increased athletic performance. Include this exercise in your next lower body day if you want to build lower body strength, improve flexibility, and enhance overall performance.",
+  "description": "The dumbell stiff leg deadlift is an effective exercise that targets the hamstrings, glutes, and lower back. This exercise enhances posterior chain strength, flexibility, and mobility by focusing on hip hinge movement. Benefits include improved hamstring development, core stability, better posture, and increased athletic performance. Include this exercise in your next lower body day if you want to build lower body strength, improve flexibility, and enhance overall performance.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-stiff-leg-deadlift.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-stiff-leg-deadlift-on-bench",
-  "name": "Dumbbell Stiff Leg Deadlift (On Bench)",
+  "name": "Dumbell Romanian Deadlift (On Bench)",
   "category": "strength",
   "group": "Hamstrings",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Hamstrings"
   ],
@@ -3565,13 +3565,13 @@
  },
  {
   "slug": "dumbbell-upright-row",
-  "name": "Dumbbell Upright Row",
+  "name": "Dumbell Upright Row",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -3582,19 +3582,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell upright row is an exercise used to build the muscles of the shoulder. It is a variation of the barbell upright row and mimics a lateral raise movement pattern. Upright rows are met with some controversy as many professionals view it as an exercise that promotes shoulder impingement. However, if performed appropriately it can be beneficial in targeting the shoulders to promote lean muscle growth .",
+  "description": "The dumbell upright row is an exercise used to build the muscles of the shoulder. It is a variation of the barbell upright row and mimics a lateral raise movement pattern. Upright rows are met with some controversy as many professionals view it as an exercise that promotes shoulder impingement. However, if performed appropriately it can be beneficial in targeting the shoulders to promote lean muscle growth .",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-upright-row.html",
   "youtube_id": "Cxrmdrq1s3E"
  },
  {
   "slug": "dumbbell-walking-lunge",
-  "name": "Dumbbell Walking Lunge",
+  "name": "Dumbell Walking Lunge",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Advanced",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3610,19 +3610,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell walking lunge is a variation of the dumbbell lunge . It is a little more advanced than other lunge variations and should be worked up to. The dumbbell walking lunge is a complete leg builder. While it does emphasize growth in the quads, it also works the hamstrings, glutes, and many other muscles of the body due to its complexity. Some lifters opt for the dumbbell walking lunge over the barbell walking lunge, because it brings the weight to the sides of the body and prohibits excessive forward leaning often experienced when performing them with a barbell.",
+  "description": "The dumbell walking lunge is a variation of the dumbell lunge . It is a little more advanced than other lunge variations and should be worked up to. The dumbell walking lunge is a complete leg builder. While it does emphasize growth in the quads, it also works the hamstrings, glutes, and many other muscles of the body due to its complexity. Some lifters opt for the dumbell walking lunge over the barbell walking lunge, because it brings the weight to the sides of the body and prohibits excessive forward leaning often experienced when performing them with a barbell.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-walking-lunge.html",
   "youtube_id": "uRSsOoZG9z8"
  },
  {
   "slug": "dumbbell-wall-squat",
-  "name": "Dumbbell Wall Squat",
+  "name": "Dumbell Wall Squat",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -3640,39 +3640,39 @@
  },
  {
   "slug": "dumbbell-wrist-curl",
-  "name": "Seated Dumbbell Wrist Curl",
+  "name": "Seated Dumbell Wrist Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-wrist-curl.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-wrist-curl.jpg",
-  "description": "The seated dumbbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
+  "description": "The seated dumbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-wrist-curl.html",
   "youtube_id": null
  },
  {
   "slug": "dumbbell-wrist-curl-over-bench",
-  "name": "Dumbbell Wrist Curl (Over Bench)",
+  "name": "Dumbell Wrist Curl (Over Bench)",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/dumbbell-wrist-curl-over-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/dumbbell-wrist-curl-over-bench.jpg",
-  "description": "The dumbbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
+  "description": "The dumbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
   "source_url": "https://www.muscleandstrength.com/exercises/dumbbell-wrist-curl-over-bench.html",
   "youtube_id": null
  },
@@ -3701,7 +3701,7 @@
  },
  {
   "slug": "exercise-ball-dumbbell-kickbacks",
-  "name": "Exercise Ball Dumbbell Kickbacks",
+  "name": "Exercise Ball Dumbell Kickbacks",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
@@ -3798,7 +3798,7 @@
  },
  {
   "slug": "exercise-ball-one-arm-dumbbell-extension",
-  "name": "Exercise Ball One-Arm Dumbbell Extension",
+  "name": "Exercise Ball One-Arm Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
@@ -3819,13 +3819,13 @@
  },
  {
   "slug": "exercise-ball-two-arm-dumbbell-extension",
-  "name": "Exercise Ball Two-Arm Dumbbell Extension",
+  "name": "Exercise Ball Two-Arm Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -3975,7 +3975,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/ez-bar-reverse-grip-preacher-curl.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/ez-bar-reverse-grip-preacher-curl.jpg",
-  "description": "The reverse grip preacher curl with EZ bar is a variation of the preacher curl and an exercise used to isolate the biceps. The angle used when performing preacher curl variations allows for a more focused concentric portion of the curl. This is especially helpful when trying to build bicep peaks and promote a pump in the biceps. The reverse grip hand positioning will naturally make the biceps more involved in the exercise. The dumbbell preacher curl would be an exercise primarily used by bodybuilders to help build bigger biceps. It is an isolation movement that is best used towards the end of…",
+  "description": "The reverse grip preacher curl with EZ bar is a variation of the preacher curl and an exercise used to isolate the biceps. The angle used when performing preacher curl variations allows for a more focused concentric portion of the curl. This is especially helpful when trying to build bicep peaks and promote a pump in the biceps. The reverse grip hand positioning will naturally make the biceps more involved in the exercise. The dumbell preacher curl would be an exercise primarily used by bodybuilders to help build bigger biceps. It is an isolation movement that is best used towards the end of…",
   "source_url": "https://www.muscleandstrength.com/exercises/ez-bar-reverse-grip-preacher-curl.html",
   "youtube_id": null
  },
@@ -4189,7 +4189,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -4438,7 +4438,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -4838,13 +4838,13 @@
  },
  {
   "slug": "incline-bench-dumbbell-curl",
-  "name": "Incline Bench Dumbbell Curl",
+  "name": "Incline Bench Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -4857,13 +4857,13 @@
  },
  {
   "slug": "incline-bench-dumbbell-lunge",
-  "name": "Decline Bench Dumbbell Lunge",
+  "name": "Decline Bench Dumbell Lunge",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -4886,7 +4886,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -4942,13 +4942,13 @@
  },
  {
   "slug": "incline-bench-two-arm-dumbbell-row",
-  "name": "Incline Bench Two Arm Dumbbell Row",
+  "name": "Incline Bench Two Arm Dumbell Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -4959,7 +4959,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The incline bench two arm dumbbell row is a variation of the bent over dumbbell row used to strengthen and build the muscles of the back. By supporting your chest on an incline bench, as seen in the incline bench two arm dumbbell row, you take pressure off the lower back and eliminate some of the stability required to perform the row. This allows you to better isolate the target muscle group (the back).",
+  "description": "The incline bench two arm dumbell row is a variation of the bent over dumbell row used to strengthen and build the muscles of the back. By supporting your chest on an incline bench, as seen in the incline bench two arm dumbell row, you take pressure off the lower back and eliminate some of the stability required to perform the row. This allows you to better isolate the target muscle group (the back).",
   "source_url": "https://www.muscleandstrength.com/exercises/incline-bench-two-arm-dumbbell-row.html",
   "youtube_id": "WPpMRmgoe8I"
  },
@@ -5028,13 +5028,13 @@
  },
  {
   "slug": "incline-dumbbell-bench-press",
-  "name": "Incline Dumbbell Bench Press",
+  "name": "Incline Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -5044,19 +5044,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The incline dumbbell bench press is a variation of the incline bench press and an exercise used to build the muscles of the chest. The shoulders and triceps will be indirectly involved as well. Utilizing an incline will allow you to better target the upper portion of the chest, a lagging part for a lot of lifters. The use of dumbbells will also promote balanced and equal strength among both sides of the chest. They can also help prevent shoulder and pec injuries when performing presses. You can include incline dumbbell bench press in your chest workouts , upper body workouts, push workouts,…",
+  "description": "The incline dumbell bench press is a variation of the incline bench press and an exercise used to build the muscles of the chest. The shoulders and triceps will be indirectly involved as well. Utilizing an incline will allow you to better target the upper portion of the chest, a lagging part for a lot of lifters. The use of dumbells will also promote balanced and equal strength among both sides of the chest. They can also help prevent shoulder and pec injuries when performing presses. You can include incline dumbell bench press in your chest workouts , upper body workouts, push workouts,…",
   "source_url": "https://www.muscleandstrength.com/exercises/incline-dumbbell-bench-press.html",
   "youtube_id": "8nNi8jbbUPE"
  },
  {
   "slug": "incline-dumbbell-curl",
-  "name": "Incline Dumbbell Curl",
+  "name": "Incline Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -5065,19 +5065,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The incline dumbbell curl is a variation of the dumbbell curl and an exercise used to build bigger biceps. The biceps is a tricky (and fun) muscle to target and putting yourself in various degrees of incline can help manipulate the range of motion for either a tighter contraction or deeper stretch. The incline dumbbell curl elongates the negative portion of the dumbbell curl, creating a deeper stretch on the biceps muscle tissue. Dumbbell curl variations are primarily popular among lifters looking to improve their aesthetics as direct arm work will have limited carry over into maximum…",
+  "description": "The incline dumbell curl is a variation of the dumbell curl and an exercise used to build bigger biceps. The biceps is a tricky (and fun) muscle to target and putting yourself in various degrees of incline can help manipulate the range of motion for either a tighter contraction or deeper stretch. The incline dumbell curl elongates the negative portion of the dumbell curl, creating a deeper stretch on the biceps muscle tissue. Dumbell curl variations are primarily popular among lifters looking to improve their aesthetics as direct arm work will have limited carry over into maximum…",
   "source_url": "https://www.muscleandstrength.com/exercises/incline-dumbbell-curl.html",
   "youtube_id": "UeleXjsE-98"
  },
  {
   "slug": "incline-dumbbell-flys",
-  "name": "Incline Dumbbell Flys",
+  "name": "Incline Dumbell Flys",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -5087,7 +5087,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The incline dumbbell fly is a variation of the dumbbell fly and an exercise used to isolate the muscles of the chest. Isolation exercises, such as the incline dumbbell fly, are primarily used by lifters with aesthetic based goals. They can be used by lifters with strength based goals, however, the exercise itself will have limited carry over into increasing maximum strength . The incline angle used during the incline dumbbell fly provides a unique challenge to the exercise and also emphasizes the upper chest. This exercise is best used on upper hypertrophy days and/or chest workouts in more…",
+  "description": "The incline dumbell fly is a variation of the dumbell fly and an exercise used to isolate the muscles of the chest. Isolation exercises, such as the incline dumbell fly, are primarily used by lifters with aesthetic based goals. They can be used by lifters with strength based goals, however, the exercise itself will have limited carry over into increasing maximum strength . The incline angle used during the incline dumbell fly provides a unique challenge to the exercise and also emphasizes the upper chest. This exercise is best used on upper hypertrophy days and/or chest workouts in more…",
   "source_url": "https://www.muscleandstrength.com/exercises/incline-dumbbell-flys.html",
   "youtube_id": "beazxb8q-SA"
  },
@@ -5099,7 +5099,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -5201,20 +5201,20 @@
  },
  {
   "slug": "incline-two-arm-dumbbell-extension",
-  "name": "Incline Dumbbell Tricep Extension",
+  "name": "Incline Dumbell Tricep Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The incline dumbbell tricep extension is a great exercise to isolate your triceps. It can be used by both those looking to build bigger triceps and those looking to increase their tricep strength. The incline dumbbell tricep extension is a variation of the lying dumbbell tricep extension that adds a slight incline to the movement. The incline used in incline dumbbell tricep extensions increases the range of motion, allowing you to get a greater stretch on the tricep at the bottom of the movement.",
+  "description": "The incline dumbell tricep extension is a great exercise to isolate your triceps. It can be used by both those looking to build bigger triceps and those looking to increase their tricep strength. The incline dumbell tricep extension is a variation of the lying dumbell tricep extension that adds a slight incline to the movement. The incline used in incline dumbell tricep extensions increases the range of motion, allowing you to get a greater stretch on the tricep at the bottom of the movement.",
   "source_url": "https://www.muscleandstrength.com/exercises/incline-two-arm-dumbbell-extension.html",
   "youtube_id": "LEw44j2iw-M"
  },
@@ -5679,13 +5679,13 @@
  },
  {
   "slug": "lying-dumbbell-curl",
-  "name": "Lying Dumbbell Curl",
+  "name": "Lying Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -5698,13 +5698,13 @@
  },
  {
   "slug": "lying-dumbbell-extension",
-  "name": "Lying Dumbbell Extension",
+  "name": "Lying Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -5726,7 +5726,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -5790,7 +5790,7 @@
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The lying alternate heel touches exercise is an exercise used to isolate the muscles of the obliques. The exercise mimics other oblique exercises such as the dumbbell side bend and oblique crunch . One would perform this exercise to assist in building a well-developed mid-section.",
+  "description": "The lying alternate heel touches exercise is an exercise used to isolate the muscles of the obliques. The exercise mimics other oblique exercises such as the dumbell side bend and oblique crunch . One would perform this exercise to assist in building a well-developed mid-section.",
   "source_url": "https://www.muscleandstrength.com/exercises/lying-heel-touches.html",
   "youtube_id": "JQie3dPMphA"
  },
@@ -5872,13 +5872,13 @@
  },
  {
   "slug": "lying-single-dumbbell-extension",
-  "name": "Lying Dumbbell Extension (Single Dumbbell)",
+  "name": "Lying Dumbell Extension (Single Dumbell)",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -5913,13 +5913,13 @@
  },
  {
   "slug": "lying-wide-dumbbell-curl",
-  "name": "Lying Wide Dumbbell Curl",
+  "name": "Lying Wide Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6139,58 +6139,58 @@
  },
  {
   "slug": "neutral-dumbbell-wrist-curl-over-bench",
-  "name": "Neutral Grip Dumbbell Wrist Curl (Over Bench)",
+  "name": "Neutral Grip Dumbell Wrist Curl (Over Bench)",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/neutral-dumbbell-wrist-curl-over-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/neutral-dumbbell-wrist-curl-over-bench.jpg",
-  "description": "The neutral grip dumbbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
+  "description": "The neutral grip dumbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
   "source_url": "https://www.muscleandstrength.com/exercises/neutral-dumbbell-wrist-curl-over-bench.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-bent-over-dumbbell-kickback",
-  "name": "One Arm Bent Over Dumbbell Tricep Kickback",
+  "name": "One Arm Bent Over Dumbell Tricep Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The one arm bent over dumbbell tricep kickback is a classic tricep exercise that has stood the test of time. People utilize the one arm bent over dumbbell tricep kickback to focus on contracting the triceps one at a time. It is traditionally performed as an accessory exercise towards the end of a bodybuilding hypertrophy style program.",
+  "description": "The one arm bent over dumbell tricep kickback is a classic tricep exercise that has stood the test of time. People utilize the one arm bent over dumbell tricep kickback to focus on contracting the triceps one at a time. It is traditionally performed as an accessory exercise towards the end of a bodybuilding hypertrophy style program.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-bent-over-dumbbell-kickback.html",
   "youtube_id": "-fnJ97rBUKs"
  },
  {
   "slug": "one-arm-bent-over-dumbbell-reverse-fly",
-  "name": "One-Arm Dumbbell Rear Delt Fly",
+  "name": "One-Arm Dumbell Rear Delt Fly",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-bent-over-dumbbell-reverse-fly.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-bent-over-dumbbell-reverse-fly.jpg",
-  "description": "The one-arm dumbbell rear delt fly is a great exercise to assist you in building a complete set of shoulders as it targets the rear delts, an often lagging muscle for many lifters. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The one-arm dumbell rear delt fly is a great exercise to assist you in building a complete set of shoulders as it targets the rear delts, an often lagging muscle for many lifters. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-bent-over-dumbbell-reverse-fly.html",
   "youtube_id": null
  },
@@ -6340,13 +6340,13 @@
  },
  {
   "slug": "one-arm-dumbbell-bench-press",
-  "name": "One-Arm Dumbbell Bench Press",
+  "name": "One-Arm Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -6362,51 +6362,51 @@
  },
  {
   "slug": "one-arm-dumbbell-extension",
-  "name": "One-Arm Standing Dumbbell Extension",
+  "name": "One-Arm Standing Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-dumbbell-extension.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-dumbbell-extension.jpg",
-  "description": "Get into the starting position for the standing one-arm dumbbell extension by grasping a dumbbell in your left hand and holding it above your head with your palm facing forward. Your elbow should be slightly bent. You can use your right arm to stabilize your body. Begin the movement by bending at the elbow only and slowly lowering the dumbbell behind your neck. Once the dumbbell is down as far as possible, slowly raise it back to the starting position. Do not lock your elbow out at the top of the movement, and then repeat for desired reps.",
+  "description": "Get into the starting position for the standing one-arm dumbell extension by grasping a dumbell in your left hand and holding it above your head with your palm facing forward. Your elbow should be slightly bent. You can use your right arm to stabilize your body. Begin the movement by bending at the elbow only and slowly lowering the dumbell behind your neck. Once the dumbell is down as far as possible, slowly raise it back to the starting position. Do not lock your elbow out at the top of the movement, and then repeat for desired reps.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-dumbbell-extension.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-dumbbell-front-raise-on-incline-bench",
-  "name": "One-Arm Incline Dumbbell Front Raise",
+  "name": "One-Arm Incline Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-dumbbell-front-raise-on-incline-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-dumbbell-front-raise-on-incline-bench.jpg",
-  "description": "The one-arm dumbbell front raise on an incline bench is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. From an aesthetic standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed…",
+  "description": "The one-arm dumbell front raise on an incline bench is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. From an aesthetic standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-dumbbell-front-raise-on-incline-bench.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-dumbbell-hammer-preacher-curl",
-  "name": "One-Arm Dumbbell Hammer Preacher Curl",
+  "name": "One-Arm Dumbell Hammer Preacher Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6421,32 +6421,32 @@
  },
  {
   "slug": "one-arm-dumbbell-lateral-raise",
-  "name": "One-Arm Dumbbell Lateral Raise",
+  "name": "One-Arm Dumbell Lateral Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-dumbbell-lateral-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-dumbbell-lateral-raise.jpg",
-  "description": "The one-arm seated dumbbell lateral raise exercise is a variation of the dumbbell lateral raise used to isolate the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The one-arm seated dumbell lateral raise exercise is a variation of the dumbell lateral raise used to isolate the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-dumbbell-lateral-raise.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-dumbbell-reverse-fly-on-incline-bench",
-  "name": "One Arm Dumbbell Rear Delt Fly On Incline Bench",
+  "name": "One Arm Dumbell Rear Delt Fly On Incline Bench",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -6456,19 +6456,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The one arm dumbbell rear delt fly on an incline bench is an excellent exercise to isolate the rear delt. Since the exercise is an unilateral movement, you can focus on isolating each rear delt one at a time to make sure you’re building both at an equal rate. By supporting your chest on an incline bench, you prohibit any excess movement during the exercise and focus solely on training the rear delt muscle.",
+  "description": "The one arm dumbell rear delt fly on an incline bench is an excellent exercise to isolate the rear delt. Since the exercise is an unilateral movement, you can focus on isolating each rear delt one at a time to make sure you’re building both at an equal rate. By supporting your chest on an incline bench, you prohibit any excess movement during the exercise and focus solely on training the rear delt muscle.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-dumbbell-reverse-fly-on-incline-bench.html",
   "youtube_id": "qIDc4exCHBs"
  },
  {
   "slug": "one-arm-dumbbell-row",
-  "name": "One Arm Dumbbell Row",
+  "name": "One Arm Dumbell Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -6480,19 +6480,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The one arm dumbbell row is a variation of the dumbbell row and an exercise used to build back muscle and strength. The back is a muscle group that requires a fair amount of variation. So, experiment with several different angles and hand positions to maximize your back muscle growth. Rows are a foundational movement pattern and are very important to train for balanced muscle growth and strength. So, experiment until you find a rowing variation that you enjoy and work on it. The one arm dumbbell row can be performed during your back workouts , upper body workouts, pull workouts, and full body…",
+  "description": "The one arm dumbell row is a variation of the dumbell row and an exercise used to build back muscle and strength. The back is a muscle group that requires a fair amount of variation. So, experiment with several different angles and hand positions to maximize your back muscle growth. Rows are a foundational movement pattern and are very important to train for balanced muscle growth and strength. So, experiment until you find a rowing variation that you enjoy and work on it. The one arm dumbell row can be performed during your back workouts , upper body workouts, pull workouts, and full body…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-dumbbell-row.html",
   "youtube_id": "YZgVEy6cmaY"
  },
  {
   "slug": "one-arm-dumbbell-upright-row",
-  "name": "One-Arm Dumbbell Upright Row",
+  "name": "One-Arm Dumbell Upright Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Traps"
   ],
@@ -6507,32 +6507,32 @@
  },
  {
   "slug": "one-arm-dumbbell-wrist-curl-over-bench",
-  "name": "One-Arm Dumbbell Wrist Curl (Over Bench)",
+  "name": "One-Arm Dumbell Wrist Curl (Over Bench)",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-dumbbell-wrist-curl-over-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-dumbbell-wrist-curl-over-bench.jpg",
-  "description": "The one-arm dumbbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training…",
+  "description": "The one-arm dumbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-dumbbell-wrist-curl-over-bench.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-lying-dumbbell-extension",
-  "name": "One-Arm Lying Dumbbell Extension",
+  "name": "One-Arm Lying Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -6551,7 +6551,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -6586,32 +6586,32 @@
  },
  {
   "slug": "one-arm-neutral-dumbbell-wrist-curl-over-bench",
-  "name": "One-Arm Neutral Grip Dumbbell Wrist Curl (Over Bench)",
+  "name": "One-Arm Neutral Grip Dumbell Wrist Curl (Over Bench)",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-neutral-dumbbell-wrist-curl-over-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-neutral-dumbbell-wrist-curl-over-bench.jpg",
-  "description": "The one-ar neutral grip dumbbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a…",
+  "description": "The one-ar neutral grip dumbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-neutral-dumbbell-wrist-curl-over-bench.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-preacher-curl",
-  "name": "One-Arm Dumbbell Preacher Curl",
+  "name": "One-Arm Dumbell Preacher Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6624,32 +6624,32 @@
  },
  {
   "slug": "one-arm-pronated-dumbbell-extension",
-  "name": "One-Arm Lying Pronated Dumbbell Extension",
+  "name": "One-Arm Lying Pronated Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The one-arm lying pronated dumbbell tricep extension is an exercise used to isolate the tricep muscles. Some believe that through rotating hand and grip positions, you can target different areas of the triceps. However, this is highly debated with this particular muscle group. So, when deciding whether or not to perform the one arm lying pronated dumbbell tricep extension over another variation, consider which hand placement feels most comfortable to you. Training the triceps in a unilateral fashion (one side at a time), as seen in the one arm lying pronated dumbbell tricep extension, is an…",
+  "description": "The one-arm lying pronated dumbell tricep extension is an exercise used to isolate the tricep muscles. Some believe that through rotating hand and grip positions, you can target different areas of the triceps. However, this is highly debated with this particular muscle group. So, when deciding whether or not to perform the one arm lying pronated dumbell tricep extension over another variation, consider which hand placement feels most comfortable to you. Training the triceps in a unilateral fashion (one side at a time), as seen in the one arm lying pronated dumbell tricep extension, is an…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-pronated-dumbbell-extension.html",
   "youtube_id": "OfOtqWEeqrY"
  },
  {
   "slug": "one-arm-prone-dumbbell-curl",
-  "name": "One-Arm Prone Incline Dumbbell Curl",
+  "name": "One-Arm Prone Incline Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6668,7 +6668,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6683,13 +6683,13 @@
  },
  {
   "slug": "one-arm-reverse-dumbbell-preacher-curl",
-  "name": "One-Arm Reverse Grip Dumbbell Preacher Curl",
+  "name": "One-Arm Reverse Grip Dumbell Preacher Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -6704,13 +6704,13 @@
  },
  {
   "slug": "one-arm-reverse-dumbbell-wrist-curl-over-bench",
-  "name": "One Arm Reverse Dumbbell Wrist Curl Over Bench",
+  "name": "One Arm Reverse Dumbell Wrist Curl Over Bench",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -6729,7 +6729,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -6744,13 +6744,13 @@
  },
  {
   "slug": "one-arm-seated-bent-over-dumbbell-kickback",
-  "name": "One-Arm Seated Bent Over Dumbbell Kickback",
+  "name": "One-Arm Seated Bent Over Dumbell Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -6769,26 +6769,26 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-bent-over-dumbbell-reverse-fly.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-bent-over-dumbbell-reverse-fly.jpg",
-  "description": "The one-arm seated dumbbell rear delt fly is a great exercise to assist you in building a complete set of shoulders as it targets the rear delts, an often lagging muscle for many lifters. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The one-arm seated dumbell rear delt fly is a great exercise to assist you in building a complete set of shoulders as it targets the rear delts, an often lagging muscle for many lifters. Strengthening the rear delts can lead to improved posture and a greater level of strength on other lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-bent-over-dumbbell-reverse-fly.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-seated-dumbbell-curl",
-  "name": "One-Arm Seated Dumbbell Curl",
+  "name": "One-Arm Seated Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6801,13 +6801,13 @@
  },
  {
   "slug": "one-arm-seated-dumbbell-extension",
-  "name": "One-Arm Seated Dumbbell Extension",
+  "name": "One-Arm Seated Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -6820,32 +6820,32 @@
  },
  {
   "slug": "one-arm-seated-dumbbell-front-raise",
-  "name": "One-Arm Seated Dumbbell Front Raise",
+  "name": "One-Arm Seated Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-dumbbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-dumbbell-front-raise.jpg",
-  "description": "The seated one-arm dumbbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. From an aesthetic standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body.",
+  "description": "The seated one-arm dumbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. From an aesthetic standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-dumbbell-front-raise.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-seated-dumbbell-kickback",
-  "name": "One-Arm Seated Dumbbell Kickback",
+  "name": "One-Arm Seated Dumbell Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -6858,13 +6858,13 @@
  },
  {
   "slug": "one-arm-seated-dumbbell-press",
-  "name": "One-Arm Seated Dumbbell Shoulder Press",
+  "name": "One-Arm Seated Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -6873,26 +6873,26 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-dumbbell-press.jpg",
-  "description": "The one-arm seated dumbbell shoulder press is a variation of the seated dumbbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.…",
+  "description": "The one-arm seated dumbell shoulder press is a variation of the seated dumbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-dumbbell-press.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-seated-dumbbell-wrist-curl",
-  "name": "One-Arm Seated Dumbbell Wrist Curl",
+  "name": "One-Arm Seated Dumbell Wrist Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-dumbbell-wrist-curl.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-dumbbell-wrist-curl.jpg",
-  "description": "The one-arm seated dumbbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
+  "description": "The one-arm seated dumbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-dumbbell-wrist-curl.html",
   "youtube_id": null
  },
@@ -6904,7 +6904,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -6919,20 +6919,20 @@
  },
  {
   "slug": "one-arm-seated-neutral-dumbbell-wrist-curl",
-  "name": "One-Arm Seated Neutral Grip Dumbbell Wrist Curl",
+  "name": "One-Arm Seated Neutral Grip Dumbell Wrist Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-neutral-dumbbell-wrist-curl.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-neutral-dumbbell-wrist-curl.jpg",
-  "description": "The one-arm neutral grip dumbbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and…",
+  "description": "The one-arm neutral grip dumbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-neutral-dumbbell-wrist-curl.html",
   "youtube_id": null
  },
@@ -6957,13 +6957,13 @@
  },
  {
   "slug": "one-arm-seated-palms-in-dumbbell-press",
-  "name": "One-Arm Seated Neutral Grip Dumbbell Shoulder Press",
+  "name": "One-Arm Seated Neutral Grip Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -6972,26 +6972,26 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-palms-in-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-palms-in-dumbbell-press.jpg",
-  "description": "The one-arm seated neutral grip dumbbell shoulder press is a variation of the seated neutral grip dumbbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. Performing unilateral movements can also…",
+  "description": "The one-arm seated neutral grip dumbell shoulder press is a variation of the seated neutral grip dumbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. Performing unilateral movements can also…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-palms-in-dumbbell-press.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-seated-reverse-dumbbell-wrist-curl",
-  "name": "One-Arm Seated Reverse Grip Dumbbell Wrist Curl",
+  "name": "One-Arm Seated Reverse Grip Dumbell Wrist Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-seated-reverse-dumbbell-wrist-curl.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-seated-reverse-dumbbell-wrist-curl.jpg",
-  "description": "The one-arm reverse grip dumbbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and…",
+  "description": "The one-arm reverse grip dumbell wrist curl is an exercise used to target the muscles of the forearms. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Performing unilateral movements can also help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-seated-reverse-dumbbell-wrist-curl.html",
   "youtube_id": null
  },
@@ -7003,7 +7003,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -7018,13 +7018,13 @@
  },
  {
   "slug": "one-arm-standing-dumbbell-curl",
-  "name": "One-Arm Standing Dumbbell Curl",
+  "name": "One-Arm Standing Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -7037,32 +7037,32 @@
  },
  {
   "slug": "one-arm-standing-dumbbell-front-raise",
-  "name": "One-Arm Dumbbell Front Raise",
+  "name": "One-Arm Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-standing-dumbbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-standing-dumbbell-front-raise.jpg",
-  "description": "The one-arm dumbbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The one-arm dumbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-standing-dumbbell-front-raise.html",
   "youtube_id": null
  },
  {
   "slug": "one-arm-standing-dumbbell-press",
-  "name": "One-Arm Standing Dumbbell Shoulder Press",
+  "name": "One-Arm Standing Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -7071,7 +7071,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-standing-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-standing-dumbbell-press.jpg",
-  "description": "The one-arm standing dumbbell shoulder press is a variation of the standing dumbbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the…",
+  "description": "The one-arm standing dumbell shoulder press is a variation of the standing dumbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-standing-dumbbell-press.html",
   "youtube_id": null
  },
@@ -7083,7 +7083,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -7117,13 +7117,13 @@
  },
  {
   "slug": "one-arm-standing-palms-in-dumbbell-press",
-  "name": "One-Arm Neutral Grip Dumbbell Shoulder Press",
+  "name": "One-Arm Neutral Grip Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -7132,7 +7132,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/one-arm-standing-palms-in-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/one-arm-standing-palms-in-dumbbell-press.jpg",
-  "description": "The one-arm neutral grip dumbbell shoulder press is a variation of the standing dumbbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. Performing unilateral movements can also help improve…",
+  "description": "The one-arm neutral grip dumbell shoulder press is a variation of the standing dumbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. Performing unilateral movements can also help improve…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-arm-standing-palms-in-dumbbell-press.html",
   "youtube_id": null
  },
@@ -7291,13 +7291,13 @@
  },
  {
   "slug": "one-leg-dumbbell-squat-aka-bulgarian-squat",
-  "name": "One Leg Dumbbell Squat (AKA Dumbbell Bulgarian Split Squat)",
+  "name": "One Leg Dumbell Squat (AKA Dumbell Bulgarian Split Squat)",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -7313,7 +7313,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell Bulgarian split squat is an excellent exercise for those looking to build a stronger squat personal record. It can also be used to correct muscle imbalances some might experience over the years from strictly focusing on bilateral leg movements. The dumbbell Bulgarian split squat is a variation of the dumbbell lunge in which you elevate your rear foot. The elevation shifts the emphasis to the grounded foot and allows pressure to be placed directly on the quad. The dumbbell Bulgarian split squat is best considered an accessory movement, however, one can utilize them as a primary…",
+  "description": "The dumbell Bulgarian split squat is an excellent exercise for those looking to build a stronger squat personal record. It can also be used to correct muscle imbalances some might experience over the years from strictly focusing on bilateral leg movements. The dumbell Bulgarian split squat is a variation of the dumbell lunge in which you elevate your rear foot. The elevation shifts the emphasis to the grounded foot and allows pressure to be placed directly on the quad. The dumbell Bulgarian split squat is best considered an accessory movement, however, one can utilize them as a primary…",
   "source_url": "https://www.muscleandstrength.com/exercises/one-leg-dumbbell-squat-aka-bulgarian-squat.html",
   "youtube_id": "uqI3GVwfToU"
  },
@@ -7418,13 +7418,13 @@
  },
  {
   "slug": "one-leg-seated-dumbbell-calf-raise",
-  "name": "One-Leg Seated Dumbbell Calf Raise",
+  "name": "One-Leg Seated Dumbell Calf Raise",
   "category": "strength",
   "group": "Calves",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Calves"
   ],
@@ -7574,7 +7574,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -7590,13 +7590,13 @@
  },
  {
   "slug": "palms-in-bent-over-dumbbell-row",
-  "name": "Palms In Bent-Over Dumbbell Row",
+  "name": "Palms In Bent-Over Dumbell Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -7612,13 +7612,13 @@
  },
  {
   "slug": "palms-in-decline-dumbbell-bench-press",
-  "name": "Neutral Grip Decline Dumbbell Bench Press",
+  "name": "Neutral Grip Decline Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -7628,19 +7628,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The neutral grip decline dumbbell bench press is a variation of the decline dumbbell bench press . One will typically use a neutral grip to alleviate some of the pressure placed on the shoulders and elbows while pressing. The neutral grip decline dumbbell bench press targets the muscles of the chest. The angle of the decline enables you to place more focus on the lower chest, and the grip/dumbbells allows for a greater range of motion when compared to a decline barbell bench press .",
+  "description": "The neutral grip decline dumbell bench press is a variation of the decline dumbell bench press . One will typically use a neutral grip to alleviate some of the pressure placed on the shoulders and elbows while pressing. The neutral grip decline dumbell bench press targets the muscles of the chest. The angle of the decline enables you to place more focus on the lower chest, and the grip/dumbells allows for a greater range of motion when compared to a decline barbell bench press .",
   "source_url": "https://www.muscleandstrength.com/exercises/palms-in-decline-dumbbell-bench-press.html",
   "youtube_id": "P3195c15Z-o"
  },
  {
   "slug": "palms-in-dumbbell-bench-press",
-  "name": "Neutral Grip Dumbbell Bench Press",
+  "name": "Neutral Grip Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -7650,19 +7650,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell neutral grip bench press is a variation of the dumbbell bench press and an exercise used to build the muscles of the chest. Utilizing a neutral grip while performing dumbbell bench press can help to alleviate some stress on the shoulder and elbow joints. Additionally, it can incorporate the triceps more than the typical dumbbell bench press by eliminating some of the elbow flaring involved in the movement.",
+  "description": "The dumbell neutral grip bench press is a variation of the dumbell bench press and an exercise used to build the muscles of the chest. Utilizing a neutral grip while performing dumbell bench press can help to alleviate some stress on the shoulder and elbow joints. Additionally, it can incorporate the triceps more than the typical dumbell bench press by eliminating some of the elbow flaring involved in the movement.",
   "source_url": "https://www.muscleandstrength.com/exercises/palms-in-dumbbell-bench-press.html",
   "youtube_id": "3CYW028cECg"
  },
  {
   "slug": "palms-in-incline-dumbbell-bench-press",
-  "name": "Neutral Grip Incline Dumbbell Bench Press",
+  "name": "Neutral Grip Incline Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -7672,7 +7672,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The neutral grip incline dumbbell bench press is a variation of the incline dumbbell bench press and an exercise used to strengthen the muscles of the chest, triceps, and shoulders. The neutral grip when pressing is popular among those with joint discomfort as it can put some of the major joints (shoulders, wrists, and elbows) in a more favorable pressing position. Incline variations of pressing are also popular as supplemental movements and accessory work for both athletes looking to increase their strength and improve their aesthetics. For instance, from an aesthetic standpoint, using an…",
+  "description": "The neutral grip incline dumbell bench press is a variation of the incline dumbell bench press and an exercise used to strengthen the muscles of the chest, triceps, and shoulders. The neutral grip when pressing is popular among those with joint discomfort as it can put some of the major joints (shoulders, wrists, and elbows) in a more favorable pressing position. Incline variations of pressing are also popular as supplemental movements and accessory work for both athletes looking to increase their strength and improve their aesthetics. For instance, from an aesthetic standpoint, using an…",
   "source_url": "https://www.muscleandstrength.com/exercises/palms-in-incline-dumbbell-bench-press.html",
   "youtube_id": "xgQyRCcah4g"
  },
@@ -7705,7 +7705,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Quads"
   ],
@@ -7719,7 +7719,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The dumbbell plie squat is a variation of the goblet squat and an exercise used to strengthen the muscles of the legs. The plie squat will primarily target the quads, but will indirectly work the other muscles of the leg as well. This exercise can be used as a beginner exercise to help you learn the squat movement pattern prior to progressing to heavier and more technically demanding squat movements.",
+  "description": "The dumbell plie squat is a variation of the goblet squat and an exercise used to strengthen the muscles of the legs. The plie squat will primarily target the quads, but will indirectly work the other muscles of the leg as well. This exercise can be used as a beginner exercise to help you learn the squat movement pattern prior to progressing to heavier and more technically demanding squat movements.",
   "source_url": "https://www.muscleandstrength.com/exercises/pile-squat.html",
   "youtube_id": "MsxLG_ZEoOQ"
  },
@@ -7784,13 +7784,13 @@
  },
  {
   "slug": "prone-incline-dumbbell-curl",
-  "name": "Prone Incline Dumbbell Curl",
+  "name": "Prone Incline Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -7809,7 +7809,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -8019,7 +8019,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -8034,13 +8034,13 @@
  },
  {
   "slug": "reverse-dumbbell-bench-press",
-  "name": "Reverse Grip Dumbbell Bench Press",
+  "name": "Reverse Grip Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Chest"
   ],
@@ -8056,13 +8056,13 @@
  },
  {
   "slug": "reverse-dumbbell-wrist-curl",
-  "name": "Seated Reverse Grip Dumbbell Wrist Curl",
+  "name": "Seated Reverse Grip Dumbell Wrist Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -8075,20 +8075,20 @@
  },
  {
   "slug": "reverse-dumbbell-wrist-curl-over-bench",
-  "name": "Reverse Grip Dumbbell Wrist Curl (Over Bench)",
+  "name": "Reverse Grip Dumbell Wrist Curl (Over Bench)",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/reverse-dumbbell-wrist-curl-over-bench.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/reverse-dumbbell-wrist-curl-over-bench.jpg",
-  "description": "The dumbbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
+  "description": "The dumbell wrist curl is an exercise used to target the muscles of the forearms. Using a bench allows you to focus more on the movement by providing extra stability. Having strong forearms, and training the forearms in multiple ways, will allow you to lift heavier weights in many exercises simply by strengthening your grip. Forearms can be a resistant muscle to grow and may require a higher training frequency to experience a noticeable difference in forearm strength and size.",
   "source_url": "https://www.muscleandstrength.com/exercises/reverse-dumbbell-wrist-curl-over-bench.html",
   "youtube_id": null
  },
@@ -8116,13 +8116,13 @@
  },
  {
   "slug": "reverse-grip-bent-over-dumbbell-row",
-  "name": "Reverse Grip Bent-Over Dumbbell Row",
+  "name": "Reverse Grip Bent-Over Dumbell Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -8289,13 +8289,13 @@
  },
  {
   "slug": "reverse-grip-incline-bench-two-arm-dumbbell-row",
-  "name": "Reverse Grip Incline Bench Two-Arm Dumbbell Row",
+  "name": "Reverse Grip Incline Bench Two-Arm Dumbell Row",
   "category": "strength",
   "group": "Back",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Upper Back"
   ],
@@ -8746,20 +8746,20 @@
  },
  {
   "slug": "seated-alternate-dumbbell-lateral-raise",
-  "name": "Seated Alternating Dumbbell Lateral Raise",
+  "name": "Seated Alternating Dumbell Lateral Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/seated-alternate-dumbbell-lateral-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/seated-alternate-dumbbell-lateral-raise.jpg",
-  "description": "The seated alternating dumbbell lateral raise exercise is a variation of the lateral raise used to isolate and strengthen the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The seated alternating dumbell lateral raise exercise is a variation of the lateral raise used to isolate and strengthen the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-alternate-dumbbell-lateral-raise.html",
   "youtube_id": null
  },
@@ -8793,7 +8793,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -8803,7 +8803,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated Arnold press is a variation of the seated dumbbell press and an exercise utilized to build shoulder muscle size and strength. The Arnold press, named after Arnold Schwarzenegger himself, is an exercise used to target every single head of the deltoid. The exercise is best used by those seeking aesthetic benefits due to its long time under tension, but can also be used as an accessory movement by those attempting to build strength.",
+  "description": "The seated Arnold press is a variation of the seated dumbell press and an exercise utilized to build shoulder muscle size and strength. The Arnold press, named after Arnold Schwarzenegger himself, is an exercise used to target every single head of the deltoid. The exercise is best used by those seeking aesthetic benefits due to its long time under tension, but can also be used as an accessory movement by those attempting to build strength.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-arnold-press.html",
   "youtube_id": "hmnZKRpYaV8"
  },
@@ -8860,7 +8860,7 @@
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/seated-barbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/seated-barbell-front-raise.jpg",
-  "description": "The seated barbell front raise is a shoulder exercise used to target the front deltoids. Use of the barbell can allow you to overload the muscles to a greater degree than one may be capable of doing with dumbbells. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to an appearance of a complete set of shoulders and wider framed upper body.",
+  "description": "The seated barbell front raise is a shoulder exercise used to target the front deltoids. Use of the barbell can allow you to overload the muscles to a greater degree than one may be capable of doing with dumbells. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to an appearance of a complete set of shoulders and wider framed upper body.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-barbell-front-raise.html",
   "youtube_id": null
  },
@@ -8909,20 +8909,20 @@
  },
  {
   "slug": "seated-bent-over-dumbbell-kickback",
-  "name": "Seated Bent Over Tricep Dumbbell Kickback",
+  "name": "Seated Bent Over Tricep Dumbell Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated bent over dumbbell kickback is a variation of the standing dumbbell kickback . Seated bent over dumbbell kickbacks are an exercise used to isolate the muscles of the triceps. By performing kickbacks seated, you eliminate the core stability needed to perform them standing and eliminate momentum which can be generated while standing to move the weight.",
+  "description": "The seated bent over dumbell kickback is a variation of the standing dumbell kickback . Seated bent over dumbell kickbacks are an exercise used to isolate the muscles of the triceps. By performing kickbacks seated, you eliminate the core stability needed to perform them standing and eliminate momentum which can be generated while standing to move the weight.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-bent-over-dumbbell-kickback.html",
   "youtube_id": "NbHAsXM_9BM"
  },
@@ -9023,13 +9023,13 @@
  },
  {
   "slug": "seated-dumbbell-calf-raise",
-  "name": "Seated Dumbbell Calf Raise",
+  "name": "Seated Dumbell Calf Raise",
   "category": "strength",
   "group": "Calves",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Calves"
   ],
@@ -9042,13 +9042,13 @@
  },
  {
   "slug": "seated-dumbbell-curl",
-  "name": "Seated Dumbbell Curl",
+  "name": "Seated Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -9061,51 +9061,51 @@
  },
  {
   "slug": "seated-dumbbell-front-raise",
-  "name": "Seated Dumbbell Front Raise",
+  "name": "Seated Dumbell Front Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/seated-dumbbell-front-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/seated-dumbbell-front-raise.jpg",
-  "description": "The seated dumbbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body.",
+  "description": "The seated dumbell front raise is a shoulder exercise used to target the front deltoids. The front deltoid is involved in several pressing movements and working to increase the strength of this muscle group can have a positive carry-over into your heavy pushing lifts. From an aesthetics standpoint, bigger front deltoids can lead to the appearance of a complete set of shoulders and a wider framed upper body.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-dumbbell-front-raise.html",
   "youtube_id": null
  },
  {
   "slug": "seated-dumbbell-lateral-raise",
-  "name": "Seated Dumbbell Lateral Raise",
+  "name": "Seated Dumbell Lateral Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/seated-dumbbell-lateral-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/seated-dumbbell-lateral-raise.jpg",
-  "description": "Seated dumbbell lateral raises are a variation of dumbbell lateral raises and are used to isolate the muscles of the shoulder.",
+  "description": "Seated dumbell lateral raises are a variation of dumbell lateral raises and are used to isolate the muscles of the shoulder.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-dumbbell-lateral-raise.html",
   "youtube_id": null
  },
  {
   "slug": "seated-dumbbell-press",
-  "name": "Seated Dumbbell Press",
+  "name": "Seated Dumbell Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -9115,19 +9115,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated dumbbell press is a variation of the standing dumbbell press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise can be included in shoulder workouts , push workouts, upper body workouts, and full body workouts .",
+  "description": "The seated dumbell press is a variation of the standing dumbell press and an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise can be included in shoulder workouts , push workouts, upper body workouts, and full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-dumbbell-press.html",
   "youtube_id": "FRxZ6wr5bpA"
  },
  {
   "slug": "seated-dumbbell-shrug",
-  "name": "Seated Dumbbell Shrug",
+  "name": "Seated Dumbell Shrug",
   "category": "strength",
   "group": "Back",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Traps"
   ],
@@ -9140,13 +9140,13 @@
  },
  {
   "slug": "seated-dumbbell-side-bends",
-  "name": "Alternating Seated Dumbbell Side Bends",
+  "name": "Alternating Seated Dumbell Side Bends",
   "category": "strength",
   "group": "Core",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Obliques"
   ],
@@ -9189,7 +9189,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -9283,13 +9283,13 @@
  },
  {
   "slug": "seated-neutral-dumbbell-wrist-curl",
-  "name": "Seated Neutral Grip Dumbbell Wrist Curl",
+  "name": "Seated Neutral Grip Dumbell Wrist Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -9302,32 +9302,32 @@
  },
  {
   "slug": "seated-one-arm-dumbbell-lateral-raise",
-  "name": "One-Arm Seated Dumbbell Lateral Raise",
+  "name": "One-Arm Seated Dumbell Lateral Raise",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
   "secondary_muscles": [],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/seated-one-arm-dumbbell-lateral-raise.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/seated-one-arm-dumbbell-lateral-raise.jpg",
-  "description": "The one-arm seated dumbbell lateral raise exercise is a variation of the dumbbell lateral raise used to isolate the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
+  "description": "The one-arm seated dumbell lateral raise exercise is a variation of the dumbell lateral raise used to isolate the muscles of the shoulder. Performing unilateral movements can help improve weaknesses, balance your strength and aesthetic physique, and work towards reducing injuries by addressing imbalances in the body.",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-one-arm-dumbbell-lateral-raise.html",
   "youtube_id": null
  },
  {
   "slug": "seated-palms-in-dumbbell-press",
-  "name": "Seated Neutral Grip Dumbbell Shoulder Press",
+  "name": "Seated Neutral Grip Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -9337,7 +9337,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated dumbbell neutral grip shoulder press is a variation of the seated dumbbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. The exercise can be included in shoulder workouts , push…",
+  "description": "The seated dumbell neutral grip shoulder press is a variation of the seated dumbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. The exercise can be included in shoulder workouts , push…",
   "source_url": "https://www.muscleandstrength.com/exercises/seated-palms-in-dumbbell-press.html",
   "youtube_id": "y03eDnIFfK8"
  },
@@ -10290,13 +10290,13 @@
  },
  {
   "slug": "standing-alternate-dumbbell-reverse-curl",
-  "name": "Alternating Dumbbell Reverse Grip Curl",
+  "name": "Alternating Dumbell Reverse Grip Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -10340,7 +10340,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -10497,7 +10497,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -10512,13 +10512,13 @@
  },
  {
   "slug": "standing-dumbbell-curl",
-  "name": "Standing Dumbbell Curl",
+  "name": "Standing Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -10531,13 +10531,13 @@
  },
  {
   "slug": "standing-dumbbell-press",
-  "name": "Standing Dumbbell Shoulder Press",
+  "name": "Standing Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -10546,19 +10546,19 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/standing-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/standing-dumbbell-press.jpg",
-  "description": "The standing dumbbell shoulder press is a variation of the seated dumbbell shoulder press and is used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise can be included in shoulder workouts , push workouts, upper body workouts, and full body workouts .",
+  "description": "The standing dumbell shoulder press is a variation of the seated dumbell shoulder press and is used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise can be included in shoulder workouts , push workouts, upper body workouts, and full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-press.html",
   "youtube_id": null
  },
  {
   "slug": "standing-dumbbell-reverse-curl",
-  "name": "Standing Dumbbell Reverse Curl",
+  "name": "Standing Dumbell Reverse Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -10567,7 +10567,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The standing dumbbell reverse curl is a variation of the standing dumbbell curl and an exercise used to strengthen the muscles of the biceps. The reverse grip is particularly useful in forcing the forearms to become involved in some of the workload. Bicep isolation work is particularly helpful for those looking to achieve aesthetics and building a balanced physique.",
+  "description": "The standing dumbell reverse curl is a variation of the standing dumbell curl and an exercise used to strengthen the muscles of the biceps. The reverse grip is particularly useful in forcing the forearms to become involved in some of the workload. Bicep isolation work is particularly helpful for those looking to achieve aesthetics and building a balanced physique.",
   "source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-reverse-curl.html",
   "youtube_id": "i5h3myNHVFk"
  },
@@ -10600,7 +10600,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -10697,13 +10697,13 @@
  },
  {
   "slug": "standing-one-arm-dumbbell-reverse-curl",
-  "name": "One-Arm Dumbbell Reverse Grip Curl",
+  "name": "One-Arm Dumbell Reverse Grip Curl",
   "category": "strength",
   "group": "Forearms",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Forearms"
   ],
@@ -10718,13 +10718,13 @@
  },
  {
   "slug": "standing-one-leg-calf-raise-with-dumbbell",
-  "name": "Standing One-Leg Calf Raise With Dumbbell",
+  "name": "Standing One-Leg Calf Raise With Dumbell",
   "category": "strength",
   "group": "Calves",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Calves"
   ],
@@ -10737,13 +10737,13 @@
  },
  {
   "slug": "standing-palms-in-dumbbell-press",
-  "name": "Standing Neutral Grip Dumbbell Shoulder Press",
+  "name": "Standing Neutral Grip Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Shoulders"
   ],
@@ -10752,7 +10752,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/standing-palms-in-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/standing-palms-in-dumbbell-press.jpg",
-  "description": "The standing neutral grip dumbbell shoulder press is a variation of the seated neutral grip dumbbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. The exercise can be included in shoulder…",
+  "description": "The standing neutral grip dumbell shoulder press is a variation of the seated neutral grip dumbell shoulder press and is an exercise used to strengthen the muscles of the shoulders. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. Using a neutral grip can be beneficial to alleviate shoulder and elbow pain many experience while pressing. The exercise can be included in shoulder…",
   "source_url": "https://www.muscleandstrength.com/exercises/standing-palms-in-dumbbell-press.html",
   "youtube_id": null
  },
@@ -10865,7 +10865,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The straight arm lat pull down is a variation of the lat pull down and an exercise used to build the muscles of the back. While the exercise will primarily target the lats, you will also notice a fair amount of bicep and middle back activation. The back is a muscle group that requires a fair amount of variation. So, experiment with several different angles and hand positions to maximize your back muscle growth. The straight arm lat pull down mimics the movement of a dumbbell pullover . The emphasis should be on feeling the entire range of motion, not the amount of weight you use on the…",
+  "description": "The straight arm lat pull down is a variation of the lat pull down and an exercise used to build the muscles of the back. While the exercise will primarily target the lats, you will also notice a fair amount of bicep and middle back activation. The back is a muscle group that requires a fair amount of variation. So, experiment with several different angles and hand positions to maximize your back muscle growth. The straight arm lat pull down mimics the movement of a dumbell pullover . The emphasis should be on feeling the entire range of motion, not the amount of weight you use on the…",
   "source_url": "https://www.muscleandstrength.com/exercises/straight-arm-lat-pull-down.html",
   "youtube_id": "gDtXrJWPdlY"
  },
@@ -10956,7 +10956,7 @@
  },
  {
   "slug": "swiss-ball-dumbbell-bench-press",
-  "name": "Exercise Ball Dumbbell Bench Press",
+  "name": "Exercise Ball Dumbell Bench Press",
   "category": "strength",
   "group": "Chest",
   "tag": "Compound",
@@ -10972,19 +10972,19 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The exercise ball dumbbell bench press is a variation of the dumbbell bench press and an exercise used to build the push muscles of the upper body. The muscles targeted include the chest, shoulders, and triceps. Performing exercises on an exercise ball also provides a core stability challenge as you balance your body and maintain perfect form on the ball. Some implement this training modality on beginners during balance and strength building phases. You can perform exercise ball dumbbell bench press during your chest workouts , push workouts, upper body workouts, and full body workouts .",
+  "description": "The exercise ball dumbell bench press is a variation of the dumbell bench press and an exercise used to build the push muscles of the upper body. The muscles targeted include the chest, shoulders, and triceps. Performing exercises on an exercise ball also provides a core stability challenge as you balance your body and maintain perfect form on the ball. Some implement this training modality on beginners during balance and strength building phases. You can perform exercise ball dumbell bench press during your chest workouts , push workouts, upper body workouts, and full body workouts .",
   "source_url": "https://www.muscleandstrength.com/exercises/swiss-ball-dumbbell-bench-press.html",
   "youtube_id": "WahnbGWHAg8"
  },
  {
   "slug": "swiss-ball-dumbbell-curl",
-  "name": "Exercise Ball Dumbbell Curl",
+  "name": "Exercise Ball Dumbell Curl",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -10999,7 +10999,7 @@
  },
  {
   "slug": "swiss-ball-dumbbell-flys",
-  "name": "Exercise Ball Dumbbell Fly",
+  "name": "Exercise Ball Dumbell Fly",
   "category": "strength",
   "group": "Chest",
   "tag": "Isolation",
@@ -11020,7 +11020,7 @@
  },
  {
   "slug": "swiss-ball-dumbbell-press",
-  "name": "Exercise Ball Dumbbell Shoulder Press",
+  "name": "Exercise Ball Dumbell Shoulder Press",
   "category": "strength",
   "group": "Shoulders",
   "tag": "Compound",
@@ -11036,7 +11036,7 @@
   ],
   "video_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/swiss-ball-dumbbell-press.mp4",
   "thumbnail_url": "https://public-synapps-dashboard.nbg1.your-objectstorage.com/stride/exercises/mns/thumbs/swiss-ball-dumbbell-press.jpg",
-  "description": "The seated dumbbell shoulder press on an exercise ball is a variation of the dumbbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The use of an exercise ball instead of a bench provides a unique challenge as the exercise ball forces you to engage your core muscles to stabilize the weight. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise…",
+  "description": "The seated dumbell shoulder press on an exercise ball is a variation of the dumbell shoulder press and an exercise used to strengthen the muscles of the shoulders. The use of an exercise ball instead of a bench provides a unique challenge as the exercise ball forces you to engage your core muscles to stabilize the weight. The overhead press is a foundational movement for establishing baseline strength and building a completely balanced physique. Utilizing dumbells as opposed to performing with a barbell will allow the individual to strengthen each side of the muscle equally. The exercise…",
   "source_url": "https://www.muscleandstrength.com/exercises/swiss-ball-dumbbell-press.html",
   "youtube_id": null
  },
@@ -11156,7 +11156,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Traps"
   ],
@@ -11408,13 +11408,13 @@
  },
  {
   "slug": "tricep-kickback",
-  "name": "Dumbbell Tricep Kickback",
+  "name": "Dumbell Tricep Kickback",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -11484,13 +11484,13 @@
  },
  {
   "slug": "twisting-dumbbell-bench-press",
-  "name": "Twisting Dumbbell Bench Press",
+  "name": "Twisting Dumbell Bench Press",
   "category": "strength",
   "group": "Triceps",
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -11565,13 +11565,13 @@
  },
  {
   "slug": "twisting-standing-dumbbell-curl",
-  "name": "Alternating Standing Dumbbell Twisting Curls",
+  "name": "Alternating Standing Dumbell Twisting Curls",
   "category": "strength",
   "group": "Biceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -11662,32 +11662,32 @@
  },
  {
   "slug": "two-arm-dumbbell-extension",
-  "name": "Seated Dumbbell Tricep Extension",
+  "name": "Seated Dumbell Tricep Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
   "secondary_muscles": [],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The seated dumbbell tricep extension is a variation of the dumbbell tricep extension and an exercise used to isolate the muscles of the triceps. Overhead extension exercises are particularly useful in targeting the long head of the triceps muscle. Having a larger and more dense long head will give you an overall appearance of a larger tricep. Isolation exercises for the triceps are particularly useful for those looking to achieve aesthetics. They can also be helpful for those looking to increase their strength on other pressing motions.",
+  "description": "The seated dumbell tricep extension is a variation of the dumbell tricep extension and an exercise used to isolate the muscles of the triceps. Overhead extension exercises are particularly useful in targeting the long head of the triceps muscle. Having a larger and more dense long head will give you an overall appearance of a larger tricep. Isolation exercises for the triceps are particularly useful for those looking to achieve aesthetics. They can also be helpful for those looking to increase their strength on other pressing motions.",
   "source_url": "https://www.muscleandstrength.com/exercises/two-arm-dumbbell-extension.html",
   "youtube_id": "LlCFtWCQc5s"
  },
  {
   "slug": "two-arm-standing-dumbbell-extension",
-  "name": "Two Arm Standing Dumbbell Extension",
+  "name": "Two Arm Standing Dumbell Extension",
   "category": "strength",
   "group": "Triceps",
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Beginner",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Triceps"
   ],
@@ -11696,7 +11696,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The standing dumbbell tricep extension is a variation of the tricep extension and an exercise used to isolate the muscles of the triceps. Overhead extension exercises are particularly useful in targeting the long head of the triceps muscle. Having a larger and more dense long head will give you an overall appearance of a larger tricep. Isolation exercises for the triceps are particularly useful for those looking to achieve aesthetics. They can also be helpful for those looking to increase their strength on other pressing motions.",
+  "description": "The standing dumbell tricep extension is a variation of the tricep extension and an exercise used to isolate the muscles of the triceps. Overhead extension exercises are particularly useful in targeting the long head of the triceps muscle. Having a larger and more dense long head will give you an overall appearance of a larger tricep. Isolation exercises for the triceps are particularly useful for those looking to achieve aesthetics. They can also be helpful for those looking to increase their strength on other pressing motions.",
   "source_url": "https://www.muscleandstrength.com/exercises/two-arm-standing-dumbbell-extension.html",
   "youtube_id": "VjmgzEmODnI"
  },
@@ -11863,7 +11863,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Advanced",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Abs"
   ],
@@ -11945,7 +11945,7 @@
   "tag": "Compound",
   "metric_type": "load",
   "difficulty": "Advanced",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Abs"
   ],
@@ -12028,7 +12028,7 @@
  },
  {
   "slug": "weighted-swiss-ball-wall-squat",
-  "name": "Exercise Ball Dumbbell Wall Squat",
+  "name": "Exercise Ball Dumbell Wall Squat",
   "category": "strength",
   "group": "Quads",
   "tag": "Compound",
@@ -12457,7 +12457,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -12466,7 +12466,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The standing Zottman curl is a variation of the standing dumbbell curl and an exercise used to strengthen the muscles of the biceps. The Zottman curl utilizes different hand positioning at different portions of the lift to capitalize on the strength of the lifter and maximize arm growth. The first portion, the regular curl, allows the lifter to focus on their bicep strength. The lowering portion, after already using a heavier weight than one would typically use in a dumbbell reverse curl , allows you to overload the forearms. Bicep isolation work is particularly helpful for those looking to…",
+  "description": "The standing Zottman curl is a variation of the standing dumbell curl and an exercise used to strengthen the muscles of the biceps. The Zottman curl utilizes different hand positioning at different portions of the lift to capitalize on the strength of the lifter and maximize arm growth. The first portion, the regular curl, allows the lifter to focus on their bicep strength. The lowering portion, after already using a heavier weight than one would typically use in a dumbell reverse curl , allows you to overload the forearms. Bicep isolation work is particularly helpful for those looking to…",
   "source_url": "https://www.muscleandstrength.com/exercises/zottman-curl.html",
   "youtube_id": "rVEwDJdHE2c"
  },
@@ -12478,7 +12478,7 @@
   "tag": "Isolation",
   "metric_type": "load",
   "difficulty": "Intermediate",
-  "equipment_label": "Dumbbell",
+  "equipment_label": "Dumbell",
   "primary_muscles": [
    "Biceps"
   ],
@@ -12487,7 +12487,7 @@
   ],
   "video_url": null,
   "thumbnail_url": null,
-  "description": "The Zottman preacher curl is a variation of the Zottman curl and an exercise used to strengthen the muscles of the biceps. The Zottman curl utilizes different hand positioning at different portions of the lift to capitalize on the strength of the lifter and maximize arm growth. The first portion, the regular dumbbell curl , allows the lifter to focus on their bicep strength. The lowering portion, after already using a heavier weight than one would typically use in a dumbbell reverse curl , allows you to overload the forearms. Using a preacher bench will assist in helping one isolate the…",
+  "description": "The Zottman preacher curl is a variation of the Zottman curl and an exercise used to strengthen the muscles of the biceps. The Zottman curl utilizes different hand positioning at different portions of the lift to capitalize on the strength of the lifter and maximize arm growth. The first portion, the regular dumbell curl , allows the lifter to focus on their bicep strength. The lowering portion, after already using a heavier weight than one would typically use in a dumbell reverse curl , allows you to overload the forearms. Using a preacher bench will assist in helping one isolate the…",
   "source_url": "https://www.muscleandstrength.com/exercises/zottman-preacher-curl.html",
   "youtube_id": "7yPINa6H47o"
  }

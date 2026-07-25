@@ -56,4 +56,85 @@ return [
 
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Bring-your-own-model (per-user AI connection)
+    |--------------------------------------------------------------------------
+    |
+    | Each user can connect their own provider + model (Anthropic / Gemini /
+    | OpenAI) through the in-app wizard; the coach then runs on THEIR credentials.
+    | Anyone who hasn't connected falls back to the free tier, which is the app's
+    | own key on the coach config above (driver + models), with a lower daily cap.
+    | The `providers` catalog drives the wizard's model picker and the in-chat
+    | model switcher.
+    |
+    */
+
+    'ai' => [
+        // Allow "Log in with Claude subscription" (OAuth). OFF by default —
+        // proxying a personal Claude subscription through a third-party app may
+        // conflict with Anthropic's usage policies. Review ToS before enabling.
+        'allow_subscription_oauth' => (bool) env('STRIDE_AI_ALLOW_SUBSCRIPTION_OAUTH', false),
+
+        // BYOK users run on their own key/cost — 0 = unlimited.
+        'byok_daily_quota' => (int) env('STRIDE_AI_BYOK_DAILY_QUOTA', 0),
+
+        // Free tier (app-subsidised): cheap model + a tight daily cap.
+        'free' => [
+            'label' => 'Free (built-in)',
+            'daily_quota' => (int) env('STRIDE_AI_FREE_DAILY_QUOTA', 20),
+        ],
+
+        // Selectable providers + models shown in the wizard and chat switcher.
+        // `default` / `generate` are the per-purpose fallbacks when a user picks
+        // a provider but not a specific model.
+        'providers' => [
+            'anthropic' => [
+                'label' => 'Anthropic (Claude)',
+                'auth_types' => ['api_key', 'oauth'],
+                'models' => [
+                    ['id' => 'claude-opus-4-8', 'label' => 'Claude Opus 4.8', 'tier' => 'flagship'],
+                    ['id' => 'claude-sonnet-4-6', 'label' => 'Claude Sonnet 4.6', 'tier' => 'balanced'],
+                    ['id' => 'claude-haiku-4-5', 'label' => 'Claude Haiku 4.5', 'tier' => 'fast'],
+                ],
+                'default' => 'claude-sonnet-4-6',
+                'generate' => 'claude-sonnet-4-6',
+            ],
+            'gemini' => [
+                'label' => 'Google Gemini',
+                'auth_types' => ['api_key'],
+                'models' => [
+                    ['id' => 'gemini-2.5-pro', 'label' => 'Gemini 2.5 Pro', 'tier' => 'flagship'],
+                    ['id' => 'gemini-2.5-flash', 'label' => 'Gemini 2.5 Flash', 'tier' => 'fast'],
+                ],
+                'default' => 'gemini-2.5-flash',
+                'generate' => 'gemini-2.5-pro',
+            ],
+            'openai' => [
+                'label' => 'OpenAI',
+                'auth_types' => ['api_key'],
+                'models' => [
+                    ['id' => 'gpt-5', 'label' => 'GPT-5', 'tier' => 'flagship'],
+                    ['id' => 'gpt-5-mini', 'label' => 'GPT-5 mini', 'tier' => 'fast'],
+                    ['id' => 'gpt-4o', 'label' => 'GPT-4o', 'tier' => 'balanced'],
+                ],
+                'default' => 'gpt-5-mini',
+                'generate' => 'gpt-5',
+            ],
+        ],
+
+        // Anthropic subscription OAuth (only used when allow_subscription_oauth).
+        // Endpoints + client id are env-driven; nothing is hardcoded.
+        'oauth' => [
+            'anthropic' => [
+                'client_id' => env('STRIDE_AI_ANTHROPIC_OAUTH_CLIENT_ID'),
+                'authorize_url' => env('STRIDE_AI_ANTHROPIC_OAUTH_AUTHORIZE_URL', 'https://claude.ai/oauth/authorize'),
+                'token_url' => env('STRIDE_AI_ANTHROPIC_OAUTH_TOKEN_URL', 'https://console.anthropic.com/v1/oauth/token'),
+                'redirect_uri' => env('STRIDE_AI_ANTHROPIC_OAUTH_REDIRECT', rtrim((string) env('APP_URL'), '/').'/api/stride/ai/connection/anthropic/callback'),
+                'scope' => env('STRIDE_AI_ANTHROPIC_OAUTH_SCOPE', 'user:inference user:profile'),
+                'beta_header' => 'oauth-2025-04-20',
+            ],
+        ],
+    ],
+
 ];

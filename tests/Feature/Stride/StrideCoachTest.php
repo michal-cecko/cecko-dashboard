@@ -171,6 +171,41 @@ class StrideCoachTest extends TestCase
         $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'kind' => 'Lowered intensity', 'status' => 'applied']);
     }
 
+    public function test_coach_can_switch_the_warmup_to_one_block_up_front(): void
+    {
+        $conversation = $this->newConversation();
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('set_warmup_style', [
+                'style' => 'grouped',
+                'reason' => 'One block up front is quicker to run.',
+            ]))
+            ->push(FakeCoachProvider::text('Staged the warm-up as one block.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Put the warm-up in one block before the whole session.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.status', 'proposed')
+            ->json('message.adjustments.0.id');
+
+        // Staged only — the preference and the sessions are untouched until confirm.
+        $profile = StrideProfile::where('user_id', $this->user->id)->first();
+        $this->assertNotSame('grouped', $profile->preferences['warmup_style'] ?? 'per_exercise');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('adjustment.status', 'applied');
+
+        $this->assertSame('grouped', StrideProfile::where('user_id', $this->user->id)->first()->preferences['warmup_style']);
+
+        // Today's session now leads with a warm-up block and no per-exercise warm-up sets.
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $this->assertTrue($session->exercises()->where('section', 'warmup')->exists());
+        $working = $session->exercises()->where('section', '!=', 'warmup')->with('sets')->get();
+        foreach ($working as $exercise) {
+            $this->assertFalse($exercise->sets->contains(fn ($set) => $set->kind === 'Warm-up'));
+        }
+    }
+
     public function test_pokes_are_generated_cached_and_reused(): void
     {
         $this->provider->push(FakeCoachProvider::text(json_encode([
@@ -194,6 +229,49 @@ class StrideCoachTest extends TestCase
 
         $profile = StrideProfile::where('user_id', $this->user->id)->first();
         $this->assertSame(today()->toDateString(), $profile->daily_pokes['date']);
+    }
+
+    public function test_pokes_on_a_rest_day_never_nudge_toward_training(): void
+    {
+        // Nothing scheduled today: the app still sends done=0 (no session loaded),
+        // which used to read as "hasn't trained yet" and produced gym nudges.
+        Session::where('user_id', $this->user->id)
+            ->where(fn ($q) => $q->whereDate('scheduled_date', today())->orWhere('status', 'today'))
+            ->delete();
+        $this->provider->push(FakeCoachProvider::text('not json, force the fallback'));
+
+        $items = $this->getJson('/api/stride/coach/pokes?done=0', $this->auth)->assertOk()->json('items');
+
+        $prompt = collect($this->provider->calls)->last()->messages[0]['content'];
+        $this->assertStringContainsString('REST day', $prompt);
+        $this->assertStringNotContainsString('nudge toward it', $prompt);
+
+        $bodies = strtolower(implode(' ', array_merge(array_column($items, 'title'), array_column($items, 'body'))));
+        $this->assertStringNotContainsString('session awaits', $bodies);
+        $this->assertNotEmpty($items);
+    }
+
+    public function test_a_standing_note_lifts_the_rest_day_no_nudge_rule(): void
+    {
+        Session::where('user_id', $this->user->id)
+            ->where(fn ($q) => $q->whereDate('scheduled_date', today())->orWhere('status', 'today'))
+            ->delete();
+
+        $profile = StrideProfile::where('user_id', $this->user->id)->first();
+        $profile->update(['preferences' => array_merge($profile->preferences ?? [], [
+            'notes' => 'Poke me to train even on rest days — I like an optional extra session.',
+        ])]);
+
+        $this->provider->push(FakeCoachProvider::text('not json, force the fallback'));
+        $this->getJson('/api/stride/coach/pokes?done=0', $this->auth)->assertOk();
+
+        $prompt = collect($this->provider->calls)->last()->messages[0]['content'];
+        // The rest-day default is still stated, but the athlete's own words are in
+        // the context and explicitly outrank it.
+        $this->assertStringContainsString('REST day', $prompt);
+        $this->assertStringContainsString('EXCEPTION', $prompt);
+        $this->assertStringContainsString('STANDING REQUESTS FROM THE ATHLETE', $prompt);
+        $this->assertStringContainsString('Poke me to train even on rest days', $prompt);
     }
 
     public function test_pokes_fall_back_when_model_output_is_garbage(): void
@@ -457,7 +535,8 @@ class StrideCoachTest extends TestCase
 
     public function test_daily_quota_returns_429(): void
     {
-        config(['stride.coach.daily_message_quota' => 1]);
+        // Free-tier users (no BYOK connection) are capped by stride.ai.free.daily_quota.
+        config(['stride.ai.free.daily_quota' => 1, 'stride.coach.daily_message_quota' => 1]);
         $conversation = $this->newConversation();
 
         $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'First'], $this->auth)

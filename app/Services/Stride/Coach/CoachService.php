@@ -11,20 +11,23 @@ use App\Models\Stride\CoachMessage;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiProviderResolver;
 use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiUsageBucket;
+use App\Services\Common\Ai\ResolvedAi;
 
 /**
  * Orchestrates one coach turn: assemble context → run the tool-use loop →
  * persist the exchange → log usage → maybe compact older history.
  *
- * Provider is injected (CoachProvider), so this class is identical whether it
- * talks to Anthropic, another vendor, or a fake in tests.
+ * The provider is resolved per user (BYOK or the free tier) via
+ * AiProviderResolver, so this class is identical whether it talks to the user's
+ * Anthropic/Gemini/OpenAI account, the app default, or a fake in tests.
  */
 class CoachService
 {
     public function __construct(
-        private readonly CoachProvider $provider,
+        private readonly AiProviderResolver $resolver,
         private readonly TrainingMemoryBuilder $memory,
         private readonly CoachToolExecutor $executor,
     ) {}
@@ -37,7 +40,8 @@ class CoachService
     public function reply(CoachConversation $conversation, string $userText): CoachMessage
     {
         $user = $conversation->user;
-        $this->assertWithinQuota($user);
+        $ai = $this->resolver->for($user, $conversation->model);
+        $this->assertWithinQuota($user, $ai);
 
         $conversation->messages()->create(['role' => 'user', 'content' => $userText]);
 
@@ -54,7 +58,7 @@ class CoachService
             block: $conversation->block ?? Block::ownedBy($user)->active()->first(),
         );
 
-        [$finalText, $adjustments, $usages] = $this->runToolLoop($user, $context, $system, $messages, $language);
+        [$finalText, $adjustments, $usages] = $this->runToolLoop($ai, $user, $context, $system, $messages, $language);
 
         if ($finalText === '') {
             $finalText = $adjustments !== []
@@ -73,16 +77,16 @@ class CoachService
         $conversation->update(['last_message_at' => now()]);
 
         foreach ($usages as $u) {
-            $this->logUsage($conversation, $u['usage'], $u['latency'], 'chat');
+            $this->logUsage($ai, $conversation, $u['usage'], $u['latency'], 'chat');
         }
 
-        $this->maybeSummarize($conversation);
+        $this->maybeSummarize($ai, $conversation);
 
         return $assistant;
     }
 
     /** @return array{0: string, 1: array, 2: array} [finalText, adjustments, usages] */
-    private function runToolLoop(User $user, CoachContext $ctx, array $system, array $messages, string $language = 'en'): array
+    private function runToolLoop(ResolvedAi $ai, User $user, CoachContext $ctx, array $system, array $messages, string $language = 'en'): array
     {
         $tools = CoachTools::definitions($ctx->block !== null);
         $maxIterations = (int) config('stride.coach.max_tool_iterations');
@@ -93,7 +97,7 @@ class CoachService
         for ($iteration = 0; ; $iteration++) {
             // On the final allowed iteration, drop tools so the model must close with text.
             $turn = new CoachTurn(
-                model: (string) config('stride.coach.model'),
+                model: $ai->model('chat'),
                 systemBlocks: $system,
                 messages: $messages,
                 tools: $iteration < $maxIterations ? $tools : [],
@@ -102,7 +106,7 @@ class CoachService
             );
 
             $start = hrtime(true);
-            $reply = $this->provider->chat($turn);
+            $reply = $ai->provider->chat($turn);
             $usages[] = ['usage' => $reply->usage, 'latency' => (int) ((hrtime(true) - $start) / 1e6)];
 
             if (! $reply->wantsTools()) {
@@ -184,7 +188,7 @@ class CoachService
     }
 
     /** Fold older turns into the conversation summary once history grows. */
-    private function maybeSummarize(CoachConversation $conversation): void
+    private function maybeSummarize(ResolvedAi $ai, CoachConversation $conversation): void
     {
         $recentTurns = (int) config('stride.coach.recent_turns');
         $threshold = (int) config('stride.coach.summary_threshold');
@@ -205,7 +209,7 @@ class CoachService
         $transcript = $toSummarise->map(fn (CoachMessage $m) => "{$m->role}: {$m->content}")->implode("\n");
 
         $turn = new CoachTurn(
-            model: (string) config('stride.coach.summary_model'),
+            model: $ai->model('summary'),
             systemBlocks: [['text' => 'You compress coaching conversations. Keep durable facts, decisions, and open threads. Be terse.', 'cache' => false]],
             messages: [['role' => 'user', 'content' => "Summarise the conversation so far in under 200 words:\n\n{$transcript}"]],
             maxTokens: 400,
@@ -213,8 +217,8 @@ class CoachService
         );
 
         $start = hrtime(true);
-        $reply = $this->provider->chat($turn);
-        $this->logUsage($conversation, $reply->usage, (int) ((hrtime(true) - $start) / 1e6), 'summary');
+        $reply = $ai->provider->chat($turn);
+        $this->logUsage($ai, $conversation, $reply->usage, (int) ((hrtime(true) - $start) / 1e6), 'summary');
 
         $merged = trim(($conversation->summary ? $conversation->summary."\n\n" : '').($reply->text ?? ''));
 
@@ -224,9 +228,17 @@ class CoachService
         ]);
     }
 
-    private function assertWithinQuota(User $user): void
+    private function assertWithinQuota(User $user, ResolvedAi $ai): void
     {
-        $limit = (int) config('stride.coach.daily_message_quota');
+        // BYOK users run on their own key/cost — 0 means unlimited. The free tier
+        // gets a tighter cap.
+        $limit = $ai->isByok
+            ? (int) config('stride.ai.byok_daily_quota')
+            : (int) config('stride.ai.free.daily_quota', config('stride.coach.daily_message_quota'));
+
+        if ($limit <= 0) {
+            return;
+        }
 
         $todayCount = CoachMessage::query()
             ->where('role', 'user')
@@ -239,17 +251,17 @@ class CoachService
         }
     }
 
-    private function logUsage(CoachConversation $conversation, AiTokenUsage $usage, int $latencyMs, string $purpose): void
+    private function logUsage(ResolvedAi $ai, CoachConversation $conversation, AiTokenUsage $usage, int $latencyMs, string $purpose): void
     {
         // Ollama serves every purpose with its single configured local model.
-        $model = $this->provider->name() === 'ollama'
+        $model = $ai->driverName() === 'ollama'
             ? (string) config('ai.ollama.model')
-            : (string) config("stride.coach.{$purpose}_model", config('stride.coach.model'));
+            : $ai->model($purpose);
 
         AiUsageBucket::record(AiUsage::class, [
             'user_id' => $conversation->user_id,
             'conversation_id' => $conversation->id,
-            'provider' => $this->provider->name(),
+            'provider' => $ai->driverName(),
             'model' => $model,
             'purpose' => $purpose,
         ], [
@@ -258,14 +270,14 @@ class CoachService
             'cache_creation_tokens' => $usage->cacheCreationTokens,
             'cache_read_tokens' => $usage->cacheReadTokens,
             'latency_ms' => $latencyMs,
-            'cost_usd' => $this->cost($model, $usage),
+            'cost_usd' => $this->cost($ai, $model, $usage),
         ]);
     }
 
-    private function cost(string $model, AiTokenUsage $usage): float
+    private function cost(ResolvedAi $ai, string $model, AiTokenUsage $usage): float
     {
         // Local inference (local stub, ollama) is free whatever the token counts.
-        if (in_array($this->provider->name(), ['local', 'ollama'], true)) {
+        if (in_array($ai->driverName(), ['local', 'ollama'], true)) {
             return 0.0;
         }
 

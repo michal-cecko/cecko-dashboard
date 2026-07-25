@@ -174,14 +174,9 @@ class PlanController extends Controller
         $profile->preferences = $prefs;
         $profile->save();
 
-        $block = Block::ownedBy($user)->active()->first();
-        $sessions = $block
-            ? $block->sessions()
-                ->whereIn('status', ['today', 'planned'])
-                ->whereNull('started_at')
-                ->whereDate('scheduled_date', '>=', today())
-                ->get()
-            : collect();
+        // Same set the coach's set_warmup_style proposal restructures — today's
+        // session counts even when its scheduled_date lags behind.
+        $sessions = $planner->restructurableSessions($user);
 
         foreach ($sessions as $session) {
             $planner->applyWarmupStyle($user, $session, $data['style']);

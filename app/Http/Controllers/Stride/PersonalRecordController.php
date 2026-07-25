@@ -74,6 +74,8 @@ class PersonalRecordController extends Controller
             'metrics.watts' => ['nullable', 'integer', 'between:0,5000'],
             'achieved_on' => ['nullable', 'date', 'before_or_equal:today'],
             'form_quality' => ['nullable', 'integer', 'between:1,5'],
+            // Where the record came from — the player auto-logs 'workout' bests.
+            'source' => ['nullable', 'string', 'in:user,workout,ai-question,coach'],
             'note' => ['nullable', 'string', 'max:255'],
         ]);
 

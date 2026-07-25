@@ -7,8 +7,9 @@ use App\Models\Garaz\AiUsage;
 use App\Models\Garaz\KnowledgeNote;
 use App\Models\Garaz\Vehicle;
 use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiProviderResolver;
+use App\Services\Common\Ai\AiTurn;
 use App\Services\Common\Ai\AiUsageBucket;
-use App\Services\Common\Ai\AnthropicClient;
 use RuntimeException;
 
 /**
@@ -29,20 +30,24 @@ use RuntimeException;
  */
 class SymptomTriageService
 {
-    public function __construct(private readonly AnthropicClient $client = new AnthropicClient) {}
+    public function __construct(private readonly AiProviderResolver $resolver) {}
 
-    public function isConfigured(): bool
+    /** Configured when the vehicle owner resolves to a real (non-local-stub) model. */
+    public function isConfigured(Vehicle $vehicle): bool
     {
-        return $this->client->isConfigured();
+        return $this->resolver->for($vehicle->user)->driverName() !== 'local';
     }
 
     public function ask(Vehicle $vehicle, string $symptom, ?string $previousReply = null): string
     {
-        if (! $this->isConfigured()) {
-            throw new RuntimeException('ANTHROPIC_API_KEY nie je nakonfigurovaný — nastav v .env a vyčisti config cache.');
+        $ai = $this->resolver->for($vehicle->user);
+
+        if ($ai->driverName() === 'local') {
+            throw new RuntimeException('AI provider nie je nakonfigurovaný — pripoj svoj model v appke alebo nastav server API kľúč.');
         }
 
-        $model = $this->client->defaultModel();
+        // Diagnostic triage is reasoning-heavy → use the stronger "generate" model.
+        $model = $ai->model('generate');
 
         $systemBlocks = [
             ['text' => $this->slovakStyleGuide(), 'cache' => true],
@@ -60,13 +65,19 @@ class SymptomTriageService
         $messages[] = ['role' => 'user', 'content' => $symptom];
 
         $start = hrtime(true);
-        $reply = $this->client->messages($model, 1024, $systemBlocks, $messages);
+        $reply = $ai->provider->chat(new AiTurn(
+            model: $model,
+            systemBlocks: $systemBlocks,
+            messages: $messages,
+            maxTokens: 1024,
+            purpose: 'chat',
+        ));
         $latencyMs = (int) ((hrtime(true) - $start) / 1e6);
 
         AiUsageBucket::record(AiUsage::class, [
             'user_id' => $vehicle->user_id,
             'vehicle_id' => $vehicle->id,
-            'provider' => 'anthropic',
+            'provider' => $ai->driverName(),
             'model' => $model,
             'purpose' => 'symptom_triage',
         ], [
@@ -75,7 +86,7 @@ class SymptomTriageService
             'cache_creation_tokens' => $reply->usage->cacheCreationTokens,
             'cache_read_tokens' => $reply->usage->cacheReadTokens,
             'latency_ms' => $latencyMs,
-            'cost_usd' => AiCost::usd($model, $reply->usage),
+            'cost_usd' => in_array($ai->driverName(), ['local', 'ollama'], true) ? 0.0 : AiCost::usd($model, $reply->usage),
         ]);
 
         return $reply->text ?? '';

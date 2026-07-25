@@ -7,11 +7,13 @@ use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\Session;
 use App\Models\Stride\SessionExercise;
+use App\Models\Stride\StrideProfile;
 use App\Services\Stride\ExerciseCategory;
 use App\Services\Stride\PlanGenerationService;
 use App\Services\Stride\SessionVolume;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 /**
  * Deterministically APPLIES a staged proposal (AiAdjustment status='proposed') to
@@ -46,6 +48,7 @@ class ProposalApplyService
                 'scale_load' => $this->applyScaleLoad($user, $proposal, $touched),
                 'regenerate_session' => $this->applyRegenerate($user, $proposal, $touched),
                 'change_session_kind' => $this->applyChangeKind($user, $proposal, $touched),
+                'set_warmup_style' => $this->applyWarmupStyle($user, $proposal, $touched),
                 default => null,
             };
 
@@ -216,6 +219,32 @@ class ProposalApplyService
         $touched[] = $session->id;
 
         return "Rebuilt {$session->title}.";
+    }
+
+    /**
+     * payload: { style } — flip the warm-up structure for the whole plan. Saves the
+     * preference (so newly generated sessions follow it) and restructures today's +
+     * every upcoming UNSTARTED session, exactly like the Training-preferences toggle.
+     */
+    private function applyWarmupStyle(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $style = ($proposal->payload['style'] ?? '') === 'grouped' ? 'grouped' : 'per_exercise';
+
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $profile->preferences = array_merge($profile->preferences ?? [], ['warmup_style' => $style]);
+        $profile->save();
+
+        $planner = app(PlanGenerationService::class);
+        $sessions = $planner->restructurableSessions($user);
+
+        foreach ($sessions as $session) {
+            $planner->applyWarmupStyle($user, $session, $style);
+            $touched[] = $session->id;
+        }
+
+        $label = $style === 'grouped' ? 'one block before the session' : 'a set on each exercise';
+
+        return "Warm-ups are now {$label} — updated {$sessions->count()} upcoming ".Str::plural('session', $sessions->count()).'.';
     }
 
     /** payload: { session_id, new_kind } — retarget what the session trains, then rebuild it */

@@ -9,6 +9,7 @@ use App\Models\Stride\CoachMemory;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
 use App\Models\Stride\SessionExercise;
+use App\Models\Stride\StrideProfile;
 
 /**
  * Executes coach tool calls. Plan EDITS are never applied here — they are STAGED
@@ -47,10 +48,43 @@ class CoachToolExecutor
             'scale_block_load' => $this->scaleBlockLoad($user, $input, $ctx),
             'regenerate_session' => $this->regenerateSession($user, $input, $ctx),
             'change_session_kind' => $this->changeSessionKind($user, $input, $ctx),
+            'set_warmup_style' => $this->setWarmupStyle($user, $input, $ctx),
             'log_injury' => $this->logInjury($user, $input),
             'remember_fact' => $this->rememberFact($user, $input),
             default => ['result' => "Unknown tool: {$tool}.", 'adjustment' => null],
         };
+    }
+
+    /**
+     * Warm-up structure is a PREFERENCE, not a per-session edit: staged like any
+     * other change so the athlete confirms it, then applied to today's + every
+     * upcoming unstarted session (and remembered for newly generated ones).
+     */
+    private function setWarmupStyle(User $user, array $input, CoachContext $ctx): array
+    {
+        $style = ($input['style'] ?? '') === 'grouped' ? 'grouped' : 'per_exercise';
+        $current = StrideProfile::firstOrCreate(['user_id' => $user->id])->preferences['warmup_style'] ?? 'per_exercise';
+
+        if ($style === $current) {
+            return [
+                'result' => "Warm-ups are already set to '{$style}' — nothing to change.",
+                'adjustment' => null,
+            ];
+        }
+
+        $text = $style === 'grouped'
+            ? 'One warm-up block before the session'
+            : 'Warm-up set on each exercise';
+
+        $proposal = $this->propose(
+            $user, $ctx, 'set_warmup_style', 'Warm-up style', $text,
+            $input['reason'] ?? null, null, ['style' => $style],
+        );
+
+        return [
+            'result' => "Staged: {$text} (applies to today's and every upcoming session once the athlete confirms).",
+            'adjustment' => $proposal,
+        ];
     }
 
     private function reorderBlock(User $user, array $input, CoachContext $ctx): array

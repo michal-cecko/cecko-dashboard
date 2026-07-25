@@ -105,6 +105,18 @@ class CoachTools
                 ],
             ],
             [
+                'name' => 'set_warmup_style',
+                'description' => "Change HOW warm-ups are structured across the plan: 'grouped' = one warm-up block before the whole session, 'per_exercise' = a warm-up set on each working exercise. Use when the user asks for the warm-up as a block up front (or back on each exercise). Applies to today's and every upcoming unstarted session, and to future generated ones.",
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'style' => ['type' => 'string', 'enum' => ['grouped', 'per_exercise'], 'description' => 'grouped = one block before the session; per_exercise = warm-up set on each exercise.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['style'],
+                ],
+            ],
+            [
                 'name' => 'log_injury',
                 'description' => 'Record an injury/niggle so the coach programs around it going forward.',
                 'input_schema' => [

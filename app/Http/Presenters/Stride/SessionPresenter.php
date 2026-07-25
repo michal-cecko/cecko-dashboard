@@ -49,7 +49,10 @@ class SessionPresenter
         return [
             'id' => $exercise->id,
             'exercise_id' => $exercise->exercise_id,
-            'name' => $exercise->name,
+            // Sessions snapshot the English name; show the Slovak one when the
+            // row is linked to the catalogue and the athlete reads Slovak.
+            'name' => $exercise->exercise?->displayName() ?? $exercise->name,
+            'name_en' => $exercise->name,
             'tag' => $exercise->tag,
             'section' => $exercise->section ?? 'working',
             'note' => $exercise->note,

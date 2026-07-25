@@ -23,6 +23,8 @@ use RuntimeException;
  */
 class GeminiProvider implements AiProvider
 {
+    public function __construct(private readonly ?AiCredentials $credentials = null) {}
+
     public function name(): string
     {
         return 'gemini';
@@ -30,7 +32,7 @@ class GeminiProvider implements AiProvider
 
     public function chat(AiTurn $turn): AiReply
     {
-        $apiKey = (string) config('services.gemini.api_key');
+        $apiKey = $this->credentials?->apiKey ?: (string) config('services.gemini.api_key');
 
         if ($apiKey === '') {
             throw new RuntimeException('GEMINI_API_KEY is not configured.');

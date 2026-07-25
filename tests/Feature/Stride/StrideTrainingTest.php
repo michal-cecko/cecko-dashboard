@@ -170,6 +170,51 @@ class StrideTrainingTest extends TestCase
             ->assertJsonPath('session.scheduled_date', today()->addDay()->toDateString());
     }
 
+    public function test_library_shows_slovak_names_for_slovak_users(): void
+    {
+        $exercise = \App\Models\Stride\Exercise::create([
+            'slug' => 'dumbell-romanian-deadlift-test',
+            'name' => 'Dumbell Romanian Deadlift',
+            'name_sk' => 'Rumunský mŕtvy ťah s jednoručkami',
+            'category' => 'strength',
+            'group' => 'Hamstrings',
+        ]);
+
+        // English by default…
+        $names = $this->getJson('/api/stride/library', $this->auth)->assertOk()->json('exercises.*.name');
+        $this->assertContains('Dumbell Romanian Deadlift', $names);
+
+        // …Slovak once the profile says so, with the English kept alongside.
+        $this->patchJson('/api/stride/profile', ['language' => 'sk'], $this->auth)->assertOk();
+        \App\Support\Stride\StrideLanguage::fake(null);
+
+        $payload = $this->getJson('/api/stride/library', $this->auth)->assertOk()->json('exercises');
+        $row = collect($payload)->firstWhere('id', $exercise->id);
+        $this->assertSame('Rumunský mŕtvy ťah s jednoručkami', $row['name']);
+        $this->assertSame('Dumbell Romanian Deadlift', $row['name_en']);
+    }
+
+    public function test_postpone_moves_a_session_to_a_chosen_date(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $target = today()->addDays(4);
+
+        $this->postJson("/api/stride/sessions/{$session->id}/postpone", ['date' => $target->toDateString()], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'planned')
+            ->assertJsonPath('session.scheduled_date', $target->toDateString());
+
+        // Back onto today = it becomes today's session again.
+        $this->postJson("/api/stride/sessions/{$session->id}/postpone", ['date' => today()->toDateString()], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'today')
+            ->assertJsonPath('session.scheduled_date', today()->toDateString());
+
+        // A date in the past is rejected.
+        $this->postJson("/api/stride/sessions/{$session->id}/postpone", ['date' => today()->subDay()->toDateString()], $this->auth)
+            ->assertStatus(422);
+    }
+
     public function test_postpone_revives_a_skipped_session(): void
     {
         $session = Session::where('user_id', $this->user->id)->where('status', 'skipped')->firstOrFail();

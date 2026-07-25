@@ -8,7 +8,12 @@ namespace App\Services\Common\Ai;
  */
 class AnthropicProvider implements AiProvider
 {
-    public function __construct(private readonly AnthropicClient $client = new AnthropicClient) {}
+    private readonly AnthropicClient $client;
+
+    public function __construct(?AiCredentials $credentials = null, ?AnthropicClient $client = null)
+    {
+        $this->client = $client ?? new AnthropicClient($credentials);
+    }
 
     public function name(): string
     {

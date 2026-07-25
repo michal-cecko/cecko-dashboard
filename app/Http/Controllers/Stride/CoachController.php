@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Stride;
 
 use App\Http\Controllers\Controller;
+use App\Models\Common\AiConnection;
+use App\Models\Common\User;
 use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachConversation;
 use App\Models\Stride\CoachMessage;
 use App\Models\Stride\StrideProfile;
+use App\Services\Common\Ai\AiCatalog;
 use App\Services\Stride\Coach\CoachQuotaException;
 use App\Services\Stride\Coach\CoachService;
 use App\Services\Stride\Coach\PokeService;
@@ -70,7 +73,14 @@ class CoachController extends Controller
 
         $data = $request->validate([
             'message' => ['required', 'string', 'max:4000'],
+            'model' => ['nullable', 'string', 'max:100'],
         ]);
+
+        // A model sent with the message switches the thread's model for good
+        // (the in-chat model picker), so it sticks for later turns too.
+        if (! empty($data['model'])) {
+            $conversation->update(['model' => $this->assertModelAllowed($request->user(), $data['model'])]);
+        }
 
         try {
             $assistant = $coach->reply($conversation, $data['message']);
@@ -101,6 +111,35 @@ class CoachController extends Controller
         $conversation->update(['persona_key' => $data['persona_key']]);
 
         return response()->json(['conversation' => $this->conversationSummary($conversation)]);
+    }
+
+    /** Set (or clear) the conversation's model — the in-chat model switcher. */
+    public function setModel(Request $request, CoachConversation $conversation): JsonResponse
+    {
+        $this->authorize($request, $conversation);
+
+        $data = $request->validate(['model' => ['nullable', 'string', 'max:100']]);
+
+        $conversation->update([
+            'model' => empty($data['model']) ? null : $this->assertModelAllowed($request->user(), $data['model']),
+        ]);
+
+        return response()->json(['conversation' => $this->conversationSummary($conversation)]);
+    }
+
+    /** Ensure the model belongs to the user's connected provider (never cross-provider). */
+    private function assertModelAllowed(User $user, string $model): string
+    {
+        $connection = AiConnection::firstWhere('user_id', $user->id);
+        $provider = $connection?->isByok() ? $connection->provider : 'free';
+
+        abort_unless(
+            $provider !== 'free' && AiCatalog::isValidModel($provider, $model),
+            422,
+            'That model is not available for your AI connection.',
+        );
+
+        return $model;
     }
 
     /**
@@ -143,6 +182,9 @@ class CoachController extends Controller
                 'text' => $a->text,
                 'why' => $a->why,
                 'when' => $a->created_at?->diffForHumans(),
+                // What the change touched, so the app can open it straight from the log.
+                'session_id' => $a->session_id,
+                'block_id' => $a->block_id,
             ]);
 
         return response()->json(['adjustments' => $adjustments->values()]);
@@ -237,6 +279,7 @@ class CoachController extends Controller
             'id' => $conversation->id,
             'title' => $conversation->title,
             'persona_key' => $conversation->persona_key,
+            'model' => $conversation->model,
             'block_id' => $conversation->block_id,
             'block_name' => $conversation->block_id ? $conversation->block?->name : null,
             'last_message_at' => $conversation->last_message_at?->toIso8601String(),

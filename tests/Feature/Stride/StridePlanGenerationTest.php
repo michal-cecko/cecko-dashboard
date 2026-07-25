@@ -176,6 +176,53 @@ class StridePlanGenerationTest extends TestCase
         $this->assertSame('working', $exercise->section); // default style tags exercises 'working'
     }
 
+    public function test_generated_sets_carry_the_prescribed_load(): void
+    {
+        // The model prescribes the working weight; warm-up sets sit at ~half of it.
+        $session = ['title' => 'A', 'duration_min' => 60, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 5, 'kg' => 82, 'rest_sec' => 150],
+        ]];
+        $this->provider->push(FakeCoachProvider::text(json_encode($session)));
+
+        $option = ['name' => 'Loaded', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $exercise = Block::where('user_id', $this->user->id)->first()
+            ->sessions()->first()->exercises()->first();
+
+        // Rounded to the nearest 2.5 kg, and every working set carries it.
+        $this->assertEqualsWithDelta(82.5, (float) $exercise->sets()->where('kind', 'Working')->value('kg'), 0.01);
+        $this->assertSame(3, $exercise->sets()->where('kind', 'Working')->where('kg', 82.5)->count());
+        // 82.5 × 0.5 = 41.25 → nearest 2.5 kg plate step.
+        $this->assertEqualsWithDelta(42.5, (float) $exercise->sets()->where('kind', 'Warm-up')->value('kg'), 0.01);
+    }
+
+    public function test_missing_load_is_estimated_from_the_athletes_pr(): void
+    {
+        // No "kg" from the model — a PR on file fills the gap (Epley, backed off).
+        $exercise = Exercise::query()->where('name', 'Back Squat')->firstOrFail();
+        PersonalRecord::create([
+            'user_id' => $this->user->id, 'exercise_id' => $exercise->id, 'label' => 'Back Squat',
+            'metric_type' => 'load', 'metrics' => ['weight' => 100, 'reps' => 5], 'achieved_on' => today(),
+        ]);
+
+        $session = ['title' => 'A', 'duration_min' => 60, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 5, 'rest_sec' => 150],
+        ]];
+        $this->provider->push(FakeCoachProvider::text(json_encode($session)));
+
+        $option = ['name' => 'Estimated', 'split' => 'Full body', 'weeks' => 6, 'days_per_week' => 3];
+        $this->postJson('/api/stride/plan/generate', ['option' => $option], $this->auth)->assertCreated();
+
+        $planned = Block::where('user_id', $this->user->id)->first()
+            ->sessions()->first()->exercises()->first();
+
+        // 1RM ≈ 116.7 → 5-rep load ≈ 100 → ×0.95 → 95 kg.
+        $kg = (float) $planned->sets()->where('kind', 'Working')->value('kg');
+        $this->assertGreaterThan(0, $kg);
+        $this->assertEqualsWithDelta(95.0, $kg, 2.5);
+    }
+
     private function setWarmupStyle(string $style, int $years = 1): void
     {
         StrideProfile::query()->updateOrCreate(

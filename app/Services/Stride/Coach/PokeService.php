@@ -4,11 +4,14 @@ namespace App\Services\Stride\Coach;
 
 use App\Models\Common\User;
 use App\Models\Stride\AiUsage;
+use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiProviderResolver;
 use App\Services\Common\Ai\AiReply;
 use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiUsageBucket;
+use App\Services\Common\Ai\ResolvedAi;
 use Illuminate\Support\Str;
 use Throwable;
 
@@ -25,6 +28,9 @@ use Throwable;
  */
 class PokeService
 {
+    /** Bumped when the poke logic changes, so same-day cached sets regenerate. */
+    private const CACHE_VERSION = 2;
+
     private const SLOTS = [
         'morning' => ['default' => '08:30', 'min' => 7, 'max' => 10],
         'midday' => ['default' => '12:30', 'min' => 11, 'max' => 14],
@@ -33,7 +39,7 @@ class PokeService
     ];
 
     public function __construct(
-        private readonly CoachProvider $provider,
+        private readonly AiProviderResolver $resolver,
         private readonly TrainingMemoryBuilder $memory,
     ) {}
 
@@ -44,6 +50,7 @@ class PokeService
 
         $cached = $profile->daily_pokes;
         if (is_array($cached)
+            && ($cached['v'] ?? 1) === self::CACHE_VERSION
             && ($cached['date'] ?? null) === today()->toDateString()
             && ($cached['done'] ?? null) === $done
             && ($cached['energy'] ?? null) === $energy
@@ -54,6 +61,7 @@ class PokeService
         $items = $this->generate($user, $profile, $energy, $done);
 
         $profile->update(['daily_pokes' => [
+            'v' => self::CACHE_VERSION,
             'date' => today()->toDateString(),
             'done' => $done,
             'energy' => $energy,
@@ -63,16 +71,70 @@ class PokeService
         return $items;
     }
 
+    /**
+     * Today from the plan's point of view. A rest day = no trainable session
+     * scheduled today (nothing at all, or an explicit Rest session). Mirrors
+     * HomeController: only the ACTIVE block's sessions count.
+     *
+     * @return array{rest:bool,done:bool,title:string,next:?string}
+     */
+    private function todayState(User $user): array
+    {
+        $session = Session::ownedBy($user)
+            ->whereHas('block', fn ($q) => $q->where('status', 'active'))
+            ->where(fn ($q) => $q->where('status', 'today')->orWhereDate('scheduled_date', today()))
+            ->whereIn('status', ['today', 'planned', 'done'])
+            ->orderByRaw("case when status = 'today' then 0 else 1 end")
+            ->first();
+
+        $isRest = $session === null || $session->kind === 'Rest';
+
+        $next = $isRest
+            ? Session::ownedBy($user)
+                ->whereHas('block', fn ($q) => $q->where('status', 'active'))
+                ->whereIn('status', ['today', 'planned'])
+                ->where('kind', '!=', 'Rest')
+                ->whereDate('scheduled_date', '>', today())
+                ->orderBy('scheduled_date')
+                ->first()
+            : null;
+
+        return [
+            'rest' => $isRest,
+            'done' => $session?->status === 'done',
+            'title' => $session?->title ?? '',
+            'next' => $next !== null
+                ? $next->title.' on '.$next->scheduled_date?->format('l j M')
+                : null,
+        ];
+    }
+
     /** @return array<int, array{slot:string,at:string,title:string,body:string}> */
     private function generate(User $user, StrideProfile $profile, ?int $energy, ?bool $done): array
     {
         $personaKey = $profile->persona_key ?: 'calm';
         $lang = $profile->preferences['language'] ?? 'en';
         $langName = $lang === 'sk' ? 'Slovak (informal "ty")' : 'English';
+        $ai = $this->resolver->for($user);
+
+        // What today ACTUALLY is, from the plan — not from the client's flag. The
+        // app sends done=false whenever there's no session loaded, which on a rest
+        // day used to read as "not trained yet" and produced "get to the bars" pokes.
+        $today = $this->todayState($user);
 
         $stateLines = array_filter([
-            $done === true ? "Today's training is DONE — praise + recovery focus, no guilt-tripping into more work." : null,
-            $done === false ? "Today's training is NOT done yet — nudge toward it." : null,
+            $today['rest']
+                ? 'Today is a REST day — there is NO session scheduled. By DEFAULT do not nudge toward training, do '
+                  .'not suggest a workout, a gym trip or "a quick session". Talk recovery: sleep, food, mobility, a '
+                  .'walk, and '.($today['next'] !== null ? "getting ready for {$today['next']}." : 'the next training day.')
+                  ."\nEXCEPTION: if the athlete's STANDING REQUESTS below explicitly ask to be pushed on rest days "
+                  .'(e.g. "poke me to train anyway", "offer an optional extra session"), follow THEIR request instead — '
+                  .'their own words outrank this default.'
+                : null,
+            (! $today['rest'] && ($done === true || $today['done']))
+                ? "Today's training is DONE — praise + recovery focus, no guilt-tripping into more work." : null,
+            (! $today['rest'] && $done !== true && ! $today['done'])
+                ? "Today's training is NOT done yet ({$today['title']}) — nudge toward it." : null,
             $energy !== null ? "Athlete's self-reported energy today: {$energy}/5 (1=wrecked, 5=primed) — match the tone (low energy → gentle)." : null,
         ]);
 
@@ -97,7 +159,7 @@ class PokeService
 
         try {
             $turn = new CoachTurn(
-                model: (string) config('stride.coach.generate_model'),
+                model: $ai->model('generate'),
                 systemBlocks: [['text' => 'You write push notifications for a training app coach. Output ONLY valid minified JSON.', 'cache' => false]],
                 messages: [['role' => 'user', 'content' => $prompt]],
                 // Generous budget: thinking models (Gemini Flash) spend reasoning
@@ -107,21 +169,21 @@ class PokeService
                 timeoutSeconds: 45,
             );
 
-            $reply = $this->chatLogged($user, $turn);
+            $reply = $this->chatLogged($ai, $user, $turn);
             $items = $this->sanitize($this->decodeJson($reply->text));
             if ($items !== []) {
                 return $items;
             }
             logger()->warning('Stride pokes degraded (unusable AI output → fallback).', [
-                'model' => (string) config('stride.coach.generate_model'),
-                'provider' => $this->provider->name(),
+                'model' => $turn->model,
+                'provider' => $ai->driverName(),
                 'raw_snippet' => mb_substr($reply->text, 0, 200),
             ]);
         } catch (Throwable $e) {
             report($e);
         }
 
-        return $this->fallback($personaKey, $lang, $done);
+        return $this->fallback($personaKey, $lang, $done || $today['done'], $today['rest']);
     }
 
     private function personaVoice(string $key): string
@@ -185,9 +247,18 @@ class PokeService
     }
 
     /** @return array<int, array{slot:string,at:string,title:string,body:string}> */
-    private function fallback(string $personaKey, string $lang, ?bool $done): array
+    private function fallback(string $personaKey, string $lang, ?bool $done, bool $rest = false): array
     {
         $sk = $lang === 'sk';
+        if ($rest) {
+            // No session today — never nudge toward one.
+            $items = [
+                ['slot' => 'midday', 'title' => $sk ? 'Deň voľna' : 'Rest day', 'body' => $sk ? 'Dnes netrénuješ — jedlo, voda, prechádzka a mobilita stačia.' : 'Nothing scheduled today — food, water, a walk and some mobility is plenty.'],
+                ['slot' => 'evening', 'title' => $sk ? 'Vyspi sa' : 'Sleep on it', 'body' => $sk ? 'Regenerácia je súčasť plánu. Zajtra ideme ďalej.' : 'Recovery is part of the plan. We pick it up next session.'],
+            ];
+
+            return array_map(fn (array $i) => $i + ['at' => self::SLOTS[$i['slot']]['default']], $items);
+        }
         if ($done === true) {
             $items = [
                 ['slot' => 'midday', 'title' => $sk ? 'Dobrá práca dnes' : 'Good work today', 'body' => $sk ? 'Tréning máš za sebou — teraz jedlo, voda a regenerácia.' : 'Training is in the books — now food, water and recovery.'],
@@ -206,14 +277,14 @@ class PokeService
 
     // ── LLM plumbing (mirrors PlanGenerationService) ───────────────────────────
 
-    private function chatLogged(User $user, CoachTurn $turn): AiReply
+    private function chatLogged(ResolvedAi $ai, User $user, CoachTurn $turn): AiReply
     {
         $start = hrtime(true);
-        $reply = $this->provider->chat($turn);
+        $reply = $ai->provider->chat($turn);
         $latencyMs = (int) ((hrtime(true) - $start) / 1e6);
 
         $u = $reply->usage;
-        $cost = in_array($this->provider->name(), ['local', 'ollama'], true)
+        $cost = in_array($ai->driverName(), ['local', 'ollama'], true)
             ? 0.0
             : AiCost::usd($turn->model, new AiTokenUsage(
                 inputTokens: $u->inputTokens,
@@ -225,7 +296,7 @@ class PokeService
         AiUsageBucket::record(AiUsage::class, [
             'user_id' => $user->id,
             'conversation_id' => null,
-            'provider' => $this->provider->name(),
+            'provider' => $ai->driverName(),
             'model' => $turn->model,
             'purpose' => 'poke',
         ], [

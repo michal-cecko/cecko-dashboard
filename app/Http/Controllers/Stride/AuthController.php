@@ -9,6 +9,7 @@ use App\Models\Common\UserApiToken;
 use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
+use App\Services\Common\Ai\AiCatalog;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -61,6 +62,7 @@ class AuthController extends Controller
     {
         return response()->json([
             'user' => $this->userPayload($request->user()),
+            'ai' => AiCatalog::forUser($request->user()),
         ]);
     }
 

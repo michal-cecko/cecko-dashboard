@@ -14,10 +14,11 @@ use App\Models\Stride\Session;
 use App\Models\Stride\Spot;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCost;
+use App\Services\Common\Ai\AiProviderResolver;
 use App\Services\Common\Ai\AiReply;
 use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiUsageBucket;
-use App\Services\Stride\Coach\CoachProvider;
+use App\Services\Common\Ai\ResolvedAi;
 use App\Services\Stride\Coach\CoachTurn;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Illuminate\Support\Carbon;
@@ -45,10 +46,26 @@ class PlanGenerationService
     /** USD cost accumulated across the AI calls of the most recent generate(). */
     private float $costUsd = 0.0;
 
+    /** Memoised per-user resolution so one generate() flow reads the connection once. */
+    private ?ResolvedAi $currentAi = null;
+
+    private ?int $currentAiUserId = null;
+
     public function __construct(
-        private readonly CoachProvider $provider,
+        private readonly AiProviderResolver $resolver,
         private readonly TrainingMemoryBuilder $memory,
     ) {}
+
+    /** The user's resolved provider + model (BYOK or free), memoised per user. */
+    private function ai(User $user): ResolvedAi
+    {
+        if ($this->currentAiUserId !== $user->id) {
+            $this->currentAi = $this->resolver->for($user);
+            $this->currentAiUserId = $user->id;
+        }
+
+        return $this->currentAi;
+    }
 
     /** Whether the most recent generate() degraded any session to the rule-based builder. */
     public function wasDegraded(): bool
@@ -83,12 +100,13 @@ class PlanGenerationService
      */
     private function chatLogged(User $user, CoachTurn $turn): AiReply
     {
+        $ai = $this->ai($user);
         $start = hrtime(true);
-        $reply = $this->provider->chat($turn);
+        $reply = $ai->provider->chat($turn);
         $latencyMs = (int) ((hrtime(true) - $start) / 1e6);
 
         $u = $reply->usage;
-        $cost = in_array($this->provider->name(), ['local', 'ollama'], true)
+        $cost = in_array($ai->driverName(), ['local', 'ollama'], true)
             ? 0.0
             : $this->costOf($turn->model, $u->inputTokens, $u->outputTokens, $u->cacheCreationTokens, $u->cacheReadTokens);
         $this->costUsd += $cost;
@@ -96,7 +114,7 @@ class PlanGenerationService
         AiUsageBucket::record(AiUsage::class, [
             'user_id' => $user->id,
             'conversation_id' => null,
-            'provider' => $this->provider->name(),
+            'provider' => $ai->driverName(),
             'model' => $turn->model,
             'purpose' => 'generate',
         ], [
@@ -126,8 +144,8 @@ class PlanGenerationService
     {
         logger()->warning('Stride generation degraded (unusable AI output → fallback).', [
             'purpose' => $purpose,
-            'model' => (string) config('stride.coach.generate_model'),
-            'provider' => $this->provider->name(),
+            'model' => $this->currentAi?->model('generate') ?? (string) config('stride.coach.generate_model'),
+            'provider' => $this->currentAi?->driverName() ?? (string) config('stride.coach.driver'),
             'raw_snippet' => $raw !== null ? mb_substr($raw, 0, 200) : null,
         ]);
     }
@@ -146,7 +164,7 @@ class PlanGenerationService
 
         $lang = $this->language($user);
         $turn = new CoachTurn(
-            model: (string) config('stride.coach.generate_model'),
+            model: $this->ai($user)->model('generate'),
             systemBlocks: [['text' => 'You are a strength & conditioning coach. Output ONLY valid minified JSON — no prose, no markdown fences. Write all user-facing text (names, summaries) in '.$this->languageName($lang).'.', 'cache' => false]],
             messages: [['role' => 'user', 'content' => $this->recommendPrompt($user, $prefs, $days, $note, $base, $weeksMin, $weeksMax)]],
             maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
@@ -214,7 +232,7 @@ class PlanGenerationService
         $lang = $this->language($user);
         try {
             $turn = new CoachTurn(
-                model: (string) config('stride.coach.generate_model'),
+                model: $this->ai($user)->model('generate'),
                 systemBlocks: [['text' => 'You are a coach deciding whether you still need any facts to program accurately. Ask nothing unless you truly need it. Output ONLY a JSON array (may be empty) — no prose, no markdown. Write every question label/hint in '.$this->languageName($lang).'.', 'cache' => false]],
                 messages: [['role' => 'user', 'content' => $this->questionsPrompt($user, $profile, $this->sanitizeOption($option) ?? [], $onFile, $answered)]],
                 maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
@@ -365,7 +383,8 @@ class PlanGenerationService
     {
         $name = Str::lower($name);
         $core = trim((string) preg_replace('/\s*\(.*?\)\s*/', ' ', $name));                                          // drop "(Strict)"
-        $core = trim((string) preg_replace('/^(barbell|dumbbell|cable|machine|kettlebell|smith machine|ez-bar|ez bar)\s+/', '', $core));
+        // dumb(b)ell: the catalogue spells it "Dumbell", the AI often writes "dumbbell".
+        $core = trim((string) preg_replace('/^(barbell|dumbb?ell|cable|machine|kettlebell|smith machine|ez-bar|ez bar)\s+/', '', $core));
 
         return array_values(array_unique(array_filter([$name, $core])));
     }
@@ -409,6 +428,8 @@ class PlanGenerationService
     /** Generate + persist the concrete week-1 plan for the chosen option. */
     public function generate(User $user, array $option, ?string $startDate = null, ?string $note = null): Block
     {
+        $this->loadUser = $user;
+        $this->prBestByName = null;
         $this->degraded = false;
         $this->costUsd = 0.0;
 
@@ -455,7 +476,7 @@ class PlanGenerationService
             'option' => ['name' => $option['name'], 'split' => $option['split'], 'phase' => $option['phase'] ?? null, 'weeks' => $option['weeks'] ?? null, 'days_per_week' => $option['days_per_week'] ?? null],
             'goals' => Goal::ownedBy($user)->where('is_achieved', false)->pluck('title')->take(8)->values()->all(),
             'note' => $note !== '' ? $note : null,
-            'model' => (string) config('stride.coach.generate_model'),
+            'model' => $this->ai($user)->model('generate'),
             'degraded' => $this->degraded,
             'generated_at' => now()->toIso8601String(),
             'cost_usd' => $costUsd,
@@ -691,7 +712,7 @@ class PlanGenerationService
         for ($attempt = 0; $attempt < 2; $attempt++) {
             try {
                 $turn = new CoachTurn(
-                    model: (string) config('stride.coach.generate_model'),
+                    model: $this->ai($user)->model('generate'),
                     systemBlocks: [['text' => 'You program ONE training session. Output ONLY a valid minified JSON object for a single session — start with { and nothing else. Pick exercises ONLY from the provided list, exact names. Be terse.'.$langLine, 'cache' => false]],
                     messages: [['role' => 'user', 'content' => $prompt]],
                     maxTokens: (int) config('stride.coach.generate_max_tokens', 4096),
@@ -760,6 +781,8 @@ class PlanGenerationService
             ? "\n        Also include a \"warmup\" array of ".($level === 'advanced' ? '2' : ($level === 'intermediate' ? '3' : '4'))." minimal mobility/activation moves suited to a {$kind} day for a {$level} athlete (do NOT add warm-up sets to the working exercises)."
             : '';
 
+        $reps_hint = '6-12';
+
         return <<<TXT
         Program ONE "{$kind}" session for the "{$option['name']}" plan ({$option['split']} split).
         Athlete: {$who}, {$years} years training{$bodyweight}; enjoys {$styles}. Goals: {$goals}. Injuries to avoid: {$injuries}.{$notesLine}{$factsLine}{$gearLine}
@@ -767,7 +790,11 @@ class PlanGenerationService
         Use ONLY these exercises — exact names WITHOUT the [equipment] suffix: {$list}.
 
         Output ONLY minified JSON for ONE session (no prose, no markdown):
-        {"title":"short title","duration_min":60,"exercises":[{"name":"<from list>","tag":"Compound|Isolation","sets":3,"reps":8,"rest_sec":90}]{$warmupSchema}}
+        {"title":"short title","duration_min":60,"exercises":[{"name":"<from list>","tag":"Compound|Isolation","sets":3,"reps":8,"kg":60,"rest_sec":90}]{$warmupSchema}}
+        "kg" = the working weight the athlete should load, in kilograms, for the reps you prescribe.
+        Derive it from their PRs (a set of {$reps_hint} reps sits well below a 1-rep max) and keep it
+        realistic for the level; round to the nearest 2.5 kg. Use 0 ONLY for pure bodyweight movements —
+        for weighted bodyweight work (weighted dips/pull-ups) give the ADDED kg. Never omit "kg".
         Pick 4–8 exercises that best serve the goals for a {$kind} day. Whatever the athlete's
         coaching notes or remembered facts EXPLICITLY ask for (session structure, ordering, exercise
         count, exclusions) OVERRIDES every default above — follow it exactly. Keep it brief.{$warmupLine}
@@ -818,6 +845,9 @@ class PlanGenerationService
     }
 
     /** Lowercased exercise name → metric_type, loaded once per generate(). */
+    /** Set for the duration of a generation run — PR lookups need the athlete. */
+    private ?User $loadUser = null;
+
     private ?array $metricByName = null;
 
     private function metricFor(string $name): string
@@ -855,10 +885,13 @@ class PlanGenerationService
             if ($grouped && $kind === 'Warm-up') {
                 continue; // warm-ups live in the dedicated group, not per exercise
             }
+            $reps = max(1, min(50, (int) ($set['reps'] ?? 8)));
+            $kg = $this->workingLoad($name, $reps, $set['kg'] ?? null);
             $out[] = [
                 'kind' => $kind,
-                'reps' => max(1, min(50, (int) ($set['reps'] ?? 8))),
-                'kg' => max(0, (float) ($set['kg'] ?? 0)),
+                'reps' => $reps,
+                // A warm-up on a loaded lift runs at roughly half the working weight.
+                'kg' => $kind === 'Warm-up' && $kg > 0 && ! isset($set['kg']) ? $this->roundLoad($kg * 0.5) : $kg,
                 'rest_sec' => max(0, min(600, (int) ($set['rest_sec'] ?? 90))),
             ];
         }
@@ -884,16 +917,79 @@ class PlanGenerationService
     /** Expand a compact `{sets:int, reps:int, rest_sec:int}` into working sets (+ a warm-up set unless grouped). */
     private function expandSets(array $ex, bool $grouped = false): array
     {
+        $name = (string) ($ex['name'] ?? '');
         $working = max(1, min(6, (int) ($ex['sets'] ?? 3)));
         $reps = max(1, min(50, (int) ($ex['reps'] ?? 8)));
         $rest = max(0, min(600, (int) ($ex['rest_sec'] ?? 90)));
+        $kg = $this->workingLoad($name, $reps, $ex['kg'] ?? null);
+        // Warm-up on a loaded lift is the same movement at roughly half the weight.
+        $warmKg = $kg > 0 ? $this->roundLoad($kg * 0.5) : 0.0;
 
-        $sets = $grouped ? [] : [['kind' => 'Warm-up', 'reps' => $this->warmupReps((string) ($ex['name'] ?? ''), $reps), 'kg' => 0, 'rest_sec' => 60]];
+        $sets = $grouped ? [] : [['kind' => 'Warm-up', 'reps' => $this->warmupReps($name, $reps), 'kg' => $warmKg, 'rest_sec' => 60]];
         for ($i = 0; $i < $working; $i++) {
-            $sets[] = ['kind' => 'Working', 'reps' => $reps, 'kg' => 0, 'rest_sec' => $rest];
+            $sets[] = ['kind' => 'Working', 'reps' => $reps, 'kg' => $kg, 'rest_sec' => $rest];
         }
 
         return $sets;
+    }
+
+    /**
+     * The working weight to prescribe. Uses the model's number when it gave a sane
+     * one; otherwise estimates from the athlete's PR for that exercise (Epley, backed
+     * off for the rep target). Bodyweight/hold/run movements stay at 0 — their load
+     * is the athlete, and a number there would be nonsense.
+     */
+    private function workingLoad(string $name, int $reps, mixed $suggested): float
+    {
+        if (! in_array($this->metricFor($name), ['load', 'machine'], true)) {
+            return 0.0;
+        }
+
+        if (is_numeric($suggested) && (float) $suggested > 0) {
+            return $this->roundLoad(min(500.0, (float) $suggested));
+        }
+
+        $best = $this->prScoreFor($name);          // est. 1RM from the athlete's records
+        if ($best === null) {
+            return 0.0;                            // nothing to base it on — leave it open
+        }
+
+        // Epley in reverse: load for N reps ≈ 1RM / (1 + N/30), minus a small buffer.
+        return $this->roundLoad(min(500.0, $best / (1 + $reps / 30) * 0.95));
+    }
+
+    private function roundLoad(float $kg): float
+    {
+        return round($kg / 2.5) * 2.5;
+    }
+
+    /** Lowercased exercise name → best est-1RM from the athlete's PRs. */
+    private ?array $prBestByName = null;
+
+    private function prScoreFor(string $name): ?float
+    {
+        if ($this->loadUser === null) {
+            return null;                           // no athlete in scope (never guess)
+        }
+
+        if ($this->prBestByName === null) {
+            $this->prBestByName = [];
+            foreach (PersonalRecord::ownedBy($this->loadUser)->get() as $pr) {
+                $metrics = $pr->metrics ?? [];
+                $weight = (float) ($metrics['weight'] ?? 0);
+                $reps = (int) ($metrics['reps'] ?? 1);
+                if ($weight <= 0) {
+                    continue;
+                }
+                $oneRm = $weight * (1 + max(1, $reps) / 30);
+                $key = mb_strtolower(trim($pr->label));
+                $this->prBestByName[$key] = max($this->prBestByName[$key] ?? 0, $oneRm);
+            }
+        }
+
+        $key = mb_strtolower(trim($name));
+
+        return $this->prBestByName[$key] ?? null;
     }
 
     /** Rule-based single session so onboarding always yields a real plan. */
@@ -905,13 +1001,9 @@ class PlanGenerationService
             'tag' => 'Compound',
             'note' => '',
             'section' => 'working',
-            'sets' => array_merge(
-                $grouped ? [] : [['kind' => 'Warm-up', 'reps' => $this->warmupReps($name, 8), 'kg' => 0, 'rest_sec' => 60]],
-                [
-                    ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
-                    ['kind' => 'Working', 'reps' => 8, 'kg' => 0, 'rest_sec' => 90],
-                ],
-            ),
+            // Same expansion as the AI path, so the fallback also prescribes a load
+            // when the athlete has a PR to derive one from.
+            'sets' => $this->expandSets(['name' => $name, 'sets' => 2, 'reps' => 8, 'rest_sec' => 90], $grouped),
         ], $picks);
 
         $exercises = $grouped ? array_merge($this->warmupTemplate($kind, $level), $working) : $working;
@@ -1050,6 +1142,8 @@ class PlanGenerationService
      */
     public function regenerateInto(User $user, Session $session): Session
     {
+        $this->loadUser = $user;
+        $this->prBestByName = null;
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         $block = $session->block;
         $option = [
@@ -1064,6 +1158,25 @@ class PlanGenerationService
         $this->replaceExercises($session, $built);
 
         return $session->refresh();
+    }
+
+    /**
+     * The sessions a plan-wide restructure may touch: today's + every future
+     * UNSTARTED session of the active block. A session whose status is 'today'
+     * counts even if its scheduled_date lags behind (nightly roll / stale data) —
+     * that is still the workout the athlete is about to do.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection<int, Session>
+     */
+    public function restructurableSessions(User $user): \Illuminate\Database\Eloquent\Collection
+    {
+        return Session::ownedBy($user)
+            ->whereHas('block', fn ($q) => $q->where('status', 'active'))
+            ->whereIn('status', ['today', 'planned'])
+            ->whereNull('started_at')
+            ->where(fn ($q) => $q->whereDate('scheduled_date', '>=', today())->orWhere('status', 'today'))
+            ->orderBy('scheduled_date')
+            ->get();
     }
 
     /**
@@ -1267,6 +1380,8 @@ class PlanGenerationService
      */
     public function generateWeek(User $user, Block $block): void
     {
+        $this->loadUser = $user;
+        $this->prBestByName = null;
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         $option = [
             'name' => $block->name,

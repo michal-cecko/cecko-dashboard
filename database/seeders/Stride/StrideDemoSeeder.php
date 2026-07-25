@@ -78,9 +78,9 @@ class StrideDemoSeeder extends Seeder
     {
         $spots = [
             ['PowerHaus Gym', 'gym', 'Large', 'Heavy compound focus — make the most of the racks and full machine setup.', 'Main gym. Busy 5–7pm — squat racks get taken.',
-                ['Barbell', 'Dumbbells', 'Kettlebells', 'Bench', 'Squat rack', 'Cable machine', 'Pin-loaded machines', 'Smith machine', 'Leg press', 'Lat pulldown', 'Pull-up bar', 'Dip bars', 'Treadmill', 'Rowing machine', 'Assault bike']],
+                ['Barbell', 'Dumbells', 'Kettlebells', 'Bench', 'Squat rack', 'Cable machine', 'Pin-loaded machines', 'Smith machine', 'Leg press', 'Lat pulldown', 'Pull-up bar', 'Dip bars', 'Treadmill', 'Rowing machine', 'Assault bike']],
             ['Garage setup', 'home', 'Compact', 'Time-efficient — supersets, keep it under 45 minutes.', 'Low ceiling — no standing overhead press with the bar.',
-                ['Barbell', 'Dumbbells', 'Weight plates', 'Bench', 'Squat rack', 'Pull-up bar', 'Resistance bands']],
+                ['Barbell', 'Dumbells', 'Weight plates', 'Bench', 'Squat rack', 'Pull-up bar', 'Resistance bands']],
             ['Riverside calisthenics park', 'park', 'Open-air', 'Calisthenics + conditioning. Skills work, then a finisher.', 'Great for pull/push days when the weather is good.',
                 ['Pull-up bar', 'Dip bars', 'Parallettes', 'Open running area']],
         ];

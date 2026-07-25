@@ -24,7 +24,9 @@ class LibraryController extends Controller
 
         $exercises = Exercise::query()
             ->when($data['category'] ?? null, fn ($q, $category) => $q->inCategory($category))
-            ->when($data['q'] ?? null, fn ($q, $term) => $q->where('name', 'like', "%{$term}%"))
+            ->when($data['q'] ?? null, fn ($q, $term) => $q->where(
+                fn ($w) => $w->where('name', 'like', "%{$term}%")->orWhere('name_sk', 'like', "%{$term}%")
+            ))
             ->orderBy('category')
             ->orderBy('group')
             ->orderBy('name')
@@ -58,7 +60,10 @@ class LibraryController extends Controller
         return [
             'id' => $exercise->id,
             'slug' => $exercise->slug,
-            'name' => $exercise->name,
+            // Localised for display; `name_en` stays available for anything that
+            // has to match the catalogue by its canonical English name.
+            'name' => $exercise->displayName(),
+            'name_en' => $exercise->name,
             'category' => $exercise->category,
             'group' => $exercise->group,
             'tag' => $exercise->tag,

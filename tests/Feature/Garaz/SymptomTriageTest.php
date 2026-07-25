@@ -17,8 +17,11 @@ class SymptomTriageTest extends TestCase
 
     public function test_ask_returns_reply_text_and_logs_usage(): void
     {
+        config()->set('stride.coach.driver', 'anthropic');
         config()->set('services.anthropic.api_key', 'test-key');
         config()->set('services.anthropic.default_model', 'claude-sonnet-4-6');
+        // Triage runs on the free-tier "generate" model when the user has no BYOK.
+        config()->set('stride.coach.generate_model', 'claude-sonnet-4-6');
 
         Http::fake([
             'api.anthropic.com/*' => Http::response([
@@ -60,8 +63,11 @@ class SymptomTriageTest extends TestCase
 
     public function test_repeated_calls_within_an_hour_bucket_into_one_row(): void
     {
+        config()->set('stride.coach.driver', 'anthropic');
         config()->set('services.anthropic.api_key', 'test-key');
         config()->set('services.anthropic.default_model', 'claude-sonnet-4-6');
+        // Triage runs on the free-tier "generate" model when the user has no BYOK.
+        config()->set('stride.coach.generate_model', 'claude-sonnet-4-6');
 
         Http::fake([
             'api.anthropic.com/*' => Http::response([
@@ -91,7 +97,12 @@ class SymptomTriageTest extends TestCase
 
     public function test_ask_without_api_key_throws_and_logs_nothing(): void
     {
+        // No BYOK connection and no app key → the resolver yields the local stub,
+        // which triage rejects (no real model available).
+        config()->set('stride.coach.driver', 'anthropic');
         config()->set('services.anthropic.api_key', null);
+        config()->set('services.gemini.api_key', null);
+        config()->set('services.openai.api_key', null);
 
         $user = User::factory()->create();
         $vehicle = Vehicle::factory()->for($user)->create();

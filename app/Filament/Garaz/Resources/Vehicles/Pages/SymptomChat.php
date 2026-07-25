@@ -57,7 +57,7 @@ class SymptomChat extends Page
             return;
         }
 
-        if (! $service->isConfigured()) {
+        if (! $service->isConfigured($this->record)) {
             Notification::make()
                 ->title('AI nie je nakonfigurovaná')
                 ->body('Nastav ANTHROPIC_API_KEY v .env súbore a vyčisti config cache.')

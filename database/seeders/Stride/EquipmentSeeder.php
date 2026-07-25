@@ -15,7 +15,7 @@ class EquipmentSeeder extends Seeder
     public function run(): void
     {
         $groups = [
-            'Free weights' => ['Barbell', 'Dumbbells', 'Kettlebells', 'EZ-bar', 'Weight plates', 'Bench', 'Squat rack'],
+            'Free weights' => ['Barbell', 'Dumbells', 'Kettlebells', 'EZ-bar', 'Weight plates', 'Bench', 'Squat rack'],
             'Machines' => ['Cable machine', 'Pin-loaded machines', 'Smith machine', 'Leg press', 'Lat pulldown'],
             'Bodyweight & rigs' => ['Pull-up bar', 'Dip bars', 'Gymnastic rings', 'Parallettes', 'Resistance bands', 'TRX / suspension'],
             'Cardio' => ['Treadmill', 'Rowing machine', 'Assault bike', 'Open running area', 'Track'],

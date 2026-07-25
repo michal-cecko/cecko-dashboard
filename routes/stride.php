@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Stride\AiConnectionController;
 use App\Http\Controllers\Stride\AuthController;
 use App\Http\Controllers\Stride\CoachController;
 use App\Http\Controllers\Stride\GoalController;
@@ -26,6 +27,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('auth/login', [AuthController::class, 'login']);
+
+// Public OAuth redirect target — the browser hits this after Anthropic sign-in;
+// the user is identified from the PKCE state, so no Bearer token is present.
+Route::get('ai/connection/anthropic/callback', [AiConnectionController::class, 'callbackAnthropic']);
 
 Route::middleware('stride.auth')->group(function (): void {
     Route::get('auth/me', [AuthController::class, 'me']);
@@ -87,6 +92,14 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('spots', [SpotController::class, 'index']);
     Route::post('spots', [SpotController::class, 'store']);
 
+    // Per-user AI connection (BYOK) — provider + model wizard.
+    Route::get('ai/connection', [AiConnectionController::class, 'show']);
+    Route::post('ai/connection', [AiConnectionController::class, 'store']);
+    Route::post('ai/connection/test', [AiConnectionController::class, 'test']);
+    Route::patch('ai/connection/model', [AiConnectionController::class, 'updateModel']);
+    Route::delete('ai/connection', [AiConnectionController::class, 'destroy']);
+    Route::post('ai/connection/anthropic/authorize', [AiConnectionController::class, 'authorizeAnthropic']);
+
     // AI coach
     Route::get('coach/conversations', [CoachController::class, 'index']);
     Route::post('coach/conversations', [CoachController::class, 'store']);
@@ -94,6 +107,7 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::delete('coach/conversations/{conversation}', [CoachController::class, 'destroy']);
     Route::post('coach/conversations/{conversation}/messages', [CoachController::class, 'message']);
     Route::patch('coach/conversations/{conversation}/persona', [CoachController::class, 'setPersona']);
+    Route::patch('coach/conversations/{conversation}/model', [CoachController::class, 'setModel']);
     Route::get('coach/adjustments', [CoachController::class, 'adjustments']);
     Route::get('coach/pokes', [CoachController::class, 'pokes']);
 

@@ -26,6 +26,9 @@ class MuscleAndStrengthSeeder extends Seeder
     {
         $path = __DIR__.'/data/mns_gym_exercises.json';
         $rows = json_decode((string) file_get_contents($path), true) ?? [];
+        // Slovak display names (see tools/sk_names.py) — display-only, `name`
+        // stays the canonical English the coach and PR matching key on.
+        $namesSk = json_decode((string) @file_get_contents(__DIR__.'/data/gym_exercise_names_sk.json'), true) ?? [];
 
         $created = 0;
         $backfilled = 0;
@@ -34,6 +37,7 @@ class MuscleAndStrengthSeeder extends Seeder
                 ['slug' => $row['slug']],
                 [
                     'name' => $row['name'],
+                    'name_sk' => $namesSk[$row['slug']] ?? null,
                     'category' => $row['category'],
                     'group' => $row['group'],
                     'tag' => $row['tag'],
@@ -56,6 +60,7 @@ class MuscleAndStrengthSeeder extends Seeder
             }
 
             $fillable = array_filter([
+                'name_sk' => $namesSk[$row['slug']] ?? null,
                 'video_url' => $row['video_url'] ?? null,
                 'thumbnail_url' => $row['thumbnail_url'] ?? null,
                 'description' => $row['description'] ?? null,

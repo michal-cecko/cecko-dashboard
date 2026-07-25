@@ -20,21 +20,21 @@ class SpotSeeder extends Seeder
                 'type' => 'gym',
                 'size' => 'Large',
                 'blurb' => 'Racks, full machine floor, cardio',
-                'equipment' => ['Barbell', 'Dumbbells', 'Kettlebells', 'EZ-bar', 'Weight plates', 'Bench', 'Squat rack', 'Cable machine', 'Pin-loaded machines', 'Smith machine', 'Leg press', 'Lat pulldown', 'Pull-up bar', 'Dip bars', 'Treadmill', 'Rowing machine', 'Assault bike'],
+                'equipment' => ['Barbell', 'Dumbells', 'Kettlebells', 'EZ-bar', 'Weight plates', 'Bench', 'Squat rack', 'Cable machine', 'Pin-loaded machines', 'Smith machine', 'Leg press', 'Lat pulldown', 'Pull-up bar', 'Dip bars', 'Treadmill', 'Rowing machine', 'Assault bike'],
             ],
             [
                 'name' => 'Boutique strength gym',
                 'type' => 'gym',
                 'size' => 'Medium',
-                'blurb' => 'Barbells, dumbbells, a couple of racks',
-                'equipment' => ['Barbell', 'Dumbbells', 'Kettlebells', 'Weight plates', 'Bench', 'Squat rack', 'Cable machine', 'Pull-up bar', 'Rowing machine'],
+                'blurb' => 'Barbells, dumbells, a couple of racks',
+                'equipment' => ['Barbell', 'Dumbells', 'Kettlebells', 'Weight plates', 'Bench', 'Squat rack', 'Cable machine', 'Pull-up bar', 'Rowing machine'],
             ],
             [
                 'name' => 'CrossFit / functional box',
                 'type' => 'gym',
                 'size' => 'Large',
                 'blurb' => 'Rigs, bumpers, conditioning kit',
-                'equipment' => ['Barbell', 'Dumbbells', 'Kettlebells', 'Weight plates', 'Squat rack', 'Pull-up bar', 'Gymnastic rings', 'Rowing machine', 'Assault bike', 'Plyo boxes', 'Medicine balls', 'Sled', 'Battle ropes'],
+                'equipment' => ['Barbell', 'Dumbells', 'Kettlebells', 'Weight plates', 'Squat rack', 'Pull-up bar', 'Gymnastic rings', 'Rowing machine', 'Assault bike', 'Plyo boxes', 'Medicine balls', 'Sled', 'Battle ropes'],
             ],
         ];
 

@@ -17,6 +17,7 @@ class CoachConversation extends Model
         'block_id',
         'title',
         'persona_key',
+        'model',
         'summary',
         'summarized_through_id',
         'last_message_at',

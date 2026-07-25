@@ -3,7 +3,6 @@
 namespace App\Services\Garaz;
 
 use App\Models\Garaz\ServiceImport;
-use App\Services\Common\Ai\AnthropicClient;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -33,8 +32,6 @@ use Illuminate\Support\Facades\Log;
  */
 class ServiceImportExtractor
 {
-    public function __construct(private readonly AnthropicClient $client = new AnthropicClient) {}
-
     public function extract(ServiceImport $import): ServiceImport
     {
         $import->update(['status' => ServiceImport::STATUS_EXTRACTING]);
@@ -76,6 +73,8 @@ class ServiceImportExtractor
 
     public function isApiAvailable(): bool
     {
-        return $this->client->isConfigured();
+        // Vision extraction is Anthropic-only for now (stub — Phase 8). It runs on
+        // the app's own key, not a per-user connection.
+        return ! empty(config('services.anthropic.api_key'));
     }
 }

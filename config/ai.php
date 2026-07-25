@@ -25,6 +25,11 @@ return [
         'generate_thinking_budget' => (int) env('AI_GEMINI_THINKING_BUDGET', env('STRIDE_COACH_GENERATE_THINKING_BUDGET', 2048)),
     ],
 
+    'openai' => [
+        'url' => env('AI_OPENAI_URL', 'https://api.openai.com/v1'),
+        'timeout' => (int) env('AI_OPENAI_TIMEOUT', 60),
+    ],
+
     'ollama' => [
         'url' => env('AI_OLLAMA_URL', env('STRIDE_OLLAMA_URL', 'http://localhost:11434')),
         // Prefer non-thinking instruct models: reasoning variants burn
@@ -52,6 +57,11 @@ return [
     'pricing' => [
         'claude-haiku-4-5' => ['input' => 1.00, 'output' => 5.00, 'cache_write' => 1.25, 'cache_read' => 0.10],
         'claude-sonnet-4-6' => ['input' => 3.00, 'output' => 15.00, 'cache_write' => 3.75, 'cache_read' => 0.30],
+        'claude-opus-4-8' => ['input' => 5.00, 'output' => 25.00, 'cache_write' => 6.25, 'cache_read' => 0.50],
+        // OpenAI: no prompt-cache write premium; cached input ≈ 10% of input. Verify current prices.
+        'gpt-5' => ['input' => 1.25, 'output' => 10.00, 'cache_write' => 1.25, 'cache_read' => 0.125],
+        'gpt-5-mini' => ['input' => 0.25, 'output' => 2.00, 'cache_write' => 0.25, 'cache_read' => 0.025],
+        'gpt-4o' => ['input' => 2.50, 'output' => 10.00, 'cache_write' => 2.50, 'cache_read' => 1.25],
         // Gemini output rates include thinking tokens (3.x are reasoning models);
         // cache_read ≈ 25% of input (implicit caching). Verify against current prices.
         'gemini-3.5-flash' => ['input' => 1.50, 'output' => 9.00, 'cache_write' => 1.50, 'cache_read' => 0.375],
