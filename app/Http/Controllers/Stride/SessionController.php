@@ -58,6 +58,45 @@ class SessionController extends Controller
     }
 
     /**
+     * Revert a completed session back to "not trained yet" — undo a mistaken (or
+     * coach-logged) completion. Only current or future sessions can be reverted;
+     * a past session is history and stays done. Clears the logged sets so the
+     * session reads fresh.
+     */
+    public function uncomplete(Request $request, Session $session): JsonResponse
+    {
+        $this->authorizeSession($request, $session);
+
+        abort_unless($session->status === 'done', 422, 'Only a completed session can be reverted.');
+        abort_unless(
+            $session->scheduled_date !== null && ! $session->scheduled_date->isBefore(today()),
+            422,
+            "Only today's or an upcoming session can be reverted to not-done.",
+        );
+
+        // Wipe the logged sets (done flag, actuals, metric rows) so nothing reads
+        // as trained.
+        $session->load('exercises.sets');
+        foreach ($session->exercises as $exercise) {
+            foreach ($exercise->sets as $set) {
+                $set->metricValues()->delete();
+                $set->forceFill(['is_done' => false, 'actual_reps' => null, 'actual_kg' => null])->save();
+            }
+        }
+
+        $session->forceFill([
+            'status' => $session->scheduled_date->isToday() ? 'today' : 'planned',
+            'completed_at' => null,
+            'started_at' => null,
+            'rpe' => null,
+            'duration_min' => 0,
+            'volume_kg' => 0,
+        ])->save();
+
+        return response()->json(['session' => SessionPresenter::full($session->fresh())]);
+    }
+
+    /**
      * Manually skip an upcoming session (with an optional reason) instead of
      * waiting for the nightly roll to mark it skipped with no context.
      */

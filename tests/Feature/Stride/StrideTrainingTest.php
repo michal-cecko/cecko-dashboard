@@ -148,6 +148,41 @@ class StrideTrainingTest extends TestCase
         $this->assertGreaterThan(0, $session->fresh()->volume_kg);
     }
 
+    public function test_uncomplete_reverts_a_current_session_to_not_done(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->forceFill(['scheduled_date' => today()])->save(); // a real today session is dated today
+        $setId = $this->getJson("/api/stride/sessions/{$session->id}", $this->auth)->json('session.exercises.0.sets.0.id');
+
+        $this->patchJson("/api/stride/sessions/{$session->id}/sets/{$setId}", [
+            'is_done' => true, 'actual_reps' => 10, 'actual_kg' => 40, 'metrics' => ['weight_kg' => 40],
+        ], $this->auth)->assertOk();
+        $this->postJson("/api/stride/sessions/{$session->id}/complete", ['rpe' => 8], $this->auth)->assertOk();
+        $this->assertSame('done', $session->fresh()->status);
+
+        $this->postJson("/api/stride/sessions/{$session->id}/uncomplete", [], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'today');
+
+        $fresh = $session->fresh();
+        $this->assertNull($fresh->completed_at);
+        $this->assertSame(0, (int) $fresh->volume_kg);
+        // The logged set is wiped so the session reads "not trained yet".
+        $this->assertFalse((bool) ExerciseSet::find($setId)->is_done);
+        $this->assertNull(ExerciseSet::find($setId)->actual_kg);
+        $this->assertDatabaseMissing('stride_set_metrics', ['set_id' => $setId]);
+    }
+
+    public function test_uncomplete_rejects_a_past_session(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->forceFill(['status' => 'done', 'completed_at' => now(), 'scheduled_date' => today()->subDays(2)])->save();
+
+        // Past training is history — it can't be reverted.
+        $this->postJson("/api/stride/sessions/{$session->id}/uncomplete", [], $this->auth)->assertStatus(422);
+        $this->assertSame('done', $session->fresh()->status);
+    }
+
     public function test_session_can_be_skipped_manually_with_reason(): void
     {
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
