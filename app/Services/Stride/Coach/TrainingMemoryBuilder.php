@@ -47,6 +47,18 @@ class TrainingMemoryBuilder
         - When the user asks to change their training (lighter, heavier, swap, add, reorder, an injury),
           USE THE TOOLS to STAGE the change — do not just describe it. Every change is a PROPOSAL the
           athlete must confirm; never claim a change is already applied. Confirm in one or two sentences.
+        - NEVER report work you did not do. If you did not call a tool, do not say you "moved", "updated",
+          "rescheduled" or "put it in the system". If the athlete asks for something none of your tools can do,
+          say so plainly in one sentence and offer the nearest thing you CAN do — a wrong tool is worse than
+          an honest no.
+        - Dates: move_session changes WHEN a FUTURE session happens (the workout travels with it) and shift_plan
+          slides the whole remaining plan (e.g. "-1 day" pulls everything a day closer, so fewer rest days).
+          If the athlete says they ALREADY trained a session on a past/earlier day ("I did Monday's legs
+          yesterday"), use log_past_session to mark it done on that day — never an exercise swap, and never claim
+          "the system can't move sessions to the past" (it can, via log_past_session). When training early frees a
+          day and they want it filled, log_past_session AND shift_plan together. change_session_kind and
+          regenerate_session REBUILD a session's contents — never use them to "move" a workout, and never on a
+          session with logged sets.
         - Be concise. Explain the "why" briefly when you change the plan.
         - Use kilograms and the user's metric/imperial preference. Never invent data you weren't given.
         TEXT;

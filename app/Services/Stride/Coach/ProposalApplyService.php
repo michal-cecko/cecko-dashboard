@@ -11,6 +11,7 @@ use App\Models\Stride\StrideProfile;
 use App\Services\Stride\ExerciseCategory;
 use App\Services\Stride\PlanGenerationService;
 use App\Services\Stride\SessionVolume;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -49,6 +50,9 @@ class ProposalApplyService
                 'regenerate_session' => $this->applyRegenerate($user, $proposal, $touched),
                 'change_session_kind' => $this->applyChangeKind($user, $proposal, $touched),
                 'set_warmup_style' => $this->applyWarmupStyle($user, $proposal, $touched),
+                'move_session' => $this->applyMoveSession($user, $proposal, $touched),
+                'log_past_session' => $this->applyLogPastSession($user, $proposal, $touched),
+                'shift_plan' => $this->applyShiftPlan($user, $proposal, $touched),
                 default => null,
             };
 
@@ -210,9 +214,8 @@ class ProposalApplyService
         if ($session === null) {
             return null;
         }
-        // A started session would lose its logged work in a rebuild — refuse.
-        if ($session->started_at !== null && $session->status !== 'done') {
-            return "{$session->title} is in progress — a full rebuild would wipe logged work. Adjust it with smaller edits instead.";
+        if ($refusal = $this->rebuildRefusal($session, 'a full rebuild')) {
+            return $refusal;
         }
 
         app(PlanGenerationService::class)->regenerateInto($user, $session);
@@ -247,6 +250,107 @@ class ProposalApplyService
         return "Warm-ups are now {$label} — updated {$sessions->count()} upcoming ".Str::plural('session', $sessions->count()).'.';
     }
 
+    /** payload: { session_id, date } — same rules as the app's Move action. */
+    private function applyMoveSession(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        $date = (string) ($payload['date'] ?? '');
+        if ($session === null || ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return null;
+        }
+
+        $target = Carbon::createFromFormat('Y-m-d', $date)->startOfDay();
+        $session->forceFill([
+            'scheduled_date' => $target,
+            // Landing on today makes it today's session again; anything else is planned.
+            'status' => $session->status === 'done' ? 'done' : ($target->isToday() ? 'today' : 'planned'),
+            'skip_reason' => null,
+        ])->save();
+        $touched[] = $session->id;
+
+        return "Moved {$session->title} to {$target->isoFormat('ddd D MMM')}.";
+    }
+
+    /**
+     * payload: { session_id, date, rpe? } — mark a session done on a PAST (or
+     * today's) date (already trained). scheduled_date drives where history places
+     * it, so it moves to the trained day; completed_at anchors the completion.
+     */
+    private function applyLogPastSession(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        $date = (string) ($payload['date'] ?? '');
+        if ($session === null || ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return null;
+        }
+
+        $when = Carbon::createFromFormat('Y-m-d', $date)->startOfDay();
+        // You can only have "already done" today or a past session, never a future one.
+        if ($when->isAfter(today())) {
+            return null;
+        }
+
+        $session->forceFill([
+            'status' => 'done',
+            'scheduled_date' => $when,
+            'started_at' => $session->started_at ?? $when,
+            'completed_at' => $when->copy()->endOfDay(),
+            'skip_reason' => null,
+        ]);
+        if (isset($payload['rpe']) && $payload['rpe'] !== '' && $payload['rpe'] !== null) {
+            $session->rpe = (int) $payload['rpe'];
+        }
+        $session->save();
+        $touched[] = $session->id;
+
+        return "Logged {$session->title} as done on {$when->isoFormat('ddd D MMM')}.";
+    }
+
+    /**
+     * payload: { days, from } — slide the remaining plan, order and spacing kept.
+     * Only upcoming, unstarted sessions move; finished work stays on its date.
+     */
+    private function applyShiftPlan(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $days = (int) ($payload['days'] ?? 0);
+        if ($days === 0) {
+            return null;
+        }
+        $from = preg_match('/^\d{4}-\d{2}-\d{2}$/', (string) ($payload['from'] ?? ''))
+            ? Carbon::createFromFormat('Y-m-d', $payload['from'])->startOfDay()
+            : today();
+
+        $sessions = Session::ownedBy($user)
+            ->whereHas('block', fn ($q) => $q->where('status', 'active'))
+            ->whereIn('status', ['today', 'planned'])
+            ->whereNull('started_at')
+            ->whereDate('scheduled_date', '>=', $from)
+            ->orderBy('scheduled_date')
+            ->get();
+
+        $moved = 0;
+        foreach ($sessions as $session) {
+            $target = $session->scheduled_date->copy()->addDays($days)->startOfDay();
+            // Never shove a session into the past — clamp at today.
+            if ($target->isBefore(today())) {
+                $target = today();
+            }
+            $session->forceFill([
+                'scheduled_date' => $target,
+                'status' => $target->isToday() ? 'today' : 'planned',
+            ])->save();
+            $touched[] = $session->id;
+            $moved++;
+        }
+
+        $label = abs($days).' '.(abs($days) === 1 ? 'day' : 'days').' '.($days < 0 ? 'earlier' : 'later');
+
+        return "Shifted {$moved} upcoming ".Str::plural('session', $moved)." {$label}.";
+    }
+
     /** payload: { session_id, new_kind } — retarget what the session trains, then rebuild it */
     private function applyChangeKind(User $user, AiAdjustment $proposal, array &$touched): ?string
     {
@@ -256,9 +360,9 @@ class ProposalApplyService
         if ($session === null || $newKind === '') {
             return null;
         }
-        // Same in-progress guard as regenerate — the rebuild would wipe logged work.
-        if ($session->started_at !== null && $session->status !== 'done') {
-            return "{$session->title} is in progress — changing what it trains would rebuild it and wipe logged work.";
+        // Changing the kind rebuilds the session, so the same guard applies.
+        if ($refusal = $this->rebuildRefusal($session, 'changing what it trains')) {
+            return $refusal;
         }
 
         $oldKind = $session->kind;
@@ -376,6 +480,27 @@ class ProposalApplyService
         $ids = isset($payload['session_id']) ? [$payload['session_id']] : ($payload['session_ids'] ?? []);
 
         return Session::ownedBy($user)->whereIn('id', $ids)->with('exercises.sets')->get();
+    }
+
+    /**
+     * Why a rebuild must be refused, or null when it's safe. A rebuild deletes the
+     * exercises and their sets, so both change_session_kind and regenerate_session
+     * have to stop for work that is mid-flight OR already logged — the latter is
+     * how a finished session once got wiped by a "move" that changed its kind.
+     */
+    private function rebuildRefusal(Session $session, string $what): ?string
+    {
+        if ($session->started_at !== null && $session->status !== 'done') {
+            return "{$session->title} is in progress — {$what} would wipe logged work. Adjust it with smaller edits instead.";
+        }
+
+        $logged = $session->exercises()
+            ->whereHas('sets', fn ($q) => $q->where('is_done', true))
+            ->exists();
+
+        return $logged
+            ? "{$session->title} already has logged sets — {$what} would erase them. To put a workout on another day use move_session."
+            : null;
     }
 
     private function ownedSession(User $user, ?int $id): ?Session

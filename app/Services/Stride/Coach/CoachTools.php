@@ -105,6 +105,46 @@ class CoachTools
                 ],
             ],
             [
+                'name' => 'move_session',
+                'description' => "Reschedule ONE upcoming session to a different FUTURE day (its exercises come along unchanged). Use whenever the athlete wants a workout on another date — \"do legs tomorrow instead\", \"push Friday's session to Sunday\". This is the ONLY way to change a session's date; changing what a day trains is change_session_kind and REPLACES the workout, so never use that to move something. If the athlete ALREADY trained the session on a past day, use log_past_session instead — this tool only reschedules, it never marks a session done.",
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'session_ref' => ['type' => 'string', 'description' => "Which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today's session."],
+                        'date' => ['type' => 'string', 'description' => 'The new date, YYYY-MM-DD. Must not be in the past.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['date'],
+                ],
+            ],
+            [
+                'name' => 'shift_plan',
+                'description' => 'Move the whole remaining plan earlier or later by a number of days, keeping the order and spacing. Use for "shift everything a day closer", "push the rest of the week back two days". Only upcoming, unstarted sessions move; finished and in-progress ones stay where they are.',
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'days' => ['type' => 'integer', 'description' => 'Negative = earlier (closer), positive = later. e.g. -1 shifts everything one day closer.'],
+                        'from' => ['type' => 'string', 'description' => 'Optional: only shift sessions on/after this date (YYYY-MM-DD). Defaults to today.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['days'],
+                ],
+            ],
+            [
+                'name' => 'log_past_session',
+                'description' => "Mark a scheduled session as ALREADY DONE on a past (or today's) date — use when the athlete says they already trained it on a different or earlier day (\"I did Monday's legs yesterday\", \"already did today's push on Saturday\"). It records the session as completed on that day so it lands in history/recent on the right date. This is the ONLY way to log a workout that already happened; move_session only reschedules future sessions and never marks them done. If training early frees up a day and they want to close the gap (fewer rest days), also call shift_plan.",
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'session_ref' => ['type' => 'string', 'description' => "Which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today's session."],
+                        'date' => ['type' => 'string', 'description' => 'The day it was actually trained, YYYY-MM-DD. Today or in the past — never the future.'],
+                        'rpe' => ['type' => 'integer', 'description' => 'Optional perceived effort 1-10, only if the athlete mentions how hard it was.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['date'],
+                ],
+            ],
+            [
                 'name' => 'set_warmup_style',
                 'description' => "Change HOW warm-ups are structured across the plan: 'grouped' = one warm-up block before the whole session, 'per_exercise' = a warm-up set on each working exercise. Use when the user asks for the warm-up as a block up front (or back on each exercise). Applies to today's and every upcoming unstarted session, and to future generated ones.",
                 'input_schema' => [

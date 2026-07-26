@@ -10,6 +10,7 @@ use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
 use App\Models\Stride\SessionExercise;
 use App\Models\Stride\StrideProfile;
+use Illuminate\Support\Carbon;
 
 /**
  * Executes coach tool calls. Plan EDITS are never applied here — they are STAGED
@@ -48,11 +49,109 @@ class CoachToolExecutor
             'scale_block_load' => $this->scaleBlockLoad($user, $input, $ctx),
             'regenerate_session' => $this->regenerateSession($user, $input, $ctx),
             'change_session_kind' => $this->changeSessionKind($user, $input, $ctx),
+            'move_session' => $this->moveSession($user, $input, $ctx),
+            'log_past_session' => $this->logPastSession($user, $input, $ctx),
+            'shift_plan' => $this->shiftPlan($user, $input, $ctx),
             'set_warmup_style' => $this->setWarmupStyle($user, $input, $ctx),
             'log_injury' => $this->logInjury($user, $input),
             'remember_fact' => $this->rememberFact($user, $input),
             default => ['result' => "Unknown tool: {$tool}.", 'adjustment' => null],
         };
+    }
+
+    /**
+     * Reschedule one session. The workout travels with the date — this is the
+     * only tool that touches scheduled_date; change_session_kind REPLACES a
+     * session's contents and must never be used to "move" one.
+     */
+    private function moveSession(User $user, array $input, CoachContext $ctx): array
+    {
+        $session = $this->targetSession($ctx, $input);
+        if ($session === null) {
+            return ['result' => 'No session to move — say which one (title, kind or date).', 'adjustment' => null];
+        }
+
+        $date = trim((string) ($input['date'] ?? ''));
+        if (! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return ['result' => 'Need the target date as YYYY-MM-DD.', 'adjustment' => null];
+        }
+        if ($date < today()->toDateString()) {
+            return ['result' => "Can't move a session into the past — pick today or later.", 'adjustment' => null];
+        }
+
+        $when = Carbon::createFromFormat('Y-m-d', $date)->isoFormat('ddd D MMM');
+        $proposal = $this->propose(
+            $user, $ctx, 'move_session', 'Rescheduled',
+            "{$session->title} → {$when}", $input['reason'] ?? null, $session,
+            ['session_id' => $session->id, 'date' => $date],
+        );
+
+        return ['result' => "Staged: move {$session->title} to {$when} (awaiting confirmation).", 'adjustment' => $proposal];
+    }
+
+    /**
+     * Mark a scheduled session as already DONE on a past (or today's) date — for
+     * "I did Monday's legs yesterday". The session's date moves to the day it was
+     * actually trained so it lands in history correctly; pair with shift_plan to
+     * close the freed-up gap. This is the only tool that backdates a completion.
+     */
+    private function logPastSession(User $user, array $input, CoachContext $ctx): array
+    {
+        $session = $this->targetSession($ctx, $input);
+        if ($session === null) {
+            return ['result' => 'No session to log — say which one (title, kind or date).', 'adjustment' => null];
+        }
+
+        $date = trim((string) ($input['date'] ?? ''));
+        if (! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return ['result' => 'Need the date it was trained as YYYY-MM-DD.', 'adjustment' => null];
+        }
+        if ($date > today()->toDateString()) {
+            return ['result' => "Can't log a future session as already done — reschedule it with move_session instead.", 'adjustment' => null];
+        }
+
+        $payload = ['session_id' => $session->id, 'date' => $date];
+        if (isset($input['rpe']) && $input['rpe'] !== '' && $input['rpe'] !== null) {
+            $payload['rpe'] = (int) $input['rpe'];
+        }
+
+        $when = Carbon::createFromFormat('Y-m-d', $date)->isoFormat('ddd D MMM');
+        $proposal = $this->propose(
+            $user, $ctx, 'log_past_session', 'Logged',
+            "{$session->title} → done {$when}", $input['reason'] ?? null, $session,
+            $payload,
+        );
+
+        return ['result' => "Staged: log {$session->title} as done on {$when} (awaiting confirmation).", 'adjustment' => $proposal];
+    }
+
+    /**
+     * Shift the remaining plan by N days, order and spacing intact. Finished and
+     * in-progress sessions never move.
+     */
+    private function shiftPlan(User $user, array $input, CoachContext $ctx): array
+    {
+        $days = (int) ($input['days'] ?? 0);
+        if ($days === 0) {
+            return ['result' => 'Say how many days to shift by (negative = closer).', 'adjustment' => null];
+        }
+        if (abs($days) > 60) {
+            return ['result' => 'That shift is too large — keep it within 60 days.', 'adjustment' => null];
+        }
+
+        $from = trim((string) ($input['from'] ?? ''));
+        $from = preg_match('/^\d{4}-\d{2}-\d{2}$/', $from) ? $from : today()->toDateString();
+
+        $direction = $days < 0 ? 'earlier' : 'later';
+        $text = abs($days).' '.(abs($days) === 1 ? 'day' : 'days').' '.$direction;
+
+        $proposal = $this->propose(
+            $user, $ctx, 'shift_plan', 'Rescheduled',
+            "Whole plan {$text}", $input['reason'] ?? null, null,
+            ['days' => $days, 'from' => $from],
+        );
+
+        return ['result' => "Staged: shift every upcoming session {$text} (awaiting confirmation).", 'adjustment' => $proposal];
     }
 
     /**

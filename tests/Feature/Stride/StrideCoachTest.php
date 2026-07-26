@@ -171,6 +171,136 @@ class StrideCoachTest extends TestCase
         $this->assertDatabaseHas('stride_ai_adjustments', ['id' => $proposalId, 'kind' => 'Lowered intensity', 'status' => 'applied']);
     }
 
+    public function test_coach_can_move_a_session_to_another_day(): void
+    {
+        $conversation = $this->newConversation();
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $target = today()->addDays(2)->toDateString();
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('move_session', ['date' => $target, 'reason' => 'Legs already done today.']))
+            ->push(FakeCoachProvider::text('Staged the move.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Move today\'s session to Wednesday.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.kind', 'Rescheduled')
+            ->json('message.adjustments.0.id');
+
+        // Staged only.
+        $this->assertNotSame($target, $session->fresh()->scheduled_date->toDateString());
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $moved = $session->fresh();
+        $this->assertSame($target, $moved->scheduled_date->toDateString());
+        $this->assertSame('planned', $moved->status);
+        // The workout travels with the date — contents untouched.
+        $this->assertSame($session->exercises()->count(), $moved->exercises()->count());
+    }
+
+    public function test_coach_can_shift_the_whole_plan(): void
+    {
+        $conversation = $this->newConversation();
+        $upcoming = Session::where('user_id', $this->user->id)
+            ->whereIn('status', ['today', 'planned'])
+            ->whereDate('scheduled_date', '>=', today())
+            ->orderBy('scheduled_date')->get();
+        $before = $upcoming->pluck('scheduled_date')->map(fn ($d) => $d->toDateString())->all();
+        $this->assertNotEmpty($before, 'fixture needs upcoming sessions');
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('shift_plan', ['days' => 1, 'reason' => 'Travelling tomorrow.']))
+            ->push(FakeCoachProvider::text('Staged the shift.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Push everything back a day.',
+        ], $this->auth)->assertOk()->json('message.adjustments.0.id');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        foreach ($upcoming as $i => $session) {
+            $this->assertSame(
+                today()->parse($before[$i])->addDay()->toDateString(),
+                $session->fresh()->scheduled_date->toDateString(),
+            );
+        }
+    }
+
+    public function test_coach_can_log_a_session_done_on_a_past_date(): void
+    {
+        $conversation = $this->newConversation();
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $yesterday = today()->subDay()->toDateString();
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('log_past_session', ['date' => $yesterday, 'reason' => 'Trained legs a day early.']))
+            ->push(FakeCoachProvider::text('Staged the log.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'I already did today\'s legs yesterday.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.kind', 'Logged')
+            ->assertJsonPath('message.adjustments.0.status', 'proposed')
+            ->json('message.adjustments.0.id');
+
+        // Staged only — still today until confirmed.
+        $this->assertSame('today', $session->fresh()->status);
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $logged = $session->fresh();
+        $this->assertSame('done', $logged->status);
+        // Dated to the day it was actually trained so history places it there.
+        $this->assertSame($yesterday, $logged->scheduled_date->toDateString());
+        $this->assertSame($yesterday, $logged->completed_at->toDateString());
+    }
+
+    public function test_log_past_session_refuses_a_future_date(): void
+    {
+        $conversation = $this->newConversation();
+        $future = today()->addDays(2)->toDateString();
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('log_past_session', ['date' => $future]))
+            ->push(FakeCoachProvider::text('That day is in the future.'));
+
+        // A future date stages nothing (the executor rejects it before proposing).
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Log my session for the day after tomorrow.',
+        ], $this->auth)->assertOk()->assertJsonCount(0, 'message.adjustments');
+    }
+
+    public function test_a_session_with_logged_sets_is_never_rebuilt(): void
+    {
+        // This is what wrecked a real workout: the coach "moved" a finished legs
+        // session by changing its kind, which rebuilt it and deleted the logs.
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $conversationId = $this->getJson("/api/stride/coach/blocks/{$session->block_id}/conversation", $this->auth)
+            ->assertOk()->json('conversation.id');
+        $exercise = $session->exercises()->firstOrFail();
+        $exercise->sets()->first()->update(['is_done' => true, 'actual_reps' => 8]);
+        $session->forceFill(['status' => 'done', 'completed_at' => now()])->save();
+        $namesBefore = $session->exercises()->orderBy('position')->pluck('name')->all();
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('change_session_kind', ['session_ref' => $session->scheduled_date->toDateString(), 'new_kind' => 'Legs']))
+            ->push(FakeCoachProvider::text('Staged.'));
+
+        $reply = $this->postJson("/api/stride/coach/conversations/{$conversationId}/messages", [
+            'message' => 'Make that day a legs day.',
+        ], $this->auth)->assertOk();
+        $proposalId = $reply->json('message.adjustments.0.id');
+
+        $result = $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)
+            ->assertOk()->json('result');
+
+        $this->assertStringContainsString('logged sets', (string) $result);
+        // Contents survived, kind unchanged.
+        $this->assertSame($namesBefore, $session->fresh()->exercises()->orderBy('position')->pluck('name')->all());
+        $this->assertTrue($session->fresh()->exercises()->whereHas('sets', fn ($q) => $q->where('is_done', true))->exists());
+    }
+
     public function test_coach_can_switch_the_warmup_to_one_block_up_front(): void
     {
         $conversation = $this->newConversation();
