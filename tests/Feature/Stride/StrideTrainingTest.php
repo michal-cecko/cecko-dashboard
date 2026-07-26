@@ -172,6 +172,68 @@ class StrideTrainingTest extends TestCase
             ->assertJsonPath('session.scheduled_date', today()->addDay()->toDateString());
     }
 
+    public function test_device_state_round_trips_through_the_api(): void
+    {
+        // Everything that used to live only in the phone's localStorage.
+        $this->patchJson('/api/stride/profile', [
+            'favorites' => ['Barbell Bench Press'],
+            'hidden_exercises' => ['Donkey Calf Raise'],
+            'equipment_prefs' => ['preferred' => ['Barbell'], 'avoid' => ['Smith machine']],
+            'requests' => [['kind' => 'exercise', 'name' => 'Nordic curl', 'status' => 'sent']],
+            'display_prefs' => ['units' => 'metric'],
+            'weigh_reminder' => true,
+            'coach_pokes' => true,
+            'auto_rest' => false,
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('profile.favorites', ['Barbell Bench Press'])
+            ->assertJsonPath('profile.weigh_reminder', true)
+            ->assertJsonPath('profile.auto_rest', false);
+
+        // …comes back on the next boot.
+        $this->getJson('/api/stride/auth/me', $this->auth)->assertOk()
+            ->assertJsonPath('user.profile.hidden_exercises', ['Donkey Calf Raise'])
+            ->assertJsonPath('user.profile.equipment_prefs.preferred', ['Barbell']);
+    }
+
+    public function test_checkins_are_stored_per_day_and_upserted(): void
+    {
+        $this->postJson('/api/stride/checkins', ['energy' => 2, 'note' => 'Slept badly'], $this->auth)
+            ->assertCreated()
+            ->assertJsonPath('checkin.energy', 2);
+
+        // Same day again corrects the entry instead of stacking a second row.
+        $this->postJson('/api/stride/checkins', ['energy' => 4], $this->auth)->assertCreated();
+
+        $checkins = $this->getJson('/api/stride/checkins', $this->auth)->assertOk()->json('checkins');
+        $this->assertCount(1, $checkins);
+        $this->assertSame(4, $checkins[0]['energy']);
+        $this->assertSame(today()->toDateString(), $checkins[0]['date']);
+
+        // A past day is its own row.
+        $this->postJson('/api/stride/checkins', ['date' => today()->subDay()->toDateString(), 'energy' => 5], $this->auth)->assertCreated();
+        $this->assertCount(2, $this->getJson('/api/stride/checkins', $this->auth)->json('checkins'));
+    }
+
+    public function test_spots_and_injuries_can_be_edited_and_deleted(): void
+    {
+        $spotId = (int) str_replace('spot-', '', (string) $this->postJson('/api/stride/spots', ['name' => 'Garage', 'type' => 'home', 'equipment' => ['Barbell']], $this->auth)
+            ->assertCreated()->json('spot.id'));
+
+        $this->patchJson("/api/stride/spots/{$spotId}", ['name' => 'Garage gym', 'equipment' => ['Barbell', 'Rack']], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('spot.name', 'Garage gym')
+            ->assertJsonPath('spot.equipment', ['Barbell', 'Rack']);
+
+        $this->deleteJson("/api/stride/spots/{$spotId}", [], $this->auth)->assertOk();
+        $this->assertDatabaseMissing('stride_spots', ['id' => $spotId]);
+
+        $injuryId = $this->postJson('/api/stride/injuries', ['title' => 'Tweaky shoulder', 'body_part' => 'Shoulder'], $this->auth)
+            ->assertCreated()->json('injury.id');
+        $injuryId = (int) str_replace('inj-', '', (string) $injuryId);
+        $this->deleteJson("/api/stride/injuries/{$injuryId}", [], $this->auth)->assertOk();
+        $this->assertDatabaseMissing('stride_injuries', ['id' => $injuryId]);
+    }
+
     public function test_library_shows_slovak_names_for_slovak_users(): void
     {
         $exercise = Exercise::create([

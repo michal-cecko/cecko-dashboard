@@ -109,6 +109,17 @@ class AuthController extends Controller
                 'days_per_week' => $profile->preferences['days_per_week'] ?? null,
                 'bio' => $profile->preferences['bio'] ?? null,
                 'notes' => $profile->preferences['notes'] ?? null,
+                'warmup_style' => $profile->preferences['warmup_style'] ?? 'per_exercise',
+                // App state synced off the device (favourites, hidden exercises,
+                // equipment prefs, requests, reminder toggles).
+                'favorites' => $profile->preferences['favorites'] ?? [],
+                'hidden_exercises' => $profile->preferences['hidden_exercises'] ?? [],
+                'equipment_prefs' => $profile->preferences['equipment_prefs'] ?? [],
+                'requests' => $profile->preferences['requests'] ?? [],
+                'display_prefs' => $profile->preferences['display_prefs'] ?? [],
+                'weigh_reminder' => (bool) ($profile->preferences['weigh_reminder'] ?? false),
+                'coach_pokes' => (bool) ($profile->preferences['coach_pokes'] ?? false),
+                'auto_rest' => (bool) ($profile->preferences['auto_rest'] ?? true),
                 'age' => ! empty($profile->preferences['birth_year'])
                     ? max(0, now()->year - (int) $profile->preferences['birth_year'])
                     : null,

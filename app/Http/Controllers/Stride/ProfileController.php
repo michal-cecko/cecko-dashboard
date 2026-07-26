@@ -31,6 +31,9 @@ class ProfileController extends Controller
     /** Soft fields stored inside the `preferences` JSON column. */
     private const PREFERENCE_KEYS = [
         'language', 'gender', 'birth_year', 'years_training', 'bio', 'notes', 'training_style', 'days_per_week', 'onboarded', 'warmup_style',
+        // App state that used to live only in the phone's localStorage.
+        'favorites', 'hidden_exercises', 'equipment_prefs', 'requests', 'display_prefs',
+        'weigh_reminder', 'coach_pokes', 'auto_rest',
     ];
 
     /** Hard fields stored as their own columns. */
@@ -91,6 +94,17 @@ class ProfileController extends Controller
             'days_per_week' => ['sometimes', 'integer', 'between:1,7'],
             'onboarded' => ['sometimes', 'boolean'],
             'warmup_style' => ['sometimes', 'in:per_exercise,grouped'],
+            // Synced app state (arrays/objects are stored verbatim in the bag).
+            'favorites' => ['sometimes', 'array'],
+            'favorites.*' => ['string', 'max:120'],
+            'hidden_exercises' => ['sometimes', 'array'],
+            'hidden_exercises.*' => ['string', 'max:120'],
+            'equipment_prefs' => ['sometimes', 'array'],
+            'requests' => ['sometimes', 'array'],
+            'display_prefs' => ['sometimes', 'array'],
+            'weigh_reminder' => ['sometimes', 'boolean'],
+            'coach_pokes' => ['sometimes', 'boolean'],
+            'auto_rest' => ['sometimes', 'boolean'],
         ]);
 
         $profile = StrideProfile::firstOrCreate(['user_id' => $request->user()->id]);
@@ -133,6 +147,14 @@ class ProfileController extends Controller
             'training_style' => $prefs['training_style'] ?? [],
             'days_per_week' => $prefs['days_per_week'] ?? null,
             'onboarded' => (bool) ($prefs['onboarded'] ?? false),
+            'favorites' => $prefs['favorites'] ?? [],
+            'hidden_exercises' => $prefs['hidden_exercises'] ?? [],
+            'equipment_prefs' => $prefs['equipment_prefs'] ?? [],
+            'requests' => $prefs['requests'] ?? [],
+            'display_prefs' => $prefs['display_prefs'] ?? [],
+            'weigh_reminder' => (bool) ($prefs['weigh_reminder'] ?? false),
+            'coach_pokes' => (bool) ($prefs['coach_pokes'] ?? false),
+            'auto_rest' => (bool) ($prefs['auto_rest'] ?? true),
             'warmup_style' => $prefs['warmup_style'] ?? 'per_exercise',
         ];
     }

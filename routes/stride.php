@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Stride\AiConnectionController;
 use App\Http\Controllers\Stride\AuthController;
+use App\Http\Controllers\Stride\CheckinController;
 use App\Http\Controllers\Stride\CoachController;
 use App\Http\Controllers\Stride\GoalController;
 use App\Http\Controllers\Stride\HomeController;
@@ -27,10 +28,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('auth/login', [AuthController::class, 'login']);
-
-// Public OAuth redirect target — the browser hits this after Anthropic sign-in;
-// the user is identified from the PKCE state, so no Bearer token is present.
-Route::get('ai/connection/anthropic/callback', [AiConnectionController::class, 'callbackAnthropic']);
 
 Route::middleware('stride.auth')->group(function (): void {
     Route::get('auth/me', [AuthController::class, 'me']);
@@ -77,6 +74,7 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('injuries/{injury}', [InjuryController::class, 'show']);
     Route::patch('injuries/{injury}', [InjuryController::class, 'update']);
     Route::post('injuries/{injury}/journal', [InjuryController::class, 'addJournal']);
+    Route::delete('injuries/{injury}', [InjuryController::class, 'destroy']);
 
     // Weight
     Route::get('weight', [WeightController::class, 'index']);
@@ -91,6 +89,12 @@ Route::middleware('stride.auth')->group(function (): void {
     // Spots (training locations)
     Route::get('spots', [SpotController::class, 'index']);
     Route::post('spots', [SpotController::class, 'store']);
+    Route::patch('spots/{spot}', [SpotController::class, 'update']);
+    Route::delete('spots/{spot}', [SpotController::class, 'destroy']);
+
+    // Daily check-in (energy + note) — one row per day, upserted.
+    Route::get('checkins', [CheckinController::class, 'index']);
+    Route::post('checkins', [CheckinController::class, 'store']);
 
     // Per-user AI connection (BYOK) — provider + model wizard.
     Route::get('ai/connection', [AiConnectionController::class, 'show']);
@@ -98,7 +102,6 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::post('ai/connection/test', [AiConnectionController::class, 'test']);
     Route::patch('ai/connection/model', [AiConnectionController::class, 'updateModel']);
     Route::delete('ai/connection', [AiConnectionController::class, 'destroy']);
-    Route::post('ai/connection/anthropic/authorize', [AiConnectionController::class, 'authorizeAnthropic']);
 
     // AI coach
     Route::get('coach/conversations', [CoachController::class, 'index']);

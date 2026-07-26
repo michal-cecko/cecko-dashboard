@@ -4,7 +4,6 @@ namespace App\Services\Common\Ai;
 
 use App\Models\Common\AiConnection;
 use App\Models\Common\User;
-use App\Services\Common\Ai\Auth\AnthropicOAuthService;
 use App\Services\Stride\Coach\AnthropicCoachProvider;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\GeminiCoachProvider;
@@ -23,8 +22,6 @@ use Throwable;
  */
 class AiProviderResolver
 {
-    public function __construct(private readonly AnthropicOAuthService $oauth) {}
-
     /** Resolve the effective provider + model for one user (optionally forcing a model). */
     public function for(User $user, ?string $override = null): ResolvedAi
     {
@@ -35,17 +32,6 @@ class AiProviderResolver
             || $connection->status === 'invalid'
             || ! $connection->isByok()) {
             return ResolvedAi::free($this->defaultProvider());
-        }
-
-        if ($connection->auth_type === 'oauth') {
-            try {
-                $this->oauth->ensureFresh($connection);
-                $connection->refresh();
-            } catch (Throwable $e) {
-                report($e);
-
-                return ResolvedAi::free($this->defaultProvider());
-            }
         }
 
         $provider = $this->buildProvider($connection->provider, $connection->toCredentials());

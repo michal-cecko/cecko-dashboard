@@ -56,6 +56,46 @@ class SpotController extends Controller
         return response()->json(['spot' => $this->payload($spot, $isDefault)], 201);
     }
 
+    public function update(Request $request, Spot $spot): JsonResponse
+    {
+        abort_unless($spot->user_id === $request->user()->id, 404);
+
+        $data = $request->validate([
+            'name' => ['sometimes', 'string', 'max:120'],
+            'type' => ['sometimes', 'string', 'max:40'],
+            'size' => ['nullable', 'string', 'max:40'],
+            'prompt' => ['nullable', 'string', 'max:1000'],
+            'notes' => ['nullable', 'string', 'max:1000'],
+            'equipment' => ['nullable', 'array'],
+            'equipment.*' => ['string', 'max:60'],
+        ]);
+
+        $spot->fill(array_filter([
+            'name' => $data['name'] ?? null,
+            'type' => $data['type'] ?? null,
+            'size' => $data['size'] ?? null,
+            'blurb' => $data['prompt'] ?? null,
+            'notes' => $data['notes'] ?? null,
+        ], fn ($v) => $v !== null));
+
+        if (array_key_exists('equipment', $data)) {
+            $spot->equipment = $data['equipment'] ?? [];
+        }
+
+        $spot->save();
+
+        return response()->json(['spot' => $this->payload($spot, Spot::ownedBy($request->user())->min('id') === $spot->id)]);
+    }
+
+    public function destroy(Request $request, Spot $spot): JsonResponse
+    {
+        abort_unless($spot->user_id === $request->user()->id, 404);
+
+        $spot->delete();
+
+        return response()->json(['ok' => true]);
+    }
+
     private function payload(Spot $spot, bool $isDefault): array
     {
         return [

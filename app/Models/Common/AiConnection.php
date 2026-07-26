@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * user runs on the app-subsidised free tier.
  *
  * @property string $provider anthropic|gemini|openai|free
- * @property string $auth_type api_key|oauth|none
- * @property array|null $credentials {api_key} or {access_token, refresh_token, expires_at, scope}
+ * @property string $auth_type api_key|none
+ * @property array|null $credentials {api_key}
  * @property string|null $model
  * @property string $status unverified|active|invalid
  */
@@ -51,16 +51,10 @@ class AiConnection extends Model
         return $this->provider !== 'free' && $this->auth_type !== 'none';
     }
 
-    /** Build the driver credentials from the stored secret (api key or oauth bearer). */
+    /** Build the driver credentials from the stored API key. */
     public function toCredentials(): AiCredentials
     {
-        $creds = $this->credentials ?? [];
-
-        if ($this->auth_type === 'oauth') {
-            return new AiCredentials(oauthToken: $creds['access_token'] ?? null);
-        }
-
-        return new AiCredentials(apiKey: $creds['api_key'] ?? null);
+        return new AiCredentials(apiKey: ($this->credentials ?? [])['api_key'] ?? null);
     }
 
     /** Safe representation for the client — never includes the secret. */

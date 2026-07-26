@@ -71,10 +71,8 @@ return [
     */
 
     'ai' => [
-        // Allow "Log in with Claude subscription" (OAuth). OFF by default —
-        // proxying a personal Claude subscription through a third-party app may
-        // conflict with Anthropic's usage policies. Review ToS before enabling.
-        'allow_subscription_oauth' => (bool) env('STRIDE_AI_ALLOW_SUBSCRIPTION_OAUTH', false),
+        // BYOK is API-key only. Anthropic banned subscription-OAuth tokens for
+        // third-party apps (Feb 2026), so users connect a Console/API key.
 
         // BYOK users run on their own key/cost — 0 = unlimited.
         'byok_daily_quota' => (int) env('STRIDE_AI_BYOK_DAILY_QUOTA', 0),
@@ -91,7 +89,7 @@ return [
         'providers' => [
             'anthropic' => [
                 'label' => 'Anthropic (Claude)',
-                'auth_types' => ['api_key', 'oauth'],
+                'auth_types' => ['api_key'],
                 'models' => [
                     ['id' => 'claude-opus-4-8', 'label' => 'Claude Opus 4.8', 'tier' => 'flagship'],
                     ['id' => 'claude-sonnet-4-6', 'label' => 'Claude Sonnet 4.6', 'tier' => 'balanced'],
@@ -120,19 +118,6 @@ return [
                 ],
                 'default' => 'gpt-5-mini',
                 'generate' => 'gpt-5',
-            ],
-        ],
-
-        // Anthropic subscription OAuth (only used when allow_subscription_oauth).
-        // Endpoints + client id are env-driven; nothing is hardcoded.
-        'oauth' => [
-            'anthropic' => [
-                'client_id' => env('STRIDE_AI_ANTHROPIC_OAUTH_CLIENT_ID'),
-                'authorize_url' => env('STRIDE_AI_ANTHROPIC_OAUTH_AUTHORIZE_URL', 'https://claude.ai/oauth/authorize'),
-                'token_url' => env('STRIDE_AI_ANTHROPIC_OAUTH_TOKEN_URL', 'https://console.anthropic.com/v1/oauth/token'),
-                'redirect_uri' => env('STRIDE_AI_ANTHROPIC_OAUTH_REDIRECT', rtrim((string) env('APP_URL'), '/').'/api/stride/ai/connection/anthropic/callback'),
-                'scope' => env('STRIDE_AI_ANTHROPIC_OAUTH_SCOPE', 'user:inference user:profile'),
-                'beta_header' => 'oauth-2025-04-20',
             ],
         ],
     ],

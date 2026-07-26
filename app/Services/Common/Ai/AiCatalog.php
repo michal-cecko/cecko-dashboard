@@ -12,7 +12,7 @@ use App\Models\Common\User;
  */
 class AiCatalog
 {
-    /** The selectable providers (incl. the built-in free tier) and whether OAuth is on. */
+    /** The selectable providers (incl. the built-in free tier) + their models. */
     public static function catalog(): array
     {
         $providers = [];
@@ -21,10 +21,7 @@ class AiCatalog
             $providers[] = [
                 'key' => $key,
                 'label' => $cfg['label'] ?? ucfirst($key),
-                'auth_types' => array_values(array_filter(
-                    $cfg['auth_types'] ?? ['api_key'],
-                    fn (string $type) => $type !== 'oauth' || self::oauthEnabled($key),
-                )),
+                'auth_types' => array_values($cfg['auth_types'] ?? ['api_key']),
                 'models' => array_values($cfg['models'] ?? []),
                 'default' => $cfg['default'] ?? null,
             ];
@@ -38,10 +35,7 @@ class AiCatalog
             'default' => null,
         ];
 
-        return [
-            'providers' => $providers,
-            'oauth_enabled' => self::oauthEnabled('anthropic'),
-        ];
+        return ['providers' => $providers];
     }
 
     /** The user's connection (safe fields) + the catalog, for the app to render. */
@@ -75,16 +69,6 @@ class AiCatalog
 
     public static function supportsAuthType(string $provider, string $authType): bool
     {
-        if ($authType === 'oauth' && ! self::oauthEnabled($provider)) {
-            return false;
-        }
-
         return in_array($authType, (array) config("stride.ai.providers.{$provider}.auth_types", []), true);
-    }
-
-    private static function oauthEnabled(string $provider): bool
-    {
-        return (bool) config('stride.ai.allow_subscription_oauth')
-            && ! empty(config("stride.ai.oauth.{$provider}.client_id"));
     }
 }

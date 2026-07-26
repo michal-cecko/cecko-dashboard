@@ -107,6 +107,15 @@ class InjuryController extends Controller
         ], 201);
     }
 
+    public function destroy(Request $request, Injury $injury): JsonResponse
+    {
+        abort_unless($injury->user_id === $request->user()->id, 404);
+
+        $injury->delete();
+
+        return response()->json(['ok' => true]);
+    }
+
     private function summary(Injury $injury): array
     {
         return [
