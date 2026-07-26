@@ -52,6 +52,7 @@ class ProposalApplyService
                 'set_warmup_style' => $this->applyWarmupStyle($user, $proposal, $touched),
                 'move_session' => $this->applyMoveSession($user, $proposal, $touched),
                 'log_past_session' => $this->applyLogPastSession($user, $proposal, $touched),
+                'remove_session' => $this->applyRemoveSession($user, $proposal, $touched),
                 'shift_plan' => $this->applyShiftPlan($user, $proposal, $touched),
                 default => null,
             };
@@ -306,6 +307,32 @@ class ProposalApplyService
         $touched[] = $session->id;
 
         return "Logged {$session->title} as done on {$when->isoFormat('ddd D MMM')}.";
+    }
+
+    /**
+     * payload: { session_id } — delete a whole session (cascades exercises +
+     * sets; nulls adjustment refs). Never deletes recorded training (a done
+     * session or one with a logged set) — that's guarded here too.
+     */
+    private function applyRemoveSession(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $session = $this->ownedSession($user, $payload['session_id'] ?? null);
+        if ($session === null) {
+            return null;
+        }
+
+        $logged = $session->status === 'done'
+            || $session->exercises()->whereHas('sets', fn ($q) => $q->where('is_done', true))->exists();
+        if ($logged) {
+            return 'That session is already logged — left it in place.';
+        }
+
+        $title = $session->title;
+        $when = $session->scheduled_date ? ' ('.$session->scheduled_date->isoFormat('ddd D MMM').')' : '';
+        $session->delete();
+
+        return "Removed {$title}{$when} from the plan.";
     }
 
     /**

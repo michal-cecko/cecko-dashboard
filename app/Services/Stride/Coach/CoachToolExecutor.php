@@ -51,6 +51,7 @@ class CoachToolExecutor
             'change_session_kind' => $this->changeSessionKind($user, $input, $ctx),
             'move_session' => $this->moveSession($user, $input, $ctx),
             'log_past_session' => $this->logPastSession($user, $input, $ctx),
+            'remove_session' => $this->removeSession($user, $input, $ctx),
             'shift_plan' => $this->shiftPlan($user, $input, $ctx),
             'set_warmup_style' => $this->setWarmupStyle($user, $input, $ctx),
             'log_injury' => $this->logInjury($user, $input),
@@ -123,6 +124,39 @@ class CoachToolExecutor
         );
 
         return ['result' => "Staged: log {$session->title} as done on {$when} (awaiting confirmation).", 'adjustment' => $proposal];
+    }
+
+    /**
+     * Delete a whole session (training day) from the plan. Refuses a session that
+     * already has logged sets or is done — that is recorded history, not a plan
+     * edit. Leaves a gap on that day; pair with shift_plan to close it.
+     */
+    private function removeSession(User $user, array $input, CoachContext $ctx): array
+    {
+        $session = $this->targetSession($ctx, $input);
+        if ($session === null) {
+            return ['result' => 'No session to remove — say which one (title, kind or date).', 'adjustment' => null];
+        }
+
+        if ($this->isLogged($session)) {
+            return ['result' => "That session is already logged — I won't delete recorded training. I can skip or move a future one instead.", 'adjustment' => null];
+        }
+
+        $when = $session->scheduled_date ? $session->scheduled_date->isoFormat('ddd D MMM') : 'unscheduled';
+        $proposal = $this->propose(
+            $user, $ctx, 'remove_session', 'Removed',
+            "Delete {$session->title} ({$when})", $input['reason'] ?? null, $session,
+            ['session_id' => $session->id],
+        );
+
+        return ['result' => "Staged: remove {$session->title} on {$when} (awaiting confirmation).", 'adjustment' => $proposal];
+    }
+
+    /** A session counts as recorded (never auto-deleted) once it's done or has a logged set. */
+    private function isLogged(Session $session): bool
+    {
+        return $session->status === 'done'
+            || $session->exercises()->whereHas('sets', fn ($q) => $q->where('is_done', true))->exists();
     }
 
     /**

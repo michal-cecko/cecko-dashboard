@@ -145,6 +145,18 @@ class CoachTools
                 ],
             ],
             [
+                'name' => 'remove_session',
+                'description' => "Delete a whole session (training day) from the plan — use when the athlete wants a day removed ENTIRELY, not moved or rebuilt (\"drop Monday's legs, I don't want it\", \"remove that extra day\"). This is the only way to delete a session. It refuses a session that already has logged sets or is done — that is recorded history (skip or move it instead). Removing leaves a gap that day; if the athlete wants the rest of the plan pulled up to close it, also call shift_plan.",
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'session_ref' => ['type' => 'string', 'description' => "Which session — its title, kind, or scheduled date (YYYY-MM-DD). Defaults to today's session."],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => [],
+                ],
+            ],
+            [
                 'name' => 'set_warmup_style',
                 'description' => "Change HOW warm-ups are structured across the plan: 'grouped' = one warm-up block before the whole session, 'per_exercise' = a warm-up set on each working exercise. Use when the user asks for the warm-up as a block up front (or back on each exercise). Applies to today's and every upcoming unstarted session, and to future generated ones.",
                 'input_schema' => [

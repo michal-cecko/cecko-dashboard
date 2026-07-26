@@ -271,6 +271,49 @@ class StrideCoachTest extends TestCase
         ], $this->auth)->assertOk()->assertJsonCount(0, 'message.adjustments');
     }
 
+    public function test_coach_can_remove_a_session(): void
+    {
+        $conversation = $this->newConversation();
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('remove_session', ['reason' => 'Dropping this training day.']))
+            ->push(FakeCoachProvider::text('Staged the removal.'));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Remove today\'s session entirely.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.kind', 'Removed')
+            ->json('message.adjustments.0.id');
+
+        // Staged only — still present.
+        $this->assertDatabaseHas('stride_sessions', ['id' => $session->id]);
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        // Session and its exercises are gone (cascade).
+        $this->assertDatabaseMissing('stride_sessions', ['id' => $session->id]);
+        $this->assertDatabaseMissing('stride_session_exercises', ['session_id' => $session->id]);
+    }
+
+    public function test_remove_session_refuses_a_logged_session(): void
+    {
+        $conversation = $this->newConversation();
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->exercises()->first()->sets()->first()->update(['is_done' => true]);
+
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('remove_session', []))
+            ->push(FakeCoachProvider::text('That one is already logged.'));
+
+        // A logged session stages nothing (recorded training is never deleted).
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Delete today.',
+        ], $this->auth)->assertOk()->assertJsonCount(0, 'message.adjustments');
+
+        $this->assertDatabaseHas('stride_sessions', ['id' => $session->id]);
+    }
+
     public function test_a_session_with_logged_sets_is_never_rebuilt(): void
     {
         // This is what wrecked a real workout: the coach "moved" a finished legs

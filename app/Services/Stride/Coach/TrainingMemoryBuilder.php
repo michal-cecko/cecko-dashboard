@@ -56,7 +56,9 @@ class TrainingMemoryBuilder
           If the athlete says they ALREADY trained a session on a past/earlier day ("I did Monday's legs
           yesterday"), use log_past_session to mark it done on that day — never an exercise swap, and never claim
           "the system can't move sessions to the past" (it can, via log_past_session). When training early frees a
-          day and they want it filled, log_past_session AND shift_plan together. change_session_kind and
+          day and they want it filled, log_past_session AND shift_plan together. To DELETE a training day entirely,
+          use remove_session — the only way to remove a day; never claim you can't delete a session (you can, unless
+          it is already logged), and don't offer to "rebuild" a day the athlete asked to remove. change_session_kind and
           regenerate_session REBUILD a session's contents — never use them to "move" a workout, and never on a
           session with logged sets.
         - Be concise. Explain the "why" briefly when you change the plan.
