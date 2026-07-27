@@ -1137,6 +1137,41 @@ class PlanGenerationService
     // ── persistence ──────────────────────────────────────────────────────────
 
     /**
+     * Create ONE brand-new training day in a block: a fresh Session on the given
+     * date + kind, filled with model-generated exercises (same buildSession path
+     * as regenerate/generate). Used by the coach's add_session tool.
+     */
+    public function addSession(User $user, Block $block, string $kind, Carbon $date): Session
+    {
+        $this->loadUser = $user;
+        $this->prBestByName = null;
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $option = [
+            'name' => $block->name,
+            'split' => (string) data_get($block->brief, 'option.split', 'Full body'),
+            'phase' => $block->phase ?: 'Foundations',
+            'weeks' => $block->weeks,
+            'days_per_week' => (int) data_get($block->brief, 'option.days_per_week', 3),
+        ];
+
+        $built = $this->buildSession($user, $profile, $option, $kind, $this->catalog($user, $profile));
+
+        $date = $date->copy()->startOfDay();
+        $session = $block->sessions()->create([
+            'user_id' => $user->id,
+            'kind' => $built['kind'] ?? $kind,
+            'title' => $built['title'] ?? $kind,
+            'status' => $date->isSameDay(Carbon::today()) ? 'today' : 'planned',
+            'scheduled_date' => $date,
+            'duration_min' => $built['duration_min'] ?? 0,
+            'volume_kg' => 0,
+        ]);
+        $this->replaceExercises($session, $built);
+
+        return $session->refresh();
+    }
+
+    /**
      * Rebuild ONE existing session's exercises+sets in place (keeps the Session row,
      * its date and status). Used by the block coach's "regenerate this session" tool.
      */

@@ -68,7 +68,12 @@ class StrideGeminiProviderTest extends TestCase
 
             return str_contains($request->url(), '/models/gemini-2.5-flash:generateContent')
                 && $request->hasHeader('x-goog-api-key', 'test-key')
-                && $body['generationConfig'] === ['maxOutputTokens' => 512]
+                // chat purpose → maxOutputTokens + a bounded thinking budget so a
+                // thinking model always leaves room for the visible reply.
+                && $body['generationConfig'] === [
+                    'maxOutputTokens' => 512,
+                    'thinkingConfig' => ['thinkingBudget' => 512],
+                ]
                 // system blocks → systemInstruction parts (kept separate)
                 && $body['systemInstruction']['parts'] === [
                     ['text' => 'You are a coach.'],
@@ -127,6 +132,45 @@ class StrideGeminiProviderTest extends TestCase
         $this->assertFalse($reply->wantsTools());
         $this->assertSame("Let's pull back 10% today.", $reply->text);
         $this->assertSame('end_turn', $reply->stopReason);
+    }
+
+    public function test_caps_thinking_tighter_for_chat_than_for_plan_generation(): void
+    {
+        config()->set('ai.gemini.chat_thinking_budget', 256);
+        config()->set('ai.gemini.generate_thinking_budget', 4096);
+
+        Http::fake([
+            'generativelanguage.googleapis.com/*' => Http::response([
+                'candidates' => [[
+                    'content' => ['role' => 'model', 'parts' => [['text' => '{}']]],
+                    'finishReason' => 'STOP',
+                ]],
+                'usageMetadata' => ['promptTokenCount' => 10, 'candidatesTokenCount' => 5],
+            ]),
+        ]);
+
+        // A chat turn gets the tight chat budget…
+        (new GeminiCoachProvider)->chat(new CoachTurn(
+            model: 'gemini-2.5-flash',
+            systemBlocks: [['text' => 'You are a coach.']],
+            messages: [['role' => 'user', 'content' => 'Hi.']],
+            maxTokens: 1024,
+            purpose: 'chat',
+        ));
+
+        // …a plan-generation turn gets the generous generate budget.
+        (new GeminiCoachProvider)->chat(new CoachTurn(
+            model: 'gemini-2.5-pro',
+            systemBlocks: [['text' => 'Build a plan.']],
+            messages: [['role' => 'user', 'content' => 'Make a plan.']],
+            maxTokens: 4096,
+            purpose: 'generate_plan',
+        ));
+
+        Http::assertSent(fn (Request $r): bool => str_contains($r->url(), 'gemini-2.5-flash')
+            && $r->data()['generationConfig']['thinkingConfig'] === ['thinkingBudget' => 256]);
+        Http::assertSent(fn (Request $r): bool => str_contains($r->url(), 'gemini-2.5-pro')
+            && $r->data()['generationConfig']['thinkingConfig'] === ['thinkingBudget' => 4096]);
     }
 
     public function test_rejects_a_non_gemini_model_id(): void

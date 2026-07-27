@@ -4,6 +4,7 @@ namespace App\Services\Stride\Coach;
 
 use App\Models\Common\User;
 use App\Models\Stride\AiAdjustment;
+use App\Models\Stride\Block;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\Session;
 use App\Models\Stride\SessionExercise;
@@ -53,6 +54,9 @@ class ProposalApplyService
                 'move_session' => $this->applyMoveSession($user, $proposal, $touched),
                 'log_past_session' => $this->applyLogPastSession($user, $proposal, $touched),
                 'remove_session' => $this->applyRemoveSession($user, $proposal, $touched),
+                'add_session' => $this->applyAddSession($user, $proposal, $touched),
+                'generate_week' => $this->applyGenerateWeek($user, $proposal, $touched),
+                'generate_plan' => $this->applyGeneratePlan($user, $proposal, $touched),
                 'shift_plan' => $this->applyShiftPlan($user, $proposal, $touched),
                 default => null,
             };
@@ -327,6 +331,72 @@ class ProposalApplyService
         $session->delete();
 
         return "Removed {$title}{$when} from the plan.";
+    }
+
+    /**
+     * payload: { block_id, kind, date } — build ONE new training day into the
+     * block. The heavy generation (a real LLM call) runs here on confirm, like a
+     * regenerate; the coach turn only staged the intent.
+     */
+    private function applyAddSession(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $block = Block::ownedBy($user)->find($payload['block_id'] ?? null)
+            ?? Block::ownedBy($user)->active()->first();
+        $date = (string) ($payload['date'] ?? '');
+        if ($block === null || ! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return null;
+        }
+
+        $kind = trim((string) ($payload['kind'] ?? '')) ?: 'Full body';
+        $session = app(PlanGenerationService::class)
+            ->addSession($user, $block, $kind, Carbon::createFromFormat('Y-m-d', $date));
+        $touched[] = $session->id;
+
+        return "Added a new {$session->kind} session on {$session->scheduled_date->isoFormat('ddd D MMM')}.";
+    }
+
+    /**
+     * payload: { block_id } — generate a fresh week of sessions into the active
+     * block (one per training day of its split). Runs the generation on confirm.
+     */
+    private function applyGenerateWeek(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $block = Block::ownedBy($user)->find($payload['block_id'] ?? null)
+            ?? Block::ownedBy($user)->active()->first();
+        if ($block === null) {
+            return null;
+        }
+
+        app(PlanGenerationService::class)->generateWeek($user, $block);
+
+        return 'Generated a fresh week of training.';
+    }
+
+    /**
+     * payload: { weeks?, days_per_week?, focus?, phase? } — generate a whole NEW
+     * plan. generate() → persist() retires the current active block to history and
+     * creates the new one, so a confirmed whole-plan regeneration is safe.
+     */
+    private function applyGeneratePlan(User $user, AiAdjustment $proposal, array &$touched): ?string
+    {
+        $payload = $proposal->payload ?? [];
+        $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+
+        $phase = trim((string) ($payload['phase'] ?? ''));
+        $option = [
+            'name' => $phase !== '' ? $phase : 'New plan',
+            'split' => trim((string) ($payload['focus'] ?? '')) ?: 'Full body',
+            'phase' => $phase !== '' ? $phase : 'Foundations',
+            'weeks' => (int) ($payload['weeks'] ?? 6),
+            'days_per_week' => (int) ($payload['days_per_week'] ?? ($profile->preferences['days_per_week'] ?? 3)),
+            'summary' => '',
+        ];
+
+        $block = app(PlanGenerationService::class)->generate($user, $option, today()->toDateString());
+
+        return "Generated a new {$block->weeks}-week plan ({$block->name}).";
     }
 
     /**

@@ -249,4 +249,76 @@ class StrideBlockCoachTest extends TestCase
 
         $this->assertSame([], $adjustments);
     }
+
+    public function test_add_session_stages_and_generates_a_new_dated_session_on_apply(): void
+    {
+        $conversation = $this->blockConversation();
+        $date = now()->addDays(3)->toDateString();
+        $built = ['title' => 'Legs Day', 'duration_min' => 50, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+        ]];
+        // toolCall + closing text (the turn), then the single-session JSON the add asks for on apply.
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('add_session', ['date' => $date, 'kind' => 'Legs']))
+            ->push(FakeCoachProvider::text('Proposed.'))
+            ->push(FakeCoachProvider::text(json_encode($built)));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'add a leg day thursday'], $this->auth)
+            ->assertOk()->json('message.adjustments.0.id');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $session = Session::where('block_id', $this->block->id)->where('kind', 'Legs')
+            ->whereDate('scheduled_date', $date)->first();
+        $this->assertNotNull($session);
+        $this->assertGreaterThan(0, $session->exercises()->count());
+    }
+
+    public function test_generate_week_adds_sessions_to_the_active_block_on_apply(): void
+    {
+        $conversation = $this->blockConversation();
+        $before = Session::where('block_id', $this->block->id)->count();
+        $built = ['title' => 'Full Body', 'duration_min' => 55, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+        ]];
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('generate_week', []))
+            ->push(FakeCoachProvider::text('Proposed.'))
+            ->push(FakeCoachProvider::text(json_encode($built)));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'fill out this week'], $this->auth)
+            ->assertOk()->json('message.adjustments.0.id');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        $this->assertGreaterThan($before, Session::where('block_id', $this->block->id)->count());
+    }
+
+    public function test_generate_plan_retires_the_current_block_and_creates_a_new_one_on_apply(): void
+    {
+        $conversation = $this->blockConversation();
+        $built = ['title' => 'Full Body', 'duration_min' => 55, 'exercises' => [
+            ['name' => 'Back Squat', 'tag' => 'Compound', 'sets' => 3, 'reps' => 8, 'rest_sec' => 120],
+        ]];
+        $this->provider
+            ->push(FakeCoachProvider::toolCall('generate_plan', ['weeks' => 4, 'days_per_week' => 3, 'focus' => 'Full body']))
+            ->push(FakeCoachProvider::text('Proposed.'))
+            ->push(FakeCoachProvider::text(json_encode($built)));
+
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'make me a fresh 4-week plan'], $this->auth)
+            ->assertOk()->json('message.adjustments.0.id');
+
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        // The old block is no longer the active plan (retired to history or deleted if empty).
+        $old = $this->block->fresh();
+        $this->assertTrue($old === null || $old->status !== 'active');
+
+        // A new active block took its place, with generated sessions.
+        $newBlock = Block::where('user_id', $this->user->id)->where('status', 'active')->first();
+        $this->assertNotNull($newBlock);
+        $this->assertNotSame($this->block->id, $newBlock->id);
+        $this->assertSame(4, $newBlock->weeks);
+        $this->assertGreaterThan(0, $newBlock->sessions()->count());
+    }
 }

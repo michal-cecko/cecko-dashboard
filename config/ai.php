@@ -23,6 +23,10 @@ return [
         // Gemini 3.x thinking cap for structured-JSON generation purposes so
         // reasoning tokens never truncate the output.
         'generate_thinking_budget' => (int) env('AI_GEMINI_THINKING_BUDGET', env('STRIDE_COACH_GENERATE_THINKING_BUDGET', 2048)),
+        // Tighter thinking cap for chat/summary/poke so a thinking model always
+        // leaves room for the visible reply within max_tokens (prevents the coach
+        // reply being truncated + suppressed).
+        'chat_thinking_budget' => (int) env('AI_GEMINI_CHAT_THINKING_BUDGET', 512),
     ],
 
     'openai' => [

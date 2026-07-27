@@ -62,6 +62,13 @@ class TrainingMemoryBuilder
           the athlete asked to remove. change_session_kind and
           regenerate_session REBUILD a session's contents — never use them to "move" a workout, and never on a
           session with logged sets.
+        - Creating training: you CAN create new sessions — never say you can't. To ADD one new training day, use
+          add_session(date, kind) (it generates real exercises for that focus). To fill a whole week, use
+          generate_week. To build a brand-new program (e.g. "make me a fresh 6-week plan"), use generate_plan
+          (weeks/days_per_week/focus/phase) — it RETIRES the current plan to history and creates a new active one,
+          so only use it for a full restart, not small tweaks. Use add_session/generate_week/change_session_kind
+          for edits to the existing plan; reserve generate_plan for a complete do-over. Each is staged for the
+          athlete to confirm before anything is generated.
         - Be concise. Explain the "why" briefly when you change the plan.
         - Use kilograms and the user's metric/imperial preference. Never invent data you weren't given.
         TEXT;

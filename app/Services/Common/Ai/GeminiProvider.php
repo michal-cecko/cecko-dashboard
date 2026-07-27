@@ -48,14 +48,15 @@ class GeminiProvider implements AiProvider
         $generationConfig = ['maxOutputTokens' => $turn->maxTokens];
 
         // Gemini 3.x are "thinking" models and thinking tokens count against
-        // maxOutputTokens. For structured-JSON plan generation that silently
-        // truncates the JSON. Cap thinking so the (generous) budget always leaves
-        // ample room for the actual output — reasoned but never truncated.
-        if ($turn->purpose === 'generate_plan') {
-            $generationConfig['thinkingConfig'] = [
-                'thinkingBudget' => (int) config('ai.gemini.generate_thinking_budget', 2048),
-            ];
-        }
+        // maxOutputTokens — uncapped thinking silently truncates the visible reply
+        // (chat) or the JSON (generation). Always cap it so the answer fits: a
+        // generous budget for structured plan generation, a tighter one for chat
+        // so a coach turn never gets cut off mid-sentence.
+        $generationConfig['thinkingConfig'] = [
+            'thinkingBudget' => (int) ($turn->purpose === 'generate_plan'
+                ? config('ai.gemini.generate_thinking_budget', 2048)
+                : config('ai.gemini.chat_thinking_budget', 512)),
+        ];
 
         $payload = [
             'contents' => $this->contents($turn),

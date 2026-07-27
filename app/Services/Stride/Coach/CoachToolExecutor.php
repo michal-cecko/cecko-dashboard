@@ -52,6 +52,9 @@ class CoachToolExecutor
             'move_session' => $this->moveSession($user, $input, $ctx),
             'log_past_session' => $this->logPastSession($user, $input, $ctx),
             'remove_session' => $this->removeSession($user, $input, $ctx),
+            'add_session' => $this->addSession($user, $input, $ctx),
+            'generate_week' => $this->generateWeek($user, $input, $ctx),
+            'generate_plan' => $this->generatePlan($user, $input, $ctx),
             'shift_plan' => $this->shiftPlan($user, $input, $ctx),
             'set_warmup_style' => $this->setWarmupStyle($user, $input, $ctx),
             'log_injury' => $this->logInjury($user, $input),
@@ -147,6 +150,84 @@ class CoachToolExecutor
         );
 
         return ['result' => "Staged: remove {$session->title} on {$when}{$note} (awaiting confirmation).", 'adjustment' => $proposal];
+    }
+
+    /**
+     * Add ONE brand-new training day to the active plan. The exercises are built
+     * on apply (a real generation call, like regenerate_session) so the chat turn
+     * stays fast; here we only stage the intent.
+     */
+    private function addSession(User $user, array $input, CoachContext $ctx): array
+    {
+        if ($ctx->block === null) {
+            return ['result' => 'No active plan to add a session to — generate a plan first.', 'adjustment' => null];
+        }
+
+        $date = trim((string) ($input['date'] ?? ''));
+        if (! preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            return ['result' => 'Need the day for the new session as YYYY-MM-DD.', 'adjustment' => null];
+        }
+        if ($date < today()->toDateString()) {
+            return ['result' => "Can't add a session in the past — pick today or later.", 'adjustment' => null];
+        }
+
+        $kind = trim((string) ($input['kind'] ?? '')) ?: 'Full body';
+        $when = Carbon::createFromFormat('Y-m-d', $date)->isoFormat('ddd D MMM');
+
+        $proposal = $this->propose(
+            $user, $ctx, 'add_session', 'Added',
+            "New {$kind} session on {$when}", $input['reason'] ?? null, null,
+            ['block_id' => $ctx->block->id, 'kind' => $kind, 'date' => $date],
+        );
+
+        return ['result' => "Staged: generate a new {$kind} session on {$when} (awaiting confirmation).", 'adjustment' => $proposal];
+    }
+
+    /**
+     * Generate a fresh WEEK of sessions into the active plan — one per training day
+     * of the block's split. The generation runs on apply.
+     */
+    private function generateWeek(User $user, array $input, CoachContext $ctx): array
+    {
+        if ($ctx->block === null) {
+            return ['result' => 'No active plan to generate a week for — generate a plan first.', 'adjustment' => null];
+        }
+
+        $proposal = $this->propose(
+            $user, $ctx, 'generate_week', 'Generated',
+            'Generate a fresh week of sessions', $input['reason'] ?? null, null,
+            ['block_id' => $ctx->block->id],
+        );
+
+        return ['result' => 'Staged: generate a fresh week of training (awaiting confirmation).', 'adjustment' => $proposal];
+    }
+
+    /**
+     * Generate a whole NEW plan (a full mesocycle). On apply this RETIRES the
+     * current active block to history and creates a new one, so it's staged like
+     * any other change and only runs on confirm.
+     */
+    private function generatePlan(User $user, array $input, CoachContext $ctx): array
+    {
+        $weeks = isset($input['weeks']) ? max(2, min(16, (int) $input['weeks'])) : null;
+        $days = isset($input['days_per_week']) ? max(1, min(7, (int) $input['days_per_week'])) : null;
+        $focus = trim((string) ($input['focus'] ?? '')) ?: null;
+        $phase = trim((string) ($input['phase'] ?? '')) ?: null;
+
+        $bits = array_filter([$weeks ? $weeks.'-week' : null, $focus, $phase]);
+        $label = 'New plan'.($bits !== [] ? ' ('.implode(' · ', $bits).')' : '');
+
+        $proposal = $this->propose(
+            $user, $ctx, 'generate_plan', 'Generated', $label, $input['reason'] ?? null, null,
+            array_filter([
+                'weeks' => $weeks,
+                'days_per_week' => $days,
+                'focus' => $focus,
+                'phase' => $phase,
+            ], fn ($v): bool => $v !== null),
+        );
+
+        return ['result' => "Staged: {$label} — this replaces the current plan once confirmed.", 'adjustment' => $proposal];
     }
 
     /**

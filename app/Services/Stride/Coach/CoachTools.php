@@ -157,6 +157,45 @@ class CoachTools
                 ],
             ],
             [
+                'name' => 'add_session',
+                'description' => 'Create ONE brand-new training day and add it to the plan — use when the athlete wants a new session/day added ("add a leg day on Thursday", "generate another workout for Friday"). It generates real exercises for the chosen focus. Use this to ADD a day; regenerate_session / change_session_kind only rewrite an EXISTING day.',
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'date' => ['type' => 'string', 'description' => 'The day for the new session, YYYY-MM-DD (today or later).'],
+                        'kind' => ['type' => 'string', 'description' => 'What it trains — e.g. Push, Pull, Legs, Upper, Lower, Full body.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => ['date', 'kind'],
+                ],
+            ],
+            [
+                'name' => 'generate_week',
+                'description' => "Generate a fresh WEEK of training sessions into the current plan — use when the athlete wants a whole week of new workouts (\"fill out this week\", \"generate the next week\", \"give me this week's training\"). Builds a session per training day of the plan's split.",
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => [],
+                ],
+            ],
+            [
+                'name' => 'generate_plan',
+                'description' => 'Generate a whole NEW training plan (a full mesocycle, e.g. 1–2 months) from scratch — use when the athlete wants a brand-new program ("make me a new 6-week plan", "start a fresh plan", "generate a whole new plan"). This RETIRES the current plan to history and creates a new active one. Only for a full restart, not small edits.',
+                'input_schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'weeks' => ['type' => 'integer', 'description' => 'Plan length in weeks (e.g. 4–8). Defaults to 6.'],
+                        'days_per_week' => ['type' => 'integer', 'description' => "Training days per week (e.g. 3–5). Defaults to the athlete's preference."],
+                        'focus' => ['type' => 'string', 'description' => 'Split / focus — e.g. Push/Pull/Legs, Upper/Lower, Full body.'],
+                        'phase' => ['type' => 'string', 'description' => 'Training phase or goal — e.g. Foundations, Hypertrophy, Strength.'],
+                        'reason' => ['type' => 'string', 'description' => 'Short rationale shown to the user.'],
+                    ],
+                    'required' => [],
+                ],
+            ],
+            [
                 'name' => 'set_warmup_style',
                 'description' => "Change HOW warm-ups are structured across the plan: 'grouped' = one warm-up block before the whole session, 'per_exercise' = a warm-up set on each working exercise. Use when the user asks for the warm-up as a block up front (or back on each exercise). Applies to today's and every upcoming unstarted session, and to future generated ones.",
                 'input_schema' => [
