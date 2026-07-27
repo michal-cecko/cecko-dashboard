@@ -146,7 +146,7 @@ class CoachTools
             ],
             [
                 'name' => 'remove_session',
-                'description' => "Delete a whole session (training day) from the plan — use when the athlete wants a day removed ENTIRELY, not moved or rebuilt (\"drop Monday's legs, I don't want it\", \"remove that extra day\"). This is the only way to delete a session. It refuses a session that already has logged sets or is done — that is recorded history (skip or move it instead). Removing leaves a gap that day; if the athlete wants the rest of the plan pulled up to close it, also call shift_plan.",
+                'description' => "Delete a whole session (training day) from the plan — use when the athlete wants a day removed ENTIRELY, not moved or rebuilt (\"drop Monday's legs, I don't want it\", \"delete today's workout\", \"remove that extra day\"). This is the only way to delete a session, and it works on COMPLETED sessions too (deleting a done one permanently removes it and its logged history — that's fine when the athlete asks). Removing leaves a gap that day; if the athlete wants the rest of the plan pulled up to close it, also call shift_plan.",
                 'input_schema' => [
                     'type' => 'object',
                     'properties' => [

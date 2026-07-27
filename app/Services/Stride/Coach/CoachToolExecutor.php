@@ -127,9 +127,9 @@ class CoachToolExecutor
     }
 
     /**
-     * Delete a whole session (training day) from the plan. Refuses a session that
-     * already has logged sets or is done — that is recorded history, not a plan
-     * edit. Leaves a gap on that day; pair with shift_plan to close it.
+     * Delete a whole session (training day) from the plan — including a completed
+     * one (that permanently removes its logged history). Leaves a gap on that day;
+     * pair with shift_plan to close it.
      */
     private function removeSession(User $user, array $input, CoachContext $ctx): array
     {
@@ -138,25 +138,15 @@ class CoachToolExecutor
             return ['result' => 'No session to remove — say which one (title, kind or date).', 'adjustment' => null];
         }
 
-        if ($this->isLogged($session)) {
-            return ['result' => "That session is already logged — I won't delete recorded training. I can skip or move a future one instead.", 'adjustment' => null];
-        }
-
         $when = $session->scheduled_date ? $session->scheduled_date->isoFormat('ddd D MMM') : 'unscheduled';
+        $note = $session->status === 'done' ? ' — this permanently removes a completed session and its logs' : '';
         $proposal = $this->propose(
             $user, $ctx, 'remove_session', 'Removed',
             "Delete {$session->title} ({$when})", $input['reason'] ?? null, $session,
             ['session_id' => $session->id],
         );
 
-        return ['result' => "Staged: remove {$session->title} on {$when} (awaiting confirmation).", 'adjustment' => $proposal];
-    }
-
-    /** A session counts as recorded (never auto-deleted) once it's done or has a logged set. */
-    private function isLogged(Session $session): bool
-    {
-        return $session->status === 'done'
-            || $session->exercises()->whereHas('sets', fn ($q) => $q->where('is_done', true))->exists();
+        return ['result' => "Staged: remove {$session->title} on {$when}{$note} (awaiting confirmation).", 'adjustment' => $proposal];
     }
 
     /**

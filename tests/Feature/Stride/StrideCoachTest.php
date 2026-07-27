@@ -296,22 +296,29 @@ class StrideCoachTest extends TestCase
         $this->assertDatabaseMissing('stride_session_exercises', ['session_id' => $session->id]);
     }
 
-    public function test_remove_session_refuses_a_logged_session(): void
+    public function test_remove_session_can_delete_a_completed_session(): void
     {
         $conversation = $this->newConversation();
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
         $session->exercises()->first()->sets()->first()->update(['is_done' => true]);
+        $session->forceFill(['status' => 'done', 'completed_at' => now()])->save();
+        // Once done it's no longer "today", so the coach targets it by date.
+        $ref = $session->scheduled_date->toDateString();
 
         $this->provider
-            ->push(FakeCoachProvider::toolCall('remove_session', []))
-            ->push(FakeCoachProvider::text('That one is already logged.'));
+            ->push(FakeCoachProvider::toolCall('remove_session', ['session_ref' => $ref, 'reason' => 'Logged by mistake.']))
+            ->push(FakeCoachProvider::text('Staged the removal.'));
 
-        // A logged session stages nothing (recorded training is never deleted).
-        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
-            'message' => 'Delete today.',
-        ], $this->auth)->assertOk()->assertJsonCount(0, 'message.adjustments');
+        $proposalId = $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", [
+            'message' => 'Delete today\'s completed session.',
+        ], $this->auth)->assertOk()
+            ->assertJsonPath('message.adjustments.0.kind', 'Removed')
+            ->json('message.adjustments.0.id');
 
-        $this->assertDatabaseHas('stride_sessions', ['id' => $session->id]);
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        // A completed session is deleted too — recorded history removed as asked.
+        $this->assertDatabaseMissing('stride_sessions', ['id' => $session->id]);
     }
 
     public function test_a_session_with_logged_sets_is_never_rebuilt(): void

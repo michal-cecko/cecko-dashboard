@@ -200,6 +200,7 @@ class StrideTrainingTest extends TestCase
     public function test_postpone_moves_todays_session_to_tomorrow(): void
     {
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->forceFill(['scheduled_date' => today()])->save(); // a real today session is dated today
 
         $this->postJson("/api/stride/sessions/{$session->id}/postpone", [], $this->auth)
             ->assertOk()

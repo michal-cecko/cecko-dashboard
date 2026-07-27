@@ -7,6 +7,7 @@ use App\Models\Stride\StrideProfile;
 use App\Models\Stride\WeightEntry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class WeightController extends Controller
 {
@@ -41,7 +42,13 @@ class WeightController extends Controller
             'note' => ['nullable', 'string', 'max:255'],
         ]);
 
-        $recordedOn = $data['recorded_on'] ?? now()->toDateString();
+        // Match the stored value's format (a datetime column at midnight): pass a
+        // Carbon so the upsert's WHERE finds an existing same-day row and UPDATES
+        // it, instead of a date-string that misses it and INSERT-collides (a 500
+        // when re-logging weight the same day).
+        $recordedOn = isset($data['recorded_on'])
+            ? Carbon::parse($data['recorded_on'])->startOfDay()
+            : now()->startOfDay();
 
         // One entry per day — upsert so re-logging today overwrites.
         $entry = WeightEntry::updateOrCreate(

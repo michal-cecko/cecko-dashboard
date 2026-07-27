@@ -311,8 +311,8 @@ class ProposalApplyService
 
     /**
      * payload: { session_id } — delete a whole session (cascades exercises +
-     * sets; nulls adjustment refs). Never deletes recorded training (a done
-     * session or one with a logged set) — that's guarded here too.
+     * sets; nulls adjustment refs). Deletes completed sessions too — the athlete
+     * confirmed, so recorded history is removed as asked.
      */
     private function applyRemoveSession(User $user, AiAdjustment $proposal, array &$touched): ?string
     {
@@ -320,12 +320,6 @@ class ProposalApplyService
         $session = $this->ownedSession($user, $payload['session_id'] ?? null);
         if ($session === null) {
             return null;
-        }
-
-        $logged = $session->status === 'done'
-            || $session->exercises()->whereHas('sets', fn ($q) => $q->where('is_done', true))->exists();
-        if ($logged) {
-            return 'That session is already logged — left it in place.';
         }
 
         $title = $session->title;
