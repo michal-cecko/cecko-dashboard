@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Common\User;
 use App\Models\Common\UserApiToken;
 use App\Models\Stride\PersonalRecord;
+use App\Models\Stride\PushSubscription;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCatalog;
@@ -71,6 +72,7 @@ class AuthController extends Controller
         $token = $request->attributes->get('stride_token');
 
         if ($token instanceof UserApiToken) {
+            PushSubscription::query()->where('token_id', $token->id)->delete();
             $token->forceFill(['revoked_at' => now()])->save();
         }
 

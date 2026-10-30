@@ -11,6 +11,7 @@ use App\Http\Controllers\Stride\LibraryController;
 use App\Http\Controllers\Stride\PersonalRecordController;
 use App\Http\Controllers\Stride\PlanController;
 use App\Http\Controllers\Stride\ProfileController;
+use App\Http\Controllers\Stride\PushController;
 use App\Http\Controllers\Stride\SessionController;
 use App\Http\Controllers\Stride\SpotController;
 use App\Http\Controllers\Stride\WeightController;
@@ -32,6 +33,12 @@ Route::post('auth/login', [AuthController::class, 'login']);
 Route::middleware('stride.auth')->group(function (): void {
     Route::get('auth/me', [AuthController::class, 'me']);
     Route::post('auth/logout', [AuthController::class, 'logout']);
+
+    Route::get('push/config', [PushController::class, 'config']);
+    Route::patch('push/preferences', [PushController::class, 'preferences']);
+    Route::post('push/subscriptions', [PushController::class, 'subscribe']);
+    Route::delete('push/subscriptions', [PushController::class, 'unsubscribe']);
+    Route::post('push/test', [PushController::class, 'test']);
 
     // Profile preferences (language, …)
     Route::patch('profile', [ProfileController::class, 'update']);

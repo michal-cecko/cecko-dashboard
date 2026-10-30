@@ -148,6 +148,53 @@ class StrideTrainingTest extends TestCase
         $this->assertGreaterThan(0, $session->fresh()->volume_kg);
     }
 
+    public function test_offline_session_timestamps_are_kept_when_requests_are_replayed(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $startedAt = '2025-03-12T08:15:00+01:00';
+        $completedAt = '2025-03-12T09:02:00+01:00';
+
+        $this->postJson("/api/stride/sessions/{$session->id}/start", ['started_at' => $startedAt], $this->auth)->assertOk();
+        $this->postJson("/api/stride/sessions/{$session->id}/start", ['started_at' => '2025-03-12T08:45:00+01:00'], $this->auth)->assertOk();
+        $this->assertSame('2025-03-12 07:15:00', $session->fresh()->started_at->utc()->format('Y-m-d H:i:s'));
+
+        $this->postJson("/api/stride/sessions/{$session->id}/complete", [
+            'started_at' => $startedAt,
+            'completed_at' => $completedAt,
+        ], $this->auth)->assertOk();
+        $this->postJson("/api/stride/sessions/{$session->id}/complete", [
+            'completed_at' => '2025-03-12T12:00:00+01:00',
+        ], $this->auth)->assertOk();
+
+        $this->assertSame('2025-03-12 07:15:00', $session->fresh()->started_at->utc()->format('Y-m-d H:i:s'));
+        $this->assertSame('2025-03-12 08:02:00', $session->fresh()->completed_at->utc()->format('Y-m-d H:i:s'));
+        $this->postJson("/api/stride/sessions/{$session->id}/complete", ['completed_at' => 'not-a-timestamp'], $this->auth)
+            ->assertUnprocessable();
+        $this->postJson("/api/stride/sessions/{$session->id}/start", ['started_at' => '2025-02-30T08:15:00Z'], $this->auth)
+            ->assertUnprocessable();
+    }
+
+    public function test_queued_start_does_not_reopen_a_session_completed_on_another_device(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->forceFill([
+            'status' => 'done',
+            'started_at' => '2025-03-12 07:15:00',
+            'completed_at' => '2025-03-12 08:02:00',
+        ])->save();
+
+        $this->postJson("/api/stride/sessions/{$session->id}/start", [
+            'started_at' => '2025-03-12T07:15:00Z',
+        ], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('session.status', 'done');
+
+        $fresh = $session->fresh();
+        $this->assertSame('done', $fresh->status);
+        $this->assertSame('2025-03-12 07:15:00', $fresh->started_at->utc()->format('Y-m-d H:i:s'));
+        $this->assertSame('2025-03-12 08:02:00', $fresh->completed_at->utc()->format('Y-m-d H:i:s'));
+    }
+
     public function test_uncomplete_reverts_a_current_session_to_not_done(): void
     {
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();

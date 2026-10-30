@@ -28,10 +28,13 @@ class SessionController extends Controller
     public function start(Request $request, Session $session): JsonResponse
     {
         $this->authorizeSession($request, $session);
+        $data = $request->validate([
+            'started_at' => ['sometimes', 'date', 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/'],
+        ]);
 
         $session->forceFill([
-            'status' => 'today',
-            'started_at' => $session->started_at ?? now(),
+            'status' => $session->status === 'done' ? 'done' : 'today',
+            'started_at' => $session->started_at ?? (isset($data['started_at']) ? Carbon::parse($data['started_at'])->utc() : now()),
         ])->save();
 
         return response()->json(['session' => SessionPresenter::full($session)]);
@@ -44,11 +47,14 @@ class SessionController extends Controller
         $data = $request->validate([
             'rpe' => ['nullable', 'numeric', 'between:0,10'],
             'notes' => ['nullable', 'string'],
+            'started_at' => ['sometimes', 'date', 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/'],
+            'completed_at' => ['sometimes', 'date', 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/'],
         ]);
 
         $session->forceFill([
             'status' => 'done',
-            'completed_at' => now(),
+            'started_at' => $session->started_at ?? (isset($data['started_at']) ? Carbon::parse($data['started_at'])->utc() : null),
+            'completed_at' => $session->completed_at ?? (isset($data['completed_at']) ? Carbon::parse($data['completed_at'])->utc() : now()),
             'rpe' => $data['rpe'] ?? $session->rpe,
             'notes' => $data['notes'] ?? $session->notes,
             'volume_kg' => SessionVolume::recompute($session),

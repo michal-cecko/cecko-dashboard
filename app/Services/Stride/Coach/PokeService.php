@@ -12,15 +12,14 @@ use App\Services\Common\Ai\AiReply;
 use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiUsageBucket;
 use App\Services\Common\Ai\ResolvedAi;
+use Carbon\CarbonImmutable;
 use Illuminate\Support\Str;
 use Throwable;
 
 /**
- * Coach "pokes": 2-3 short motivational push-notification texts per day, written
- * by the coach LLM in the athlete's persona voice and grounded in their context
- * (today's session done or not, check-in energy, streak, upcoming work). The app
- * fetches them on open and schedules them as LOCAL notifications at the returned
- * times — no push infrastructure.
+ * Coach "pokes": short motivational notification texts written by the coach LLM
+ * in the athlete's persona voice and grounded in their context. The app can
+ * schedule them locally; the server also uses them for Web Push.
  *
  * Generated at most once per day per context; the result is cached on
  * stride_profiles.daily_pokes and reused while {date, done, energy} match.
@@ -44,25 +43,26 @@ class PokeService
     ) {}
 
     /** @return array<int, array{slot:string,at:string,title:string,body:string}> */
-    public function pokes(User $user, ?int $energy, ?bool $done): array
+    public function pokes(User $user, ?int $energy, ?bool $done, ?CarbonImmutable $date = null): array
     {
+        $date ??= CarbonImmutable::today(config('app.timezone'));
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
 
         $cached = $profile->daily_pokes;
         if (is_array($cached)
             && ($cached['v'] ?? 1) === self::CACHE_VERSION
-            && ($cached['date'] ?? null) === today()->toDateString()
+            && ($cached['date'] ?? null) === $date->toDateString()
             && ($cached['done'] ?? null) === $done
             && ($cached['energy'] ?? null) === $energy
             && ! empty($cached['items'])) {
             return $cached['items'];
         }
 
-        $items = $this->generate($user, $profile, $energy, $done);
+        $items = $this->generate($user, $profile, $energy, $done, $date);
 
         $profile->update(['daily_pokes' => [
             'v' => self::CACHE_VERSION,
-            'date' => today()->toDateString(),
+            'date' => $date->toDateString(),
             'done' => $done,
             'energy' => $energy,
             'items' => $items,
@@ -78,11 +78,11 @@ class PokeService
      *
      * @return array{rest:bool,done:bool,title:string,next:?string}
      */
-    private function todayState(User $user): array
+    private function todayState(User $user, CarbonImmutable $date): array
     {
         $session = Session::ownedBy($user)
             ->whereHas('block', fn ($q) => $q->where('status', 'active'))
-            ->where(fn ($q) => $q->where('status', 'today')->orWhereDate('scheduled_date', today()))
+            ->where(fn ($q) => $q->where('status', 'today')->orWhereDate('scheduled_date', $date))
             ->whereIn('status', ['today', 'planned', 'done'])
             ->orderByRaw("case when status = 'today' then 0 else 1 end")
             ->first();
@@ -94,7 +94,7 @@ class PokeService
                 ->whereHas('block', fn ($q) => $q->where('status', 'active'))
                 ->whereIn('status', ['today', 'planned'])
                 ->where('kind', '!=', 'Rest')
-                ->whereDate('scheduled_date', '>', today())
+                ->whereDate('scheduled_date', '>', $date)
                 ->orderBy('scheduled_date')
                 ->first()
             : null;
@@ -110,7 +110,7 @@ class PokeService
     }
 
     /** @return array<int, array{slot:string,at:string,title:string,body:string}> */
-    private function generate(User $user, StrideProfile $profile, ?int $energy, ?bool $done): array
+    private function generate(User $user, StrideProfile $profile, ?int $energy, ?bool $done, CarbonImmutable $date): array
     {
         $personaKey = $profile->persona_key ?: 'calm';
         $lang = $profile->preferences['language'] ?? 'en';
@@ -120,7 +120,7 @@ class PokeService
         // What today ACTUALLY is, from the plan — not from the client's flag. The
         // app sends done=false whenever there's no session loaded, which on a rest
         // day used to read as "not trained yet" and produced "get to the bars" pokes.
-        $today = $this->todayState($user);
+        $today = $this->todayState($user, $date);
 
         $stateLines = array_filter([
             $today['rest']
