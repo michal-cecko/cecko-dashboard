@@ -4,6 +4,7 @@ use App\Http\Controllers\Stride\AiConnectionController;
 use App\Http\Controllers\Stride\AuthController;
 use App\Http\Controllers\Stride\CheckinController;
 use App\Http\Controllers\Stride\CoachController;
+use App\Http\Controllers\Stride\ExerciseController;
 use App\Http\Controllers\Stride\GoalController;
 use App\Http\Controllers\Stride\HomeController;
 use App\Http\Controllers\Stride\InjuryController;
@@ -48,6 +49,11 @@ Route::middleware('stride.auth')->group(function (): void {
     // Library
     Route::get('library', [LibraryController::class, 'index']);
     Route::get('equipment', [LibraryController::class, 'equipment']);
+
+    // The user's private exercises
+    Route::post('exercises', [ExerciseController::class, 'store']);
+    Route::patch('exercises/{exercise}', [ExerciseController::class, 'update']);
+    Route::delete('exercises/{exercise}', [ExerciseController::class, 'destroy']);
 
     // Home + plan
     Route::get('home', [HomeController::class, 'index']);

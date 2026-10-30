@@ -13,20 +13,23 @@ use App\Models\Stride\SessionExercise;
  */
 class ExerciseCategory
 {
-    public static function of(SessionExercise $exercise): ?string
+    public static function of(SessionExercise $exercise, int $userId): ?string
     {
         if ($exercise->exercise_id) {
-            $category = Exercise::query()->whereKey($exercise->exercise_id)->value('category');
+            $category = Exercise::query()->visibleTo($userId)->whereKey($exercise->exercise_id)->value('category');
             if ($category) {
                 return $category;
             }
         }
 
-        return Exercise::query()->whereRaw('LOWER(name) = ?', [mb_strtolower(trim($exercise->name))])->value('category');
+        return Exercise::query()->visibleTo($userId)
+            ->whereRaw('LOWER(name) = ?', [mb_strtolower(trim($exercise->name))])
+            ->sharedFirst()
+            ->value('category');
     }
 
     /** Does the exercise match a {by:'category'|'name', value} filter? */
-    public static function matches(SessionExercise $exercise, string $by, string $value): bool
+    public static function matches(SessionExercise $exercise, int $userId, string $by, string $value): bool
     {
         $value = trim($value);
         if ($value === '') {
@@ -34,7 +37,7 @@ class ExerciseCategory
         }
 
         if ($by === 'category') {
-            $category = self::of($exercise);
+            $category = self::of($exercise, $userId);
 
             // Family match: "calisthenics" also covers "weighted calisthenics" and
             // "freestyle calisthenics" (an exact value still matches only itself).

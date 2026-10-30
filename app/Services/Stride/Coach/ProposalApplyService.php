@@ -147,7 +147,7 @@ class ProposalApplyService
         $kg = (float) ($payload['kg'] ?? 0);
 
         $exercise = $session->exercises()->create([
-            'exercise_id' => Exercise::query()->where('name', $name)->value('id'),
+            'exercise_id' => Exercise::query()->visibleTo($user->id)->where('name', $name)->sharedFirst()->value('id'),
             'name' => $name,
             'tag' => in_array($payload['tag'] ?? '', ['Compound', 'Isolation'], true) ? $payload['tag'] : 'Compound',
             'note' => '',
@@ -476,8 +476,13 @@ class ProposalApplyService
             return null;
         }
 
-        $toExerciseId = $payload['to']['exercise_id']
-            ?? Exercise::query()->whereRaw('LOWER(name) = ?', [mb_strtolower($toName)])->value('id');
+        $toExerciseId = Exercise::query()->visibleTo($user->id)
+            ->when(
+                isset($payload['to']['exercise_id']),
+                fn ($q) => $q->whereKey($payload['to']['exercise_id']),
+                fn ($q) => $q->whereRaw('LOWER(name) = ?', [mb_strtolower($toName)])->sharedFirst(),
+            )
+            ->value('id');
 
         $count = 0;
         foreach ($this->targetSessions($user, $proposal) as $session) {
@@ -508,11 +513,11 @@ class ProposalApplyService
         $reordered = 0;
         foreach ($this->targetSessions($user, $proposal) as $session) {
             $exercises = $session->exercises()->orderBy('position')->get();
-            $matched = $exercises->filter(fn (SessionExercise $e) => ExerciseCategory::matches($e, $by, $value));
+            $matched = $exercises->filter(fn (SessionExercise $e) => ExerciseCategory::matches($e, $user->id, $by, $value));
             if ($matched->isEmpty()) {
                 continue;
             }
-            $rest = $exercises->reject(fn (SessionExercise $e) => ExerciseCategory::matches($e, $by, $value));
+            $rest = $exercises->reject(fn (SessionExercise $e) => ExerciseCategory::matches($e, $user->id, $by, $value));
             $ordered = $last ? $rest->concat($matched) : $matched->concat($rest);
 
             $position = 0;
@@ -541,7 +546,7 @@ class ProposalApplyService
         foreach ($this->targetSessions($user, $proposal) as $session) {
             $any = false;
             foreach ($session->exercises as $exercise) {
-                if ($onlyCategory && ExerciseCategory::of($exercise) !== mb_strtolower($onlyCategory)) {
+                if ($onlyCategory && ExerciseCategory::of($exercise, $user->id) !== mb_strtolower($onlyCategory)) {
                     continue;
                 }
                 foreach ($exercise->sets()->where('kind', 'Working')->where('kg', '>', 0)->get() as $set) {

@@ -62,7 +62,7 @@ class PersonalRecordController extends Controller
         $required = $partial ? 'sometimes' : 'required';
 
         $data = $request->validate([
-            'exercise_id' => ['nullable', 'integer', 'exists:stride_exercises,id'],
+            'exercise_id' => ['nullable', 'integer', Exercise::visibleRule($request->user()->id)],
             'label' => [$required, 'string', 'max:120'],
             'metric_type' => [$required, 'string', 'in:'.implode(',', self::METRIC_TYPES)],
             'metrics' => [$required, 'array'],

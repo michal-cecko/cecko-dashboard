@@ -181,9 +181,9 @@ class StrideCalisthenicsSkillsTest extends TestCase
             'name' => 'Weighted Pull-up', 'tag' => 'Compound', 'position' => 0,
         ]);
 
-        $this->assertTrue(ExerciseCategory::matches($exercise, 'category', 'calisthenics'));
-        $this->assertTrue(ExerciseCategory::matches($exercise, 'category', 'weighted calisthenics'));
-        $this->assertFalse(ExerciseCategory::matches($exercise, 'category', 'strength'));
+        $this->assertTrue(ExerciseCategory::matches($exercise, $this->user->id, 'category', 'calisthenics'));
+        $this->assertTrue(ExerciseCategory::matches($exercise, $this->user->id, 'category', 'weighted calisthenics'));
+        $this->assertFalse(ExerciseCategory::matches($exercise, $this->user->id, 'category', 'strength'));
     }
 
     public function test_weighted_question_links_to_a_real_weighted_catalogue_row(): void

@@ -171,7 +171,7 @@ class TrainingMemoryBuilder
             $date = $session->scheduled_date?->toDateString() ?? '—';
             $lines[] = "SESSION #{$session->id} — {$session->title} ({$session->kind}, {$session->status}, {$date}):";
             foreach ($session->exercises->sortBy('position') as $exercise) {
-                $category = ExerciseCategory::of($exercise) ?? 'uncategorised';
+                $category = ExerciseCategory::of($exercise, $block->user_id) ?? 'uncategorised';
                 $top = $exercise->sets->where('kind', 'Working')->first();
                 $detail = $top ? sprintf('%d×%g kg', $top->reps, $top->kg) : '—';
                 $lines[] = "  {$exercise->position}. {$exercise->name} [{$category}] {$detail}";
