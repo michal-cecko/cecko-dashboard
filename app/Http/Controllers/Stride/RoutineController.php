@@ -84,6 +84,10 @@ class RoutineController extends Controller
     /**
      * Log a finished (or ended early) run as a done session. The app retries
      * failed uploads, so a repeated client_id returns the first session.
+     *
+     * scheduled_date is the date in the offset started_at was sent with, so the
+     * app has to send local time: a UTC "Z" time gives the UTC day. The duration
+     * comes from elapsed_seconds, because started..completed includes pauses.
      */
     public function logRun(Request $request, Routine $routine): JsonResponse
     {
@@ -97,7 +101,6 @@ class RoutineController extends Controller
             'completed' => ['required', 'boolean'],
         ]);
 
-        // The device's offset gives the day the class happened in the user's time zone.
         $startedAt = CarbonImmutable::parse($data['started_at']);
 
         $session = Session::firstOrCreate(
@@ -110,7 +113,6 @@ class RoutineController extends Controller
                 'scheduled_date' => $startedAt->toDateString(),
                 'started_at' => $startedAt->utc(),
                 'completed_at' => CarbonImmutable::parse($data['completed_at'])->utc(),
-                // started..completed includes paused time; elapsed_seconds doesn't.
                 'duration_min' => max(1, (int) round($data['elapsed_seconds'] / 60)),
                 'volume_kg' => 0,
                 'ended_early' => ! $data['completed'],
@@ -120,14 +122,18 @@ class RoutineController extends Controller
         return response()->json(['data' => SessionPresenter::summary($session)], $session->wasRecentlyCreated ? 201 : 200);
     }
 
-    /** @return array{title: string, kind: string, steps: array, total_seconds: int, step_count: int} */
+    /**
+     * The app shows the 422 message as is, so the messages stay English whatever
+     * APP_LOCALE is.
+     *
+     * @return array{title: string, kind: string, steps: array, total_seconds: int, step_count: int}
+     */
     private function validateRoutine(Request $request): array
     {
         $data = $request->validate([
             'title' => ['required', 'string', 'max:120'],
             'kind' => ['required', 'string', Rule::in(Routine::KINDS)],
         ], [
-            // The app shows the 422 message as is, so these stay English whatever APP_LOCALE is.
             'title.max' => 'The title can be at most 120 characters.',
             'title' => 'A routine needs a title.',
             'kind' => 'The kind must be one of: '.implode(', ', Routine::KINDS).'.',

@@ -189,7 +189,9 @@ class TrainingMemoryBuilder
         if ($today === null) {
             // Say REST explicitly — "no active session" reads to the model like
             // missing data, and it starts suggesting workouts on a rest day.
-            $done = Session::ownedBy($user)->where('status', 'done')->whereDate('scheduled_date', today())->first();
+            $done = Session::ownedBy($user)->where('status', 'done')->whereDate('scheduled_date', today())
+                ->orderByRaw("case when kind = 'Routine' then 1 else 0 end")
+                ->first();
 
             return $done !== null
                 ? "TODAY: {$done->title} — already completed. Nothing else is scheduled."

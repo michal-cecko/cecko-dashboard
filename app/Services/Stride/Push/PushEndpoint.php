@@ -13,12 +13,15 @@ final class PushEndpoint
         'web.push.apple.com',
     ];
 
+    /** Edge on Windows uses regional hosts like wns2-par02p.notify.windows.com. */
+    private const WINDOWS_HOST_SUFFIX = '.notify.windows.com';
+
     public static function validate(string $endpoint): string
     {
         $parts = parse_url($endpoint);
         $host = strtolower($parts['host'] ?? '');
 
-        $allowedHost = in_array($host, self::ALLOWED_HOSTS, true);
+        $allowedHost = in_array($host, self::ALLOWED_HOSTS, true) || str_ends_with($host, self::WINDOWS_HOST_SUFFIX);
 
         if (($parts['scheme'] ?? null) !== 'https'
             || ! $allowedHost

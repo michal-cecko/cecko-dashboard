@@ -845,20 +845,26 @@ class PlanGenerationService
         ];
     }
 
-    /** Lowercased exercise name → metric_type, loaded once per generate(). */
     /** Set for the duration of a generation run — PR lookups need the athlete. */
     private ?User $loadUser = null;
 
-    private ?array $metricByName = null;
+    /**
+     * Lowercased exercise name → metric_type, per user ('' = shared catalogue only).
+     * One service handles many users in stride:advance-blocks.
+     *
+     * @var array<int|string, array<string, string>>
+     */
+    private array $metricByName = [];
 
     private function metricFor(string $name): string
     {
-        $this->metricByName ??= Exercise::query()->visibleTo($this->loadUser?->id)->sharedFirst()
+        $userKey = $this->loadUser?->id ?? '';
+        $this->metricByName[$userKey] ??= Exercise::query()->visibleTo($this->loadUser?->id)->sharedFirst()
             ->get(['name', 'metric_type'])->unique('name')->pluck('metric_type', 'name')
             ->mapWithKeys(fn ($m, $n) => [mb_strtolower(trim((string) $n)) => $m ?: 'load'])
             ->all();
 
-        return $this->metricByName[mb_strtolower(trim($name))] ?? 'load';
+        return $this->metricByName[$userKey][mb_strtolower(trim($name))] ?? 'load';
     }
 
     /**

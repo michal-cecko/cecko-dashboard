@@ -21,8 +21,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('stride_exercises', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('user_id');
-            $table->dropColumn('image_url');
+            $table->dropForeign(['user_id']);
+            $table->dropIndex(['user_id']);
+            $table->dropColumn(['user_id', 'image_url']);
         });
     }
 };

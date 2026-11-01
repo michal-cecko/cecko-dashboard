@@ -7,6 +7,7 @@ use App\Models\Stride\Block;
 use App\Models\Stride\Exercise;
 use App\Models\Stride\Routine;
 use App\Models\Stride\Session;
+use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Database\Seeders\Stride\ExerciseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
@@ -301,5 +302,17 @@ class StrideRoutineTest extends TestCase
             ->assertOk()
             ->assertJsonPath('today.id', $planSession->id)
             ->assertJsonPath('this_week.done', 1);
+    }
+
+    public function test_coach_today_line_names_the_plan_session_over_a_routine_run(): void
+    {
+        $block = Block::create(['user_id' => $this->user->id, 'name' => 'Block', 'status' => 'active']);
+        $this->logRun($this->createRoutine(), ['started_at' => now()->toIso8601String(), 'completed_at' => now()->toIso8601String()]);
+        Session::create([
+            'user_id' => $this->user->id, 'block_id' => $block->id, 'kind' => 'Pull', 'title' => 'Pull day', 'status' => 'done',
+            'scheduled_date' => today(), 'completed_at' => now()->subHour(),
+        ]);
+
+        $this->assertStringContainsString('TODAY: Pull day — already completed.', app(TrainingMemoryBuilder::class)->memory($this->user));
     }
 }

@@ -22,7 +22,8 @@ use Throwable;
  * schedule them locally; the server also uses them for Web Push.
  *
  * Generated at most once per day per context; the result is cached on
- * stride_profiles.daily_pokes and reused while {date, done, energy} match.
+ * stride_profiles.daily_pokes and reused while {date, done, energy} and the
+ * plan's own done state match, so a set written before training isn't sent after it.
  * LLM failure degrades to a small per-persona static set — never a 500.
  */
 class PokeService
@@ -47,6 +48,7 @@ class PokeService
     {
         $date ??= CarbonImmutable::today(config('app.timezone'));
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
+        $today = $this->todayState($user, $date);
 
         $cached = $profile->daily_pokes;
         if (is_array($cached)
@@ -54,17 +56,19 @@ class PokeService
             && ($cached['date'] ?? null) === $date->toDateString()
             && ($cached['done'] ?? null) === $done
             && ($cached['energy'] ?? null) === $energy
+            && ($cached['plan_done'] ?? null) === $today['done']
             && ! empty($cached['items'])) {
             return $cached['items'];
         }
 
-        $items = $this->generate($user, $profile, $energy, $done, $date);
+        $items = $this->generate($user, $profile, $energy, $done, $today);
 
         $profile->update(['daily_pokes' => [
             'v' => self::CACHE_VERSION,
             'date' => $date->toDateString(),
             'done' => $done,
             'energy' => $energy,
+            'plan_done' => $today['done'],
             'items' => $items,
         ]]);
 
@@ -109,8 +113,11 @@ class PokeService
         ];
     }
 
-    /** @return array<int, array{slot:string,at:string,title:string,body:string}> */
-    private function generate(User $user, StrideProfile $profile, ?int $energy, ?bool $done, CarbonImmutable $date): array
+    /**
+     * @param  array{rest:bool,done:bool,title:string,next:?string}  $today
+     * @return array<int, array{slot:string,at:string,title:string,body:string}>
+     */
+    private function generate(User $user, StrideProfile $profile, ?int $energy, ?bool $done, array $today): array
     {
         $personaKey = $profile->persona_key ?: 'calm';
         $lang = $profile->preferences['language'] ?? 'en';
@@ -120,7 +127,6 @@ class PokeService
         // What today ACTUALLY is, from the plan — not from the client's flag. The
         // app sends done=false whenever there's no session loaded, which on a rest
         // day used to read as "not trained yet" and produced "get to the bars" pokes.
-        $today = $this->todayState($user, $date);
 
         $stateLines = array_filter([
             $today['rest']

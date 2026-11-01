@@ -108,7 +108,7 @@ class PushScheduler
         $sent = 0;
         $cutoff = $dueAt->addMinutes(15);
         $now = CarbonImmutable::now();
-        foreach ($subscriptions as $subscription) {
+        foreach ($subscriptions as $key => $subscription) {
             if ($subscription->created_at->greaterThan($dueAt)) {
                 continue;
             }
@@ -136,6 +136,7 @@ class PushScheduler
             $result = $this->transport->send($subscription, $payload);
             if ($result->status === 'expired') {
                 $subscription->delete();
+                $subscriptions->forget($key);
 
                 continue;
             }

@@ -10,6 +10,7 @@ use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachProvider;
+use App\Services\Stride\Coach\PokeService;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Database\Seeders\Stride\StrideDemoSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -415,6 +416,24 @@ class StrideCoachTest extends TestCase
 
         $profile = StrideProfile::where('user_id', $this->user->id)->first();
         $this->assertSame(today()->toDateString(), $profile->daily_pokes['date']);
+    }
+
+    public function test_cached_pokes_are_made_again_once_todays_session_is_done(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->update(['scheduled_date' => today()]);
+        $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Last call', 'body' => 'Short session beats none.']])));
+        $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Nice work', 'body' => 'Rest well tonight.']])));
+        $pokes = app(PokeService::class);
+
+        $before = $pokes->pokes($this->user, null, null);
+        $this->assertSame($before, $pokes->pokes($this->user, null, null));
+
+        $session->update(['status' => 'done', 'completed_at' => now()]);
+        $after = $pokes->pokes($this->user, null, null);
+
+        $this->assertSame('Nice work', $after[0]['title']);
+        $this->assertStringContainsString("Today's training is DONE", collect($this->provider->calls)->last()->messages[0]['content']);
     }
 
     public function test_pokes_on_a_rest_day_never_nudge_toward_training(): void

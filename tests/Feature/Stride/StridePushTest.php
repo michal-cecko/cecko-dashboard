@@ -309,6 +309,42 @@ class StridePushTest extends TestCase
         $this->assertDatabaseCount('stride_push_deliveries', 0);
     }
 
+    public function test_an_expired_subscription_is_not_used_again_in_the_same_run(): void
+    {
+        CarbonImmutable::setTestNow('2026-10-17 03:59:00 UTC');
+        $user = $this->user();
+        $token = $this->token($user);
+        StrideProfile::create(['user_id' => $user->id, 'preferences' => [
+            'weigh_reminder' => true,
+            'workout_reminder' => true,
+            'workout_reminder_time' => '06:00',
+            'notification_timezone' => 'Europe/Prague',
+        ]]);
+        $block = Block::create(['user_id' => $user->id, 'name' => 'Block', 'status' => 'active']);
+        Session::create(['user_id' => $user->id, 'block_id' => $block->id, 'kind' => 'Pull', 'title' => 'Pull day', 'status' => 'today', 'scheduled_date' => '2026-10-17']);
+        $this->subscription($user, $token);
+        CarbonImmutable::setTestNow('2026-10-17 04:01:00 UTC');
+        $this->transport->results = [PushSendResult::expired()];
+
+        $this->assertSame(0, app(PushScheduler::class)->sendDue());
+        $this->assertCount(1, $this->transport->sent);
+        $this->assertDatabaseCount('stride_push_subscriptions', 0);
+        $this->assertDatabaseCount('stride_push_deliveries', 0);
+    }
+
+    public function test_edge_push_hosts_are_allowed(): void
+    {
+        $user = $this->user();
+        $subscribe = fn (string $endpoint) => $this->postJson('/api/stride/push/subscriptions', ['subscription' => [
+            'endpoint' => $endpoint,
+            'keys' => ['p256dh' => $this->publicKey(), 'auth' => $this->authKey()],
+        ]], $this->auth($user));
+
+        $subscribe('https://wns2-par02p.notify.windows.com/w/?token=abc')->assertSuccessful();
+        $subscribe('https://notify.windows.com.attacker.test/w/?token=abc')->assertUnprocessable();
+        $subscribe('https://attackernotify.windows.com/w/?token=abc')->assertUnprocessable();
+    }
+
     public function test_scheduler_ignores_revoked_tokens_and_subscriptions_added_after_due_time(): void
     {
         CarbonImmutable::setTestNow('2026-10-17 04:01:00 UTC');

@@ -4,6 +4,7 @@ namespace Tests\Feature\Stride;
 
 use App\Models\Common\User;
 use App\Models\Stride\Block;
+use App\Models\Stride\Exercise;
 use App\Models\Stride\Session;
 use App\Services\Stride\Coach\CoachProvider;
 use Database\Seeders\Stride\ExerciseSeeder;
@@ -43,12 +44,12 @@ class StrideBlockRolloverTest extends TestCase
         $this->auth = ['Authorization' => "Bearer {$token}"];
     }
 
-    private function makeBlock(int $weeks, int $weekOf, int $startedDaysAgo): Block
+    private function makeBlock(int $weeks, int $weekOf, int $startedDaysAgo, ?User $user = null): Block
     {
         $start = now()->subDays($startedDaysAgo)->startOfDay();
 
         return Block::create([
-            'user_id' => $this->user->id, 'name' => 'Rollover Block', 'phase' => 'Foundations',
+            'user_id' => ($user ?? $this->user)->id, 'name' => 'Rollover Block', 'phase' => 'Foundations',
             'status' => 'active', 'weeks' => $weeks, 'week_of' => $weekOf,
             'starts_on' => $start->toDateString(), 'ends_on' => $start->copy()->addWeeks($weeks)->subDay()->toDateString(),
             'summary' => '', 'accent' => '#FF4D1F', 'stats' => [], 'sort' => 0,
@@ -59,7 +60,7 @@ class StrideBlockRolloverTest extends TestCase
     private function makeSession(Block $block, string $status, int $dayOffset, string $kind = 'Full body'): Session
     {
         return $block->sessions()->create([
-            'user_id' => $this->user->id, 'kind' => $kind, 'title' => "{$kind} day",
+            'user_id' => $block->user_id, 'kind' => $kind, 'title' => "{$kind} day",
             'status' => $status, 'scheduled_date' => now()->addDays($dayOffset)->toDateString(),
             'duration_min' => 60, 'volume_kg' => 0,
         ]);
@@ -165,5 +166,26 @@ class StrideBlockRolloverTest extends TestCase
 
         $this->postJson('/api/stride/plan/recommend', ['weeks_min' => 8, 'weeks_max' => 4], $this->auth)
             ->assertUnprocessable(); // max below min
+    }
+
+    public function test_a_private_exercise_metric_type_stays_with_its_owner(): void
+    {
+        Exercise::create(['user_id' => $this->user->id, 'slug' => 'u-flow-hold', 'name' => 'Flow Hold', 'category' => 'custom', 'metric_type' => 'hold']);
+        $other = User::factory()->strideUser()->create();
+        $blocks = [$this->makeBlock(weeks: 3, weekOf: 1, startedDaysAgo: 7), $this->makeBlock(weeks: 3, weekOf: 1, startedDaysAgo: 7, user: $other)];
+        foreach ($blocks as $block) {
+            $this->makeSession($block, 'done', dayOffset: -7);
+            $this->provider->push(FakeCoachProvider::text(json_encode(['title' => 'Week 2', 'duration_min' => 60, 'exercises' => [
+                ['name' => 'Flow Hold', 'tag' => 'Isolation', 'sets' => [['kind' => 'Warm-up', 'reps' => 20], ['kind' => 'Working', 'reps' => 10]]],
+            ]])));
+        }
+
+        Artisan::call('stride:advance-blocks');
+
+        // A hold warm-up is capped below the working set; the other user's same-named exercise is a plain load lift.
+        $warmupReps = fn (Block $block) => $block->sessions()->where('scheduled_date', '>=', now()->toDateString())->firstOrFail()
+            ->exercises()->where('name', 'Flow Hold')->firstOrFail()->sets()->where('kind', 'Warm-up')->value('reps');
+        $this->assertSame(5, $warmupReps($blocks[0]));
+        $this->assertSame(20, $warmupReps($blocks[1]));
     }
 }
