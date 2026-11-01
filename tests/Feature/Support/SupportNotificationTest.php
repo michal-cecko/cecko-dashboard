@@ -28,30 +28,30 @@ class SupportNotificationTest extends SupportTestCase
     {
         app(SupportNotificationService::class)->flush();
         Queue::assertNothingPushed();
-        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => 'old', 'claimed_at' => now()->subHour()]);
+        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => '22222222-2222-4222-8222-222222222222', 'claimed_at' => now()->subHour()]);
         app(SupportNotificationService::class)->flush();
         Queue::assertPushed(SendPendingNotificationGroup::class);
-        $this->assertNotSame('old', $row->fresh()->claimed_by);
+        $this->assertNotSame('22222222-2222-4222-8222-222222222222', $row->fresh()->claimed_by);
     }
 
     public function test_delivery_marks_sent_only_after_success_and_old_token_cannot_send(): void
     {
-        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => 'new-token', 'claimed_at' => now()]);
+        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => '33333333-3333-4333-8333-333333333333', 'claimed_at' => now()]);
         Http::fake(['api.telegram.org/*' => Http::response(['ok' => true])]);
-        (new SendPendingNotificationGroup([$row->id], $row->batch_key, 'old-token'))->handle();
+        (new SendPendingNotificationGroup([$row->id], $row->batch_key, '44444444-4444-4444-8444-444444444444'))->handle();
         Http::assertNothingSent();
-        (new SendPendingNotificationGroup([$row->id], $row->batch_key, 'new-token'))->handle();
+        (new SendPendingNotificationGroup([$row->id], $row->batch_key, '33333333-3333-4333-8333-333333333333'))->handle();
         $this->assertNotNull($row->fresh()->sent_at);
-        (new SendPendingNotificationGroup([$row->id], $row->batch_key, 'new-token'))->handle();
+        (new SendPendingNotificationGroup([$row->id], $row->batch_key, '33333333-3333-4333-8333-333333333333'))->handle();
         Http::assertSentCount(1);
     }
 
     public function test_failed_provider_send_does_not_mark_sent(): void
     {
-        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => 'token', 'claimed_at' => now()]);
+        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
         Http::fake(['api.telegram.org/*' => Http::response(['ok' => false], 500)]);
         try {
-            (new SendPendingNotificationGroup([$row->id], $row->batch_key, 'token'))->handle();
+            (new SendPendingNotificationGroup([$row->id], $row->batch_key, '11111111-1111-4111-8111-111111111111'))->handle();
         } catch (\RuntimeException $exception) {
             $this->assertSame('Telegram delivery failed.', $exception->getMessage());
         }
@@ -60,9 +60,9 @@ class SupportNotificationTest extends SupportTestCase
 
     public function test_long_telegram_batch_is_split_without_losing_rows(): void
     {
-        $rows = PendingNotification::factory()->count(5)->create(['project_id' => $this->project->id, 'url' => 'https://example.test/'.str_repeat('a', 1900), 'claimed_by' => 'token', 'claimed_at' => now()]);
+        $rows = PendingNotification::factory()->count(5)->create(['project_id' => $this->project->id, 'url' => 'https://example.test/'.str_repeat('a', 1900), 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
         Http::fake(['api.telegram.org/*' => Http::response(['ok' => true])]);
-        (new SendPendingNotificationGroup($rows->modelKeys(), 'telegram:test-chat', 'token'))->handle();
+        (new SendPendingNotificationGroup($rows->modelKeys(), 'telegram:test-chat', '11111111-1111-4111-8111-111111111111'))->handle();
         $this->assertSame(5, PendingNotification::query()->whereNotNull('sent_at')->count());
         Http::assertSent(fn ($request): bool => mb_strlen($request['text']) <= 4096);
         $this->assertGreaterThan(1, count(Http::recorded()));

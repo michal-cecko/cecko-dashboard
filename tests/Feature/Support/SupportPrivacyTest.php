@@ -57,10 +57,10 @@ class SupportPrivacyTest extends SupportTestCase
         $record = SupportRequest::factory()->create(['project_id' => $this->project->id, 'internal_estimate_minutes' => self::ESTIMATE]);
         SupportInternalNote::factory()->create(['request_id' => $record->id, 'body' => self::NOTE]);
         app(SupportWorkflow::class)->event($record, 'public_reply', 'Public progress');
-        PendingNotification::query()->update(['send_after' => now(), 'claimed_by' => 'test-token', 'claimed_at' => now()]);
+        PendingNotification::query()->update(['send_after' => now(), 'claimed_by' => '55555555-5555-4555-8555-555555555555', 'claimed_at' => now()]);
         Http::fake(['api.telegram.org/*' => Http::response(['ok' => true])]);
         foreach (PendingNotification::all()->groupBy('batch_key') as $key => $rows) {
-            (new SendPendingNotificationGroup($rows->modelKeys(), $key, 'test-token'))->handle();
+            (new SendPendingNotificationGroup($rows->modelKeys(), $key, '55555555-5555-4555-8555-555555555555'))->handle();
         }
         $html = Mail::sent(SupportMessage::class)->first()->render();
         $this->assertStringContainsString('Public progress', $html);

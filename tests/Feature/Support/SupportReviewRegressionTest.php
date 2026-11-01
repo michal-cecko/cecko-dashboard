@@ -39,8 +39,8 @@ class SupportReviewRegressionTest extends SupportTestCase
         $update = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => $notice->batch_key]);
         $workflow = app(SupportWorkflow::class);
         $workflow->consume($workflow->proposePlan($this->project, $this->contact, SupportPlanEnum::Standard), '127.0.0.1', 'Test');
-        PendingNotification::query()->whereKey([$notice->id, $update->id])->update(['claimed_by' => 'token', 'claimed_at' => now()]);
-        (new SendPendingNotificationGroup([$notice->id, $update->id], $notice->batch_key, 'token'))->handle();
+        PendingNotification::query()->whereKey([$notice->id, $update->id])->update(['claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
+        (new SendPendingNotificationGroup([$notice->id, $update->id], $notice->batch_key, '11111111-1111-4111-8111-111111111111'))->handle();
         $this->assertNotNull($notice->fresh()->discarded_at);
         $this->assertNotNull($update->fresh()->sent_at);
     }
@@ -65,10 +65,10 @@ class SupportReviewRegressionTest extends SupportTestCase
         $subscription = $this->project->subscription()->first();
         $subscription->update(['scheduled_price_snapshot' => [...$subscription->pricing_snapshot, 'monthly' => 20000]]);
         foreach (['en', 'sk'] as $workerLocale) {
-            $notice = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => 'mail:'.$this->contact->email, 'type' => 'price_notice', 'source_type' => SupportSubscription::class, 'source_id' => $subscription->id, 'claimed_by' => 'token', 'claimed_at' => now()]);
-            $update = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => $notice->batch_key, 'claimed_by' => 'token', 'claimed_at' => now()]);
+            $notice = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => 'mail:'.$this->contact->email, 'type' => 'price_notice', 'source_type' => SupportSubscription::class, 'source_id' => $subscription->id, 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
+            $update = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => $notice->batch_key, 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
             app()->setLocale($workerLocale);
-            (new SendPendingNotificationGroup([$notice->id, $update->id], $notice->batch_key, 'token'))->handle();
+            (new SendPendingNotificationGroup([$notice->id, $update->id], $notice->batch_key, '11111111-1111-4111-8111-111111111111'))->handle();
             $lines = implode("\n", Mail::sent(SupportMessage::class)->last()->lines);
             $this->assertStringContainsString(__('support.price_notice', locale: 'cs'), $lines);
             $this->assertStringContainsString(__('support.update', locale: 'cs'), $lines);
@@ -101,9 +101,9 @@ class SupportReviewRegressionTest extends SupportTestCase
     {
         $this->start();
         $subscription = $this->project->subscription()->first();
-        $notice = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => 'mail:'.$this->contact->email, 'type' => 'price_notice', 'source_type' => SupportSubscription::class, 'source_id' => $subscription->id, 'claimed_by' => 'token', 'claimed_at' => now()]);
-        $update = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => $notice->batch_key, 'claimed_by' => 'token', 'claimed_at' => now()]);
-        (new SendPendingNotificationGroup([$notice->id, $update->id], $notice->batch_key, 'token'))->handle();
+        $notice = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => 'mail:'.$this->contact->email, 'type' => 'price_notice', 'source_type' => SupportSubscription::class, 'source_id' => $subscription->id, 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
+        $update = PendingNotification::factory()->create(['project_id' => $this->project->id, 'contact_id' => $this->contact->id, 'channel' => 'mail', 'recipient' => $this->contact->email, 'batch_key' => $notice->batch_key, 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
+        (new SendPendingNotificationGroup([$notice->id, $update->id], $notice->batch_key, '11111111-1111-4111-8111-111111111111'))->handle();
         $this->assertNotNull($notice->fresh()->discarded_at);
         $this->assertNull($notice->fresh()->sent_at);
         $this->assertNotNull($update->fresh()->sent_at);
@@ -217,10 +217,10 @@ class SupportReviewRegressionTest extends SupportTestCase
 
     public function test_telegram_connection_failure_does_not_expose_bot_token(): void
     {
-        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => 'token', 'claimed_at' => now()]);
+        $row = PendingNotification::factory()->create(['project_id' => $this->project->id, 'claimed_by' => '11111111-1111-4111-8111-111111111111', 'claimed_at' => now()]);
         Http::fake(fn () => throw new ConnectionException('Connection failed for https://api.telegram.org/bot'.config('support.telegram.bot_token').'/sendMessage'));
         try {
-            (new SendPendingNotificationGroup([$row->id], $row->batch_key, 'token'))->handle();
+            (new SendPendingNotificationGroup([$row->id], $row->batch_key, '11111111-1111-4111-8111-111111111111'))->handle();
             $this->fail('The provider failure must be retried.');
         } catch (\Throwable $exception) {
             $this->assertSame('Telegram delivery failed.', $exception->getMessage());
@@ -301,7 +301,7 @@ class SupportReviewRegressionTest extends SupportTestCase
         $request->internalNotes()->create(['body' => 'Private sentinel']);
         $workflow = app(SupportWorkflow::class);
         $this->loginClient();
-        foreach ([['urgent', ['half_hours' => 3], ['80,00 EUR/h', __('support.urgent_cap', ['count' => 3])]], ['call', ['minutes' => 50, 'booking' => now()->addDay()->toIso8601String(), 'call_type' => 'booked'], [__('support.call_allowance', ['minutes' => 50, 'allowance' => 30]), '03.11.2026 10:00']]] as [$kind, $terms, $expected]) {
+        foreach ([['urgent', ['half_hours' => 3], ['80,00 EUR/h', __('support.urgent_cap', ['count' => 3], $this->project->locale)]], ['call', ['minutes' => 50, 'booking' => now()->addDay()->toIso8601String(), 'call_type' => 'booked'], [__('support.call_allowance', ['minutes' => 50, 'allowance' => 30], $this->project->locale), '03.11.2026 10:00']]] as [$kind, $terms, $expected]) {
             $order = $workflow->propose($request->fresh(), $kind, 'Public scope', $terms);
             $workflow->confirmation($this->project, $this->contact, 'order', $request, $order);
             $mail = Mail::sent(SupportMessage::class)->last();

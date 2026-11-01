@@ -23,7 +23,7 @@ class SupportPostgresConcurrencyTest extends TestCase
 {
     public function test_simultaneous_approvals_cannot_spend_the_same_credit(): void
     {
-        if (config('database.default') !== 'pgsql') {
+        if (config('database.default') !== 'pgsql' || config('database.connections.pgsql.database') !== 'support_portal_tests') {
             $this->markTestSkipped('Run this test separately on the isolated support_portal_tests PostgreSQL database.');
         }
         $this->assertSame('support_portal_tests', config('database.connections.pgsql.database'));
