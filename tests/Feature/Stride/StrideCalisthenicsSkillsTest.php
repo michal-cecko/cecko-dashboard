@@ -222,6 +222,15 @@ class StrideCalisthenicsSkillsTest extends TestCase
     }
 
     /** @return array<string, string> */
+    public function test_a_private_exercise_with_a_shared_name_keeps_the_shared_group(): void
+    {
+        Exercise::create(['user_id' => $this->user->id, 'slug' => 'u-back-squat', 'name' => 'Back Squat', 'category' => 'strength', 'group' => 'Chest']);
+
+        $catalog = $this->invokeCatalog(StrideProfile::firstOrCreate(['user_id' => $this->user->id]));
+
+        $this->assertSame('Legs', $catalog['Back Squat']);
+    }
+
     private function invokeCatalog(StrideProfile $profile): array
     {
         $service = $this->app->make(PlanGenerationService::class);

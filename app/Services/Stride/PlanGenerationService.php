@@ -860,8 +860,9 @@ class PlanGenerationService
     {
         $userKey = $this->loadUser?->id ?? '';
         $this->metricByName[$userKey] ??= Exercise::query()->visibleTo($this->loadUser?->id)->sharedFirst()
-            ->get(['name', 'metric_type'])->unique('name')->pluck('metric_type', 'name')
-            ->mapWithKeys(fn ($m, $n) => [mb_strtolower(trim((string) $n)) => $m ?: 'load'])
+            ->get(['name', 'metric_type'])
+            ->unique(fn (Exercise $e) => mb_strtolower(trim($e->name)))
+            ->mapWithKeys(fn (Exercise $e) => [mb_strtolower(trim($e->name)) => $e->metric_type ?: 'load'])
             ->all();
 
         return $this->metricByName[$userKey][mb_strtolower(trim($name))] ?? 'load';
@@ -1095,9 +1096,11 @@ class PlanGenerationService
                 ->when($bucket['compound_first'] ?? false, fn ($q) => $q->orderByRaw("case tag when 'Compound' then 0 else 1 end"))
                 ->orderBy('group')->orderBy('name')
                 ->limit($bucket['cap'])
-                ->get(['name', 'group']);
+                ->get(['name', 'group', 'user_id']);
             foreach ($rows as $e) {
-                $catalog[$e->name] = $e->group ?? '';
+                if ($e->user_id === null || ! array_key_exists($e->name, $catalog)) {
+                    $catalog[$e->name] = $e->group ?? '';
+                }
             }
         }
 

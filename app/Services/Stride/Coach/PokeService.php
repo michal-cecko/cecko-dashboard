@@ -43,8 +43,13 @@ class PokeService
         private readonly TrainingMemoryBuilder $memory,
     ) {}
 
-    /** @return array<int, array{slot:string,at:string,title:string,body:string}> */
-    public function pokes(User $user, ?int $energy, ?bool $done, ?CarbonImmutable $date = null): array
+    /**
+     * With $anyContext (the push scheduler, which has no energy or done flag)
+     * today's cached set is reused whatever energy and done the app sent.
+     *
+     * @return array<int, array{slot:string,at:string,title:string,body:string}>
+     */
+    public function pokes(User $user, ?int $energy, ?bool $done, ?CarbonImmutable $date = null, bool $anyContext = false): array
     {
         $date ??= CarbonImmutable::today(config('app.timezone'));
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
@@ -54,8 +59,7 @@ class PokeService
         if (is_array($cached)
             && ($cached['v'] ?? 1) === self::CACHE_VERSION
             && ($cached['date'] ?? null) === $date->toDateString()
-            && ($cached['done'] ?? null) === $done
-            && ($cached['energy'] ?? null) === $energy
+            && ($anyContext || (($cached['done'] ?? null) === $done && ($cached['energy'] ?? null) === $energy))
             && ($cached['plan_done'] ?? null) === $today['done']
             && ! empty($cached['items'])) {
             return $cached['items'];

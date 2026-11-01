@@ -83,7 +83,7 @@ class PushScheduler
                     }
 
                     if (($preferences['coach_pokes'] ?? false) && $now->hour >= 7 && $now->hour <= 21) {
-                        foreach ($this->pokes->pokes($user, null, null, $now) as $poke) {
+                        foreach ($this->pokes->pokes($user, null, null, $now, anyContext: true) as $poke) {
                             $pokeDueAt = $this->dueAt($now, $poke['at']);
                             if ($pokeDueAt === null) {
                                 continue;

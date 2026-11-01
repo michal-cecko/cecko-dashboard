@@ -10,6 +10,7 @@ use App\Services\Stride\RoutineSteps;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -55,11 +56,16 @@ class ExerciseController extends Controller
     {
         abort_unless($exercise->user_id === $request->user()->id, 404);
 
-        $exercise->delete();
+        DB::transaction(function () use ($request, $exercise): void {
+            $exercise->delete();
 
-        foreach (Routine::ownedBy($request->user())->get() as $routine) {
-            $routine->update(['steps' => RoutineSteps::withoutExercise($routine->steps, $exercise->id)]);
-        }
+            foreach (Routine::ownedBy($request->user())->lockForUpdate()->get() as $routine) {
+                $steps = RoutineSteps::withoutExercise($routine->steps, $exercise->id);
+                if ($steps !== $routine->steps) {
+                    $routine->update(['steps' => $steps]);
+                }
+            }
+        });
 
         return response()->noContent();
     }

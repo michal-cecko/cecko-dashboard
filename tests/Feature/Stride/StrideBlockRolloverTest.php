@@ -188,4 +188,21 @@ class StrideBlockRolloverTest extends TestCase
         $this->assertSame(5, $warmupReps($blocks[0]));
         $this->assertSame(20, $warmupReps($blocks[1]));
     }
+
+    public function test_a_private_exercise_named_like_a_shared_one_in_other_case_keeps_the_shared_metric(): void
+    {
+        Exercise::create(['slug' => 'shared-flow-hold', 'name' => 'Flow Hold', 'category' => 'custom', 'metric_type' => 'hold']);
+        Exercise::create(['user_id' => $this->user->id, 'slug' => 'u-flow-hold', 'name' => 'flow hold', 'category' => 'custom']);
+        $block = $this->makeBlock(weeks: 3, weekOf: 1, startedDaysAgo: 7);
+        $this->makeSession($block, 'done', dayOffset: -7);
+        $this->provider->push(FakeCoachProvider::text(json_encode(['title' => 'Week 2', 'duration_min' => 60, 'exercises' => [
+            ['name' => 'Flow Hold', 'tag' => 'Isolation', 'sets' => [['kind' => 'Warm-up', 'reps' => 20], ['kind' => 'Working', 'reps' => 10]]],
+        ]])));
+
+        Artisan::call('stride:advance-blocks');
+
+        $warmup = $block->sessions()->where('scheduled_date', '>=', now()->toDateString())->firstOrFail()
+            ->exercises()->where('name', 'Flow Hold')->firstOrFail()->sets()->where('kind', 'Warm-up')->value('reps');
+        $this->assertSame(5, $warmup);
+    }
 }

@@ -425,6 +425,8 @@ class StrideCoachTest extends TestCase
     {
         $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
         $session->update(['scheduled_date' => today()]);
+        // The demo week dates another session today on Fri–Sun; with two, Postgres may pick either.
+        Session::where('user_id', $this->user->id)->whereKeyNot($session->id)->whereDate('scheduled_date', today())->delete();
         $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Last call', 'body' => 'Short session beats none.']])));
         $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Nice work', 'body' => 'Rest well tonight.']])));
         $pokes = app(PokeService::class);
@@ -437,6 +439,19 @@ class StrideCoachTest extends TestCase
 
         $this->assertSame('Nice work', $after[0]['title']);
         $this->assertStringContainsString("Today's training is DONE", collect($this->provider->calls)->last()->messages[0]['content']);
+    }
+
+    public function test_push_pokes_reuse_the_set_the_app_loaded_today(): void
+    {
+        $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Low energy is fine', 'body' => 'Ten easy minutes.']])));
+        $pokes = app(PokeService::class);
+
+        $shown = $pokes->pokes($this->user, 2, false);
+        $pushed = $pokes->pokes($this->user, null, null, anyContext: true);
+
+        $this->assertSame($shown, $pushed);
+        $this->assertCount(1, $this->provider->calls);
+        $this->assertSame($shown, $pokes->pokes($this->user, 2, false));
     }
 
     public function test_pokes_on_a_rest_day_never_nudge_toward_training(): void
