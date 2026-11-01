@@ -7,15 +7,17 @@ use App\Services\Common\Ai\AiTurn;
 use App\Services\Stride\Coach\CoachProvider;
 use App\Services\Stride\Coach\CoachReply;
 use App\Services\Stride\Coach\CoachTurn;
+use Throwable;
 
 /**
  * Deterministic, offline stand-in for a real model. Tests queue scripted
- * replies (text and/or tool calls); summary calls get a canned response.
+ * replies (text and/or tool calls) or a Throwable to fail that call; summary
+ * calls get a canned response.
  * No network, no spend.
  */
 class FakeCoachProvider implements CoachProvider
 {
-    /** @var array<int, CoachReply> */
+    /** @var array<int, CoachReply|Throwable> */
     private array $queue = [];
 
     /** @var array<int, CoachTurn> */
@@ -26,7 +28,7 @@ class FakeCoachProvider implements CoachProvider
         return 'fake';
     }
 
-    public function push(CoachReply $reply): static
+    public function push(CoachReply|Throwable $reply): static
     {
         $this->queue[] = $reply;
 
@@ -42,7 +44,12 @@ class FakeCoachProvider implements CoachProvider
         }
 
         if ($this->queue !== []) {
-            return array_shift($this->queue);
+            $next = array_shift($this->queue);
+            if ($next instanceof Throwable) {
+                throw $next;
+            }
+
+            return $next;
         }
 
         // Default: a plain closing reply with some cached input (so caching is observable).
