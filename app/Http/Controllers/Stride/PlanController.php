@@ -7,6 +7,7 @@ use App\Http\Presenters\Stride\SessionPresenter;
 use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachMemory;
+use App\Models\Stride\Exercise;
 use App\Models\Stride\PersonalRecord;
 use App\Models\Stride\StrideProfile;
 use App\Services\Stride\PlanGenerationService;
@@ -83,7 +84,7 @@ class PlanController extends Controller
             'answers' => ['required', 'array', 'max:12'],
             'answers.*.type' => ['required', 'string', 'in:pr,text'],
             'answers.*.label' => ['required', 'string', 'max:120'],
-            'answers.*.exercise_id' => ['nullable', 'integer', 'exists:stride_exercises,id'],
+            'answers.*.exercise_id' => ['nullable', 'integer', Exercise::visibleRule($request->user()->id)],
             'answers.*.metric_type' => ['nullable', 'string', 'in:load,reps,hold,run,sprint,machine'],
             'answers.*.metrics' => ['nullable', 'array'],
             'answers.*.metrics.weight' => ['nullable', 'numeric', 'between:0,1000'],

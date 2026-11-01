@@ -114,7 +114,7 @@ class StrideBlockCoachTest extends TestCase
         // Headline: every session now leads with its calisthenics (positions 0..k-1).
         foreach ($this->block->sessions()->get() as $session) {
             $ordered = $session->exercises()->orderBy('position')->get();
-            $calisthenics = $ordered->filter(fn ($e) => ExerciseCategory::matches($e, 'category', 'calisthenics'));
+            $calisthenics = $ordered->filter(fn ($e) => ExerciseCategory::matches($e, $session->user_id, 'category', 'calisthenics'));
             $this->assertSame([0, 1], $calisthenics->pluck('position')->sort()->values()->all(), "calisthenics not first in {$session->kind}");
         }
     }
@@ -145,6 +145,23 @@ class StrideBlockCoachTest extends TestCase
         foreach (Session::where('block_id', $this->block->id)->get() as $session) {
             $this->assertFalse($session->exercises()->where('name', 'Barbell Bench Press')->exists());
             $this->assertTrue($session->exercises()->where('name', 'Floor Press')->exists());
+        }
+    }
+
+    public function test_swap_block_links_own_private_exercises_but_never_another_users(): void
+    {
+        $other = User::factory()->strideUser()->create();
+        Exercise::create(['user_id' => $other->id, 'slug' => 'u-other-ring-row', 'name' => 'Ring Row Hold', 'category' => 'custom']);
+        $mine = Exercise::create(['user_id' => $this->user->id, 'slug' => 'u-mine-band-press', 'name' => 'Band Press', 'category' => 'custom']);
+
+        $proposalId = $this->stage('swap_block', ['from_exercise' => 'Barbell Bench Press', 'to_exercise' => 'Ring Row Hold']);
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+        $proposalId = $this->stage('swap_block', ['from_exercise' => 'Back Squat', 'to_exercise' => 'Band Press']);
+        $this->postJson("/api/stride/coach/proposals/{$proposalId}/apply", [], $this->auth)->assertOk();
+
+        foreach (Session::where('block_id', $this->block->id)->get() as $session) {
+            $this->assertNull($session->exercises()->where('name', 'Ring Row Hold')->value('exercise_id'));
+            $this->assertSame($mine->id, $session->exercises()->where('name', 'Band Press')->value('exercise_id'));
         }
     }
 

@@ -12,6 +12,7 @@ use App\Models\Stride\CoachMessage;
 use App\Models\Stride\StrideProfile;
 use App\Services\Common\Ai\AiCatalog;
 use App\Services\Stride\Coach\CoachQuotaException;
+use App\Services\Stride\Coach\CoachSendConflictException;
 use App\Services\Stride\Coach\CoachService;
 use App\Services\Stride\Coach\PokeService;
 use App\Services\Stride\Coach\ProposalApplyService;
@@ -74,6 +75,7 @@ class CoachController extends Controller
         $data = $request->validate([
             'message' => ['required', 'string', 'max:4000'],
             'model' => ['nullable', 'string', 'max:100'],
+            'client_id' => ['nullable', 'string', 'max:64'],
         ]);
 
         // A model sent with the message switches the thread's model for good
@@ -83,9 +85,11 @@ class CoachController extends Controller
         }
 
         try {
-            $assistant = $coach->reply($conversation, $data['message']);
+            $assistant = $coach->reply($conversation, $data['message'], $data['client_id'] ?? null);
         } catch (CoachQuotaException $e) {
             return response()->json(['error' => $e->getMessage()], 429);
+        } catch (CoachSendConflictException $e) {
+            return response()->json(['error' => $e->getMessage()], 409);
         }
 
         return response()->json([
@@ -291,6 +295,7 @@ class CoachController extends Controller
         return [
             'id' => $message->id,
             'role' => $message->role,
+            'client_id' => $message->client_id,
             'content' => $message->content,
             'cards' => $message->cards,
             // The stored adjustments are a stage-time snapshot; refresh each one's

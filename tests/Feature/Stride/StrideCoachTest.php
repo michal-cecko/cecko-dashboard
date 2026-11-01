@@ -6,13 +6,17 @@ use App\Models\Common\User;
 use App\Models\Stride\AiAdjustment;
 use App\Models\Stride\Block;
 use App\Models\Stride\CoachConversation;
+use App\Models\Stride\CoachMessage;
 use App\Models\Stride\Injury;
 use App\Models\Stride\Session;
 use App\Models\Stride\StrideProfile;
 use App\Services\Stride\Coach\CoachProvider;
+use App\Services\Stride\Coach\PokeService;
 use App\Services\Stride\Coach\TrainingMemoryBuilder;
 use Database\Seeders\Stride\StrideDemoSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Cache;
+use RuntimeException;
 use Tests\Support\Stride\FakeCoachProvider;
 use Tests\TestCase;
 
@@ -417,6 +421,39 @@ class StrideCoachTest extends TestCase
         $this->assertSame(today()->toDateString(), $profile->daily_pokes['date']);
     }
 
+    public function test_cached_pokes_are_made_again_once_todays_session_is_done(): void
+    {
+        $session = Session::where('user_id', $this->user->id)->where('status', 'today')->firstOrFail();
+        $session->update(['scheduled_date' => today()]);
+        // The demo week dates another session today on Fri–Sun; with two, Postgres may pick either.
+        Session::where('user_id', $this->user->id)->whereKeyNot($session->id)->whereDate('scheduled_date', today())->delete();
+        $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Last call', 'body' => 'Short session beats none.']])));
+        $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Nice work', 'body' => 'Rest well tonight.']])));
+        $pokes = app(PokeService::class);
+
+        $before = $pokes->pokes($this->user, null, null);
+        $this->assertSame($before, $pokes->pokes($this->user, null, null));
+
+        $session->update(['status' => 'done', 'completed_at' => now()]);
+        $after = $pokes->pokes($this->user, null, null);
+
+        $this->assertSame('Nice work', $after[0]['title']);
+        $this->assertStringContainsString("Today's training is DONE", collect($this->provider->calls)->last()->messages[0]['content']);
+    }
+
+    public function test_push_pokes_reuse_the_set_the_app_loaded_today(): void
+    {
+        $this->provider->push(FakeCoachProvider::text(json_encode([['slot' => 'evening', 'at' => '19:30', 'title' => 'Low energy is fine', 'body' => 'Ten easy minutes.']])));
+        $pokes = app(PokeService::class);
+
+        $shown = $pokes->pokes($this->user, 2, false);
+        $pushed = $pokes->pokes($this->user, null, null, anyContext: true);
+
+        $this->assertSame($shown, $pushed);
+        $this->assertCount(1, $this->provider->calls);
+        $this->assertSame($shown, $pokes->pokes($this->user, 2, false));
+    }
+
     public function test_pokes_on_a_rest_day_never_nudge_toward_training(): void
     {
         // Nothing scheduled today: the app still sends done=0 (no session loaded),
@@ -730,6 +767,125 @@ class StrideCoachTest extends TestCase
 
         $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Second'], $this->auth)
             ->assertStatus(429);
+    }
+
+    public function test_a_retry_of_an_answered_message_returns_the_same_reply(): void
+    {
+        config(['stride.ai.free.daily_quota' => 1, 'stride.coach.daily_message_quota' => 1]);
+        $conversation = $this->newConversation();
+        $this->provider->push(FakeCoachProvider::text('Your push session looks ready.'));
+        $url = "/api/stride/coach/conversations/{$conversation->id}/messages";
+
+        $first = $this->postJson($url, ['message' => 'Is my session ready?', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertOk()->json('message');
+        $retry = $this->postJson($url, ['message' => 'Is my session ready?', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertOk()->json('message');
+
+        $this->assertSame($first, $retry);
+        $this->assertCount(1, $this->provider->calls);
+        $this->assertSame(1, CoachMessage::where('conversation_id', $conversation->id)->where('role', 'user')->count());
+    }
+
+    public function test_a_retry_after_a_failed_reply_answers_the_stored_message_once(): void
+    {
+        config(['stride.ai.free.daily_quota' => 1, 'stride.coach.daily_message_quota' => 1]);
+        $conversation = $this->newConversation();
+        $this->provider->push(new RuntimeException('Provider timed out.'));
+        $this->provider->push(FakeCoachProvider::text('Your push session looks ready.'));
+        $url = "/api/stride/coach/conversations/{$conversation->id}/messages";
+
+        $this->postJson($url, ['message' => 'Is my session ready?', 'client_id' => 'bubble-1'], $this->auth)->assertServerError();
+        $this->postJson($url, ['message' => 'Is my session ready?', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('message.content', 'Your push session looks ready.');
+
+        $this->assertSame(['user', 'assistant'], CoachMessage::where('conversation_id', $conversation->id)->orderBy('id')->pluck('role')->all());
+        $this->assertSame('bubble-1', CoachMessage::where('conversation_id', $conversation->id)->where('role', 'user')->value('client_id'));
+    }
+
+    public function test_a_retry_while_the_first_try_runs_gets_409(): void
+    {
+        $conversation = $this->newConversation();
+        Cache::lock("stride-coach-message:{$conversation->id}:bubble-1", 300)->get();
+
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Hi', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertStatus(409)
+            ->assertJsonPath('error', 'This message is still being answered.');
+
+        $this->assertSame(0, $conversation->messages()->count());
+        $this->assertSame([], $this->provider->calls);
+    }
+
+    public function test_a_retry_of_a_message_with_a_newer_message_after_it_gets_409(): void
+    {
+        $conversation = $this->newConversation();
+        $conversation->messages()->create(['role' => 'user', 'content' => 'First', 'client_id' => 'bubble-1']);
+        $conversation->messages()->create(['role' => 'user', 'content' => 'Second', 'client_id' => 'bubble-2']);
+
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'First', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertStatus(409)
+            ->assertJsonPath('error', 'A newer message was sent after this one.');
+
+        $this->assertSame([], $this->provider->calls);
+    }
+
+    public function test_client_id_is_limited_to_64_characters(): void
+    {
+        $conversation = $this->newConversation();
+
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Hi', 'client_id' => str_repeat('a', 65)], $this->auth)
+            ->assertJsonValidationErrors('client_id');
+    }
+
+    public function test_a_retry_that_answers_again_checks_the_quota_without_the_retried_message(): void
+    {
+        config(['stride.ai.free.daily_quota' => 1, 'stride.coach.daily_message_quota' => 1]);
+        $other = $this->newConversation();
+        $other->messages()->create(['role' => 'user', 'content' => 'Counted today']);
+        $conversation = $this->newConversation();
+        $conversation->messages()->create(['role' => 'user', 'content' => 'Sent with my own key', 'client_id' => 'bubble-1']);
+
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Sent with my own key', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertStatus(429);
+
+        $this->assertSame([], $this->provider->calls);
+    }
+
+    public function test_the_same_client_id_in_another_conversation_is_a_new_message(): void
+    {
+        $first = $this->newConversation();
+        $second = $this->newConversation();
+
+        foreach ([$first, $second] as $conversation) {
+            $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Hi', 'client_id' => 'bubble-1'], $this->auth)
+                ->assertOk();
+        }
+
+        $this->assertCount(2, $this->provider->calls);
+        $this->assertSame(['user', 'assistant'], $second->messages()->orderBy('id')->pluck('role')->all());
+    }
+
+    public function test_loaded_conversations_return_the_client_id_of_each_message(): void
+    {
+        $conversation = $this->newConversation();
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Hi', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('message.client_id', null);
+
+        $this->getJson("/api/stride/coach/conversations/{$conversation->id}", $this->auth)
+            ->assertOk()
+            ->assertJsonPath('conversation.messages.0.client_id', 'bubble-1')
+            ->assertJsonPath('conversation.messages.1.client_id', null);
+
+        $block = Block::ownedBy($this->user)->active()->firstOrFail();
+        $blockConversationId = $this->getJson("/api/stride/coach/blocks/{$block->id}/conversation", $this->auth)
+            ->assertOk()->json('conversation.id');
+        $this->postJson("/api/stride/coach/conversations/{$blockConversationId}/messages", ['message' => 'Hi', 'client_id' => 'bubble-2'], $this->auth)
+            ->assertOk();
+
+        $this->getJson("/api/stride/coach/blocks/{$block->id}/conversation", $this->auth)
+            ->assertOk()
+            ->assertJsonPath('conversation.messages.0.client_id', 'bubble-2');
     }
 
     public function test_long_conversation_is_summarised(): void

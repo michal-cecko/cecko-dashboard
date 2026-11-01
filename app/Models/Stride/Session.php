@@ -10,11 +10,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Session extends Model
 {
+    /** Client times must carry their offset, so the local day of a run is known. */
+    public const CLIENT_TIMESTAMP_RULE = 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/';
+
     protected $table = 'stride_sessions';
 
     protected $fillable = [
         'user_id',
         'block_id',
+        'routine_id',
+        'client_id',
         'kind',
         'title',
         'status',
@@ -28,6 +33,7 @@ class Session extends Model
         'notes',
         'started_at',
         'completed_at',
+        'ended_early',
     ];
 
     protected function casts(): array
@@ -39,6 +45,7 @@ class Session extends Model
             'rpe' => 'float',
             'started_at' => 'datetime',
             'completed_at' => 'datetime',
+            'ended_early' => 'boolean',
         ];
     }
 
@@ -50,6 +57,11 @@ class Session extends Model
     public function block(): BelongsTo
     {
         return $this->belongsTo(Block::class);
+    }
+
+    public function routine(): BelongsTo
+    {
+        return $this->belongsTo(Routine::class);
     }
 
     public function exercises(): HasMany

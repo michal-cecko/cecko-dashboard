@@ -225,7 +225,7 @@ class PlanGenerationService
     {
         $profile = StrideProfile::firstOrCreate(['user_id' => $user->id]);
         // Longest names first so "Barbell Bench Press" wins over a shorter alias.
-        $catalog = Exercise::query()->get(['id', 'name', 'metric_type'])
+        $catalog = Exercise::query()->visibleTo($user->id)->get(['id', 'name', 'metric_type'])
             ->sortByDesc(fn (Exercise $e) => mb_strlen($e->name))->values();
         $onFile = PersonalRecord::ownedBy($user)->get(['exercise_id', 'label']);
 
@@ -768,7 +768,8 @@ class PlanGenerationService
             : '';
 
         $shown = array_slice($names, 0, 45);
-        $equipmentByName = Exercise::query()->whereIn('name', $shown)->pluck('equipment_label', 'name');
+        $equipmentByName = Exercise::query()->visibleTo($user->id)->whereIn('name', $shown)->sharedFirst()
+            ->get(['name', 'equipment_label'])->unique('name')->pluck('equipment_label', 'name');
         $list = implode(', ', array_map(
             fn (string $n) => $n.(($equipmentByName[$n] ?? '') !== '' ? ' ['.$equipmentByName[$n].']' : ''),
             $shown,
@@ -844,19 +845,27 @@ class PlanGenerationService
         ];
     }
 
-    /** Lowercased exercise name → metric_type, loaded once per generate(). */
     /** Set for the duration of a generation run — PR lookups need the athlete. */
     private ?User $loadUser = null;
 
-    private ?array $metricByName = null;
+    /**
+     * Lowercased exercise name → metric_type, per user ('' = shared catalogue only).
+     * One service handles many users in stride:advance-blocks.
+     *
+     * @var array<int|string, array<string, string>>
+     */
+    private array $metricByName = [];
 
     private function metricFor(string $name): string
     {
-        $this->metricByName ??= Exercise::query()->pluck('metric_type', 'name')
-            ->mapWithKeys(fn ($m, $n) => [mb_strtolower(trim((string) $n)) => $m ?: 'load'])
+        $userKey = $this->loadUser?->id ?? '';
+        $this->metricByName[$userKey] ??= Exercise::query()->visibleTo($this->loadUser?->id)->sharedFirst()
+            ->get(['name', 'metric_type'])
+            ->unique(fn (Exercise $e) => mb_strtolower(trim($e->name)))
+            ->mapWithKeys(fn (Exercise $e) => [mb_strtolower(trim($e->name)) => $e->metric_type ?: 'load'])
             ->all();
 
-        return $this->metricByName[mb_strtolower(trim($name))] ?? 'load';
+        return $this->metricByName[$userKey][mb_strtolower(trim($name))] ?? 'load';
     }
 
     /**
@@ -1080,15 +1089,18 @@ class PlanGenerationService
         $catalog = [];
         foreach ($buckets as $bucket) {
             $rows = Exercise::query()
+                ->visibleTo($user->id)
                 ->where('category', $bucket['category'])
                 ->when($bucket['tag'] !== null, fn ($q) => $q->where('tag', $bucket['tag']))
                 ->orderByRaw("case difficulty when 'Beginner' then 0 when 'Intermediate' then 1 else 2 end")
                 ->when($bucket['compound_first'] ?? false, fn ($q) => $q->orderByRaw("case tag when 'Compound' then 0 else 1 end"))
                 ->orderBy('group')->orderBy('name')
                 ->limit($bucket['cap'])
-                ->get(['name', 'group']);
+                ->get(['name', 'group', 'user_id']);
             foreach ($rows as $e) {
-                $catalog[$e->name] = $e->group ?? '';
+                if ($e->user_id === null || ! array_key_exists($e->name, $catalog)) {
+                    $catalog[$e->name] = $e->group ?? '';
+                }
             }
         }
 
@@ -1244,7 +1256,7 @@ class PlanGenerationService
                 $pos = 0;
                 foreach ($this->warmupTemplate($session->kind, $level) as $w) {
                     $we = $session->exercises()->create([
-                        'exercise_id' => Exercise::query()->where('name', $w['name'])->value('id'),
+                        'exercise_id' => Exercise::query()->visibleTo($session->user_id)->where('name', $w['name'])->sharedFirst()->value('id'),
                         'name' => $w['name'],
                         'tag' => $w['tag'],
                         'section' => 'warmup',
@@ -1290,7 +1302,7 @@ class PlanGenerationService
 
         foreach (array_values($built['exercises'] ?? []) as $pos => $ex) {
             $sessionExercise = $session->exercises()->create([
-                'exercise_id' => Exercise::query()->where('name', $ex['name'])->value('id'),
+                'exercise_id' => Exercise::query()->visibleTo($session->user_id)->where('name', $ex['name'])->sharedFirst()->value('id'),
                 'name' => $ex['name'],
                 'tag' => $ex['tag'] ?? null,
                 'section' => $ex['section'] ?? 'working',
@@ -1386,7 +1398,7 @@ class PlanGenerationService
 
             foreach (array_values($s['exercises']) as $pos => $ex) {
                 $sessionExercise = $session->exercises()->create([
-                    'exercise_id' => Exercise::query()->where('name', $ex['name'])->value('id'),
+                    'exercise_id' => Exercise::query()->visibleTo($user->id)->where('name', $ex['name'])->sharedFirst()->value('id'),
                     'name' => $ex['name'],
                     'tag' => $ex['tag'],
                     'section' => $ex['section'] ?? 'working',

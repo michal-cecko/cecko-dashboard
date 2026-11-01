@@ -9,3 +9,4 @@ Schedule::command('toolkit:delete-expired-galleries')->dailyAt('01:00');
 Schedule::command('toolkit:delete-expired-file-shares')->dailyAt('01:05');
 Schedule::command('garaz:fetch-forum-knowledge')->weeklyOn(1, '02:30');
 Schedule::command('stride:advance-blocks')->dailyAt('03:15');
+Schedule::command('stride:send-push-notifications')->everyMinute()->withoutOverlapping();

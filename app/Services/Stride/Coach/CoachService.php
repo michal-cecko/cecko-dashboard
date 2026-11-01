@@ -15,6 +15,7 @@ use App\Services\Common\Ai\AiProviderResolver;
 use App\Services\Common\Ai\AiTokenUsage;
 use App\Services\Common\Ai\AiUsageBucket;
 use App\Services\Common\Ai\ResolvedAi;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * Orchestrates one coach turn: assemble context → run the tool-use loop →
@@ -33,18 +34,70 @@ class CoachService
     ) {}
 
     /**
+     * A turn makes up to max_tool_iterations + 1 chat calls and a summary call,
+     * each with a 60 s timeout on the cloud providers. A crashed request frees
+     * its client_id after this.
+     */
+    private const SEND_LOCK_SECONDS = 600;
+
+    /**
      * Produce the coach's reply to a new user message and persist both sides.
      *
+     * With a client_id a retry is safe: a message that already has a reply gets
+     * that reply back, and one without a reply is answered again from the
+     * stored history. Neither stores the message again or counts it twice.
+     *
      * @throws CoachQuotaException
+     * @throws CoachSendConflictException
      */
-    public function reply(CoachConversation $conversation, string $userText): CoachMessage
+    public function reply(CoachConversation $conversation, string $userText, ?string $clientId = null): CoachMessage
+    {
+        if ($clientId === null) {
+            return $this->send($conversation, $userText, null);
+        }
+
+        $lock = Cache::lock("stride-coach-message:{$conversation->id}:{$clientId}", self::SEND_LOCK_SECONDS);
+        if (! $lock->get()) {
+            throw new CoachSendConflictException('This message is still being answered.');
+        }
+
+        try {
+            $sent = $conversation->messages()->where('role', 'user')->where('client_id', $clientId)->first();
+            if ($sent === null) {
+                return $this->send($conversation, $userText, $clientId);
+            }
+
+            $next = $conversation->messages()->where('id', '>', $sent->id)->first();
+            if ($next?->role === 'assistant') {
+                return $next;
+            }
+            if ($next !== null) {
+                throw new CoachSendConflictException('A newer message was sent after this one.');
+            }
+
+            $ai = $this->resolver->for($conversation->user, $conversation->model);
+            $this->assertWithinQuota($conversation->user, $ai, $sent);
+
+            return $this->answer($conversation, $ai);
+        } finally {
+            $lock->release();
+        }
+    }
+
+    private function send(CoachConversation $conversation, string $userText, ?string $clientId): CoachMessage
+    {
+        $ai = $this->resolver->for($conversation->user, $conversation->model);
+        $this->assertWithinQuota($conversation->user, $ai);
+
+        $conversation->messages()->create(['role' => 'user', 'content' => $userText, 'client_id' => $clientId]);
+
+        return $this->answer($conversation, $ai);
+    }
+
+    /** Answer the stored history, which ends with the user's message. */
+    private function answer(CoachConversation $conversation, ResolvedAi $ai): CoachMessage
     {
         $user = $conversation->user;
-        $ai = $this->resolver->for($user, $conversation->model);
-        $this->assertWithinQuota($user, $ai);
-
-        $conversation->messages()->create(['role' => 'user', 'content' => $userText]);
-
         $language = $this->resolveLanguage($user);
         $system = $this->systemBlocks($conversation, $user, $language);
         $messages = $this->history($conversation);
@@ -228,7 +281,11 @@ class CoachService
         ]);
     }
 
-    private function assertWithinQuota(User $user, ResolvedAi $ai): void
+    /**
+     * A retried message is left out of today's count: it was counted on its
+     * first try, maybe under another tier (BYOK has no quota by default).
+     */
+    private function assertWithinQuota(User $user, ResolvedAi $ai, ?CoachMessage $retried = null): void
     {
         // BYOK users run on their own key/cost — 0 means unlimited. The free tier
         // gets a tighter cap.
@@ -244,6 +301,7 @@ class CoachService
             ->where('role', 'user')
             ->whereDate('created_at', today())
             ->whereHas('conversation', fn ($q) => $q->where('user_id', $user->id))
+            ->when($retried, fn ($q) => $q->whereKeyNot($retried->id))
             ->count();
 
         if ($todayCount >= $limit) {

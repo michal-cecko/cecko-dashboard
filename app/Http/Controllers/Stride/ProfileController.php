@@ -12,6 +12,7 @@ use App\Models\Stride\CoachMessage;
 use App\Models\Stride\Goal;
 use App\Models\Stride\Injury;
 use App\Models\Stride\PersonalRecord;
+use App\Models\Stride\PushSubscription;
 use App\Models\Stride\Session;
 use App\Models\Stride\Spot;
 use App\Models\Stride\StrideProfile;
@@ -53,6 +54,7 @@ class ProfileController extends Controller
         $id = $request->user()->id;
 
         DB::transaction(function () use ($id) {
+            PushSubscription::query()->where('user_id', $id)->delete();
             $convIds = CoachConversation::where('user_id', $id)->pluck('id');
             CoachMessage::whereIn('conversation_id', $convIds)->delete();
             AiUsage::where('user_id', $id)->delete();

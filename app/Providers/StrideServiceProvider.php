@@ -10,6 +10,8 @@ use App\Services\Stride\Coach\GeminiCoachProvider;
 use App\Services\Stride\Coach\LocalCoachProvider;
 use App\Services\Stride\Coach\OllamaCoachProvider;
 use App\Services\Stride\Coach\OpenAiCoachProvider;
+use App\Services\Stride\Push\PushTransport;
+use App\Services\Stride\Push\WebPushTransport;
 use Illuminate\Support\ServiceProvider;
 
 class StrideServiceProvider extends ServiceProvider
@@ -26,6 +28,8 @@ class StrideServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->bind(PushTransport::class, WebPushTransport::class);
+
         $this->app->bind(CoachProvider::class, function () {
             $driver = config('stride.coach.driver');
             $hasAnthropicKey = ! empty(config('services.anthropic.api_key'));

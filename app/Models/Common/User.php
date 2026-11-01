@@ -6,6 +6,7 @@ use App\Casts\UserCapabilitiesCast;
 use App\Enums\Common\FilamentPanelEnum;
 use App\Enums\Common\UserCapabilityEnum;
 use App\Models\Invoices\Company;
+use App\Models\Stride\PushSubscription;
 use App\Models\Toolkit\Gallery;
 use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
@@ -80,6 +81,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
     public function hasCapability(UserCapabilityEnum $capability): bool
     {
         return in_array($capability, $this->capabilities);
+    }
+
+    public function pushSubscriptions(): HasMany
+    {
+        return $this->hasMany(PushSubscription::class, 'user_id');
     }
 
     public function showsAllInvoiceCompanies(): bool

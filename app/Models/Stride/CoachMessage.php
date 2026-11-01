@@ -12,6 +12,7 @@ class CoachMessage extends Model
     protected $fillable = [
         'conversation_id',
         'role',
+        'client_id',
         'content',
         'cards',
         'adjustments',

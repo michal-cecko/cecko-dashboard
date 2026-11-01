@@ -27,6 +27,8 @@ class SessionPresenter
             'duration' => $session->duration_min,
             'rpe' => $session->rpe,
             'skip_reason' => $session->skip_reason,
+            'routine_id' => $session->routine_id,
+            'ended_early' => $session->ended_early,
         ];
     }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\Stride\AiConnectionController;
 use App\Http\Controllers\Stride\AuthController;
 use App\Http\Controllers\Stride\CheckinController;
 use App\Http\Controllers\Stride\CoachController;
+use App\Http\Controllers\Stride\ExerciseController;
 use App\Http\Controllers\Stride\GoalController;
 use App\Http\Controllers\Stride\HomeController;
 use App\Http\Controllers\Stride\InjuryController;
@@ -11,6 +12,8 @@ use App\Http\Controllers\Stride\LibraryController;
 use App\Http\Controllers\Stride\PersonalRecordController;
 use App\Http\Controllers\Stride\PlanController;
 use App\Http\Controllers\Stride\ProfileController;
+use App\Http\Controllers\Stride\PushController;
+use App\Http\Controllers\Stride\RoutineController;
 use App\Http\Controllers\Stride\SessionController;
 use App\Http\Controllers\Stride\SpotController;
 use App\Http\Controllers\Stride\WeightController;
@@ -33,6 +36,12 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::get('auth/me', [AuthController::class, 'me']);
     Route::post('auth/logout', [AuthController::class, 'logout']);
 
+    Route::get('push/config', [PushController::class, 'config']);
+    Route::patch('push/preferences', [PushController::class, 'preferences']);
+    Route::post('push/subscriptions', [PushController::class, 'subscribe']);
+    Route::delete('push/subscriptions', [PushController::class, 'unsubscribe']);
+    Route::post('push/test', [PushController::class, 'test']);
+
     // Profile preferences (language, …)
     Route::patch('profile', [ProfileController::class, 'update']);
     // Reset the authenticated user back to a blank, pre-onboarding state.
@@ -41,6 +50,20 @@ Route::middleware('stride.auth')->group(function (): void {
     // Library
     Route::get('library', [LibraryController::class, 'index']);
     Route::get('equipment', [LibraryController::class, 'equipment']);
+
+    // The user's private exercises
+    Route::post('exercises', [ExerciseController::class, 'store']);
+    Route::patch('exercises/{exercise}', [ExerciseController::class, 'update']);
+    Route::delete('exercises/{exercise}', [ExerciseController::class, 'destroy']);
+
+    // Routines (interval timers for classes) and their logged runs
+    Route::get('routines', [RoutineController::class, 'index']);
+    Route::post('routines', [RoutineController::class, 'store']);
+    Route::get('routines/{routine}', [RoutineController::class, 'show']);
+    Route::put('routines/{routine}', [RoutineController::class, 'update']);
+    Route::delete('routines/{routine}', [RoutineController::class, 'destroy']);
+    Route::post('routines/{routine}/duplicate', [RoutineController::class, 'duplicate']);
+    Route::post('routines/{routine}/runs', [RoutineController::class, 'logRun']);
 
     // Home + plan
     Route::get('home', [HomeController::class, 'index']);
