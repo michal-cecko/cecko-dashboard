@@ -822,6 +822,57 @@ class StrideCoachTest extends TestCase
             ->assertJsonValidationErrors('client_id');
     }
 
+    public function test_a_retry_that_answers_again_checks_the_quota_without_the_retried_message(): void
+    {
+        config(['stride.ai.free.daily_quota' => 1, 'stride.coach.daily_message_quota' => 1]);
+        $other = $this->newConversation();
+        $other->messages()->create(['role' => 'user', 'content' => 'Counted today']);
+        $conversation = $this->newConversation();
+        $conversation->messages()->create(['role' => 'user', 'content' => 'Sent with my own key', 'client_id' => 'bubble-1']);
+
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Sent with my own key', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertStatus(429);
+
+        $this->assertSame([], $this->provider->calls);
+    }
+
+    public function test_the_same_client_id_in_another_conversation_is_a_new_message(): void
+    {
+        $first = $this->newConversation();
+        $second = $this->newConversation();
+
+        foreach ([$first, $second] as $conversation) {
+            $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Hi', 'client_id' => 'bubble-1'], $this->auth)
+                ->assertOk();
+        }
+
+        $this->assertCount(2, $this->provider->calls);
+        $this->assertSame(['user', 'assistant'], $second->messages()->orderBy('id')->pluck('role')->all());
+    }
+
+    public function test_loaded_conversations_return_the_client_id_of_each_message(): void
+    {
+        $conversation = $this->newConversation();
+        $this->postJson("/api/stride/coach/conversations/{$conversation->id}/messages", ['message' => 'Hi', 'client_id' => 'bubble-1'], $this->auth)
+            ->assertOk()
+            ->assertJsonPath('message.client_id', null);
+
+        $this->getJson("/api/stride/coach/conversations/{$conversation->id}", $this->auth)
+            ->assertOk()
+            ->assertJsonPath('conversation.messages.0.client_id', 'bubble-1')
+            ->assertJsonPath('conversation.messages.1.client_id', null);
+
+        $block = Block::ownedBy($this->user)->active()->firstOrFail();
+        $blockConversationId = $this->getJson("/api/stride/coach/blocks/{$block->id}/conversation", $this->auth)
+            ->assertOk()->json('conversation.id');
+        $this->postJson("/api/stride/coach/conversations/{$blockConversationId}/messages", ['message' => 'Hi', 'client_id' => 'bubble-2'], $this->auth)
+            ->assertOk();
+
+        $this->getJson("/api/stride/coach/blocks/{$block->id}/conversation", $this->auth)
+            ->assertOk()
+            ->assertJsonPath('conversation.messages.0.client_id', 'bubble-2');
+    }
+
     public function test_long_conversation_is_summarised(): void
     {
         config(['stride.coach.recent_turns' => 2, 'stride.coach.summary_threshold' => 3]);

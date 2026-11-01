@@ -33,8 +33,12 @@ class CoachService
         private readonly CoachToolExecutor $executor,
     ) {}
 
-    /** Longer than a full tool loop; a crashed request frees its client_id after this. */
-    private const SEND_LOCK_SECONDS = 300;
+    /**
+     * A turn makes up to max_tool_iterations + 1 chat calls and a summary call,
+     * each with a 60 s timeout on the cloud providers. A crashed request frees
+     * its client_id after this.
+     */
+    private const SEND_LOCK_SECONDS = 600;
 
     /**
      * Produce the coach's reply to a new user message and persist both sides.
@@ -71,7 +75,10 @@ class CoachService
                 throw new CoachSendConflictException('A newer message was sent after this one.');
             }
 
-            return $this->answer($conversation, $this->resolver->for($conversation->user, $conversation->model));
+            $ai = $this->resolver->for($conversation->user, $conversation->model);
+            $this->assertWithinQuota($conversation->user, $ai, $sent);
+
+            return $this->answer($conversation, $ai);
         } finally {
             $lock->release();
         }
@@ -274,7 +281,11 @@ class CoachService
         ]);
     }
 
-    private function assertWithinQuota(User $user, ResolvedAi $ai): void
+    /**
+     * A retried message is left out of today's count: it was counted on its
+     * first try, maybe under another tier (BYOK has no quota by default).
+     */
+    private function assertWithinQuota(User $user, ResolvedAi $ai, ?CoachMessage $retried = null): void
     {
         // BYOK users run on their own key/cost — 0 means unlimited. The free tier
         // gets a tighter cap.
@@ -290,6 +301,7 @@ class CoachService
             ->where('role', 'user')
             ->whereDate('created_at', today())
             ->whereHas('conversation', fn ($q) => $q->where('user_id', $user->id))
+            ->when($retried, fn ($q) => $q->whereKeyNot($retried->id))
             ->count();
 
         if ($todayCount >= $limit) {

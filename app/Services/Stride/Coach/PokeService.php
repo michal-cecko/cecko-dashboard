@@ -80,6 +80,9 @@ class PokeService
      * scheduled today (nothing at all, or an explicit Rest session). Mirrors
      * HomeController: only the ACTIVE block's sessions count.
      *
+     * Read from the plan, not the client's done flag: the app sends done=false
+     * whenever no session is loaded, so a rest day would read as "not trained yet".
+     *
      * @return array{rest:bool,done:bool,title:string,next:?string}
      */
     private function todayState(User $user, CarbonImmutable $date): array
@@ -123,10 +126,6 @@ class PokeService
         $lang = $profile->preferences['language'] ?? 'en';
         $langName = $lang === 'sk' ? 'Slovak (informal "ty")' : 'English';
         $ai = $this->resolver->for($user);
-
-        // What today ACTUALLY is, from the plan — not from the client's flag. The
-        // app sends done=false whenever there's no session loaded, which on a rest
-        // day used to read as "not trained yet" and produced "get to the bars" pokes.
 
         $stateLines = array_filter([
             $today['rest']
