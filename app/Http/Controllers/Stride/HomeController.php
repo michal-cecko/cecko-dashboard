@@ -35,10 +35,12 @@ class HomeController extends Controller
             // Matched on when it was COMPLETED as well as when it was scheduled:
             // a session finished today whose scheduled_date lagged behind (nightly
             // roll / manual move) would otherwise vanish the moment it was done.
+            // A routine run shows only when no plan session was done today.
             ?? Session::ownedBy($user)
                 ->where('status', 'done')
                 ->where(fn ($q) => $q->whereDate('scheduled_date', today())->orWhereDate('completed_at', today()))
                 ->with('exercises.sets')
+                ->orderByRaw("case when kind = 'Routine' then 1 else 0 end")
                 ->orderByDesc('completed_at')
                 ->first();
 
@@ -73,7 +75,8 @@ class HomeController extends Controller
 
         $goals = Goal::ownedBy($user)->where('is_achieved', false)->get();
         // $week now spans the whole plan (+history) — count only the calendar week.
-        $thisWeek = $week->filter(fn (Session $s) => $s->scheduled_date !== null
+        // Routine runs aren't part of the plan, so they don't count here.
+        $thisWeek = $week->filter(fn (Session $s) => $s->kind !== 'Routine' && $s->scheduled_date !== null
             && $s->scheduled_date->betweenIncluded(now()->startOfWeek(), now()->endOfWeek()));
         $sessionsDoneThisWeek = $thisWeek->where('status', 'done')->count();
 

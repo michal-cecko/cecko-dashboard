@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Stride;
 use App\Http\Controllers\Controller;
 use App\Http\Presenters\Stride\ExercisePresenter;
 use App\Models\Stride\Exercise;
+use App\Models\Stride\Routine;
+use App\Services\Stride\RoutineSteps;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -54,6 +56,10 @@ class ExerciseController extends Controller
         abort_unless($exercise->user_id === $request->user()->id, 404);
 
         $exercise->delete();
+
+        foreach (Routine::ownedBy($request->user())->get() as $routine) {
+            $routine->update(['steps' => RoutineSteps::withoutExercise($routine->steps, $exercise->id)]);
+        }
 
         return response()->noContent();
     }

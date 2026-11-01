@@ -13,6 +13,7 @@ use App\Http\Controllers\Stride\PersonalRecordController;
 use App\Http\Controllers\Stride\PlanController;
 use App\Http\Controllers\Stride\ProfileController;
 use App\Http\Controllers\Stride\PushController;
+use App\Http\Controllers\Stride\RoutineController;
 use App\Http\Controllers\Stride\SessionController;
 use App\Http\Controllers\Stride\SpotController;
 use App\Http\Controllers\Stride\WeightController;
@@ -54,6 +55,15 @@ Route::middleware('stride.auth')->group(function (): void {
     Route::post('exercises', [ExerciseController::class, 'store']);
     Route::patch('exercises/{exercise}', [ExerciseController::class, 'update']);
     Route::delete('exercises/{exercise}', [ExerciseController::class, 'destroy']);
+
+    // Routines (interval timers for classes) and their logged runs
+    Route::get('routines', [RoutineController::class, 'index']);
+    Route::post('routines', [RoutineController::class, 'store']);
+    Route::get('routines/{routine}', [RoutineController::class, 'show']);
+    Route::put('routines/{routine}', [RoutineController::class, 'update']);
+    Route::delete('routines/{routine}', [RoutineController::class, 'destroy']);
+    Route::post('routines/{routine}/duplicate', [RoutineController::class, 'duplicate']);
+    Route::post('routines/{routine}/runs', [RoutineController::class, 'logRun']);
 
     // Home + plan
     Route::get('home', [HomeController::class, 'index']);

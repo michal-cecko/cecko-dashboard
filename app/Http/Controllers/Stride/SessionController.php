@@ -28,8 +28,9 @@ class SessionController extends Controller
     public function start(Request $request, Session $session): JsonResponse
     {
         $this->authorizeSession($request, $session);
+        $this->rejectRoutineRun($session);
         $data = $request->validate([
-            'started_at' => ['sometimes', 'date', 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/'],
+            'started_at' => ['sometimes', 'date', Session::CLIENT_TIMESTAMP_RULE],
         ]);
 
         $session->forceFill([
@@ -47,8 +48,8 @@ class SessionController extends Controller
         $data = $request->validate([
             'rpe' => ['nullable', 'numeric', 'between:0,10'],
             'notes' => ['nullable', 'string'],
-            'started_at' => ['sometimes', 'date', 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/'],
-            'completed_at' => ['sometimes', 'date', 'regex:/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?(?:Z|[+-]\\d{2}:\\d{2})$/'],
+            'started_at' => ['sometimes', 'date', Session::CLIENT_TIMESTAMP_RULE],
+            'completed_at' => ['sometimes', 'date', Session::CLIENT_TIMESTAMP_RULE],
         ]);
 
         $session->forceFill([
@@ -72,6 +73,7 @@ class SessionController extends Controller
     public function uncomplete(Request $request, Session $session): JsonResponse
     {
         $this->authorizeSession($request, $session);
+        $this->rejectRoutineRun($session);
 
         abort_unless($session->status === 'done', 422, 'Only a completed session can be reverted.');
         abort_unless(
@@ -109,6 +111,7 @@ class SessionController extends Controller
     public function skip(Request $request, Session $session): JsonResponse
     {
         $this->authorizeSession($request, $session);
+        $this->rejectRoutineRun($session);
 
         $data = $request->validate([
             'reason' => ['nullable', 'string', 'max:255'],
@@ -133,6 +136,7 @@ class SessionController extends Controller
     public function postpone(Request $request, Session $session): JsonResponse
     {
         $this->authorizeSession($request, $session);
+        $this->rejectRoutineRun($session);
 
         $data = $request->validate([
             'date' => ['nullable', 'date_format:Y-m-d', 'after_or_equal:today'],
@@ -159,6 +163,7 @@ class SessionController extends Controller
     public function logSet(Request $request, Session $session, ExerciseSet $set): JsonResponse
     {
         $this->authorizeSession($request, $session);
+        $this->rejectRoutineRun($session);
         abort_unless($set->sessionExercise->session_id === $session->id, 404);
 
         $data = $request->validate([
@@ -194,5 +199,11 @@ class SessionController extends Controller
     private function authorizeSession(Request $request, Session $session): void
     {
         abort_unless($session->user_id === $request->user()->id, 404);
+    }
+
+    /** A routine run is a finished log entry; only complete (notes, RPE) may still touch it. */
+    private function rejectRoutineRun(Session $session): void
+    {
+        abort_if($session->kind === 'Routine', 422, 'A routine run cannot be changed here.');
     }
 }

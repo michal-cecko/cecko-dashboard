@@ -5,7 +5,8 @@ namespace App\Http\Presenters\Stride;
 use App\Models\Stride\Exercise;
 
 /**
- * Serialises a catalogue exercise for the library and the exercise editor.
+ * Serialises a catalogue exercise for the library, the exercise editor and the
+ * routine player.
  */
 class ExercisePresenter
 {
