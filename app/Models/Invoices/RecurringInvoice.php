@@ -5,10 +5,12 @@ namespace App\Models\Invoices;
 use App\Enums\Common\CurrencyEnum;
 use App\Enums\Invoices\PaymentMethodEnum;
 use App\Enums\Invoices\RecurringIntervalEnum;
+use App\Models\Support\SupportProject;
 use App\Traits\Invoices\BelongsToActiveCompany;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class RecurringInvoice extends Model
 {
@@ -83,5 +85,10 @@ class RecurringInvoice extends Model
     public function invoices(): HasMany
     {
         return $this->hasMany(Invoice::class)->orderByDesc('issue_date');
+    }
+
+    public function supportProject(): HasOne
+    {
+        return $this->hasOne(SupportProject::class);
     }
 }

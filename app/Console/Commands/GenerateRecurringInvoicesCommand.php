@@ -20,6 +20,7 @@ class GenerateRecurringInvoicesCommand extends Command
         $jobs = RecurringInvoice::query()
             ->withoutGlobalScopes()
             ->where('is_active', true)
+            ->whereDoesntHave('supportProject')
             ->whereNotNull('next_generation_date')
             ->where('next_generation_date', '<=', $today)
             ->where(function ($query) use ($today) {

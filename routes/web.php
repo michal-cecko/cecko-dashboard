@@ -6,6 +6,8 @@ use App\Models\Invoices\Invoice;
 use App\Services\Invoices\InvoicePdfService;
 use Illuminate\Support\Facades\Route;
 
+require __DIR__.'/support.php';
+
 Route::get('/', function () {
     return redirect(route('filament.songs.home'));
 });

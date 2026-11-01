@@ -54,6 +54,7 @@ return [
         UserCapabilityEnum::MANAGE_MOBILE_APPS->value => 'Upravovať aplikácie',
         UserCapabilityEnum::MANAGE_USERS->value => 'Upravovať používateľov',
         UserCapabilityEnum::VIEW_INVOICES->value => 'Prístup k faktúram',
+        UserCapabilityEnum::MANAGE_SUPPORT->value => 'Spravovať podporu',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Spravovať faktúry',
         UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Spravovať faktúry všetkých používateľov',
         UserCapabilityEnum::VIEW_MEDIA->value => 'Prístup ku zdieľaným súborom',

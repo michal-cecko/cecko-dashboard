@@ -30,6 +30,7 @@ return [
         UserCapabilityEnum::MANAGE_MOBILE_APPS->value => 'Spravovat aplikace',
         UserCapabilityEnum::MANAGE_USERS->value => 'Spravovat uživatele',
         UserCapabilityEnum::VIEW_INVOICES->value => 'Přístup k fakturám',
+        UserCapabilityEnum::MANAGE_SUPPORT->value => 'Spravovat podporu',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Spravovat faktury',
         UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Spravovat faktury všech uživatelů',
         UserCapabilityEnum::STRIDE_USER->value => 'Přístup do aplikace Stride',

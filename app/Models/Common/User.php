@@ -100,6 +100,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
             FilamentPanelEnum::INVOICES => $this->hasCapability(UserCapabilityEnum::VIEW_INVOICES),
             FilamentPanelEnum::TOOLKIT => $this->hasCapability(UserCapabilityEnum::VIEW_MEDIA),
             FilamentPanelEnum::GARAZ => $this->hasCapability(UserCapabilityEnum::VIEW_GARAZ),
+            FilamentPanelEnum::SUPPORT => $this->hasCapability(UserCapabilityEnum::MANAGE_SUPPORT),
             default => false,
         };
     }

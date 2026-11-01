@@ -25,6 +25,7 @@ return Application::configure(basePath: dirname(__DIR__))
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->preventRequestForgery(except: ['webhooks/support/github', 'webhooks/support/sentry']);
         $middleware->api(append: [
             ApiMiddleware::class,
         ]);

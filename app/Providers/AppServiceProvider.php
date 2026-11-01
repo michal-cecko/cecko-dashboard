@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\EnsureSupportAccess;
+use App\Http\Middleware\SetSupportLocale;
 use App\Models\Common\User;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
@@ -10,6 +12,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passkeys\Passkeys;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
 
         Model::automaticallyEagerLoadRelationships();
         JsonResource::withoutWrapping();
+
+        Livewire::addPersistentMiddleware([EnsureSupportAccess::class, SetSupportLocale::class]);
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::USER_MENU_BEFORE,

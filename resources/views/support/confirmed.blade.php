@@ -1,0 +1,1 @@
+<x-layouts.support :project="$project" :locale="$project->locale"><h1 class="text-2xl font-semibold">{{ __('support.confirmed') }}</h1><p class="mt-4">{{ __('support.saved') }}</p><a class="mt-6 inline-block rounded-xl bg-teal-700 px-5 py-3 text-white" href="{{ route('support.home', $project->slug) }}">{{ __('support.open') }}</a></x-layouts.support>

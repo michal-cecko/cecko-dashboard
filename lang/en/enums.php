@@ -31,6 +31,7 @@ return [
         UserCapabilityEnum::MANAGE_MOBILE_APPS->value => 'Manage apps',
         UserCapabilityEnum::MANAGE_USERS->value => 'Manage users',
         UserCapabilityEnum::VIEW_INVOICES->value => 'Access invoices',
+        UserCapabilityEnum::MANAGE_SUPPORT->value => 'Manage support',
         UserCapabilityEnum::MANAGE_INVOICES->value => 'Manage invoices',
         UserCapabilityEnum::MANAGE_ALL_INVOICES->value => 'Manage all users\' invoices',
         UserCapabilityEnum::STRIDE_USER->value => 'Access Stride app',

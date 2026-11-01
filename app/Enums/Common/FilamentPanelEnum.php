@@ -12,6 +12,7 @@ enum FilamentPanelEnum: string
     case INVOICES = 'invoices';
     case TOOLKIT = 'toolkit';
     case GARAZ = 'garaz';
+    case SUPPORT = 'support';
 
     public function brand(): string
     {
@@ -20,6 +21,7 @@ enum FilamentPanelEnum: string
             self::INVOICES => 'Faktúry',
             self::TOOLKIT => 'Toolkit',
             self::GARAZ => 'Garáž',
+            self::SUPPORT => 'Podpora',
         };
     }
 
@@ -30,6 +32,7 @@ enum FilamentPanelEnum: string
             self::INVOICES => 'Vystavovanie a evidencia faktúr',
             self::TOOLKIT => 'Galérie a zdieľanie médií',
             self::GARAZ => 'Servis a prevádzka vozidiel',
+            self::SUPPORT => 'Klientske požiadavky a spolupráca',
         };
     }
 
@@ -40,6 +43,7 @@ enum FilamentPanelEnum: string
             self::INVOICES => 'emerald',
             self::TOOLKIT => 'violet',
             self::GARAZ => 'amber',
+            self::SUPPORT => 'cyan',
         };
     }
 
@@ -50,6 +54,7 @@ enum FilamentPanelEnum: string
             self::INVOICES => 'heroicon-o-document-text',
             self::TOOLKIT => 'heroicon-o-photo',
             self::GARAZ => 'heroicon-o-truck',
+            self::SUPPORT => 'heroicon-o-lifebuoy',
         };
     }
 }

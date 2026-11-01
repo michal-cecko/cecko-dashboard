@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Common\User;
+use App\Models\Support\SupportContact;
 
 return [
 
@@ -38,6 +39,10 @@ return [
     */
 
     'guards' => [
+        'support' => [
+            'driver' => 'session',
+            'provider' => 'support_contacts',
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -62,6 +67,10 @@ return [
     */
 
     'providers' => [
+        'support_contacts' => [
+            'driver' => 'eloquent',
+            'model' => SupportContact::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),

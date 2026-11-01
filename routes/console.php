@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Schedule;
 
+Schedule::command('support:maintain')->everyFifteenMinutes()->withoutOverlapping();
+Schedule::command('support:maintain --notifications-only')->dailyAt('17:00')->timezone('Europe/Bratislava')->withoutOverlapping();
+
 Schedule::command('invoices:check-overdue')->dailyAt('00:45');
 Schedule::command('invoices:fetch-exchange-rates')->dailyAt('00:30');
 Schedule::command('invoices:generate-recurring')->dailyAt('06:00');
