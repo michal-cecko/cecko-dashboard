@@ -10,23 +10,28 @@ on:
   pull_request:
     branches: [main]
 
-# Only one CI run per ref may be in flight.
+# The newest run on main wins, but a deploy that has started always finishes.
 #
 # Each run pins Dokploy to its OWN commit (`dockerImage: ...sha-${{ github.sha }}`)
-# and then deploys. Without this group, merges in quick succession race and the last
-# application.update to arrive wins regardless of age — on 2026-09-01 that left bcz-app
-# running a commit older than three merged PRs, while every run reported deploy: success.
+# and then deploys. Without concurrency groups, merges in quick succession race and the
+# last application.update to arrive wins regardless of age – on 2026-09-01 that left
+# bcz-app running a commit older than three merged PRs, while every run reported
+# deploy: success.
 #
-# Queue rather than cancel on the deploy branch: the deploy job loops over more than one
-# Dokploy application (web and worker), so cancelling mid-loop could leave them pinned to
-# different images. The newest run therefore always deploys last. Superseded pull-request
-# runs are cancelled — nothing deploys there.
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+# So the groups are per job, not per run. test and build-image cancel the same job of
+# an older run, which skips that run's deploy. Pull-request runs cancel the same way.
+# Every main run goes through test first, so a newer run catches an older one at the
+# first job they share and the older run can't overtake it. deploy itself never
+# cancels: it loops over two Dokploy applications (web and worker), and stopping it
+# mid-loop could leave them on different images. A deploy still waiting is replaced by
+# the newer one. Re-running an old run by hand still deploys its commit. A run-wide
+# group with cancel-in-progress would cancel the deploy job too.
 
 jobs:
   test:
+    concurrency:
+      group: ci-test-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
 
     services:
@@ -81,6 +86,9 @@ jobs:
   build-image:
     needs: test
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    concurrency:
+      group: ci-build-image-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -116,6 +124,9 @@ jobs:
   deploy:
     needs: build-image
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    concurrency:
+      group: ci-deploy-${{ github.ref }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     environment: production
 
