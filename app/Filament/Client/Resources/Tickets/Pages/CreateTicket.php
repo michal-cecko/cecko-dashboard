@@ -22,8 +22,6 @@ class CreateTicket extends CreateRecord
 
     protected static ?string $title = 'Nový tiket';
 
-    protected static bool $canCreateAnother = false;
-
     public function form(Schema $schema): Schema
     {
         $projects = ClientTickets::projectsOf(TicketResource::client())->orderBy('name')->pluck('name', 'id')->all();
@@ -68,8 +66,17 @@ class CreateTicket extends CreateRecord
         );
     }
 
+    /**
+     * @param  array<string, mixed>  $data
+     * @return array<string, mixed>
+     */
+    protected function preserveFormDataWhenCreatingAnother(array $data): array
+    {
+        return ['project_id' => $data['project_id']];
+    }
+
     protected function getRedirectUrl(): string
     {
-        return static::getResource()::getUrl('view', ['record' => $this->getRecord()]);
+        return static::getResource()::getUrl('index');
     }
 }
