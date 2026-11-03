@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "387182536fdb834515a9f5175c6be1cd",
+    "content-hash": "ed00b1b9cd026bbc5b068627c48eea66",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -732,16 +732,16 @@
         },
         {
             "name": "daacreators/creators-ticketing",
-            "version": "v1.3.1.1",
+            "version": "v1.3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/michal-cecko/creators-ticketing.git",
-                "reference": "f0c8565d2d9a99eadfa96de422b68e7678648bce"
+                "reference": "f275cab4765f04fcd1fcbbacf2ad74f40420ab08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michal-cecko/creators-ticketing/zipball/f0c8565d2d9a99eadfa96de422b68e7678648bce",
-                "reference": "f0c8565d2d9a99eadfa96de422b68e7678648bce",
+                "url": "https://api.github.com/repos/michal-cecko/creators-ticketing/zipball/f275cab4765f04fcd1fcbbacf2ad74f40420ab08",
+                "reference": "f275cab4765f04fcd1fcbbacf2ad74f40420ab08",
                 "shasum": ""
             },
             "require": {
@@ -774,9 +774,9 @@
             ],
             "description": "A robust and dynamic ticketing system for Filament",
             "support": {
-                "source": "https://github.com/michal-cecko/creators-ticketing/tree/v1.3.1.1"
+                "source": "https://github.com/michal-cecko/creators-ticketing/tree/v1.3.1.2"
             },
-            "time": "2026-11-03T17:22:11+00:00"
+            "time": "2026-11-03T18:25:20+00:00"
         },
         {
             "name": "danharrin/date-format-converter",

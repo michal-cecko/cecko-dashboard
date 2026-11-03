@@ -15,7 +15,10 @@ use App\Models\Invoices\Customer;
 use App\Models\Tickets\Project;
 use App\Notifications\Tickets\ClientInviteNotification;
 use App\Services\Tickets\TicketingDefaults;
+use daacreators\CreatorsTicketing\Filament\Resources\Tickets\Pages\CreateTicket;
 use daacreators\CreatorsTicketing\Filament\Resources\Tickets\Pages\ViewTicket;
+use daacreators\CreatorsTicketing\Filament\Resources\Tickets\TicketResource;
+use daacreators\CreatorsTicketing\Models\Ticket;
 use daacreators\CreatorsTicketing\Support\AssigneeFilter;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
@@ -172,6 +175,28 @@ class StaffTicketingTest extends TestCase
                 ->call('create')
                 ->assertHasFormErrors(['code' => $rule]);
         }
+    }
+
+    public function test_staff_creating_a_ticket_go_back_to_the_ticket_list(): void
+    {
+        $customer = Customer::factory()->create();
+        $project = $this->makeProject($customer);
+        $client = $this->makeClient($customer);
+        $this->actingAs($this->makeStaff());
+        Filament::setCurrentPanel('tikety');
+
+        Livewire::test(CreateTicket::class)
+            ->fillForm(['department_id' => $project->id])
+            ->fillForm([
+                'user_id' => $client->id,
+                'custom_fields.title' => 'Nový tiket od podpory',
+                'custom_fields.description' => 'Popis',
+            ])
+            ->call('create')
+            ->assertHasNoFormErrors()
+            ->assertRedirect(TicketResource::getUrl('index'));
+
+        $this->assertSame('Nový tiket od podpory', Ticket::query()->sole()->custom_fields['title']);
     }
 
     public function test_assigning_a_ticket_in_the_plugin_uses_the_app_user_model(): void

@@ -8,13 +8,16 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 /**
- * Carries only the ticket number and a link. Ticket text never goes into e-mail.
+ * Carries only ticket numbers and links. Ticket text never goes into e-mail.
  */
 class TicketUpdatedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public function __construct(public string $ticketUid, public string $url) {}
+    /**
+     * @param  list<array{uid: string, url: string}>  $tickets
+     */
+    public function __construct(public array $tickets) {}
 
     /**
      * @return list<string>
@@ -26,11 +29,26 @@ class TicketUpdatedNotification extends Notification implements ShouldQueue
 
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
-            ->subject("Novinka v tikete {$this->ticketUid}")
-            ->greeting('Dobrý deň,')
-            ->line("v tikete {$this->ticketUid} pribudla odpoveď alebo sa zmenil jeho stav.")
-            ->action('Otvoriť tiket', $this->url)
-            ->line('Tieto upozornenia môžete vypnúť vo svojom profile.');
+        $mail = (new MailMessage)->greeting('Dobrý deň,');
+
+        if (count($this->tickets) === 1) {
+            ['uid' => $uid, 'url' => $url] = $this->tickets[0];
+
+            return $mail
+                ->subject("Novinka v tikete {$uid}")
+                ->line("v tikete {$uid} pribudla odpoveď alebo sa zmenil jeho stav.")
+                ->action('Otvoriť tiket', $url)
+                ->line('Tieto upozornenia môžete vypnúť vo svojom profile.');
+        }
+
+        $mail
+            ->subject('Novinky v '.count($this->tickets).' tiketoch')
+            ->line('v týchto tiketoch pribudla odpoveď alebo sa zmenil ich stav:');
+
+        foreach ($this->tickets as $ticket) {
+            $mail->line("[{$ticket['uid']}]({$ticket['url']})");
+        }
+
+        return $mail->line('Tieto upozornenia môžete vypnúť vo svojom profile.');
     }
 }
