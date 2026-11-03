@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Pages\Login;
 use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\MobileApps\MobileAppResource;
 use App\Filament\Common\Resources\Users\UserResource;
@@ -36,7 +37,7 @@ class SongsPanelProvider extends PanelProvider
             ->brandName('Kniha Piesní • Veľký Dom')
             ->brandLogo('/logo/songs/logo-vd-dark.png')
             ->darkModeBrandLogo('/logo/songs/logo-vd-white.png')
-            ->login()
+            ->login(Login::class)
             ->favicon('/favicon/songs/favicon.ico')
             ->colors([
                 'primary' => Color::Sky,

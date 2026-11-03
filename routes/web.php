@@ -1,13 +1,18 @@
 <?php
 
+use App\Enums\Common\FilamentPanelEnum;
 use App\Http\Controllers\Toolkit\FileShareController;
 use App\Http\Controllers\Toolkit\GalleryShareController;
+use App\Models\Common\User;
 use App\Models\Invoices\Invoice;
 use App\Services\Invoices\InvoicePdfService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect(route('filament.songs.home'));
+    $user = auth()->user();
+    $panel = $user instanceof User ? FilamentPanelEnum::firstAccessibleBy($user) : null;
+
+    return redirect($panel?->getUrl() ?? route('filament.songs.home'));
 });
 
 Route::get('/faktury/preview/{invoice}', function (Invoice $invoice) {

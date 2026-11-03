@@ -65,4 +65,9 @@ return [
         'default_model' => env('OPENAI_DEFAULT_MODEL', 'gpt-5-mini'),
     ],
 
+    'telegram' => [
+        'ticket_bot_token' => env('TICKETING_TELEGRAM_BOT_TOKEN'),
+        'ticket_chat_id' => env('TICKETING_TELEGRAM_CHAT_ID'),
+    ],
+
 ];

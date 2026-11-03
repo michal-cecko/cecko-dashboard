@@ -10,6 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "daacreators/creators-ticketing": "1.3.1.1",
         "endroid/qr-code": "^6.0",
         "filament/filament": "^5.1",
         "filament/spatie-laravel-media-library-plugin": "^5.0",
@@ -101,6 +102,10 @@
         "filament": {
             "type": "composer",
             "url": "https://packages.filamentphp.com/composer"
+        },
+        "creators-ticketing": {
+            "type": "vcs",
+            "url": "https://github.com/michal-cecko/creators-ticketing"
         }
     }
 }

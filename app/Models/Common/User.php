@@ -6,6 +6,7 @@ use App\Casts\UserCapabilitiesCast;
 use App\Enums\Common\FilamentPanelEnum;
 use App\Enums\Common\UserCapabilityEnum;
 use App\Models\Invoices\Company;
+use App\Models\Invoices\Customer;
 use App\Models\Stride\PushSubscription;
 use App\Models\Toolkit\Gallery;
 use Database\Factories\UserFactory;
@@ -13,6 +14,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Models\Contracts\HasName;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -41,6 +43,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
         'avatar_path',
         'capabilities',
         'active_company_id',
+        'customer_id',
+        'ticket_notices_enabled',
     ];
 
     protected $hidden = [
@@ -54,6 +58,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'capabilities' => UserCapabilitiesCast::class,
+            'ticket_notices_enabled' => 'boolean',
         ];
     }
 
@@ -106,8 +111,24 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasMedia,
             FilamentPanelEnum::INVOICES => $this->hasCapability(UserCapabilityEnum::VIEW_INVOICES),
             FilamentPanelEnum::TOOLKIT => $this->hasCapability(UserCapabilityEnum::VIEW_MEDIA),
             FilamentPanelEnum::GARAZ => $this->hasCapability(UserCapabilityEnum::VIEW_GARAZ),
+            FilamentPanelEnum::TICKETS => $this->hasCapability(UserCapabilityEnum::VIEW_TICKETS)
+                || $this->hasCapability(UserCapabilityEnum::MANAGE_TICKETS),
+            FilamentPanelEnum::CLIENT => $this->customer_id !== null,
             default => false,
         };
+    }
+
+    /**
+     * Read by the ticketing plugin through `navigation_visibility.field`: 'admin' sees all tickets and settings.
+     */
+    protected function ticketingRole(): Attribute
+    {
+        return Attribute::get(fn (): ?string => $this->hasCapability(UserCapabilityEnum::MANAGE_TICKETS) ? 'admin' : null);
+    }
+
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class);
     }
 
     public function activeCompany(): BelongsTo

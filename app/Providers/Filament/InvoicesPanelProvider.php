@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Pages\Login;
 use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use App\Filament\Invoices\Components\CompanySwitcher;
@@ -31,7 +32,7 @@ class InvoicesPanelProvider extends PanelProvider
             ->id('invoices')
             ->path('faktury')
             ->brandName('Faktúry')
-            ->login()
+            ->login(Login::class)
             ->spa()
             ->unsavedChangesAlerts()
             ->databaseTransactions()

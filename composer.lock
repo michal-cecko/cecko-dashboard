@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86baf912bf37dfbec8a082a7490863fb",
+    "content-hash": "387182536fdb834515a9f5175c6be1cd",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -729,6 +729,54 @@
                 }
             ],
             "time": "2025-08-20T19:15:30+00:00"
+        },
+        {
+            "name": "daacreators/creators-ticketing",
+            "version": "v1.3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michal-cecko/creators-ticketing.git",
+                "reference": "f0c8565d2d9a99eadfa96de422b68e7678648bce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michal-cecko/creators-ticketing/zipball/f0c8565d2d9a99eadfa96de422b68e7678648bce",
+                "reference": "f0c8565d2d9a99eadfa96de422b68e7678648bce",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.1|^5.1",
+                "illuminate/contracts": "^11.28|^12.0|^13.0",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "daacreators\\CreatorsTicketing\\TicketingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "daacreators\\CreatorsTicketing\\": "src/",
+                    "daacreators\\CreatorsTicketing\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jabir Khan",
+                    "email": "hello@jabirkhan.com"
+                }
+            ],
+            "description": "A robust and dynamic ticketing system for Filament",
+            "support": {
+                "source": "https://github.com/michal-cecko/creators-ticketing/tree/v1.3.1.1"
+            },
+            "time": "2026-11-03T17:22:11+00:00"
         },
         {
             "name": "danharrin/date-format-converter",
@@ -15253,5 +15301,5 @@
     "platform-overrides": {
         "php": "8.4"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
