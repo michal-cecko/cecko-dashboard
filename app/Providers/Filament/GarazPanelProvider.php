@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Common\Pages\Login;
 use App\Filament\Common\Resources\AiUsage\AiUsageResource;
 use App\Filament\Common\Resources\Users\UserResource;
 use Filament\Http\Middleware\Authenticate;
@@ -28,7 +29,7 @@ class GarazPanelProvider extends PanelProvider
             ->id('garaz')
             ->path('garaz')
             ->brandName('Garáž')
-            ->login()
+            ->login(Login::class)
             ->spa()
             ->unsavedChangesAlerts()
             ->databaseTransactions()

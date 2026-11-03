@@ -35,6 +35,9 @@ use App\Enums\Invoices\PaymentMethodEnum;
 use App\Enums\Invoices\RecurringIntervalEnum;
 use App\Enums\Invoices\VatTypeEnum;
 use App\Enums\Stride\SetMetric;
+use App\Enums\Tickets\PlanBillingEnum;
+use App\Enums\Tickets\PlanRequestStatusEnum;
+use App\Enums\Tickets\SupportPlanEnum;
 
 return [
     CountryEnum::class => [
@@ -60,6 +63,8 @@ return [
         UserCapabilityEnum::MANAGE_MEDIA->value => 'Spravovať zdieľané súbory',
         UserCapabilityEnum::VIEW_ALL_MEDIA->value => 'Zobraziť zdieľané súbory všetkých používateľov',
         UserCapabilityEnum::VIEW_GARAZ->value => 'Prístup do garáže',
+        UserCapabilityEnum::VIEW_TICKETS->value => 'Prístup do tiketov',
+        UserCapabilityEnum::MANAGE_TICKETS->value => 'Spravovať tikety',
         UserCapabilityEnum::VIEW_AI_USAGE->value => 'Prehľad AI útraty',
         UserCapabilityEnum::MANAGE_GARAZ->value => 'Spravovať garáž',
         UserCapabilityEnum::STRIDE_USER->value => 'Prístup do Stride aplikácie',
@@ -325,5 +330,22 @@ return [
         SetMetric::BAND_KG->value => 'Odpor gumy (kg)',
         SetMetric::DISTANCE_M->value => 'Vzdialenosť (m)',
         SetMetric::DURATION_SEC->value => 'Trvanie (s)',
+    ],
+    SupportPlanEnum::class => [
+        SupportPlanEnum::NONE->value => 'Len hosting',
+        SupportPlanEnum::START->value => 'Štart',
+        SupportPlanEnum::STANDARD->value => 'Štandard',
+        SupportPlanEnum::PRO->value => 'Pro',
+    ],
+    PlanBillingEnum::class => [
+        PlanBillingEnum::MONTHLY->value => 'Mesačne',
+        PlanBillingEnum::YEARLY->value => 'Ročne',
+    ],
+    PlanRequestStatusEnum::class => [
+        PlanRequestStatusEnum::PENDING->value => 'Čaká na potvrdenie',
+        PlanRequestStatusEnum::SCHEDULED->value => 'Naplánovaná',
+        PlanRequestStatusEnum::DONE->value => 'Vybavená',
+        PlanRequestStatusEnum::REJECTED->value => 'Zamietnutá',
+        PlanRequestStatusEnum::CANCELLED->value => 'Zrušená',
     ],
 ];

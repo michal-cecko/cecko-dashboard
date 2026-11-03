@@ -7,6 +7,7 @@ use App\Filament\Invoices\Resources\Customers\Pages\EditCustomer;
 use App\Filament\Invoices\Resources\Customers\Pages\ListCustomers;
 use App\Filament\Invoices\Resources\Customers\Schemas\CustomerForm;
 use App\Filament\Invoices\Resources\Customers\Tables\CustomersTable;
+use App\Filament\Tickets\Resources\ClientAccounts\RelationManagers\ClientAccountsRelationManager;
 use App\Models\Invoices\Customer;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -37,6 +38,13 @@ class CustomerResource extends Resource
     public static function table(Table $table): Table
     {
         return CustomersTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            ClientAccountsRelationManager::class,
+        ];
     }
 
     public static function getPages(): array
