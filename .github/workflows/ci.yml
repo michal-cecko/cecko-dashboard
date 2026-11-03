@@ -2,6 +2,9 @@
 name: CI
 
 on:
+  # The Dependabot job merges bumps with [skip ci], then starts one run here,
+  # so main builds and deploys once.
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -77,7 +80,7 @@ jobs:
 
   build-image:
     needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -112,7 +115,7 @@ jobs:
 
   deploy:
     needs: build-image
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     environment: production
 
@@ -148,5 +151,5 @@ jobs:
           message: |
             ❌ CI failed on ${{ github.repository }}
             Branch: ${{ github.ref_name }}
-            Commit: ${{ github.event.head_commit.message }}
+            Commit: ${{ github.event.head_commit.message || github.sha }}
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
