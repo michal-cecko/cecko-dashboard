@@ -148,6 +148,45 @@ class ClientTicketPanelTest extends TestCase
         $this->assertFalse(TicketResource::canCreate() && $project->customer_id !== $client->customer_id);
     }
 
+    public function test_create_another_keeps_the_project_and_create_goes_back_to_the_list(): void
+    {
+        $customer = Customer::factory()->create();
+        $client = $this->makeClient($customer);
+        $this->makeProject($customer);
+        $project = $this->makeProject($customer);
+
+        $this->actingAs($client);
+        Filament::setCurrentPanel('podpora');
+
+        Livewire::test(CreateTicket::class)
+            ->assertSee('Vytvoriť & vytvoriť ďalší')
+            ->fillForm([
+                'project_id' => $project->id,
+                'title' => 'Prvý tiket',
+                'description' => 'Prvý popis',
+            ])
+            ->call('createAnother')
+            ->assertHasNoFormErrors()
+            ->assertNoRedirect()
+            ->assertSchemaStateSet([
+                'project_id' => $project->id,
+                'title' => null,
+            ])
+            ->fillForm([
+                'title' => 'Druhý tiket',
+                'description' => 'Druhý popis',
+            ])
+            ->call('create')
+            ->assertHasNoFormErrors()
+            ->assertRedirect(TicketResource::getUrl('index'));
+
+        $this->assertSame(
+            ['Prvý tiket', 'Druhý tiket'],
+            Ticket::query()->orderBy('id')->get()->map(fn (Ticket $ticket): string => $ticket->custom_fields['title'])->all(),
+        );
+        $this->assertSame([$project->id], Ticket::query()->distinct()->pluck('department_id')->all());
+    }
+
     public function test_the_ticket_form_refuses_a_file_path_the_client_typed(): void
     {
         $customer = Customer::factory()->create();
