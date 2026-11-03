@@ -52,7 +52,7 @@ class TrackClientTicketActivity
 
         $staff = $author instanceof User ? $author : null;
 
-        TicketNotices::send($event->ticket, $staff);
+        TicketNotices::queue($event->ticket, $staff);
         TicketInbox::toClients($event->ticket, 'Nová odpoveď na tikete', $staff);
     }
 
@@ -63,7 +63,7 @@ class TrackClientTicketActivity
         if ($this->client($event->changedBy) === null) {
             $staff = $event->changedBy instanceof User ? $event->changedBy : null;
 
-            TicketNotices::send($event->ticket, $staff);
+            TicketNotices::queue($event->ticket, $staff);
             TicketInbox::toClients($event->ticket, 'Zmenil sa stav tiketu', $staff);
         }
     }

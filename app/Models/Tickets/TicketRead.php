@@ -16,6 +16,7 @@ class TicketRead extends Model
         'user_id',
         'read_at',
         'notified_at',
+        'notice_pending_at',
     ];
 
     protected function casts(): array
@@ -23,6 +24,7 @@ class TicketRead extends Model
         return [
             'read_at' => 'datetime',
             'notified_at' => 'datetime',
+            'notice_pending_at' => 'datetime',
         ];
     }
 

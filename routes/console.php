@@ -11,4 +11,5 @@ Schedule::command('garaz:fetch-forum-knowledge')->weeklyOn(1, '02:30');
 Schedule::command('stride:advance-blocks')->dailyAt('03:15');
 Schedule::command('stride:send-push-notifications')->everyMinute()->withoutOverlapping();
 Schedule::command('tickets:send-telegram-digest')->dailyAt('16:00')->timezone('Europe/Bratislava');
+Schedule::command('tickets:send-client-notices')->hourly()->withoutOverlapping();
 Schedule::command('tickets:apply-plan-changes')->dailyAt('00:10')->timezone('Europe/Bratislava');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Filament\Tickets\Actions\NotifyClientNowAction;
 use App\Models\Common\User;
 use App\Services\Tickets\TicketNumber;
 use App\Support\Tickets\StaffUsersOnly;
@@ -41,6 +42,8 @@ return [
     'assignee_scope' => StaffUsersOnly::class,
 
     'ticket_uid_generator' => TicketNumber::class,
+
+    'view_ticket_actions' => [NotifyClientNowAction::class],
 
     'spam_protection' => [
         'enabled' => false,
